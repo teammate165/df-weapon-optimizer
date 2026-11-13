@@ -91,3 +91,28 @@ Validated locally and at the public repository URL with
 Both presets generated three distinct M4A1 Detonation builds; eight exact
 calculator comparisons, application, saved-build persistence and three viewport
 widths passed with no page errors or backend API requests.
+
+## Required compatibility for future changes
+
+GitHub Pages is the production target. Features must run from static HTML/CSS/JS
+and repository-relative JSON, with calculations in the module worker. Do not add
+production dependencies on Python, SQLite, Node servers, `/api/` routes, root-relative
+asset paths, secrets or response-header configuration. Keep local-server behavior
+and the static worker consistent, and verify the generated site at a repository
+subpath before publishing.
+
+The exporter versions the entire browser dependency graph with one content-derived
+release token: HTML entry links, imports, worker entry, worker model/runtime imports
+and JSON requests. Do not version only app.js: a cached dependency can otherwise
+remain from an older release. The page must be reloaded to load a newly published
+release; running tabs retain their already loaded code.
+
+Run `node tests/github_pages.cjs` after export (Playwright installed under
+`.scratch/browser-qa/node_modules`). It checks both presets including the untouched
+Lowest Recoil default, scoring-card hover/focus/click/Escape, viewport bounds,
+one row of four major solution stats at desktop/mobile, versioned code requests,
+and absence of backend requests. It injects an obsolete preset module at the old
+unversioned URL: the previous live export fails with exactly `Unknown optimizer
+preset`, while the versioned export bypasses it. This demonstrates the cache
+failure mode; it does not prove which resources were cached in a user's browser.
+Also run the existing static calculator/application/persistence regression.

@@ -1,11 +1,34 @@
 """Export an image-free, server-free GitHub Pages site from the local catalog."""
 import argparse
+import hashlib
 import json
 import re
 import shutil
 from pathlib import Path
 
 from builder_server import ROOT, REFERENCE, catalog, pack
+
+
+def version_browser_assets(destination):
+    """Version the complete browser graph, including worker imports, as one release."""
+    files = sorted(p for p in destination.rglob('*')
+                   if p.is_file() and p.name != 'release.json' and '.git' not in p.relative_to(destination).parts
+                   and p.suffix in ('.html', '.css', '.js', '.mjs', '.json'))
+    digest = hashlib.sha256()
+    for path in files:
+        digest.update(path.relative_to(destination).as_posix().encode())
+        digest.update(path.read_bytes())
+    version = digest.hexdigest()[:16]
+    # Include new URL(...) and dynamic weapon JSON paths, as well as imports.
+    reference = re.compile(r"([\"'`])((?:\./|\.\./)?[A-Za-z0-9_./${}-]+\.(?:m?js|css|json))(?:\?[^\"'`]*)?\1")
+    for path in files:
+        if path.suffix == '.json':
+            continue
+        source = path.read_text('utf-8')
+        source = reference.sub(lambda m: f'{m[1]}{m[2]}?v={version}{m[1]}', source)
+        path.write_text(source, 'utf-8')
+    (destination / 'release.json').write_text(json.dumps({'version': version}), 'utf-8')
+    return version
 
 
 def build(destination):
@@ -101,6 +124,7 @@ jobs:
       - uses: actions/deploy-pages@v4
         id: deployment
 ''', 'utf-8')
+    version_browser_assets(destination)
     files = [p for p in destination.rglob('*') if p.is_file() and '.git' not in p.relative_to(destination).parts]
     print(json.dumps(dict(directory=str(destination), weapons=len(data['weapons']), files=len(files), bytes=sum(p.stat().st_size for p in files))))
 

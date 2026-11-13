@@ -109,3 +109,5 @@ This is the persistent project backlog carried forward from the migration conver
 - Mark unverified interpretations as hypotheses and provisional translations as provisional.
 - Preserve missing or unverified price status; do not treat absent quotes as zero cost.
 - Record partial progress without checking off an item whose validation remains incomplete.
+
+- GitHub Pages optimizer follow-up (2026-11-13): a clean live browser passes both presets and scoring-card hover; an obsolete unversioned preset dependency reproduces the reported `Unknown optimizer preset` exactly. Export now versions the complete module/worker/JSON graph with one content-derived release token. Added an explicit four-column major-stat row and enlarged scoring info target. [Tracked static browser regression](tests/github_pages.cjs) checks the stale dependency scenario, untouched default and agility generation, card hover/focus/click/Escape, viewport bounds and one-row stats on desktop/mobile; no API requests. User-browser cache contents remain unverified. [Future static-hosting requirements](docs/github_pages.md).
