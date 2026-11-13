@@ -134,9 +134,12 @@ main{height:calc(100dvh - 58px);grid-template-rows:43px minmax(0,1fr) 22px}
 .solution-preview .solution-preview-top>strong{color:var(--accent)}
 .solution-cell-title{display:flex;align-items:center;gap:3px;min-height:15px}
 .solution-cell-title>span{font-size:9px}
-.optimizer-score-info{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:13px;height:13px;padding:0;font-size:9px;line-height:1;color:var(--muted)}
+.optimizer-score-info{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:20px;height:20px;padding:0;font-size:11px;line-height:1;color:var(--muted)}
 .solution-info-card{position:fixed;z-index:40;padding:12px;background:#161f25;border:1px solid #617550;border-radius:5px;box-shadow:0 12px 35px #0009;font-size:11px;line-height:1.5;pointer-events:none}
 .solution-info-card>strong{font-size:12px;color:var(--accent)}
 .solution-info-card p{margin:7px 0 0;color:var(--muted)}
+
+/* Keep all four major stats together in one row at every viewport width. */
+.solution-stat-row{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
 
 .default-slot-icon,.slot-tile.active .default-slot-icon{background-color:transparent;opacity:.8}
