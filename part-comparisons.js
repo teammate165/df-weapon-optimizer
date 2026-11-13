@@ -1,7 +1,7 @@
 // Colors describe modeled benefit/trade-off. Signed deltas retain the actual
 // direction, so e.g. a reduction in ADS milliseconds is shown as a green minus.
 export const majorStatGroups=[
- {title:'Recoil',key:'recoilControl',detail:'recoil',attribute:'3'},
+ {title:'Control',key:'recoilControl',detail:'recoil',attribute:'3'},
  {title:'Handling',key:'handling',detail:'handling',attribute:'5'},
  {title:'Stability',key:'stability',detail:'stability',attribute:'6'},
  {title:'Accuracy',key:'waistAccuracy',detail:'waist',attribute:'4'},

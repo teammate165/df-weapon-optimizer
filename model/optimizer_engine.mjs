@@ -1,5 +1,5 @@
 import {timedRecoil} from './timed_recoil.mjs';
-import {policy,statIds,shortfall,comparator} from './optimizer_policy.mjs';
+import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs';
 import {presets} from './optimizer_presets.mjs';
 import {selectCategories,cheapestGate} from './optimizer_selection.mjs';
 
@@ -31,7 +31,8 @@ export async function generate(input, runtime) {
   };
   const retains = build => fixed.every(f=>build.mounted.some(m=>m.slotPath===f.slotPath && m.itemId===f.itemId));
   if (r.firing && !['auto','spam'].includes(r.firing)) throw Error('firing must be auto or spam');
-  const {raw,score,baseline,weights}=presets[settings.preset].create({pack,request:r,kernel,resolve,mode});
+  const {raw,score,baseline,weights,objectives,objectiveNames,limitations,allowTargets=false}=presets[settings.preset].create({pack,request:r,kernel,resolve,mode});
+  if(objectives && !allowTargets && r.effectiveness_targets!==undefined)throw Error('This preset does not support custom effectiveness targets');
   const timedModules={calculate,curves,kernel};
   const baseNumeric=kernel.u(pack,resolve([]),{mode,tunes:{}}).numeric;
   const baseline_stats=Object.fromEntries(Object.entries(statIds).map(([key,id])=>[key,baseNumeric.mainAttr[id]]));
@@ -90,11 +91,19 @@ export async function generate(input, runtime) {
         const components=raw(build,tunes,state);
         const numeric=state.numeric;
         metrics={components,score:score(components),stats:Object.fromEntries(Object.entries(statIds).map(([k,id])=>[k,numeric.mainAttr[id]]))};
+        if(objectives)metrics.objectives=objectives(components);
+        if(!Number.isFinite(metrics.score)||metrics.objectives?.some(v=>!Number.isFinite(v)))throw Error('Non-finite optimizer objective');
         cache.set(key,metrics);
       }
-      const candidate={config:build.config,tunes,...metrics,cost:quote.total,build};
-      if(shortfall(candidate.stats,settings.minimums)<1e-8 && !frontier.some(c=>c.score<=candidate.score && (c.cost??0)<=(candidate.cost??0))){
-        frontier=frontier.filter(c=>!(candidate.score<=c.score && (candidate.cost??0)<=(c.cost??0)));
+      const effectiveTunes=[];
+      for(const mounted of build.mounted)for(const id of pack.parts[mounted.itemId]?.tuneIds??[]){
+        const control=curves.c(pack,mounted,id),value=tunes[mounted.slotPath]?.[id];
+        if(control&&value!==undefined&&Math.abs(value-control.range.defaultValue)>1e-6)effectiveTunes.push([mounted.slotPath,id,value]);
+      }
+      const signature=JSON.stringify([build.mounted.map(m=>[m.slotPath,m.itemId]).sort(),effectiveTunes.sort()]);
+      const candidate={config:build.config,tunes,...metrics,cost:quote.total,build,signature};
+      if(shortfall(candidate.stats,settings.minimums)<1e-8 && !frontier.some(c=>compareObjectives(c,candidate)<=0 && (c.cost??0)<=(candidate.cost??0))){
+        frontier=frontier.filter(c=>!(compareObjectives(candidate,c)<=0 && (candidate.cost??0)<=(c.cost??0)));
         frontier.push(candidate);
       }
       return candidate;
@@ -142,7 +151,7 @@ export async function generate(input, runtime) {
     }
     return {...best,converged};
   };
-  const publish=(best,label,budget,target=null,anchor=null)=>{
+  const publish=(best,label,budget,target=null,anchor=null,categoryNote=null)=>{
     if(!best){results.push({label,budget,status:'infeasible',reason:'Fixed setup exceeds budget or has missing quotes'});return;}
     if(shortfall(best.stats,settings.minimums)>1e-8 || (target!==null&&best.score>targetLoss(anchor,target)+1e-8)){
       results.push({label,budget,status:'infeasible',reason:'Search found no build meeting the stat minimums and effectiveness target',minimum_stats:settings.minimums});return;
@@ -152,13 +161,21 @@ export async function generate(input, runtime) {
     const baseClimb=baselinePath.metrics?.climb_model_units_per_second;
     recoilPath.climb_improvement_percent=recoilPath.status==='modeled'&&baseClimb>0
       ?100*(1-recoilPath.metrics.climb_model_units_per_second/baseClimb):null;
-    results.push({...output,label,budget,status:'best_found',improvement_percent:100-best.score,converged:converged??false,mounted:build.mounted,recoil_path:recoilPath,
-      target_effectiveness_percent:target,effectiveness_percent:anchor?(100-anchor.score>1e-8?100*(100-best.score)/(100-anchor.score):100):100});
+    results.push({...output,loss:best.score,score:100-best.score,label,budget,status:'best_found',improvement_percent:100-best.score,converged:converged??false,mounted:build.mounted,recoil_path:recoilPath,
+      category_note:categoryNote,target_effectiveness_percent:target,effectiveness_percent:anchor?(100-anchor.score>1e-8?100*(100-best.score)/(100-anchor.score):100):100});
   };
   for(const [index,budget] of budgets.entries()){
     frontier=[];
     const anchor=search(budget);
-    const label=budgets.length===1?'best performance':['cheap','mid','expensive'][index];
+    const label=budgets.length===1?'Max':['Min','Balanced','Max'][index];
+    if(settings.automatic && budgets.length===1 && (mode==='mp' || !anchor || shortfall(anchor.stats,settings.minimums)>=1e-8)){
+      publish(anchor,'Max',budget);
+      for(const name of ['Balanced','Min']){
+        if(anchor&&shortfall(anchor.stats,settings.minimums)<1e-8)results.push({label:name,budget,status:'unavailable',reason:'Cost is unavailable in Warfare; no distinct price-based alternative can be selected.'});
+        else publish(anchor,name,budget);
+      }
+      continue;
+    }
     if(budgets.length===1 && mode!=='mp' && anchor && shortfall(anchor.stats,settings.minimums)<1e-8){
       for(const target of settings.targets){
         const targetScore=targetLoss(anchor,target);
@@ -172,10 +189,10 @@ export async function generate(input, runtime) {
       const strongest=frontier.reduce((a,b)=>comparator(settings.minimums)(b,a)?b:a,anchor);
       if(settings.automatic){
         const selected=selectCategories(frontier);
-        publish(selected.strongest,'No compromise',budget);
-        for(const [key,name] of [['cheapest','Cheapest'],['value','Best price/performance']]){
+        publish(selected.strongest,'Max',budget);
+        for(const [key,name] of [['value','Balanced'],['cheapest','Min']]){
           if(!selected[key]){
-            results.push({label:name,budget,status:'infeasible',reason:'No positive recoil improvement found; a meaningful 50% gate cannot be established'});
+            results.push({label:name,budget,status:'unavailable',reason:'No distinct '+name.toLowerCase()+' build found within the budget and 50% improvement floor. Duplicate solutions are not returned.'});
           }else publish(selected[key],name,budget,cheapestGate,selected.strongest);
         }
       }else{
@@ -189,5 +206,14 @@ export async function generate(input, runtime) {
       }
     }else publish(anchor,label,budget);
   }
-  return {weapon_id:pack.weaponId,mode,preset:settings.preset,selection:settings.automatic?'automatic':'custom_targets',cheapest_gate_percent:cheapestGate,minimum_stats:settings.minimums,effectiveness_definition:"Percentage of best-found improvement over the default build",experimental:true,method:'Coordinate search; no global optimality guarantee',score_model:presets[settings.preset].description,weights,baseline,baseline_stats,baseline_score:100,baseline_recoil_path:baselinePath,tier,provenance:input.provenance,results};
+  if(settings.automatic){
+    results.sort((a,b)=>['Max','Balanced','Min'].indexOf(a.label)-['Max','Balanced','Min'].indexOf(b.label));
+    const seen=new Set();
+    for(let i=0;i<results.length;i++)if(results[i].status==='best_found'){
+      const row=results[i];
+      if(seen.has(row.signature))results[i]={label:row.label,budget:row.budget,status:'unavailable',reason:'No distinct alternative found. Duplicate solutions are not returned.'};
+      else seen.add(row.signature);
+    }
+  }
+  return {weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:!settings.automatic?'custom_targets':objectives?'lexicographic':'automatic',objective_names:objectiveNames,limitations,cheapest_gate_percent:mode==='mp'?null:cheapestGate,minimum_stats:settings.minimums,effectiveness_definition:settings.preset==='agility'?'Accuracy improvement only; handling and recoil break ties':'ADS recoil improvement over default; Handling breaks recoil ties',experimental:true,method:'Coordinate search; no global optimality guarantee',score_model:presets[settings.preset].description,weights,baseline,baseline_stats,baseline_score:0,baseline_loss:100,score_direction:'higher',score_definition:'Percent reduction of primary loss from the default build; default = 0; higher is better',baseline_recoil_path:baselinePath,tier,provenance:input.provenance,results};
 }

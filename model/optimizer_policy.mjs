@@ -12,12 +12,22 @@ export function policy(request) {
   return {preset,minimums,automatic,targets:[...new Set(targets)].sort((a,b)=>a-b)};
 }
 export const shortfall=(stats,minimums)=>Object.entries(minimums).reduce((sum,[key,min])=>sum+Math.max(0,min-stats[key]),0);
+// Floating-point equality only: no gameplay trade-off tolerance.
+export function compareObjectives(a,b) {
+  const av=a.objectives??[a.score],bv=b.objectives??[b.score];
+  for(let i=0;i<av.length;i++){
+    const delta=av[i]-bv[i];
+    if(Math.abs(delta)>1e-12*Math.max(1,Math.abs(av[i]),Math.abs(bv[i])))return Math.sign(delta);
+  }
+  return 0;
+}
 export function comparator(minimums, targetScore=null) {
   const violation=c=>shortfall(c.stats,minimums)+(targetScore===null?0:Math.max(0,c.score-targetScore));
   return (a,b)=>{
     const av=violation(a),bv=violation(b);
     if(Math.abs(av-bv)>1e-8)return av<bv;
     if(targetScore!==null && av<1e-8 && a.cost!==b.cost)return a.cost<b.cost;
-    return a.score<b.score-1e-9 || (Math.abs(a.score-b.score)<1e-9 && (a.cost??0)<(b.cost??0));
+    const order=compareObjectives(a,b);
+    return order<0 || (order===0 && (a.cost??0)<(b.cost??0));
   };
 }
