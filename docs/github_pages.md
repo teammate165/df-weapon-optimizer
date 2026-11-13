@@ -68,3 +68,26 @@ For future pushes, this export repository has a local personal Git credential
 username and GitHub CLI credential helper. Global work-account Git settings were
 preserved. If CLI accounts change, first run
 `gh auth switch --hostname github.com --user teammate165`.
+
+## Latest release: DF optimizer update
+
+Deployed source `b1c56fe0c160671e7b683b48bf4f58820afd5b00` as generated main commit
+`ac3f8741ccaf357a057f6cae7066cc287ae54186` on 2026-11-13.
+[Successful deployment](https://github.com/teammate165/df-weapon-optimizer/actions/runs/43461287120).
+The deployment follows the export workflow above; do not directly merge Python,
+SQLite or source-only research artifacts into the generated hosting branch.
+
+Includes Highest Agility, strict ADS recoil then Handling for Lowest Recoil,
+higher-is-better scores, physically distinct priced solution categories,
+synchronized solution stat/recoil previews, raw Accuracy points, Control labels,
+DF branding and removal of the optimizer firing selector. Missing distinct
+alternatives are unavailable rather than cloned.
+
+Validated locally and at the public repository URL with
+`.scratch/browser-qa/static-check.cjs` and
+`.scratch/browser-qa/static-release-check.cjs`. Live reports:
+`.scratch/browser-qa/static-live-report.json` and
+`.scratch/browser-qa/live-release-report.json`.
+Both presets generated three distinct M4A1 Detonation builds; eight exact
+calculator comparisons, application, saved-build persistence and three viewport
+widths passed with no page errors or backend API requests.
