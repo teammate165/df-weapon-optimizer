@@ -16,10 +16,13 @@ class BuilderTests(unittest.TestCase):
                 if mode == 'sol':
                     request['budget'] = 300000
                 result = execute('optimize', request)
-                self.assertEqual(len(result['results']), 1 if mode == 'mp' else 3)
+                self.assertEqual([r['label'] for r in result['results']], ['Max', 'Balanced', 'Min'])
                 base = execute('evaluate', dict(weapon_id=request['weapon_id'], mode=mode))
                 self.assertEqual(result['baseline_stats'], base['effective_stats'])
                 for row in result['results']:
+                    if row['status']=='unavailable':
+                        self.assertEqual(mode,'mp')
+                        continue
                     self.assertEqual(row['status'], 'best_found')
                     evaluated = execute('evaluate', dict(request, config=row['config'], tunes=row['tunes']))
                     self.assertEqual(evaluated['cost'], row['cost'])

@@ -1,0 +1,1044 @@
+{
+  "data_version": "20261108-an94-bd-shop.1",
+  "global_verified": false,
+  "examples": [
+    {
+      "weapon_id": "18010000001",
+      "item_id": "13130000167",
+      "mode": "bd",
+      "target": "GRecoil_H",
+      "config": [
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000167"
+        }
+      ],
+      "kind": "same-build direct-target removal diagnostic; not another legal build",
+      "tactical_effective": true,
+      "output_changed": true,
+      "equipped": {
+        "main": {
+          "2": 40,
+          "3": 41,
+          "4": 55,
+          "5": 58,
+          "6": 55
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 1,
+          "aimContinueHorizontalRecoilScale": 0.76,
+          "aimSingleVerticalRecoilScale": 1,
+          "aimSingleHorizontalRecoilScale": 0.76,
+          "randomKickIntensity": 1,
+          "springKickIntensity": 1,
+          "gunKickHorizontal": 0.88,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 1
+        },
+        "handling": {
+          "adsTimeMs": 302,
+          "sprintToFireMs": 209,
+          "adsMoveSpeed": 3.0743099999999997,
+          "walkSpeed": 3.4158999999999997,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.3,
+          "emptyReloadTime": 2.6,
+          "holsterTime": 0.4,
+          "drawTime": 0.45
+        },
+        "stability": {
+          "breathRangeDeg": 0.4,
+          "holdBreathSeconds": 20,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 0.8,
+          "moveStability": 1,
+          "fireCameraStability": 0.88,
+          "breathLegend": {
+            "normal": 0.4,
+            "held": 0.06,
+            "unstable": 0.8
+          }
+        }
+      },
+      "without_direct_target": {
+        "main": {
+          "2": 40,
+          "3": 41,
+          "4": 55,
+          "5": 58,
+          "6": 55
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 1,
+          "aimContinueHorizontalRecoilScale": 1,
+          "aimSingleVerticalRecoilScale": 1,
+          "aimSingleHorizontalRecoilScale": 1,
+          "randomKickIntensity": 1,
+          "springKickIntensity": 1,
+          "gunKickHorizontal": 0.88,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 1
+        },
+        "handling": {
+          "adsTimeMs": 302,
+          "sprintToFireMs": 209,
+          "adsMoveSpeed": 3.0743099999999997,
+          "walkSpeed": 3.4158999999999997,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.3,
+          "emptyReloadTime": 2.6,
+          "holsterTime": 0.4,
+          "drawTime": 0.45
+        },
+        "stability": {
+          "breathRangeDeg": 0.4,
+          "holdBreathSeconds": 20,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 0.8,
+          "moveStability": 1,
+          "fireCameraStability": 0.88,
+          "breathLegend": {
+            "normal": 0.4,
+            "held": 0.06,
+            "unstable": 0.8
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000001",
+      "item_id": "13130000167",
+      "mode": "bd",
+      "target": "GRecoil_HShake",
+      "config": [
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000167"
+        }
+      ],
+      "kind": "same-build direct-target removal diagnostic; not another legal build",
+      "tactical_effective": true,
+      "output_changed": true,
+      "equipped": {
+        "main": {
+          "2": 40,
+          "3": 41,
+          "4": 55,
+          "5": 58,
+          "6": 55
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 1,
+          "aimContinueHorizontalRecoilScale": 0.76,
+          "aimSingleVerticalRecoilScale": 1,
+          "aimSingleHorizontalRecoilScale": 0.76,
+          "randomKickIntensity": 1,
+          "springKickIntensity": 1,
+          "gunKickHorizontal": 0.88,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 1
+        },
+        "handling": {
+          "adsTimeMs": 302,
+          "sprintToFireMs": 209,
+          "adsMoveSpeed": 3.0743099999999997,
+          "walkSpeed": 3.4158999999999997,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.3,
+          "emptyReloadTime": 2.6,
+          "holsterTime": 0.4,
+          "drawTime": 0.45
+        },
+        "stability": {
+          "breathRangeDeg": 0.4,
+          "holdBreathSeconds": 20,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 0.8,
+          "moveStability": 1,
+          "fireCameraStability": 0.88,
+          "breathLegend": {
+            "normal": 0.4,
+            "held": 0.06,
+            "unstable": 0.8
+          }
+        }
+      },
+      "without_direct_target": {
+        "main": {
+          "2": 40,
+          "3": 41,
+          "4": 55,
+          "5": 58,
+          "6": 55
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 1,
+          "aimContinueHorizontalRecoilScale": 0.76,
+          "aimSingleVerticalRecoilScale": 1,
+          "aimSingleHorizontalRecoilScale": 0.76,
+          "randomKickIntensity": 1,
+          "springKickIntensity": 1,
+          "gunKickHorizontal": 0.88,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 1
+        },
+        "handling": {
+          "adsTimeMs": 302,
+          "sprintToFireMs": 209,
+          "adsMoveSpeed": 3.0743099999999997,
+          "walkSpeed": 3.4158999999999997,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.3,
+          "emptyReloadTime": 2.6,
+          "holsterTime": 0.4,
+          "drawTime": 0.45
+        },
+        "stability": {
+          "breathRangeDeg": 0.4,
+          "holdBreathSeconds": 20,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 0.8,
+          "moveStability": 1,
+          "fireCameraStability": 1,
+          "breathLegend": {
+            "normal": 0.4,
+            "held": 0.06,
+            "unstable": 0.8
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000001",
+      "item_id": "13130000167",
+      "mode": "bd",
+      "target": "GGunkickH",
+      "config": [
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000167"
+        }
+      ],
+      "kind": "same-build direct-target removal diagnostic; not another legal build",
+      "tactical_effective": true,
+      "output_changed": true,
+      "equipped": {
+        "main": {
+          "2": 40,
+          "3": 41,
+          "4": 55,
+          "5": 58,
+          "6": 55
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 1,
+          "aimContinueHorizontalRecoilScale": 0.76,
+          "aimSingleVerticalRecoilScale": 1,
+          "aimSingleHorizontalRecoilScale": 0.76,
+          "randomKickIntensity": 1,
+          "springKickIntensity": 1,
+          "gunKickHorizontal": 0.88,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 1
+        },
+        "handling": {
+          "adsTimeMs": 302,
+          "sprintToFireMs": 209,
+          "adsMoveSpeed": 3.0743099999999997,
+          "walkSpeed": 3.4158999999999997,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.3,
+          "emptyReloadTime": 2.6,
+          "holsterTime": 0.4,
+          "drawTime": 0.45
+        },
+        "stability": {
+          "breathRangeDeg": 0.4,
+          "holdBreathSeconds": 20,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 0.8,
+          "moveStability": 1,
+          "fireCameraStability": 0.88,
+          "breathLegend": {
+            "normal": 0.4,
+            "held": 0.06,
+            "unstable": 0.8
+          }
+        }
+      },
+      "without_direct_target": {
+        "main": {
+          "2": 40,
+          "3": 41,
+          "4": 55,
+          "5": 58,
+          "6": 55
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 1,
+          "aimContinueHorizontalRecoilScale": 0.76,
+          "aimSingleVerticalRecoilScale": 1,
+          "aimSingleHorizontalRecoilScale": 0.76,
+          "randomKickIntensity": 1,
+          "springKickIntensity": 1,
+          "gunKickHorizontal": 1,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 1
+        },
+        "handling": {
+          "adsTimeMs": 302,
+          "sprintToFireMs": 209,
+          "adsMoveSpeed": 3.0743099999999997,
+          "walkSpeed": 3.4158999999999997,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.3,
+          "emptyReloadTime": 2.6,
+          "holsterTime": 0.4,
+          "drawTime": 0.45
+        },
+        "stability": {
+          "breathRangeDeg": 0.4,
+          "holdBreathSeconds": 20,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 0.8,
+          "moveStability": 1,
+          "fireCameraStability": 0.88,
+          "breathLegend": {
+            "normal": 0.4,
+            "held": 0.06,
+            "unstable": 0.8
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000001",
+      "item_id": "13130000168",
+      "mode": "bd",
+      "target": "GRecoil_V",
+      "config": [
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000168"
+        }
+      ],
+      "kind": "same-build direct-target removal diagnostic; not another legal build",
+      "tactical_effective": true,
+      "output_changed": true,
+      "equipped": {
+        "main": {
+          "2": 40,
+          "3": 41,
+          "4": 55,
+          "5": 58,
+          "6": 55
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 0.76,
+          "aimContinueHorizontalRecoilScale": 1,
+          "aimSingleVerticalRecoilScale": 0.76,
+          "aimSingleHorizontalRecoilScale": 1,
+          "randomKickIntensity": 1,
+          "springKickIntensity": 1,
+          "gunKickHorizontal": 1,
+          "gunKickVertical": 0.88,
+          "gsMovementCameraScale": 1
+        },
+        "handling": {
+          "adsTimeMs": 302,
+          "sprintToFireMs": 209,
+          "adsMoveSpeed": 3.0743099999999997,
+          "walkSpeed": 3.4158999999999997,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.3,
+          "emptyReloadTime": 2.6,
+          "holsterTime": 0.4,
+          "drawTime": 0.45
+        },
+        "stability": {
+          "breathRangeDeg": 0.4,
+          "holdBreathSeconds": 20,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 0.8,
+          "moveStability": 1,
+          "fireCameraStability": 0.88,
+          "breathLegend": {
+            "normal": 0.4,
+            "held": 0.06,
+            "unstable": 0.8
+          }
+        }
+      },
+      "without_direct_target": {
+        "main": {
+          "2": 40,
+          "3": 41,
+          "4": 55,
+          "5": 58,
+          "6": 55
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 1,
+          "aimContinueHorizontalRecoilScale": 1,
+          "aimSingleVerticalRecoilScale": 1,
+          "aimSingleHorizontalRecoilScale": 1,
+          "randomKickIntensity": 1,
+          "springKickIntensity": 1,
+          "gunKickHorizontal": 1,
+          "gunKickVertical": 0.88,
+          "gsMovementCameraScale": 1
+        },
+        "handling": {
+          "adsTimeMs": 302,
+          "sprintToFireMs": 209,
+          "adsMoveSpeed": 3.0743099999999997,
+          "walkSpeed": 3.4158999999999997,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.3,
+          "emptyReloadTime": 2.6,
+          "holsterTime": 0.4,
+          "drawTime": 0.45
+        },
+        "stability": {
+          "breathRangeDeg": 0.4,
+          "holdBreathSeconds": 20,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 0.8,
+          "moveStability": 1,
+          "fireCameraStability": 0.88,
+          "breathLegend": {
+            "normal": 0.4,
+            "held": 0.06,
+            "unstable": 0.8
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000001",
+      "item_id": "13030000178",
+      "mode": "bd",
+      "target": "GAiming_ADSTime",
+      "config": [
+        {
+          "slotPath": "38",
+          "itemId": "13030000178"
+        }
+      ],
+      "kind": "same-build direct-target removal diagnostic; not another legal build",
+      "tactical_effective": true,
+      "output_changed": true,
+      "equipped": {
+        "main": {
+          "2": 40,
+          "3": 52,
+          "4": 59,
+          "5": 58,
+          "6": 49
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 0.7557945645140192,
+          "aimContinueHorizontalRecoilScale": 0.7557945645140192,
+          "aimSingleVerticalRecoilScale": 0.7557945645140192,
+          "aimSingleHorizontalRecoilScale": 0.7557945645140192,
+          "randomKickIntensity": 0.87625,
+          "springKickIntensity": 0.87625,
+          "gunKickHorizontal": 1,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 1.10848973833
+        },
+        "handling": {
+          "adsTimeMs": 253,
+          "sprintToFireMs": 209,
+          "adsMoveSpeed": 3.3475819999999996,
+          "walkSpeed": 3.4158999999999997,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.3,
+          "emptyReloadTime": 2.6,
+          "holsterTime": 0.4,
+          "drawTime": 0.45
+        },
+        "stability": {
+          "breathRangeDeg": 0.42566921125,
+          "holdBreathSeconds": 18.3760931573357,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 1.0797173149250001,
+          "moveStability": 1.10848973833,
+          "fireCameraStability": 1.1125,
+          "breathLegend": {
+            "normal": 0.42566921125,
+            "held": 0.0638503816875,
+            "unstable": 0.8513384225
+          }
+        }
+      },
+      "without_direct_target": {
+        "main": {
+          "2": 40,
+          "3": 52,
+          "4": 59,
+          "5": 58,
+          "6": 49
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 0.7557945645140192,
+          "aimContinueHorizontalRecoilScale": 0.7557945645140192,
+          "aimSingleVerticalRecoilScale": 0.7557945645140192,
+          "aimSingleHorizontalRecoilScale": 0.7557945645140192,
+          "randomKickIntensity": 0.87625,
+          "springKickIntensity": 0.87625,
+          "gunKickHorizontal": 1,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 1.10848973833
+        },
+        "handling": {
+          "adsTimeMs": 302,
+          "sprintToFireMs": 209,
+          "adsMoveSpeed": 3.3475819999999996,
+          "walkSpeed": 3.4158999999999997,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.3,
+          "emptyReloadTime": 2.6,
+          "holsterTime": 0.4,
+          "drawTime": 0.45
+        },
+        "stability": {
+          "breathRangeDeg": 0.42566921125,
+          "holdBreathSeconds": 18.3760931573357,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 1.0797173149250001,
+          "moveStability": 1.10848973833,
+          "fireCameraStability": 1.1125,
+          "breathLegend": {
+            "normal": 0.42566921125,
+            "held": 0.0638503816875,
+            "unstable": 0.8513384225
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000006",
+      "item_id": "13020000355",
+      "mode": "mp",
+      "target": "GSprintToFireTime",
+      "config": [
+        {
+          "slotPath": "2",
+          "itemId": "13020000355"
+        }
+      ],
+      "kind": "same-build direct-target removal diagnostic; not another legal build",
+      "tactical_effective": true,
+      "output_changed": true,
+      "equipped": {
+        "main": {
+          "2": 42.400000000000006,
+          "3": 41,
+          "4": 57,
+          "5": 56,
+          "6": 57
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 0.9590672319889406,
+          "aimContinueHorizontalRecoilScale": 0.9590672319889406,
+          "aimSingleVerticalRecoilScale": 0.9590672319889406,
+          "aimSingleHorizontalRecoilScale": 0.9590672319889406,
+          "randomKickIntensity": 0.985,
+          "springKickIntensity": 0.985,
+          "gunKickHorizontal": 1,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 0.8639216759999999
+        },
+        "handling": {
+          "adsTimeMs": 314,
+          "sprintToFireMs": 98,
+          "adsMoveSpeed": 2.837342071125333,
+          "walkSpeed": 4.2,
+          "sprintSpeed": 6.1,
+          "reloadTime": 2.1,
+          "emptyReloadTime": 2.42,
+          "holsterTime": 0.4,
+          "drawTime": 0.4
+        },
+        "stability": {
+          "breathRangeDeg": 0.34300745250000003,
+          "holdBreathSeconds": 22.685533536781357,
+          "holdBreathRecoilScale": 0.9262499999999999,
+          "beHitScale": 0.6962445722399999,
+          "moveStability": 0.8639216759999999,
+          "fireCameraStability": 0.825,
+          "breathLegend": {
+            "normal": 0.34300745250000003,
+            "held": 0.051451117875,
+            "unstable": 0.6860149050000001
+          }
+        }
+      },
+      "without_direct_target": {
+        "main": {
+          "2": 42.400000000000006,
+          "3": 41,
+          "4": 57,
+          "5": 56,
+          "6": 57
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 0.9590672319889406,
+          "aimContinueHorizontalRecoilScale": 0.9590672319889406,
+          "aimSingleVerticalRecoilScale": 0.9590672319889406,
+          "aimSingleHorizontalRecoilScale": 0.9590672319889406,
+          "randomKickIntensity": 0.985,
+          "springKickIntensity": 0.985,
+          "gunKickHorizontal": 1,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 0.8639216759999999
+        },
+        "handling": {
+          "adsTimeMs": 314,
+          "sprintToFireMs": 187,
+          "adsMoveSpeed": 2.837342071125333,
+          "walkSpeed": 4.2,
+          "sprintSpeed": 6.1,
+          "reloadTime": 2.1,
+          "emptyReloadTime": 2.42,
+          "holsterTime": 0.4,
+          "drawTime": 0.4
+        },
+        "stability": {
+          "breathRangeDeg": 0.34300745250000003,
+          "holdBreathSeconds": 22.685533536781357,
+          "holdBreathRecoilScale": 0.9262499999999999,
+          "beHitScale": 0.6962445722399999,
+          "moveStability": 0.8639216759999999,
+          "fireCameraStability": 0.825,
+          "breathLegend": {
+            "normal": 0.34300745250000003,
+            "held": 0.051451117875,
+            "unstable": 0.6860149050000001
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000006",
+      "item_id": "13120000241",
+      "mode": "bd",
+      "target": "ChangeClipTimewhenEmpty",
+      "config": [
+        {
+          "slotPath": "5",
+          "itemId": "13120000241"
+        }
+      ],
+      "kind": "same-build direct-target removal diagnostic; not another legal build",
+      "tactical_effective": true,
+      "output_changed": true,
+      "equipped": {
+        "main": {
+          "2": 40,
+          "3": 39,
+          "4": 53,
+          "5": 39,
+          "6": 55
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 1,
+          "aimContinueHorizontalRecoilScale": 1,
+          "aimSingleVerticalRecoilScale": 1,
+          "aimSingleHorizontalRecoilScale": 1,
+          "randomKickIntensity": 1,
+          "springKickIntensity": 1,
+          "gunKickHorizontal": 1,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 1
+        },
+        "handling": {
+          "adsTimeMs": 437,
+          "sprintToFireMs": 267,
+          "adsMoveSpeed": 2.997595673424,
+          "walkSpeed": 3.52,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.6187,
+          "emptyReloadTime": 3.579039639999999,
+          "holsterTime": 0.4,
+          "drawTime": 0.4
+        },
+        "stability": {
+          "breathRangeDeg": 0.4,
+          "holdBreathSeconds": 20,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 0.8,
+          "moveStability": 1,
+          "fireCameraStability": 1,
+          "breathLegend": {
+            "normal": 0.4,
+            "held": 0.06,
+            "unstable": 0.8
+          }
+        }
+      },
+      "without_direct_target": {
+        "main": {
+          "2": 40,
+          "3": 39,
+          "4": 53,
+          "5": 39,
+          "6": 55
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 1,
+          "aimContinueHorizontalRecoilScale": 1,
+          "aimSingleVerticalRecoilScale": 1,
+          "aimSingleHorizontalRecoilScale": 1,
+          "randomKickIntensity": 1,
+          "springKickIntensity": 1,
+          "gunKickHorizontal": 1,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 1
+        },
+        "handling": {
+          "adsTimeMs": 437,
+          "sprintToFireMs": 267,
+          "adsMoveSpeed": 2.997595673424,
+          "walkSpeed": 3.52,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.6187,
+          "emptyReloadTime": 3.0177399999999994,
+          "holsterTime": 0.4,
+          "drawTime": 0.4
+        },
+        "stability": {
+          "breathRangeDeg": 0.4,
+          "holdBreathSeconds": 20,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 0.8,
+          "moveStability": 1,
+          "fireCameraStability": 1,
+          "breathLegend": {
+            "normal": 0.4,
+            "held": 0.06,
+            "unstable": 0.8
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000001",
+      "item_id": "13140000038",
+      "mode": "bd",
+      "target": "WeaponAppearanceTable.HoldBreathId.StandBreathFactor",
+      "config": [
+        {
+          "slotPath": "4/8",
+          "itemId": "13140000038"
+        }
+      ],
+      "kind": "same-build direct-target removal diagnostic; not another legal build",
+      "tactical_effective": true,
+      "output_changed": false,
+      "equipped": {
+        "main": {
+          "2": 40,
+          "3": 41,
+          "4": 43,
+          "5": 61,
+          "6": 55
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 1,
+          "aimContinueHorizontalRecoilScale": 1,
+          "aimSingleVerticalRecoilScale": 1,
+          "aimSingleHorizontalRecoilScale": 1,
+          "randomKickIntensity": 1,
+          "springKickIntensity": 1,
+          "gunKickHorizontal": 1,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 1
+        },
+        "handling": {
+          "adsTimeMs": 283,
+          "sprintToFireMs": 177,
+          "adsMoveSpeed": 2.9790258874106557,
+          "walkSpeed": 3.4158999999999997,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.3,
+          "emptyReloadTime": 2.6,
+          "holsterTime": 0.4,
+          "drawTime": 0.45
+        },
+        "stability": {
+          "breathRangeDeg": 0.4,
+          "holdBreathSeconds": 20,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 0.8,
+          "moveStability": 1,
+          "fireCameraStability": 1,
+          "breathLegend": {
+            "normal": 0.4,
+            "held": 0.06,
+            "unstable": 0.8
+          }
+        }
+      },
+      "without_direct_target": {
+        "main": {
+          "2": 40,
+          "3": 41,
+          "4": 43,
+          "5": 61,
+          "6": 55
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 1,
+          "aimContinueHorizontalRecoilScale": 1,
+          "aimSingleVerticalRecoilScale": 1,
+          "aimSingleHorizontalRecoilScale": 1,
+          "randomKickIntensity": 1,
+          "springKickIntensity": 1,
+          "gunKickHorizontal": 1,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 1
+        },
+        "handling": {
+          "adsTimeMs": 283,
+          "sprintToFireMs": 177,
+          "adsMoveSpeed": 2.9790258874106557,
+          "walkSpeed": 3.4158999999999997,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.3,
+          "emptyReloadTime": 2.6,
+          "holsterTime": 0.4,
+          "drawTime": 0.45
+        },
+        "stability": {
+          "breathRangeDeg": 0.4,
+          "holdBreathSeconds": 20,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 0.8,
+          "moveStability": 1,
+          "fireCameraStability": 1,
+          "breathLegend": {
+            "normal": 0.4,
+            "held": 0.06,
+            "unstable": 0.8
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000001",
+      "item_id": "13030000109",
+      "mode": "bd",
+      "target": null,
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        }
+      ],
+      "kind": "legal same-build calibration",
+      "tune_id": "authoring:part:13030000109:tune:thickness:0",
+      "tunes": {
+        "1": {
+          "authoring:part:13030000109:tune:thickness:0": 20
+        }
+      },
+      "equipped": {
+        "main": {
+          "2": 40,
+          "3": 41,
+          "4": 55,
+          "5": 60,
+          "6": 55
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 1,
+          "aimContinueHorizontalRecoilScale": 1,
+          "aimSingleVerticalRecoilScale": 1,
+          "aimSingleHorizontalRecoilScale": 1,
+          "randomKickIntensity": 1,
+          "springKickIntensity": 1,
+          "gunKickHorizontal": 1,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 1
+        },
+        "handling": {
+          "adsTimeMs": 289,
+          "sprintToFireMs": 187,
+          "adsMoveSpeed": 3.1944049687516727,
+          "walkSpeed": 3.4158999999999997,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.3,
+          "emptyReloadTime": 2.6,
+          "holsterTime": 0.4,
+          "drawTime": 0.45
+        },
+        "stability": {
+          "breathRangeDeg": 0.4,
+          "holdBreathSeconds": 20,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 0.8,
+          "moveStability": 1,
+          "fireCameraStability": 1,
+          "breathLegend": {
+            "normal": 0.4,
+            "held": 0.06,
+            "unstable": 0.8
+          }
+        }
+      },
+      "tuned": {
+        "main": {
+          "2": 40,
+          "3": 41,
+          "4": 55,
+          "5": 60,
+          "6": 55
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 1,
+          "aimContinueHorizontalRecoilScale": 1,
+          "aimSingleVerticalRecoilScale": 1,
+          "aimSingleHorizontalRecoilScale": 1,
+          "randomKickIntensity": 1,
+          "springKickIntensity": 1,
+          "gunKickHorizontal": 1,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 0.84
+        },
+        "handling": {
+          "adsTimeMs": 301,
+          "sprintToFireMs": 187,
+          "adsMoveSpeed": 3.1944049687516727,
+          "walkSpeed": 3.4158999999999997,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.3,
+          "emptyReloadTime": 2.6,
+          "holsterTime": 0.4,
+          "drawTime": 0.45
+        },
+        "stability": {
+          "breathRangeDeg": 0.4,
+          "holdBreathSeconds": 20,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 0.8,
+          "moveStability": 0.84,
+          "fireCameraStability": 1,
+          "breathLegend": {
+            "normal": 0.4,
+            "held": 0.06,
+            "unstable": 0.8
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000001",
+      "item_id": "13030000109",
+      "mode": "bd",
+      "target": null,
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        }
+      ],
+      "kind": "legal same-build calibration",
+      "tune_id": "authoring:part:13030000109:tune:weight:1",
+      "tunes": {
+        "1": {
+          "authoring:part:13030000109:tune:weight:1": 50
+        }
+      },
+      "equipped": {
+        "main": {
+          "2": 40,
+          "3": 41,
+          "4": 55,
+          "5": 60,
+          "6": 55
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 1,
+          "aimContinueHorizontalRecoilScale": 1,
+          "aimSingleVerticalRecoilScale": 1,
+          "aimSingleHorizontalRecoilScale": 1,
+          "randomKickIntensity": 1,
+          "springKickIntensity": 1,
+          "gunKickHorizontal": 1,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 1
+        },
+        "handling": {
+          "adsTimeMs": 289,
+          "sprintToFireMs": 187,
+          "adsMoveSpeed": 3.1944049687516727,
+          "walkSpeed": 3.4158999999999997,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.3,
+          "emptyReloadTime": 2.6,
+          "holsterTime": 0.4,
+          "drawTime": 0.45
+        },
+        "stability": {
+          "breathRangeDeg": 0.4,
+          "holdBreathSeconds": 20,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 0.8,
+          "moveStability": 1,
+          "fireCameraStability": 1,
+          "breathLegend": {
+            "normal": 0.4,
+            "held": 0.06,
+            "unstable": 0.8
+          }
+        }
+      },
+      "tuned": {
+        "main": {
+          "2": 40,
+          "3": 41,
+          "4": 55,
+          "5": 60,
+          "6": 55
+        },
+        "raw": {
+          "aimContinueVerticalRecoilScale": 0.94,
+          "aimContinueHorizontalRecoilScale": 0.94,
+          "aimSingleVerticalRecoilScale": 0.94,
+          "aimSingleHorizontalRecoilScale": 0.94,
+          "randomKickIntensity": 1,
+          "springKickIntensity": 1,
+          "gunKickHorizontal": 1,
+          "gunKickVertical": 1,
+          "gsMovementCameraScale": 1
+        },
+        "handling": {
+          "adsTimeMs": 289,
+          "sprintToFireMs": 187,
+          "adsMoveSpeed": 3.1944049687516727,
+          "walkSpeed": 3.4158999999999997,
+          "sprintSpeed": 5.9,
+          "reloadTime": 2.3,
+          "emptyReloadTime": 2.6,
+          "holsterTime": 0.4,
+          "drawTime": 0.45
+        },
+        "stability": {
+          "breathRangeDeg": 0.472,
+          "holdBreathSeconds": 20,
+          "holdBreathRecoilScale": 0.95,
+          "beHitScale": 0.8,
+          "moveStability": 1,
+          "fireCameraStability": 1,
+          "breathLegend": {
+            "normal": 0.472,
+            "held": 0.07079999999999999,
+            "unstable": 0.944
+          }
+        }
+      }
+    }
+  ]
+}

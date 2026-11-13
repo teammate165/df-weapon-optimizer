@@ -122,3 +122,19 @@ main{height:calc(100dvh - 58px);grid-template-rows:43px minmax(0,1fr) 22px}
  .workbench-heading #status{top:0;max-width:100%;width:100%;font-size:8px;line-height:9px}
  .workbench-heading{align-items:end;padding-bottom:2px}
 }
+
+#optimizer-panel[data-preset=agility] .objective p{display:block;line-height:1.5}
+#result-details.agility-details{display:block}
+
+/* Compact solution preview: two summary cells above four major-stat cells. */
+.solution-preview{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+.solution-preview-top{grid-column:span 2}
+.solution-preview .solution-panel{padding:7px 5px}
+.solution-preview .solution-panel>strong{font-size:22px;margin-top:4px;color:var(--ink)}
+.solution-preview .solution-preview-top>strong{color:var(--accent)}
+.solution-cell-title{display:flex;align-items:center;gap:3px;min-height:15px}
+.solution-cell-title>span{font-size:9px}
+.optimizer-score-info{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:13px;height:13px;padding:0;font-size:9px;line-height:1;color:var(--muted)}
+.solution-info-card{position:fixed;z-index:40;padding:12px;background:#161f25;border:1px solid #617550;border-radius:5px;box-shadow:0 12px 35px #0009;font-size:11px;line-height:1.5;pointer-events:none}
+.solution-info-card>strong{font-size:12px;color:var(--accent)}
+.solution-info-card p{margin:7px 0 0;color:var(--muted)}

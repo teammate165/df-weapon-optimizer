@@ -9,7 +9,7 @@ assert.ok(separate.some(c=>c.path==='recoil.singleVertical'));
 const accuracy=statChanges({panel:{waistAccuracy:55},waist:{hipSpreadDeg:2}},{panel:{waistAccuracy:43},waist:{hipSpreadDeg:3}});
 assert.equal(accuracy[0].label,'Accuracy');
 const grouped=groupStatChanges([...merged,...accuracy]);
-assert.deepEqual(grouped.map(g=>g.title),['Recoil','Accuracy']);
+assert.deepEqual(grouped.map(g=>g.title),['Control','Accuracy']);
 assert.equal(grouped[1].summary.label,'Accuracy');
 assert.equal(grouped[1].details[0].path,'waist.hipSpreadDeg');
 console.log('Matching recoil modes merge; distinct source values remain separate.');

@@ -1,5 +1,7 @@
 # Four main stats: DFTTK source effects
 
+For actual attachment/calibration routes that adjust detailed metrics independently of main points, see the [detailed-stat independence audit](detailed_stat_independence.md), including concrete part IDs, paired effects, mode/scope restrictions and executable output checks.
+
 Inspected 2026-11-12 against website data version `20261108-an94-bd-shop.1`, runtime `09f820e0d3ada199`. These are website-model semantics, with no claim of Global/Garena game-engine validation. Companion numerical sweeps should retain the weapon, mode, resolved default loadout and raw base points: a fixed effective main value has different delta from base on different weapons.
 
 ## Evidence

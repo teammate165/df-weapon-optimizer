@@ -1,10 +1,10 @@
 import {createSavedBuildStore} from './saved-builds.js';
 import {slotIcons} from './assets/slot-icons.js';
 import {portraits} from './assets/portraits.js';
-import {statChanges,groupStatChanges,majorStatGroups} from './part-comparisons.js?v=groups-20261113';
+import {statChanges,groupStatChanges,majorStatGroups} from './part-comparisons.js?v=control-20261113';
 import {createStatResponseView} from './stat-response-view.js';
 const $=id=>document.getElementById(id);
-const state={catalog:null,model:null,config:[],tunes:{},locks:new Set(),slot:null,preview:null,previewSerial:0,previewLoading:false,busy:false,tab:'builder',results:null,resultIndex:0};
+const state={catalog:null,model:null,config:[],tunes:{},locks:new Set(),slot:null,preview:null,previewSerial:0,previewLoading:false,busy:false,tab:'builder',results:null,resultIndex:0,solutionPreview:null,solutionPreviewLoading:false};
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(v,d=1)=>Number.isFinite(v)?v.toLocaleString(undefined,{maximumFractionDigits:d}):'—';
 const labels={rearGrip:'Pistol grip',barrel:'Barrel',stock:'Stock',magazine:'Magazine',scope:'Optic',muzzle:'Muzzle',foregrip:'Foregrip',functional:'Rail accessory',unique:'Component'};
@@ -16,12 +16,12 @@ const selectedSlot=()=>state.model?.build.slots.find(s=>s.slotPath===state.slot)
 const mounted=path=>state.model?.build.mounted.find(m=>m.slotPath===path);
 const equippedId=()=>mounted(state.slot)?.source==='equipped'?mounted(state.slot).itemId:'';
 const request=()=>({weapon_id:$('weapon').value,mode:$('mode').value,config:state.config,tunes:state.tunes,shot_count:Number($('shots').value)});
-const viewed=()=>state.preview?.model??state.model;
+const viewed=()=>state.preview?.model??(state.tab==='optimizer'?state.solutionPreview?.model:null)??state.model;
 const showStatResponse=createStatResponseView({load:r=>api('evaluate',r),getContext:()=>{const model=viewed();return{weapon_id:model.stats.weaponId,weapon_name:state.catalog.weapons.find(w=>w.id===model.stats.weaponId)?.name??model.stats.weaponId,mode:model.stats.mode,config:model.build.config,tunes:model.tunes};}});
 function status(message,error=false){$('status').textContent=message;$('status').title=message;$('status').classList.toggle('error',error);}
 async function api(action,payload){const response=await fetch(`/api/${action}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const body=await response.json();if(!response.ok)throw Error(body.error??'Request failed');return body;}
 function setBusy(value){state.busy=value;document.querySelectorAll('button,input,select').forEach(el=>el.disabled=value);document.body.setAttribute('aria-busy',String(value));if(!value)updateActions();}
-function clearResults(){state.results=null;$('results').replaceChildren();}
+function clearResults(){hideAccuracyInfo();solutionPreviewSerial++;solutionPreviewCache.clear();state.solutionPreview=null;state.solutionPreviewLoading=false;state.results=null;$('results').replaceChildren();}
 function clearPreview(){state.previewSerial++;state.preview=null;state.previewLoading=false;$('preview-summary').hidden=true;}
 function pane(value){document.querySelector('.workspace').dataset.pane=value;document.querySelectorAll('[data-pane]').forEach(button=>{if(button.tagName==='BUTTON')button.setAttribute('aria-pressed',String(button.dataset.pane===value));});}
 function tab(value){clearPreview();state.tab=value;for(const id of ['builder','optimizer']){$(`${id}-panel`).hidden=id!==value;$(`${id}-tab`).setAttribute('aria-selected',String(id===value));$(`${id}-tab`).tabIndex=id===value?0:-1;}if(state.model){renderStats();drawGraph();updateActions();}if(value==='optimizer')pane('parts');}
@@ -55,10 +55,10 @@ function render(){
  $('cap').innerHTML=mode==='bd'?`TIER ${esc(w.tier?.tier)} · MODS <strong class="${m.cost>w.tier?.gunsmithLimit?'negative':''}">${fmt(m.cost,0)} / ${fmt(w.tier?.gunsmithLimit,0)}</strong>`:mode==='mp'?'WARFARE <strong>No budget</strong>':`MOD COST <strong>${fmt(m.cost,0)}</strong>`;
  $('gun-image').classList.remove('failed');$('gun-image').src=asset(w.id);$('gun-image').alt=w.name+' base weapon reference';
  $('operations-budgets').hidden=mode!=='sol';
- $('category-info').hidden=mode==='mp';
- $('budget-info').innerHTML=mode==='bd'?`Fixed weapon cap: <strong>${fmt(w.tier?.gunsmithLimit,0)}</strong>. Best performance plus affordable target builds.`:mode==='mp'?'<strong>No budget in Warfare.</strong> One unpriced build.':'One maximum budget; cheapest builds meeting your targets. Dated market quotes; weapon cost excluded.';
+ $('category-info').hidden=false;
+ $('budget-info').innerHTML=mode==='bd'?`Fixed weapon cap: <strong>${fmt(w.tier?.gunsmithLimit,0)}</strong>. Best performance plus affordable target builds.`:mode==='mp'?'<strong>No budget in Warfare.</strong> Max is unpriced; Balanced and Min are unavailable without price comparisons.':'One maximum budget; cheapest builds meeting your targets. Dated market quotes; weapon cost excluded.';
  $('provenance').textContent=`DFTTK ${m.provenance.data_version} · ${mode.toUpperCase()}`;
- renderSlots();renderParts();renderTuning();renderStats();drawGraph();updateActions();
+ renderSlots();renderParts();renderTuning();renderStats();drawGraph();updateActions();updatePreset();
 }
 function defaultSlotIcon(socketId){
  const index=slotIcons.slots[socketId];if(index===undefined)return `<span class="slot-symbol">${slotIcon(sockets[socketId]??'Component')}</span>`;
@@ -200,14 +200,14 @@ async function pumpCalibration(){
 }
 function renderCalibrationSummary(){
  if(!state.model)return;const {base,current}=state.model.stats;
- const metrics=[...([['Recoil','recoilControl'],['Handling','handling'],['Stability','stability'],['Accuracy','waistAccuracy']].map(([label,key])=>[label,current.panel[key],base.panel[key],''])),['ADS time',current.handling.adsTimeMs,base.handling.adsTimeMs,'ms'],['Vertical recoil',current.recoil.autoVertical,base.recoil.autoVertical,'x'],['Camera shake',current.stability.fireCameraStability,base.stability.fireCameraStability,'x'],['Weapon kick',current.recoil.fireWeaponStability,base.recoil.fireWeaponStability,'x']];
+ const metrics=[...([['Control','recoilControl'],['Handling','handling'],['Stability','stability'],['Accuracy','waistAccuracy']].map(([label,key])=>[label,current.panel[key],base.panel[key],''])),['ADS time',current.handling.adsTimeMs,base.handling.adsTimeMs,'ms'],['Vertical recoil',current.recoil.autoVertical,base.recoil.autoVertical,'x'],['Camera shake',current.stability.fireCameraStability,base.stability.fireCameraStability,'x'],['Weapon kick',current.recoil.fireWeaponStability,base.recoil.fireWeaponStability,'x']];
  $('calibration-stats').innerHTML=metrics.map(([label,value,baseline,unit])=>`<span>${label}<strong>${fmt(value,3)} ${unit}<small>${value-baseline>0?'+':''}${fmt(value-baseline,3)}</small></strong></span>`).join('');
 }
 const groups=majorStatGroups.map(g=>[g.title,g.key,g.detail]);
 const detailLabels={autoVertical:'Auto vertical ×',autoHorizontal:'Auto horizontal ×',singleVertical:'Single vertical ×',singleHorizontal:'Single horizontal ×',fireWeaponStability:'Weapon kick ratio',gunKickHorizontal:'Horizontal kick ×',gunKickVertical:'Vertical kick ×',adsTimeMs:'ADS time (ms)',sprintToFireMs:'Sprint to fire (ms)',adsMoveSpeed:'ADS speed (m/s)',walkSpeed:'Walk speed (m/s)',sprintSpeed:'Sprint speed (m/s)',reloadTime:'Tactical reload (s)',emptyReloadTime:'Empty reload (s)',holsterTime:'Equip time (s, source)',drawTime:'Holster time (s, source)',breathRangeDeg:'Breath sway (°)',holdBreathSeconds:'Hold breath (s)',holdBreathRecoilScale:'Held recoil ×',beHitScale:'Hit sway ×',moveStability:'Movement stability',fireCameraStability:'Firing camera ratio',hipSpreadDeg:'Standing spread (°)',maxSpreadDeg:'Max hip spread (°)',aimSpreadDeg:'ADS spread (°)',aimMaxSpreadDeg:'Max ADS spread (°)',uiFactor:'UI scale ×'};
 function renderStats(){
  if(!state.model)return;const {base,current}=viewed().stats,eq=state.model.stats.current;
- $('stats-context').textContent=state.preview?'PREVIEW / DELTAS VS EQUIPPED':'EQUIPPED / DELTAS VS DEFAULT';
+ $('stats-context').textContent=state.preview?'PREVIEW / DELTAS VS EQUIPPED':state.tab==='optimizer'&&state.solutionPreviewLoading?'LOADING SOLUTION PREVIEW':state.tab==='optimizer'&&state.solutionPreview?'SOLUTION PREVIEW / '+state.solutionPreview.label.toUpperCase()+' / DELTAS VS DEFAULT':'EQUIPPED / DELTAS VS DEFAULT';
  const extraLabels={legend_moving:'Moving spread (deg)',legend_idle:'Idle spread (deg)',legend_max:'Max spread (deg)',breathLegend_normal:'Normal breath sway',breathLegend_held:'Held breath sway',breathLegend_unstable:'Unstable breath sway'};
  const numericRows=detail=>Object.entries(detail??{}).flatMap(([k,v])=>typeof v==='number'?[[k,v]]:v&&typeof v==='object'&&!Array.isArray(v)?Object.entries(v).filter(([,n])=>typeof n==='number').map(([child,n])=>[k+'_'+child,n]):[]);
  $('stats').innerHTML=groups.map(([title,key,detail])=>{
@@ -232,6 +232,18 @@ function drawGraph(){if(!state.model)return;const key=$('view').value,{base,curr
  const line=(points,color,dash='')=>`<polyline points="${[{x:0,y:0},...points].map(p=>`${x(p.x)},${y(p.y)}`).join(' ')}" fill="none" stroke="${color}" stroke-width="2" ${dash?'stroke-dasharray="5 4"':''}/>`;
  $('graph').innerHTML=Array.from({length:9},(_,i)=>`<line x1="${i*55}" y1="0" x2="${i*55}" y2="270" stroke="#202a32"/>`).join('')+Array.from({length:6},(_,i)=>`<line x1="0" y1="${i*54}" x2="440" y2="${i*54}" stroke="#202a32"/>`).join('')+line(a,'#71818c','dash')+line(b,'#b7ed72')+b.map(p=>`<circle cx="${x(p.x)}" cy="${y(p.y)}" r="2.3" fill="#b7ed72"/>`).join('')+`<text x="12" y="254" fill="#8a9aa6" font-size="10">${esc(fmt(100/scale,2))} model units / 100 px · ${b.length} shots</text>`;
 }
+function updatePreset(){
+ const agility=$('optimizer-preset').value==='agility',box=document.querySelector('.objective');
+ $('optimizer-panel').dataset.preset=$('optimizer-preset').value;
+ box.querySelector('strong').textContent=agility?'Highest Agility':'Lowest Recoil';
+ box.querySelector('.weight-bar').hidden=agility;
+ const info=$('optimizer-score-info'),explain=()=>showAccuracyInfo(info,{preset:$('optimizer-preset').value});
+ info.onmouseenter=explain;info.onmouseleave=hideAccuracyInfo;info.onfocus=explain;info.onblur=hideAccuracyInfo;info.onclick=explain;info.onkeydown=e=>{if(e.key==='Escape')hideAccuracyInfo();};
+ box.querySelector('p').textContent=agility?'1. Hip-fire spread / 2. Handling / 3. ADS recoil':'1. ADS recoil: Pattern 30% / Camera 40% / Kick 30% / 2. Handling';
+ $('category-info').textContent='Max / Balanced / Min. Cheaper choices retain at least 50% of best improvement. No duplicate builds.';
+ document.querySelector('#optimizer-panel .model-note').textContent=agility?'Minimize hip-fire spread, then ADS/sprint-to-fire times, then ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Best found; experimental proxy.';
+}
+$('optimizer-preset').onchange=()=>{clearResults();updatePreset();renderStats();drawGraph();};
 $('generate').onclick=async()=>{
  const started=Date.now();let progress;
  const feedback=(message,error=false)=>{$('results').innerHTML=`<p class="search-feedback ${error?'error':''}" role="status">${esc(message)}</p>`;};
@@ -241,7 +253,7 @@ $('generate').onclick=async()=>{
   feedback('Searching attachments and calibration...');
   $('generate').textContent='Searching...';
   progress=setInterval(()=>{feedback(`Searching attachments and calibration... ${Math.floor((Date.now()-started)/1000)}s elapsed. Deeper searches can take longer.`);},1000);
-  const fixed=state.config.filter(x=>[...state.locks].some(path=>path===x.slotPath||path.startsWith(x.slotPath+'/'))),r={...request(),fixed,firing:$('firing').value,passes:Number($('passes').value)};
+  const fixed=state.config.filter(x=>[...state.locks].some(path=>path===x.slotPath||path.startsWith(x.slotPath+'/'))),r={...request(),preset:$('optimizer-preset').value,fixed,passes:Number($('passes').value)};
   r.minimum_stats=Object.fromEntries(['control','handling','stability','accuracy'].filter(k=>$(`minimum-${k}`).value!=='').map(k=>[k,Number($(`minimum-${k}`).value)]));
   if(r.mode==='sol')r.budget=Number($('budget-0').value);
   const result=await api('optimize',r);
@@ -252,17 +264,39 @@ $('generate').onclick=async()=>{
  finally{clearInterval(progress);$('generate').textContent='Generate best build';setBusy(false);}
 };
 
+let solutionPreviewSerial=0;
+const solutionPreviewCache=new Map();
+async function previewSolution(run,row){
+ if(!row||row.status!=='best_found'){solutionPreviewSerial++;state.solutionPreview=null;state.solutionPreviewLoading=false;renderStats();drawGraph();return;}
+ const payload={weapon_id:run.weapon_id,mode:run.mode,config:row.config,tunes:row.tunes,shot_count:run.request?.shot_count??20};
+ const key=JSON.stringify(payload);
+ if(state.solutionPreview?.key===key){state.solutionPreview.label=solutionName(row);renderStats();drawGraph();return;}
+ const serial=++solutionPreviewSerial;
+ state.solutionPreview=null;state.solutionPreviewLoading=true;renderStats();drawGraph();
+ let pending=solutionPreviewCache.get(key);
+ if(!pending){pending=api('evaluate',payload);solutionPreviewCache.set(key,pending);}
+ try{
+  const model=await pending;
+  if(serial!==solutionPreviewSerial||state.results!==run)return;
+  state.solutionPreview={key,model,label:solutionName(row)};state.solutionPreviewLoading=false;
+  if(state.tab==='optimizer'){renderStats();drawGraph();}
+ }catch(error){
+  solutionPreviewCache.delete(key);
+  if(serial!==solutionPreviewSerial||state.results!==run)return;
+  state.solutionPreview=null;state.solutionPreviewLoading=false;renderStats();drawGraph();status('Solution preview failed: '+error.message,true);
+ }
+}
+const solutionScore=(run,row)=>run.score_direction==='higher'?row.score:100-row.score;
+const solutionName=row=>({'No compromise':'Max','Best price/performance':'Balanced','Cheapest':'Min','best performance':'Max',cheap:'Min',mid:'Balanced',expensive:'Max'}[row.label]??row.label);
 function renderResults(){
+ hideAccuracyInfo();
  const run=state.results,rows=run.results,row=rows[state.resultIndex];
- const ordered=rows.map((r,i)=>({r,i})).sort((a,b)=>(Number.isFinite(b.r.effectiveness_percent)?b.r.effectiveness_percent:-1)-(Number.isFinite(a.r.effectiveness_percent)?a.r.effectiveness_percent:-1));
- const picker=rows.length>1?`<div class="result-picker">${ordered.map(({r,i})=>`<button data-result="${i}" aria-pressed="${state.resultIndex===i}">${esc(r.label)}</button>`).join('')}</div>`:'';
- const stat=(key,label)=>{
-  const value=row.stats[key],base=run.baseline_stats?.[key];
-  const change=Number.isFinite(base)&&base!==0?100*(value/base-1):null;
-  return `<div class="solution-stat" data-stat="${key}"><span>${label}</span><strong>${fmt(value)}</strong><small class="${change>0?'positive':change<0?'negative':''}" title="Percent change from base effective points">${change===null?'N/A':`${change>0?'+':''}${fmt(change)}%`}</small></div>`;
- };
- const context=`<p class="solution-context">${esc(name(run.weapon_id))} &middot; ${esc(run.mode.toUpperCase())} &middot; Previous run</p>`;
- $('results').innerHTML=context+picker+(row.status!=='best_found'?`<article class="result"><h3>No feasible build</h3><p class="helper">${esc(row.reason)}</p></article>`:`<article class="result compact-solution"><div class="solution-grid"><section class="solution-panel solution-performance" aria-label="Score and cost"><div><span>Score</span><strong>${fmt(row.score)}</strong></div><div><span>Cost</span><strong>${row.cost===null?'Unpriced':fmt(row.cost,0)}</strong></div></section><section class="solution-panel solution-effectiveness" aria-label="Effectiveness"><span>Of best improvement</span><strong>${fmt(row.effectiveness_percent)}%</strong><small>${row.target_effectiveness_percent===null?'Best performance':run.selection==='automatic'?(row.label==='Cheapest'?'50% minimum':'Automatic knee selection'):`Target ${fmt(row.target_effectiveness_percent)}%`}</small></section><section class="solution-panel solution-major-stats" aria-label="Control and handling">${stat('control','Control')}${stat('handling','Handling')}</section><section class="solution-panel solution-major-stats" aria-label="Stability and accuracy">${stat('stability','Stability')}${stat('accuracy','Accuracy')}</section></div><div class="solution-actions"><button id="result-details">Details</button><button class="primary" data-apply="${state.resultIndex}">Apply build</button></div><button class="solution-save" id="save-result-build">Save this build</button></article>`);
+ const rank={Max:0,Balanced:1,Min:2};
+ const ordered=rows.map((r,i)=>({r,i})).sort((a,b)=>(rank[solutionName(a.r)]??3)-(rank[solutionName(b.r)]??3));
+ const picker=rows.length>1?`<div class="result-picker">${ordered.map(({r,i})=>`<button data-result="${i}" title="${esc(r.category_note??solutionName(r))}" aria-pressed="${state.resultIndex===i}">${esc(solutionName(r))}</button>`).join('')}</div>`:'';
+ const stat=(key,label)=>`<section class="solution-panel solution-preview-stat" data-stat="${key}" aria-label="${label}"><div class="solution-cell-title"><span>${label}</span></div><strong>${fmt(row.stats[key])}</strong></section>`;
+ const context=`<p class="solution-context">${esc(name(run.weapon_id))} &middot; ${esc(run.mode.toUpperCase())} &middot; ${esc(solutionName(row))}</p>`;
+ $('results').innerHTML=context+picker+(row.status!=='best_found'?`<article class="result"><h3>${row.status==='unavailable'?'No distinct alternative':'No feasible build'}</h3><p class="helper">${esc(row.reason)}</p></article>`:`<article class="result compact-solution"><div class="solution-grid solution-preview"><section class="solution-panel solution-preview-top" aria-label="Relative score"><span>Relative score</span><strong title="Improvement over default; default 0; higher is better">${fmt(solutionScore(run,row))}</strong></section><section class="solution-panel solution-preview-top" aria-label="Build cost"><span>Cost</span><strong>${row.cost===null?'Unpriced':fmt(row.cost,0)}</strong></section>${stat('control','Control')}${stat('handling','Handling')}${stat('stability','Stability')}${stat('accuracy','Accuracy')}</div><div class="solution-actions"><button class="primary" data-apply="${state.resultIndex}">Apply build</button></div><button class="solution-save" id="save-result-build">Save this build</button></article>`);
  document.querySelectorAll('[data-result]').forEach(button=>button.onclick=()=>{state.resultIndex=Number(button.dataset.result);renderResults();});
  const apply=$('results').querySelector('[data-apply]');
  if(apply)apply.onclick=()=>{
@@ -272,11 +306,23 @@ function renderResults(){
   if(run.request?.shot_count)$('shots').value=run.request.shot_count;
   state.config=structuredClone(row.config);state.tunes=structuredClone(row.tunes);tab('builder');evaluate();pane('weapon');
  };
- if($('result-details'))$('result-details').onclick=()=>showResultDetails(row);
- if($('save-result-build'))$('save-result-build').onclick=()=>showSavedBuilds({weapon_id:run.weapon_id,mode:run.mode,config:structuredClone(row.config),tunes:structuredClone(row.tunes),shot_count:run.request?.shot_count??20,locked_slots:(run.request?.fixed??[]).map(f=>f.slotPath)},row.label);
+ if(state.tab==='optimizer')previewSolution(run,row);
+ if($('save-result-build'))$('save-result-build').onclick=()=>showSavedBuilds({weapon_id:run.weapon_id,mode:run.mode,config:structuredClone(row.config),tunes:structuredClone(row.tunes),shot_count:run.request?.shot_count??20,locked_slots:(run.request?.fixed??[]).map(f=>f.slotPath)},solutionName(row));
 }
 
-function showResultDetails(row){let dialog=$('result-dialog');if(!dialog){dialog=document.createElement('dialog');dialog.id='result-dialog';document.body.append(dialog);}dialog.innerHTML=`<div class="pane-heading"><h2>Score components</h2><button aria-label="Close score components">✕</button></div><p class="helper">Within-weapon experimental multiplier proxy. Default = 100% per component.</p><dl class="component-list">${Object.entries(row.components).map(([k,v])=>`<dt>${esc(k)}</dt><dd>${fmt(v/state.results.baseline[k]*100)}%</dd>`).join('')}</dl>`;dialog.querySelector('button').onclick=()=>dialog.close();dialog.showModal();}
+let accuracyInfoCard=null,accuracyInfoButton=null;
+function hideAccuracyInfo(){if(accuracyInfoCard)accuracyInfoCard.hidden=true;if(accuracyInfoButton){accuracyInfoButton.setAttribute('aria-expanded','false');accuracyInfoButton.removeAttribute('aria-describedby');}accuracyInfoButton=null;}
+function showAccuracyInfo(button,run){
+ hideAccuracyInfo();accuracyInfoButton=button;
+ if(!accuracyInfoCard){accuracyInfoCard=document.createElement('div');accuracyInfoCard.id='optimizer-score-tooltip';accuracyInfoCard.className='solution-info-card';accuracyInfoCard.role='tooltip';document.body.append(accuracyInfoCard);}
+ accuracyInfoCard.innerHTML=`<strong>Preset scoring</strong><p>Solution cells show raw effective stat points, including Accuracy. Higher points generally mean tighter hip-fire spread.</p>${run.preset==='agility'?'<p>Agility score = (1 &minus; build idle hip spread / default idle hip spread) &times; 100. Default is 0; higher is better. Handling and ADS recoil break ties for Max. Balanced and Min may trade accuracy for cost while retaining at least 50% of Max improvement.</p>':run.preset==='recoil'?'<p>The relative score measures the ADS recoil proxy, not Accuracy. Handling breaks equal-recoil ties, using ADS and sprint-to-fire times. It shows percentage improvement over default: default is 0; higher is better.</p>':`<p>${esc(run.score_model??'Relative score follows the selected preset objective; Accuracy points are a separate main stat.')}</p>`}<p>Moving spread scales with idle spread. Maximum spread and separate jumping penalties are excluded from agility scoring.</p>`;
+ accuracyInfoCard.hidden=false;button.setAttribute('aria-expanded','true');button.setAttribute('aria-describedby',accuracyInfoCard.id);
+ const rect=button.getBoundingClientRect(),width=Math.min(300,innerWidth-24);accuracyInfoCard.style.width=width+'px';
+ accuracyInfoCard.style.left=Math.max(12,Math.min(rect.right-width,innerWidth-width-12))+'px';
+ const height=accuracyInfoCard.getBoundingClientRect().height;accuracyInfoCard.style.top=Math.max(12,Math.min(rect.top-height-8,innerHeight-height-12))+'px';
+}
+document.addEventListener('pointerdown',e=>{if(!e.target.closest('.optimizer-score-info'))hideAccuracyInfo();});
+window.addEventListener('resize',hideAccuracyInfo);document.addEventListener('scroll',hideAccuracyInfo,true);
 function renderWeapons(){const query=$('weapon-search').value.toLowerCase().trim();$('weapon-list').innerHTML=state.catalog.weapons.filter(w=>(w.name+' '+w.id).toLowerCase().includes(query)).map(w=>`<button class="part-card ${w.id===$('weapon').value?'selected':''}" data-weapon="${esc(w.id)}">${portrait(w.id,'GUN')}<span><span class="part-name">${esc(w.name)}</span><small>${w.tier?'Tier '+esc(w.tier.tier)+' · '+fmt(w.tier.gunsmithLimit,0)+' cap':'Catalog weapon'}</small></span></button>`).join('')||'<p class="helper">No matching weapons.</p>';
  document.querySelectorAll('[data-weapon]').forEach(button=>button.onclick=()=>{$('weapon').value=button.dataset.weapon;$('weapon-dialog').close();evaluate({reset:true});});
 }

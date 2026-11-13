@@ -23,8 +23,9 @@ class GeneratorTests(unittest.TestCase):
         process, result = self.run_request(fixed=fixed)
         self.assertEqual(process.returncode, 0, process.stderr)
         self.assertEqual(result['tier']['gunsmithLimit'], 800)
+        self.assertEqual(result['objective_names'], ['ads_recoil', 'handling'])
         self.assertEqual(len(result['results']), 3)
-        self.assertEqual([r['label'] for r in result['results']], ['No compromise', 'Cheapest', 'Best price/performance'])
+        self.assertEqual([r['label'] for r in result['results']], ['Max', 'Balanced', 'Min'])
         self.assertEqual(result['cheapest_gate_percent'], 50)
         for row in result['results'][1:]:
             self.assertGreaterEqual(row['effectiveness_percent'] + 1e-7, 50)
@@ -33,6 +34,10 @@ class GeneratorTests(unittest.TestCase):
             self.assertEqual(row['status'], 'best_found')
             self.assertLessEqual(row['cost'], row['budget'])
             self.assertLessEqual(row['score'], 100)
+            self.assertAlmostEqual(row['score'], 100-row['loss'])
+            self.assertAlmostEqual(row['objectives'][0], row['loss'])
+            expected_handling=50*(row['components']['ads_seconds']/result['baseline']['ads_seconds']+row['components']['sprint_to_fire_seconds']/result['baseline']['sprint_to_fire_seconds'])
+            self.assertAlmostEqual(row['objectives'][1], expected_handling)
             self.assertTrue(all(any(m['slotPath']==f['slotPath'] and m['itemId']==f['itemId'] for m in row['mounted']) for f in fixed))
         process, repeat = self.run_request(fixed=fixed)
         self.assertEqual(process.returncode, 0, process.stderr)
@@ -65,15 +70,81 @@ class GeneratorTests(unittest.TestCase):
     def test_impossible_and_invalid_minimums(self):
         process, result = self.run_request(minimum_stats=dict(handling=10000), passes=1)
         self.assertEqual(process.returncode, 0, process.stderr)
+        self.assertEqual([r['label'] for r in result['results']], ['Max', 'Balanced', 'Min'])
         self.assertTrue(all(row['status']=='infeasible' for row in result['results']))
         for options in [dict(minimum_stats=dict(range=10)), dict(minimum_stats=dict(control=-1)), dict(effectiveness_targets=[101]), dict(preset='unknown')]:
             process, _ = self.run_request(**options)
             self.assertNotEqual(process.returncode, 0)
 
+    def test_no_distinct_alternative_is_unavailable_instead_of_duplicated(self):
+        process, result = self.run_request(budgets=[0], passes=1)
+        self.assertEqual(process.returncode, 0, process.stderr)
+        self.assertEqual([r['label'] for r in result['results']], ['Max', 'Balanced', 'Min'])
+        self.assertEqual(result['results'][0]['status'], 'best_found')
+        self.assertEqual(result['results'][0]['cost'], 0)
+        self.assertTrue(all(r['status']=='unavailable' for r in result['results'][1:]))
+
+    def test_m4a1_detonation_recoil_categories_are_distinct(self):
+        process, result = self.run_request(preset='recoil', passes=8)
+        self.assertEqual(process.returncode, 0, process.stderr)
+        rows = result['results']
+        self.assertEqual([r['label'] for r in rows], ['Max', 'Balanced', 'Min'])
+        self.assertEqual(len({json.dumps([r['config'], r['tunes']], sort_keys=True) for r in rows}), 3)
+        self.assertGreater(rows[0]['score'], rows[1]['score'])
+        self.assertGreater(rows[1]['score'], rows[2]['score'])
+        self.assertGreater(rows[0]['cost'], rows[1]['cost'])
+        self.assertGreater(rows[1]['cost'], rows[2]['cost'])
+        self.assertTrue(all(r['category_note'] is None for r in rows))
+
     def test_reject_conflicts_and_cap_excess(self):
         process, _ = self.run_request(fixed=[dict(slotPath='999', itemId='13030000109')])
         self.assertNotEqual(process.returncode, 0)
         process, _ = self.run_request(budgets=[100, 500, 801])
+        self.assertNotEqual(process.returncode, 0)
+
+    def test_agility_preset_and_source_replay(self):
+        checks = subprocess.run(['node', str(ROOT/'tests/agility_optimizer.mjs')], cwd=ROOT, capture_output=True, text=True)
+        self.assertEqual(checks.returncode, 0, checks.stderr)
+        import sys
+        sys.path.insert(0, str(ROOT/'tools'))
+        from builder_server import execute
+        for mode in ['detonation', 'warfare', 'operations']:
+            process, result = self.run_request(preset='agility', mode=mode, budget=300000, passes=1)
+            self.assertEqual(process.returncode, 0, process.stderr)
+            self.assertEqual(result['selection'], 'lexicographic')
+            self.assertEqual(result['recoil_context'], 'ads')
+            self.assertEqual(result['objective_names'], ['accuracy', 'handling', 'recoil'])
+            self.assertEqual([r['label'] for r in result['results']], ['Max', 'Balanced', 'Min'])
+            self.assertEqual(result['output_standard'], 'max_balanced_min')
+            available=[r for r in result['results'] if r['status']=='best_found']
+            self.assertEqual(len({r['signature'] for r in available}), len(available))
+            if mode=='warfare':
+                self.assertEqual(len(available), 1)
+                self.assertTrue(all(r['status']=='unavailable' for r in result['results'][1:]))
+            else:
+                self.assertEqual(len(available), 3)
+                self.assertGreater(available[0]['cost'], available[1]['cost'])
+                self.assertGreater(available[1]['cost'], available[2]['cost'])
+                self.assertTrue(all(r['effectiveness_percent']+1e-7>=50 for r in available[1:]))
+            for alternative in available:
+                replay=execute('evaluate',dict(weapon_id=result['weapon_id'],mode=result['mode'],config=alternative['config'],tunes=alternative['tunes']))
+                self.assertEqual(alternative['stats'],replay['effective_stats'])
+                self.assertEqual(alternative['cost'],replay['cost'])
+            row = result['results'][0]
+            self.assertEqual(row['status'], 'best_found')
+            replay = execute('evaluate', dict(weapon_id=result['weapon_id'], mode=result['mode'], config=row['config'], tunes=row['tunes']))
+            self.assertEqual(row['stats'], replay['effective_stats'])
+            self.assertEqual(row['cost'], replay['cost'])
+            self.assertLessEqual(row['score'], 100 + 1e-8)
+            self.assertEqual(row['objectives'][0], row['loss'])
+            self.assertAlmostEqual(row['score'], 100-row['loss'])
+            self.assertEqual(result['baseline_score'], 0)
+            self.assertEqual(result['score_direction'], 'higher')
+            self.assertAlmostEqual(row['components']['accuracy'], replay['stats']['current']['waist']['hipSpreadDeg'])
+            self.assertNotIn('jumping_spread_proxy_deg', row['components'])
+            self.assertEqual(row['label'], 'Max')
+            self.assertTrue(result['limitations'])
+        process, _ = self.run_request(preset='agility', effectiveness_targets=[50])
         self.assertNotEqual(process.returncode, 0)
 
     def test_an94_timed_source_model(self):
