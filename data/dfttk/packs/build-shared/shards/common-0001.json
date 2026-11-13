@@ -1,0 +1,1769 @@
+{
+  "schemaVersion": 1,
+  "kind": "weaponBuildSharedShard",
+  "shardId": "common-0001",
+  "recordCount": 63,
+  "payload": {
+    "curves": {
+      "authoring:mechanism:effectiveRangeDefault:0:sol": {
+        "points": [
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 500,
+            "outputValue": 50000,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:mechanism:effectiveRangeDefault:0:mp": {
+        "points": [
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 500,
+            "outputValue": 50000,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:mechanism:effectiveRangeDefault:0:bd": {
+        "points": [
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 500,
+            "outputValue": 50000,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:mechanism:hipFireAccuracyDefault:0:sol": {
+        "points": [
+          {
+            "inputValue": -40,
+            "outputValue": 1.5,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0020546583,
+            "leaveTangent": -0.0020546583
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.020069148,
+            "leaveTangent": -0.020069148
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.83,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.015256431,
+            "leaveTangent": -0.015256431
+          },
+          {
+            "inputValue": 32,
+            "outputValue": 0.6,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.008088458,
+            "leaveTangent": -0.008088458
+          },
+          {
+            "inputValue": 100,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.00043126268,
+            "leaveTangent": -0.00043126268
+          }
+        ]
+      },
+      "authoring:mechanism:hipFireAccuracyDefault:0:mp": {
+        "points": [
+          {
+            "inputValue": -40,
+            "outputValue": 1.5,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0020546583,
+            "leaveTangent": -0.0020546583
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.020069148,
+            "leaveTangent": -0.020069148
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.83,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.015256431,
+            "leaveTangent": -0.015256431
+          },
+          {
+            "inputValue": 32,
+            "outputValue": 0.6,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.008088458,
+            "leaveTangent": -0.008088458
+          },
+          {
+            "inputValue": 100,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.00043126268,
+            "leaveTangent": -0.00043126268
+          }
+        ]
+      },
+      "authoring:mechanism:hipFireAccuracyDefault:0:bd": {
+        "points": [
+          {
+            "inputValue": -40,
+            "outputValue": 1.5,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0020546583,
+            "leaveTangent": -0.0020546583
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.020069148,
+            "leaveTangent": -0.020069148
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.83,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.015256431,
+            "leaveTangent": -0.015256431
+          },
+          {
+            "inputValue": 32,
+            "outputValue": 0.6,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.008088458,
+            "leaveTangent": -0.008088458
+          },
+          {
+            "inputValue": 100,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.00043126268,
+            "leaveTangent": -0.00043126268
+          }
+        ]
+      },
+      "authoring:mechanism:handlingDefault:0:sol": {
+        "points": [
+          {
+            "inputValue": 0,
+            "outputValue": 0.8,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0001430524,
+            "leaveTangent": -0.0001430524
+          },
+          {
+            "inputValue": 12.1,
+            "outputValue": 0.75,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.01276495,
+            "leaveTangent": -0.01276495
+          },
+          {
+            "inputValue": 22,
+            "outputValue": 0.63,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.009402879,
+            "leaveTangent": -0.009402879
+          },
+          {
+            "inputValue": 35,
+            "outputValue": 0.48,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0109637035,
+            "leaveTangent": -0.0109637035
+          },
+          {
+            "inputValue": 50,
+            "outputValue": 0.35,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.005058902,
+            "leaveTangent": -0.005058902
+          },
+          {
+            "inputValue": 60,
+            "outputValue": 0.29,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.006041213,
+            "leaveTangent": -0.006041213
+          },
+          {
+            "inputValue": 70,
+            "outputValue": 0.23,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0034955936,
+            "leaveTangent": -0.0034955936
+          },
+          {
+            "inputValue": 80,
+            "outputValue": 0.195,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0035000003,
+            "leaveTangent": -0.0035000003
+          },
+          {
+            "inputValue": 90,
+            "outputValue": 0.16,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0032499998,
+            "leaveTangent": -0.0032499998
+          },
+          {
+            "inputValue": 100,
+            "outputValue": 0.13,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:mechanism:handlingDefault:0:mp": {
+        "points": [
+          {
+            "inputValue": 0,
+            "outputValue": 0.8,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0001430524,
+            "leaveTangent": -0.0001430524
+          },
+          {
+            "inputValue": 12.1,
+            "outputValue": 0.75,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.01276495,
+            "leaveTangent": -0.01276495
+          },
+          {
+            "inputValue": 22,
+            "outputValue": 0.63,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.009402879,
+            "leaveTangent": -0.009402879
+          },
+          {
+            "inputValue": 35,
+            "outputValue": 0.48,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0109637035,
+            "leaveTangent": -0.0109637035
+          },
+          {
+            "inputValue": 50,
+            "outputValue": 0.35,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.005058902,
+            "leaveTangent": -0.005058902
+          },
+          {
+            "inputValue": 60,
+            "outputValue": 0.29,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.006041213,
+            "leaveTangent": -0.006041213
+          },
+          {
+            "inputValue": 70,
+            "outputValue": 0.23,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0034955936,
+            "leaveTangent": -0.0034955936
+          },
+          {
+            "inputValue": 80,
+            "outputValue": 0.195,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0035000003,
+            "leaveTangent": -0.0035000003
+          },
+          {
+            "inputValue": 90,
+            "outputValue": 0.16,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0032499998,
+            "leaveTangent": -0.0032499998
+          },
+          {
+            "inputValue": 100,
+            "outputValue": 0.13,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:mechanism:handlingDefault:0:bd": {
+        "points": [
+          {
+            "inputValue": 0,
+            "outputValue": 0.8,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0001430524,
+            "leaveTangent": -0.0001430524
+          },
+          {
+            "inputValue": 12.1,
+            "outputValue": 0.75,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.01276495,
+            "leaveTangent": -0.01276495
+          },
+          {
+            "inputValue": 22,
+            "outputValue": 0.63,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.009402879,
+            "leaveTangent": -0.009402879
+          },
+          {
+            "inputValue": 35,
+            "outputValue": 0.48,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0109637035,
+            "leaveTangent": -0.0109637035
+          },
+          {
+            "inputValue": 50,
+            "outputValue": 0.35,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.005058902,
+            "leaveTangent": -0.005058902
+          },
+          {
+            "inputValue": 60,
+            "outputValue": 0.29,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.006041213,
+            "leaveTangent": -0.006041213
+          },
+          {
+            "inputValue": 70,
+            "outputValue": 0.23,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0034955936,
+            "leaveTangent": -0.0034955936
+          },
+          {
+            "inputValue": 80,
+            "outputValue": 0.195,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0035000003,
+            "leaveTangent": -0.0035000003
+          },
+          {
+            "inputValue": 90,
+            "outputValue": 0.16,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0032499998,
+            "leaveTangent": -0.0032499998
+          },
+          {
+            "inputValue": 100,
+            "outputValue": 0.13,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:mechanism:handlingDefault:1:sol": {
+        "points": [
+          {
+            "inputValue": -30,
+            "outputValue": 2,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.062270742,
+            "leaveTangent": -0.062270742
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0015690716,
+            "leaveTangent": -0.0551265
+          },
+          {
+            "inputValue": 30,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0008903688,
+            "leaveTangent": -0.0008903688
+          }
+        ]
+      },
+      "authoring:mechanism:handlingDefault:1:mp": {
+        "points": [
+          {
+            "inputValue": -30,
+            "outputValue": 2,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.062270742,
+            "leaveTangent": -0.062270742
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0015690716,
+            "leaveTangent": -0.0551265
+          },
+          {
+            "inputValue": 30,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0008903688,
+            "leaveTangent": -0.0008903688
+          }
+        ]
+      },
+      "authoring:mechanism:handlingDefault:1:bd": {
+        "points": [
+          {
+            "inputValue": -30,
+            "outputValue": 2,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.062270742,
+            "leaveTangent": -0.062270742
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0015690716,
+            "leaveTangent": -0.0551265
+          },
+          {
+            "inputValue": 30,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0008903688,
+            "leaveTangent": -0.0008903688
+          }
+        ]
+      },
+      "authoring:mechanism:handlingDefault:2:sol": {
+        "points": [
+          {
+            "inputValue": -30,
+            "outputValue": -0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0.027406627,
+            "leaveTangent": 0.027406627
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0.00031604568,
+            "leaveTangent": 0.017985888
+          },
+          {
+            "inputValue": 30,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:handlingDefault:2:mp": {
+        "points": [
+          {
+            "inputValue": -30,
+            "outputValue": -0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0.027406627,
+            "leaveTangent": 0.027406627
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0.00031604568,
+            "leaveTangent": 0.017985888
+          },
+          {
+            "inputValue": 30,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:handlingDefault:2:bd": {
+        "points": [
+          {
+            "inputValue": -30,
+            "outputValue": -0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0.027406627,
+            "leaveTangent": 0.027406627
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0.00031604568,
+            "leaveTangent": 0.017985888
+          },
+          {
+            "inputValue": 30,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:0:sol": {
+        "points": [
+          {
+            "inputValue": -16,
+            "outputValue": 1.6,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.03989537,
+            "leaveTangent": -0.09123861
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.001123658,
+            "leaveTangent": -0.0734062
+          },
+          {
+            "inputValue": 16,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:0:mp": {
+        "points": [
+          {
+            "inputValue": -16,
+            "outputValue": 1.6,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.03989537,
+            "leaveTangent": -0.09123861
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.001123658,
+            "leaveTangent": -0.0734062
+          },
+          {
+            "inputValue": 16,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:0:bd": {
+        "points": [
+          {
+            "inputValue": -16,
+            "outputValue": 1.6,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.03989537,
+            "leaveTangent": -0.09123861
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.001123658,
+            "leaveTangent": -0.0734062
+          },
+          {
+            "inputValue": 16,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:1:sol": {
+        "points": [
+          {
+            "inputValue": -20,
+            "outputValue": 2,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.03989537,
+            "leaveTangent": -0.10468553
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0014538752,
+            "leaveTangent": -0.06270425
+          },
+          {
+            "inputValue": 20,
+            "outputValue": 0.4,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:1:mp": {
+        "points": [
+          {
+            "inputValue": -20,
+            "outputValue": 2,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.03989537,
+            "leaveTangent": -0.10468553
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0014538752,
+            "leaveTangent": -0.06270425
+          },
+          {
+            "inputValue": 20,
+            "outputValue": 0.4,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:1:bd": {
+        "points": [
+          {
+            "inputValue": -20,
+            "outputValue": 2,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.03989537,
+            "leaveTangent": -0.10468553
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0014538752,
+            "leaveTangent": -0.06270425
+          },
+          {
+            "inputValue": 20,
+            "outputValue": 0.4,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:2:sol": {
+        "points": [
+          {
+            "inputValue": -12,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.03989537,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.014583334,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 16,
+            "outputValue": 0.8,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:2:mp": {
+        "points": [
+          {
+            "inputValue": -12,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.03989537,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.014583334,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 16,
+            "outputValue": 0.8,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:2:bd": {
+        "points": [
+          {
+            "inputValue": -12,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.03989537,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.014583334,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 16,
+            "outputValue": 0.8,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:3:sol": {
+        "points": [
+          {
+            "inputValue": -16,
+            "outputValue": 2.5,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.098433785,
+            "leaveTangent": -0.087467305
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0.00083704904,
+            "leaveTangent": -0.067959435
+          },
+          {
+            "inputValue": 20,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:3:mp": {
+        "points": [
+          {
+            "inputValue": -16,
+            "outputValue": 2.5,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.098433785,
+            "leaveTangent": -0.087467305
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0.00083704904,
+            "leaveTangent": -0.067959435
+          },
+          {
+            "inputValue": 20,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:3:bd": {
+        "points": [
+          {
+            "inputValue": -16,
+            "outputValue": 2.5,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.098433785,
+            "leaveTangent": -0.087467305
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0.00083704904,
+            "leaveTangent": -0.067959435
+          },
+          {
+            "inputValue": 20,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:4:sol": {
+        "points": [
+          {
+            "inputValue": -20,
+            "outputValue": 2,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.03989537,
+            "leaveTangent": -0.08931677
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0017104995,
+            "leaveTangent": -0.0719002
+          },
+          {
+            "inputValue": 20,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:4:mp": {
+        "points": [
+          {
+            "inputValue": -20,
+            "outputValue": 2,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.03989537,
+            "leaveTangent": -0.08931677
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0017104995,
+            "leaveTangent": -0.0719002
+          },
+          {
+            "inputValue": 20,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:4:bd": {
+        "points": [
+          {
+            "inputValue": -20,
+            "outputValue": 2,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.03989537,
+            "leaveTangent": -0.08931677
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0017104995,
+            "leaveTangent": -0.0719002
+          },
+          {
+            "inputValue": 20,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:5:sol": {
+        "points": [
+          {
+            "inputValue": -16,
+            "outputValue": 1.3,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.00024945405,
+            "leaveTangent": -0.08060096
+          },
+          {
+            "inputValue": 8,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 16,
+            "outputValue": 0.12,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.00006192781,
+            "leaveTangent": -0.00006192781
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:5:mp": {
+        "points": [
+          {
+            "inputValue": -16,
+            "outputValue": 1.3,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.00024945405,
+            "leaveTangent": -0.08060096
+          },
+          {
+            "inputValue": 8,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 16,
+            "outputValue": 0.12,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.00006192781,
+            "leaveTangent": -0.00006192781
+          }
+        ]
+      },
+      "authoring:mechanism:stabilityDefault:5:bd": {
+        "points": [
+          {
+            "inputValue": -16,
+            "outputValue": 1.3,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.00024945405,
+            "leaveTangent": -0.08060096
+          },
+          {
+            "inputValue": 8,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 16,
+            "outputValue": 0.12,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.00006192781,
+            "leaveTangent": -0.00006192781
+          }
+        ]
+      },
+      "authoring:mechanism:recoilControlDefault:0:sol": {
+        "points": [
+          {
+            "inputValue": -15,
+            "outputValue": 1.5,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.021162324,
+            "leaveTangent": -0.021162324
+          },
+          {
+            "inputValue": 55,
+            "outputValue": 0.4,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.009876262,
+            "leaveTangent": -0.009876262
+          }
+        ]
+      },
+      "authoring:mechanism:recoilControlDefault:0:mp": {
+        "points": [
+          {
+            "inputValue": -15,
+            "outputValue": 1.5,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.021162324,
+            "leaveTangent": -0.021162324
+          },
+          {
+            "inputValue": 55,
+            "outputValue": 0.4,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.009876262,
+            "leaveTangent": -0.009876262
+          }
+        ]
+      },
+      "authoring:mechanism:recoilControlDefault:0:bd": {
+        "points": [
+          {
+            "inputValue": -15,
+            "outputValue": 1.5,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.021162324,
+            "leaveTangent": -0.021162324
+          },
+          {
+            "inputValue": 55,
+            "outputValue": 0.4,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.009876262,
+            "leaveTangent": -0.009876262
+          }
+        ]
+      },
+      "authoring:mechanism:recoilControlDefault:1:sol": {
+        "points": [
+          {
+            "inputValue": -8,
+            "outputValue": 1.3,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.013333332,
+            "leaveTangent": -0.013333332
+          },
+          {
+            "inputValue": 40,
+            "outputValue": 0.7,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 55,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.012122443,
+            "leaveTangent": -0.012122443
+          }
+        ]
+      },
+      "authoring:mechanism:recoilControlDefault:1:mp": {
+        "points": [
+          {
+            "inputValue": -8,
+            "outputValue": 1.3,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.013333332,
+            "leaveTangent": -0.013333332
+          },
+          {
+            "inputValue": 40,
+            "outputValue": 0.7,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 55,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.012122443,
+            "leaveTangent": -0.012122443
+          }
+        ]
+      },
+      "authoring:mechanism:recoilControlDefault:1:bd": {
+        "points": [
+          {
+            "inputValue": -8,
+            "outputValue": 1.3,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.013333332,
+            "leaveTangent": -0.013333332
+          },
+          {
+            "inputValue": 40,
+            "outputValue": 0.7,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 55,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": -0.012122443,
+            "leaveTangent": -0.012122443
+          }
+        ]
+      },
+      "authoring:mechanism:handlingVariant2:0:sol": {
+        "points": [
+          {
+            "inputValue": 0,
+            "outputValue": 0.8,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0001430524,
+            "leaveTangent": -0.0001430524
+          },
+          {
+            "inputValue": 12.1,
+            "outputValue": 0.75,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.01276495,
+            "leaveTangent": -0.01276495
+          },
+          {
+            "inputValue": 22,
+            "outputValue": 0.63,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.009402879,
+            "leaveTangent": -0.009402879
+          },
+          {
+            "inputValue": 35,
+            "outputValue": 0.48,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0109637035,
+            "leaveTangent": -0.0109637035
+          },
+          {
+            "inputValue": 50,
+            "outputValue": 0.35,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.005058902,
+            "leaveTangent": -0.005058902
+          },
+          {
+            "inputValue": 60,
+            "outputValue": 0.29,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.006041213,
+            "leaveTangent": -0.006041213
+          },
+          {
+            "inputValue": 70,
+            "outputValue": 0.23,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0034955936,
+            "leaveTangent": -0.0034955936
+          },
+          {
+            "inputValue": 80,
+            "outputValue": 0.195,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0035000003,
+            "leaveTangent": -0.0035000003
+          },
+          {
+            "inputValue": 90,
+            "outputValue": 0.16,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0032499998,
+            "leaveTangent": -0.0032499998
+          },
+          {
+            "inputValue": 100,
+            "outputValue": 0.13,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:mechanism:handlingVariant2:0:mp": {
+        "points": [
+          {
+            "inputValue": 0,
+            "outputValue": 0.8,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0001430524,
+            "leaveTangent": -0.0001430524
+          },
+          {
+            "inputValue": 12.1,
+            "outputValue": 0.75,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.01276495,
+            "leaveTangent": -0.01276495
+          },
+          {
+            "inputValue": 22,
+            "outputValue": 0.63,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.009402879,
+            "leaveTangent": -0.009402879
+          },
+          {
+            "inputValue": 35,
+            "outputValue": 0.48,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0109637035,
+            "leaveTangent": -0.0109637035
+          },
+          {
+            "inputValue": 50,
+            "outputValue": 0.35,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.005058902,
+            "leaveTangent": -0.005058902
+          },
+          {
+            "inputValue": 60,
+            "outputValue": 0.29,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.006041213,
+            "leaveTangent": -0.006041213
+          },
+          {
+            "inputValue": 70,
+            "outputValue": 0.23,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0034955936,
+            "leaveTangent": -0.0034955936
+          },
+          {
+            "inputValue": 80,
+            "outputValue": 0.195,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0035000003,
+            "leaveTangent": -0.0035000003
+          },
+          {
+            "inputValue": 90,
+            "outputValue": 0.16,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0032499998,
+            "leaveTangent": -0.0032499998
+          },
+          {
+            "inputValue": 100,
+            "outputValue": 0.13,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:mechanism:handlingVariant2:0:bd": {
+        "points": [
+          {
+            "inputValue": 0,
+            "outputValue": 0.8,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0001430524,
+            "leaveTangent": -0.0001430524
+          },
+          {
+            "inputValue": 12.1,
+            "outputValue": 0.75,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.01276495,
+            "leaveTangent": -0.01276495
+          },
+          {
+            "inputValue": 22,
+            "outputValue": 0.63,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.009402879,
+            "leaveTangent": -0.009402879
+          },
+          {
+            "inputValue": 35,
+            "outputValue": 0.48,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0109637035,
+            "leaveTangent": -0.0109637035
+          },
+          {
+            "inputValue": 50,
+            "outputValue": 0.35,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.005058902,
+            "leaveTangent": -0.005058902
+          },
+          {
+            "inputValue": 60,
+            "outputValue": 0.29,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.006041213,
+            "leaveTangent": -0.006041213
+          },
+          {
+            "inputValue": 70,
+            "outputValue": 0.23,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0034955936,
+            "leaveTangent": -0.0034955936
+          },
+          {
+            "inputValue": 80,
+            "outputValue": 0.195,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0035000003,
+            "leaveTangent": -0.0035000003
+          },
+          {
+            "inputValue": 90,
+            "outputValue": 0.16,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0032499998,
+            "leaveTangent": -0.0032499998
+          },
+          {
+            "inputValue": 100,
+            "outputValue": 0.13,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:mechanism:handlingVariant2:1:sol": {
+        "points": [
+          {
+            "inputValue": -30,
+            "outputValue": 2,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.062270742,
+            "leaveTangent": -0.062270742
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0015690716,
+            "leaveTangent": -0.0551265
+          },
+          {
+            "inputValue": 30,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0008903688,
+            "leaveTangent": -0.0008903688
+          }
+        ]
+      },
+      "authoring:mechanism:handlingVariant2:1:mp": {
+        "points": [
+          {
+            "inputValue": -26,
+            "outputValue": 2,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.062270742,
+            "leaveTangent": -0.062270742
+          },
+          {
+            "inputValue": 4,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0015690716,
+            "leaveTangent": -0.0551265
+          },
+          {
+            "inputValue": 34,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0008903688,
+            "leaveTangent": -0.0008903688
+          }
+        ]
+      },
+      "authoring:mechanism:handlingVariant2:1:bd": {
+        "points": [
+          {
+            "inputValue": -30,
+            "outputValue": 2,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.062270742,
+            "leaveTangent": -0.062270742
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 1,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0015690716,
+            "leaveTangent": -0.0551265
+          },
+          {
+            "inputValue": 30,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": -0.0008903688,
+            "leaveTangent": -0.0008903688
+          }
+        ]
+      },
+      "authoring:mechanism:handlingVariant2:2:sol": {
+        "points": [
+          {
+            "inputValue": -30,
+            "outputValue": -0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0.027406627,
+            "leaveTangent": 0.027406627
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0.00031604568,
+            "leaveTangent": 0.017985888
+          },
+          {
+            "inputValue": 30,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:handlingVariant2:2:mp": {
+        "points": [
+          {
+            "inputValue": -26,
+            "outputValue": -0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0.027406627,
+            "leaveTangent": 0.027406627
+          },
+          {
+            "inputValue": 4,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0.00031604568,
+            "leaveTangent": 0.017985888
+          },
+          {
+            "inputValue": 34,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      },
+      "authoring:mechanism:handlingVariant2:2:bd": {
+        "points": [
+          {
+            "inputValue": -30,
+            "outputValue": -0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0.027406627,
+            "leaveTangent": 0.027406627
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0.00031604568,
+            "leaveTangent": 0.017985888
+          },
+          {
+            "inputValue": 30,
+            "outputValue": 0.3,
+            "interpolationMode": "RCIM_Cubic",
+            "arriveTangent": 0,
+            "leaveTangent": -3.9398327
+          }
+        ]
+      }
+    },
+    "handling": {
+      "spreadProfiles": {
+        "authoring:ammo:37200000002:adsSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 0.5,
+            "vertical": 0.5
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 2,
+            "vertical": 2
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        },
+        "authoring:ammo:37190000002:adsSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 0.5,
+            "vertical": 0.5
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 2,
+            "vertical": 2
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        },
+        "authoring:ammo:37260000002:adsSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 0.5,
+            "vertical": 0.5
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 2,
+            "vertical": 2
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        },
+        "authoring:ammo:37250000002:hipSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 2,
+            "vertical": 2
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 3.6,
+            "vertical": 3.6
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        },
+        "authoring:ammo:37250000002:adsSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 0.25,
+            "vertical": 0.25
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 1,
+            "vertical": 1
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        },
+        "authoring:ammo:37250200002:hipSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 2,
+            "vertical": 2
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 3.6,
+            "vertical": 3.6
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        },
+        "authoring:ammo:37250200002:adsSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 0.25,
+            "vertical": 0.25
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 1,
+            "vertical": 1
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        },
+        "authoring:ammo:37250300002:hipSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 2,
+            "vertical": 2
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 3.6,
+            "vertical": 3.6
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        },
+        "authoring:ammo:37250300002:adsSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 0.25,
+            "vertical": 0.25
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 1,
+            "vertical": 1
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        },
+        "authoring:ammo:37250400002:hipSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 2,
+            "vertical": 2
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 3.6,
+            "vertical": 3.6
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        },
+        "authoring:ammo:37250400002:adsSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 0.25,
+            "vertical": 0.25
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 1,
+            "vertical": 1
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        },
+        "authoring:ammo:37250400004:hipSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 2,
+            "vertical": 2
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 3.6,
+            "vertical": 3.6
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        },
+        "authoring:ammo:37250400004:adsSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 0,
+            "vertical": 0
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 180,
+            "vertical": 180
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        }
+      }
+    },
+    "combat": {
+      "bulletProfiles": {
+        "authoring:ammo:37250300001:bullet": {
+          "initialSpeedCmPerSecond": 30000,
+          "maxDistanceCm": 50000,
+          "validDistanceCm": 2000,
+          "attenuationDistancesCm": [
+            4000,
+            100000
+          ],
+          "attenuationRates": [
+            0.9,
+            0.8
+          ],
+          "chartDistancesCm": [
+            2500,
+            5000,
+            7500,
+            10000
+          ]
+        },
+        "authoring:ammo:37250400005:bullet": {
+          "initialSpeedCmPerSecond": 30000,
+          "maxDistanceCm": 50000,
+          "validDistanceCm": 2000,
+          "attenuationDistancesCm": [
+            4000,
+            100000
+          ],
+          "attenuationRates": [
+            0.9,
+            0.8
+          ],
+          "chartDistancesCm": [
+            2500,
+            5000,
+            7500,
+            10000
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,991 @@
+{
+  "schemaVersion": 1,
+  "kind": "weaponBuildCoreRuntimePack",
+  "weaponId": "18150000001",
+  "sharedRecordKeys": {
+    "curves": [
+      "authoring:mechanism:effectiveRangeDefault:0:bd",
+      "authoring:mechanism:effectiveRangeDefault:0:mp",
+      "authoring:mechanism:effectiveRangeDefault:0:sol",
+      "authoring:mechanism:handlingDefault:0:bd",
+      "authoring:mechanism:handlingDefault:0:mp",
+      "authoring:mechanism:handlingDefault:0:sol",
+      "authoring:mechanism:handlingDefault:1:bd",
+      "authoring:mechanism:handlingDefault:1:mp",
+      "authoring:mechanism:handlingDefault:1:sol",
+      "authoring:mechanism:handlingDefault:2:bd",
+      "authoring:mechanism:handlingDefault:2:mp",
+      "authoring:mechanism:handlingDefault:2:sol",
+      "authoring:mechanism:hipFireAccuracyDefault:0:bd",
+      "authoring:mechanism:hipFireAccuracyDefault:0:mp",
+      "authoring:mechanism:hipFireAccuracyDefault:0:sol",
+      "authoring:mechanism:recoilControlDefault:0:bd",
+      "authoring:mechanism:recoilControlDefault:0:mp",
+      "authoring:mechanism:recoilControlDefault:0:sol",
+      "authoring:mechanism:recoilControlDefault:1:bd",
+      "authoring:mechanism:recoilControlDefault:1:mp",
+      "authoring:mechanism:recoilControlDefault:1:sol",
+      "authoring:mechanism:stabilityDefault:0:bd",
+      "authoring:mechanism:stabilityDefault:0:mp",
+      "authoring:mechanism:stabilityDefault:0:sol",
+      "authoring:mechanism:stabilityDefault:1:bd",
+      "authoring:mechanism:stabilityDefault:1:mp",
+      "authoring:mechanism:stabilityDefault:1:sol",
+      "authoring:mechanism:stabilityDefault:2:bd",
+      "authoring:mechanism:stabilityDefault:2:mp",
+      "authoring:mechanism:stabilityDefault:2:sol",
+      "authoring:mechanism:stabilityDefault:3:bd",
+      "authoring:mechanism:stabilityDefault:3:mp",
+      "authoring:mechanism:stabilityDefault:3:sol",
+      "authoring:mechanism:stabilityDefault:4:bd",
+      "authoring:mechanism:stabilityDefault:4:mp",
+      "authoring:mechanism:stabilityDefault:4:sol",
+      "authoring:mechanism:stabilityDefault:5:bd",
+      "authoring:mechanism:stabilityDefault:5:mp",
+      "authoring:mechanism:stabilityDefault:5:sol",
+      "authoring:part:13110000095:tune:eyeRelief:0:curve:0",
+      "authoring:part:13110000095:tune:zoom:1:curve:0",
+      "authoring:part:13110000104:tune:eyeRelief:0:curve:0",
+      "authoring:part:13110000104:tune:zoom:1:curve:0"
+    ],
+    "parts": [
+      "13110000094",
+      "13110000095",
+      "13110000104",
+      "13120000381",
+      "13440000001",
+      "13440000002",
+      "13440000003",
+      "13450000001",
+      "13450000002",
+      "13450000003",
+      "13470000001",
+      "13470000002",
+      "13470000003",
+      "13480000001",
+      "13480000002",
+      "13500000001",
+      "13500000002",
+      "13500000003",
+      "13510000001",
+      "13510000002"
+    ],
+    "effectsByItemId": [
+      "13110000094",
+      "13110000095",
+      "13110000104",
+      "13120000381",
+      "13440000001",
+      "13440000002",
+      "13440000003",
+      "13450000001",
+      "13450000002",
+      "13450000003",
+      "13470000001",
+      "13470000002",
+      "13470000003",
+      "13480000001",
+      "13480000002",
+      "13500000001",
+      "13500000002",
+      "13500000003",
+      "13510000001",
+      "13510000002"
+    ],
+    "tunes": [
+      "authoring:part:13110000095:tune:eyeRelief:0",
+      "authoring:part:13110000095:tune:zoom:1",
+      "authoring:part:13110000104:tune:eyeRelief:0",
+      "authoring:part:13110000104:tune:zoom:1"
+    ],
+    "handling.spreadProfiles": [
+      "authoring:part:13440000002:bd:adsSpread",
+      "authoring:part:13440000002:bd:hipSpread",
+      "authoring:part:13440000002:mp:adsSpread",
+      "authoring:part:13440000002:mp:hipSpread",
+      "authoring:part:13440000002:sol:adsSpread",
+      "authoring:part:13440000002:sol:hipSpread",
+      "authoring:part:13440000003:bd:adsSpread",
+      "authoring:part:13440000003:mp:adsSpread",
+      "authoring:part:13440000003:sol:adsSpread"
+    ],
+    "assembly.extraOccupancy": [
+      "13120000381"
+    ],
+    "display.objects": [
+      "13110000094",
+      "13110000095",
+      "13110000104",
+      "13120000381",
+      "13440000001",
+      "13440000002",
+      "13440000003",
+      "13450000001",
+      "13450000002",
+      "13450000003",
+      "13470000001",
+      "13470000002",
+      "13470000003",
+      "13480000001",
+      "13480000002",
+      "13500000001",
+      "13500000002",
+      "13500000003",
+      "13510000001",
+      "13510000002"
+    ],
+    "display.strings": [
+      "13110000094",
+      "13110000095",
+      "13110000104",
+      "13120000381",
+      "13440000001",
+      "13440000002",
+      "13440000003",
+      "13450000001",
+      "13450000002",
+      "13450000003",
+      "13470000001",
+      "13470000002",
+      "13470000003",
+      "13480000001",
+      "13480000002",
+      "13500000001",
+      "13500000002",
+      "13500000003",
+      "13510000001",
+      "13510000002"
+    ]
+  },
+  "payload": {
+    "schemaVersion": 3,
+    "weaponId": "18150000001",
+    "weapon": {
+      "schemaVersion": 3,
+      "kind": "weapon",
+      "weaponId": "18150000001",
+      "fireControl": {
+        "supportedModes": [
+          "Single"
+        ],
+        "fireIntervalSeconds": 0.33,
+        "sdkTiming": {
+          "fireInterval": 0.33,
+          "fireCd": 0.33,
+          "fireDelayTime": 0,
+          "chamberTime": 0,
+          "fireRateMode": "Auto",
+          "burstCount": 3,
+          "burstFireCd": 0.05,
+          "burstFireInterval": 0,
+          "burstInterval": 0,
+          "autoFireSingleInterval": 0.75,
+          "autoFireBurstInterval": 0,
+          "singleFireTolerant": 0.2
+        }
+      },
+      "ammunition": {
+        "ammoTypeId": "28",
+        "clipCapacity": 1,
+        "maxCarriedAmmo": 30,
+        "maxCarriedAmmoByMode": {
+          "sol": 30,
+          "mp": 16,
+          "bd": 30
+        },
+        "baseProjectileCount": 1
+      },
+      "timings": {
+        "reloadSeconds": 0.5,
+        "emptyReloadSeconds": 0.5,
+        "equipSeconds": 0.4,
+        "holsterSeconds": 0.3,
+        "sprintToFireSeconds": 0.15
+      },
+      "acoustics": {
+        "shotDistanceMeters": 30
+      },
+      "sway": {
+        "baseBreathRangeDegrees": 0.28,
+        "gunSwayBeHitScale": 0.8,
+        "cameraSwayBeHitScale": 0.8
+      },
+      "attributes": {
+        "independentCurve": false,
+        "displayAttrValues": {
+          "2": 65,
+          "3": 32,
+          "4": 57,
+          "5": 66,
+          "6": 55
+        },
+        "mainAttrValues": {
+          "2": 65,
+          "3": 32,
+          "4": 57,
+          "5": 66,
+          "6": 55
+        }
+      },
+      "references": {
+        "waistSpreadProfileId": "authoring:weapon:18150000001:hipSpread",
+        "waistRecoilProfileId": "authoring:weapon:18150000001:hipRecoil",
+        "aimingProfileId": "authoring:weapon:18150000001:aiming",
+        "weaponBehaviorProfileId": "authoring:weapon:18150000001:behavior",
+        "chargeProfileId": "authoring:weapon:18150000001:charge",
+        "weaponEffectSetIds": {
+          "sol": [],
+          "mp": [],
+          "bd": []
+        },
+        "modes": {
+          "sol": {
+            "bulletProfileId": "authoring:weapon:18150000001:sol:bullet",
+            "movementProfileId": "authoring:weapon:18150000001:sol:movement",
+            "attackerProfileId": "authoring:weapon:18150000001:sol:attacker"
+          },
+          "mp": {
+            "bulletProfileId": "authoring:weapon:18150000001:mp:bullet",
+            "movementProfileId": "authoring:weapon:18150000001:mp:movement",
+            "attackerProfileId": "authoring:weapon:18150000001:mp:attacker"
+          },
+          "bd": {
+            "bulletProfileId": "authoring:weapon:18150000001:bd:bullet",
+            "movementProfileId": "authoring:weapon:18150000001:bd:movement",
+            "attackerProfileId": "authoring:weapon:18150000001:bd:attacker"
+          }
+        }
+      }
+    },
+    "parts": {
+      "18150000001": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": []
+      }
+    },
+    "effectsByItemId": {
+      "18150000001": {
+        "sol": [],
+        "mp": [
+          {
+            "operation": "StaticAttributeReplace",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Initial",
+            "value": 30,
+            "scope": "NONE"
+          }
+        ],
+        "bd": []
+      }
+    },
+    "tunes": {},
+    "attributeRules": {
+      "defaults": {
+        "2": {
+          "directRuleTargets": [
+            "GBullet_Velocity",
+            "GBullet_Range",
+            "GSpread_ADS"
+          ],
+          "curveMappings": [
+            {
+              "target": "GBullet_Range",
+              "mappingType": "AbsoluteMappingThenScale",
+              "curveIds": {
+                "sol": "authoring:mechanism:effectiveRangeDefault:0:sol",
+                "mp": "authoring:mechanism:effectiveRangeDefault:0:mp",
+                "bd": "authoring:mechanism:effectiveRangeDefault:0:bd"
+              }
+            }
+          ]
+        },
+        "3": {
+          "directRuleTargets": [
+            "GRecoil_V",
+            "GGunkick_ADSRecoilH",
+            "GRecoilRecovery"
+          ],
+          "curveMappings": [
+            {
+              "target": "GRecoil_H",
+              "mappingType": "DeltaMappingThenScale",
+              "curveIds": {
+                "sol": "authoring:mechanism:recoilControlDefault:0:sol",
+                "mp": "authoring:mechanism:recoilControlDefault:0:mp",
+                "bd": "authoring:mechanism:recoilControlDefault:0:bd"
+              }
+            },
+            {
+              "target": "GRecoil_V",
+              "mappingType": "DeltaMappingThenScale",
+              "curveIds": {
+                "sol": "authoring:mechanism:recoilControlDefault:0:sol",
+                "mp": "authoring:mechanism:recoilControlDefault:0:mp",
+                "bd": "authoring:mechanism:recoilControlDefault:0:bd"
+              }
+            },
+            {
+              "target": "GGunkickSpring",
+              "mappingType": "DeltaMappingThenScale",
+              "curveIds": {
+                "sol": "authoring:mechanism:recoilControlDefault:1:sol",
+                "mp": "authoring:mechanism:recoilControlDefault:1:mp",
+                "bd": "authoring:mechanism:recoilControlDefault:1:bd"
+              }
+            },
+            {
+              "target": "GGunkickRandom",
+              "mappingType": "DeltaMappingThenScale",
+              "curveIds": {
+                "sol": "authoring:mechanism:recoilControlDefault:1:sol",
+                "mp": "authoring:mechanism:recoilControlDefault:1:mp",
+                "bd": "authoring:mechanism:recoilControlDefault:1:bd"
+              }
+            }
+          ]
+        },
+        "4": {
+          "directRuleTargets": [
+            "GRecoil_Hip",
+            "GSpread_Hip",
+            "GSpread_Hip_Continuous"
+          ],
+          "curveMappings": [
+            {
+              "target": "GSpread_Hip",
+              "mappingType": "DeltaMappingThenScale",
+              "curveIds": {
+                "sol": "authoring:mechanism:hipFireAccuracyDefault:0:sol",
+                "mp": "authoring:mechanism:hipFireAccuracyDefault:0:mp",
+                "bd": "authoring:mechanism:hipFireAccuracyDefault:0:bd"
+              }
+            },
+            {
+              "target": "GSpread_Hip_Continuous",
+              "mappingType": "DeltaMappingThenScale",
+              "curveIds": {
+                "sol": "authoring:mechanism:hipFireAccuracyDefault:0:sol",
+                "mp": "authoring:mechanism:hipFireAccuracyDefault:0:mp",
+                "bd": "authoring:mechanism:hipFireAccuracyDefault:0:bd"
+              }
+            }
+          ]
+        },
+        "5": {
+          "directRuleTargets": [
+            "GAiming_ADSTime",
+            "GSprintToFireTime",
+            "GMovement_ADSSpeed"
+          ],
+          "curveMappings": [
+            {
+              "target": "GAiming_ADSTime",
+              "mappingType": "AbsoluteMapping",
+              "curveIds": {
+                "sol": "authoring:mechanism:handlingDefault:0:sol",
+                "mp": "authoring:mechanism:handlingDefault:0:mp",
+                "bd": "authoring:mechanism:handlingDefault:0:bd"
+              }
+            },
+            {
+              "target": "GSprintToFireTime",
+              "mappingType": "DeltaMappingThenScale",
+              "curveIds": {
+                "sol": "authoring:mechanism:handlingDefault:1:sol",
+                "mp": "authoring:mechanism:handlingDefault:1:mp",
+                "bd": "authoring:mechanism:handlingDefault:1:bd"
+              }
+            },
+            {
+              "target": "GMovement_ADSSpeed",
+              "mappingType": "DeltaMapping",
+              "curveIds": {
+                "sol": "authoring:mechanism:handlingDefault:2:sol",
+                "mp": "authoring:mechanism:handlingDefault:2:mp",
+                "bd": "authoring:mechanism:handlingDefault:2:bd"
+              }
+            },
+            {
+              "target": "GMovement_SilentWalkSpeed",
+              "mappingType": "DeltaMapping",
+              "curveIds": {
+                "sol": "authoring:mechanism:handlingDefault:2:sol",
+                "mp": "authoring:mechanism:handlingDefault:2:mp",
+                "bd": "authoring:mechanism:handlingDefault:2:bd"
+              }
+            }
+          ]
+        },
+        "6": {
+          "directRuleTargets": [],
+          "curveMappings": [
+            {
+              "target": "GBreathScale",
+              "mappingType": "DeltaMappingThenScale",
+              "curveIds": {
+                "sol": "authoring:mechanism:stabilityDefault:0:sol",
+                "mp": "authoring:mechanism:stabilityDefault:0:mp",
+                "bd": "authoring:mechanism:stabilityDefault:0:bd"
+              }
+            },
+            {
+              "target": "GBreathTime",
+              "mappingType": "DeltaMappingThenScale",
+              "curveIds": {
+                "sol": "authoring:mechanism:stabilityDefault:1:sol",
+                "mp": "authoring:mechanism:stabilityDefault:1:mp",
+                "bd": "authoring:mechanism:stabilityDefault:1:bd"
+              }
+            },
+            {
+              "target": "GBreathRecoil",
+              "mappingType": "DeltaMappingThenScale",
+              "curveIds": {
+                "sol": "authoring:mechanism:stabilityDefault:2:sol",
+                "mp": "authoring:mechanism:stabilityDefault:2:mp",
+                "bd": "authoring:mechanism:stabilityDefault:2:bd"
+              }
+            },
+            {
+              "target": "BehitGunSway",
+              "mappingType": "DeltaMappingThenScale",
+              "curveIds": {
+                "sol": "authoring:mechanism:stabilityDefault:3:sol",
+                "mp": "authoring:mechanism:stabilityDefault:3:mp",
+                "bd": "authoring:mechanism:stabilityDefault:3:bd"
+              }
+            },
+            {
+              "target": "AimMoveGunSway",
+              "mappingType": "DeltaMappingThenScale",
+              "curveIds": {
+                "sol": "authoring:mechanism:stabilityDefault:4:sol",
+                "mp": "authoring:mechanism:stabilityDefault:4:mp",
+                "bd": "authoring:mechanism:stabilityDefault:4:bd"
+              }
+            },
+            {
+              "target": "GRecoil_HShake",
+              "mappingType": "DeltaMappingThenScale",
+              "curveIds": {
+                "sol": "authoring:mechanism:stabilityDefault:5:sol",
+                "mp": "authoring:mechanism:stabilityDefault:5:mp",
+                "bd": "authoring:mechanism:stabilityDefault:5:bd"
+              }
+            },
+            {
+              "target": "GRecoil_VShake",
+              "mappingType": "DeltaMappingThenScale",
+              "curveIds": {
+                "sol": "authoring:mechanism:stabilityDefault:5:sol",
+                "mp": "authoring:mechanism:stabilityDefault:5:mp",
+                "bd": "authoring:mechanism:stabilityDefault:5:bd"
+              }
+            }
+          ]
+        }
+      },
+      "weaponOverrides": {}
+    },
+    "curves": {},
+    "kind": "weaponBuildRuntimePack",
+    "combat": {
+      "bulletProfiles": {
+        "authoring:weapon:18150000001:sol:bullet": {
+          "initialSpeedCmPerSecond": 30000,
+          "maxDistanceCm": 100000,
+          "validDistanceCm": 6500,
+          "attenuationDistancesCm": [
+            100000
+          ],
+          "attenuationRates": [
+            0.9
+          ],
+          "chartDistancesCm": [
+            2500,
+            5000,
+            7500,
+            10000
+          ]
+        },
+        "authoring:weapon:18150000001:mp:bullet": {
+          "initialSpeedCmPerSecond": 30000,
+          "maxDistanceCm": 100000,
+          "validDistanceCm": 1000,
+          "attenuationDistancesCm": [
+            3000,
+            5000,
+            100000
+          ],
+          "attenuationRates": [
+            0.9,
+            0.8,
+            0.7
+          ],
+          "chartDistancesCm": [
+            2500,
+            5000,
+            7500,
+            10000
+          ]
+        },
+        "authoring:weapon:18150000001:bd:bullet": {
+          "initialSpeedCmPerSecond": 30000,
+          "maxDistanceCm": 100000,
+          "validDistanceCm": 6500,
+          "attenuationDistancesCm": [],
+          "attenuationRates": [],
+          "chartDistancesCm": [
+            2500,
+            5000,
+            7500,
+            10000
+          ]
+        }
+      },
+      "chargeProfiles": {
+        "authoring:weapon:18150000001:charge": {
+          "chargeDurationSeconds": 0.56,
+          "modes": {
+            "sol": [
+              {
+                "level": "NoCharging",
+                "startPercent": 0,
+                "muzzleVelocityMultiplier": 0.5,
+                "damageMultiplier": 0.85
+              },
+              {
+                "level": "HalfCharging",
+                "startPercent": 0.45,
+                "muzzleVelocityMultiplier": 0.75,
+                "damageMultiplier": 0.9
+              },
+              {
+                "level": "FullCharging",
+                "startPercent": 0.95,
+                "muzzleVelocityMultiplier": 1,
+                "damageMultiplier": 1
+              }
+            ],
+            "mp": [
+              {
+                "level": "NoCharging",
+                "startPercent": 0,
+                "muzzleVelocityMultiplier": 0.2,
+                "damageMultiplier": 0.7
+              },
+              {
+                "level": "HalfCharging",
+                "startPercent": 0.45,
+                "muzzleVelocityMultiplier": 0.5,
+                "damageMultiplier": 0.9
+              },
+              {
+                "level": "FullCharging",
+                "startPercent": 0.95,
+                "muzzleVelocityMultiplier": 1,
+                "damageMultiplier": 1
+              }
+            ],
+            "bd": []
+          }
+        },
+        "authoring:ammo:37270500002:charge": {
+          "chargeDurationSeconds": 0.56,
+          "modes": {
+            "sol": [
+              {
+                "level": "NoCharging",
+                "startPercent": 0,
+                "muzzleVelocityMultiplier": 0.67,
+                "damageMultiplier": 1
+              },
+              {
+                "level": "HalfCharging",
+                "startPercent": 0.45,
+                "muzzleVelocityMultiplier": 0.85,
+                "damageMultiplier": 1
+              },
+              {
+                "level": "FullCharging",
+                "startPercent": 0.95,
+                "muzzleVelocityMultiplier": 1,
+                "damageMultiplier": 1
+              }
+            ],
+            "mp": [
+              {
+                "level": "NoCharging",
+                "startPercent": 0,
+                "muzzleVelocityMultiplier": 0.67,
+                "damageMultiplier": 1
+              },
+              {
+                "level": "HalfCharging",
+                "startPercent": 0.45,
+                "muzzleVelocityMultiplier": 0.85,
+                "damageMultiplier": 1
+              },
+              {
+                "level": "FullCharging",
+                "startPercent": 0.95,
+                "muzzleVelocityMultiplier": 1,
+                "damageMultiplier": 1
+              }
+            ],
+            "bd": []
+          }
+        }
+      },
+      "specialFire": {
+        "weaponProfile": {
+          "supportedModes": [
+            "Single"
+          ],
+          "scheduleStatus": "ordinary"
+        },
+        "itemOverrides": {},
+        "explicitlyUnmodeled": {
+          "weapon": null,
+          "items": {}
+        }
+      }
+    },
+    "handling": {
+      "aimingProfiles": {
+        "authoring:weapon:18150000001:aiming": {
+          "adsSpreadProfileId": "authoring:weapon:18150000001:adsSpread",
+          "adsRecoilProfileId": "authoring:weapon:18150000001:adsRecoil",
+          "adsOnTimeSeconds": 0.25,
+          "adsOffTimeSeconds": 0.25,
+          "zoomRate": 1.25
+        }
+      },
+      "spreadProfiles": {
+        "authoring:weapon:18150000001:hipSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 1.2,
+            "vertical": 1.2
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 1.5,
+            "vertical": 1.5
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        },
+        "authoring:weapon:18150000001:adsSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 0.1,
+            "vertical": 0.1
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 180,
+            "vertical": 180
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        },
+        "authoring:ammo:37270500002:hipSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 5,
+            "vertical": 5
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 10,
+            "vertical": 10
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        },
+        "authoring:ammo:37270500002:adsSpread": {
+          "baseSpreadDegrees": {
+            "horizontal": 3,
+            "vertical": 3
+          },
+          "maximumSpreadDegrees": {
+            "horizontal": 5,
+            "vertical": 5
+          },
+          "runtimeScaleFactor": 1.25,
+          "runtimeUiScaleFactor": 0.7
+        }
+      },
+      "recoilProfiles": {
+        "authoring:weapon:18150000001:hipRecoil": {
+          "singleShot": {
+            "horizontalValues": [
+              0
+            ],
+            "verticalValues": [
+              0
+            ],
+            "horizontalScale": 1,
+            "verticalScale": 1
+          },
+          "loop": {
+            "horizontalValues": [
+              0
+            ],
+            "verticalValues": [
+              0
+            ],
+            "horizontalScale": 1,
+            "verticalScale": 1
+          }
+        },
+        "authoring:weapon:18150000001:adsRecoil": {
+          "singleShot": {
+            "horizontalValues": [
+              0
+            ],
+            "verticalValues": [
+              0
+            ],
+            "horizontalScale": 1,
+            "verticalScale": 1
+          },
+          "loop": {
+            "horizontalValues": [
+              0
+            ],
+            "verticalValues": [
+              0
+            ],
+            "horizontalScale": 1,
+            "verticalScale": 1
+          }
+        }
+      },
+      "movementProfiles": {
+        "authoring:weapon:18150000001:sol:movement": {
+          "walkSpeedCmPerSecond": 360.23,
+          "sprintSpeedCmPerSecond": 590,
+          "silentMoveSpeedCmPerSecond": 141.3,
+          "adsMovementModifier": -0.2541,
+          "firingMovementModifier": 0
+        },
+        "authoring:weapon:18150000001:mp:movement": {
+          "walkSpeedCmPerSecond": 363.23,
+          "sprintSpeedCmPerSecond": 610,
+          "silentMoveSpeedCmPerSecond": 142.3,
+          "adsMovementModifier": -0.2,
+          "firingMovementModifier": 0
+        },
+        "authoring:weapon:18150000001:bd:movement": {
+          "walkSpeedCmPerSecond": 360.23,
+          "sprintSpeedCmPerSecond": 590,
+          "silentMoveSpeedCmPerSecond": 250,
+          "adsMovementModifier": -0.1,
+          "firingMovementModifier": 0
+        }
+      },
+      "holdBreathProfiles": {
+        "authoring:weapon:18150000001:holdBreath": {
+          "breathMeter": {
+            "drainPerSecond": 3,
+            "recoveryPerSecond": 17
+          },
+          "sway": {
+            "standingScale": 0.7,
+            "heldScale": 0.15,
+            "unstableScale": 2
+          },
+          "heldRecoilScale": 0.8,
+          "uiScale": 1
+        }
+      },
+      "weaponBehaviorProfiles": {
+        "authoring:weapon:18150000001:behavior": {
+          "holdBreathProfileId": "authoring:weapon:18150000001:holdBreath",
+          "kickScales": {
+            "randomKickScale": 1,
+            "springKickScale": 1,
+            "gunKickScale": 1
+          },
+          "movementScales": {
+            "cameraScale": 0.6,
+            "gunScale": 0.6
+          }
+        }
+      }
+    },
+    "assembly": {
+      "socketProviders": {
+        "18150000001": {
+          "sockets": [
+            {
+              "socketId": 5,
+              "optionItemIds": [
+                "13120000381"
+              ]
+            },
+            {
+              "socketId": 22,
+              "optionItemIds": [
+                "13500000003"
+              ]
+            },
+            {
+              "socketId": 55,
+              "optionItemIds": [
+                "13470000001",
+                "13470000002"
+              ]
+            },
+            {
+              "socketId": 56,
+              "optionItemIds": [
+                "13450000001",
+                "13450000002",
+                "13450000003"
+              ]
+            },
+            {
+              "socketId": 57,
+              "optionItemIds": [
+                "13440000001",
+                "13440000002",
+                "13440000003"
+              ]
+            },
+            {
+              "socketId": 58,
+              "optionItemIds": [
+                "13110000094",
+                "13110000095",
+                "13110000104"
+              ]
+            },
+            {
+              "socketId": 59,
+              "optionItemIds": [
+                "13500000001",
+                "13500000002",
+                "13500000003"
+              ]
+            },
+            {
+              "socketId": 60,
+              "optionItemIds": [
+                "13510000001",
+                "13510000002"
+              ]
+            },
+            {
+              "socketId": 61,
+              "optionItemIds": [
+                "13480000001",
+                "13480000002"
+              ]
+            },
+            {
+              "socketId": 74,
+              "optionItemIds": [
+                "13470000003"
+              ]
+            }
+          ]
+        }
+      },
+      "coupling": {
+        "18150000001": {
+          "rules": [
+            {
+              "condition": {
+                "type": "always"
+              },
+              "targetSocketId": 55,
+              "mountedItemId": "13470000001",
+              "mountPolicy": "default"
+            },
+            {
+              "condition": {
+                "type": "always"
+              },
+              "targetSocketId": 56,
+              "mountedItemId": "13450000001",
+              "mountPolicy": "default"
+            },
+            {
+              "condition": {
+                "type": "always"
+              },
+              "targetSocketId": 57,
+              "mountedItemId": "13440000001",
+              "mountPolicy": "default"
+            },
+            {
+              "condition": {
+                "type": "always"
+              },
+              "targetSocketId": 59,
+              "mountedItemId": "13500000001",
+              "mountPolicy": "default"
+            },
+            {
+              "condition": {
+                "type": "always"
+              },
+              "targetSocketId": 61,
+              "mountedItemId": "13480000001",
+              "mountPolicy": "default"
+            },
+            {
+              "condition": {
+                "type": "anyMounted",
+                "itemIds": [
+                  "13120000381"
+                ]
+              },
+              "targetSocketId": 22,
+              "mountedItemId": "13500000003",
+              "mountPolicy": "forced"
+            },
+            {
+              "condition": {
+                "type": "anyMounted",
+                "itemIds": [
+                  "13120000381"
+                ]
+              },
+              "targetSocketId": 74,
+              "mountedItemId": "13470000003",
+              "mountPolicy": "forced"
+            }
+          ]
+        }
+      },
+      "extraOccupancy": {}
+    },
+    "display": {
+      "objects": {
+        "18150000001": {
+          "objectType": "weapon",
+          "categoryId": "specialWeapon",
+          "imagePath": "https://playerhub.df.qq.com/playerhub/60004/object/18150000001.png",
+          "playerSelectable": true
+        }
+      },
+      "strings": {
+        "18150000001": "复合弓"
+      }
+    },
+    "combatVariantItemIds": {
+      "sol": [
+        "13120000381",
+        "13470000002"
+      ],
+      "mp": [
+        "13120000381"
+      ],
+      "bd": [
+        "13120000381"
+      ]
+    }
+  }
+}

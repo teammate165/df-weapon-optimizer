@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+import {executeModel} from './builder_model.mjs';
+const input=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));
+const runtime=process.argv[3];
+const curves=await import(pathToFileURL(path.join(runtime,'curves.mjs')));
+const kernel=await import(pathToFileURL(path.join(runtime,'kernel.mjs')));
+const {t:calculate}=await import(pathToFileURL(path.join(runtime,'attributes.mjs')));
+process.stdout.write(JSON.stringify(await executeModel(input,{curves,kernel,calculate})));

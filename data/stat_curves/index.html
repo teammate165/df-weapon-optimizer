@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Weapon stat response curves</title>
+<style>
+:root{font:15px system-ui,sans-serif;color:#172d3a;background:#f2f5f7}*{box-sizing:border-box}body{margin:0}header{padding:26px 4vw;background:#fff;border-bottom:1px solid #ccd7de}h1{font-size:28px;margin:5px 0 10px}p{line-height:1.5;max-width:1000px;color:#506471}.controls{display:flex;gap:15px;align-items:center;flex-wrap:wrap}select,button,input{font:inherit;padding:8px;background:#fff;border:1px solid #afc0cb;border-radius:5px}label{display:flex;gap:8px;align-items:center}main{padding:24px 4vw;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.card{background:white;border:1px solid #ccd7de;border-radius:8px;padding:18px;min-width:0}h2{margin:0;font-size:21px}.brief{font-size:13px;min-height:42px}.chart{width:100%;height:auto;touch-action:pan-y}.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px}.swatch{width:10px;height:10px;display:inline-block;margin-right:5px;border-radius:50%}table{width:100%;font-size:12px;border-collapse:collapse;margin-top:12px}td,th{text-align:left;border-bottom:1px solid #e0e7ec;padding:7px 4px}.point{display:flex;gap:10px;align-items:center;font-size:12px;margin-top:12px}.point input{width:100%}small{color:#506471}footer{padding:10px 4vw 25px;font-size:13px}@media(max-width:1000px){main{grid-template-columns:1fr}}a{color:#126b9d}
+</style>
+<header><small>DFTTK MODEL / SOURCE RESEARCH</small><h1>Weapon stat response curves</h1>
+<p>Vary one effective main attribute while keeping the default mounted build, other main attributes and calibration fixed. These are model responses, not measured Global-client performance. The 0–150 range is exploratory; it does not assert that every point is attainable.</p>
+<div class="controls"><label>Weapon <select id="weapon"></select></label><label>Mode <select id="mode"><option value="sol">Operations / sol</option><option value="mp">Warfare / mp</option><option value="bd">Demolition / bd</option></select></label><span id="version"></span></div>
+<p><small>Charts show each metric relative to this weapon/mode's default (100%). That is not a combined performance score: lower recoil/time/spread is favorable, while higher movement speed/hold duration is favorable. Main attribute points can differ from displayed panel points. Click or hover on a chart to inspect raw values.</small></p></header>
+<main id="cards"></main><footer>Exports: <a href="responses.csv">All numeric curves (CSV)</a> · <a href="responses.json">Source metadata and raw series (JSON)</a> · <a href="m4a1_sol_response_curves.svg">Reference figure (SVG)</a> · <a href="../../docs/weapon_stat_response_curves.md">Documentation</a></footer>
+<script src="responses.js"></script><script>
+'use strict';
+const data=window.STAT_CURVES, $=id=>document.getElementById(id);
+const colors=['#126b9d','#c36316','#29803e','#9b439b','#947100','#b82b4e','#477777'];
+const descriptions={
+ control:['Control / 后坐力控制','Changes modeled recoil multipliers and random/spring weapon kick. Separate direct camera-kick axes are not the same metrics.'],
+ handling:['Handling / 操控速度','Changes ADS time, sprint-to-fire time, ADS movement and silent movement. Main Handling points do not change reload, draw or holster in this model.'],
+ stability:['Stability / 据枪稳定性','Changes breathing, held-breath effects, movement/hit sway and firing camera shake. It does not change the plotted basic recoil trajectory.'],
+ accuracy:['Hip-fire accuracy / 腰际射击精度','Changes initial, maximum and moving hip-fire spread. It does not reduce the resolved ADS spread in this model.']};
+function el(tag,text){const n=document.createElement(tag);if(text!==undefined)n.textContent=text;return n}
+function fmt(x){return Number.isFinite(x)?Number(x.toPrecision(6)).toString():'n/a'}
+const weapons=new Map(data.responses.map(r=>[r.weapon_id,r]));
+for(const r of [...weapons.values()].sort((a,b)=>(a.english||a.name).localeCompare(b.english||b.name))){const o=el('option',`${r.english} / ${r.name} (${r.weapon_id})`);o.value=r.weapon_id;$('weapon').append(o)}
+$('weapon').value='18010000001';$('version').textContent=data.data_version;
+function svgEl(tag,attrs={},text){const n=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;return n}
+function card(r){
+ const section=el('section');section.className='card';section.append(el('h2',descriptions[r.stat][0]));const brief=el('p',descriptions[r.stat][1]);brief.className='brief';section.append(brief);
+ const width=620,height=330,left=58,right=18,top=18,bottom=45,usableW=width-left-right,usableH=height-top-bottom;
+ const svg=svgEl('svg',{viewBox:`0 0 ${width} ${height}`,role:'img','aria-label':`${r.stat} performance response chart`,class:'chart'});
+ const normalized=r.series.map(s=>({...s,relative:s.baseline?s.values.map(v=>v/s.baseline*100):null}));
+ const all=normalized.flatMap(s=>s.relative||[]).filter(Number.isFinite);let ymin=Math.min(100,...all),ymax=Math.max(100,...all);const pad=(ymax-ymin||20)*.08;ymin-=pad;ymax+=pad;
+ const xTo=x=>left+x/150*usableW,yTo=y=>top+(ymax-y)/(ymax-ymin)*usableH;
+ for(let i=0;i<=4;i++){const value=ymin+(ymax-ymin)*i/4,y=yTo(value);svg.append(svgEl('line',{x1:left,x2:width-right,y1:y,y2:y,stroke:'#e0e7ec'}),svgEl('text',{x:left-7,y:y+4,'text-anchor':'end',fill:'#506471','font-size':11},fmt(value)))}
+ for(const value of [0,25,50,75,100,125,150])svg.append(svgEl('text',{x:xTo(value),y:height-bottom+19,'text-anchor':'middle',fill:'#506471','font-size':11},String(value)));
+ svg.append(svgEl('text',{x:width/2,y:height-5,'text-anchor':'middle',fill:'#506471','font-size':12},'Effective main attribute points'),svgEl('text',{x:14,y:height/2,transform:`rotate(-90 14 ${height/2})`,'text-anchor':'middle',fill:'#506471','font-size':12},'Relative to default (%)'));
+ svg.append(svgEl('line',{x1:left,x2:width-right,y1:yTo(100),y2:yTo(100),stroke:'#667788','stroke-dasharray':'4 4'}),svgEl('line',{x1:xTo(r.base_x),x2:xTo(r.base_x),y1:top,y2:height-bottom,stroke:'#667788','stroke-dasharray':'2 4'}));
+ const legend=el('div');legend.className='legend';
+ normalized.forEach((s,i)=>{const color=colors[i%colors.length];if(s.relative)svg.append(svgEl('path',{d:s.relative.map((y,j)=>`${j?'L':'M'}${xTo(r.xs[j])},${yTo(y)}`).join(' '),stroke:color,fill:'none','stroke-width':2,'stroke-dasharray':i>3?'5 3':''}));const label=el('span');const swatch=el('span');swatch.className='swatch';swatch.style.background=color;label.append(swatch,document.createTextNode(s.label));legend.append(label)});
+ const cursor=svgEl('line',{x1:0,x2:0,y1:top,y2:height-bottom,stroke:'#172d3a',opacity:.5});svg.append(cursor);section.append(svg,legend);
+ const position=el('div');position.className='point';const slider=el('input');slider.type='range';slider.min=0;slider.max=r.xs.length-1;slider.step=1;slider.setAttribute('aria-label',`${r.stat} points`);const output=el('strong');position.append(slider,output);section.append(position,el('small',`Default main points: ${fmt(r.base_x)}; default displayed points: ${fmt(r.displayed_default)}.`));
+ const table=el('table');const heading=el('tr');for(const label of ['Metric','Default','Selected','Favorable'])heading.append(el('th',label));table.append(heading);const cells=[];
+ for(const s of r.series){const tr=el('tr');const value=el('td');tr.append(el('td',s.label),el('td',`${fmt(s.baseline)} ${s.unit}`),value,el('td',s.better));table.append(tr);cells.push(value)}section.append(table);
+ function update(index){index=Math.max(0,Math.min(r.xs.length-1,index));slider.value=index;output.textContent=fmt(r.xs[index]);cursor.setAttribute('x1',xTo(r.xs[index]));cursor.setAttribute('x2',xTo(r.xs[index]));r.series.forEach((s,i)=>cells[i].textContent=`${fmt(s.values[index])} ${s.unit}`)}
+ slider.oninput=()=>update(Number(slider.value));
+ svg.onpointermove=event=>{const rect=svg.getBoundingClientRect(),value=Math.max(0,Math.min(150,((event.clientX-rect.left)/rect.width*width-left)/usableW*150));let best=0;r.xs.forEach((x,i)=>{if(Math.abs(x-value)<Math.abs(r.xs[best]-value))best=i});update(best)};
+ update(r.xs.indexOf(r.base_x));return section;
+}
+function render(){$('cards').replaceChildren(...data.responses.filter(r=>r.weapon_id===$('weapon').value&&r.mode===$('mode').value).map(card))}
+$('weapon').onchange=render;$('mode').onchange=render;render();
+</script></html>

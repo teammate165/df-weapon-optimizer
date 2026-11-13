@@ -1,0 +1,504 @@
+{
+  "assertions": 38864,
+  "weapon_id": "18010000001",
+  "modes": [
+    "sol",
+    "mp",
+    "bd"
+  ],
+  "config": [
+    {
+      "slotPath": "2",
+      "itemId": "13020000173"
+    },
+    {
+      "slotPath": "1",
+      "itemId": "13030000109"
+    }
+  ],
+  "records": [
+    {
+      "mode": "sol",
+      "item_id": "13020000173",
+      "tune_id": "authoring:part:13020000173:tune:length:0",
+      "value": -10,
+      "default": {
+        "ads_ms": 327,
+        "velocity_mps": 678.5
+      },
+      "current": {
+        "ads_ms": 317,
+        "velocity_mps": 617.4349975734949
+      },
+      "operations": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GBullet_Velocity",
+          "modifier": "Mult_A",
+          "value": -0.09000000357627869,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:length:0"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GAiming_ADSTime",
+          "modifier": "Mult_A",
+          "value": -0.03,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:length:0"
+        }
+      ]
+    },
+    {
+      "mode": "sol",
+      "item_id": "13020000173",
+      "tune_id": "authoring:part:13020000173:tune:length:0",
+      "value": 10,
+      "default": {
+        "ads_ms": 327,
+        "velocity_mps": 678.5
+      },
+      "current": {
+        "ads_ms": 337,
+        "velocity_mps": 739.5650024265051
+      },
+      "operations": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GBullet_Velocity",
+          "modifier": "Mult_A",
+          "value": 0.09000000357627869,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:length:0"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GAiming_ADSTime",
+          "modifier": "Mult_A",
+          "value": 0.03,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:length:0"
+        }
+      ]
+    },
+    {
+      "mode": "sol",
+      "item_id": "13020000173",
+      "tune_id": "authoring:part:13020000173:tune:weight:1",
+      "value": -50,
+      "default": {
+        "ads_ms": 327,
+        "velocity_mps": 678.5
+      },
+      "current": {
+        "ads_ms": 327,
+        "velocity_mps": 678.5
+      },
+      "operations": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GGunkickRandom",
+          "modifier": "Mult_A",
+          "value": 0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GMovement_ADSSpeed",
+          "modifier": "Addend",
+          "value": 0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GGunkickSpring",
+          "modifier": "Mult_A",
+          "value": 0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        }
+      ]
+    },
+    {
+      "mode": "sol",
+      "item_id": "13020000173",
+      "tune_id": "authoring:part:13020000173:tune:weight:1",
+      "value": 50,
+      "default": {
+        "ads_ms": 327,
+        "velocity_mps": 678.5
+      },
+      "current": {
+        "ads_ms": 327,
+        "velocity_mps": 678.5
+      },
+      "operations": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GGunkickRandom",
+          "modifier": "Mult_A",
+          "value": -0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GMovement_ADSSpeed",
+          "modifier": "Addend",
+          "value": -0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GGunkickSpring",
+          "modifier": "Mult_A",
+          "value": -0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        }
+      ]
+    },
+    {
+      "mode": "mp",
+      "item_id": "13020000173",
+      "tune_id": "authoring:part:13020000173:tune:length:0",
+      "value": -10,
+      "default": {
+        "ads_ms": 308,
+        "velocity_mps": 599.5000000000001
+      },
+      "current": {
+        "ads_ms": 299,
+        "velocity_mps": 545.544997856021
+      },
+      "operations": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GBullet_Velocity",
+          "modifier": "Mult_A",
+          "value": -0.09000000357627869,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:length:0"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GAiming_ADSTime",
+          "modifier": "Mult_A",
+          "value": -0.03,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:length:0"
+        }
+      ]
+    },
+    {
+      "mode": "mp",
+      "item_id": "13020000173",
+      "tune_id": "authoring:part:13020000173:tune:length:0",
+      "value": 10,
+      "default": {
+        "ads_ms": 308,
+        "velocity_mps": 599.5000000000001
+      },
+      "current": {
+        "ads_ms": 317,
+        "velocity_mps": 653.4550021439792
+      },
+      "operations": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GBullet_Velocity",
+          "modifier": "Mult_A",
+          "value": 0.09000000357627869,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:length:0"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GAiming_ADSTime",
+          "modifier": "Mult_A",
+          "value": 0.03,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:length:0"
+        }
+      ]
+    },
+    {
+      "mode": "mp",
+      "item_id": "13020000173",
+      "tune_id": "authoring:part:13020000173:tune:weight:1",
+      "value": -50,
+      "default": {
+        "ads_ms": 308,
+        "velocity_mps": 599.5000000000001
+      },
+      "current": {
+        "ads_ms": 308,
+        "velocity_mps": 599.5000000000001
+      },
+      "operations": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GGunkickRandom",
+          "modifier": "Mult_A",
+          "value": 0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GMovement_ADSSpeed",
+          "modifier": "Addend",
+          "value": 0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GGunkickSpring",
+          "modifier": "Mult_A",
+          "value": 0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        }
+      ]
+    },
+    {
+      "mode": "mp",
+      "item_id": "13020000173",
+      "tune_id": "authoring:part:13020000173:tune:weight:1",
+      "value": 50,
+      "default": {
+        "ads_ms": 308,
+        "velocity_mps": 599.5000000000001
+      },
+      "current": {
+        "ads_ms": 308,
+        "velocity_mps": 599.5000000000001
+      },
+      "operations": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GGunkickRandom",
+          "modifier": "Mult_A",
+          "value": -0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GMovement_ADSSpeed",
+          "modifier": "Addend",
+          "value": -0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GGunkickSpring",
+          "modifier": "Mult_A",
+          "value": -0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        }
+      ]
+    },
+    {
+      "mode": "bd",
+      "item_id": "13020000173",
+      "tune_id": "authoring:part:13020000173:tune:length:0",
+      "value": -10,
+      "default": {
+        "ads_ms": 327,
+        "velocity_mps": 626.7500000000001
+      },
+      "current": {
+        "ads_ms": 317,
+        "velocity_mps": 570.3424977585674
+      },
+      "operations": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GBullet_Velocity",
+          "modifier": "Mult_A",
+          "value": -0.09000000357627869,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:length:0"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GAiming_ADSTime",
+          "modifier": "Mult_A",
+          "value": -0.03,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:length:0"
+        }
+      ]
+    },
+    {
+      "mode": "bd",
+      "item_id": "13020000173",
+      "tune_id": "authoring:part:13020000173:tune:length:0",
+      "value": 10,
+      "default": {
+        "ads_ms": 327,
+        "velocity_mps": 626.7500000000001
+      },
+      "current": {
+        "ads_ms": 337,
+        "velocity_mps": 683.1575022414328
+      },
+      "operations": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GBullet_Velocity",
+          "modifier": "Mult_A",
+          "value": 0.09000000357627869,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:length:0"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GAiming_ADSTime",
+          "modifier": "Mult_A",
+          "value": 0.03,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:length:0"
+        }
+      ]
+    },
+    {
+      "mode": "bd",
+      "item_id": "13020000173",
+      "tune_id": "authoring:part:13020000173:tune:weight:1",
+      "value": -50,
+      "default": {
+        "ads_ms": 327,
+        "velocity_mps": 626.7500000000001
+      },
+      "current": {
+        "ads_ms": 327,
+        "velocity_mps": 626.7500000000001
+      },
+      "operations": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GGunkickRandom",
+          "modifier": "Mult_A",
+          "value": 0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GMovement_ADSSpeed",
+          "modifier": "Addend",
+          "value": 0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GGunkickSpring",
+          "modifier": "Mult_A",
+          "value": 0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        }
+      ]
+    },
+    {
+      "mode": "bd",
+      "item_id": "13020000173",
+      "tune_id": "authoring:part:13020000173:tune:weight:1",
+      "value": 50,
+      "default": {
+        "ads_ms": 327,
+        "velocity_mps": 626.7500000000001
+      },
+      "current": {
+        "ads_ms": 327,
+        "velocity_mps": 626.7500000000001
+      },
+      "operations": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GGunkickRandom",
+          "modifier": "Mult_A",
+          "value": -0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GMovement_ADSSpeed",
+          "modifier": "Addend",
+          "value": -0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GGunkickSpring",
+          "modifier": "Mult_A",
+          "value": -0.04,
+          "scope": "NONE",
+          "sourceItemId": "13020000173",
+          "sourceTuneId": "authoring:part:13020000173:tune:weight:1"
+        }
+      ]
+    }
+  ],
+  "catalog_contexts_checked": 2858,
+  "catalog_definitions_checked": 691,
+  "nonneutralDefaults": [],
+  "scope": "Executable source verification; not Global-client measurement.",
+  "data_version": "20261108-an94-bd-shop.1",
+  "runtime_version": "09f820e0d3ada199",
+  "sources": {
+    "curves": {
+      "url": "https://dfttk.com/static/weaponBuilderV3Curves-xeDUt094.js",
+      "sha256": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1"
+    },
+    "kernel": {
+      "url": "https://dfttk.com/static/weaponBuilderV3FireControl-C-hA1uh4.js",
+      "sha256": "c2d3edda2a9032b91023d81f6f6c5967ccb4938574f3afb8927b2263cf88d2bc"
+    },
+    "attributes": {
+      "url": "https://dfttk.com/static/weaponBuilderV3AttributeCalculator-DsSa40Fx.js",
+      "sha256": "a4ef0082b4b18ab9deb0039699f6ffc228f52a8abb1d035e12d323dc18be2b69"
+    }
+  },
+  "execution": "Local Node execution of deployed source; kernel UI prefix removed, test-only exports added; calculator functions unchanged."
+}

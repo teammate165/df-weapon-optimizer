@@ -1,0 +1,5909 @@
+{
+  "schemaVersion": 1,
+  "kind": "weaponBuildSharedShard",
+  "shardId": "barrel-0005",
+  "recordCount": 182,
+  "payload": {
+    "parts": {
+      "13020000406": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": [
+          "authoring:part:13020000406:tune:length:0",
+          "authoring:part:13020000406:tune:weight:1"
+        ]
+      },
+      "13020000407": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": [
+          "authoring:part:13020000407:tune:length:0",
+          "authoring:part:13020000407:tune:weight:1"
+        ]
+      },
+      "13020000408": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": []
+      },
+      "13020000409": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": []
+      },
+      "13020000410": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": [
+          "authoring:part:13020000410:tune:length:0",
+          "authoring:part:13020000410:tune:weight:1"
+        ]
+      },
+      "13020000411": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": []
+      },
+      "13020000412": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": []
+      },
+      "13020000413": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": []
+      },
+      "13020000414": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": [
+          "authoring:part:13020000414:tune:length:0",
+          "authoring:part:13020000414:tune:weight:1"
+        ]
+      },
+      "13020000415": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": []
+      },
+      "13020000416": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": [
+          "authoring:part:13020000416:tune:length:0",
+          "authoring:part:13020000416:tune:weight:1"
+        ]
+      },
+      "13020000417": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": []
+      },
+      "13020000418": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": []
+      },
+      "13020000419": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": [
+          "authoring:part:13020000419:tune:length:0",
+          "authoring:part:13020000419:tune:weight:1"
+        ]
+      },
+      "13020000420": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": [
+          "authoring:part:13020000420:tune:length:0",
+          "authoring:part:13020000420:tune:weight:1"
+        ]
+      },
+      "13020000421": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": [
+          "authoring:part:13020000421:tune:length:0",
+          "authoring:part:13020000421:tune:weight:1"
+        ]
+      },
+      "13020000422": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": []
+      },
+      "13020000423": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": [
+          "authoring:part:13020000423:tune:length:0",
+          "authoring:part:13020000423:tune:weight:1"
+        ]
+      },
+      "13020000424": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": [
+          "authoring:part:13020000424:tune:length:0",
+          "authoring:part:13020000424:tune:weight:1"
+        ]
+      },
+      "13020000425": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": [
+          "authoring:part:13020000425:tune:length:0",
+          "authoring:part:13020000425:tune:weight:1"
+        ]
+      },
+      "13020000426": {
+        "effectSetIds": {
+          "sol": null,
+          "mp": null,
+          "bd": null
+        },
+        "tuneIds": []
+      }
+    },
+    "effectsByItemId": {
+      "13020000406": {
+        "sol": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          }
+        ],
+        "mp": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          }
+        ],
+        "bd": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          }
+        ]
+      },
+      "13020000407": {
+        "sol": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": -7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": -7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          }
+        ],
+        "mp": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": -10,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": -10,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          }
+        ],
+        "bd": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": -7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": -7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          }
+        ]
+      },
+      "13020000408": {
+        "sol": [],
+        "mp": [],
+        "bd": []
+      },
+      "13020000409": {
+        "sol": [],
+        "mp": [],
+        "bd": []
+      },
+      "13020000410": {
+        "sol": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 10,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": -2,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 10,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": -2,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          }
+        ],
+        "mp": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.09,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.09,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          }
+        ],
+        "bd": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 10,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": -2,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 10,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": -2,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          }
+        ]
+      },
+      "13020000411": {
+        "sol": [],
+        "mp": [],
+        "bd": []
+      },
+      "13020000412": {
+        "sol": [],
+        "mp": [],
+        "bd": []
+      },
+      "13020000413": {
+        "sol": [],
+        "mp": [],
+        "bd": []
+      },
+      "13020000414": {
+        "sol": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          }
+        ],
+        "mp": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          }
+        ],
+        "bd": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          }
+        ]
+      },
+      "13020000415": {
+        "sol": [],
+        "mp": [],
+        "bd": []
+      },
+      "13020000416": {
+        "sol": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": -7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": -7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          }
+        ],
+        "mp": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": -10,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": -10,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          }
+        ],
+        "bd": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": -7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": -7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          }
+        ]
+      },
+      "13020000417": {
+        "sol": [],
+        "mp": [],
+        "bd": []
+      },
+      "13020000418": {
+        "sol": [],
+        "mp": [],
+        "bd": []
+      },
+      "13020000419": {
+        "sol": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.06,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.06,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          }
+        ],
+        "mp": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.09,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 1,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.09,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 1,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          }
+        ],
+        "bd": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.03,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.03,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          }
+        ]
+      },
+      "13020000420": {
+        "sol": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          }
+        ],
+        "mp": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          }
+        ],
+        "bd": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          }
+        ]
+      },
+      "13020000421": {
+        "sol": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": -7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": -7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          }
+        ],
+        "mp": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": -10,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": -10,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          }
+        ],
+        "bd": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": -7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": -7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          }
+        ]
+      },
+      "13020000422": {
+        "sol": [],
+        "mp": [],
+        "bd": []
+      },
+      "13020000423": {
+        "sol": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.06,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.06,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          }
+        ],
+        "mp": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.09,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 1,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.09,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 1,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          }
+        ],
+        "bd": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.03,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.03,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 0,
+            "scope": "NONE"
+          }
+        ]
+      },
+      "13020000424": {
+        "sol": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": -7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.3,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": -7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          }
+        ],
+        "mp": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": -10,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": -10,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          }
+        ],
+        "bd": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": -7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0.15,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 9,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": -12,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": -7,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          }
+        ]
+      },
+      "13020000425": {
+        "sol": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          }
+        ],
+        "mp": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          }
+        ],
+        "bd": [
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.5",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "DisplayAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.2",
+            "modifier": "Mult_A",
+            "value": 0,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.3",
+            "modifier": "Addend",
+            "value": 4,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.4",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.5",
+            "modifier": "Addend",
+            "value": 8,
+            "scope": "NONE"
+          },
+          {
+            "operation": "StaticAttributeModify",
+            "target": "WeaponMainAttribute.MainAttrValues.6",
+            "modifier": "Addend",
+            "value": -6,
+            "scope": "NONE"
+          }
+        ]
+      },
+      "13020000426": {
+        "sol": [],
+        "mp": [],
+        "bd": []
+      }
+    },
+    "tunes": {
+      "authoring:part:13020000406:tune:length:0": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -10,
+            "max": 10,
+            "step": 0.2,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -10,
+          "maxValue": 10,
+          "step": 0.2
+        },
+        "labels": {
+          "mainLocId": "authoring:长度",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:毫米"
+        },
+        "functions": [
+          {
+            "target": "GBullet_Velocity",
+            "curveId": "authoring:part:13020000406:tune:length:0:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GAiming_ADSTime",
+            "curveId": "authoring:part:13020000406:tune:length:0:curve:1",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000406:tune:weight:1": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -50,
+            "max": 50,
+            "step": 1,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -50,
+          "maxValue": 50,
+          "step": 1
+        },
+        "labels": {
+          "mainLocId": "authoring:配重",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:g"
+        },
+        "functions": [
+          {
+            "target": "GGunkickRandom",
+            "curveId": "authoring:part:13020000406:tune:weight:1:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GMovement_ADSSpeed",
+            "curveId": "authoring:part:13020000406:tune:weight:1:curve:1",
+            "modifier": "Addend"
+          },
+          {
+            "target": "GGunkickSpring",
+            "curveId": "authoring:part:13020000406:tune:weight:1:curve:2",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000407:tune:length:0": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -10,
+            "max": 10,
+            "step": 0.2,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -10,
+          "maxValue": 10,
+          "step": 0.2
+        },
+        "labels": {
+          "mainLocId": "authoring:长度",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:毫米"
+        },
+        "functions": [
+          {
+            "target": "GBullet_Velocity",
+            "curveId": "authoring:part:13020000407:tune:length:0:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GAiming_ADSTime",
+            "curveId": "authoring:part:13020000407:tune:length:0:curve:1",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000407:tune:weight:1": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -50,
+            "max": 50,
+            "step": 1,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -50,
+          "maxValue": 50,
+          "step": 1
+        },
+        "labels": {
+          "mainLocId": "authoring:配重",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:g"
+        },
+        "functions": [
+          {
+            "target": "GGunkickRandom",
+            "curveId": "authoring:part:13020000407:tune:weight:1:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GMovement_ADSSpeed",
+            "curveId": "authoring:part:13020000407:tune:weight:1:curve:1",
+            "modifier": "Addend"
+          },
+          {
+            "target": "GGunkickSpring",
+            "curveId": "authoring:part:13020000407:tune:weight:1:curve:2",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000410:tune:length:0": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -10,
+            "max": 10,
+            "step": 0.2,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -10,
+          "maxValue": 10,
+          "step": 0.2
+        },
+        "labels": {
+          "mainLocId": "authoring:长度",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:毫米"
+        },
+        "functions": [
+          {
+            "target": "GBullet_Velocity",
+            "curveId": "authoring:part:13020000410:tune:length:0:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GAiming_ADSTime",
+            "curveId": "authoring:part:13020000410:tune:length:0:curve:1",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000410:tune:weight:1": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -50,
+            "max": 50,
+            "step": 1,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -50,
+          "maxValue": 50,
+          "step": 1
+        },
+        "labels": {
+          "mainLocId": "authoring:配重",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:g"
+        },
+        "functions": [
+          {
+            "target": "GGunkickRandom",
+            "curveId": "authoring:part:13020000410:tune:weight:1:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GMovement_ADSSpeed",
+            "curveId": "authoring:part:13020000410:tune:weight:1:curve:1",
+            "modifier": "Addend"
+          },
+          {
+            "target": "GGunkickSpring",
+            "curveId": "authoring:part:13020000410:tune:weight:1:curve:2",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000414:tune:length:0": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -10,
+            "max": 10,
+            "step": 0.2,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -10,
+          "maxValue": 10,
+          "step": 0.2
+        },
+        "labels": {
+          "mainLocId": "authoring:长度",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:毫米"
+        },
+        "functions": [
+          {
+            "target": "GBullet_Velocity",
+            "curveId": "authoring:part:13020000414:tune:length:0:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GAiming_ADSTime",
+            "curveId": "authoring:part:13020000414:tune:length:0:curve:1",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000414:tune:weight:1": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -50,
+            "max": 50,
+            "step": 1,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -50,
+          "maxValue": 50,
+          "step": 1
+        },
+        "labels": {
+          "mainLocId": "authoring:配重",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:g"
+        },
+        "functions": [
+          {
+            "target": "GGunkickRandom",
+            "curveId": "authoring:part:13020000414:tune:weight:1:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GMovement_ADSSpeed",
+            "curveId": "authoring:part:13020000414:tune:weight:1:curve:1",
+            "modifier": "Addend"
+          },
+          {
+            "target": "GGunkickSpring",
+            "curveId": "authoring:part:13020000414:tune:weight:1:curve:2",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000416:tune:length:0": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -10,
+            "max": 10,
+            "step": 0.2,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -10,
+          "maxValue": 10,
+          "step": 0.2
+        },
+        "labels": {
+          "mainLocId": "authoring:长度",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:毫米"
+        },
+        "functions": [
+          {
+            "target": "GBullet_Velocity",
+            "curveId": "authoring:part:13020000416:tune:length:0:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GAiming_ADSTime",
+            "curveId": "authoring:part:13020000416:tune:length:0:curve:1",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000416:tune:weight:1": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -50,
+            "max": 50,
+            "step": 1,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -50,
+          "maxValue": 50,
+          "step": 1
+        },
+        "labels": {
+          "mainLocId": "authoring:配重",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:g"
+        },
+        "functions": [
+          {
+            "target": "GGunkickRandom",
+            "curveId": "authoring:part:13020000416:tune:weight:1:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GMovement_ADSSpeed",
+            "curveId": "authoring:part:13020000416:tune:weight:1:curve:1",
+            "modifier": "Addend"
+          },
+          {
+            "target": "GGunkickSpring",
+            "curveId": "authoring:part:13020000416:tune:weight:1:curve:2",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000419:tune:length:0": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -10,
+            "max": 10,
+            "step": 0.2,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -10,
+          "maxValue": 10,
+          "step": 0.2
+        },
+        "labels": {
+          "mainLocId": "authoring:长度",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:毫米"
+        },
+        "functions": [
+          {
+            "target": "GBullet_Velocity",
+            "curveId": "authoring:part:13020000419:tune:length:0:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GAiming_ADSTime",
+            "curveId": "authoring:part:13020000419:tune:length:0:curve:1",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000419:tune:weight:1": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -50,
+            "max": 50,
+            "step": 1,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -50,
+          "maxValue": 50,
+          "step": 1
+        },
+        "labels": {
+          "mainLocId": "authoring:配重",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:g"
+        },
+        "functions": [
+          {
+            "target": "GGunkickRandom",
+            "curveId": "authoring:part:13020000419:tune:weight:1:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GMovement_ADSSpeed",
+            "curveId": "authoring:part:13020000419:tune:weight:1:curve:1",
+            "modifier": "Addend"
+          },
+          {
+            "target": "GGunkickSpring",
+            "curveId": "authoring:part:13020000419:tune:weight:1:curve:2",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000420:tune:length:0": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -10,
+            "max": 10,
+            "step": 0.2,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -10,
+          "maxValue": 10,
+          "step": 0.2
+        },
+        "labels": {
+          "mainLocId": "authoring:长度",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:毫米"
+        },
+        "functions": [
+          {
+            "target": "GBullet_Velocity",
+            "curveId": "authoring:part:13020000420:tune:length:0:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GAiming_ADSTime",
+            "curveId": "authoring:part:13020000420:tune:length:0:curve:1",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000420:tune:weight:1": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -50,
+            "max": 50,
+            "step": 1,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -50,
+          "maxValue": 50,
+          "step": 1
+        },
+        "labels": {
+          "mainLocId": "authoring:配重",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:g"
+        },
+        "functions": [
+          {
+            "target": "GGunkickRandom",
+            "curveId": "authoring:part:13020000420:tune:weight:1:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GMovement_ADSSpeed",
+            "curveId": "authoring:part:13020000420:tune:weight:1:curve:1",
+            "modifier": "Addend"
+          },
+          {
+            "target": "GGunkickSpring",
+            "curveId": "authoring:part:13020000420:tune:weight:1:curve:2",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000421:tune:length:0": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -10,
+            "max": 10,
+            "step": 0.2,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -10,
+          "maxValue": 10,
+          "step": 0.2
+        },
+        "labels": {
+          "mainLocId": "authoring:长度",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:毫米"
+        },
+        "functions": [
+          {
+            "target": "GBullet_Velocity",
+            "curveId": "authoring:part:13020000421:tune:length:0:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GAiming_ADSTime",
+            "curveId": "authoring:part:13020000421:tune:length:0:curve:1",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000421:tune:weight:1": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -50,
+            "max": 50,
+            "step": 1,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -50,
+          "maxValue": 50,
+          "step": 1
+        },
+        "labels": {
+          "mainLocId": "authoring:配重",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:g"
+        },
+        "functions": [
+          {
+            "target": "GGunkickRandom",
+            "curveId": "authoring:part:13020000421:tune:weight:1:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GMovement_ADSSpeed",
+            "curveId": "authoring:part:13020000421:tune:weight:1:curve:1",
+            "modifier": "Addend"
+          },
+          {
+            "target": "GGunkickSpring",
+            "curveId": "authoring:part:13020000421:tune:weight:1:curve:2",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000423:tune:length:0": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -10,
+            "max": 10,
+            "step": 0.2,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -10,
+          "maxValue": 10,
+          "step": 0.2
+        },
+        "labels": {
+          "mainLocId": "authoring:长度",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:毫米"
+        },
+        "functions": [
+          {
+            "target": "GBullet_Velocity",
+            "curveId": "authoring:part:13020000423:tune:length:0:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GAiming_ADSTime",
+            "curveId": "authoring:part:13020000423:tune:length:0:curve:1",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000423:tune:weight:1": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -50,
+            "max": 50,
+            "step": 1,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -50,
+          "maxValue": 50,
+          "step": 1
+        },
+        "labels": {
+          "mainLocId": "authoring:配重",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:g"
+        },
+        "functions": [
+          {
+            "target": "GGunkickRandom",
+            "curveId": "authoring:part:13020000423:tune:weight:1:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GMovement_ADSSpeed",
+            "curveId": "authoring:part:13020000423:tune:weight:1:curve:1",
+            "modifier": "Addend"
+          },
+          {
+            "target": "GGunkickSpring",
+            "curveId": "authoring:part:13020000423:tune:weight:1:curve:2",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000424:tune:length:0": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -10,
+            "max": 10,
+            "step": 0.2,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -10,
+          "maxValue": 10,
+          "step": 0.2
+        },
+        "labels": {
+          "mainLocId": "authoring:长度",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:毫米"
+        },
+        "functions": [
+          {
+            "target": "GBullet_Velocity",
+            "curveId": "authoring:part:13020000424:tune:length:0:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GAiming_ADSTime",
+            "curveId": "authoring:part:13020000424:tune:length:0:curve:1",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000424:tune:weight:1": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -50,
+            "max": 50,
+            "step": 1,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -50,
+          "maxValue": 50,
+          "step": 1
+        },
+        "labels": {
+          "mainLocId": "authoring:配重",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:g"
+        },
+        "functions": [
+          {
+            "target": "GGunkickRandom",
+            "curveId": "authoring:part:13020000424:tune:weight:1:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GMovement_ADSSpeed",
+            "curveId": "authoring:part:13020000424:tune:weight:1:curve:1",
+            "modifier": "Addend"
+          },
+          {
+            "target": "GGunkickSpring",
+            "curveId": "authoring:part:13020000424:tune:weight:1:curve:2",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000425:tune:length:0": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -10,
+            "max": 10,
+            "step": 0.2,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -10,
+          "maxValue": 10,
+          "step": 0.2
+        },
+        "labels": {
+          "mainLocId": "authoring:长度",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:毫米"
+        },
+        "functions": [
+          {
+            "target": "GBullet_Velocity",
+            "curveId": "authoring:part:13020000425:tune:length:0:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GAiming_ADSTime",
+            "curveId": "authoring:part:13020000425:tune:length:0:curve:1",
+            "modifier": "Mult_A"
+          }
+        ]
+      },
+      "authoring:part:13020000425:tune:weight:1": {
+        "availability": {
+          "default": {
+            "enabled": true,
+            "positions": 0,
+            "notch": 0,
+            "min": -50,
+            "max": 50,
+            "step": 1,
+            "dflt": 0
+          }
+        },
+        "sliderType": "Continue",
+        "meshType": "None",
+        "range": {
+          "defaultValue": 0,
+          "minValue": -50,
+          "maxValue": 50,
+          "step": 1
+        },
+        "labels": {
+          "mainLocId": "authoring:配重",
+          "greaterLocId": "authoring:+",
+          "lessLocId": "authoring:-",
+          "unitLocId": "authoring:g"
+        },
+        "functions": [
+          {
+            "target": "GGunkickRandom",
+            "curveId": "authoring:part:13020000425:tune:weight:1:curve:0",
+            "modifier": "Mult_A"
+          },
+          {
+            "target": "GMovement_ADSSpeed",
+            "curveId": "authoring:part:13020000425:tune:weight:1:curve:1",
+            "modifier": "Addend"
+          },
+          {
+            "target": "GGunkickSpring",
+            "curveId": "authoring:part:13020000425:tune:weight:1:curve:2",
+            "modifier": "Mult_A"
+          }
+        ]
+      }
+    },
+    "curves": {
+      "authoring:part:13020000406:tune:length:0:curve:0": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000406:tune:length:0:curve:1": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000406:tune:weight:1:curve:0": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000406:tune:weight:1:curve:1": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000406:tune:weight:1:curve:2": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000407:tune:length:0:curve:0": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000407:tune:length:0:curve:1": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000407:tune:weight:1:curve:0": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000407:tune:weight:1:curve:1": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000407:tune:weight:1:curve:2": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000410:tune:length:0:curve:0": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000410:tune:length:0:curve:1": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000410:tune:weight:1:curve:0": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000410:tune:weight:1:curve:1": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000410:tune:weight:1:curve:2": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000414:tune:length:0:curve:0": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000414:tune:length:0:curve:1": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000414:tune:weight:1:curve:0": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000414:tune:weight:1:curve:1": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000414:tune:weight:1:curve:2": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000416:tune:length:0:curve:0": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000416:tune:length:0:curve:1": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000416:tune:weight:1:curve:0": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000416:tune:weight:1:curve:1": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000416:tune:weight:1:curve:2": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000419:tune:length:0:curve:0": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000419:tune:length:0:curve:1": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000419:tune:weight:1:curve:0": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000419:tune:weight:1:curve:1": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000419:tune:weight:1:curve:2": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000420:tune:length:0:curve:0": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000420:tune:length:0:curve:1": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000420:tune:weight:1:curve:0": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000420:tune:weight:1:curve:1": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000420:tune:weight:1:curve:2": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000421:tune:length:0:curve:0": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000421:tune:length:0:curve:1": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000421:tune:weight:1:curve:0": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000421:tune:weight:1:curve:1": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000421:tune:weight:1:curve:2": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000423:tune:length:0:curve:0": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000423:tune:length:0:curve:1": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000423:tune:weight:1:curve:0": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000423:tune:weight:1:curve:1": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000423:tune:weight:1:curve:2": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000424:tune:length:0:curve:0": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000424:tune:length:0:curve:1": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000424:tune:weight:1:curve:0": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000424:tune:weight:1:curve:1": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000424:tune:weight:1:curve:2": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000425:tune:length:0:curve:0": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.09,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000425:tune:length:0:curve:1": {
+        "points": [
+          {
+            "inputValue": -10,
+            "outputValue": -0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 10,
+            "outputValue": 0.03,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000425:tune:weight:1:curve:0": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000425:tune:weight:1:curve:1": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      },
+      "authoring:part:13020000425:tune:weight:1:curve:2": {
+        "points": [
+          {
+            "inputValue": -50,
+            "outputValue": 0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 0,
+            "outputValue": 0,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          },
+          {
+            "inputValue": 50,
+            "outputValue": -0.04,
+            "interpolationMode": "RCIM_Linear",
+            "arriveTangent": 0,
+            "leaveTangent": 0
+          }
+        ]
+      }
+    },
+    "assembly": {
+      "socketProviders": {
+        "13020000406": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000173",
+                "13130000174",
+                "13130000175",
+                "13130000176",
+                "13130000196",
+                "13130000197",
+                "13130000202",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224"
+              ]
+            }
+          ]
+        },
+        "13020000407": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000173",
+                "13130000174",
+                "13130000175",
+                "13130000176",
+                "13130000196",
+                "13130000197",
+                "13130000202",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224"
+              ]
+            }
+          ]
+        },
+        "13020000408": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000178",
+                "13130000196",
+                "13130000197",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224",
+                "13130000229"
+              ]
+            }
+          ]
+        },
+        "13020000410": {
+          "sockets": [
+            {
+              "socketId": 8,
+              "optionItemIds": [
+                "13140000021",
+                "13140000022",
+                "13140000023",
+                "13140000024",
+                "13140000025",
+                "13140000026",
+                "13140000027",
+                "13140000028",
+                "13140000029",
+                "13140000030",
+                "13140000031",
+                "13140000032",
+                "13140000033",
+                "13140000034",
+                "13140000035",
+                "13140000036",
+                "13140000037",
+                "13140000038",
+                "13140000039",
+                "13140000040",
+                "13140000041",
+                "13140000042",
+                "13140000043",
+                "13140000044"
+              ]
+            },
+            {
+              "socketId": 10,
+              "optionItemIds": [
+                "13170000004"
+              ]
+            },
+            {
+              "socketId": 17,
+              "optionItemIds": [
+                "13160000005",
+                "13160000006",
+                "13160000007",
+                "13160000009",
+                "13160000010",
+                "13160000018"
+              ]
+            },
+            {
+              "socketId": 19,
+              "optionItemIds": [
+                "13160000005",
+                "13160000006",
+                "13160000007",
+                "13160000008",
+                "13160000009",
+                "13160000010",
+                "13160000014",
+                "13160000016"
+              ]
+            },
+            {
+              "socketId": 20,
+              "optionItemIds": [
+                "13160000005",
+                "13160000006",
+                "13160000007",
+                "13160000008",
+                "13160000009",
+                "13160000010",
+                "13160000014",
+                "13160000016",
+                "13160000018"
+              ]
+            }
+          ]
+        },
+        "13020000411": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000172",
+                "13130000173",
+                "13130000174",
+                "13130000175",
+                "13130000176",
+                "13130000177",
+                "13130000196",
+                "13130000197",
+                "13130000202",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000211",
+                "13130000224"
+              ]
+            },
+            {
+              "socketId": 19,
+              "optionItemIds": [
+                "13160000005",
+                "13160000006",
+                "13160000007",
+                "13160000008",
+                "13160000009",
+                "13160000010",
+                "13160000014",
+                "13160000016"
+              ]
+            },
+            {
+              "socketId": 20,
+              "optionItemIds": [
+                "13160000005",
+                "13160000006",
+                "13160000007",
+                "13160000008",
+                "13160000009",
+                "13160000010",
+                "13160000014",
+                "13160000016",
+                "13160000018"
+              ]
+            }
+          ]
+        },
+        "13020000412": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000178",
+                "13130000196",
+                "13130000197",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224",
+                "13130000229"
+              ]
+            }
+          ]
+        },
+        "13020000413": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000173",
+                "13130000174",
+                "13130000175",
+                "13130000176",
+                "13130000196",
+                "13130000197",
+                "13130000202",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224"
+              ]
+            },
+            {
+              "socketId": 10,
+              "optionItemIds": [
+                "13170000002"
+              ]
+            }
+          ]
+        },
+        "13020000414": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000173",
+                "13130000174",
+                "13130000175",
+                "13130000176",
+                "13130000196",
+                "13130000197",
+                "13130000202",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224"
+              ]
+            }
+          ]
+        },
+        "13020000415": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000173",
+                "13130000174",
+                "13130000175",
+                "13130000176",
+                "13130000196",
+                "13130000197",
+                "13130000202",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224"
+              ]
+            },
+            {
+              "socketId": 10,
+              "optionItemIds": [
+                "13170000002"
+              ]
+            }
+          ]
+        },
+        "13020000416": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000173",
+                "13130000174",
+                "13130000175",
+                "13130000176",
+                "13130000196",
+                "13130000197",
+                "13130000202",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224"
+              ]
+            },
+            {
+              "socketId": 10,
+              "optionItemIds": [
+                "13170000002"
+              ]
+            }
+          ]
+        },
+        "13020000417": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000173",
+                "13130000174",
+                "13130000175",
+                "13130000176",
+                "13130000196",
+                "13130000197",
+                "13130000202",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224"
+              ]
+            },
+            {
+              "socketId": 10,
+              "optionItemIds": [
+                "13170000002"
+              ]
+            }
+          ]
+        },
+        "13020000418": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000172",
+                "13130000196",
+                "13130000197",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224"
+              ]
+            }
+          ]
+        },
+        "13020000419": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000172",
+                "13130000196",
+                "13130000197",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224",
+                "13130000229"
+              ]
+            }
+          ]
+        },
+        "13020000420": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000172",
+                "13130000196",
+                "13130000197",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224",
+                "13130000229"
+              ]
+            }
+          ]
+        },
+        "13020000421": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000172",
+                "13130000196",
+                "13130000197",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224",
+                "13130000229"
+              ]
+            }
+          ]
+        },
+        "13020000422": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000172",
+                "13130000196",
+                "13130000197",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224"
+              ]
+            }
+          ]
+        },
+        "13020000423": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000172",
+                "13130000196",
+                "13130000197",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224",
+                "13130000229"
+              ]
+            }
+          ]
+        },
+        "13020000424": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000172",
+                "13130000196",
+                "13130000197",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224",
+                "13130000229"
+              ]
+            }
+          ]
+        },
+        "13020000425": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000172",
+                "13130000196",
+                "13130000197",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224",
+                "13130000229"
+              ]
+            }
+          ]
+        },
+        "13020000426": {
+          "sockets": [
+            {
+              "socketId": 6,
+              "optionItemIds": [
+                "13130000155",
+                "13130000157",
+                "13130000158",
+                "13130000159",
+                "13130000160",
+                "13130000161",
+                "13130000162",
+                "13130000163",
+                "13130000164",
+                "13130000165",
+                "13130000167",
+                "13130000168",
+                "13130000169",
+                "13130000170",
+                "13130000171",
+                "13130000172",
+                "13130000196",
+                "13130000197",
+                "13130000204",
+                "13130000208",
+                "13130000209",
+                "13130000210",
+                "13130000224"
+              ]
+            }
+          ]
+        }
+      },
+      "extraOccupancy": {
+        "13020000420": {
+          "occupiedSocketIds": [
+            8,
+            14
+          ]
+        }
+      }
+    },
+    "display": {
+      "objects": {
+        "13020000406": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "rarityId": "紫",
+          "imagePath": "https://playerhub.df.qq.com/playerhub/60004/object/13020000406.png",
+          "previewImagePath": "https://playerhub.df.qq.com/playerhub/60004/object/p_13020000406.png",
+          "playerSelectable": true
+        },
+        "13020000407": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "rarityId": "紫",
+          "imagePath": "https://playerhub.df.qq.com/playerhub/60004/object/13020000407.png",
+          "previewImagePath": "https://playerhub.df.qq.com/playerhub/60004/object/p_13020000407.png",
+          "playerSelectable": true
+        },
+        "13020000408": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "playerSelectable": false
+        },
+        "13020000409": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "playerSelectable": false
+        },
+        "13020000410": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "rarityId": "紫",
+          "imagePath": "https://playerhub.df.qq.com/playerhub/60004/object/13020000410.png",
+          "previewImagePath": "https://playerhub.df.qq.com/playerhub/60004/object/p_13020000410.png",
+          "playerSelectable": true
+        },
+        "13020000411": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "playerSelectable": false
+        },
+        "13020000412": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "playerSelectable": false
+        },
+        "13020000413": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "playerSelectable": false
+        },
+        "13020000414": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "rarityId": "蓝",
+          "imagePath": "https://playerhub.df.qq.com/playerhub/60004/object/13020000414.png",
+          "previewImagePath": "https://playerhub.df.qq.com/playerhub/60004/object/p_13020000414.png",
+          "playerSelectable": true
+        },
+        "13020000415": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "playerSelectable": false
+        },
+        "13020000416": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "rarityId": "蓝",
+          "imagePath": "https://playerhub.df.qq.com/playerhub/60004/object/13020000416.png",
+          "previewImagePath": "https://playerhub.df.qq.com/playerhub/60004/object/p_13020000416.png",
+          "playerSelectable": true
+        },
+        "13020000417": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "playerSelectable": false
+        },
+        "13020000418": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "playerSelectable": false
+        },
+        "13020000419": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "rarityId": "蓝",
+          "imagePath": "https://playerhub.df.qq.com/playerhub/60004/object/13020000419.png",
+          "previewImagePath": "https://playerhub.df.qq.com/playerhub/60004/object/p_13020000419.png",
+          "playerSelectable": true
+        },
+        "13020000420": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "rarityId": "紫",
+          "imagePath": "https://playerhub.df.qq.com/playerhub/60004/object/13020000420.png",
+          "previewImagePath": "https://playerhub.df.qq.com/playerhub/60004/object/p_13020000420.png",
+          "playerSelectable": true
+        },
+        "13020000421": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "rarityId": "紫",
+          "imagePath": "https://playerhub.df.qq.com/playerhub/60004/object/13020000421.png",
+          "previewImagePath": "https://playerhub.df.qq.com/playerhub/60004/object/p_13020000421.png",
+          "playerSelectable": true
+        },
+        "13020000422": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "playerSelectable": false
+        },
+        "13020000423": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "rarityId": "绿",
+          "imagePath": "https://playerhub.df.qq.com/playerhub/60004/object/13020000423.png",
+          "previewImagePath": "https://playerhub.df.qq.com/playerhub/60004/object/p_13020000423.png",
+          "playerSelectable": true
+        },
+        "13020000424": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "rarityId": "蓝",
+          "imagePath": "https://playerhub.df.qq.com/playerhub/60004/object/13020000424.png",
+          "previewImagePath": "https://playerhub.df.qq.com/playerhub/60004/object/p_13020000424.png",
+          "playerSelectable": true
+        },
+        "13020000425": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "rarityId": "蓝",
+          "imagePath": "https://playerhub.df.qq.com/playerhub/60004/object/13020000425.png",
+          "previewImagePath": "https://playerhub.df.qq.com/playerhub/60004/object/p_13020000425.png",
+          "playerSelectable": true
+        },
+        "13020000426": {
+          "objectType": "part",
+          "categoryId": "barrel",
+          "playerSelectable": false
+        }
+      },
+      "strings": {
+        "13020000406": "SKS截断标准枪管",
+        "13020000407": "SKS瞬息超长枪管",
+        "13020000408": "内部配件 13020000408",
+        "13020000409": "内部配件 13020000409",
+        "13020000410": "VSS海啸长枪管组合",
+        "13020000411": "内部配件 13020000411",
+        "13020000412": "内部配件 13020000412",
+        "13020000413": "内部配件 13020000413",
+        "13020000414": "PKM壕战短枪管",
+        "13020000415": "内部配件 13020000415",
+        "13020000416": "PKM地平线重枪管",
+        "13020000417": "内部配件 13020000417",
+        "13020000418": "内部配件 13020000418",
+        "13020000419": "Vector导轨枪管组合",
+        "13020000420": "Vector堡垒重枪管组合",
+        "13020000421": "Vector长剑超长枪管组合",
+        "13020000422": "内部配件 13020000422",
+        "13020000423": "smg45实用重枪管",
+        "13020000424": "SMG长弩超长枪管",
+        "13020000425": "SMG45竹鼠短枪管",
+        "13020000426": "内部配件 13020000426"
+      }
+    }
+  }
+}

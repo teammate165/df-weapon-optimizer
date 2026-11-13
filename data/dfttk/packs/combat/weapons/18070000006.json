@@ -1,0 +1,3955 @@
+{
+  "schemaVersion": 3,
+  "kind": "weaponCombatRuntimePack",
+  "weaponId": "18070000006",
+  "weapon": {
+    "schemaVersion": 3,
+    "kind": "weapon",
+    "weaponId": "18070000006",
+    "fireControl": {
+      "supportedModes": [
+        "Burst"
+      ],
+      "fireIntervalSeconds": 0.16,
+      "sdkTiming": {
+        "fireInterval": 0.16,
+        "fireCd": 0.16,
+        "fireDelayTime": 0,
+        "chamberTime": 0,
+        "fireRateMode": "Burst",
+        "burstCount": 3,
+        "burstFireCd": 0.22,
+        "burstFireInterval": 0.067,
+        "burstInterval": 0.067,
+        "autoFireSingleInterval": 0.6,
+        "autoFireBurstInterval": 0,
+        "singleFireTolerant": 0.2
+      },
+      "burstCount": 3
+    },
+    "ammunition": {
+      "ammoTypeId": "20",
+      "clipCapacity": 12,
+      "maxCarriedAmmo": 75,
+      "maxCarriedAmmoByMode": {
+        "sol": 75,
+        "mp": 75,
+        "bd": 60
+      },
+      "baseProjectileCount": 1
+    },
+    "timings": {
+      "reloadSeconds": 2.1,
+      "emptyReloadSeconds": 2.3,
+      "equipSeconds": 0.2,
+      "holsterSeconds": 0.3,
+      "sprintToFireSeconds": 0.08
+    },
+    "acoustics": {
+      "shotDistanceMeters": 300
+    },
+    "sway": {
+      "baseBreathRangeDegrees": 0.42,
+      "gunSwayBeHitScale": 1,
+      "cameraSwayBeHitScale": 1.3
+    },
+    "attributes": {
+      "independentCurve": false,
+      "displayAttrValues": {
+        "2": 22,
+        "3": 44,
+        "4": 78,
+        "5": 67,
+        "6": 38
+      },
+      "mainAttrValues": {
+        "2": 22,
+        "3": 44,
+        "4": 78,
+        "5": 67,
+        "6": 38
+      }
+    },
+    "references": {
+      "waistSpreadProfileId": "authoring:weapon:18070000006:hipSpread",
+      "waistRecoilProfileId": "authoring:weapon:18070000006:hipRecoil",
+      "aimingProfileId": "authoring:weapon:18070000006:aiming",
+      "weaponBehaviorProfileId": "authoring:weapon:18070000006:behavior",
+      "chargeProfileId": null,
+      "weaponEffectSetIds": {
+        "sol": [],
+        "mp": [],
+        "bd": []
+      },
+      "modes": {
+        "sol": {
+          "bulletProfileId": "authoring:weapon:18070000006:sol:bullet",
+          "movementProfileId": "authoring:weapon:18070000006:sol:movement",
+          "attackerProfileId": "authoring:weapon:18070000006:sol:attacker"
+        },
+        "mp": {
+          "bulletProfileId": "authoring:weapon:18070000006:mp:bullet",
+          "movementProfileId": "authoring:weapon:18070000006:mp:movement",
+          "attackerProfileId": "authoring:weapon:18070000006:mp:attacker"
+        },
+        "bd": {
+          "bulletProfileId": "authoring:weapon:18070000006:bd:bullet",
+          "movementProfileId": "authoring:weapon:18070000006:bd:movement",
+          "attackerProfileId": "authoring:weapon:18070000006:bd:attacker"
+        }
+      }
+    }
+  },
+  "combat": {
+    "attackerProfiles": {
+      "sol": {
+        "authoring:weapon:18070000006:sol:attacker": {
+          "damageProfileId": "authoring:weapon:18070000006:sol:damage"
+        }
+      },
+      "mp": {
+        "authoring:weapon:18070000006:mp:attacker": {
+          "damageProfileId": "authoring:weapon:18070000006:mp:damage"
+        }
+      },
+      "bd": {
+        "authoring:weapon:18070000006:bd:attacker": {
+          "damageProfileId": "authoring:weapon:18070000006:bd:damage"
+        }
+      }
+    },
+    "damageProfiles": {
+      "authoring:weapon:18070000006:sol:damage": {
+        "baseDamage": 34,
+        "baseArmorDamage": 32,
+        "basePenetrationLevel": 1,
+        "hitboxMultipliers": {
+          "head": 1.9,
+          "upperChest": 1,
+          "lowerChest": 0.9,
+          "upperArm": 0.4,
+          "lowerArm": 0.4,
+          "thigh": 0.4,
+          "lowerLeg": 0.4
+        }
+      },
+      "authoring:weapon:18070000006:mp:damage": {
+        "baseDamage": 25,
+        "baseArmorDamage": 0,
+        "basePenetrationLevel": 1,
+        "hitboxMultipliers": {
+          "head": 1.25,
+          "upperChest": 1,
+          "lowerChest": 1,
+          "upperArm": 0.8,
+          "lowerArm": 0.8,
+          "thigh": 0.8,
+          "lowerLeg": 0.8
+        }
+      },
+      "authoring:weapon:18070000006:bd:damage": {
+        "baseDamage": 34,
+        "baseArmorDamage": 32,
+        "basePenetrationLevel": 1,
+        "hitboxMultipliers": {
+          "head": 1.9,
+          "upperChest": 1,
+          "lowerChest": 0.9,
+          "upperArm": 0.4,
+          "lowerArm": 0.4,
+          "thigh": 0.4,
+          "lowerLeg": 0.4
+        }
+      }
+    },
+    "ammoProfiles": {
+      "37200000001": {
+        "ammoTypeId": "20",
+        "penetrationLevel": 0,
+        "damageMultiplier": 1.4,
+        "armorDamageMultiplier": 1,
+        "limbDamageMultiplier": 1,
+        "woundRate": 0.3,
+        "damageType": "PassHand_IncludeHand",
+        "blastShieldGlassDamageRate": 0.71,
+        "penetrateAttenuationRatio": 0.6
+      },
+      "37200000002": {
+        "ammoTypeId": "20",
+        "penetrationLevel": 0,
+        "damageMultiplier": 1,
+        "armorDamageMultiplier": 1,
+        "limbDamageMultiplier": 1,
+        "hitboxMultipliers": {
+          "lowerArm": 1.75,
+          "upperArm": 1.75,
+          "head": 1,
+          "lowerLeg": 1.75,
+          "thigh": 1.75,
+          "lowerChest": 1,
+          "upperChest": 1
+        },
+        "woundRate": 0.3,
+        "damageType": "PassHand_IncludeHand",
+        "blastShieldGlassDamageRate": 0.71,
+        "penetrateAttenuationRatio": 0.6,
+        "referenceOverrides": {
+          "adsSpreadProfileId": "authoring:ammo:37200000002:adsSpread"
+        }
+      },
+      "37200100001": {
+        "ammoTypeId": "20",
+        "penetrationLevel": 1,
+        "damageMultiplier": 1.1,
+        "armorDamageMultiplier": 1,
+        "limbDamageMultiplier": 1,
+        "woundRate": 0.25,
+        "throwBlockingDamageRate": 0.8,
+        "blastShieldGlassDamageRate": 0.91
+      },
+      "37200200001": {
+        "ammoTypeId": "20",
+        "penetrationLevel": 2,
+        "damageMultiplier": 1.1,
+        "armorDamageMultiplier": 1,
+        "limbDamageMultiplier": 1,
+        "woundRate": 0.2,
+        "throwBlockingDamageRate": 0.9,
+        "blastShieldGlassDamageRate": 0.91
+      },
+      "37200300001": {
+        "ammoTypeId": "20",
+        "penetrationLevel": 3,
+        "damageMultiplier": 1,
+        "armorDamageMultiplier": 1,
+        "limbDamageMultiplier": 1,
+        "woundRate": 0.15
+      },
+      "37200400001": {
+        "ammoTypeId": "20",
+        "penetrationLevel": 4,
+        "damageMultiplier": 1,
+        "armorDamageMultiplier": 1,
+        "limbDamageMultiplier": 1,
+        "woundRate": 0.15,
+        "throwBlockingDamageRate": 1.1
+      },
+      "37200500002": {
+        "ammoTypeId": "20",
+        "penetrationLevel": 5,
+        "damageMultiplier": 0.9,
+        "armorDamageMultiplier": 0.85,
+        "limbDamageMultiplier": 1,
+        "projectileMultiplier": 1,
+        "cameraSwayHitScale": 1,
+        "gunSwayHitScale": 1,
+        "woundRate": 0.15,
+        "dizzyRate": 0,
+        "supportedModes": [
+          "sol"
+        ],
+        "throwBlockingDamageRate": 1.2,
+        "blastShieldGlassDamageRate": 1
+      }
+    },
+    "bulletProfiles": {
+      "authoring:weapon:18070000006:sol:bullet": {
+        "initialSpeedCmPerSecond": 40000,
+        "maxDistanceCm": 50000,
+        "validDistanceCm": 2200,
+        "attenuationDistancesCm": [
+          4400,
+          60000
+        ],
+        "attenuationRates": [
+          0.8,
+          0.65
+        ],
+        "chartDistancesCm": [
+          2500,
+          5000,
+          7500,
+          10000
+        ]
+      },
+      "authoring:weapon:18070000006:mp:bullet": {
+        "initialSpeedCmPerSecond": 40000,
+        "maxDistanceCm": 50000,
+        "validDistanceCm": 1500,
+        "attenuationDistancesCm": [
+          2500,
+          3500,
+          60000
+        ],
+        "attenuationRates": [
+          0.8,
+          0.7,
+          0.6
+        ],
+        "chartDistancesCm": [
+          2500,
+          5000,
+          7500,
+          10000
+        ]
+      },
+      "authoring:weapon:18070000006:bd:bullet": {
+        "initialSpeedCmPerSecond": 40000,
+        "maxDistanceCm": 50000,
+        "validDistanceCm": 2500,
+        "attenuationDistancesCm": [
+          4000,
+          60000
+        ],
+        "attenuationRates": [
+          0.9,
+          0.8
+        ],
+        "chartDistancesCm": [
+          2500,
+          5000,
+          7500,
+          10000
+        ]
+      }
+    },
+    "chargeProfiles": {},
+    "specialFire": {
+      "weaponProfile": {
+        "supportedModes": [
+          "Burst"
+        ],
+        "scheduleStatus": "modeled"
+      },
+      "itemOverrides": {
+        "13050000427": {
+          "weaponId": "18070000006",
+          "schedulePolicy": "clear",
+          "supportedModes": [
+            "Auto"
+          ],
+          "fireScheduleRules": []
+        }
+      },
+      "explicitlyUnmodeled": {
+        "weapon": null,
+        "items": {}
+      }
+    }
+  },
+  "parts": {
+    "13020000463": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13020000464": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": [
+        "authoring:part:13020000464:tune:length:0"
+      ]
+    },
+    "13020000465": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": [
+        "authoring:part:13020000465:tune:length:0"
+      ]
+    },
+    "13020000466": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": [
+        "authoring:part:13020000466:tune:length:0"
+      ]
+    },
+    "13020000467": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": [
+        "authoring:part:13020000467:tune:length:0"
+      ]
+    },
+    "13020000508": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": [
+        "authoring:part:13020000508:tune:length:0"
+      ]
+    },
+    "13020000617": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13030000131": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13030000132": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13030000133": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13030000152": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13050000427": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000040": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000042": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000043": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000044": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000046": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000051": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000053": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000060": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000061": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000062": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000063": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000064": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000065": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000066": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000067": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000072": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000073": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000085": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000087": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000093": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000098": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13110000102": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13120000297": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13120000298": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13120000299": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13120000387": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13130000172": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13130000192": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13130000193": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13130000194": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13130000195": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13130000236": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13160000005": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13160000006": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13160000007": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13160000008": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13160000009": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13160000010": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13160000014": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13160000015": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13160000018": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13160000020": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13200000011": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13210000012": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13210000013": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "13210000014": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    },
+    "18070000006": {
+      "effectSetIds": {
+        "sol": null,
+        "mp": null,
+        "bd": null
+      },
+      "tuneIds": []
+    }
+  },
+  "effectsByItemId": {
+    "13020000463": {
+      "sol": [],
+      "mp": [],
+      "bd": []
+    },
+    "13020000464": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.18,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.18,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.09,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.09,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.09,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.09,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13020000465": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.06,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.06,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.06,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.06,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.03,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.03,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13020000466": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13020000467": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.3,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.3,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.15,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.15,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.15,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.15,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13020000508": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13020000617": {
+      "sol": [],
+      "mp": [],
+      "bd": []
+    },
+    "13030000131": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13030000132": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13030000133": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13030000152": {
+      "sol": [],
+      "mp": [],
+      "bd": []
+    },
+    "13050000427": {
+      "sol": [
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "FireRateMode",
+          "modifier": "Initial",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "FireInterval",
+          "modifier": "Mult_C",
+          "value": 0.559,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "FireCD",
+          "modifier": "Mult_C",
+          "value": 0.559,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.45,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.45,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "FireRateMode",
+          "modifier": "Initial",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "FireInterval",
+          "modifier": "Mult_C",
+          "value": 0.559,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "FireCD",
+          "modifier": "Mult_C",
+          "value": 0.559,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.45,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.45,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "FireRateMode",
+          "modifier": "Initial",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "FireInterval",
+          "modifier": "Mult_C",
+          "value": 0.559,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "FireCD",
+          "modifier": "Mult_C",
+          "value": 0.559,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": -0.7,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": -0.7,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000040": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000042": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000043": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000044": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000046": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000051": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000053": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000060": {
+      "sol": [],
+      "mp": [],
+      "bd": []
+    },
+    "13110000061": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000062": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000063": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000064": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000065": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000066": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000067": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000072": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000073": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000085": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000087": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000093": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000098": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13110000102": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13120000297": {
+      "sol": [
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "GMagCapacity",
+          "modifier": "Initial",
+          "value": 12,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "GMagCapacity",
+          "modifier": "Initial",
+          "value": 12,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "GMagCapacity",
+          "modifier": "Initial",
+          "value": 12,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13120000298": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "GMagCapacity",
+          "modifier": "Initial",
+          "value": 18,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GReload_Time",
+          "modifier": "Mult_A",
+          "value": 0.1,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "GMagCapacity",
+          "modifier": "Initial",
+          "value": 18,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GReload_Time",
+          "modifier": "Mult_A",
+          "value": 0.1,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "GMagCapacity",
+          "modifier": "Initial",
+          "value": 18,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GReload_Time",
+          "modifier": "Mult_A",
+          "value": 0.1,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13120000299": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "GMagCapacity",
+          "modifier": "Initial",
+          "value": 24,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GReload_Time",
+          "modifier": "Mult_A",
+          "value": 0.2,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "GMagCapacity",
+          "modifier": "Initial",
+          "value": 24,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GReload_Time",
+          "modifier": "Mult_A",
+          "value": 0.2,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "GMagCapacity",
+          "modifier": "Initial",
+          "value": 24,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "GReload_Time",
+          "modifier": "Mult_A",
+          "value": 0.2,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13120000387": {
+      "sol": [
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "GMagCapacity",
+          "modifier": "Initial",
+          "value": 54,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "ChangeClipTime",
+          "modifier": "Initial",
+          "value": 1.6,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "ChangeClipTimewhenEmpty",
+          "modifier": "Initial",
+          "value": 1.7,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "GMagCapacity",
+          "modifier": "Initial",
+          "value": 54,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "ChangeClipTime",
+          "modifier": "Initial",
+          "value": 1.6,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "ChangeClipTimewhenEmpty",
+          "modifier": "Initial",
+          "value": 1.7,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "ChangeClipTime",
+          "modifier": "Initial",
+          "value": 1.6,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "ChangeClipTimewhenEmpty",
+          "modifier": "Initial",
+          "value": 1.7,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "GMagCapacity",
+          "modifier": "Initial",
+          "value": 54,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13130000172": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.3,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.3,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.15,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.15,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.15,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0.15,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13130000192": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13130000193": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13130000194": {
+      "sol": [],
+      "mp": [],
+      "bd": []
+    },
+    "13130000195": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13130000236": {
+      "sol": [],
+      "mp": [],
+      "bd": []
+    },
+    "13160000005": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13160000006": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13160000007": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13160000008": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13160000009": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13160000010": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13160000014": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13160000015": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13160000018": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13160000020": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13200000011": {
+      "sol": [],
+      "mp": [],
+      "bd": []
+    },
+    "13210000012": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13210000013": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "13210000014": {
+      "sol": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "mp": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeModify",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        },
+        {
+          "operation": "StaticAttributeModify",
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "modifier": "Mult_A",
+          "value": 0,
+          "scope": "NONE"
+        }
+      ]
+    },
+    "18070000006": {
+      "sol": [],
+      "mp": [
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Initial",
+          "value": 15,
+          "scope": "NONE"
+        }
+      ],
+      "bd": [
+        {
+          "operation": "StaticAttributeReplace",
+          "target": "DisplayAttrValues.2",
+          "modifier": "Initial",
+          "value": 25,
+          "scope": "NONE"
+        }
+      ]
+    }
+  },
+  "tunes": {
+    "authoring:part:13020000464:tune:length:0": {
+      "availability": {
+        "default": {
+          "enabled": true,
+          "positions": 0,
+          "notch": 0,
+          "min": -10,
+          "max": 10,
+          "step": 0.2,
+          "dflt": 0
+        }
+      },
+      "sliderType": "Continue",
+      "meshType": "None",
+      "range": {
+        "defaultValue": 0,
+        "minValue": -10,
+        "maxValue": 10,
+        "step": 0.2
+      },
+      "labels": {
+        "mainLocId": "authoring:长度",
+        "greaterLocId": "authoring:+",
+        "lessLocId": "authoring:-",
+        "unitLocId": "authoring:毫米"
+      },
+      "functions": [
+        {
+          "target": "GBullet_Velocity",
+          "curveId": "authoring:part:13020000464:tune:length:0:curve:0",
+          "modifier": "Mult_A"
+        }
+      ]
+    },
+    "authoring:part:13020000465:tune:length:0": {
+      "availability": {
+        "default": {
+          "enabled": true,
+          "positions": 0,
+          "notch": 0,
+          "min": -10,
+          "max": 10,
+          "step": 0.2,
+          "dflt": 0
+        }
+      },
+      "sliderType": "Continue",
+      "meshType": "None",
+      "range": {
+        "defaultValue": 0,
+        "minValue": -10,
+        "maxValue": 10,
+        "step": 0.2
+      },
+      "labels": {
+        "mainLocId": "authoring:长度",
+        "greaterLocId": "authoring:+",
+        "lessLocId": "authoring:-",
+        "unitLocId": "authoring:毫米"
+      },
+      "functions": [
+        {
+          "target": "GBullet_Velocity",
+          "curveId": "authoring:part:13020000465:tune:length:0:curve:0",
+          "modifier": "Mult_A"
+        }
+      ]
+    },
+    "authoring:part:13020000466:tune:length:0": {
+      "availability": {
+        "default": {
+          "enabled": true,
+          "positions": 0,
+          "notch": 0,
+          "min": -10,
+          "max": 10,
+          "step": 0.2,
+          "dflt": 0
+        }
+      },
+      "sliderType": "Continue",
+      "meshType": "None",
+      "range": {
+        "defaultValue": 0,
+        "minValue": -10,
+        "maxValue": 10,
+        "step": 0.2
+      },
+      "labels": {
+        "mainLocId": "authoring:长度",
+        "greaterLocId": "authoring:+",
+        "lessLocId": "authoring:-",
+        "unitLocId": "authoring:毫米"
+      },
+      "functions": [
+        {
+          "target": "GBullet_Velocity",
+          "curveId": "authoring:part:13020000466:tune:length:0:curve:0",
+          "modifier": "Mult_A"
+        }
+      ]
+    },
+    "authoring:part:13020000467:tune:length:0": {
+      "availability": {
+        "default": {
+          "enabled": true,
+          "positions": 0,
+          "notch": 0,
+          "min": -10,
+          "max": 10,
+          "step": 0.2,
+          "dflt": 0
+        }
+      },
+      "sliderType": "Continue",
+      "meshType": "None",
+      "range": {
+        "defaultValue": 0,
+        "minValue": -10,
+        "maxValue": 10,
+        "step": 0.2
+      },
+      "labels": {
+        "mainLocId": "authoring:长度",
+        "greaterLocId": "authoring:+",
+        "lessLocId": "authoring:-",
+        "unitLocId": "authoring:毫米"
+      },
+      "functions": [
+        {
+          "target": "GBullet_Velocity",
+          "curveId": "authoring:part:13020000467:tune:length:0:curve:0",
+          "modifier": "Mult_A"
+        }
+      ]
+    },
+    "authoring:part:13020000508:tune:length:0": {
+      "availability": {
+        "default": {
+          "enabled": true,
+          "positions": 0,
+          "notch": 0,
+          "min": -10,
+          "max": 10,
+          "step": 0.2,
+          "dflt": 0
+        }
+      },
+      "sliderType": "Continue",
+      "meshType": "None",
+      "range": {
+        "defaultValue": 0,
+        "minValue": -10,
+        "maxValue": 10,
+        "step": 0.2
+      },
+      "labels": {
+        "mainLocId": "authoring:长度",
+        "greaterLocId": "authoring:+",
+        "lessLocId": "authoring:-",
+        "unitLocId": "authoring:毫米"
+      },
+      "functions": [
+        {
+          "target": "GBullet_Velocity",
+          "curveId": "authoring:part:13020000508:tune:length:0:curve:0",
+          "modifier": "Mult_A"
+        }
+      ]
+    }
+  },
+  "attributeRules": {
+    "defaults": {
+      "2": {
+        "directRuleTargets": [
+          "GBullet_Velocity",
+          "GBullet_Range",
+          "GSpread_ADS"
+        ],
+        "curveMappings": [
+          {
+            "target": "GBullet_Range",
+            "mappingType": "AbsoluteMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:effectiveRangeDefault:0:sol",
+              "mp": "authoring:mechanism:effectiveRangeDefault:0:mp",
+              "bd": "authoring:mechanism:effectiveRangeDefault:0:bd"
+            }
+          }
+        ]
+      }
+    },
+    "weaponOverrides": {}
+  },
+  "curves": {
+    "authoring:part:13020000464:tune:length:0:curve:0": {
+      "points": [
+        {
+          "inputValue": -10,
+          "outputValue": -0.09,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        },
+        {
+          "inputValue": 0,
+          "outputValue": 0,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        },
+        {
+          "inputValue": 10,
+          "outputValue": 0.09,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        }
+      ]
+    },
+    "authoring:part:13020000465:tune:length:0:curve:0": {
+      "points": [
+        {
+          "inputValue": -10,
+          "outputValue": -0.09,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        },
+        {
+          "inputValue": 0,
+          "outputValue": 0,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        },
+        {
+          "inputValue": 10,
+          "outputValue": 0.09,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        }
+      ]
+    },
+    "authoring:part:13020000466:tune:length:0:curve:0": {
+      "points": [
+        {
+          "inputValue": -10,
+          "outputValue": -0.09,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        },
+        {
+          "inputValue": 0,
+          "outputValue": 0,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        },
+        {
+          "inputValue": 10,
+          "outputValue": 0.09,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        }
+      ]
+    },
+    "authoring:part:13020000467:tune:length:0:curve:0": {
+      "points": [
+        {
+          "inputValue": -10,
+          "outputValue": -0.09,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        },
+        {
+          "inputValue": 0,
+          "outputValue": 0,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        },
+        {
+          "inputValue": 10,
+          "outputValue": 0.09,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        }
+      ]
+    },
+    "authoring:part:13020000508:tune:length:0:curve:0": {
+      "points": [
+        {
+          "inputValue": -10,
+          "outputValue": -0.09,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        },
+        {
+          "inputValue": 0,
+          "outputValue": 0,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        },
+        {
+          "inputValue": 10,
+          "outputValue": 0.09,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        }
+      ]
+    },
+    "authoring:mechanism:effectiveRangeDefault:0:sol": {
+      "points": [
+        {
+          "inputValue": 0,
+          "outputValue": 0,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        },
+        {
+          "inputValue": 500,
+          "outputValue": 50000,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        }
+      ]
+    },
+    "authoring:mechanism:effectiveRangeDefault:0:mp": {
+      "points": [
+        {
+          "inputValue": 0,
+          "outputValue": 0,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        },
+        {
+          "inputValue": 500,
+          "outputValue": 50000,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        }
+      ]
+    },
+    "authoring:mechanism:effectiveRangeDefault:0:bd": {
+      "points": [
+        {
+          "inputValue": 0,
+          "outputValue": 0,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        },
+        {
+          "inputValue": 500,
+          "outputValue": 50000,
+          "interpolationMode": "RCIM_Linear",
+          "arriveTangent": 0,
+          "leaveTangent": 0
+        }
+      ]
+    }
+  }
+}

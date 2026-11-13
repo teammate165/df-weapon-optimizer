@@ -1,0 +1,49 @@
+# Local research/runtime state and generated deployment checkout
+.scratch/
+__pycache__/
+*.py[cod]
+node_modules/
+.venv/
+venv/
+dist/
+build/
+
+# Credentials and machine-local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+
+# Databases, backups, and generated research exports stay local
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+*.before-*
+*-backup.json
+data/backups/
+data/dfttk_sync_logs/
+data/gun_codes/
+data/stat_curves/responses.csv
+data/stat_curves/responses.js
+data/stat_curves/responses.json
+data/stat_curves/*.pdf
+
+# Images are loaded from external source URLs; never upload local copies
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.bmp
+*.ico
+*.svg
+*.avif
+*.mp4
+*.webm
+*.zip
+*.tar
+*.gz

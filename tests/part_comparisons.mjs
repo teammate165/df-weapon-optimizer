@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {statChanges,groupStatChanges} from '../builder/part-comparisons.js';
+const before={recoil:{autoVertical:1,singleVertical:1}};
+const merged=statChanges(before,{recoil:{autoVertical:0.8,singleVertical:0.8}});
+assert.equal(merged.length,1);assert.equal(merged[0].label,'Vertical recoil');
+const separate=statChanges(before,{recoil:{autoVertical:0.8,singleVertical:0.7}});
+assert.equal(separate.length,2);
+assert.ok(separate.some(c=>c.path==='recoil.singleVertical'));
+const accuracy=statChanges({panel:{waistAccuracy:55},waist:{hipSpreadDeg:2}},{panel:{waistAccuracy:43},waist:{hipSpreadDeg:3}});
+assert.equal(accuracy[0].label,'Accuracy');
+const grouped=groupStatChanges([...merged,...accuracy]);
+assert.deepEqual(grouped.map(g=>g.title),['Recoil','Accuracy']);
+assert.equal(grouped[1].summary.label,'Accuracy');
+assert.equal(grouped[1].details[0].path,'waist.hipSpreadDeg');
+console.log('Matching recoil modes merge; distinct source values remain separate.');

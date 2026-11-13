@@ -1,0 +1,180 @@
+{
+  "source": "data/calibration/controls.csv",
+  "source_sha256": "e228602d98d33ee8d9f4d603ca273acf96f0edd7bc9454dc8306d72ac5a702eb",
+  "data_version": "20261108-an94-bd-shop.1",
+  "contexts": 2858,
+  "enabled_contexts": 2823,
+  "scope": "Declared website-source grids, not measured Global/Garena client precision",
+  "effective_step_histogram": {
+    "Continue:0.05": 44,
+    "Continue:0.2": 158,
+    "Continue:0.4": 125,
+    "Continue:1": 322,
+    "Discrete:10": 152,
+    "Discrete:12": 524,
+    "Discrete:16": 357,
+    "Discrete:20": 1,
+    "Discrete:25": 698,
+    "Discrete:5": 98,
+    "Discrete:50": 58,
+    "Discrete:6": 100,
+    "Discrete:7": 102,
+    "Discrete:8": 84
+  },
+  "ui_position_count_histogram": {
+    "3": 58,
+    "5": 699,
+    "7": 357,
+    "9": 524,
+    "11": 177,
+    "13": 84,
+    "15": 102,
+    "17": 100,
+    "19": 76,
+    "21": 41,
+    "31": 1,
+    "101": 604
+  },
+  "examples": {
+    "Continue:0.2": {
+      "item_id": "13020000173",
+      "tune_id": "authoring:part:13020000173:tune:length:0",
+      "context": "default",
+      "min_value": "-10",
+      "max_value": "10",
+      "default_value": "0",
+      "dimension": "长度",
+      "unit": "毫米"
+    },
+    "Continue:1": {
+      "item_id": "13020000173",
+      "tune_id": "authoring:part:13020000173:tune:weight:1",
+      "context": "default",
+      "min_value": "-50",
+      "max_value": "50",
+      "default_value": "0",
+      "dimension": "配重",
+      "unit": "g"
+    },
+    "Continue:0.4": {
+      "item_id": "13030000109",
+      "tune_id": "authoring:part:13030000109:tune:thickness:0",
+      "context": "default",
+      "min_value": "-20",
+      "max_value": "20",
+      "default_value": "0",
+      "dimension": "厚度",
+      "unit": "毫米"
+    },
+    "Discrete:16": {
+      "item_id": "13040000104",
+      "tune_id": "authoring:part:13040000104:tune:position:0",
+      "context": "3:18010000001",
+      "min_value": "2",
+      "max_value": "98",
+      "default_value": "50",
+      "dimension": "安装位置",
+      "unit": "格"
+    },
+    "Discrete:12": {
+      "item_id": "13040000104",
+      "tune_id": "authoring:part:13040000104:tune:position:0",
+      "context": "3:18010000006",
+      "min_value": "2",
+      "max_value": "98",
+      "default_value": "50",
+      "dimension": "安装位置",
+      "unit": "格"
+    },
+    "Discrete:20": {
+      "item_id": "13040000107",
+      "tune_id": "authoring:part:13040000107:tune:stockPadPosition:1",
+      "context": "default",
+      "min_value": "10",
+      "max_value": "90",
+      "default_value": "50",
+      "dimension": "托垫安装位置",
+      "unit": "格"
+    },
+    "Discrete:25": {
+      "item_id": "13040000185",
+      "tune_id": "authoring:part:13040000185:tune:cheekRestPosition:0",
+      "context": "default",
+      "min_value": "0",
+      "max_value": "100",
+      "default_value": "50",
+      "dimension": "托腮板安装位置",
+      "unit": "格"
+    },
+    "Continue:0.05": {
+      "item_id": "13110000040",
+      "tune_id": "authoring:part:13110000040:tune:zoom:1",
+      "context": "default",
+      "min_value": "-0.5",
+      "max_value": "0.5",
+      "default_value": "0",
+      "dimension": "缩放倍率",
+      "unit": "倍"
+    },
+    "Discrete:8": {
+      "item_id": "13140000021",
+      "tune_id": "authoring:part:13140000021:tune:position:1",
+      "context": "8:13020000410",
+      "min_value": "2",
+      "max_value": "98",
+      "default_value": "50",
+      "dimension": "安装位置",
+      "unit": "格"
+    },
+    "Discrete:10": {
+      "item_id": "13140000021",
+      "tune_id": "authoring:part:13140000021:tune:position:1",
+      "context": "8:13050000027",
+      "min_value": "0",
+      "max_value": "100",
+      "default_value": "50",
+      "dimension": "安装位置",
+      "unit": "格"
+    },
+    "Discrete:5": {
+      "item_id": "13140000021",
+      "tune_id": "authoring:part:13140000021:tune:position:1",
+      "context": "8:13050000035",
+      "min_value": "5",
+      "max_value": "95",
+      "default_value": "50",
+      "dimension": "安装位置",
+      "unit": "格"
+    },
+    "Discrete:50": {
+      "item_id": "13140000021",
+      "tune_id": "authoring:part:13140000021:tune:position:1",
+      "context": "8:13050000086",
+      "min_value": "0",
+      "max_value": "100",
+      "default_value": "50",
+      "dimension": "安装位置",
+      "unit": "格"
+    },
+    "Discrete:7": {
+      "item_id": "13140000021",
+      "tune_id": "authoring:part:13140000021:tune:position:1",
+      "context": "8:13050000096",
+      "min_value": "1",
+      "max_value": "99",
+      "default_value": "50",
+      "dimension": "安装位置",
+      "unit": "格"
+    },
+    "Discrete:6": {
+      "item_id": "13140000021",
+      "tune_id": "authoring:part:13140000021:tune:position:1",
+      "context": "8:13050000200",
+      "min_value": "2",
+      "max_value": "98",
+      "default_value": "50",
+      "dimension": "安装位置",
+      "unit": "格"
+    }
+  }
+}

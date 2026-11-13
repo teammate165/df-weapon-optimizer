@@ -1,0 +1,324 @@
+import {createSavedBuildStore} from './saved-builds.js';
+import {slotIcons} from './assets/slot-icons.js';
+import {portraits} from './assets/portraits.js';
+import {statChanges,groupStatChanges,majorStatGroups} from './part-comparisons.js?v=groups-20261113';
+import {createStatResponseView} from './stat-response-view.js';
+const $=id=>document.getElementById(id);
+const state={catalog:null,model:null,config:[],tunes:{},locks:new Set(),slot:null,preview:null,previewSerial:0,previewLoading:false,busy:false,tab:'builder',results:null,resultIndex:0};
+const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=(v,d=1)=>Number.isFinite(v)?v.toLocaleString(undefined,{maximumFractionDigits:d}):'—';
+const labels={rearGrip:'Pistol grip',barrel:'Barrel',stock:'Stock',magazine:'Magazine',scope:'Optic',muzzle:'Muzzle',foregrip:'Foregrip',functional:'Rail accessory',unique:'Component'};
+const sockets={1:'Pistol grip',2:'Barrel',3:'Stock',4:'Handguard',5:'Magazine',6:'Muzzle',7:'Front sight',8:'Foregrip',9:'Rear sight',10:'Rail bipod',11:'Optic',12:'Magazine',13:'Rear optic',14:'Tactical',15:'Front rail',16:'Rear rail',17:'Top rail',18:'Bottom rail',19:'Left rail',20:'Right rail',21:'Optic mount',22:'Unique',23:'Upgrade kit',24:'Aux optic',25:'Aux optic',26:'Aux optic',27:'Handguard',28:'Stock pad',29:'Cheek rest',30:'Grip patch',31:'Side sight',32:'Top patch',33:'Bottom patch',34:'Left patch',35:'Right patch',36:'Barrel bipod',37:'Handguard kit',38:'Stock kit',39:'Barrel kit',40:'Top sight',41:'Raised sight',43:'Grip mount',44:'Magwell',45:'Lens hood',46:'Upper guard',47:'Gas system',48:'Hammer',49:'Trigger',50:'Raised sight',51:'Heat shield',52:'Bolt',53:'Pistol grip',54:'Charging handle',55:'Bowstring',56:'Grip panel',57:'Bow limbs',58:'Bow sight',59:'Arrow rest',60:'Stabilizer',61:'Release',62:'Lever',63:'Guard sight',64:'Guard sight',65:'Handguard',66:'Magazine',67:'Stock',68:'Pistol grip',69:'Raised sight',70:'Left rail',71:'Right rail',72:'Barrel',73:'Ammo',74:'Bowstring',75:'Stock',76:'Bolt kit',77:'Muzzle',78:'Line',79:'Reel',100:'Conflict',150:'Charm'};
+const name=id=>state.catalog?.names[id]??state.catalog?.weapons.find(w=>w.id===id)?.name??id;
+const category=slot=>state.catalog.slots[slot.options[0]??slot.defaultItemId]??'unique';
+const slotName=slot=>sockets[slot.socketId]??labels[category(slot)]??category(slot);
+const selectedSlot=()=>state.model?.build.slots.find(s=>s.slotPath===state.slot);
+const mounted=path=>state.model?.build.mounted.find(m=>m.slotPath===path);
+const equippedId=()=>mounted(state.slot)?.source==='equipped'?mounted(state.slot).itemId:'';
+const request=()=>({weapon_id:$('weapon').value,mode:$('mode').value,config:state.config,tunes:state.tunes,shot_count:Number($('shots').value)});
+const viewed=()=>state.preview?.model??state.model;
+const showStatResponse=createStatResponseView({load:r=>api('evaluate',r),getContext:()=>{const model=viewed();return{weapon_id:model.stats.weaponId,weapon_name:state.catalog.weapons.find(w=>w.id===model.stats.weaponId)?.name??model.stats.weaponId,mode:model.stats.mode,config:model.build.config,tunes:model.tunes};}});
+function status(message,error=false){$('status').textContent=message;$('status').title=message;$('status').classList.toggle('error',error);}
+async function api(action,payload){const response=await fetch(`/api/${action}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const body=await response.json();if(!response.ok)throw Error(body.error??'Request failed');return body;}
+function setBusy(value){state.busy=value;document.querySelectorAll('button,input,select').forEach(el=>el.disabled=value);document.body.setAttribute('aria-busy',String(value));if(!value)updateActions();}
+function clearResults(){state.results=null;$('results').replaceChildren();}
+function clearPreview(){state.previewSerial++;state.preview=null;state.previewLoading=false;$('preview-summary').hidden=true;}
+function pane(value){document.querySelector('.workspace').dataset.pane=value;document.querySelectorAll('[data-pane]').forEach(button=>{if(button.tagName==='BUTTON')button.setAttribute('aria-pressed',String(button.dataset.pane===value));});}
+function tab(value){clearPreview();state.tab=value;for(const id of ['builder','optimizer']){$(`${id}-panel`).hidden=id!==value;$(`${id}-tab`).setAttribute('aria-selected',String(id===value));$(`${id}-tab`).tabIndex=id===value?0:-1;}if(state.model){renderStats();drawGraph();updateActions();}if(value==='optimizer')pane('parts');}
+for(const id of ['builder','optimizer']){$(`${id}-tab`).onclick=()=>tab(id);$(`${id}-tab`).onkeydown=e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const next=e.key==='Home'?'builder':e.key==='End'?'optimizer':id==='builder'?'optimizer':'builder';tab(next);$(`${next}-tab`).focus();}};}
+document.querySelectorAll('button[data-pane]').forEach(b=>b.onclick=()=>pane(b.dataset.pane));
+function asset(id){if(Object.hasOwn(portraits,id)&&portraits[id]===null)return null;const source=state.model?.display?.[id]?.imagePath??portraits[id];return source?new URL(source,'https://dfttk.com/').href:`https://playerhub.df.qq.com/playerhub/60004/object/${encodeURIComponent(id)}.png`;}
+function slotIcon(label){const s=label.toLowerCase();let path='M12 3 21 8v9l-9 5-9-5V8Z M8 10h8v6H8Z';if(s.includes('grip'))path='M7 3h11v5h-3l-2 13H7l2-13H7Z';else if(s.includes('stock'))path='M3 7h7l5-3h6v16h-4l-7-7H3Z M6 7v6';else if(s.includes('barrel')||s.includes('muzzle'))path='M2 9h17v6H2Z M19 7h3v10h-3 M6 9v6 M9 9v6';else if(s.includes('mag'))path='M7 3h10v8l3 8-8 3-4-10Z M10 7h4 M11 11h4 M12 15l4-1';else if(s.includes('optic')||s.includes('sight'))path='M4 7h16v9H4Z M4 7C0 7 0 16 4 16 M20 7c4 0 4 9 0 9 M9 16v4h7v-4 M8 4v3 M15 4v3';else if(s.includes('rail')||s.includes('patch'))path='M3 9h18v6H3Z M5 5v4 M9 5v4 M13 5v4 M17 5v4 M5 15v4 M9 15v4 M13 15v4 M17 15v4';return `<svg class="fallback-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="${path}" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>`;}
+function portrait(id,fallback='—',socketId){
+ const rarity=state.model?.display?.[id]?.rarityId;const rarities={'紫':'purple','蓝':'blue','绿':'green','金':'gold','橙':'gold'};
+ const url=id?asset(id):null;
+ return `<span class="portrait ${url?'':'empty'} ${rarities[rarity]?'rarity-'+rarities[rarity]:''}">${socketId===undefined?slotIcon(fallback):defaultSlotIcon(socketId)}${url?`<img src="${esc(url)}" alt="" loading="lazy" decoding="async">`:''}</span>`;
+}
+document.addEventListener('error',event=>{if(event.target.tagName==='IMG')event.target.classList.add('failed');},true);
+async function evaluate({reset=false}={}){
+ cancelLiveCalibration();
+ clearPreview();if(reset){state.config=[];state.tunes={};state.locks.clear();state.slot=null;}
+ setBusy(true);status('Resolving loadout…');
+ try{const model=await api('evaluate',request());adopt(model);status('');}
+ catch(error){if(state.model){state.config=structuredClone(state.model.build.config);state.tunes=structuredClone(state.model.tunes);$('mode').value=state.model.stats.mode;$('weapon').value=state.model.stats.weaponId;$('shots').value=state.model.stats.current.recoil.adsTrajectory.length;render();}status(error.message,true);}
+ finally{setBusy(false);}
+}
+function adopt(model){
+ const old=state.model;state.model=model;state.config=structuredClone(model.build.config);state.tunes=structuredClone(model.tunes);
+ state.locks=new Set([...state.locks].filter(path=>model.build.mounted.some(m=>m.slotPath===path&&m.source==='equipped'&&(!old||m.itemId===old.build.mounted.find(o=>o.slotPath===path)?.itemId))));
+ if(!model.build.slots.some(s=>s.slotPath===state.slot)){state.slot=model.build.slots[0]?.slotPath??null;$('part-search').value='';}
+ render();
+}
+function render(){
+ const mode=$('mode').value,w=state.catalog.weapons.find(w=>w.id===$('weapon').value),m=state.model;
+ $('weapon-name').textContent=w.name;$('stage-title').textContent=w.name;
+ $('cap').innerHTML=mode==='bd'?`TIER ${esc(w.tier?.tier)} · MODS <strong class="${m.cost>w.tier?.gunsmithLimit?'negative':''}">${fmt(m.cost,0)} / ${fmt(w.tier?.gunsmithLimit,0)}</strong>`:mode==='mp'?'WARFARE <strong>No budget</strong>':`MOD COST <strong>${fmt(m.cost,0)}</strong>`;
+ $('gun-image').classList.remove('failed');$('gun-image').src=asset(w.id);$('gun-image').alt=w.name+' base weapon reference';
+ $('operations-budgets').hidden=mode!=='sol';
+ $('category-info').hidden=mode==='mp';
+ $('budget-info').innerHTML=mode==='bd'?`Fixed weapon cap: <strong>${fmt(w.tier?.gunsmithLimit,0)}</strong>. Best performance plus affordable target builds.`:mode==='mp'?'<strong>No budget in Warfare.</strong> One unpriced build.':'One maximum budget; cheapest builds meeting your targets. Dated market quotes; weapon cost excluded.';
+ $('provenance').textContent=`DFTTK ${m.provenance.data_version} · ${mode.toUpperCase()}`;
+ renderSlots();renderParts();renderTuning();renderStats();drawGraph();updateActions();
+}
+function defaultSlotIcon(socketId){
+ const index=slotIcons.slots[socketId];if(index===undefined)return `<span class="slot-symbol">${slotIcon(sockets[socketId]??'Component')}</span>`;
+ const x=index%slotIcons.columns*100/(slotIcons.columns-1),y=Math.floor(index/slotIcons.columns)*100/(slotIcons.rows-1);
+ return `<span class="default-slot-icon" aria-hidden="true" style="--slot-x:${x}%;--slot-y:${y}%"></span>`;
+}
+function renderSlots(){
+ if(!$('slot-groups')){const groups=document.createElement('div');groups.id='slot-groups';groups.className='slot-groups';groups.innerHTML='<button data-slot-group="core" aria-pressed="true">Core attachments</button><button data-slot-group="accessories" aria-pressed="false">Rails & optics</button>';$('gun-canvas').prepend(groups);$('gun-canvas').dataset.slotGroup='core';groups.querySelectorAll('button').forEach(button=>button.onclick=()=>{$('gun-canvas').dataset.slotGroup=button.dataset.slotGroup;groups.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));});}
+ const rails={top:[],left:[],right:[],bottom:[]};
+ const order=[17,19,20,32,34,35,11,21,41,50,69,40,31,6,2,38,3,10,8,5,44,1,30];
+ const slots=[...state.model.build.slots].sort((a,b)=>{const x=order.indexOf(a.socketId),y=order.indexOf(b.socketId);return (x<0?100+a.socketId:x)-(y<0?100+b.socketId:y)||a.slotPath.localeCompare(b.slotPath);});
+ const areaFor=slot=>[2,6,77,72,39,4,27,37,46,65].includes(slot.socketId)?'left':[3,38,28,29,67,75].includes(slot.socketId)?'right':[10,8,5,12,44,1,30,53,66,68,43].includes(slot.socketId)?'bottom':'top';
+ const top=slots.filter(slot=>areaFor(slot)==='top'),paths=new Set(top.map(slot=>slot.slotPath)),ordered=[],topFamilies=new Map();
+ const parent=slot=>slot.slotPath.includes('/')?slot.slotPath.slice(0,slot.slotPath.lastIndexOf('/')):null;
+ function appendWithChildren(slot){ordered.push(slot);for(const child of top.filter(s=>parent(s)===slot.slotPath))appendWithChildren(child);}
+ for(const slot of top.filter(s=>!paths.has(parent(s))))appendWithChildren(slot);
+ // A riser/scope is followed immediately by the sockets that it provides.
+ for(const slot of [...ordered,...slots.filter(s=>areaFor(s)!=='top')]){const part=mounted(slot.slotPath),explicit=part?.source==='equipped',item=explicit?part.itemId:null;
+ const html=`<button class="slot-tile ${state.slot===slot.slotPath?'active':''} ${explicit?'mounted':''} ${state.locks.has(slot.slotPath)?'locked':''}" data-slot="${esc(slot.slotPath)}" aria-pressed="${state.slot===slot.slotPath}" aria-label="${esc(slotName(slot)+' socket '+slot.slotPath)}" title="${esc(slotName(slot)+' / '+slot.slotPath+' / '+(item?name(item):slot.defaultItemId?'Bundled default':'Empty'))}">${item?portrait(item,slotName(slot),slot.socketId):defaultSlotIcon(slot.socketId)}<span class="tile-copy"><strong>${esc(slotName(slot))}</strong><small>${item?esc(name(item)):slot.defaultItemId?'Default':'Empty'}</small></span></button>`;
+ const area=areaFor(slot);
+ if(area==='top'){
+  let root=slot;while(paths.has(parent(root)))root=top.find(s=>s.slotPath===parent(root));
+  if(!topFamilies.has(root.slotPath))topFamilies.set(root.slotPath,[]);topFamilies.get(root.slotPath).push(html);
+ }else rails[area].push(html);
+ }
+ rails.top=[...topFamilies].map(([path,items])=>items.length>1?`<div class="slot-family" data-slot-family="${esc(path)}">${items.join('')}</div>`:items[0]);
+ for(const area of Object.keys(rails))$(`slots-${area}`).innerHTML=rails[area].join('');
+ document.querySelectorAll('[data-slot]').forEach(button=>button.onclick=()=>{clearPreview();state.slot=button.dataset.slot;$('part-search').value='';tab('builder');renderSlots();renderParts();renderTuning();renderStats();drawGraph();updateActions();pane('parts');status(`${slotName(selectedSlot())} selected - Preview a part to compare.`);});
+}
+function costText(id){if($('mode').value==='mp')return 'No budget';if(!id)return 'Bundled / empty';const costs=$('mode').value==='bd'?state.catalog.shop.partCosts:state.catalog.prices;return Number.isFinite(costs[id])?fmt(costs[id],0)+($('mode').value==='bd'?' mod cost':' quoted'):'Price unavailable';}
+function renderParts(){
+ const slot=selectedSlot();if(!slot){$('parts-list').innerHTML='<p class="helper">No configurable sockets for this weapon.</p>';return;}
+ $('slot-title').textContent=slotName(slot);const hidden=$('mode').value==='bd'?state.catalog.shop.hiddenItemIds:[];
+ const ids=['',...new Set(slot.options.filter(id=>!hidden.includes(id)))],query=$('part-search').value.trim().toLowerCase();
+ const filtered=ids.filter(id=>!query||(id?name(id)+' '+id:'default none').toLowerCase().includes(query));
+ $('part-count').textContent=`${filtered.length} / ${ids.length}`;
+ const previousScroll=$('parts-list').scrollTop;
+ $('parts-list').innerHTML=filtered.map(id=>`<button class="part-card ${id===equippedId()?'equipped':''} ${id===(state.preview?.id??equippedId())?'selected':''}" data-part="${esc(id)}" aria-pressed="${id===(state.preview?.id??equippedId())}" title="${esc(id?name(id)+' · '+id:'Restore default / remove selection')}">${portrait(id,slotName(slot),slot.socketId)}<span class="part-copy"><span class="part-name">${id?esc(name(id)):slot.defaultItemId?'Default (bundled)':'No attachment'}</span><span class="part-changes" data-part-changes="${esc(id)}">Comparing stats...</span><small><span>${esc(costText(id))}</span>${id===equippedId()?'<b>EQUIPPED</b>':''}</small></span></button>`).join('')||'<p class="helper">No matching attachments.</p>';
+ hidePartTooltip();$('parts-list').scrollTop=previousScroll;
+ document.querySelectorAll('[data-part]').forEach(card=>{card.onclick=e=>{if(e.detail<2)previewPart(card.dataset.part);};card.ondblclick=()=>previewPart(card.dataset.part,true);card.onmouseenter=()=>showPartTooltip(card);card.onmouseleave=event=>{if(!partTooltip?.contains(event.relatedTarget))scheduleTooltipHide();};card.onfocus=()=>requestAnimationFrame(()=>{if(card.isConnected&&document.activeElement===card)showPartTooltip(card);});card.onblur=()=>scheduleTooltipHide();});
+ updateActions();refreshPartComparisons();
+}
+const comparisonCache=new Map();let partTooltip=null,tooltipCard=null,tooltipHideTimer=null;
+const comparisonKey=()=>JSON.stringify({...request(),compare_slot:state.slot});
+const partNumber=value=>fmt(value,Math.abs(value)>0&&Math.abs(value)<0.001?5:3);
+const signedPartNumber=value=>(value>0?'+':'')+partNumber(value);
+function currentComparison(){return comparisonCache.get(comparisonKey());}
+async function refreshPartComparisons(){
+ if(!state.model||!state.slot)return;
+ const key=comparisonKey();let entry=comparisonCache.get(key);
+ if(!entry){entry={loading:true};comparisonCache.set(key,entry);if(comparisonCache.size>6)comparisonCache.delete(comparisonCache.keys().next().value);
+  try{const result=await api('evaluate',{...request(),compare_slot:state.slot});entry.loading=false;entry.before=result.stats.current;entry.items=new Map(result.comparisons.map(row=>[row.itemId,row]));}
+  catch(error){entry.loading=false;entry.error=error.message;}
+ }
+ if(key!==comparisonKey())return;paintPartSummaries(entry);if(tooltipCard?.isConnected&&!partTooltip.hidden)fillPartTooltip(tooltipCard,entry);
+}
+function changesFor(entry,id){const row=entry?.items?.get(id);return row?.available?statChanges(entry.before,row.stats):[];}
+function paintPartSummaries(entry){
+ document.querySelectorAll('[data-part-changes]').forEach(element=>{
+  if(entry.loading){element.textContent='Comparing stats...';return;}if(entry.error){element.textContent='Comparison unavailable';return;}
+  const row=entry.items?.get(element.dataset.partChanges),changes=changesFor(entry,element.dataset.partChanges);
+  if(!row?.available){element.textContent='Not compatible with this build';return;}
+  const major=changes.filter(change=>change.path.startsWith('panel.'));
+  element.innerHTML=major.length?major.map(change=>`<span class="${change.tone}">${esc(majorStatGroups.find(g=>'panel.'+g.key===change.path)?.title??change.label)} ${signedPartNumber(change.delta)}</span>`).join(' / '):`<span class="neutral">${changes.length?'Detailed effects only':'No stat change'}</span>`;
+ });
+}
+function hidePartTooltip(){clearTimeout(tooltipHideTimer);if(partTooltip)partTooltip.hidden=true;if(tooltipCard)tooltipCard.removeAttribute('aria-describedby');tooltipCard=null;}
+function scheduleTooltipHide(){clearTimeout(tooltipHideTimer);tooltipHideTimer=setTimeout(hidePartTooltip,100);}
+function showPartTooltip(card){
+ if(state.busy)return;clearTimeout(tooltipHideTimer);
+ if(!partTooltip){partTooltip=document.createElement('div');partTooltip.id='part-tooltip';partTooltip.className='part-tooltip';partTooltip.role='tooltip';partTooltip.hidden=true;document.body.append(partTooltip);partTooltip.onmouseenter=()=>clearTimeout(tooltipHideTimer);partTooltip.onmouseleave=scheduleTooltipHide;}
+ if(tooltipCard&&tooltipCard!==card)tooltipCard.removeAttribute('aria-describedby');tooltipCard=card;card.removeAttribute('title');card.setAttribute('aria-describedby','part-tooltip');partTooltip.hidden=false;
+ fillPartTooltip(card,currentComparison());refreshPartComparisons();
+}
+function fillPartTooltip(card,entry){
+ const id=card.dataset.part,row=entry?.items?.get(id),changes=changesFor(entry,id),title=id?name(id):selectedSlot()?.defaultItemId?'Default (bundled)':'No attachment';
+ const body=entry?.error?`<p class="helper">${esc(entry.error)}</p>`:!entry||entry.loading?'<p class="helper">Calculating source-model changes...</p>':!row?.available?`<p class="helper">${esc(row?.reason??'Comparison unavailable')}</p>`:!changes.length?'<p class="helper">No modeled stat changes from the equipped build.</p>':`<table><thead><tr><th>Stat</th><th>Equipped</th><th>This part</th></tr></thead><tbody>${groupStatChanges(changes).map(group=>`<tr class="comparison-group"><th scope="rowgroup">${esc(group.title)}${group.summary?' <small>pts</small>':''}</th>${group.summary?`<td>${partNumber(group.summary.before)}</td><td class="${group.summary.tone}">${partNumber(group.summary.after)} <span class="inline-change">(${signedPartNumber(group.summary.delta)})</span></td>`:'<td></td><td></td>'}</tr>${group.details.map(change=>`<tr class="comparison-detail"><th>${esc(change.label)} <small>${esc(change.unit)}</small></th><td>${partNumber(change.before)}</td><td class="${change.tone}">${partNumber(change.after)} <span class="inline-change">(${signedPartNumber(change.delta)})</span></td></tr>`).join('')}`).join('')}</tbody></table>`;
+ partTooltip.innerHTML=`<div class="tooltip-heading"><strong>${esc(title)}</strong><span>${esc(costText(id))}</span></div><p class="tooltip-context">Compared with equipped build / replacement at default calibration</p>${body}`;
+ const box=card.getBoundingClientRect(),width=Math.min(400,innerWidth-24);partTooltip.style.width=width+'px';
+ const left=box.right+12+width<=innerWidth-12?box.right+12:Math.max(12,box.left-width-12);
+ partTooltip.style.left=left+'px';partTooltip.style.top=Math.max(12,Math.min(box.top,innerHeight-partTooltip.offsetHeight-12))+'px';
+}
+$('parts-list').addEventListener('scroll',hidePartTooltip,{passive:true});
+window.addEventListener('resize',hidePartTooltip);document.addEventListener('keydown',event=>{if(event.key==='Escape')hidePartTooltip();});
+async function previewPart(id,equipAfter=false){
+ cancelLiveCalibration();
+ if(state.busy)return;if(id===equippedId()){cancelPreview();return;}
+ const serial=++state.previewSerial;state.preview=null;state.previewLoading=true;updateActions();status('Comparing attachment…');
+ const r=structuredClone(request()),path=state.slot;r.config=r.config.filter(x=>x.slotPath!==path&&!x.slotPath.startsWith(path+'/'));if(id)r.config.push({slotPath:path,itemId:id});
+ for(const key of Object.keys(r.tunes))if(key===path||key.startsWith(path+'/'))delete r.tunes[key];
+ try{const model=await api('evaluate',r);if(serial!==state.previewSerial)return;
+  if(id&&!model.build.mounted.some(m=>m.slotPath===path&&m.itemId===id))throw Error('This attachment cannot mount with the current parent or coupled selections.');
+  state.preview={id,model};state.previewLoading=false;renderParts();renderStats();drawGraph();status('PREVIEW · '+(id?name(id):'Default')+' · Equip to apply.');
+  if(equipAfter)equipPreview();
+ }catch(error){if(serial!==state.previewSerial)return;state.previewLoading=false;updateActions();status(error.message,true);}
+}
+function cancelPreview(){clearPreview();renderParts();renderStats();drawGraph();updateActions();status('Equipped build restored.');}
+function equipPreview(){cancelLiveCalibration();if(!state.preview||state.previewLoading)return;const model=state.preview.model;clearPreview();adopt(model);status('Attachment equipped · Stats and calibration updated.');}
+function updateActions(){
+ const part=mounted(state.slot),canLock=part?.source==='equipped';$('lock').disabled=state.busy||!canLock;$('lock').setAttribute('aria-pressed',String(state.locks.has(state.slot)));$('lock').textContent=state.locks.has(state.slot)?'Locked':'Lock';
+ $('equip').disabled=state.busy||state.previewLoading||!state.preview;$('equip').textContent=state.previewLoading?'Comparing…':state.preview?'Equip attachment':'Equipped';$('cancel-preview').hidden=!state.preview&&!state.previewLoading;
+ $('selection-info').textContent=state.preview?(state.preview.id?name(state.preview.id):'Restore default')+' · '+costText(state.preview.id):part?.source==='equipped'?name(part.itemId):'Default / empty slot. Select a part to compare.';
+ $('locks').textContent=state.locks.size?`${state.locks.size} part(s) locked + required parents. Tuning remains adjustable.`:'No parts locked. Attachments and calibration may change.';
+
+}
+$('lock').onclick=()=>{state.locks.has(state.slot)?state.locks.delete(state.slot):state.locks.add(state.slot);renderSlots();updateActions();};
+$('equip').onclick=equipPreview;$('cancel-preview').onclick=cancelPreview;
+$('part-search').oninput=()=>{$('parts-list').scrollTop=0;renderParts();};
+let calibrationRevision=0,calibrationPending=null,calibrationRunning=false;
+function cancelLiveCalibration(){calibrationRevision++;calibrationPending=null;}
+function renderTuning(){
+ const controls=state.model.controls,bySlot=new Map();
+ for(const control of controls){if(!bySlot.has(control.slotPath))bySlot.set(control.slotPath,[]);bySlot.get(control.slotPath).push(control);}
+ $('tune-part').textContent=`${controls.length} sliders / ${bySlot.size} attachments`;
+ if(!controls.length){$('tuning').innerHTML='<p class="tune-note">Equip a tunable attachment to calibrate it.</p>';renderCalibrationSummary();return;}
+ const tuningNames={'\u539a\u5ea6':'Thickness','\u957f\u5ea6':'Length','\u91cd\u91cf':'Weight','\u4f4d\u7f6e':'Position','\u91cd\u5fc3':'Balance','\u914d\u91cd':'Counterweight'};
+ $('tuning').innerHTML=[...bySlot].map(([path,list])=>`<section class="tune-group ${path===state.slot?'selected-tune-group':''}"><h3>${esc(name(list[0].itemId))}<small>Socket ${esc(path)}</small></h3>${list.map(t=>{
+  const raw=t.control.labels.mainLocId.replace('authoring:',''),label=tuningNames[raw]??raw;
+  const value=state.tunes[t.slotPath]?.[t.id]??t.value,index=t.values.findIndex(v=>Math.abs(v-value)<1e-6);
+  return `<label class="tune"><span>${esc(label)}<small>${fmt(t.values[0],2)} to ${fmt(t.values.at(-1),2)}</small></span><input type="range" data-tune="${esc(t.id)}" data-tune-slot="${esc(t.slotPath)}" min="0" max="${t.values.length-1}" value="${index}" step="1" aria-label="${esc(name(t.itemId)+' '+label)}"><output>${fmt(value,3)}</output></label>`;
+ }).join('')}</section>`).join('');
+ $('tuning').querySelectorAll('input').forEach(input=>{
+  const t=controls.find(c=>c.id===input.dataset.tune&&c.slotPath===input.dataset.tuneSlot);
+  input.oninput=()=>{const value=t.values[Number(input.value)];input.nextElementSibling.textContent=fmt(value,3);(state.tunes[t.slotPath]??={})[t.id]=value;clearPreview();
+   calibrationRevision++;calibrationPending={revision:calibrationRevision,request:structuredClone(request())};status('Updating calibration...');pumpCalibration();
+  };
+ });
+ renderCalibrationSummary();
+}
+async function pumpCalibration(){
+ if(calibrationRunning)return;calibrationRunning=true;
+ try{while(calibrationPending){const pending=calibrationPending;calibrationPending=null;
+  try{const model=await api('evaluate',pending.request);if(pending.revision!==calibrationRevision)continue;
+   // Keep slider nodes and immediate input values intact while the pointer is down.
+   state.model=model;state.config=structuredClone(model.build.config);state.tunes=structuredClone(model.tunes);
+   renderStats();drawGraph();renderCalibrationSummary();refreshPartComparisons();status('Calibration updated live.');
+  }catch(error){if(pending.revision!==calibrationRevision)continue;state.tunes=structuredClone(state.model.tunes);renderTuning();status(error.message,true);}
+ }}finally{calibrationRunning=false;}
+}
+function renderCalibrationSummary(){
+ if(!state.model)return;const {base,current}=state.model.stats;
+ const metrics=[...([['Recoil','recoilControl'],['Handling','handling'],['Stability','stability'],['Accuracy','waistAccuracy']].map(([label,key])=>[label,current.panel[key],base.panel[key],''])),['ADS time',current.handling.adsTimeMs,base.handling.adsTimeMs,'ms'],['Vertical recoil',current.recoil.autoVertical,base.recoil.autoVertical,'x'],['Camera shake',current.stability.fireCameraStability,base.stability.fireCameraStability,'x'],['Weapon kick',current.recoil.fireWeaponStability,base.recoil.fireWeaponStability,'x']];
+ $('calibration-stats').innerHTML=metrics.map(([label,value,baseline,unit])=>`<span>${label}<strong>${fmt(value,3)} ${unit}<small>${value-baseline>0?'+':''}${fmt(value-baseline,3)}</small></strong></span>`).join('');
+}
+const groups=majorStatGroups.map(g=>[g.title,g.key,g.detail]);
+const detailLabels={autoVertical:'Auto vertical ×',autoHorizontal:'Auto horizontal ×',singleVertical:'Single vertical ×',singleHorizontal:'Single horizontal ×',fireWeaponStability:'Weapon kick ratio',gunKickHorizontal:'Horizontal kick ×',gunKickVertical:'Vertical kick ×',adsTimeMs:'ADS time (ms)',sprintToFireMs:'Sprint to fire (ms)',adsMoveSpeed:'ADS speed (m/s)',walkSpeed:'Walk speed (m/s)',sprintSpeed:'Sprint speed (m/s)',reloadTime:'Tactical reload (s)',emptyReloadTime:'Empty reload (s)',holsterTime:'Equip time (s, source)',drawTime:'Holster time (s, source)',breathRangeDeg:'Breath sway (°)',holdBreathSeconds:'Hold breath (s)',holdBreathRecoilScale:'Held recoil ×',beHitScale:'Hit sway ×',moveStability:'Movement stability',fireCameraStability:'Firing camera ratio',hipSpreadDeg:'Standing spread (°)',maxSpreadDeg:'Max hip spread (°)',aimSpreadDeg:'ADS spread (°)',aimMaxSpreadDeg:'Max ADS spread (°)',uiFactor:'UI scale ×'};
+function renderStats(){
+ if(!state.model)return;const {base,current}=viewed().stats,eq=state.model.stats.current;
+ $('stats-context').textContent=state.preview?'PREVIEW / DELTAS VS EQUIPPED':'EQUIPPED / DELTAS VS DEFAULT';
+ const extraLabels={legend_moving:'Moving spread (deg)',legend_idle:'Idle spread (deg)',legend_max:'Max spread (deg)',breathLegend_normal:'Normal breath sway',breathLegend_held:'Held breath sway',breathLegend_unstable:'Unstable breath sway'};
+ const numericRows=detail=>Object.entries(detail??{}).flatMap(([k,v])=>typeof v==='number'?[[k,v]]:v&&typeof v==='object'&&!Array.isArray(v)?Object.entries(v).filter(([,n])=>typeof n==='number').map(([child,n])=>[k+'_'+child,n]):[]);
+ $('stats').innerHTML=groups.map(([title,key,detail])=>{
+  const value=current.panel[key],diff=value-(state.preview?eq:base).panel[key],defaults=Object.fromEntries(numericRows(base[detail]));
+  const rows=numericRows(current[detail]);
+  if(detail==='recoil')for(const axis of ['Vertical','Horizontal']){
+   const a='auto'+axis,b='single'+axis;if(Math.abs(current.recoil[a]-current.recoil[b])<1e-7&&Math.abs(base.recoil[a]-base.recoil[b])<1e-7){const duplicate=rows.findIndex(([k])=>k===b);if(duplicate>=0)rows.splice(duplicate,1);}
+  }
+  return `<article class="stat-overview" data-stat="${key}"><div class="overview-title"><div class="overview-name"><h3>${title}</h3><button class="stat-info" data-response="${{recoilControl:'3',handling:'5',stability:'6',waistAccuracy:'4'}[key]}" aria-label="${title} response curve" title="${title} response curve">i</button></div><strong>${fmt(value,0)}<span class="delta ${diff<0?'negative':''}">${diff>0?'+':''}${fmt(diff,0)}</span></strong></div><div class="meter"><i style="width:${Math.max(0,Math.min(100,value))}%"></i></div><dl>${rows.map(([k,v])=>`<dt title="${esc(detail==='recoil'&&k.startsWith('auto')&&!rows.some(([other])=>other===k.replace('auto','single'))?k.replace('auto','')+' recoil ×':detailLabels[k]??extraLabels[k]??k)}">${esc(detail==='recoil'&&k.startsWith('auto')&&!rows.some(([other])=>other===k.replace('auto','single'))?k.replace('auto','')+' recoil ×':detailLabels[k]??extraLabels[k]??k)}</dt><dd>${fmt(v,3)} <small>/ ${fmt(defaults[k],3)}</small></dd>`).join('')}</dl></article>`;
+ }).join('');
+ document.querySelectorAll('[data-response]').forEach(button=>button.onclick=()=>showStatResponse(button.dataset.response));
+ $('preview-summary').hidden=!state.preview;if(state.preview)$('preview-summary').textContent='Preview only - Equip to apply';
+ $('tactical').innerHTML=[['FIRE RATE',current.weaponStats.fireRateRpm,'rpm'],['VELOCITY',current.weaponStats.muzzleVelocityMps,'m/s'],['MAGAZINE',current.weaponStats.magazineCapacity,'rounds'],['RANGE',current.weaponStats.validDamageRangeMeters,'m']].map(([label,v,unit])=>`<span>${label}<strong>${fmt(v,0)} <small>${unit}</small></strong></span>`).join('');
+}
+$('open-calibration').onclick=()=>{clearPreview();renderStats();drawGraph();renderTuning();$('calibration-dialog').showModal();};
+$('close-calibration').onclick=()=>{$('calibration-dialog').close();};
+function graphView(show){$('gun-canvas').hidden=show;$('pattern-canvas').hidden=!show;$('gun-view').setAttribute('aria-pressed',String(!show));$('pattern-view').setAttribute('aria-pressed',String(show));if(show)drawGraph();}
+$('gun-view').onclick=()=>graphView(false);$('pattern-view').onclick=()=>graphView(true);
+function drawGraph(){if(!state.model)return;const key=$('view').value,{base,current}=viewed().stats,a=base.recoil[key]??[],b=current.recoil[key]??[],all=[{x:0,y:0},...a,...b];
+ const minX=Math.min(...all.map(p=>p.x)),maxX=Math.max(...all.map(p=>p.x)),minY=Math.min(...all.map(p=>p.y)),maxY=Math.max(...all.map(p=>p.y));const scale=Math.min(360/Math.max(maxX-minX,1),210/Math.max(maxY-minY,1));
+ const x=v=>220+(v-(minX+maxX)/2)*scale,y=v=>135+(v-(minY+maxY)/2)*scale;
+ const line=(points,color,dash='')=>`<polyline points="${[{x:0,y:0},...points].map(p=>`${x(p.x)},${y(p.y)}`).join(' ')}" fill="none" stroke="${color}" stroke-width="2" ${dash?'stroke-dasharray="5 4"':''}/>`;
+ $('graph').innerHTML=Array.from({length:9},(_,i)=>`<line x1="${i*55}" y1="0" x2="${i*55}" y2="270" stroke="#202a32"/>`).join('')+Array.from({length:6},(_,i)=>`<line x1="0" y1="${i*54}" x2="440" y2="${i*54}" stroke="#202a32"/>`).join('')+line(a,'#71818c','dash')+line(b,'#b7ed72')+b.map(p=>`<circle cx="${x(p.x)}" cy="${y(p.y)}" r="2.3" fill="#b7ed72"/>`).join('')+`<text x="12" y="254" fill="#8a9aa6" font-size="10">${esc(fmt(100/scale,2))} model units / 100 px · ${b.length} shots</text>`;
+}
+$('generate').onclick=async()=>{
+ const started=Date.now();let progress;
+ const feedback=(message,error=false)=>{$('results').innerHTML=`<p class="search-feedback ${error?'error':''}" role="status">${esc(message)}</p>`;};
+ try{
+  cancelLiveCalibration();clearPreview();clearResults();setBusy(true);renderStats();drawGraph();
+  status('Searching attachments and calibration...');
+  feedback('Searching attachments and calibration...');
+  $('generate').textContent='Searching...';
+  progress=setInterval(()=>{feedback(`Searching attachments and calibration... ${Math.floor((Date.now()-started)/1000)}s elapsed. Deeper searches can take longer.`);},1000);
+  const fixed=state.config.filter(x=>[...state.locks].some(path=>path===x.slotPath||path.startsWith(x.slotPath+'/'))),r={...request(),fixed,firing:$('firing').value,passes:Number($('passes').value)};
+  r.minimum_stats=Object.fromEntries(['control','handling','stability','accuracy'].filter(k=>$(`minimum-${k}`).value!=='').map(k=>[k,Number($(`minimum-${k}`).value)]));
+  if(r.mode==='sol')r.budget=Number($('budget-0').value);
+  const result=await api('optimize',r);
+  if(!Array.isArray(result.results)||!result.results.length)throw Error('Search returned no builds. Try different constraints or another weapon.');
+  state.results=result;state.results.request=structuredClone(r);state.resultIndex=0;
+  clearInterval(progress);renderResults();status('Search complete - Best builds found.');
+ }catch(error){clearInterval(progress);feedback(error.message,true);status(error.message,true);}
+ finally{clearInterval(progress);$('generate').textContent='Generate best build';setBusy(false);}
+};
+
+function renderResults(){
+ const run=state.results,rows=run.results,row=rows[state.resultIndex];
+ const ordered=rows.map((r,i)=>({r,i})).sort((a,b)=>(Number.isFinite(b.r.effectiveness_percent)?b.r.effectiveness_percent:-1)-(Number.isFinite(a.r.effectiveness_percent)?a.r.effectiveness_percent:-1));
+ const picker=rows.length>1?`<div class="result-picker">${ordered.map(({r,i})=>`<button data-result="${i}" aria-pressed="${state.resultIndex===i}">${esc(r.label)}</button>`).join('')}</div>`:'';
+ const stat=(key,label)=>{
+  const value=row.stats[key],base=run.baseline_stats?.[key];
+  const change=Number.isFinite(base)&&base!==0?100*(value/base-1):null;
+  return `<div class="solution-stat" data-stat="${key}"><span>${label}</span><strong>${fmt(value)}</strong><small class="${change>0?'positive':change<0?'negative':''}" title="Percent change from base effective points">${change===null?'N/A':`${change>0?'+':''}${fmt(change)}%`}</small></div>`;
+ };
+ const context=`<p class="solution-context">${esc(name(run.weapon_id))} &middot; ${esc(run.mode.toUpperCase())} &middot; Previous run</p>`;
+ $('results').innerHTML=context+picker+(row.status!=='best_found'?`<article class="result"><h3>No feasible build</h3><p class="helper">${esc(row.reason)}</p></article>`:`<article class="result compact-solution"><div class="solution-grid"><section class="solution-panel solution-performance" aria-label="Score and cost"><div><span>Score</span><strong>${fmt(row.score)}</strong></div><div><span>Cost</span><strong>${row.cost===null?'Unpriced':fmt(row.cost,0)}</strong></div></section><section class="solution-panel solution-effectiveness" aria-label="Effectiveness"><span>Of best improvement</span><strong>${fmt(row.effectiveness_percent)}%</strong><small>${row.target_effectiveness_percent===null?'Best performance':run.selection==='automatic'?(row.label==='Cheapest'?'50% minimum':'Automatic knee selection'):`Target ${fmt(row.target_effectiveness_percent)}%`}</small></section><section class="solution-panel solution-major-stats" aria-label="Control and handling">${stat('control','Control')}${stat('handling','Handling')}</section><section class="solution-panel solution-major-stats" aria-label="Stability and accuracy">${stat('stability','Stability')}${stat('accuracy','Accuracy')}</section></div><div class="solution-actions"><button id="result-details">Details</button><button class="primary" data-apply="${state.resultIndex}">Apply build</button></div><button class="solution-save" id="save-result-build">Save this build</button></article>`);
+ document.querySelectorAll('[data-result]').forEach(button=>button.onclick=()=>{state.resultIndex=Number(button.dataset.result);renderResults();});
+ const apply=$('results').querySelector('[data-apply]');
+ if(apply)apply.onclick=()=>{
+  const changedContext=$('weapon').value!==run.weapon_id||$('mode').value!==run.mode;
+  $('weapon').value=run.weapon_id;$('mode').value=run.mode;
+  if(changedContext){state.locks.clear();state.slot=null;}
+  if(run.request?.shot_count)$('shots').value=run.request.shot_count;
+  state.config=structuredClone(row.config);state.tunes=structuredClone(row.tunes);tab('builder');evaluate();pane('weapon');
+ };
+ if($('result-details'))$('result-details').onclick=()=>showResultDetails(row);
+ if($('save-result-build'))$('save-result-build').onclick=()=>showSavedBuilds({weapon_id:run.weapon_id,mode:run.mode,config:structuredClone(row.config),tunes:structuredClone(row.tunes),shot_count:run.request?.shot_count??20,locked_slots:(run.request?.fixed??[]).map(f=>f.slotPath)},row.label);
+}
+
+function showResultDetails(row){let dialog=$('result-dialog');if(!dialog){dialog=document.createElement('dialog');dialog.id='result-dialog';document.body.append(dialog);}dialog.innerHTML=`<div class="pane-heading"><h2>Score components</h2><button aria-label="Close score components">✕</button></div><p class="helper">Within-weapon experimental multiplier proxy. Default = 100% per component.</p><dl class="component-list">${Object.entries(row.components).map(([k,v])=>`<dt>${esc(k)}</dt><dd>${fmt(v/state.results.baseline[k]*100)}%</dd>`).join('')}</dl>`;dialog.querySelector('button').onclick=()=>dialog.close();dialog.showModal();}
+function renderWeapons(){const query=$('weapon-search').value.toLowerCase().trim();$('weapon-list').innerHTML=state.catalog.weapons.filter(w=>(w.name+' '+w.id).toLowerCase().includes(query)).map(w=>`<button class="part-card ${w.id===$('weapon').value?'selected':''}" data-weapon="${esc(w.id)}">${portrait(w.id,'GUN')}<span><span class="part-name">${esc(w.name)}</span><small>${w.tier?'Tier '+esc(w.tier.tier)+' · '+fmt(w.tier.gunsmithLimit,0)+' cap':'Catalog weapon'}</small></span></button>`).join('')||'<p class="helper">No matching weapons.</p>';
+ document.querySelectorAll('[data-weapon]').forEach(button=>button.onclick=()=>{$('weapon').value=button.dataset.weapon;$('weapon-dialog').close();evaluate({reset:true});});
+}
+$('choose-weapon').onclick=()=>{$('weapon-search').value='';renderWeapons();$('weapon-dialog').showModal();$('weapon-search').focus();};$('close-weapons').onclick=()=>$('weapon-dialog').close();$('weapon-search').oninput=renderWeapons;
+$('mode').onchange=()=>evaluate({reset:true});$('reset').onclick=()=>evaluate({reset:true});$('shots').onchange=()=>evaluate();$('view').onchange=drawGraph;
+
+const savedBuilds=createSavedBuildStore();
+let saveDraft=null;
+function showSavedBuilds(build={...request(),locked_slots:[...state.locks]},suffix=''){
+ saveDraft=structuredClone(build);
+ $('save-build-name').value=[name(build.weapon_id),suffix].filter(Boolean).join(' - ');
+ $('save-build-context').textContent=`Saving ${name(build.weapon_id)} / ${build.mode.toUpperCase()} / ${build.config.length} selected attachments`;
+ $('saved-build-status').textContent='';renderSavedBuilds();$('saved-builds-dialog').showModal();
+}
+function renderSavedBuilds(){
+ const rows=savedBuilds.list();
+ $('saved-build-list').innerHTML=rows.length?rows.map(row=>`<article class="saved-build-row"><div><strong>${esc(row.name)}</strong><small>${row.error?esc(row.error):`${esc(name(row.build.weapon_id))} / ${esc(row.build.mode.toUpperCase())}`}</small></div><div class="saved-build-actions">${row.error?'':`<button data-load-build="${row.id}">Load</button><button data-replace-build="${row.id}" title="Replace this saved build with the build shown above">Replace</button>`}<button data-delete-build="${row.id}">Delete</button></div></article>`).join(''):'<p class="helper">No saved builds yet.</p>';
+ $('saved-build-storage').textContent=`Cookie storage: ${fmt(savedBuilds.usage()/1024)} / ${fmt(savedBuilds.capacity/1024)} KB`;
+ $('saved-build-list').querySelectorAll('[data-load-build]').forEach(button=>button.onclick=()=>loadSavedBuild(button.dataset.loadBuild));
+ $('saved-build-list').querySelectorAll('[data-replace-build]').forEach(button=>button.onclick=()=>{
+  try{const old=savedBuilds.read(button.dataset.replaceBuild);savedBuilds.save(saveDraft,old.name,old.id);renderSavedBuilds();$('saved-build-status').textContent=`Updated ${old.name}.`;}catch(error){$('saved-build-status').textContent=error.message;}
+ });
+ $('saved-build-list').querySelectorAll('[data-delete-build]').forEach(button=>button.onclick=()=>{
+  try{savedBuilds.remove(button.dataset.deleteBuild);renderSavedBuilds();$('saved-build-status').textContent='Saved build deleted.';}catch(error){$('saved-build-status').textContent=error.message;}
+ });
+}
+async function loadSavedBuild(id){
+ setBusy(true);$('saved-build-status').textContent='Loading saved build...';
+ try{
+  const saved=savedBuilds.read(id),build=saved.build,model=await api('evaluate',build);
+  if(build.config.some(c=>!model.build.mounted.some(m=>m.slotPath===c.slotPath&&m.itemId===c.itemId))||Object.entries(build.tunes).some(([slot,values])=>Object.entries(values).some(([key,value])=>model.tunes[slot]?.[key]!==value)))throw Error('This build no longer matches the catalog. The saved copy was kept.');
+  $('weapon').value=build.weapon_id;$('mode').value=build.mode;$('shots').value=build.shot_count;
+  clearPreview();state.locks.clear();state.slot=null;adopt(model);
+  state.locks=new Set(build.locked_slots.filter(path=>model.build.mounted.some(m=>m.slotPath===path&&m.source==='equipped')));
+  tab('builder');renderSlots();updateActions();pane('weapon');$('saved-builds-dialog').close();status(`Loaded ${saved.name}.`);
+ }catch(error){$('saved-build-status').textContent=error.message;}finally{setBusy(false);}
+}
+$('open-saved-builds').onclick=()=>showSavedBuilds();
+$('close-saved-builds').onclick=()=>$('saved-builds-dialog').close();
+$('save-build-form').onsubmit=event=>{
+ event.preventDefault();
+ try{const saved=savedBuilds.save(saveDraft,$('save-build-name').value);renderSavedBuilds();$('saved-build-status').textContent=`Saved ${saved.name}.`;}catch(error){$('saved-build-status').textContent=error.message;}
+};
+$('export').onclick=()=>{const blob=new Blob([JSON.stringify({request:request(),locked_slots:[...state.locks],model:state.model,optimization:state.results},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`delta-${$('weapon').value}-${$('mode').value}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+try{setBusy(true);const response=await fetch('/api/catalog');if(!response.ok)throw Error('Catalog unavailable');state.catalog=await response.json();state.catalog.weapons.sort((a,b)=>a.name.localeCompare(b.name));$('weapon').value='18010000001';await evaluate();}catch(error){status(error.message,true);}

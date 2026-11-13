@@ -1,0 +1,1497 @@
+{
+  "weapon_id": "18010000052",
+  "mode": "bd",
+  "experimental": true,
+  "method": "Coordinate search; no global optimality guarantee",
+  "score_model": "Unvalidated within-weapon recoil/camera/kick multiplier proxy; no post-fire recovery term; timed path metrics are separate diagnostics",
+  "weights": {
+    "pattern": 0.5,
+    "camera": 0.3,
+    "kick": 0.2
+  },
+  "baseline": {
+    "pattern": 1.4142135623730951,
+    "camera": 1.4142135623730951,
+    "kick": 1.4142135623730951
+  },
+  "baseline_score": 100,
+  "baseline_recoil_path": {
+    "model_version": "timed-source-chart-v1",
+    "units": "model units; angular calibration unverified",
+    "input_assumption": "No compensation or reaction; one fully reset uninterrupted firing string",
+    "requested_shots": 20,
+    "capacity": 30,
+    "fire_control": {
+      "timingSource": "legacySpecial",
+      "supportedModes": [
+        "Auto"
+      ],
+      "selectedFireMode": "Auto",
+      "fireScheduleRules": [
+        {
+          "type": "fireSchedule",
+          "mode": "firstShotsRpm",
+          "shots": 3,
+          "rpm": 1800,
+          "sustainedRpm": 600
+        }
+      ],
+      "burstCount": null,
+      "scheduleStatus": "modeled",
+      "displayFireRateRpm": null,
+      "triggerDelayMs": 0
+    },
+    "recoil_profile_id": "authoring:weapon:18010000052:adsRecoil",
+    "chart_point_semantics": "Cumulative source post-shot recoil; not validated bullet impact positions",
+    "global_verified": false,
+    "status": "modeled",
+    "points": [
+      {
+        "shot": 1,
+        "time_ms": 0,
+        "x": 0,
+        "y": -0.045,
+        "pre_shot_aim_proxy": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "shot": 2,
+        "time_ms": 33.333333333333336,
+        "x": 0.008,
+        "y": -0.1125,
+        "pre_shot_aim_proxy": {
+          "x": 0,
+          "y": -0.045
+        }
+      },
+      {
+        "shot": 3,
+        "time_ms": 66.66666666666667,
+        "x": -0.082,
+        "y": -0.8925,
+        "pre_shot_aim_proxy": {
+          "x": 0.008,
+          "y": -0.1125
+        }
+      },
+      {
+        "shot": 4,
+        "time_ms": 166.66666666666669,
+        "x": -0.202,
+        "y": -1.7025,
+        "pre_shot_aim_proxy": {
+          "x": -0.082,
+          "y": -0.8925
+        }
+      },
+      {
+        "shot": 5,
+        "time_ms": 266.6666666666667,
+        "x": -0.282,
+        "y": -2.4825,
+        "pre_shot_aim_proxy": {
+          "x": -0.202,
+          "y": -1.7025
+        }
+      },
+      {
+        "shot": 6,
+        "time_ms": 366.6666666666667,
+        "x": -0.382,
+        "y": -3.2325,
+        "pre_shot_aim_proxy": {
+          "x": -0.282,
+          "y": -2.4825
+        }
+      },
+      {
+        "shot": 7,
+        "time_ms": 466.6666666666667,
+        "x": -0.522,
+        "y": -3.9525,
+        "pre_shot_aim_proxy": {
+          "x": -0.382,
+          "y": -3.2325
+        }
+      },
+      {
+        "shot": 8,
+        "time_ms": 566.6666666666667,
+        "x": -0.622,
+        "y": -4.6425,
+        "pre_shot_aim_proxy": {
+          "x": -0.522,
+          "y": -3.9525
+        }
+      },
+      {
+        "shot": 9,
+        "time_ms": 666.6666666666667,
+        "x": -0.795,
+        "y": -5.2215,
+        "pre_shot_aim_proxy": {
+          "x": -0.622,
+          "y": -4.6425
+        }
+      },
+      {
+        "shot": 10,
+        "time_ms": 766.6666666666667,
+        "x": -0.896,
+        "y": -5.8845,
+        "pre_shot_aim_proxy": {
+          "x": -0.795,
+          "y": -5.2215
+        }
+      },
+      {
+        "shot": 11,
+        "time_ms": 866.6666666666667,
+        "x": -0.952,
+        "y": -6.567,
+        "pre_shot_aim_proxy": {
+          "x": -0.896,
+          "y": -5.8845
+        }
+      },
+      {
+        "shot": 12,
+        "time_ms": 966.6666666666667,
+        "x": -0.797,
+        "y": -7.3215,
+        "pre_shot_aim_proxy": {
+          "x": -0.952,
+          "y": -6.567
+        }
+      },
+      {
+        "shot": 13,
+        "time_ms": 1066.6666666666667,
+        "x": -0.536,
+        "y": -8.013,
+        "pre_shot_aim_proxy": {
+          "x": -0.797,
+          "y": -7.3215
+        }
+      },
+      {
+        "shot": 14,
+        "time_ms": 1166.6666666666667,
+        "x": -0.204,
+        "y": -8.4885,
+        "pre_shot_aim_proxy": {
+          "x": -0.536,
+          "y": -8.013
+        }
+      },
+      {
+        "shot": 15,
+        "time_ms": 1266.6666666666667,
+        "x": -0.263,
+        "y": -9.1575,
+        "pre_shot_aim_proxy": {
+          "x": -0.204,
+          "y": -8.4885
+        }
+      },
+      {
+        "shot": 16,
+        "time_ms": 1366.6666666666667,
+        "x": -0.377,
+        "y": -9.9525,
+        "pre_shot_aim_proxy": {
+          "x": -0.263,
+          "y": -9.1575
+        }
+      },
+      {
+        "shot": 17,
+        "time_ms": 1466.6666666666667,
+        "x": -0.18,
+        "y": -10.6005,
+        "pre_shot_aim_proxy": {
+          "x": -0.377,
+          "y": -9.9525
+        }
+      },
+      {
+        "shot": 18,
+        "time_ms": 1566.6666666666667,
+        "x": -0.296,
+        "y": -11.184,
+        "pre_shot_aim_proxy": {
+          "x": -0.18,
+          "y": -10.6005
+        }
+      },
+      {
+        "shot": 19,
+        "time_ms": 1666.6666666666667,
+        "x": -0.469,
+        "y": -11.8125,
+        "pre_shot_aim_proxy": {
+          "x": -0.296,
+          "y": -11.184
+        }
+      },
+      {
+        "shot": 20,
+        "time_ms": 1766.6666666666667,
+        "x": -0.542,
+        "y": -12.4155,
+        "pre_shot_aim_proxy": {
+          "x": -0.469,
+          "y": -11.8125
+        }
+      }
+    ],
+    "metrics": {
+      "duration_ms": 1766.6666666666667,
+      "climb_model_units_per_second": 7.002169811320754,
+      "signed_climb_model_units_per_second": 7.002169811320754,
+      "horizontal_drift_model_units_per_second": -0.3067924528301887,
+      "horizontal_span_model_units": 0.96,
+      "peak_upward_displacement_model_units": 12.4155,
+      "maximum_distance_from_start_model_units": 12.427324903212275,
+      "first_shot_impulse_model_units": {
+        "x": 0,
+        "up": 0.045
+      },
+      "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+    },
+    "pre_shot_aim_proxy_note": "Previous cumulative impulse before this shot, starting at zero. Consistent with lab hit-before-kick ordering; omits smoothing, spread, jitter and between-shot recovery. Not a measured impact simulation.",
+    "opening": {
+      "shots": 3,
+      "metrics": {
+        "duration_ms": 66.66666666666667,
+        "climb_model_units_per_second": 12.712499999999999,
+        "signed_climb_model_units_per_second": 12.712499999999999,
+        "horizontal_drift_model_units_per_second": -1.23,
+        "horizontal_span_model_units": 0.09,
+        "peak_upward_displacement_model_units": 0.8925,
+        "maximum_distance_from_start_model_units": 0.8962590306379065,
+        "first_shot_impulse_model_units": {
+          "x": 0,
+          "up": 0.045
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "sustained_metrics": {
+        "duration_ms": 1600,
+        "climb_model_units_per_second": 6.695624999999999,
+        "signed_climb_model_units_per_second": 6.695624999999999,
+        "horizontal_drift_model_units_per_second": -0.2125,
+        "horizontal_span_model_units": 0.772,
+        "peak_upward_displacement_model_units": 12.4155,
+        "maximum_distance_from_start_model_units": 12.427324903212275,
+        "first_shot_impulse_model_units": {
+          "x": -0.202,
+          "up": 1.7025
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "note": "Opening timing and per-shot recoil shape are independent source inputs; third-shot boundary and reset remain unverified"
+    }
+  },
+  "tier": {
+    "tier": 3,
+    "price": 1800,
+    "gunsmithLimit": 800
+  },
+  "provenance": {
+    "data_version": "20261108-an94-bd-shop.1",
+    "runtime_version": "09f820e0d3ada199",
+    "calculator_module_sha256": {
+      "curves.mjs": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1",
+      "kernel.mjs": "efa81a0293cb63ae0380ee3c46b9c966a7604abe55ec0f58197477c2fad5de6d",
+      "attributes.mjs": "6cbf4c9f3f065552987922bed7b7fd6df94b4679c74d8d84ea32e807ecea1850"
+    },
+    "price_sources": [
+      {
+        "type": "weapon",
+        "currency": "哈夫币",
+        "updated_at": "2026-11-11",
+        "source": "orzice 三角洲小涛查 · 战备页交易行实时价（本体裸枪当日价）"
+      },
+      {
+        "type": "part",
+        "currency": "哈夫币",
+        "updated_at": "2026-11-11",
+        "source": "orzice 三角洲小涛查 · 战备页交易行实时价（配件当日价）"
+      }
+    ],
+    "global_verified": false
+  },
+  "results": [
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000121"
+        },
+        {
+          "slotPath": "2",
+          "itemId": "13020000628"
+        },
+        {
+          "slotPath": "11",
+          "itemId": "13210000014"
+        }
+      ],
+      "tunes": {
+        "1": {
+          "authoring:part:13030000121:tune:weight:1": 50
+        },
+        "2": {
+          "authoring:part:13020000628:tune:weight:1": 50
+        }
+      },
+      "score": 64.84583077671682,
+      "components": {
+        "pattern": 1.11134079949803,
+        "camera": 0.3606244584051393,
+        "kick": 1.2660039810363948
+      },
+      "cost": 260,
+      "label": "cheap",
+      "budget": 266,
+      "status": "best_found",
+      "improvement_percent": 35.154169223283176,
+      "converged": true,
+      "mounted": [
+        {
+          "slotPath": "2",
+          "socketId": 2,
+          "hostItemId": "18010000052",
+          "itemId": "13020000628",
+          "source": "equipped"
+        },
+        {
+          "slotPath": "4",
+          "socketId": 4,
+          "hostItemId": "18010000052",
+          "itemId": "13050000436",
+          "source": "forced"
+        },
+        {
+          "slotPath": "1",
+          "socketId": 1,
+          "hostItemId": "18010000052",
+          "itemId": "13030000121",
+          "source": "equipped"
+        },
+        {
+          "slotPath": "3",
+          "socketId": 3,
+          "hostItemId": "18010000052",
+          "itemId": "13040000241",
+          "source": "default"
+        },
+        {
+          "slotPath": "5",
+          "socketId": 5,
+          "hostItemId": "18010000052",
+          "itemId": "13120000390",
+          "source": "default"
+        },
+        {
+          "slotPath": "11",
+          "socketId": 11,
+          "hostItemId": "18010000052",
+          "itemId": "13210000014",
+          "source": "equipped"
+        }
+      ],
+      "recoil_path": {
+        "model_version": "timed-source-chart-v1",
+        "units": "model units; angular calibration unverified",
+        "input_assumption": "No compensation or reaction; one fully reset uninterrupted firing string",
+        "requested_shots": 20,
+        "capacity": 30,
+        "fire_control": {
+          "timingSource": "legacySpecial",
+          "supportedModes": [
+            "Auto"
+          ],
+          "selectedFireMode": "Auto",
+          "fireScheduleRules": [
+            {
+              "type": "fireSchedule",
+              "mode": "firstShotsRpm",
+              "shots": 3,
+              "rpm": 1800,
+              "sustainedRpm": 600
+            }
+          ],
+          "burstCount": null,
+          "scheduleStatus": "modeled",
+          "displayFireRateRpm": null,
+          "triggerDelayMs": 0
+        },
+        "recoil_profile_id": "authoring:weapon:18010000052:adsRecoil",
+        "chart_point_semantics": "Cumulative source post-shot recoil; not validated bullet impact positions",
+        "global_verified": false,
+        "status": "modeled",
+        "points": [
+          {
+            "shot": 1,
+            "time_ms": 0,
+            "x": 0,
+            "y": -0.03536,
+            "pre_shot_aim_proxy": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "shot": 2,
+            "time_ms": 33.333333333333336,
+            "x": 0.00629,
+            "y": -0.08841,
+            "pre_shot_aim_proxy": {
+              "x": 0,
+              "y": -0.03536
+            }
+          },
+          {
+            "shot": 3,
+            "time_ms": 66.66666666666667,
+            "x": -0.06444,
+            "y": -0.70136,
+            "pre_shot_aim_proxy": {
+              "x": 0.00629,
+              "y": -0.08841
+            }
+          },
+          {
+            "shot": 4,
+            "time_ms": 166.66666666666669,
+            "x": -0.15874,
+            "y": -1.33789,
+            "pre_shot_aim_proxy": {
+              "x": -0.06444,
+              "y": -0.70136
+            }
+          },
+          {
+            "shot": 5,
+            "time_ms": 266.6666666666667,
+            "x": -0.22161,
+            "y": -1.95084,
+            "pre_shot_aim_proxy": {
+              "x": -0.15874,
+              "y": -1.33789
+            }
+          },
+          {
+            "shot": 6,
+            "time_ms": 366.6666666666667,
+            "x": -0.30019,
+            "y": -2.54022,
+            "pre_shot_aim_proxy": {
+              "x": -0.22161,
+              "y": -1.95084
+            }
+          },
+          {
+            "shot": 7,
+            "time_ms": 466.6666666666667,
+            "x": -0.41021,
+            "y": -3.10602,
+            "pre_shot_aim_proxy": {
+              "x": -0.30019,
+              "y": -2.54022
+            }
+          },
+          {
+            "shot": 8,
+            "time_ms": 566.6666666666667,
+            "x": -0.48879,
+            "y": -3.64825,
+            "pre_shot_aim_proxy": {
+              "x": -0.41021,
+              "y": -3.10602
+            }
+          },
+          {
+            "shot": 9,
+            "time_ms": 666.6666666666667,
+            "x": -0.62474,
+            "y": -4.10325,
+            "pre_shot_aim_proxy": {
+              "x": -0.48879,
+              "y": -3.64825
+            }
+          },
+          {
+            "shot": 10,
+            "time_ms": 766.6666666666667,
+            "x": -0.70411,
+            "y": -4.62426,
+            "pre_shot_aim_proxy": {
+              "x": -0.62474,
+              "y": -4.10325
+            }
+          },
+          {
+            "shot": 11,
+            "time_ms": 866.6666666666667,
+            "x": -0.74812,
+            "y": -5.16059,
+            "pre_shot_aim_proxy": {
+              "x": -0.70411,
+              "y": -4.62426
+            }
+          },
+          {
+            "shot": 12,
+            "time_ms": 966.6666666666667,
+            "x": -0.62631,
+            "y": -5.7535,
+            "pre_shot_aim_proxy": {
+              "x": -0.74812,
+              "y": -5.16059
+            }
+          },
+          {
+            "shot": 13,
+            "time_ms": 1066.6666666666667,
+            "x": -0.42121,
+            "y": -6.29691,
+            "pre_shot_aim_proxy": {
+              "x": -0.62631,
+              "y": -5.7535
+            }
+          },
+          {
+            "shot": 14,
+            "time_ms": 1166.6666666666667,
+            "x": -0.16031,
+            "y": -6.67057,
+            "pre_shot_aim_proxy": {
+              "x": -0.42121,
+              "y": -6.29691
+            }
+          },
+          {
+            "shot": 15,
+            "time_ms": 1266.6666666666667,
+            "x": -0.20668,
+            "y": -7.1963,
+            "pre_shot_aim_proxy": {
+              "x": -0.16031,
+              "y": -6.67057
+            }
+          },
+          {
+            "shot": 16,
+            "time_ms": 1366.6666666666667,
+            "x": -0.29626,
+            "y": -7.82104,
+            "pre_shot_aim_proxy": {
+              "x": -0.20668,
+              "y": -7.1963
+            }
+          },
+          {
+            "shot": 17,
+            "time_ms": 1466.6666666666667,
+            "x": -0.14145,
+            "y": -8.33026,
+            "pre_shot_aim_proxy": {
+              "x": -0.29626,
+              "y": -7.82104
+            }
+          },
+          {
+            "shot": 18,
+            "time_ms": 1566.6666666666667,
+            "x": -0.23261,
+            "y": -8.7888,
+            "pre_shot_aim_proxy": {
+              "x": -0.14145,
+              "y": -8.33026
+            }
+          },
+          {
+            "shot": 19,
+            "time_ms": 1666.6666666666667,
+            "x": -0.36856,
+            "y": -9.2827,
+            "pre_shot_aim_proxy": {
+              "x": -0.23261,
+              "y": -8.7888
+            }
+          },
+          {
+            "shot": 20,
+            "time_ms": 1766.6666666666667,
+            "x": -0.42592,
+            "y": -9.75655,
+            "pre_shot_aim_proxy": {
+              "x": -0.36856,
+              "y": -9.2827
+            }
+          }
+        ],
+        "metrics": {
+          "duration_ms": 1766.6666666666667,
+          "climb_model_units_per_second": 5.50256037735849,
+          "signed_climb_model_units_per_second": 5.50256037735849,
+          "horizontal_drift_model_units_per_second": -0.24108679245283018,
+          "horizontal_span_model_units": 0.75441,
+          "peak_upward_displacement_model_units": 9.75655,
+          "maximum_distance_from_start_model_units": 9.765842295926145,
+          "first_shot_impulse_model_units": {
+            "x": 0,
+            "up": 0.03536
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        },
+        "pre_shot_aim_proxy_note": "Previous cumulative impulse before this shot, starting at zero. Consistent with lab hit-before-kick ordering; omits smoothing, spread, jitter and between-shot recovery. Not a measured impact simulation.",
+        "opening": {
+          "shots": 3,
+          "metrics": {
+            "duration_ms": 66.66666666666667,
+            "climb_model_units_per_second": 9.989999999999998,
+            "signed_climb_model_units_per_second": 9.989999999999998,
+            "horizontal_drift_model_units_per_second": -0.9666,
+            "horizontal_span_model_units": 0.07073,
+            "peak_upward_displacement_model_units": 0.70136,
+            "maximum_distance_from_start_model_units": 0.7043141083351945,
+            "first_shot_impulse_model_units": {
+              "x": 0,
+              "up": 0.03536
+            },
+            "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+          },
+          "sustained_metrics": {
+            "duration_ms": 1600,
+            "climb_model_units_per_second": 5.2616625,
+            "signed_climb_model_units_per_second": 5.2616625,
+            "horizontal_drift_model_units_per_second": -0.1669875,
+            "horizontal_span_model_units": 0.60667,
+            "peak_upward_displacement_model_units": 9.75655,
+            "maximum_distance_from_start_model_units": 9.765842295926145,
+            "first_shot_impulse_model_units": {
+              "x": -0.15874,
+              "up": 1.33789
+            },
+            "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+          },
+          "note": "Opening timing and per-shot recoil shape are independent source inputs; third-shot boundary and reset remain unverified"
+        },
+        "climb_improvement_percent": 21.41635342144618
+      }
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000121"
+        },
+        {
+          "slotPath": "2",
+          "itemId": "13020000628"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000110"
+        },
+        {
+          "slotPath": "11",
+          "itemId": "13110000099"
+        },
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000174"
+        },
+        {
+          "slotPath": "4/19",
+          "itemId": "13320000001"
+        }
+      ],
+      "tunes": {
+        "1": {
+          "authoring:part:13030000121:tune:weight:1": 50
+        },
+        "2": {
+          "authoring:part:13020000628:tune:weight:1": 50
+        },
+        "3": {
+          "authoring:part:13040000110:tune:position:0": 98,
+          "authoring:part:13040000110:tune:weight:1": 50
+        }
+      },
+      "score": 49.20323311741356,
+      "components": {
+        "pattern": 0.8506288984231768,
+        "camera": 0.16970562748477142,
+        "kick": 1.0980632920774651
+      },
+      "cost": 520,
+      "label": "mid",
+      "budget": 533,
+      "status": "best_found",
+      "improvement_percent": 50.79676688258644,
+      "converged": true,
+      "mounted": [
+        {
+          "slotPath": "2",
+          "socketId": 2,
+          "hostItemId": "18010000052",
+          "itemId": "13020000628",
+          "source": "equipped"
+        },
+        {
+          "slotPath": "2/6",
+          "socketId": 6,
+          "hostItemId": "13020000628",
+          "itemId": "13130000174",
+          "source": "equipped"
+        },
+        {
+          "slotPath": "4",
+          "socketId": 4,
+          "hostItemId": "18010000052",
+          "itemId": "13050000436",
+          "source": "forced"
+        },
+        {
+          "slotPath": "4/19",
+          "socketId": 19,
+          "hostItemId": "13050000436",
+          "itemId": "13320000001",
+          "source": "equipped"
+        },
+        {
+          "slotPath": "1",
+          "socketId": 1,
+          "hostItemId": "18010000052",
+          "itemId": "13030000121",
+          "source": "equipped"
+        },
+        {
+          "slotPath": "3",
+          "socketId": 3,
+          "hostItemId": "18010000052",
+          "itemId": "13040000110",
+          "source": "equipped"
+        },
+        {
+          "slotPath": "5",
+          "socketId": 5,
+          "hostItemId": "18010000052",
+          "itemId": "13120000390",
+          "source": "default"
+        },
+        {
+          "slotPath": "11",
+          "socketId": 11,
+          "hostItemId": "18010000052",
+          "itemId": "13110000099",
+          "source": "equipped"
+        }
+      ],
+      "recoil_path": {
+        "model_version": "timed-source-chart-v1",
+        "units": "model units; angular calibration unverified",
+        "input_assumption": "No compensation or reaction; one fully reset uninterrupted firing string",
+        "requested_shots": 20,
+        "capacity": 30,
+        "fire_control": {
+          "timingSource": "legacySpecial",
+          "supportedModes": [
+            "Auto"
+          ],
+          "selectedFireMode": "Auto",
+          "fireScheduleRules": [
+            {
+              "type": "fireSchedule",
+              "mode": "firstShotsRpm",
+              "shots": 3,
+              "rpm": 1800,
+              "sustainedRpm": 600
+            }
+          ],
+          "burstCount": null,
+          "scheduleStatus": "modeled",
+          "displayFireRateRpm": null,
+          "triggerDelayMs": 0
+        },
+        "recoil_profile_id": "authoring:weapon:18010000052:adsRecoil",
+        "chart_point_semantics": "Cumulative source post-shot recoil; not validated bullet impact positions",
+        "global_verified": false,
+        "status": "modeled",
+        "points": [
+          {
+            "shot": 1,
+            "time_ms": 0,
+            "x": 0,
+            "y": -0.02707,
+            "pre_shot_aim_proxy": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "shot": 2,
+            "time_ms": 33.333333333333336,
+            "x": 0.00481,
+            "y": -0.06767,
+            "pre_shot_aim_proxy": {
+              "x": 0,
+              "y": -0.02707
+            }
+          },
+          {
+            "shot": 3,
+            "time_ms": 66.66666666666667,
+            "x": -0.04932,
+            "y": -0.53683,
+            "pre_shot_aim_proxy": {
+              "x": 0.00481,
+              "y": -0.06767
+            }
+          },
+          {
+            "shot": 4,
+            "time_ms": 166.66666666666669,
+            "x": -0.1215,
+            "y": -1.02403,
+            "pre_shot_aim_proxy": {
+              "x": -0.04932,
+              "y": -0.53683
+            }
+          },
+          {
+            "shot": 5,
+            "time_ms": 266.6666666666667,
+            "x": -0.16962,
+            "y": -1.49319,
+            "pre_shot_aim_proxy": {
+              "x": -0.1215,
+              "y": -1.02403
+            }
+          },
+          {
+            "shot": 6,
+            "time_ms": 366.6666666666667,
+            "x": -0.22977,
+            "y": -1.9443,
+            "pre_shot_aim_proxy": {
+              "x": -0.16962,
+              "y": -1.49319
+            }
+          },
+          {
+            "shot": 7,
+            "time_ms": 466.6666666666667,
+            "x": -0.31398,
+            "y": -2.37737,
+            "pre_shot_aim_proxy": {
+              "x": -0.22977,
+              "y": -1.9443
+            }
+          },
+          {
+            "shot": 8,
+            "time_ms": 566.6666666666667,
+            "x": -0.37412,
+            "y": -2.7924,
+            "pre_shot_aim_proxy": {
+              "x": -0.31398,
+              "y": -2.37737
+            }
+          },
+          {
+            "shot": 9,
+            "time_ms": 666.6666666666667,
+            "x": -0.47818,
+            "y": -3.14066,
+            "pre_shot_aim_proxy": {
+              "x": -0.37412,
+              "y": -2.7924
+            }
+          },
+          {
+            "shot": 10,
+            "time_ms": 766.6666666666667,
+            "x": -0.53893,
+            "y": -3.53944,
+            "pre_shot_aim_proxy": {
+              "x": -0.47818,
+              "y": -3.14066
+            }
+          },
+          {
+            "shot": 11,
+            "time_ms": 866.6666666666667,
+            "x": -0.57261,
+            "y": -3.94996,
+            "pre_shot_aim_proxy": {
+              "x": -0.53893,
+              "y": -3.53944
+            }
+          },
+          {
+            "shot": 12,
+            "time_ms": 966.6666666666667,
+            "x": -0.47938,
+            "y": -4.40378,
+            "pre_shot_aim_proxy": {
+              "x": -0.57261,
+              "y": -3.94996
+            }
+          },
+          {
+            "shot": 13,
+            "time_ms": 1066.6666666666667,
+            "x": -0.3224,
+            "y": -4.8197,
+            "pre_shot_aim_proxy": {
+              "x": -0.47938,
+              "y": -4.40378
+            }
+          },
+          {
+            "shot": 14,
+            "time_ms": 1166.6666666666667,
+            "x": -0.1227,
+            "y": -5.10571,
+            "pre_shot_aim_proxy": {
+              "x": -0.3224,
+              "y": -4.8197
+            }
+          },
+          {
+            "shot": 15,
+            "time_ms": 1266.6666666666667,
+            "x": -0.15819,
+            "y": -5.5081,
+            "pre_shot_aim_proxy": {
+              "x": -0.1227,
+              "y": -5.10571
+            }
+          },
+          {
+            "shot": 16,
+            "time_ms": 1366.6666666666667,
+            "x": -0.22676,
+            "y": -5.98628,
+            "pre_shot_aim_proxy": {
+              "x": -0.15819,
+              "y": -5.5081
+            }
+          },
+          {
+            "shot": 17,
+            "time_ms": 1466.6666666666667,
+            "x": -0.10827,
+            "y": -6.37605,
+            "pre_shot_aim_proxy": {
+              "x": -0.22676,
+              "y": -5.98628
+            }
+          },
+          {
+            "shot": 18,
+            "time_ms": 1566.6666666666667,
+            "x": -0.17804,
+            "y": -6.72701,
+            "pre_shot_aim_proxy": {
+              "x": -0.10827,
+              "y": -6.37605
+            }
+          },
+          {
+            "shot": 19,
+            "time_ms": 1666.6666666666667,
+            "x": -0.2821,
+            "y": -7.10505,
+            "pre_shot_aim_proxy": {
+              "x": -0.17804,
+              "y": -6.72701
+            }
+          },
+          {
+            "shot": 20,
+            "time_ms": 1766.6666666666667,
+            "x": -0.32601,
+            "y": -7.46774,
+            "pre_shot_aim_proxy": {
+              "x": -0.2821,
+              "y": -7.10505
+            }
+          }
+        ],
+        "metrics": {
+          "duration_ms": 1766.6666666666667,
+          "climb_model_units_per_second": 4.2116999999999996,
+          "signed_climb_model_units_per_second": 4.2116999999999996,
+          "horizontal_drift_model_units_per_second": -0.18453396226415095,
+          "horizontal_span_model_units": 0.5774199999999999,
+          "peak_upward_displacement_model_units": 7.46774,
+          "maximum_distance_from_start_model_units": 7.474852722809995,
+          "first_shot_impulse_model_units": {
+            "x": 0,
+            "up": 0.02707
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        },
+        "pre_shot_aim_proxy_note": "Previous cumulative impulse before this shot, starting at zero. Consistent with lab hit-before-kick ordering; omits smoothing, spread, jitter and between-shot recovery. Not a measured impact simulation.",
+        "opening": {
+          "shots": 3,
+          "metrics": {
+            "duration_ms": 66.66666666666667,
+            "climb_model_units_per_second": 7.6464,
+            "signed_climb_model_units_per_second": 7.6464,
+            "horizontal_drift_model_units_per_second": -0.7398,
+            "horizontal_span_model_units": 0.054130000000000005,
+            "peak_upward_displacement_model_units": 0.53683,
+            "maximum_distance_from_start_model_units": 0.5390908191575887,
+            "first_shot_impulse_model_units": {
+              "x": 0,
+              "up": 0.02707
+            },
+            "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+          },
+          "sustained_metrics": {
+            "duration_ms": 1600,
+            "climb_model_units_per_second": 4.02731875,
+            "signed_climb_model_units_per_second": 4.02731875,
+            "horizontal_drift_model_units_per_second": -0.12781875,
+            "horizontal_span_model_units": 0.46434,
+            "peak_upward_displacement_model_units": 7.46774,
+            "maximum_distance_from_start_model_units": 7.474852722809995,
+            "first_shot_impulse_model_units": {
+              "x": -0.1215,
+              "up": 1.02403
+            },
+            "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+          },
+          "note": "Opening timing and per-shot recoil shape are independent source inputs; third-shot boundary and reset remain unverified"
+        },
+        "climb_improvement_percent": 39.85150155612141
+      }
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000121"
+        },
+        {
+          "slotPath": "2",
+          "itemId": "13020000628"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000110"
+        },
+        {
+          "slotPath": "11",
+          "itemId": "13110000099"
+        },
+        {
+          "slotPath": "4/19",
+          "itemId": "13320000001"
+        },
+        {
+          "slotPath": "4/20",
+          "itemId": "13320000001"
+        },
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000224"
+        },
+        {
+          "slotPath": "4/8",
+          "itemId": "13140000035"
+        }
+      ],
+      "tunes": {
+        "1": {
+          "authoring:part:13030000121:tune:weight:1": 50
+        },
+        "2": {
+          "authoring:part:13020000628:tune:weight:1": 50
+        },
+        "3": {
+          "authoring:part:13040000110:tune:position:0": 98,
+          "authoring:part:13040000110:tune:weight:1": 50
+        },
+        "4/8": {
+          "authoring:part:13140000035:tune:position:1": 100
+        }
+      },
+      "score": 36.231269695567235,
+      "components": {
+        "pattern": 0.5834318166473743,
+        "camera": 0.14255272708720798,
+        "kick": 0.8895290170241779
+      },
+      "cost": 800,
+      "label": "expensive",
+      "budget": 800,
+      "status": "best_found",
+      "improvement_percent": 63.768730304432765,
+      "converged": true,
+      "mounted": [
+        {
+          "slotPath": "2",
+          "socketId": 2,
+          "hostItemId": "18010000052",
+          "itemId": "13020000628",
+          "source": "equipped"
+        },
+        {
+          "slotPath": "2/6",
+          "socketId": 6,
+          "hostItemId": "13020000628",
+          "itemId": "13130000224",
+          "source": "equipped"
+        },
+        {
+          "slotPath": "4",
+          "socketId": 4,
+          "hostItemId": "18010000052",
+          "itemId": "13050000436",
+          "source": "forced"
+        },
+        {
+          "slotPath": "4/8",
+          "socketId": 8,
+          "hostItemId": "13050000436",
+          "itemId": "13140000035",
+          "source": "equipped"
+        },
+        {
+          "slotPath": "4/20",
+          "socketId": 20,
+          "hostItemId": "13050000436",
+          "itemId": "13320000001",
+          "source": "equipped"
+        },
+        {
+          "slotPath": "4/19",
+          "socketId": 19,
+          "hostItemId": "13050000436",
+          "itemId": "13320000001",
+          "source": "equipped"
+        },
+        {
+          "slotPath": "1",
+          "socketId": 1,
+          "hostItemId": "18010000052",
+          "itemId": "13030000121",
+          "source": "equipped"
+        },
+        {
+          "slotPath": "3",
+          "socketId": 3,
+          "hostItemId": "18010000052",
+          "itemId": "13040000110",
+          "source": "equipped"
+        },
+        {
+          "slotPath": "5",
+          "socketId": 5,
+          "hostItemId": "18010000052",
+          "itemId": "13120000390",
+          "source": "default"
+        },
+        {
+          "slotPath": "11",
+          "socketId": 11,
+          "hostItemId": "18010000052",
+          "itemId": "13110000099",
+          "source": "equipped"
+        }
+      ],
+      "recoil_path": {
+        "model_version": "timed-source-chart-v1",
+        "units": "model units; angular calibration unverified",
+        "input_assumption": "No compensation or reaction; one fully reset uninterrupted firing string",
+        "requested_shots": 20,
+        "capacity": 30,
+        "fire_control": {
+          "timingSource": "legacySpecial",
+          "supportedModes": [
+            "Auto"
+          ],
+          "selectedFireMode": "Auto",
+          "fireScheduleRules": [
+            {
+              "type": "fireSchedule",
+              "mode": "firstShotsRpm",
+              "shots": 3,
+              "rpm": 1800,
+              "sustainedRpm": 600
+            }
+          ],
+          "burstCount": null,
+          "scheduleStatus": "modeled",
+          "displayFireRateRpm": null,
+          "triggerDelayMs": 0
+        },
+        "recoil_profile_id": "authoring:weapon:18010000052:adsRecoil",
+        "chart_point_semantics": "Cumulative source post-shot recoil; not validated bullet impact positions",
+        "global_verified": false,
+        "status": "modeled",
+        "points": [
+          {
+            "shot": 1,
+            "time_ms": 0,
+            "x": 0,
+            "y": -0.01856,
+            "pre_shot_aim_proxy": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "shot": 2,
+            "time_ms": 33.333333333333336,
+            "x": 0.0033,
+            "y": -0.04641,
+            "pre_shot_aim_proxy": {
+              "x": 0,
+              "y": -0.01856
+            }
+          },
+          {
+            "shot": 3,
+            "time_ms": 66.66666666666667,
+            "x": -0.03383,
+            "y": -0.3682,
+            "pre_shot_aim_proxy": {
+              "x": 0.0033,
+              "y": -0.04641
+            }
+          },
+          {
+            "shot": 4,
+            "time_ms": 166.66666666666669,
+            "x": -0.08333,
+            "y": -0.70236,
+            "pre_shot_aim_proxy": {
+              "x": -0.03383,
+              "y": -0.3682
+            }
+          },
+          {
+            "shot": 5,
+            "time_ms": 266.6666666666667,
+            "x": -0.11634,
+            "y": -1.02415,
+            "pre_shot_aim_proxy": {
+              "x": -0.08333,
+              "y": -0.70236
+            }
+          },
+          {
+            "shot": 6,
+            "time_ms": 366.6666666666667,
+            "x": -0.15759,
+            "y": -1.33356,
+            "pre_shot_aim_proxy": {
+              "x": -0.11634,
+              "y": -1.02415
+            }
+          },
+          {
+            "shot": 7,
+            "time_ms": 466.6666666666667,
+            "x": -0.21535,
+            "y": -1.6306,
+            "pre_shot_aim_proxy": {
+              "x": -0.15759,
+              "y": -1.33356
+            }
+          },
+          {
+            "shot": 8,
+            "time_ms": 566.6666666666667,
+            "x": -0.25661,
+            "y": -1.91526,
+            "pre_shot_aim_proxy": {
+              "x": -0.21535,
+              "y": -1.6306
+            }
+          },
+          {
+            "shot": 9,
+            "time_ms": 666.6666666666667,
+            "x": -0.32798,
+            "y": -2.15412,
+            "pre_shot_aim_proxy": {
+              "x": -0.25661,
+              "y": -1.91526
+            }
+          },
+          {
+            "shot": 10,
+            "time_ms": 766.6666666666667,
+            "x": -0.36964,
+            "y": -2.42764,
+            "pre_shot_aim_proxy": {
+              "x": -0.32798,
+              "y": -2.15412
+            }
+          },
+          {
+            "shot": 11,
+            "time_ms": 866.6666666666667,
+            "x": -0.39275,
+            "y": -2.70921,
+            "pre_shot_aim_proxy": {
+              "x": -0.36964,
+              "y": -2.42764
+            }
+          },
+          {
+            "shot": 12,
+            "time_ms": 966.6666666666667,
+            "x": -0.3288,
+            "y": -3.02047,
+            "pre_shot_aim_proxy": {
+              "x": -0.39275,
+              "y": -2.70921
+            }
+          },
+          {
+            "shot": 13,
+            "time_ms": 1066.6666666666667,
+            "x": -0.22113,
+            "y": -3.30575,
+            "pre_shot_aim_proxy": {
+              "x": -0.3288,
+              "y": -3.02047
+            }
+          },
+          {
+            "shot": 14,
+            "time_ms": 1166.6666666666667,
+            "x": -0.08416,
+            "y": -3.50192,
+            "pre_shot_aim_proxy": {
+              "x": -0.22113,
+              "y": -3.30575
+            }
+          },
+          {
+            "shot": 15,
+            "time_ms": 1266.6666666666667,
+            "x": -0.1085,
+            "y": -3.77791,
+            "pre_shot_aim_proxy": {
+              "x": -0.08416,
+              "y": -3.50192
+            }
+          },
+          {
+            "shot": 16,
+            "time_ms": 1366.6666666666667,
+            "x": -0.15553,
+            "y": -4.10589,
+            "pre_shot_aim_proxy": {
+              "x": -0.1085,
+              "y": -3.77791
+            }
+          },
+          {
+            "shot": 17,
+            "time_ms": 1466.6666666666667,
+            "x": -0.07426,
+            "y": -4.37322,
+            "pre_shot_aim_proxy": {
+              "x": -0.15553,
+              "y": -4.10589
+            }
+          },
+          {
+            "shot": 18,
+            "time_ms": 1566.6666666666667,
+            "x": -0.12211,
+            "y": -4.61394,
+            "pre_shot_aim_proxy": {
+              "x": -0.07426,
+              "y": -4.37322
+            }
+          },
+          {
+            "shot": 19,
+            "time_ms": 1666.6666666666667,
+            "x": -0.19349,
+            "y": -4.87323,
+            "pre_shot_aim_proxy": {
+              "x": -0.12211,
+              "y": -4.61394
+            }
+          },
+          {
+            "shot": 20,
+            "time_ms": 1766.6666666666667,
+            "x": -0.2236,
+            "y": -5.122,
+            "pre_shot_aim_proxy": {
+              "x": -0.19349,
+              "y": -4.87323
+            }
+          }
+        ],
+        "metrics": {
+          "duration_ms": 1766.6666666666667,
+          "climb_model_units_per_second": 2.888739622641509,
+          "signed_climb_model_units_per_second": 2.888739622641509,
+          "horizontal_drift_model_units_per_second": -0.12656603773584904,
+          "horizontal_span_model_units": 0.39605,
+          "peak_upward_displacement_model_units": 5.122,
+          "maximum_distance_from_start_model_units": 5.126878286052829,
+          "first_shot_impulse_model_units": {
+            "x": 0,
+            "up": 0.01856
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        },
+        "pre_shot_aim_proxy_note": "Previous cumulative impulse before this shot, starting at zero. Consistent with lab hit-before-kick ordering; omits smoothing, spread, jitter and between-shot recovery. Not a measured impact simulation.",
+        "opening": {
+          "shots": 3,
+          "metrics": {
+            "duration_ms": 66.66666666666667,
+            "climb_model_units_per_second": 5.2446,
+            "signed_climb_model_units_per_second": 5.2446,
+            "horizontal_drift_model_units_per_second": -0.50745,
+            "horizontal_span_model_units": 0.037129999999999996,
+            "peak_upward_displacement_model_units": 0.3682,
+            "maximum_distance_from_start_model_units": 0.3697508741030912,
+            "first_shot_impulse_model_units": {
+              "x": 0,
+              "up": 0.01856
+            },
+            "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+          },
+          "sustained_metrics": {
+            "duration_ms": 1600,
+            "climb_model_units_per_second": 2.762275,
+            "signed_climb_model_units_per_second": 2.762275,
+            "horizontal_drift_model_units_per_second": -0.08766875,
+            "horizontal_span_model_units": 0.31849,
+            "peak_upward_displacement_model_units": 5.122,
+            "maximum_distance_from_start_model_units": 5.126878286052829,
+            "first_shot_impulse_model_units": {
+              "x": -0.08333,
+              "up": 0.70236
+            },
+            "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+          },
+          "note": "Opening timing and per-shot recoil shape are independent source inputs; third-shot boundary and reset remain unverified"
+        },
+        "climb_improvement_percent": 58.74507901863304
+      }
+    }
+  ]
+}

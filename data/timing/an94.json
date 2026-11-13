@@ -1,0 +1,22 @@
+{
+  "profile_key": "18010000052:base",
+  "weapon_id": "18010000052",
+  "fire_mode": "automatic",
+  "opening_intervals_ms": [33.333333333333336, 33.333333333333336],
+  "sustained_interval_ms": 100,
+  "reset_threshold_ms": null,
+  "reset_reference": null,
+  "status": "user_reported_unvalidated",
+  "provenance": {
+    "source": "User-reported in-game testing, project conversation 2026-11-12; preserved in TODO.md",
+    "corroboration": "dfttk 20261108-an94-bd-shop.1 firstShotsRpm: 1800 RPM, 3 shots, sustained 600 RPM in sol/mp/bd",
+    "boundary_assumption": "Shot 3 to 4 is 100 ms; pending measurement",
+    "reset_observation": "A minimum pause resets the accelerated sequence; threshold and reference unknown",
+    "game_patch": null,
+    "client_region": null,
+    "mode": null,
+    "test_date": null,
+    "attachments_calibration": null,
+    "recording": null
+  }
+}

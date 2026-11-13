@@ -1,0 +1,806 @@
+{
+  "catalog/ammo.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/catalog/ammo.json",
+    "sha256": "7a5201f3d4ccea16f07b94d99414cd8e6c78354342ebe7710bdd97a9da2f810c"
+  },
+  "catalog/bd-shop.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/catalog/bd-shop.json",
+    "sha256": "bb52eae5c67418d0ce80b2fd06568ef459e2963cbe03163e551088537c22502f"
+  },
+  "catalog/weapons.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/catalog/weapons.json",
+    "sha256": "be581d692537f48a234bdda033a33476221ffa22ed546138d25e6fb5a0337867"
+  },
+  "client-config.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/client-config.json",
+    "sha256": "b0522ecb864029fc85e64ffdd79b125e503c13ba12656262908bb02a1a970398"
+  },
+  "combat/defense/ammo-interactions.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/combat/defense/ammo-interactions.json",
+    "sha256": "c2d3702f9fbed21297bf4b1070205841382e0338b4beb6a929e50bd0bd1d308a"
+  },
+  "combat/defense/armors.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/combat/defense/armors.json",
+    "sha256": "2bdf02f28aa73e975606657c8807a91eedffb91eb37638eafbb341cbfc693238"
+  },
+  "combat/defense/helmets.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/combat/defense/helmets.json",
+    "sha256": "7288cb529d46ad078ab4150d016a9b4be8104b3b16b9f7329a03c8120570a7c2"
+  },
+  "combat/defense/rule-sets.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/combat/defense/rule-sets.json",
+    "sha256": "6c44c438c6a051a75e080ef44541943bf838e0b19fb7593d1348571979300cd3"
+  },
+  "common.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/common.json",
+    "sha256": "54297fd795b72bb32d539b9050406b60a9f97f7f40afbaa597d766dc0fc2d215"
+  },
+  "library/bd.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/library/bd.json",
+    "sha256": "ac071b79357a2622c4f6f3db74a8ccd3803dc2d8a0fdeb54881a5e7f70792fe2"
+  },
+  "library/mp.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/library/mp.json",
+    "sha256": "2e0e293e95ba982b3000021e63a4dd803a09089091e58711ff93f73f2525ac5c"
+  },
+  "library/sol.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/library/sol.json",
+    "sha256": "7897bbe804bd4e3cbb712745ccd795a63ac9b6b46f2d067f59a0564107f67b75"
+  },
+  "locales/zh-CN/items.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/locales/zh-CN/items.json",
+    "sha256": "992b05c97a50cbb8e11a7c8e9b28e9a81ff79b2b7e71dbf8d705df064069fc82"
+  },
+  "packs/build-shared/cores/18010000001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000001.json",
+    "sha256": "40cc575534545525d5af10d61290734f66dc7d74703591357c04d2f587a0b0e4"
+  },
+  "packs/build-shared/cores/18010000006.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000006.json",
+    "sha256": "b4c6747ae0fa9ee7cd58ac289a86ec678ff5da239dc0f72e117d4e787ce43622"
+  },
+  "packs/build-shared/cores/18010000008.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000008.json",
+    "sha256": "e97cab5c20b56561c9bc13cf6036c914894ed391a0fb66d3c011f8a2ed3dda4d"
+  },
+  "packs/build-shared/cores/18010000010.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000010.json",
+    "sha256": "7b8bdad606705b09709fd80b90298133b402733e2b90af6455a9875ea2930683"
+  },
+  "packs/build-shared/cores/18010000012.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000012.json",
+    "sha256": "d90d0fdbb5879308ce890af64c434aac8bde6dd62bfcdd65faf0bca22ea54297"
+  },
+  "packs/build-shared/cores/18010000013.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000013.json",
+    "sha256": "50b4d57e793d77fdb49290987faf4320d0d17cfd6d21749fa9a6b41d1684651e"
+  },
+  "packs/build-shared/cores/18010000014.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000014.json",
+    "sha256": "2f61ce80b1e49990aa2639262e65495c159032c9a095a58a48517994a8478a08"
+  },
+  "packs/build-shared/cores/18010000015.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000015.json",
+    "sha256": "12924fdb5d4714c761948505243440f6cbeb0ad552e4a66e6029a8f7e69db286"
+  },
+  "packs/build-shared/cores/18010000016.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000016.json",
+    "sha256": "91504f86e11094d915c986381db004765ac1d3c876f59d6d2c7b3bce2a1d3c44"
+  },
+  "packs/build-shared/cores/18010000017.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000017.json",
+    "sha256": "aa63220bb3e6a477d9e6a89cac8fe6f7a9ad269f58f53f8ad4a454dae3673364"
+  },
+  "packs/build-shared/cores/18010000018.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000018.json",
+    "sha256": "ae9c23f726a3c1c73c5691c0f0cffb3a46be5761981baeba021984aa7e00a5e4"
+  },
+  "packs/build-shared/cores/18010000021.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000021.json",
+    "sha256": "7a6dcfcbe5b5dd4270139617788048a4357099e150d5f1ddbc7d29c507cbbfcf"
+  },
+  "packs/build-shared/cores/18010000023.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000023.json",
+    "sha256": "fb3183cd237063e6cf070d67b4c96f6c6b002f84755252f2c483e552c4cabacb"
+  },
+  "packs/build-shared/cores/18010000024.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000024.json",
+    "sha256": "02630c241face7d152157ef670936bf12441e30d7fda4f58de20b952b5effef8"
+  },
+  "packs/build-shared/cores/18010000031.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000031.json",
+    "sha256": "d4935223037ec0dc0049ec28220867f69d04ca9966e9fc85632cea1e7f01ab70"
+  },
+  "packs/build-shared/cores/18010000037.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000037.json",
+    "sha256": "c0fe628d05bf7121c5c1b4c48ec528f5b1d8403e005713e93adb4cc1f3859532"
+  },
+  "packs/build-shared/cores/18010000038.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000038.json",
+    "sha256": "8147d134abcfc5534f4ec78d2914549210f51de115a1a15a8828e36b479db7e6"
+  },
+  "packs/build-shared/cores/18010000040.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000040.json",
+    "sha256": "1f141606d026a716afee466fcd03625c42172dc9b5aed74a2f9e2259c7755304"
+  },
+  "packs/build-shared/cores/18010000042.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000042.json",
+    "sha256": "e7cfad08e1cb15291a3a31d28579e6752774084eae179b5d8513927ec3a99d31"
+  },
+  "packs/build-shared/cores/18010000043.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000043.json",
+    "sha256": "0f4525a850f53ecb690ec975f6a8b44e49692d91f3a971171009ca866ed29842"
+  },
+  "packs/build-shared/cores/18010000044.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000044.json",
+    "sha256": "d83701851efb203a616c63beb6b56e1a3840fbd7cb3cafd4bd454eacb1e9b06d"
+  },
+  "packs/build-shared/cores/18010000045.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000045.json",
+    "sha256": "03853c60679dddd8fa4b28f35e2a39d453659f9e48ac443e4f648fad2580cc91"
+  },
+  "packs/build-shared/cores/18010000049.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000049.json",
+    "sha256": "7ab29b2d19219da1c19eaeafef023785224d1cf2a4f1420769bca0bf64372d1a"
+  },
+  "packs/build-shared/cores/18010000051.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000051.json",
+    "sha256": "bf9ef888cab2570e9ab91e49aa935c5805299b656e823acda5361a6b2dd8e3dd"
+  },
+  "packs/build-shared/cores/18010000052.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18010000052.json",
+    "sha256": "240da416db4bba59223d3d3c73ad0836d214198e6bd4207ed60c4417918b4bcf"
+  },
+  "packs/build-shared/cores/18020000001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18020000001.json",
+    "sha256": "112d646e291a809310823321ffcb0efd0679e5f019574cb182a60711f0c51523"
+  },
+  "packs/build-shared/cores/18020000002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18020000002.json",
+    "sha256": "8a5b699dff3241fcdb65e5fecd624fcd70385d26932d8eb854557e6900d04f02"
+  },
+  "packs/build-shared/cores/18020000003.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18020000003.json",
+    "sha256": "e10552208d0a90df0ef347ecc942b1c168f45ab28460027ce0b32791ea0992f6"
+  },
+  "packs/build-shared/cores/18020000004.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18020000004.json",
+    "sha256": "f7954691924576d9fbb646aa67c783dd591fab8986899710373ecb51156bf95a"
+  },
+  "packs/build-shared/cores/18020000005.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18020000005.json",
+    "sha256": "fb1937bc1b5c7a4b2b99a4f6ddb03fad42a441a45c074801262f7c6510c5b38a"
+  },
+  "packs/build-shared/cores/18020000006.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18020000006.json",
+    "sha256": "902a602c832611a4798fb17704f7c794b731e6234c2783bfe9268250a4834a4d"
+  },
+  "packs/build-shared/cores/18020000008.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18020000008.json",
+    "sha256": "2aadbe05f6e94f5ddb95cb530165e49e00f3dfe3afc58bc030d42e04e2280af6"
+  },
+  "packs/build-shared/cores/18020000009.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18020000009.json",
+    "sha256": "36877db760b194c03cee51058f00d38e94d97803d160c13d2461290a01309521"
+  },
+  "packs/build-shared/cores/18020000010.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18020000010.json",
+    "sha256": "d0fb702d82fe94359f7cc8cd1fd51f9b508be8a6a8010f42a4faab82aa5a210e"
+  },
+  "packs/build-shared/cores/18020000011.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18020000011.json",
+    "sha256": "86449be3d772c0a9861709a521557337b8fdea4523a89555ba701ab8b37017b8"
+  },
+  "packs/build-shared/cores/18020000012.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18020000012.json",
+    "sha256": "ae3c3e650da506e9d19fab41e7d5edc6d01163ae9018c4272b62919187327d74"
+  },
+  "packs/build-shared/cores/18020000046.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18020000046.json",
+    "sha256": "018ca012d23759ee480d93fd763413273e03b8ab5ec85d002328f438cb1e716b"
+  },
+  "packs/build-shared/cores/18030000001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18030000001.json",
+    "sha256": "8eb73f8c907d8238846d91a4a6d129c01640c6f924142f391a4a0d46c1615cf9"
+  },
+  "packs/build-shared/cores/18030000002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18030000002.json",
+    "sha256": "7d691a31152404ad6f0e20b7f904232918da3e735a3c7f3a51180e0957251733"
+  },
+  "packs/build-shared/cores/18030000004.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18030000004.json",
+    "sha256": "aeb0742a42d25673b18ca33b922538276f9f1752872dc4d427692f5dd348e3ac"
+  },
+  "packs/build-shared/cores/18030000005.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18030000005.json",
+    "sha256": "705e41b23a3afcc8fee610a39e9504abe052fa4b3075b265f4f5e264a8b1b5a8"
+  },
+  "packs/build-shared/cores/18030000006.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18030000006.json",
+    "sha256": "1c0b12865172e2f4248f30bfea2dc5900999da19312c22e0181efde7cd2b2d8d"
+  },
+  "packs/build-shared/cores/18040000001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18040000001.json",
+    "sha256": "bf859db66456dee1df647914dfc1874b0fc951d6f91ad4d67ec8de7e4a130b96"
+  },
+  "packs/build-shared/cores/18040000002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18040000002.json",
+    "sha256": "51135e5b29dbbee2ae434fb8c59975679416c3e9ec60f09350533256a99d0c4c"
+  },
+  "packs/build-shared/cores/18040000003.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18040000003.json",
+    "sha256": "727a23a5ab6c64780b6f02d08f5c30bc9f42958c7fef8bd9ddb5fa05b006b67f"
+  },
+  "packs/build-shared/cores/18040000004.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18040000004.json",
+    "sha256": "819ac1368f08ca2a0c4c7864fd72cd1c56ef3e6b8684d85576e146da1fa51a42"
+  },
+  "packs/build-shared/cores/18050000002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18050000002.json",
+    "sha256": "1c95cd253b5cddc774fbdf0932a654503c64ab1c8475147d5b8abb77330e9ac2"
+  },
+  "packs/build-shared/cores/18050000003.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18050000003.json",
+    "sha256": "359d0c8139e9d75df19af38baf9f644c9e7fe856f90ac29a99c762e1a92ee146"
+  },
+  "packs/build-shared/cores/18050000004.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18050000004.json",
+    "sha256": "ff6e0b248897fe74d960a9cd33da03690c73b503ae25305de24a36af8003c3c4"
+  },
+  "packs/build-shared/cores/18050000005.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18050000005.json",
+    "sha256": "e7ca9dfba7aff72a1da98adfda79fc8d74c69311eb5acaa2b76b70b433fb401e"
+  },
+  "packs/build-shared/cores/18050000006.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18050000006.json",
+    "sha256": "d70cb83d043a0d57f845748264c2e5a6c64e03ce213913eaf676eea1ef0923e7"
+  },
+  "packs/build-shared/cores/18050000007.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18050000007.json",
+    "sha256": "9cf96dc4a8fe9a094bcc2cdaacdc5e2e57799ee925f34e1020faf5ef92f6a315"
+  },
+  "packs/build-shared/cores/18050000008.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18050000008.json",
+    "sha256": "1944f6c235e934dfb72644d81e62c16a308876f7975e3d9c6e1181a87c652d90"
+  },
+  "packs/build-shared/cores/18050000031.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18050000031.json",
+    "sha256": "1217850abc05f0c44f10959d341b36b269bed20cc1f3339c1ef793f1aafe94b3"
+  },
+  "packs/build-shared/cores/18050000032.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18050000032.json",
+    "sha256": "bbe6d6cfd3d6de709f71d7c4e3823b18ef0454261843e0277f404eced67aabca"
+  },
+  "packs/build-shared/cores/18050000033.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18050000033.json",
+    "sha256": "338d643e893ab8ae839eedb184415330b52d4cb4a5d5eb19063acb9e3016215d"
+  },
+  "packs/build-shared/cores/18060000007.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18060000007.json",
+    "sha256": "e84de354a19d7204c1977ad5341268d055de302f24d96021f27573bbf3a6738c"
+  },
+  "packs/build-shared/cores/18060000008.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18060000008.json",
+    "sha256": "fda593ae97d08c4a8963b0b7dd90b1cd7a47c82a4f400c86bc9bb23bf707363f"
+  },
+  "packs/build-shared/cores/18060000009.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18060000009.json",
+    "sha256": "4b22e15183e1755c5f3fb4fbbd147351b23c5be13952841a4f8e1db79c4e394e"
+  },
+  "packs/build-shared/cores/18060000011.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18060000011.json",
+    "sha256": "4a929df2c43954be12ab3ca5aab9e2af002a65609731381b2c01e7e5629d6a7c"
+  },
+  "packs/build-shared/cores/18060000033.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18060000033.json",
+    "sha256": "e9889471fe33169854a88c51716cf1eb6b1489a437ca8fa43f86597a3c46f82e"
+  },
+  "packs/build-shared/cores/18070000002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18070000002.json",
+    "sha256": "567f734f603a5404ba7477a4fbe71739c88f7351c585fdfafb2ec7820c2ba4fc"
+  },
+  "packs/build-shared/cores/18070000003.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18070000003.json",
+    "sha256": "1fdb1e6f25effdd137ea3b4bbb35720567ed3776534996dab227300101126027"
+  },
+  "packs/build-shared/cores/18070000004.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18070000004.json",
+    "sha256": "199e21ba73f0b54e71409bc952dfe123d7f155c38123c7af4f89134f210a90af"
+  },
+  "packs/build-shared/cores/18070000005.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18070000005.json",
+    "sha256": "c2649055a3665795daf8ab27e529b533605de213c3cf4ce77bfcd9baac046d55"
+  },
+  "packs/build-shared/cores/18070000006.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18070000006.json",
+    "sha256": "c0bf3a00c1e85a1ff251a1c4031462554df8c5da863b0c873c1ee69345e08db9"
+  },
+  "packs/build-shared/cores/18070000010.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18070000010.json",
+    "sha256": "78755368a481792ab6596c7741c6e592feb7955ef573dda92fad35cf38bc12d2"
+  },
+  "packs/build-shared/cores/18070000033.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18070000033.json",
+    "sha256": "d08062fe5f81213c6e6826090a270721871ea3d94d236871edd7eed4b687aabd"
+  },
+  "packs/build-shared/cores/18150000001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/cores/18150000001.json",
+    "sha256": "3757f96f79464291ff930ce663384499e38f8fa572a49a35fd92f06c39de1b37"
+  },
+  "packs/build-shared/shards/barrel-0001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/barrel-0001.json",
+    "sha256": "7d9f8da9e02098b237a0d11691e1ce00c380df9849a19359cfc95c1fca15833e"
+  },
+  "packs/build-shared/shards/barrel-0002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/barrel-0002.json",
+    "sha256": "edf026f21b17c2ff6798a211e8b1815468a09ea2196db122bf29630af9aaca18"
+  },
+  "packs/build-shared/shards/barrel-0003.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/barrel-0003.json",
+    "sha256": "d3a958572580e2c497735e3a5995bd573f21a070a9c9bf7077d0df98279ac0a4"
+  },
+  "packs/build-shared/shards/barrel-0004.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/barrel-0004.json",
+    "sha256": "678549b7022bcc36f17fff7b9e088a7cc344c17386c176be9b6bfd37ec0418b3"
+  },
+  "packs/build-shared/shards/barrel-0005.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/barrel-0005.json",
+    "sha256": "f7a414de50f70540c019485d9af68d53dc3a0cf17939d64f970e98edcd5a8ed7"
+  },
+  "packs/build-shared/shards/barrel-0006.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/barrel-0006.json",
+    "sha256": "86683c9e29623bdc1b8caa093d0a7fa5ff475ab7234e2ff5f2245b559065b724"
+  },
+  "packs/build-shared/shards/barrel-0007.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/barrel-0007.json",
+    "sha256": "f4c7ce377f6f8313f9dcd13570c7e82d00a3f69e082e41e0743bfe9a159da865"
+  },
+  "packs/build-shared/shards/barrel-0008.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/barrel-0008.json",
+    "sha256": "ec2063c4c4306b65f740aad82f2615c6c07bb3b2884087272ceede82fa57c619"
+  },
+  "packs/build-shared/shards/barrel-0009.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/barrel-0009.json",
+    "sha256": "4eecf1c977f96aeb8595f6037b2c8d9ce3eddc54ab108cd454d2750600a5bacb"
+  },
+  "packs/build-shared/shards/barrel-0010.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/barrel-0010.json",
+    "sha256": "c247840f21d09215793f355d371fa55c5a6b4aabc516feefd470fb553c4b03d2"
+  },
+  "packs/build-shared/shards/barrel-0011.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/barrel-0011.json",
+    "sha256": "34c16ca07b0d6b8aad2fee3602ada3f5498613559c84992929e3a657cb0e508b"
+  },
+  "packs/build-shared/shards/barrel-0012.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/barrel-0012.json",
+    "sha256": "e81fc1635cb710a7b306e47135a5115ef0353ecea43861279ea30ec3910a8e87"
+  },
+  "packs/build-shared/shards/barrel-0013.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/barrel-0013.json",
+    "sha256": "23206ee6c565bb20f9f7100cff08bd8ac578a817aece78ef9b605b19375da434"
+  },
+  "packs/build-shared/shards/barrel-0014.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/barrel-0014.json",
+    "sha256": "66f0952e7b3041b3c424077b6c8217da165838fff3591b17bdf0760cd8b62a60"
+  },
+  "packs/build-shared/shards/common-0001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/common-0001.json",
+    "sha256": "35822843254eb8ed9ef3469a2eba5f3df11c74547f1a54781985cad310c47e73"
+  },
+  "packs/build-shared/shards/foregrip-0001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/foregrip-0001.json",
+    "sha256": "005a1e41d906b610673a55dd12c0a9aa338348ff1be4e01876abe97abb685746"
+  },
+  "packs/build-shared/shards/foregrip-0002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/foregrip-0002.json",
+    "sha256": "498b6522038036eb7ff3bfc7fb4489d4a85678f82419812b6b8647bee6b93e8e"
+  },
+  "packs/build-shared/shards/foregrip-0003.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/foregrip-0003.json",
+    "sha256": "78eeec2d8b13f0bdea7ef7e28142b859c708baa606febc014ec5e17d0704ee31"
+  },
+  "packs/build-shared/shards/foregrip-0004.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/foregrip-0004.json",
+    "sha256": "a72687b23447234b39891edab08e8baf7ad0745fb94e8831b925c4e44e39aa18"
+  },
+  "packs/build-shared/shards/functional-0001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/functional-0001.json",
+    "sha256": "d79d8b50e4d83b64e04c212894cd69ddb8acd7fc141698efb3acf7cba0b3f304"
+  },
+  "packs/build-shared/shards/functional-0002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/functional-0002.json",
+    "sha256": "581285ce6a4c4cd40cd9b2123213179d5b2ce8481c043fab39bd86678e14421a"
+  },
+  "packs/build-shared/shards/functional-0003.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/functional-0003.json",
+    "sha256": "7a6ac8571f69c36310fa35d1f5d441328a7aeec636ef0da7100c6ec2dbac93b0"
+  },
+  "packs/build-shared/shards/handguard-0001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/handguard-0001.json",
+    "sha256": "bf6adcb623cd0b8fa22051f6fc1f351c5215792e12aa17a21f4405d12c32a05f"
+  },
+  "packs/build-shared/shards/handguard-0002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/handguard-0002.json",
+    "sha256": "bf612a5649e7206ca5ee4e58420f9564b8d2b18ff2c7d48807d23be740005ed5"
+  },
+  "packs/build-shared/shards/handguard-0003.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/handguard-0003.json",
+    "sha256": "66b383b1d34a2ad731e0d68c9ae4f12c5b8fec0d5ab6044057d4b536725f27c6"
+  },
+  "packs/build-shared/shards/handguard-0004.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/handguard-0004.json",
+    "sha256": "662fe88eeb70c08109cfb35b75127669e259475b4581acd8a381ec0d2b3cb78a"
+  },
+  "packs/build-shared/shards/magazine-0001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/magazine-0001.json",
+    "sha256": "387c2af86b6612b47a4d35bc128c9fdbc14893862287d4d8b3356b4e3f931c1e"
+  },
+  "packs/build-shared/shards/magazine-0002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/magazine-0002.json",
+    "sha256": "1e2ddab0561f2329e11a519f22bc21c5af6b2a1b72387bcfcf93a8aa1a20000d"
+  },
+  "packs/build-shared/shards/magazine-0003.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/magazine-0003.json",
+    "sha256": "c45a98c242b377b3eaac8b942babbdfa08717534298964c24fa0a12cfc5fd4c9"
+  },
+  "packs/build-shared/shards/magazine-0004.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/magazine-0004.json",
+    "sha256": "e704dae4990664d82b62e5f92a8ca37d4b821dab134fed4b993b8051a121bd3f"
+  },
+  "packs/build-shared/shards/misc-0001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/misc-0001.json",
+    "sha256": "9b6595f49eacee56ce8c236f41f3ec90ea8445d9a87d7a5529a90744312f51b8"
+  },
+  "packs/build-shared/shards/muzzle-0001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/muzzle-0001.json",
+    "sha256": "7520585490a32cfebdbe2347cc9371dc07b9be564878e7725322f3ccd57654c8"
+  },
+  "packs/build-shared/shards/muzzle-0002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/muzzle-0002.json",
+    "sha256": "b6c24cd16e157fb78a7146688d2c1646f694168fdaf7137ce165b3143551cc3e"
+  },
+  "packs/build-shared/shards/rearGrip-0001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/rearGrip-0001.json",
+    "sha256": "c9dad280bc2c718f2d22ce21af65b200f65c95f5d411408e991a61469068ed62"
+  },
+  "packs/build-shared/shards/rearGrip-0002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/rearGrip-0002.json",
+    "sha256": "d321db80fb429ae3d2dadc32a82c9ad06a6d5f1b5be79fef41a0dab6d6610cb2"
+  },
+  "packs/build-shared/shards/rearGrip-0003.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/rearGrip-0003.json",
+    "sha256": "4e55019899c2a2d669fa00370af0796982d3b3020a1d4d3a1f971185c3276504"
+  },
+  "packs/build-shared/shards/scope-0001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/scope-0001.json",
+    "sha256": "21c7b44a239517cef0cdf16bde0c62c3c6f5f375e6bec1f406e30b65274308c2"
+  },
+  "packs/build-shared/shards/scope-0002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/scope-0002.json",
+    "sha256": "e8b7a2bb5eece5591991ddb41fd7ce4110d343878214cbbdffde15e7ea9d720a"
+  },
+  "packs/build-shared/shards/scope-0003.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/scope-0003.json",
+    "sha256": "abf6583296a93c49a915ba77ad0e2c826655224e1d17ad4dfb38e333a6fa34d9"
+  },
+  "packs/build-shared/shards/stock-0001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/stock-0001.json",
+    "sha256": "0aaccd183f158ccd291685f6bfe61ca23744db6b7db55a85f47067eccae7681b"
+  },
+  "packs/build-shared/shards/stock-0002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/stock-0002.json",
+    "sha256": "bb55e099cc58b63d90ff8b0f0b30532f96f6139c597fd17c8ed55d693da46d35"
+  },
+  "packs/build-shared/shards/stock-0003.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/stock-0003.json",
+    "sha256": "ee18cf1e047e0d45f1ddb53d61648c333726ab2134b7dfbc926ed1588ae3f6b2"
+  },
+  "packs/build-shared/shards/stock-0004.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/stock-0004.json",
+    "sha256": "3f83d7a156ac91625e5decfa0917e566854bd7705b0cfdb6d451a39f875b1dc8"
+  },
+  "packs/build-shared/shards/stock-0005.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/stock-0005.json",
+    "sha256": "a4c2616519258fed1be4d216c6f5c79c736f1176c8c96fe5b0ecb0d54efd6393"
+  },
+  "packs/build-shared/shards/stock-0006.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/stock-0006.json",
+    "sha256": "ba4979b075fc19e0d86d7549c48af3c7d3a6ef6739ed5a2b5a68cb9727f5b54c"
+  },
+  "packs/build-shared/shards/stock-0007.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/stock-0007.json",
+    "sha256": "267bb7c241b7ccf1f235ff341bff510a806e90397f9976ec77d7b1d39d250742"
+  },
+  "packs/build-shared/shards/stock-0008.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/build-shared/shards/stock-0008.json",
+    "sha256": "aa02eab6b41f62a32e56c740f6c3b201dfa2cfb14d5a4093fe1d3b6a6c21b71e"
+  },
+  "packs/combat/weapons/18010000001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000001.json",
+    "sha256": "f867aa61e24f21aa0ca6ea095d30f3ed729223a4764c266bafb08a2330834eba"
+  },
+  "packs/combat/weapons/18010000006.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000006.json",
+    "sha256": "d420b58a2f3a49b1f2dc2599b8e33c409a9ea76043aecd704a14a836d395d5a3"
+  },
+  "packs/combat/weapons/18010000008.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000008.json",
+    "sha256": "d0a47ff7638e0394aa1c8d9cdd95045313924ba8b9808bb54c88b622f66316c3"
+  },
+  "packs/combat/weapons/18010000010.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000010.json",
+    "sha256": "73c9608de0872620511cc669c08fef0b0341509b41f8d97203a49eb96129793f"
+  },
+  "packs/combat/weapons/18010000012.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000012.json",
+    "sha256": "2fd8fff2e8450926749d4ff3e29c3be2e6e0d7bf47bf64524487d9cb8aa8ac18"
+  },
+  "packs/combat/weapons/18010000013.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000013.json",
+    "sha256": "d67e424d22d85b47fa337daa33a0498008891c478581831ad5c80a03518be67f"
+  },
+  "packs/combat/weapons/18010000014.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000014.json",
+    "sha256": "2feb209726af235ffca40229d0353620a7ebfa3795220a766bd66b87369c0d7b"
+  },
+  "packs/combat/weapons/18010000015.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000015.json",
+    "sha256": "8438540b1d67ee7f781062576ee9f97e6b086fb007c74e7830742a1bb8c47915"
+  },
+  "packs/combat/weapons/18010000016.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000016.json",
+    "sha256": "2c23cd4942a3435d219500b9a4a8138c92d71a8d80726324c61c47ad80ea9f3d"
+  },
+  "packs/combat/weapons/18010000017.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000017.json",
+    "sha256": "7c66ff6730ad45d2a211380a441c6293efc1d34fd5a717df12df71f447685799"
+  },
+  "packs/combat/weapons/18010000018.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000018.json",
+    "sha256": "950baa676a62d0137c67104914b863218a16ea0bcba78d97bcc1d75d37f99545"
+  },
+  "packs/combat/weapons/18010000021.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000021.json",
+    "sha256": "ee68e26afa3101e4589fdbc6d741ad2cd2a9714b1ff91cab38893de7c0d13030"
+  },
+  "packs/combat/weapons/18010000023.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000023.json",
+    "sha256": "870ba6ab8f321b6ba53437c93bb79942105834818d90757900cf64700ea67d8d"
+  },
+  "packs/combat/weapons/18010000024.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000024.json",
+    "sha256": "34e1dcab2e893a5a049580703aeba0aca4174c6c6eb8047d0e9d93ee0eae9e0f"
+  },
+  "packs/combat/weapons/18010000031.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000031.json",
+    "sha256": "840e10a0e3ba9419b7f9e270b7584a93d0f8433bbfa1c887d209388ba4afb09e"
+  },
+  "packs/combat/weapons/18010000037.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000037.json",
+    "sha256": "c214f8ab0f5b8e95dcf32e2063aae1aa4be6c57d4f832e2bff1e8cecb38223ec"
+  },
+  "packs/combat/weapons/18010000038.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000038.json",
+    "sha256": "3da846954c07f63f41837c6f829cadfd8a781a66237bed5cb1ec69aabda7545c"
+  },
+  "packs/combat/weapons/18010000040.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000040.json",
+    "sha256": "0e9bf3f3f305cba63c0e5d67048ab9ea5ec739b641571e033d3ab79aa3bb64df"
+  },
+  "packs/combat/weapons/18010000042.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000042.json",
+    "sha256": "bfd5b42738a4fd0432ff55287d936553eb76b84870c9e883ab609419f479064d"
+  },
+  "packs/combat/weapons/18010000043.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000043.json",
+    "sha256": "adbb1368c77ad54468f90c9a6fbe68343d641deb3196d90c38dc1a4871d959ee"
+  },
+  "packs/combat/weapons/18010000044.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000044.json",
+    "sha256": "9bc0fff32a43f66ca5e6586ad59cecdca732dd92867cbd81370f76b880100947"
+  },
+  "packs/combat/weapons/18010000045.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000045.json",
+    "sha256": "efa8c0333ff4fb1a26632dd87130a048480e551049e305e1128c387f60a935b3"
+  },
+  "packs/combat/weapons/18010000049.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000049.json",
+    "sha256": "1b3c19944eae27bfbb0c8f7b2a10c1077e6a1833b73b6d9582f32ce181bdbe41"
+  },
+  "packs/combat/weapons/18010000051.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000051.json",
+    "sha256": "eeb9849e91e504f076f44f0c7539bcb679a2a1408b22ae1f181cffa3e7eecdea"
+  },
+  "packs/combat/weapons/18010000052.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18010000052.json",
+    "sha256": "353e870aecc518320d1d6ac28936d8d6e86fb661b07352642c99736d9fae3afe"
+  },
+  "packs/combat/weapons/18020000001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18020000001.json",
+    "sha256": "51325eb43342d353e7eb244201852290b77a2278e65d8bf2c1053641e4c31162"
+  },
+  "packs/combat/weapons/18020000002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18020000002.json",
+    "sha256": "8c2d1e82707bc4bd52dbb31ae97b004e5090912713cda9a657d671722108dd04"
+  },
+  "packs/combat/weapons/18020000003.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18020000003.json",
+    "sha256": "5b17376dc8bb25bda66e2b2d1f319ff20c1b7da26aa70b2c9f0c80fc34160666"
+  },
+  "packs/combat/weapons/18020000004.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18020000004.json",
+    "sha256": "a33750d7477093d05b6b3590cb0a317d40204f3b0094695a5262ab929ad94d1e"
+  },
+  "packs/combat/weapons/18020000005.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18020000005.json",
+    "sha256": "ca6e7f988446f7ec6b7762ea76c645ef8911f938d6857c647f123029e0d4649e"
+  },
+  "packs/combat/weapons/18020000006.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18020000006.json",
+    "sha256": "45d7deeac6320c2cc18a596804b88921115ac869ee0de4ef3a2ade894b1885e1"
+  },
+  "packs/combat/weapons/18020000008.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18020000008.json",
+    "sha256": "e28f3ebecd663488acf4c17bbf05f1dd300959a1d2900e0f67ba7df21a966a9e"
+  },
+  "packs/combat/weapons/18020000009.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18020000009.json",
+    "sha256": "d99b2ec724c12302a80fc2459d0df2b22deee2c32782364f61fe0a596387bdc9"
+  },
+  "packs/combat/weapons/18020000010.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18020000010.json",
+    "sha256": "68ddfda6ec5957bd1d1276c44dd9be7dfd5cd4d2714046774b798201b0a51657"
+  },
+  "packs/combat/weapons/18020000011.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18020000011.json",
+    "sha256": "83fcf19fe12e9d79e3f9c62471e23adc23fa9eed40714146228c149895ce869c"
+  },
+  "packs/combat/weapons/18020000012.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18020000012.json",
+    "sha256": "e4f2214047fd4d16c585f7452210bd1c889193ec2b5041064a3b4b22c2adc5be"
+  },
+  "packs/combat/weapons/18020000046.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18020000046.json",
+    "sha256": "3fc0af7d968888bc21ebbad4e074c4fef0239978c7164f9b9abb3799db8c7b37"
+  },
+  "packs/combat/weapons/18030000001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18030000001.json",
+    "sha256": "07175c0f17de1b0ff62613a4e66f3c8f7326a1a68a923c0616997bdd34f0c0d7"
+  },
+  "packs/combat/weapons/18030000002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18030000002.json",
+    "sha256": "86dc14e237e69c5f40c772c4ab39fb1430f419d993cbbd2e8a521bdff8c00c66"
+  },
+  "packs/combat/weapons/18030000004.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18030000004.json",
+    "sha256": "f27f053e17d4c89035108d6564c247db849adda85a78d479b68ce4ffb8e69bc8"
+  },
+  "packs/combat/weapons/18030000005.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18030000005.json",
+    "sha256": "eb1dac47684021498627eb184e96ed9c0bbc6655381cf87eda871b6a136c6ff2"
+  },
+  "packs/combat/weapons/18030000006.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18030000006.json",
+    "sha256": "6826877410114eabab16660d61a9eea7697585a835e2e9c63f45200011b043a9"
+  },
+  "packs/combat/weapons/18040000001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18040000001.json",
+    "sha256": "3bc14755ec34e32ea6bf84f2a8915ef0a0e1d019c441d514089bcea1f59431eb"
+  },
+  "packs/combat/weapons/18040000002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18040000002.json",
+    "sha256": "e515f5b5fe0d1bcc7564c1a8aef00b6f8df14c514e8a9274233fc772305c536d"
+  },
+  "packs/combat/weapons/18040000003.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18040000003.json",
+    "sha256": "a33ece78fa3c499c818f6479536226c543fd9a19f1d1067f6d29a894034eb896"
+  },
+  "packs/combat/weapons/18040000004.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18040000004.json",
+    "sha256": "39585ada01c3ef728c1259425192860ca947b2acba7f6296f89a7e08056cda7c"
+  },
+  "packs/combat/weapons/18050000002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18050000002.json",
+    "sha256": "76d4eedc4f23afee81aa80f9528f674ad28e9e91db3ab3c4f3c82d14423c16b2"
+  },
+  "packs/combat/weapons/18050000003.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18050000003.json",
+    "sha256": "f1aa0576ae50c584c33cab97a96f9f9f7184497c222edfddcfedc51fd2606c98"
+  },
+  "packs/combat/weapons/18050000004.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18050000004.json",
+    "sha256": "e1631e6e50dc32257a6c23e5fc065ad40dd353485870717bd1c152266f383a4b"
+  },
+  "packs/combat/weapons/18050000005.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18050000005.json",
+    "sha256": "de8307936e520d2272d60e98d044b5f5ca8847a40d444f605b28402f0f2949dd"
+  },
+  "packs/combat/weapons/18050000006.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18050000006.json",
+    "sha256": "87a6bcdb350ddbb7d11fd1e5b71c3609b4bdbe6cfb34f3e39f47a3aee08ec2a5"
+  },
+  "packs/combat/weapons/18050000007.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18050000007.json",
+    "sha256": "a7d6c39d20089f362d33f91863ff5a609fb294f5d2ec83cb92e9800a6f3656b4"
+  },
+  "packs/combat/weapons/18050000008.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18050000008.json",
+    "sha256": "095da57360dc3372bc45fcd060ee1b5f2af201a3d3ed86ba04f343fa1dc251c3"
+  },
+  "packs/combat/weapons/18050000031.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18050000031.json",
+    "sha256": "4e022c12f0c3e47c24c0a84bb598371d5d7470fccf87add6d0c08b4ba45054d2"
+  },
+  "packs/combat/weapons/18050000032.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18050000032.json",
+    "sha256": "eab33602f2dd9bd45007dad69f8dc21c4f6ed1c41b5bd19f67b35383c3252fc7"
+  },
+  "packs/combat/weapons/18050000033.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18050000033.json",
+    "sha256": "1f64803a0b4cc170342abe6ddf7b59a47de09b0dea3001ae7b12a7fd60f4194d"
+  },
+  "packs/combat/weapons/18060000007.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18060000007.json",
+    "sha256": "7b194669ad3e4d2fcc6f8c9a6da07f9d3882b4fbd889338dc831b26c057732e1"
+  },
+  "packs/combat/weapons/18060000008.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18060000008.json",
+    "sha256": "5c860fb11b99b212f6af774ba33d8d317aa158de0a4143cc348f715fe0ef9546"
+  },
+  "packs/combat/weapons/18060000009.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18060000009.json",
+    "sha256": "603a8a83e3f7d61a7b2e061542bb0f7264245307c910a37b748fea871f741f9c"
+  },
+  "packs/combat/weapons/18060000011.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18060000011.json",
+    "sha256": "4a2bb84edcd4a9ad8ce29afc83d4d26ba10ee3863db07b39cd8cccd60cc83d5e"
+  },
+  "packs/combat/weapons/18060000033.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18060000033.json",
+    "sha256": "b60b015ff0acd8903be3f05b4814e639b251c3791d93f50f45f13760c5b00ac1"
+  },
+  "packs/combat/weapons/18070000002.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18070000002.json",
+    "sha256": "81ff947a853052be82ef53dd47eb82dbc53ccefd63d433d0aa79babfc218b933"
+  },
+  "packs/combat/weapons/18070000003.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18070000003.json",
+    "sha256": "c8d6b4affee5b80f2f4ece96a3551e9e1506f99d723d4382d2bacf5dd0c38b50"
+  },
+  "packs/combat/weapons/18070000004.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18070000004.json",
+    "sha256": "25fb60ef2bc940e8d1e2d1ef3a2638aa4b09afc03b33f01bc522ade1a8c34e1f"
+  },
+  "packs/combat/weapons/18070000005.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18070000005.json",
+    "sha256": "287a7a8923f2b292699e3d6bef355e21cdcacfcd4f765cc75938a79fad23d975"
+  },
+  "packs/combat/weapons/18070000006.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18070000006.json",
+    "sha256": "c95bce00fcb1112f596a130f3b5e91b68d57b3d6b9422ca08051e2ac6551d081"
+  },
+  "packs/combat/weapons/18070000010.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18070000010.json",
+    "sha256": "f5c1f72862a5dc3652059a7152d14c8e1c23d3810cfa038901596c9318a43661"
+  },
+  "packs/combat/weapons/18070000033.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18070000033.json",
+    "sha256": "da70627c7dd0fc085e535ea3822bbfcd8cf25b744dc318de26598584d713a546"
+  },
+  "packs/combat/weapons/18150000001.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/v3/packs/combat/weapons/18150000001.json",
+    "sha256": "28591341871ac129d8e38468ed3e6f04fa1bc09f27e2e688d7f1774c50f1b70d"
+  },
+  "runtime-ui.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/runtime-ui.json?v=8da0e498b343630cc1559a35dab22ce09f6da181651df809bfeef0e92e3c9d25",
+    "sha256": "8da0e498b343630cc1559a35dab22ce09f6da181651df809bfeef0e92e3c9d25"
+  },
+  "library-insights.json": {
+    "url": "https://dfttk.com/data/releases/09f820e0d3ada199-a77003c3f09d/library-insights.json?v=345ed15ac8d640ff4cc9178402e4615e2fa1232009207dbe5bca1eff326e1085",
+    "sha256": "345ed15ac8d640ff4cc9178402e4615e2fa1232009207dbe5bca1eff326e1085"
+  },
+  "manifest.json": {
+    "url": "https://dfttk.com/data/v3/manifest.json",
+    "sha256": "abdb2e6ebdd3820c22ac84da7165ab100cc7fa6e88728ebc7619e01721073f77"
+  }
+}
