@@ -69,7 +69,7 @@ username and GitHub CLI credential helper. Global work-account Git settings were
 preserved. If CLI accounts change, first run
 `gh auth switch --hostname github.com --user teammate165`.
 
-## Latest release: DF optimizer update
+## Previous release: DF optimizer update
 
 Deployed source `b1c56fe0c160671e7b683b48bf4f58820afd5b00` as generated main commit
 `ac3f8741ccaf357a057f6cae7066cc287ae54186` on 2026-11-13.
@@ -116,3 +116,12 @@ unversioned URL: the previous live export fails with exactly `Unknown optimizer
 preset`, while the versioned export bypasses it. This demonstrates the cache
 failure mode; it does not prove which resources were cached in a user's browser.
 Also run the existing static calculator/application/persistence regression.
+
+## Latest release: cached-module regression fix
+
+Source `f169e85` deployed as generated `60d5cd3` on 2026-11-13.
+[Successful Pages deployment](https://github.com/teammate165/df-weapon-optimizer/actions/runs/43463327228).
+Includes full browser dependency versioning, an explicit one-row major-stat grid,
+and a larger scoring information button. Local static regression and all eight
+exact calculator comparisons, application and saved-build reload checks passed;
+four backend builder tests passed. Public-site validation is recorded in TODO.md.
