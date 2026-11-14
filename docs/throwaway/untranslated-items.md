@@ -680,3 +680,5 @@ Record exact English name, patch, mode, date and evidence. Transfer completed na
 | [ ] | `13230000002` | 内部配件 13230000002 | unique | |
 | [ ] | `13500000003` | 内部配件 13500000003 | unique | |
 | [ ] | `13400000001` | 内部配件 13400000001 | upperHandguard | |
+
+See [internal component identity audit](internal-component-identities.md) and [inferred identity CSV](internal-component-identities.csv) for weapon/slot/context labels.
