@@ -31,7 +31,7 @@ export async function generate(input, runtime) {
   };
   const retains = build => fixed.every(f=>build.mounted.some(m=>m.slotPath===f.slotPath && m.itemId===f.itemId));
   if (r.firing && !['auto','spam'].includes(r.firing)) throw Error('firing must be auto or spam');
-  const {raw,score,baseline,weights,objectives,objectiveNames,limitations,allowTargets=false}=presets[settings.preset].create({pack,request:r,kernel,resolve,mode});
+  const {raw,score,baseline,weights,objectives,objectiveNames,limitations,allowTargets=false}=presets[settings.preset].create({pack,request:r,kernel,resolve,mode,calculate,curves});
   if(objectives && !allowTargets && r.effectiveness_targets!==undefined)throw Error('This preset does not support custom effectiveness targets');
   const timedModules={calculate,curves,kernel};
   const baseNumeric=kernel.u(pack,resolve([]),{mode,tunes:{}}).numeric;

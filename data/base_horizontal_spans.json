@@ -1,0 +1,4203 @@
+{
+  "data_version": "20261108-an94-bd-shop.1",
+  "shot_count": 20,
+  "definition": "max(x) - min(x), first through twentieth post-shot ADS chart points; source-model units",
+  "default_configuration": "Resolved empty selection, source defaults retained, no user tuning",
+  "global_verified": false,
+  "rows": [
+    {
+      "weapon_id": "18010000001",
+      "name": "M4A1 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000001:adsRecoil",
+      "metrics": {
+        "duration_ms": 1425,
+        "climb_model_units_per_second": 7.015719298245615,
+        "signed_climb_model_units_per_second": 7.015719298245615,
+        "horizontal_drift_model_units_per_second": -1.3821052631578947,
+        "horizontal_span_model_units": 2.4245,
+        "peak_upward_displacement_model_units": 10.4762,
+        "maximum_distance_from_start_model_units": 10.633339086571068,
+        "first_shot_impulse_model_units": {
+          "x": 0.1482,
+          "up": 0.4788
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000001",
+      "name": "M4A1 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000001:adsRecoil",
+      "metrics": {
+        "duration_ms": 1425,
+        "climb_model_units_per_second": 7.015719298245615,
+        "signed_climb_model_units_per_second": 7.015719298245615,
+        "horizontal_drift_model_units_per_second": -1.3821052631578947,
+        "horizontal_span_model_units": 2.4245,
+        "peak_upward_displacement_model_units": 10.4762,
+        "maximum_distance_from_start_model_units": 10.633339086571068,
+        "first_shot_impulse_model_units": {
+          "x": 0.1482,
+          "up": 0.4788
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000001",
+      "name": "M4A1 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000001:adsRecoil",
+      "metrics": {
+        "duration_ms": 1425,
+        "climb_model_units_per_second": 7.015719298245615,
+        "signed_climb_model_units_per_second": 7.015719298245615,
+        "horizontal_drift_model_units_per_second": -1.3821052631578947,
+        "horizontal_span_model_units": 2.4245,
+        "peak_upward_displacement_model_units": 10.4762,
+        "maximum_distance_from_start_model_units": 10.633339086571068,
+        "first_shot_impulse_model_units": {
+          "x": 0.1482,
+          "up": 0.4788
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000006",
+      "name": "AKM Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000006:adsRecoil",
+      "metrics": {
+        "duration_ms": 1900,
+        "climb_model_units_per_second": 5.736421052631579,
+        "signed_climb_model_units_per_second": 5.736421052631579,
+        "horizontal_drift_model_units_per_second": 2.3520526315789474,
+        "horizontal_span_model_units": 4.72765,
+        "peak_upward_displacement_model_units": 11.6545,
+        "maximum_distance_from_start_model_units": 12.437596104251817,
+        "first_shot_impulse_model_units": {
+          "x": -0.12535,
+          "up": 0.7553
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000006",
+      "name": "AKM Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000006:adsRecoil",
+      "metrics": {
+        "duration_ms": 1900,
+        "climb_model_units_per_second": 5.736421052631579,
+        "signed_climb_model_units_per_second": 5.736421052631579,
+        "horizontal_drift_model_units_per_second": 2.3520526315789474,
+        "horizontal_span_model_units": 4.72765,
+        "peak_upward_displacement_model_units": 11.6545,
+        "maximum_distance_from_start_model_units": 12.437596104251817,
+        "first_shot_impulse_model_units": {
+          "x": -0.12535,
+          "up": 0.7553
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000006",
+      "name": "AKM Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000006:adsRecoil",
+      "metrics": {
+        "duration_ms": 1900,
+        "climb_model_units_per_second": 5.736421052631579,
+        "signed_climb_model_units_per_second": 5.736421052631579,
+        "horizontal_drift_model_units_per_second": 2.3520526315789474,
+        "horizontal_span_model_units": 4.72765,
+        "peak_upward_displacement_model_units": 11.6545,
+        "maximum_distance_from_start_model_units": 12.437596104251817,
+        "first_shot_impulse_model_units": {
+          "x": -0.12535,
+          "up": 0.7553
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000008",
+      "name": "QBZ95-1 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000008:adsRecoil",
+      "metrics": {
+        "duration_ms": 1679.6000000000006,
+        "climb_model_units_per_second": 7.121981424148604,
+        "signed_climb_model_units_per_second": 7.121981424148604,
+        "horizontal_drift_model_units_per_second": 2.268540128602047,
+        "horizontal_span_model_units": 3.81024,
+        "peak_upward_displacement_model_units": 12.60432,
+        "maximum_distance_from_start_model_units": 13.125215850693657,
+        "first_shot_impulse_model_units": {
+          "x": -0.14931,
+          "up": 0.64224
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000008",
+      "name": "QBZ95-1 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000008:adsRecoil",
+      "metrics": {
+        "duration_ms": 1679.6000000000006,
+        "climb_model_units_per_second": 7.121981424148604,
+        "signed_climb_model_units_per_second": 7.121981424148604,
+        "horizontal_drift_model_units_per_second": 2.268540128602047,
+        "horizontal_span_model_units": 3.81024,
+        "peak_upward_displacement_model_units": 12.60432,
+        "maximum_distance_from_start_model_units": 13.125215850693657,
+        "first_shot_impulse_model_units": {
+          "x": -0.14931,
+          "up": 0.64224
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000008",
+      "name": "QBZ95-1 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000008:adsRecoil",
+      "metrics": {
+        "duration_ms": 1679.6000000000006,
+        "climb_model_units_per_second": 7.121981424148604,
+        "signed_climb_model_units_per_second": 7.121981424148604,
+        "horizontal_drift_model_units_per_second": 2.268540128602047,
+        "horizontal_span_model_units": 3.81024,
+        "peak_upward_displacement_model_units": 12.60432,
+        "maximum_distance_from_start_model_units": 13.125215850693657,
+        "first_shot_impulse_model_units": {
+          "x": -0.14931,
+          "up": 0.64224
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000010",
+      "name": "AKS-74 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000010:adsRecoil",
+      "metrics": {
+        "duration_ms": 2139.399999999999,
+        "climb_model_units_per_second": 5.283256987940545,
+        "signed_climb_model_units_per_second": 5.283256987940545,
+        "horizontal_drift_model_units_per_second": 0.40408525754884556,
+        "horizontal_span_model_units": 1.5386,
+        "peak_upward_displacement_model_units": 11.879,
+        "maximum_distance_from_start_model_units": 11.896519749910054,
+        "first_shot_impulse_model_units": {
+          "x": -0.2191,
+          "up": 0.576
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000010",
+      "name": "AKS-74 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000010:adsRecoil",
+      "metrics": {
+        "duration_ms": 2139.399999999999,
+        "climb_model_units_per_second": 5.283256987940545,
+        "signed_climb_model_units_per_second": 5.283256987940545,
+        "horizontal_drift_model_units_per_second": 0.40408525754884556,
+        "horizontal_span_model_units": 1.5386,
+        "peak_upward_displacement_model_units": 11.879,
+        "maximum_distance_from_start_model_units": 11.896519749910054,
+        "first_shot_impulse_model_units": {
+          "x": -0.2191,
+          "up": 0.576
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000010",
+      "name": "AKS-74 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000010:adsRecoil",
+      "metrics": {
+        "duration_ms": 2139.399999999999,
+        "climb_model_units_per_second": 5.283256987940545,
+        "signed_climb_model_units_per_second": 5.283256987940545,
+        "horizontal_drift_model_units_per_second": 0.40408525754884556,
+        "horizontal_span_model_units": 1.5386,
+        "peak_upward_displacement_model_units": 11.879,
+        "maximum_distance_from_start_model_units": 11.896519749910054,
+        "first_shot_impulse_model_units": {
+          "x": -0.2191,
+          "up": 0.576
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000012",
+      "name": "Ash-12 Battle Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000012:adsRecoil",
+      "metrics": {
+        "duration_ms": 2280,
+        "climb_model_units_per_second": 6.956140350877193,
+        "signed_climb_model_units_per_second": 6.956140350877193,
+        "horizontal_drift_model_units_per_second": 0.09210526315789475,
+        "horizontal_span_model_units": 1.8900000000000001,
+        "peak_upward_displacement_model_units": 16.705,
+        "maximum_distance_from_start_model_units": 16.705,
+        "first_shot_impulse_model_units": {
+          "x": -0.21,
+          "up": 0.845
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000012",
+      "name": "Ash-12 Battle Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000012:adsRecoil",
+      "metrics": {
+        "duration_ms": 2280,
+        "climb_model_units_per_second": 6.956140350877193,
+        "signed_climb_model_units_per_second": 6.956140350877193,
+        "horizontal_drift_model_units_per_second": 0.09210526315789475,
+        "horizontal_span_model_units": 1.8900000000000001,
+        "peak_upward_displacement_model_units": 16.705,
+        "maximum_distance_from_start_model_units": 16.705,
+        "first_shot_impulse_model_units": {
+          "x": -0.21,
+          "up": 0.845
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000012",
+      "name": "Ash-12 Battle Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000012:adsRecoil",
+      "metrics": {
+        "duration_ms": 2280,
+        "climb_model_units_per_second": 6.956140350877193,
+        "signed_climb_model_units_per_second": 6.956140350877193,
+        "horizontal_drift_model_units_per_second": 0.09210526315789475,
+        "horizontal_span_model_units": 1.8900000000000001,
+        "peak_upward_displacement_model_units": 16.705,
+        "maximum_distance_from_start_model_units": 16.705,
+        "first_shot_impulse_model_units": {
+          "x": -0.21,
+          "up": 0.845
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000013",
+      "name": "K416 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000013:adsRecoil",
+      "metrics": {
+        "duration_ms": 1295.8000000000004,
+        "climb_model_units_per_second": 9.641765704584037,
+        "signed_climb_model_units_per_second": 9.641765704584037,
+        "horizontal_drift_model_units_per_second": -1.1344343262849201,
+        "horizontal_span_model_units": 1.89,
+        "peak_upward_displacement_model_units": 13.1094,
+        "maximum_distance_from_start_model_units": 13.177017515356045,
+        "first_shot_impulse_model_units": {
+          "x": 0.1368,
+          "up": 0.6156
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000013",
+      "name": "K416 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000013:adsRecoil",
+      "metrics": {
+        "duration_ms": 1295.8000000000004,
+        "climb_model_units_per_second": 9.641765704584037,
+        "signed_climb_model_units_per_second": 9.641765704584037,
+        "horizontal_drift_model_units_per_second": -1.1344343262849201,
+        "horizontal_span_model_units": 1.89,
+        "peak_upward_displacement_model_units": 13.1094,
+        "maximum_distance_from_start_model_units": 13.177017515356045,
+        "first_shot_impulse_model_units": {
+          "x": 0.1368,
+          "up": 0.6156
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000013",
+      "name": "K416 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000013:adsRecoil",
+      "metrics": {
+        "duration_ms": 1295.8000000000004,
+        "climb_model_units_per_second": 9.641765704584037,
+        "signed_climb_model_units_per_second": 9.641765704584037,
+        "horizontal_drift_model_units_per_second": -1.1344343262849201,
+        "horizontal_span_model_units": 1.89,
+        "peak_upward_displacement_model_units": 13.1094,
+        "maximum_distance_from_start_model_units": 13.177017515356045,
+        "first_shot_impulse_model_units": {
+          "x": 0.1368,
+          "up": 0.6156
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000014",
+      "name": "M16A4 Assault Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000014:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000014",
+      "name": "M16A4 Assault Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000014:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000014",
+      "name": "M16A4 Assault Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000014:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000015",
+      "name": "AUG Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000015:adsRecoil",
+      "metrics": {
+        "duration_ms": 1679.6000000000006,
+        "climb_model_units_per_second": 4.928143605620384,
+        "signed_climb_model_units_per_second": 4.928143605620384,
+        "horizontal_drift_model_units_per_second": -0.6706239580852581,
+        "horizontal_span_model_units": 1.4999500000000001,
+        "peak_upward_displacement_model_units": 8.83941,
+        "maximum_distance_from_start_model_units": 8.893822712315554,
+        "first_shot_impulse_model_units": {
+          "x": 0.14408,
+          "up": 0.5621
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000015",
+      "name": "AUG Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000015:adsRecoil",
+      "metrics": {
+        "duration_ms": 1679.6000000000006,
+        "climb_model_units_per_second": 4.928143605620384,
+        "signed_climb_model_units_per_second": 4.928143605620384,
+        "horizontal_drift_model_units_per_second": -0.6706239580852581,
+        "horizontal_span_model_units": 1.4999500000000001,
+        "peak_upward_displacement_model_units": 8.83941,
+        "maximum_distance_from_start_model_units": 8.893822712315554,
+        "first_shot_impulse_model_units": {
+          "x": 0.14408,
+          "up": 0.5621
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000015",
+      "name": "AUG Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000015:adsRecoil",
+      "metrics": {
+        "duration_ms": 1679.6000000000006,
+        "climb_model_units_per_second": 4.928143605620384,
+        "signed_climb_model_units_per_second": 4.928143605620384,
+        "horizontal_drift_model_units_per_second": -0.6706239580852581,
+        "horizontal_span_model_units": 1.4999500000000001,
+        "peak_upward_displacement_model_units": 8.83941,
+        "maximum_distance_from_start_model_units": 8.893822712315554,
+        "first_shot_impulse_model_units": {
+          "x": 0.14408,
+          "up": 0.5621
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000016",
+      "name": "M7 Battle Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000016:adsRecoil",
+      "metrics": {
+        "duration_ms": 1755.6000000000006,
+        "climb_model_units_per_second": 8.484022556390974,
+        "signed_climb_model_units_per_second": 8.484022556390974,
+        "horizontal_drift_model_units_per_second": -0.4521531100478468,
+        "horizontal_span_model_units": 1.4931,
+        "peak_upward_displacement_model_units": 15.52155,
+        "maximum_distance_from_start_model_units": 15.537294967030135,
+        "first_shot_impulse_model_units": {
+          "x": 0.0945,
+          "up": 0.627
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000016",
+      "name": "M7 Battle Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000016:adsRecoil",
+      "metrics": {
+        "duration_ms": 1755.6000000000006,
+        "climb_model_units_per_second": 8.484022556390974,
+        "signed_climb_model_units_per_second": 8.484022556390974,
+        "horizontal_drift_model_units_per_second": -0.4521531100478468,
+        "horizontal_span_model_units": 1.4931,
+        "peak_upward_displacement_model_units": 15.52155,
+        "maximum_distance_from_start_model_units": 15.537294967030135,
+        "first_shot_impulse_model_units": {
+          "x": 0.0945,
+          "up": 0.627
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000016",
+      "name": "M7 Battle Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000016:adsRecoil",
+      "metrics": {
+        "duration_ms": 1755.6000000000006,
+        "climb_model_units_per_second": 8.484022556390974,
+        "signed_climb_model_units_per_second": 8.484022556390974,
+        "horizontal_drift_model_units_per_second": -0.4521531100478468,
+        "horizontal_span_model_units": 1.4931,
+        "peak_upward_displacement_model_units": 15.52155,
+        "maximum_distance_from_start_model_units": 15.537294967030135,
+        "first_shot_impulse_model_units": {
+          "x": 0.0945,
+          "up": 0.627
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000017",
+      "name": "SG 552 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000017:adsRecoil",
+      "metrics": {
+        "duration_ms": 1257.8000000000004,
+        "climb_model_units_per_second": 4.2230879313086325,
+        "signed_climb_model_units_per_second": 4.2230879313086325,
+        "horizontal_drift_model_units_per_second": 0.4770233741453329,
+        "horizontal_span_model_units": 0.9816,
+        "peak_upward_displacement_model_units": 5.6691,
+        "maximum_distance_from_start_model_units": 5.688253138706118,
+        "first_shot_impulse_model_units": {
+          "x": -0.1336,
+          "up": 0.3573
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000017",
+      "name": "SG 552 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000017:adsRecoil",
+      "metrics": {
+        "duration_ms": 1257.8000000000004,
+        "climb_model_units_per_second": 4.2230879313086325,
+        "signed_climb_model_units_per_second": 4.2230879313086325,
+        "horizontal_drift_model_units_per_second": 0.4770233741453329,
+        "horizontal_span_model_units": 0.9816,
+        "peak_upward_displacement_model_units": 5.6691,
+        "maximum_distance_from_start_model_units": 5.688253138706118,
+        "first_shot_impulse_model_units": {
+          "x": -0.1336,
+          "up": 0.3573
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000017",
+      "name": "SG 552 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000017:adsRecoil",
+      "metrics": {
+        "duration_ms": 1257.8000000000004,
+        "climb_model_units_per_second": 4.2230879313086325,
+        "signed_climb_model_units_per_second": 4.2230879313086325,
+        "horizontal_drift_model_units_per_second": 0.4770233741453329,
+        "horizontal_span_model_units": 0.9816,
+        "peak_upward_displacement_model_units": 5.6691,
+        "maximum_distance_from_start_model_units": 5.688253138706118,
+        "first_shot_impulse_model_units": {
+          "x": -0.1336,
+          "up": 0.3573
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000018",
+      "name": "AK-12 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000018:adsRecoil",
+      "metrics": {
+        "duration_ms": 1550.3999999999996,
+        "climb_model_units_per_second": 7.4529476264189904,
+        "signed_climb_model_units_per_second": 7.4529476264189904,
+        "horizontal_drift_model_units_per_second": 1.7566434468524257,
+        "horizontal_span_model_units": 2.9172000000000002,
+        "peak_upward_displacement_model_units": 12.1945,
+        "maximum_distance_from_start_model_units": 12.478160942222214,
+        "first_shot_impulse_model_units": {
+          "x": -0.078,
+          "up": 0.63945
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000018",
+      "name": "AK-12 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000018:adsRecoil",
+      "metrics": {
+        "duration_ms": 1550.3999999999996,
+        "climb_model_units_per_second": 7.4529476264189904,
+        "signed_climb_model_units_per_second": 7.4529476264189904,
+        "horizontal_drift_model_units_per_second": 1.7566434468524257,
+        "horizontal_span_model_units": 2.9172000000000002,
+        "peak_upward_displacement_model_units": 12.1945,
+        "maximum_distance_from_start_model_units": 12.478160942222214,
+        "first_shot_impulse_model_units": {
+          "x": -0.078,
+          "up": 0.63945
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000018",
+      "name": "AK-12 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000018:adsRecoil",
+      "metrics": {
+        "duration_ms": 1550.3999999999996,
+        "climb_model_units_per_second": 7.4529476264189904,
+        "signed_climb_model_units_per_second": 7.4529476264189904,
+        "horizontal_drift_model_units_per_second": 1.7566434468524257,
+        "horizontal_span_model_units": 2.9172000000000002,
+        "peak_upward_displacement_model_units": 12.1945,
+        "maximum_distance_from_start_model_units": 12.478160942222214,
+        "first_shot_impulse_model_units": {
+          "x": -0.078,
+          "up": 0.63945
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000021",
+      "name": "SCAR-H Battle Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000021:adsRecoil",
+      "metrics": {
+        "duration_ms": 1949.3999999999992,
+        "climb_model_units_per_second": 6.200897712116551,
+        "signed_climb_model_units_per_second": 6.200897712116551,
+        "horizontal_drift_model_units_per_second": 0.11001333743716021,
+        "horizontal_span_model_units": 0.70468,
+        "peak_upward_displacement_model_units": 12.62003,
+        "maximum_distance_from_start_model_units": 12.620625012391423,
+        "first_shot_impulse_model_units": {
+          "x": -0.09191,
+          "up": 0.532
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000021",
+      "name": "SCAR-H Battle Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000021:adsRecoil",
+      "metrics": {
+        "duration_ms": 1949.3999999999992,
+        "climb_model_units_per_second": 6.200897712116551,
+        "signed_climb_model_units_per_second": 6.200897712116551,
+        "horizontal_drift_model_units_per_second": 0.11001333743716021,
+        "horizontal_span_model_units": 0.70468,
+        "peak_upward_displacement_model_units": 12.62003,
+        "maximum_distance_from_start_model_units": 12.620625012391423,
+        "first_shot_impulse_model_units": {
+          "x": -0.09191,
+          "up": 0.532
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000021",
+      "name": "SCAR-H Battle Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000021:adsRecoil",
+      "metrics": {
+        "duration_ms": 1949.3999999999992,
+        "climb_model_units_per_second": 6.200897712116551,
+        "signed_climb_model_units_per_second": 6.200897712116551,
+        "horizontal_drift_model_units_per_second": 0.11001333743716021,
+        "horizontal_span_model_units": 0.70468,
+        "peak_upward_displacement_model_units": 12.62003,
+        "maximum_distance_from_start_model_units": 12.620625012391423,
+        "first_shot_impulse_model_units": {
+          "x": -0.09191,
+          "up": 0.532
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000023",
+      "name": "G3 Battle Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000023:adsRecoil",
+      "metrics": {
+        "duration_ms": 2139.399999999999,
+        "climb_model_units_per_second": 5.241656539216605,
+        "signed_climb_model_units_per_second": 5.241656539216605,
+        "horizontal_drift_model_units_per_second": -0.24904178741703287,
+        "horizontal_span_model_units": 0.9144,
+        "peak_upward_displacement_model_units": 11.634,
+        "maximum_distance_from_start_model_units": 11.641236367328,
+        "first_shot_impulse_model_units": {
+          "x": 0.1224,
+          "up": 0.42
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000023",
+      "name": "G3 Battle Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000023:adsRecoil",
+      "metrics": {
+        "duration_ms": 2139.399999999999,
+        "climb_model_units_per_second": 5.241656539216605,
+        "signed_climb_model_units_per_second": 5.241656539216605,
+        "horizontal_drift_model_units_per_second": -0.24904178741703287,
+        "horizontal_span_model_units": 0.9144,
+        "peak_upward_displacement_model_units": 11.634,
+        "maximum_distance_from_start_model_units": 11.641236367328,
+        "first_shot_impulse_model_units": {
+          "x": 0.1224,
+          "up": 0.42
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000023",
+      "name": "G3 Battle Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000023:adsRecoil",
+      "metrics": {
+        "duration_ms": 2139.399999999999,
+        "climb_model_units_per_second": 5.241656539216605,
+        "signed_climb_model_units_per_second": 5.241656539216605,
+        "horizontal_drift_model_units_per_second": -0.24904178741703287,
+        "horizontal_span_model_units": 0.9144,
+        "peak_upward_displacement_model_units": 11.634,
+        "maximum_distance_from_start_model_units": 11.641236367328,
+        "first_shot_impulse_model_units": {
+          "x": 0.1224,
+          "up": 0.42
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000024",
+      "name": "PTR-32 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000024:adsRecoil",
+      "metrics": {
+        "duration_ms": 1803.1000000000006,
+        "climb_model_units_per_second": 5.544562142975985,
+        "signed_climb_model_units_per_second": 5.544562142975985,
+        "horizontal_drift_model_units_per_second": -1.2603294326437797,
+        "horizontal_span_model_units": 2.7975000000000003,
+        "peak_upward_displacement_model_units": 10.4762,
+        "maximum_distance_from_start_model_units": 10.684899095920374,
+        "first_shot_impulse_model_units": {
+          "x": 0.171,
+          "up": 0.4788
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000024",
+      "name": "PTR-32 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000024:adsRecoil",
+      "metrics": {
+        "duration_ms": 1803.1000000000006,
+        "climb_model_units_per_second": 5.544562142975985,
+        "signed_climb_model_units_per_second": 5.544562142975985,
+        "horizontal_drift_model_units_per_second": -1.2603294326437797,
+        "horizontal_span_model_units": 2.7975000000000003,
+        "peak_upward_displacement_model_units": 10.4762,
+        "maximum_distance_from_start_model_units": 10.684899095920374,
+        "first_shot_impulse_model_units": {
+          "x": 0.171,
+          "up": 0.4788
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000024",
+      "name": "PTR-32 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000024:adsRecoil",
+      "metrics": {
+        "duration_ms": 1803.1000000000006,
+        "climb_model_units_per_second": 5.544562142975985,
+        "signed_climb_model_units_per_second": 5.544562142975985,
+        "horizontal_drift_model_units_per_second": -1.2603294326437797,
+        "horizontal_span_model_units": 2.7975000000000003,
+        "peak_upward_displacement_model_units": 10.4762,
+        "maximum_distance_from_start_model_units": 10.684899095920374,
+        "first_shot_impulse_model_units": {
+          "x": 0.171,
+          "up": 0.4788
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000031",
+      "name": "CAR-15 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000031:adsRecoil",
+      "metrics": {
+        "duration_ms": 1803.1000000000006,
+        "climb_model_units_per_second": 5.037324607620208,
+        "signed_climb_model_units_per_second": 5.037324607620208,
+        "horizontal_drift_model_units_per_second": 0.9396539293439075,
+        "horizontal_span_model_units": 2.32357,
+        "peak_upward_displacement_model_units": 9.5256,
+        "maximum_distance_from_start_model_units": 9.65734912994244,
+        "first_shot_impulse_model_units": {
+          "x": -0.10453,
+          "up": 0.4428
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000031",
+      "name": "CAR-15 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000031:adsRecoil",
+      "metrics": {
+        "duration_ms": 1803.1000000000006,
+        "climb_model_units_per_second": 5.037324607620208,
+        "signed_climb_model_units_per_second": 5.037324607620208,
+        "horizontal_drift_model_units_per_second": 0.9396539293439075,
+        "horizontal_span_model_units": 2.32357,
+        "peak_upward_displacement_model_units": 9.5256,
+        "maximum_distance_from_start_model_units": 9.65734912994244,
+        "first_shot_impulse_model_units": {
+          "x": -0.10453,
+          "up": 0.4428
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000031",
+      "name": "CAR-15 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000031:adsRecoil",
+      "metrics": {
+        "duration_ms": 1803.1000000000006,
+        "climb_model_units_per_second": 5.037324607620208,
+        "signed_climb_model_units_per_second": 5.037324607620208,
+        "horizontal_drift_model_units_per_second": 0.9396539293439075,
+        "horizontal_span_model_units": 2.32357,
+        "peak_upward_displacement_model_units": 9.5256,
+        "maximum_distance_from_start_model_units": 9.65734912994244,
+        "first_shot_impulse_model_units": {
+          "x": -0.10453,
+          "up": 0.4428
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000037",
+      "name": "AS Val Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 15,
+      "profile_id": "authoring:weapon:18010000037:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 15,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 863.8000000000002,
+          "climb_model_units_per_second": 12.563556378791382,
+          "signed_climb_model_units_per_second": 12.563556378791382,
+          "horizontal_drift_model_units_per_second": 0.43412827043297053,
+          "horizontal_span_model_units": 1.8,
+          "peak_upward_displacement_model_units": 11.5076,
+          "maximum_distance_from_start_model_units": 11.520831643592402,
+          "first_shot_impulse_model_units": {
+            "x": 0.177,
+            "up": 0.6552
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000037",
+      "name": "AS Val Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 15,
+      "profile_id": "authoring:weapon:18010000037:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 15,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 863.8000000000002,
+          "climb_model_units_per_second": 12.563556378791382,
+          "signed_climb_model_units_per_second": 12.563556378791382,
+          "horizontal_drift_model_units_per_second": 0.43412827043297053,
+          "horizontal_span_model_units": 1.8,
+          "peak_upward_displacement_model_units": 11.5076,
+          "maximum_distance_from_start_model_units": 11.520831643592402,
+          "first_shot_impulse_model_units": {
+            "x": 0.177,
+            "up": 0.6552
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000037",
+      "name": "AS Val Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 15,
+      "profile_id": "authoring:weapon:18010000037:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 15,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 863.8000000000002,
+          "climb_model_units_per_second": 12.563556378791382,
+          "signed_climb_model_units_per_second": 12.563556378791382,
+          "horizontal_drift_model_units_per_second": 0.43412827043297053,
+          "horizontal_span_model_units": 1.8,
+          "peak_upward_displacement_model_units": 11.5076,
+          "maximum_distance_from_start_model_units": 11.520831643592402,
+          "first_shot_impulse_model_units": {
+            "x": 0.177,
+            "up": 0.6552
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000038",
+      "name": "CI-19 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000038:adsRecoil",
+      "metrics": {
+        "duration_ms": 1615,
+        "climb_model_units_per_second": 7.3291950464396285,
+        "signed_climb_model_units_per_second": 7.3291950464396285,
+        "horizontal_drift_model_units_per_second": 0.6910216718266254,
+        "horizontal_span_model_units": 2.97,
+        "peak_upward_displacement_model_units": 12.43875,
+        "maximum_distance_from_start_model_units": 12.517332851789952,
+        "first_shot_impulse_model_units": {
+          "x": 0.2844,
+          "up": 0.6021
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000038",
+      "name": "CI-19 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000038:adsRecoil",
+      "metrics": {
+        "duration_ms": 1615,
+        "climb_model_units_per_second": 7.3291950464396285,
+        "signed_climb_model_units_per_second": 7.3291950464396285,
+        "horizontal_drift_model_units_per_second": 0.6910216718266254,
+        "horizontal_span_model_units": 2.97,
+        "peak_upward_displacement_model_units": 12.43875,
+        "maximum_distance_from_start_model_units": 12.517332851789952,
+        "first_shot_impulse_model_units": {
+          "x": 0.2844,
+          "up": 0.6021
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000038",
+      "name": "CI-19 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000038:adsRecoil",
+      "metrics": {
+        "duration_ms": 1615,
+        "climb_model_units_per_second": 7.3291950464396285,
+        "signed_climb_model_units_per_second": 7.3291950464396285,
+        "horizontal_drift_model_units_per_second": 0.6910216718266254,
+        "horizontal_span_model_units": 2.97,
+        "peak_upward_displacement_model_units": 12.43875,
+        "maximum_distance_from_start_model_units": 12.517332851789952,
+        "first_shot_impulse_model_units": {
+          "x": 0.2844,
+          "up": 0.6021
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000040",
+      "name": "K437 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000040:adsRecoil",
+      "metrics": {
+        "duration_ms": 1461.1000000000004,
+        "climb_model_units_per_second": 7.819861747998082,
+        "signed_climb_model_units_per_second": 7.819861747998082,
+        "horizontal_drift_model_units_per_second": -1.045103004585586,
+        "horizontal_span_model_units": 1.826,
+        "peak_upward_displacement_model_units": 11.9728,
+        "maximum_distance_from_start_model_units": 12.061853457906043,
+        "first_shot_impulse_model_units": {
+          "x": 0.064,
+          "up": 0.5472
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000040",
+      "name": "K437 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000040:adsRecoil",
+      "metrics": {
+        "duration_ms": 1461.1000000000004,
+        "climb_model_units_per_second": 7.819861747998082,
+        "signed_climb_model_units_per_second": 7.819861747998082,
+        "horizontal_drift_model_units_per_second": -1.045103004585586,
+        "horizontal_span_model_units": 1.826,
+        "peak_upward_displacement_model_units": 11.9728,
+        "maximum_distance_from_start_model_units": 12.061853457906043,
+        "first_shot_impulse_model_units": {
+          "x": 0.064,
+          "up": 0.5472
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000040",
+      "name": "K437 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000040:adsRecoil",
+      "metrics": {
+        "duration_ms": 1461.1000000000004,
+        "climb_model_units_per_second": 7.819861747998082,
+        "signed_climb_model_units_per_second": 7.819861747998082,
+        "horizontal_drift_model_units_per_second": -1.045103004585586,
+        "horizontal_span_model_units": 1.826,
+        "peak_upward_displacement_model_units": 11.9728,
+        "maximum_distance_from_start_model_units": 12.061853457906043,
+        "first_shot_impulse_model_units": {
+          "x": 0.064,
+          "up": 0.5472
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000042",
+      "name": "KC17 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000042:adsRecoil",
+      "metrics": {
+        "duration_ms": 1540.5389999999995,
+        "climb_model_units_per_second": 8.163766058502903,
+        "signed_climb_model_units_per_second": 8.163766058502903,
+        "horizontal_drift_model_units_per_second": 0.9847202829658973,
+        "horizontal_span_model_units": 1.517,
+        "peak_upward_displacement_model_units": 13.1121,
+        "maximum_distance_from_start_model_units": 13.232502688834035,
+        "first_shot_impulse_model_units": {
+          "x": 0.264,
+          "up": 0.5355
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000042",
+      "name": "KC17 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000042:adsRecoil",
+      "metrics": {
+        "duration_ms": 1540.5389999999995,
+        "climb_model_units_per_second": 8.163766058502903,
+        "signed_climb_model_units_per_second": 8.163766058502903,
+        "horizontal_drift_model_units_per_second": 0.9847202829658973,
+        "horizontal_span_model_units": 1.517,
+        "peak_upward_displacement_model_units": 13.1121,
+        "maximum_distance_from_start_model_units": 13.232502688834035,
+        "first_shot_impulse_model_units": {
+          "x": 0.264,
+          "up": 0.5355
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000042",
+      "name": "KC17 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000042:adsRecoil",
+      "metrics": {
+        "duration_ms": 1540.5389999999995,
+        "climb_model_units_per_second": 8.163766058502903,
+        "signed_climb_model_units_per_second": 8.163766058502903,
+        "horizontal_drift_model_units_per_second": 0.9847202829658973,
+        "horizontal_span_model_units": 1.517,
+        "peak_upward_displacement_model_units": 13.1121,
+        "maximum_distance_from_start_model_units": 13.232502688834035,
+        "first_shot_impulse_model_units": {
+          "x": 0.264,
+          "up": 0.5355
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000043",
+      "name": "MK47 Battle Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000043:adsRecoil",
+      "metrics": {
+        "duration_ms": 1824,
+        "climb_model_units_per_second": 12.445723684210526,
+        "signed_climb_model_units_per_second": 12.445723684210526,
+        "horizontal_drift_model_units_per_second": 0.9226973684210525,
+        "horizontal_span_model_units": 3.383,
+        "peak_upward_displacement_model_units": 24.127,
+        "maximum_distance_from_start_model_units": 24.22956165513524,
+        "first_shot_impulse_model_units": {
+          "x": 0.544,
+          "up": 1.426
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000043",
+      "name": "MK47 Battle Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000043:adsRecoil",
+      "metrics": {
+        "duration_ms": 1824,
+        "climb_model_units_per_second": 12.445723684210526,
+        "signed_climb_model_units_per_second": 12.445723684210526,
+        "horizontal_drift_model_units_per_second": 0.9226973684210525,
+        "horizontal_span_model_units": 3.383,
+        "peak_upward_displacement_model_units": 24.127,
+        "maximum_distance_from_start_model_units": 24.22956165513524,
+        "first_shot_impulse_model_units": {
+          "x": 0.544,
+          "up": 1.426
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000043",
+      "name": "MK47 Battle Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000043:adsRecoil",
+      "metrics": {
+        "duration_ms": 1824,
+        "climb_model_units_per_second": 12.445723684210526,
+        "signed_climb_model_units_per_second": 12.445723684210526,
+        "horizontal_drift_model_units_per_second": 0.9226973684210525,
+        "horizontal_span_model_units": 3.383,
+        "peak_upward_displacement_model_units": 24.127,
+        "maximum_distance_from_start_model_units": 24.22956165513524,
+        "first_shot_impulse_model_units": {
+          "x": 0.544,
+          "up": 1.426
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000044",
+      "name": "MCX LT Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000044:adsRecoil",
+      "metrics": {
+        "duration_ms": 1356.6000000000001,
+        "climb_model_units_per_second": 10.36267138434321,
+        "signed_climb_model_units_per_second": 10.36267138434321,
+        "horizontal_drift_model_units_per_second": -0.12383900928792568,
+        "horizontal_span_model_units": 0.492,
+        "peak_upward_displacement_model_units": 14.238,
+        "maximum_distance_from_start_model_units": 14.240912470765346,
+        "first_shot_impulse_model_units": {
+          "x": -0.12,
+          "up": 0.18
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000044",
+      "name": "MCX LT Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000044:adsRecoil",
+      "metrics": {
+        "duration_ms": 1356.6000000000001,
+        "climb_model_units_per_second": 10.36267138434321,
+        "signed_climb_model_units_per_second": 10.36267138434321,
+        "horizontal_drift_model_units_per_second": -0.12383900928792568,
+        "horizontal_span_model_units": 0.492,
+        "peak_upward_displacement_model_units": 14.238,
+        "maximum_distance_from_start_model_units": 14.240912470765346,
+        "first_shot_impulse_model_units": {
+          "x": -0.12,
+          "up": 0.18
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000044",
+      "name": "MCX LT Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000044:adsRecoil",
+      "metrics": {
+        "duration_ms": 1356.6000000000001,
+        "climb_model_units_per_second": 10.36267138434321,
+        "signed_climb_model_units_per_second": 10.36267138434321,
+        "horizontal_drift_model_units_per_second": -0.12383900928792568,
+        "horizontal_span_model_units": 0.492,
+        "peak_upward_displacement_model_units": 14.238,
+        "maximum_distance_from_start_model_units": 14.240912470765346,
+        "first_shot_impulse_model_units": {
+          "x": -0.12,
+          "up": 0.18
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000045",
+      "name": "AR-57 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 50,
+      "profile_id": "authoring:weapon:18010000045:adsRecoil",
+      "metrics": {
+        "duration_ms": 1266.6539999999993,
+        "climb_model_units_per_second": 6.087139818766613,
+        "signed_climb_model_units_per_second": 6.087139818766613,
+        "horizontal_drift_model_units_per_second": 1.469619959357489,
+        "horizontal_span_model_units": 1.8615,
+        "peak_upward_displacement_model_units": 8.0523,
+        "maximum_distance_from_start_model_units": 8.284225826231442,
+        "first_shot_impulse_model_units": {
+          "x": 0.085,
+          "up": 0.342
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000045",
+      "name": "AR-57 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 50,
+      "profile_id": "authoring:weapon:18010000045:adsRecoil",
+      "metrics": {
+        "duration_ms": 1266.6539999999993,
+        "climb_model_units_per_second": 6.087139818766613,
+        "signed_climb_model_units_per_second": 6.087139818766613,
+        "horizontal_drift_model_units_per_second": 1.469619959357489,
+        "horizontal_span_model_units": 1.8615,
+        "peak_upward_displacement_model_units": 8.0523,
+        "maximum_distance_from_start_model_units": 8.284225826231442,
+        "first_shot_impulse_model_units": {
+          "x": 0.085,
+          "up": 0.342
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000045",
+      "name": "AR-57 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 50,
+      "profile_id": "authoring:weapon:18010000045:adsRecoil",
+      "metrics": {
+        "duration_ms": 1266.6539999999993,
+        "climb_model_units_per_second": 6.087139818766613,
+        "signed_climb_model_units_per_second": 6.087139818766613,
+        "horizontal_drift_model_units_per_second": 1.469619959357489,
+        "horizontal_span_model_units": 1.8615,
+        "peak_upward_displacement_model_units": 8.0523,
+        "maximum_distance_from_start_model_units": 8.284225826231442,
+        "first_shot_impulse_model_units": {
+          "x": 0.085,
+          "up": 0.342
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000049",
+      "name": "RM277 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000049:adsRecoil",
+      "metrics": {
+        "duration_ms": 2071,
+        "climb_model_units_per_second": 10.565490101400288,
+        "signed_climb_model_units_per_second": 10.565490101400288,
+        "horizontal_drift_model_units_per_second": 1.6879913085465956,
+        "horizontal_span_model_units": 4.0344,
+        "peak_upward_displacement_model_units": 22.78323,
+        "maximum_distance_from_start_model_units": 23.03087528127839,
+        "first_shot_impulse_model_units": {
+          "x": -0.1275,
+          "up": 0.9021
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000049",
+      "name": "RM277 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000049:adsRecoil",
+      "metrics": {
+        "duration_ms": 2071,
+        "climb_model_units_per_second": 10.565490101400288,
+        "signed_climb_model_units_per_second": 10.565490101400288,
+        "horizontal_drift_model_units_per_second": 1.6879913085465956,
+        "horizontal_span_model_units": 4.0344,
+        "peak_upward_displacement_model_units": 22.78323,
+        "maximum_distance_from_start_model_units": 23.03087528127839,
+        "first_shot_impulse_model_units": {
+          "x": -0.1275,
+          "up": 0.9021
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000049",
+      "name": "RM277 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000049:adsRecoil",
+      "metrics": {
+        "duration_ms": 2071,
+        "climb_model_units_per_second": 10.565490101400288,
+        "signed_climb_model_units_per_second": 10.565490101400288,
+        "horizontal_drift_model_units_per_second": 1.6879913085465956,
+        "horizontal_span_model_units": 4.0344,
+        "peak_upward_displacement_model_units": 22.78323,
+        "maximum_distance_from_start_model_units": 23.03087528127839,
+        "first_shot_impulse_model_units": {
+          "x": -0.1275,
+          "up": 0.9021
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000051",
+      "name": "MDR Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000051:adsRecoil",
+      "metrics": {
+        "duration_ms": 1753.6999999999994,
+        "climb_model_units_per_second": 7.7676911672463955,
+        "signed_climb_model_units_per_second": 7.7676911672463955,
+        "horizontal_drift_model_units_per_second": 0.5496379084221933,
+        "horizontal_span_model_units": 1.53,
+        "peak_upward_displacement_model_units": 14.2302,
+        "maximum_distance_from_start_model_units": 14.290728646573623,
+        "first_shot_impulse_model_units": {
+          "x": 0.35,
+          "up": 0.608
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000051",
+      "name": "MDR Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000051:adsRecoil",
+      "metrics": {
+        "duration_ms": 1753.6999999999994,
+        "climb_model_units_per_second": 7.7676911672463955,
+        "signed_climb_model_units_per_second": 7.7676911672463955,
+        "horizontal_drift_model_units_per_second": 0.5496379084221933,
+        "horizontal_span_model_units": 1.53,
+        "peak_upward_displacement_model_units": 14.2302,
+        "maximum_distance_from_start_model_units": 14.290728646573623,
+        "first_shot_impulse_model_units": {
+          "x": 0.35,
+          "up": 0.608
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000051",
+      "name": "MDR Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18010000051:adsRecoil",
+      "metrics": {
+        "duration_ms": 1753.6999999999994,
+        "climb_model_units_per_second": 7.7676911672463955,
+        "signed_climb_model_units_per_second": 7.7676911672463955,
+        "horizontal_drift_model_units_per_second": 0.5496379084221933,
+        "horizontal_span_model_units": 1.53,
+        "peak_upward_displacement_model_units": 14.2302,
+        "maximum_distance_from_start_model_units": 14.290728646573623,
+        "first_shot_impulse_model_units": {
+          "x": 0.35,
+          "up": 0.608
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000052",
+      "name": "AN-94 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000052:adsRecoil",
+      "metrics": {
+        "duration_ms": 1766.6666666666667,
+        "climb_model_units_per_second": 7.002169811320754,
+        "signed_climb_model_units_per_second": 7.002169811320754,
+        "horizontal_drift_model_units_per_second": -0.3067924528301887,
+        "horizontal_span_model_units": 0.96,
+        "peak_upward_displacement_model_units": 12.4155,
+        "maximum_distance_from_start_model_units": 12.427324903212275,
+        "first_shot_impulse_model_units": {
+          "x": 0,
+          "up": 0.045
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000052",
+      "name": "AN-94 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000052:adsRecoil",
+      "metrics": {
+        "duration_ms": 1766.6666666666667,
+        "climb_model_units_per_second": 7.002169811320754,
+        "signed_climb_model_units_per_second": 7.002169811320754,
+        "horizontal_drift_model_units_per_second": -0.3067924528301887,
+        "horizontal_span_model_units": 0.96,
+        "peak_upward_displacement_model_units": 12.4155,
+        "maximum_distance_from_start_model_units": 12.427324903212275,
+        "first_shot_impulse_model_units": {
+          "x": 0,
+          "up": 0.045
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18010000052",
+      "name": "AN-94 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18010000052:adsRecoil",
+      "metrics": {
+        "duration_ms": 1766.6666666666667,
+        "climb_model_units_per_second": 7.002169811320754,
+        "signed_climb_model_units_per_second": 7.002169811320754,
+        "horizontal_drift_model_units_per_second": -0.3067924528301887,
+        "horizontal_span_model_units": 0.96,
+        "peak_upward_displacement_model_units": 12.4155,
+        "maximum_distance_from_start_model_units": 12.427324903212275,
+        "first_shot_impulse_model_units": {
+          "x": 0,
+          "up": 0.045
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000001",
+      "name": "MP5 Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18020000001:adsRecoil",
+      "metrics": {
+        "duration_ms": 1390.8000000000004,
+        "climb_model_units_per_second": 4.4657750934713825,
+        "signed_climb_model_units_per_second": 4.4657750934713825,
+        "horizontal_drift_model_units_per_second": 0.22303710094909396,
+        "horizontal_span_model_units": 0.6144,
+        "peak_upward_displacement_model_units": 6.582,
+        "maximum_distance_from_start_model_units": 6.5893055810153465,
+        "first_shot_impulse_model_units": {
+          "x": 0,
+          "up": 0.371
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000001",
+      "name": "MP5 Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18020000001:adsRecoil",
+      "metrics": {
+        "duration_ms": 1390.8000000000004,
+        "climb_model_units_per_second": 4.4657750934713825,
+        "signed_climb_model_units_per_second": 4.4657750934713825,
+        "horizontal_drift_model_units_per_second": 0.22303710094909396,
+        "horizontal_span_model_units": 0.6144,
+        "peak_upward_displacement_model_units": 6.582,
+        "maximum_distance_from_start_model_units": 6.5893055810153465,
+        "first_shot_impulse_model_units": {
+          "x": 0,
+          "up": 0.371
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000001",
+      "name": "MP5 Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18020000001:adsRecoil",
+      "metrics": {
+        "duration_ms": 1390.8000000000004,
+        "climb_model_units_per_second": 4.4657750934713825,
+        "signed_climb_model_units_per_second": 4.4657750934713825,
+        "horizontal_drift_model_units_per_second": 0.22303710094909396,
+        "horizontal_span_model_units": 0.6144,
+        "peak_upward_displacement_model_units": 6.582,
+        "maximum_distance_from_start_model_units": 6.5893055810153465,
+        "first_shot_impulse_model_units": {
+          "x": 0,
+          "up": 0.371
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000002",
+      "name": "P90 Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 50,
+      "profile_id": "authoring:weapon:18020000002:adsRecoil",
+      "metrics": {
+        "duration_ms": 1269.1999999999996,
+        "climb_model_units_per_second": 6.826347305389223,
+        "signed_climb_model_units_per_second": 6.826347305389223,
+        "horizontal_drift_model_units_per_second": 0.5590135518436812,
+        "horizontal_span_model_units": 1.188,
+        "peak_upward_displacement_model_units": 9.141,
+        "maximum_distance_from_start_model_units": 9.168493401317361,
+        "first_shot_impulse_model_units": {
+          "x": 0,
+          "up": 0.477
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000002",
+      "name": "P90 Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 50,
+      "profile_id": "authoring:weapon:18020000002:adsRecoil",
+      "metrics": {
+        "duration_ms": 1269.1999999999996,
+        "climb_model_units_per_second": 6.826347305389223,
+        "signed_climb_model_units_per_second": 6.826347305389223,
+        "horizontal_drift_model_units_per_second": 0.5590135518436812,
+        "horizontal_span_model_units": 1.188,
+        "peak_upward_displacement_model_units": 9.141,
+        "maximum_distance_from_start_model_units": 9.168493401317361,
+        "first_shot_impulse_model_units": {
+          "x": 0,
+          "up": 0.477
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000002",
+      "name": "P90 Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 50,
+      "profile_id": "authoring:weapon:18020000002:adsRecoil",
+      "metrics": {
+        "duration_ms": 1269.1999999999996,
+        "climb_model_units_per_second": 6.826347305389223,
+        "signed_climb_model_units_per_second": 6.826347305389223,
+        "horizontal_drift_model_units_per_second": 0.5590135518436812,
+        "horizontal_span_model_units": 1.188,
+        "peak_upward_displacement_model_units": 9.141,
+        "maximum_distance_from_start_model_units": 9.168493401317361,
+        "first_shot_impulse_model_units": {
+          "x": 0,
+          "up": 0.477
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000003",
+      "name": "Vector Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 17,
+      "profile_id": "authoring:weapon:18020000003:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 17,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 879.9999999999999,
+          "climb_model_units_per_second": 8.734227272727274,
+          "signed_climb_model_units_per_second": 8.734227272727274,
+          "horizontal_drift_model_units_per_second": 0.6917613636363638,
+          "horizontal_span_model_units": 1.725,
+          "peak_upward_displacement_model_units": 8.47237,
+          "maximum_distance_from_start_model_units": 8.526303986306141,
+          "first_shot_impulse_model_units": {
+            "x": 0.34875,
+            "up": 0.78625
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000003",
+      "name": "Vector Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 17,
+      "profile_id": "authoring:weapon:18020000003:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 17,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 879.9999999999999,
+          "climb_model_units_per_second": 8.734227272727274,
+          "signed_climb_model_units_per_second": 8.734227272727274,
+          "horizontal_drift_model_units_per_second": 0.6917613636363638,
+          "horizontal_span_model_units": 1.725,
+          "peak_upward_displacement_model_units": 8.47237,
+          "maximum_distance_from_start_model_units": 8.526303986306141,
+          "first_shot_impulse_model_units": {
+            "x": 0.34875,
+            "up": 0.78625
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000003",
+      "name": "Vector Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 17,
+      "profile_id": "authoring:weapon:18020000003:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 17,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 879.9999999999999,
+          "climb_model_units_per_second": 8.734227272727274,
+          "signed_climb_model_units_per_second": 8.734227272727274,
+          "horizontal_drift_model_units_per_second": 0.6917613636363638,
+          "horizontal_span_model_units": 1.725,
+          "peak_upward_displacement_model_units": 8.47237,
+          "maximum_distance_from_start_model_units": 8.526303986306141,
+          "first_shot_impulse_model_units": {
+            "x": 0.34875,
+            "up": 0.78625
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000004",
+      "name": "UZI Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 25,
+      "profile_id": "authoring:weapon:18020000004:adsRecoil",
+      "metrics": {
+        "duration_ms": 1461.1000000000004,
+        "climb_model_units_per_second": 4.314557525152281,
+        "signed_climb_model_units_per_second": 4.314557525152281,
+        "horizontal_drift_model_units_per_second": -0.5338443638354663,
+        "horizontal_span_model_units": 0.9276,
+        "peak_upward_displacement_model_units": 6.76,
+        "maximum_distance_from_start_model_units": 6.789070758211318,
+        "first_shot_impulse_model_units": {
+          "x": 0.1524,
+          "up": 0.456
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000004",
+      "name": "UZI Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 25,
+      "profile_id": "authoring:weapon:18020000004:adsRecoil",
+      "metrics": {
+        "duration_ms": 1461.1000000000004,
+        "climb_model_units_per_second": 4.314557525152281,
+        "signed_climb_model_units_per_second": 4.314557525152281,
+        "horizontal_drift_model_units_per_second": -0.5338443638354663,
+        "horizontal_span_model_units": 0.9276,
+        "peak_upward_displacement_model_units": 6.76,
+        "maximum_distance_from_start_model_units": 6.789070758211318,
+        "first_shot_impulse_model_units": {
+          "x": 0.1524,
+          "up": 0.456
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000004",
+      "name": "UZI Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 25,
+      "profile_id": "authoring:weapon:18020000004:adsRecoil",
+      "metrics": {
+        "duration_ms": 1461.1000000000004,
+        "climb_model_units_per_second": 4.314557525152281,
+        "signed_climb_model_units_per_second": 4.314557525152281,
+        "horizontal_drift_model_units_per_second": -0.5338443638354663,
+        "horizontal_span_model_units": 0.9276,
+        "peak_upward_displacement_model_units": 6.76,
+        "maximum_distance_from_start_model_units": 6.789070758211318,
+        "first_shot_impulse_model_units": {
+          "x": 0.1524,
+          "up": 0.456
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000005",
+      "name": "Bizon Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 32,
+      "profile_id": "authoring:weapon:18020000005:adsRecoil",
+      "metrics": {
+        "duration_ms": 1729,
+        "climb_model_units_per_second": 6.182186234817814,
+        "signed_climb_model_units_per_second": 6.182186234817814,
+        "horizontal_drift_model_units_per_second": 0.452862926547137,
+        "horizontal_span_model_units": 1.299,
+        "peak_upward_displacement_model_units": 11.2935,
+        "maximum_distance_from_start_model_units": 11.327539384173424,
+        "first_shot_impulse_model_units": {
+          "x": 0.0945,
+          "up": 0.6045
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000005",
+      "name": "Bizon Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 32,
+      "profile_id": "authoring:weapon:18020000005:adsRecoil",
+      "metrics": {
+        "duration_ms": 1729,
+        "climb_model_units_per_second": 6.182186234817814,
+        "signed_climb_model_units_per_second": 6.182186234817814,
+        "horizontal_drift_model_units_per_second": 0.452862926547137,
+        "horizontal_span_model_units": 1.299,
+        "peak_upward_displacement_model_units": 11.2935,
+        "maximum_distance_from_start_model_units": 11.327539384173424,
+        "first_shot_impulse_model_units": {
+          "x": 0.0945,
+          "up": 0.6045
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000005",
+      "name": "Bizon Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 32,
+      "profile_id": "authoring:weapon:18020000005:adsRecoil",
+      "metrics": {
+        "duration_ms": 1729,
+        "climb_model_units_per_second": 6.182186234817814,
+        "signed_climb_model_units_per_second": 6.182186234817814,
+        "horizontal_drift_model_units_per_second": 0.452862926547137,
+        "horizontal_span_model_units": 1.299,
+        "peak_upward_displacement_model_units": 11.2935,
+        "maximum_distance_from_start_model_units": 11.327539384173424,
+        "first_shot_impulse_model_units": {
+          "x": 0.0945,
+          "up": 0.6045
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000006",
+      "name": "SMG-45 Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 25,
+      "profile_id": "authoring:weapon:18020000006:adsRecoil",
+      "metrics": {
+        "duration_ms": 1884.8000000000004,
+        "climb_model_units_per_second": 5.304562818336161,
+        "signed_climb_model_units_per_second": 5.304562818336161,
+        "horizontal_drift_model_units_per_second": 0.6239388794567062,
+        "horizontal_span_model_units": 1.5659999999999998,
+        "peak_upward_displacement_model_units": 10.54884,
+        "maximum_distance_from_start_model_units": 10.621143497081658,
+        "first_shot_impulse_model_units": {
+          "x": 0.0612,
+          "up": 0.5508
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000006",
+      "name": "SMG-45 Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 25,
+      "profile_id": "authoring:weapon:18020000006:adsRecoil",
+      "metrics": {
+        "duration_ms": 1884.8000000000004,
+        "climb_model_units_per_second": 5.304562818336161,
+        "signed_climb_model_units_per_second": 5.304562818336161,
+        "horizontal_drift_model_units_per_second": 0.6239388794567062,
+        "horizontal_span_model_units": 1.5659999999999998,
+        "peak_upward_displacement_model_units": 10.54884,
+        "maximum_distance_from_start_model_units": 10.621143497081658,
+        "first_shot_impulse_model_units": {
+          "x": 0.0612,
+          "up": 0.5508
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000006",
+      "name": "SMG-45 Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 25,
+      "profile_id": "authoring:weapon:18020000006:adsRecoil",
+      "metrics": {
+        "duration_ms": 1884.8000000000004,
+        "climb_model_units_per_second": 5.304562818336161,
+        "signed_climb_model_units_per_second": 5.304562818336161,
+        "horizontal_drift_model_units_per_second": 0.6239388794567062,
+        "horizontal_span_model_units": 1.5659999999999998,
+        "peak_upward_displacement_model_units": 10.54884,
+        "maximum_distance_from_start_model_units": 10.621143497081658,
+        "first_shot_impulse_model_units": {
+          "x": 0.0612,
+          "up": 0.5508
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000008",
+      "name": "SR-3M Compact Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 15,
+      "profile_id": "authoring:weapon:18020000008:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 15,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 1124.1999999999998,
+          "climb_model_units_per_second": 4.355096957836684,
+          "signed_climb_model_units_per_second": 4.355096957836684,
+          "horizontal_drift_model_units_per_second": -0.2569827432841132,
+          "horizontal_span_model_units": 1.2807,
+          "peak_upward_displacement_model_units": 5.4552,
+          "maximum_distance_from_start_model_units": 5.488722941632233,
+          "first_shot_impulse_model_units": {
+            "x": -0.3168,
+            "up": 0.5592
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000008",
+      "name": "SR-3M Compact Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 15,
+      "profile_id": "authoring:weapon:18020000008:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 15,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 1124.1999999999998,
+          "climb_model_units_per_second": 4.355096957836684,
+          "signed_climb_model_units_per_second": 4.355096957836684,
+          "horizontal_drift_model_units_per_second": -0.2569827432841132,
+          "horizontal_span_model_units": 1.2807,
+          "peak_upward_displacement_model_units": 5.4552,
+          "maximum_distance_from_start_model_units": 5.488722941632233,
+          "first_shot_impulse_model_units": {
+            "x": -0.3168,
+            "up": 0.5592
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000008",
+      "name": "SR-3M Compact Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 15,
+      "profile_id": "authoring:weapon:18020000008:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 15,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 1124.1999999999998,
+          "climb_model_units_per_second": 4.355096957836684,
+          "signed_climb_model_units_per_second": 4.355096957836684,
+          "horizontal_drift_model_units_per_second": -0.2569827432841132,
+          "horizontal_span_model_units": 1.2807,
+          "peak_upward_displacement_model_units": 5.4552,
+          "maximum_distance_from_start_model_units": 5.488722941632233,
+          "first_shot_impulse_model_units": {
+            "x": -0.3168,
+            "up": 0.5592
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000009",
+      "name": "Vityaz Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18020000009:adsRecoil",
+      "metrics": {
+        "duration_ms": 1628.3000000000004,
+        "climb_model_units_per_second": 7.669041331449977,
+        "signed_climb_model_units_per_second": 7.669041331449977,
+        "horizontal_drift_model_units_per_second": 0.32672112018669774,
+        "horizontal_span_model_units": 1.0703,
+        "peak_upward_displacement_model_units": 13.2105,
+        "maximum_distance_from_start_model_units": 13.22541374248836,
+        "first_shot_impulse_model_units": {
+          "x": 0.0959,
+          "up": 0.723
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000009",
+      "name": "Vityaz Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18020000009:adsRecoil",
+      "metrics": {
+        "duration_ms": 1628.3000000000004,
+        "climb_model_units_per_second": 7.669041331449977,
+        "signed_climb_model_units_per_second": 7.669041331449977,
+        "horizontal_drift_model_units_per_second": 0.32672112018669774,
+        "horizontal_span_model_units": 1.0703,
+        "peak_upward_displacement_model_units": 13.2105,
+        "maximum_distance_from_start_model_units": 13.22541374248836,
+        "first_shot_impulse_model_units": {
+          "x": 0.0959,
+          "up": 0.723
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000009",
+      "name": "Vityaz Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18020000009:adsRecoil",
+      "metrics": {
+        "duration_ms": 1628.3000000000004,
+        "climb_model_units_per_second": 7.669041331449977,
+        "signed_climb_model_units_per_second": 7.669041331449977,
+        "horizontal_drift_model_units_per_second": 0.32672112018669774,
+        "horizontal_span_model_units": 1.0703,
+        "peak_upward_displacement_model_units": 13.2105,
+        "maximum_distance_from_start_model_units": 13.22541374248836,
+        "first_shot_impulse_model_units": {
+          "x": 0.0959,
+          "up": 0.723
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000010",
+      "name": "MP7 Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18020000010:adsRecoil",
+      "metrics": {
+        "duration_ms": 1199.9830000000002,
+        "climb_model_units_per_second": 6.738762132463541,
+        "signed_climb_model_units_per_second": 6.738762132463541,
+        "horizontal_drift_model_units_per_second": 0.473006700928263,
+        "horizontal_span_model_units": 0.9503999999999999,
+        "peak_upward_displacement_model_units": 8.5316,
+        "maximum_distance_from_start_model_units": 8.55046012329161,
+        "first_shot_impulse_model_units": {
+          "x": 0,
+          "up": 0.4452
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000010",
+      "name": "MP7 Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18020000010:adsRecoil",
+      "metrics": {
+        "duration_ms": 1199.9830000000002,
+        "climb_model_units_per_second": 6.738762132463541,
+        "signed_climb_model_units_per_second": 6.738762132463541,
+        "horizontal_drift_model_units_per_second": 0.473006700928263,
+        "horizontal_span_model_units": 0.9503999999999999,
+        "peak_upward_displacement_model_units": 8.5316,
+        "maximum_distance_from_start_model_units": 8.55046012329161,
+        "first_shot_impulse_model_units": {
+          "x": 0,
+          "up": 0.4452
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000010",
+      "name": "MP7 Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18020000010:adsRecoil",
+      "metrics": {
+        "duration_ms": 1199.9830000000002,
+        "climb_model_units_per_second": 6.738762132463541,
+        "signed_climb_model_units_per_second": 6.738762132463541,
+        "horizontal_drift_model_units_per_second": 0.473006700928263,
+        "horizontal_span_model_units": 0.9503999999999999,
+        "peak_upward_displacement_model_units": 8.5316,
+        "maximum_distance_from_start_model_units": 8.55046012329161,
+        "first_shot_impulse_model_units": {
+          "x": 0,
+          "up": 0.4452
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000011",
+      "name": "QCQ171 Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18020000011:adsRecoil",
+      "metrics": {
+        "duration_ms": 1493.3999999999996,
+        "climb_model_units_per_second": 8.100575867148791,
+        "signed_climb_model_units_per_second": 8.100575867148791,
+        "horizontal_drift_model_units_per_second": 0.09401366010445965,
+        "horizontal_span_model_units": 1.9487999999999999,
+        "peak_upward_displacement_model_units": 12.7162,
+        "maximum_distance_from_start_model_units": 12.718096028887341,
+        "first_shot_impulse_model_units": {
+          "x": -0.36,
+          "up": 0.6188
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000011",
+      "name": "QCQ171 Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18020000011:adsRecoil",
+      "metrics": {
+        "duration_ms": 1493.3999999999996,
+        "climb_model_units_per_second": 8.100575867148791,
+        "signed_climb_model_units_per_second": 8.100575867148791,
+        "horizontal_drift_model_units_per_second": 0.09401366010445965,
+        "horizontal_span_model_units": 1.9487999999999999,
+        "peak_upward_displacement_model_units": 12.7162,
+        "maximum_distance_from_start_model_units": 12.718096028887341,
+        "first_shot_impulse_model_units": {
+          "x": -0.36,
+          "up": 0.6188
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000011",
+      "name": "QCQ171 Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 30,
+      "profile_id": "authoring:weapon:18020000011:adsRecoil",
+      "metrics": {
+        "duration_ms": 1493.3999999999996,
+        "climb_model_units_per_second": 8.100575867148791,
+        "signed_climb_model_units_per_second": 8.100575867148791,
+        "horizontal_drift_model_units_per_second": 0.09401366010445965,
+        "horizontal_span_model_units": 1.9487999999999999,
+        "peak_upward_displacement_model_units": 12.7162,
+        "maximum_distance_from_start_model_units": 12.718096028887341,
+        "first_shot_impulse_model_units": {
+          "x": -0.36,
+          "up": 0.6188
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000012",
+      "name": "MK4 Submachine Gun",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 24,
+      "profile_id": "authoring:weapon:18020000012:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000012",
+      "name": "MK4 Submachine Gun",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 24,
+      "profile_id": "authoring:weapon:18020000012:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000012",
+      "name": "MK4 Submachine Gun",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 24,
+      "profile_id": "authoring:weapon:18020000012:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000046",
+      "name": "Thompson Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18020000046:adsRecoil",
+      "metrics": {
+        "duration_ms": 1266.54,
+        "climb_model_units_per_second": 11.2527042177902,
+        "signed_climb_model_units_per_second": 11.2527042177902,
+        "horizontal_drift_model_units_per_second": 0.48983845752996347,
+        "horizontal_span_model_units": 1.2288,
+        "peak_upward_displacement_model_units": 15.058,
+        "maximum_distance_from_start_model_units": 15.070775035146664,
+        "first_shot_impulse_model_units": {
+          "x": 0,
+          "up": 0.806
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000046",
+      "name": "Thompson Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18020000046:adsRecoil",
+      "metrics": {
+        "duration_ms": 1266.54,
+        "climb_model_units_per_second": 11.2527042177902,
+        "signed_climb_model_units_per_second": 11.2527042177902,
+        "horizontal_drift_model_units_per_second": 0.48983845752996347,
+        "horizontal_span_model_units": 1.2288,
+        "peak_upward_displacement_model_units": 15.058,
+        "maximum_distance_from_start_model_units": 15.070775035146664,
+        "first_shot_impulse_model_units": {
+          "x": 0,
+          "up": 0.806
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18020000046",
+      "name": "Thompson Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 20,
+      "profile_id": "authoring:weapon:18020000046:adsRecoil",
+      "metrics": {
+        "duration_ms": 1266.54,
+        "climb_model_units_per_second": 11.2527042177902,
+        "signed_climb_model_units_per_second": 11.2527042177902,
+        "horizontal_drift_model_units_per_second": 0.48983845752996347,
+        "horizontal_span_model_units": 1.2288,
+        "peak_upward_displacement_model_units": 15.058,
+        "maximum_distance_from_start_model_units": 15.070775035146664,
+        "first_shot_impulse_model_units": {
+          "x": 0,
+          "up": 0.806
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18030000001",
+      "name": "M1014 Shotgun",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 7,
+      "profile_id": "authoring:weapon:18030000001:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18030000001",
+      "name": "M1014 Shotgun",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 7,
+      "profile_id": "authoring:weapon:18030000001:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18030000001",
+      "name": "M1014 Shotgun",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 7,
+      "profile_id": "authoring:weapon:18030000001:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18030000002",
+      "name": "S12K Shotgun",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 5,
+      "profile_id": "authoring:weapon:18030000002:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18030000002",
+      "name": "S12K Shotgun",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 5,
+      "profile_id": "authoring:weapon:18030000002:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18030000002",
+      "name": "S12K Shotgun",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 5,
+      "profile_id": "authoring:weapon:18030000002:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18030000004",
+      "name": "M870 Shotgun",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 6,
+      "profile_id": "authoring:weapon:18030000004:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18030000004",
+      "name": "M870 Shotgun",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 6,
+      "profile_id": "authoring:weapon:18030000004:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18030000004",
+      "name": "M870 Shotgun",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 6,
+      "profile_id": "authoring:weapon:18030000004:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18030000005",
+      "name": "725 Double Barrel Shotgun",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 2,
+      "profile_id": "authoring:weapon:18030000005:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18030000005",
+      "name": "725 Double Barrel Shotgun",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 2,
+      "profile_id": "authoring:weapon:18030000005:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18030000005",
+      "name": "725 Double Barrel Shotgun",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 2,
+      "profile_id": "authoring:weapon:18030000005:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18030000006",
+      "name": "FS-12 Shotgun",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Source firing schedule is not modeled",
+      "capacity": 6,
+      "profile_id": "authoring:weapon:18030000006:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18030000006",
+      "name": "FS-12 Shotgun",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Source firing schedule is not modeled",
+      "capacity": 6,
+      "profile_id": "authoring:weapon:18030000006:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18030000006",
+      "name": "FS-12 Shotgun",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Source firing schedule is not modeled",
+      "capacity": 6,
+      "profile_id": "authoring:weapon:18030000006:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18040000001",
+      "name": "PKM General Machine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 75,
+      "profile_id": "authoring:weapon:18040000001:adsRecoil",
+      "metrics": {
+        "duration_ms": 1704.3000000000006,
+        "climb_model_units_per_second": 7.109663791585986,
+        "signed_climb_model_units_per_second": 7.109663791585986,
+        "horizontal_drift_model_units_per_second": -1.5274306166754672,
+        "horizontal_span_model_units": 2.6031999999999997,
+        "peak_upward_displacement_model_units": 13.0815,
+        "maximum_distance_from_start_model_units": 13.279393745574383,
+        "first_shot_impulse_model_units": {
+          "x": 0.3192,
+          "up": 0.9645
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18040000001",
+      "name": "PKM General Machine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 75,
+      "profile_id": "authoring:weapon:18040000001:adsRecoil",
+      "metrics": {
+        "duration_ms": 1704.3000000000006,
+        "climb_model_units_per_second": 7.109663791585986,
+        "signed_climb_model_units_per_second": 7.109663791585986,
+        "horizontal_drift_model_units_per_second": -1.5274306166754672,
+        "horizontal_span_model_units": 2.6031999999999997,
+        "peak_upward_displacement_model_units": 13.0815,
+        "maximum_distance_from_start_model_units": 13.279393745574383,
+        "first_shot_impulse_model_units": {
+          "x": 0.3192,
+          "up": 0.9645
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18040000001",
+      "name": "PKM General Machine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 75,
+      "profile_id": "authoring:weapon:18040000001:adsRecoil",
+      "metrics": {
+        "duration_ms": 1704.3000000000006,
+        "climb_model_units_per_second": 7.109663791585986,
+        "signed_climb_model_units_per_second": 7.109663791585986,
+        "horizontal_drift_model_units_per_second": -1.5274306166754672,
+        "horizontal_span_model_units": 2.6031999999999997,
+        "peak_upward_displacement_model_units": 13.0815,
+        "maximum_distance_from_start_model_units": 13.279393745574383,
+        "first_shot_impulse_model_units": {
+          "x": 0.3192,
+          "up": 0.9645
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18040000002",
+      "name": "M249 Light Machine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 100,
+      "profile_id": "authoring:weapon:18040000002:adsRecoil",
+      "metrics": {
+        "duration_ms": 1328.1000000000001,
+        "climb_model_units_per_second": 7.423364204502672,
+        "signed_climb_model_units_per_second": 7.423364204502672,
+        "horizontal_drift_model_units_per_second": 2.625178826895565,
+        "horizontal_span_model_units": 3.8608000000000002,
+        "peak_upward_displacement_model_units": 10.60656,
+        "maximum_distance_from_start_model_units": 11.151322202931812,
+        "first_shot_impulse_model_units": {
+          "x": -0.0437,
+          "up": 0.74759
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18040000002",
+      "name": "M249 Light Machine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 100,
+      "profile_id": "authoring:weapon:18040000002:adsRecoil",
+      "metrics": {
+        "duration_ms": 1328.1000000000001,
+        "climb_model_units_per_second": 7.423364204502672,
+        "signed_climb_model_units_per_second": 7.423364204502672,
+        "horizontal_drift_model_units_per_second": 2.625178826895565,
+        "horizontal_span_model_units": 3.8608000000000002,
+        "peak_upward_displacement_model_units": 10.60656,
+        "maximum_distance_from_start_model_units": 11.151322202931812,
+        "first_shot_impulse_model_units": {
+          "x": -0.0437,
+          "up": 0.74759
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18040000002",
+      "name": "M249 Light Machine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 100,
+      "profile_id": "authoring:weapon:18040000002:adsRecoil",
+      "metrics": {
+        "duration_ms": 1328.1000000000001,
+        "climb_model_units_per_second": 7.423364204502672,
+        "signed_climb_model_units_per_second": 7.423364204502672,
+        "horizontal_drift_model_units_per_second": 2.625178826895565,
+        "horizontal_span_model_units": 3.8608000000000002,
+        "peak_upward_displacement_model_units": 10.60656,
+        "maximum_distance_from_start_model_units": 11.151322202931812,
+        "first_shot_impulse_model_units": {
+          "x": -0.0437,
+          "up": 0.74759
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18040000003",
+      "name": "M250 General Machine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 125,
+      "profile_id": "authoring:weapon:18040000003:adsRecoil",
+      "metrics": {
+        "duration_ms": 2071,
+        "climb_model_units_per_second": 7.85557701593433,
+        "signed_climb_model_units_per_second": 7.85557701593433,
+        "horizontal_drift_model_units_per_second": -2.0009657170449056,
+        "horizontal_span_model_units": 4.144,
+        "peak_upward_displacement_model_units": 17.45845,
+        "maximum_distance_from_start_model_units": 17.841772295724994,
+        "first_shot_impulse_model_units": {
+          "x": 0.4655,
+          "up": 1.18955
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18040000003",
+      "name": "M250 General Machine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 125,
+      "profile_id": "authoring:weapon:18040000003:adsRecoil",
+      "metrics": {
+        "duration_ms": 2071,
+        "climb_model_units_per_second": 7.85557701593433,
+        "signed_climb_model_units_per_second": 7.85557701593433,
+        "horizontal_drift_model_units_per_second": -2.0009657170449056,
+        "horizontal_span_model_units": 4.144,
+        "peak_upward_displacement_model_units": 17.45845,
+        "maximum_distance_from_start_model_units": 17.841772295724994,
+        "first_shot_impulse_model_units": {
+          "x": 0.4655,
+          "up": 1.18955
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18040000003",
+      "name": "M250 General Machine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 125,
+      "profile_id": "authoring:weapon:18040000003:adsRecoil",
+      "metrics": {
+        "duration_ms": 2071,
+        "climb_model_units_per_second": 7.85557701593433,
+        "signed_climb_model_units_per_second": 7.85557701593433,
+        "horizontal_drift_model_units_per_second": -2.0009657170449056,
+        "horizontal_span_model_units": 4.144,
+        "peak_upward_displacement_model_units": 17.45845,
+        "maximum_distance_from_start_model_units": 17.841772295724994,
+        "first_shot_impulse_model_units": {
+          "x": 0.4655,
+          "up": 1.18955
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18040000004",
+      "name": "QJB 201 Light Machine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 125,
+      "profile_id": "authoring:weapon:18040000004:adsRecoil",
+      "metrics": {
+        "duration_ms": 1451.6000000000004,
+        "climb_model_units_per_second": 8.351136676770457,
+        "signed_climb_model_units_per_second": 8.351136676770457,
+        "horizontal_drift_model_units_per_second": -3.4476439790575903,
+        "horizontal_span_model_units": 5.0046,
+        "peak_upward_displacement_model_units": 12.9276,
+        "maximum_distance_from_start_model_units": 13.966959259083561,
+        "first_shot_impulse_model_units": {
+          "x": -0.28247,
+          "up": 0.80509
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18040000004",
+      "name": "QJB 201 Light Machine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 125,
+      "profile_id": "authoring:weapon:18040000004:adsRecoil",
+      "metrics": {
+        "duration_ms": 1451.6000000000004,
+        "climb_model_units_per_second": 8.351136676770457,
+        "signed_climb_model_units_per_second": 8.351136676770457,
+        "horizontal_drift_model_units_per_second": -3.4476439790575903,
+        "horizontal_span_model_units": 5.0046,
+        "peak_upward_displacement_model_units": 12.9276,
+        "maximum_distance_from_start_model_units": 13.966959259083561,
+        "first_shot_impulse_model_units": {
+          "x": -0.28247,
+          "up": 0.80509
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18040000004",
+      "name": "QJB 201 Light Machine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "capacity": 125,
+      "profile_id": "authoring:weapon:18040000004:adsRecoil",
+      "metrics": {
+        "duration_ms": 1451.6000000000004,
+        "climb_model_units_per_second": 8.351136676770457,
+        "signed_climb_model_units_per_second": 8.351136676770457,
+        "horizontal_drift_model_units_per_second": -3.4476439790575903,
+        "horizontal_span_model_units": 5.0046,
+        "peak_upward_displacement_model_units": 12.9276,
+        "maximum_distance_from_start_model_units": 13.966959259083561,
+        "first_shot_impulse_model_units": {
+          "x": -0.28247,
+          "up": 0.80509
+        },
+        "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+      },
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000002",
+      "name": "Mini-14 Marksman Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000002:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000002",
+      "name": "Mini-14 Marksman Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000002:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000002",
+      "name": "Mini-14 Marksman Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000002:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000003",
+      "name": "VSS Marksman Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 15,
+      "profile_id": "authoring:weapon:18050000003:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 15,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 1750,
+          "climb_model_units_per_second": 6.734571428571429,
+          "signed_climb_model_units_per_second": 6.734571428571429,
+          "horizontal_drift_model_units_per_second": -0.2502857142857143,
+          "horizontal_span_model_units": 1.028,
+          "peak_upward_displacement_model_units": 12.7215,
+          "maximum_distance_from_start_model_units": 12.725036827058696,
+          "first_shot_impulse_model_units": {
+            "x": 0.138,
+            "up": 0.936
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18050000003",
+      "name": "VSS Marksman Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 15,
+      "profile_id": "authoring:weapon:18050000003:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 15,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 1750,
+          "climb_model_units_per_second": 6.734571428571429,
+          "signed_climb_model_units_per_second": 6.734571428571429,
+          "horizontal_drift_model_units_per_second": -0.2502857142857143,
+          "horizontal_span_model_units": 1.028,
+          "peak_upward_displacement_model_units": 12.7215,
+          "maximum_distance_from_start_model_units": 12.725036827058696,
+          "first_shot_impulse_model_units": {
+            "x": 0.138,
+            "up": 0.936
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18050000003",
+      "name": "VSS Marksman Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 15,
+      "profile_id": "authoring:weapon:18050000003:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 15,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 1750,
+          "climb_model_units_per_second": 6.734571428571429,
+          "signed_climb_model_units_per_second": 6.734571428571429,
+          "horizontal_drift_model_units_per_second": -0.2502857142857143,
+          "horizontal_span_model_units": 1.028,
+          "peak_upward_displacement_model_units": 12.7215,
+          "maximum_distance_from_start_model_units": 12.725036827058696,
+          "first_shot_impulse_model_units": {
+            "x": 0.138,
+            "up": 0.936
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18050000004",
+      "name": "SVD Sniper Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000004:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000004",
+      "name": "SVD Sniper Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000004:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000004",
+      "name": "SVD Sniper Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000004:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000005",
+      "name": "M14 Marksman Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000005:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 10,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 742.5,
+          "climb_model_units_per_second": 15.598787878787878,
+          "signed_climb_model_units_per_second": 15.598787878787878,
+          "horizontal_drift_model_units_per_second": -0.6933333333333334,
+          "horizontal_span_model_units": 1.1583,
+          "peak_upward_displacement_model_units": 13.2821,
+          "maximum_distance_from_start_model_units": 13.282234618090436,
+          "first_shot_impulse_model_units": {
+            "x": 0.455,
+            "up": 1.7
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18050000005",
+      "name": "M14 Marksman Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000005:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 10,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 742.5,
+          "climb_model_units_per_second": 15.598787878787878,
+          "signed_climb_model_units_per_second": 15.598787878787878,
+          "horizontal_drift_model_units_per_second": -0.6933333333333334,
+          "horizontal_span_model_units": 1.1583,
+          "peak_upward_displacement_model_units": 13.2821,
+          "maximum_distance_from_start_model_units": 13.282234618090436,
+          "first_shot_impulse_model_units": {
+            "x": 0.455,
+            "up": 1.7
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18050000005",
+      "name": "M14 Marksman Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000005:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 10,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 742.5,
+          "climb_model_units_per_second": 15.598787878787878,
+          "signed_climb_model_units_per_second": 15.598787878787878,
+          "horizontal_drift_model_units_per_second": -0.6933333333333334,
+          "horizontal_span_model_units": 1.1583,
+          "peak_upward_displacement_model_units": 13.2821,
+          "maximum_distance_from_start_model_units": 13.282234618090436,
+          "first_shot_impulse_model_units": {
+            "x": 0.455,
+            "up": 1.7
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18050000006",
+      "name": "SKS Marksman Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000006:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000006",
+      "name": "SKS Marksman Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000006:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000006",
+      "name": "SKS Marksman Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000006:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000007",
+      "name": "SR-25 Marksman Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000007:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000007",
+      "name": "SR-25 Marksman Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000007:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000007",
+      "name": "SR-25 Marksman Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000007:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000008",
+      "name": "SR9 Marksman Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000008:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000008",
+      "name": "SR9 Marksman Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000008:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000008",
+      "name": "SR9 Marksman Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000008:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000031",
+      "name": "PSG-1 Marksman Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000031:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000031",
+      "name": "PSG-1 Marksman Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000031:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000031",
+      "name": "PSG-1 Marksman Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000031:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000032",
+      "name": "Lever-Action Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000032:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000032",
+      "name": "Lever-Action Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000032:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000032",
+      "name": "Lever-Action Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000032:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000033",
+      "name": "SVCH Marksman Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000033:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000033",
+      "name": "SVCH Marksman Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000033:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18050000033",
+      "name": "SVCH Marksman Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18050000033:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18060000007",
+      "name": "SV-98 Sniper Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 7,
+      "profile_id": "authoring:weapon:18060000007:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18060000007",
+      "name": "SV-98 Sniper Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 7,
+      "profile_id": "authoring:weapon:18060000007:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18060000007",
+      "name": "SV-98 Sniper Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 7,
+      "profile_id": "authoring:weapon:18060000007:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18060000008",
+      "name": "R93 Sniper Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18060000008:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18060000008",
+      "name": "R93 Sniper Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18060000008:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18060000008",
+      "name": "R93 Sniper Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 10,
+      "profile_id": "authoring:weapon:18060000008:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18060000009",
+      "name": "M700 Sniper Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 5,
+      "profile_id": "authoring:weapon:18060000009:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18060000009",
+      "name": "M700 Sniper Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 5,
+      "profile_id": "authoring:weapon:18060000009:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18060000009",
+      "name": "M700 Sniper Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 5,
+      "profile_id": "authoring:weapon:18060000009:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18060000011",
+      "name": "AWM Sniper Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 5,
+      "profile_id": "authoring:weapon:18060000011:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18060000011",
+      "name": "AWM Sniper Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 5,
+      "profile_id": "authoring:weapon:18060000011:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18060000011",
+      "name": "AWM Sniper Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 5,
+      "profile_id": "authoring:weapon:18060000011:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18060000033",
+      "name": "Barrett M82 Sniper Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 5,
+      "profile_id": "authoring:weapon:18060000033:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18060000033",
+      "name": "Barrett M82 Sniper Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 5,
+      "profile_id": "authoring:weapon:18060000033:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18060000033",
+      "name": "Barrett M82 Sniper Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 5,
+      "profile_id": "authoring:weapon:18060000033:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000002",
+      "name": "QSZ-92G",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 15,
+      "profile_id": "authoring:weapon:18070000002:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000002",
+      "name": "QSZ-92G",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 15,
+      "profile_id": "authoring:weapon:18070000002:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000002",
+      "name": "QSZ-92G",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 15,
+      "profile_id": "authoring:weapon:18070000002:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000003",
+      "name": ".357 Revolver",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 6,
+      "profile_id": "authoring:weapon:18070000003:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000003",
+      "name": ".357 Revolver",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 6,
+      "profile_id": "authoring:weapon:18070000003:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000003",
+      "name": ".357 Revolver",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 6,
+      "profile_id": "authoring:weapon:18070000003:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000004",
+      "name": "Desert Eagle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 7,
+      "profile_id": "authoring:weapon:18070000004:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000004",
+      "name": "Desert Eagle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 7,
+      "profile_id": "authoring:weapon:18070000004:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000004",
+      "name": "Desert Eagle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 7,
+      "profile_id": "authoring:weapon:18070000004:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000005",
+      "name": "G18",
+      "mode": "bd",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 17,
+      "profile_id": "authoring:weapon:18070000005:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 17,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 819.2000000000002,
+          "climb_model_units_per_second": 10.019531249999998,
+          "signed_climb_model_units_per_second": 10.019531249999998,
+          "horizontal_drift_model_units_per_second": -0.22888183593749994,
+          "horizontal_span_model_units": 1.05,
+          "peak_upward_displacement_model_units": 8.658,
+          "maximum_distance_from_start_model_units": 8.658730868320138,
+          "first_shot_impulse_model_units": {
+            "x": 0.3,
+            "up": 0.45
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18070000005",
+      "name": "G18",
+      "mode": "sol",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 17,
+      "profile_id": "authoring:weapon:18070000005:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 17,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 819.2000000000002,
+          "climb_model_units_per_second": 10.019531249999998,
+          "signed_climb_model_units_per_second": 10.019531249999998,
+          "horizontal_drift_model_units_per_second": -0.22888183593749994,
+          "horizontal_span_model_units": 1.05,
+          "peak_upward_displacement_model_units": 8.658,
+          "maximum_distance_from_start_model_units": 8.658730868320138,
+          "first_shot_impulse_model_units": {
+            "x": 0.3,
+            "up": 0.45
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18070000005",
+      "name": "G18",
+      "mode": "mp",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "capacity": 17,
+      "profile_id": "authoring:weapon:18070000005:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": {
+        "shot_count": 17,
+        "status": "modeled",
+        "metrics": {
+          "duration_ms": 819.2000000000002,
+          "climb_model_units_per_second": 10.019531249999998,
+          "signed_climb_model_units_per_second": 10.019531249999998,
+          "horizontal_drift_model_units_per_second": -0.22888183593749994,
+          "horizontal_span_model_units": 1.05,
+          "peak_upward_displacement_model_units": 8.658,
+          "maximum_distance_from_start_model_units": 8.658730868320138,
+          "first_shot_impulse_model_units": {
+            "x": 0.3,
+            "up": 0.45
+          },
+          "window": "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+        }
+      }
+    },
+    {
+      "weapon_id": "18070000006",
+      "name": "93R",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 12,
+      "profile_id": "authoring:weapon:18070000006:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000006",
+      "name": "93R",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 12,
+      "profile_id": "authoring:weapon:18070000006:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000006",
+      "name": "93R",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 12,
+      "profile_id": "authoring:weapon:18070000006:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000010",
+      "name": "G17",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 17,
+      "profile_id": "authoring:weapon:18070000010:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000010",
+      "name": "G17",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 17,
+      "profile_id": "authoring:weapon:18070000010:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000010",
+      "name": "G17",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 17,
+      "profile_id": "authoring:weapon:18070000010:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000033",
+      "name": "M1911",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 7,
+      "profile_id": "authoring:weapon:18070000033:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000033",
+      "name": "M1911",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 7,
+      "profile_id": "authoring:weapon:18070000033:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18070000033",
+      "name": "M1911",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 7,
+      "profile_id": "authoring:weapon:18070000033:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18150000001",
+      "name": "Compound Bow",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 1,
+      "profile_id": "authoring:weapon:18150000001:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18150000001",
+      "name": "Compound Bow",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 1,
+      "profile_id": "authoring:weapon:18150000001:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    },
+    {
+      "weapon_id": "18150000001",
+      "name": "Compound Bow",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "capacity": 1,
+      "profile_id": "authoring:weapon:18150000001:adsRecoil",
+      "metrics": null,
+      "shorter_magazine": null
+    }
+  ]
+}

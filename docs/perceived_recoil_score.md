@@ -91,3 +91,7 @@ Source-model limitations are traced in [stat effects](dfttk_stat_effects_source.
 - Rank Global default weapon configurations under identical protocols, publishing components, scores, confidence and evidence IDs alongside each ranking.
 
 Definition drafting is progress. The combined TODO item remains open until validation and ranking requirements are met.
+
+## Experimental generator revision (2026-11-15)
+
+The Lowest Recoil proxy now replaces multiplier-norm pattern loss with `V + H + 1.5 * max(0, H - 1.5)` for supported automatic base protocols, using fixed 20-point ADS source-chart excursions. Pattern/camera/kick weights remain 30/40/30 and per-weapon default normalization remains. Unsupported base protocols retain explicitly labeled legacy scoring; Highest Agility keeps its previous recoil tie-breaker. This supersedes the legacy-only generator description above, not the proposed measured R/C/K definition. The new pattern is spatial excursion, not angular climb speed or a validated perceptual score. [Current implementation contract](horizontal_recoil_penalty.md), [trials](horizontal_optimizer_trial.md).

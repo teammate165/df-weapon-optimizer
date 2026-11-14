@@ -1,6 +1,12 @@
 import assert from 'node:assert/strict';
 import {comparator} from '../tools/optimizer_policy.mjs';
-import {presets} from '../tools/optimizer_presets.mjs';
+import {presets,horizontalPatternLoss} from '../tools/optimizer_presets.mjs';
+// Continuous hinge: ordinary horizontal slope 1, excess slope 2.5.
+assert.equal(horizontalPatternLoss(4,1),5);
+assert.equal(horizontalPatternLoss(4,1.5),5.5);
+assert.equal(horizontalPatternLoss(4,2.5),8);
+assert(Math.abs((horizontalPatternLoss(4,2.01)-horizontalPatternLoss(4,2))/0.01-2.5)<1e-10);
+assert.equal(horizontalPatternLoss(5,2)-horizontalPatternLoss(4,2),1);
 const better=comparator({});
 const candidate=(objectives,cost=0)=>({objectives,score:objectives[0],cost,stats:{}});
 assert(better(candidate([90,1000,1000],100),candidate([91,0,0])));

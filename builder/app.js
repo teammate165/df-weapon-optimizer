@@ -249,7 +249,7 @@ function updatePreset(){
  info.onmouseenter=explain;info.onmouseleave=hideAccuracyInfo;info.onfocus=explain;info.onblur=hideAccuracyInfo;info.onclick=explain;info.onkeydown=e=>{if(e.key==='Escape')hideAccuracyInfo();};
  box.querySelector('p').textContent=agility?'1. Hip-fire spread / 2. Handling / 3. ADS recoil':'1. ADS recoil: Pattern 30% / Camera 40% / Kick 30% / 2. Handling';
  $('category-info').textContent='Max / Balanced / Min. Cheaper choices retain at least 50% of best improvement. No duplicate builds.';
- document.querySelector('#optimizer-panel .model-note').textContent=agility?'Minimize hip-fire spread, then ADS/sprint-to-fire times, then ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Best found; experimental proxy.';
+ document.querySelector('#optimizer-panel .model-note').textContent=agility?'Minimize hip-fire spread, then ADS/sprint-to-fire times, then ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Automatic pattern penalizes horizontal span above 1.5 model units at 2.5x marginal weight. Unsupported firing protocols retain the multiplier proxy. Best found; experimental proxy.';
 }
 $('optimizer-preset').onchange=()=>{clearResults();updatePreset();renderStats();drawGraph();};
 $('generate').onclick=async()=>{
