@@ -26,12 +26,12 @@ Reported 2026-11-14 in the project conversation. Step means the gap between adja
 | Stock Pad Placement | 1 slot | -4 slot | +4 slot |
 | Cheek Pad Placement | 1 slot | -2 slot | +2 slot |
 | Zoom | 0.05 x | Not supplied | Not supplied |
-| Eye Relief (Distance) | 0.04 mm | Not supplied | Not supplied |
+| Eye Relief (Distance) | 0.4 mm | Not supplied | Not supplied |
 | Foregrip Position | 1 slot | -2 slot | +2 slot |
 | Thickness | 0.4 mm | Not supplied | Not supplied |
 | Collapsible Stock Placement | 1 slot | -3 slot | +3 slot |
 
-Eye Relief (Distance) is reported as **0.04 mm per stop**, compared with the original source expectation of 0.4 mm. Placement values are game slots, while the dfttk inventory includes source-coordinate units and host-dependent variants. Do not equate these coordinates without a per-control mapping. Trajectory offset remains unreported. Patch, mode, exact attachment/weapon/host context, and screenshots were not supplied; record them in the evidence table before treating these observations as fully reproduced validation.
+Eye Relief (Distance) is **0.4 mm per stop**, matching the source expectation. The user corrected the earlier 0.04 mm report as a typo on 2026-11-15. Placement values are game slots, while the dfttk inventory includes source-coordinate units and host-dependent variants. Do not equate these coordinates without a per-control mapping. Trajectory offset remains unreported. Patch, mode, exact attachment/weapon/host context, and screenshots were not supplied; record them in the evidence table before treating these observations as fully reproduced validation.
 
 These observations are retained separately from `data/calibration/controls.csv` and the calculation model; runtime mapping and verification remain follow-up work.
 
