@@ -18,7 +18,7 @@ export function createStatResponseView({load,getContext}){
   try{
    if(!cache.has(key)){cache.set(key,load(r).then(result=>result.response_curve).catch(error=>{cache.delete(key);throw error;}));if(cache.size>8)cache.delete(cache.keys().next().value);}
    const curve=await cache.get(key);if(ticket!==serial||!dialog.open)return;activeCurve=curve;
-   frame(context,attribute,`<div class="curve-controls"><label>Performance metric <select id="response-metric">${curve.series.map(s=>`<option value="${esc(s.key)}">${esc(s.label)} (${esc(s.unit)})</option>`).join('')}</select></label><span>Current effective: <strong>${fmt(curve.current_main)}</strong><br>Displayed: ${fmt(curve.displayed_current)}</span></div><svg class="response-chart" role="img" data-current-main="${curve.current_main}" aria-label="${titles[attribute]} response for ${esc(context.weapon_name)}"></svg><div class="curve-investment"></div><p class="curve-marginal"></p><label class="curve-inspection"><span>Inspect</span><input type="range" min="0" max="${curve.xs.length-1}" step="1" aria-label="Inspect effective stat points"><output></output></label><p class="curve-note">One effective stat varies; this build’s equipment, tuning and other main stats stay fixed. Exploratory range, not an attainable-build guarantee.</p>`);
+   frame(context,attribute,`<div class="curve-controls"><label>Performance metric <select id="response-metric">${curve.series.map(s=>`<option value="${esc(s.key)}">${esc(s.label)} (${esc(s.unit)})</option>`).join('')}</select></label><span>Current effective: <strong>${fmt(curve.current_main)}</strong><br>Displayed: ${fmt(curve.displayed_current)}</span></div><svg class="response-chart" role="img" data-current-main="${curve.current_main}" aria-label="${titles[attribute]} response for ${esc(context.weapon_name)}"></svg><div class="curve-investment"></div><p class="curve-marginal"></p><p class="curve-note">One effective stat varies; this build’s equipment, tuning and other main stats stay fixed. Exploratory range, not an attainable-build guarantee.</p>`);
    const select=dialog.querySelector('#response-metric');select.onchange=()=>draw(curve,select.value);draw(curve,curve.series[0].key);
   }catch(error){if(ticket===serial&&dialog.open)frame(context,attribute,`<p class="helper curve-loading" role="alert">${esc(error.message)}</p>`);}
  };
@@ -26,13 +26,17 @@ export function createStatResponseView({load,getContext}){
   const metric=curve.series.find(s=>s.key===key),xs=curve.xs,ys=metric.values;
   const indexAt=x=>xs.reduce((best,v,i)=>Math.abs(v-x)<Math.abs(xs[best]-x)?i:best,0);
   const currentIndex=indexAt(curve.current_main),current=ys[currentIndex],next5=ys[indexAt(curve.current_main+5)],next10=ys[indexAt(curve.current_main+10)],previous=ys[indexAt(curve.current_main-5)],direction=metric.better==='lower'?-1:1;
-  const chart=dialog.querySelector('.response-chart'),W=dialog.clientWidth<500?360:720,H=250,L=52,R=18,T=20,B=40;
-  const xmin=xs[0],xmax=xs.at(-1),low=Math.min(...ys),high=Math.max(...ys),pad=(high-low||Math.max(1,Math.abs(high)))*0.07,ymin=low-pad,ymax=high+pad;
+  const chart=dialog.querySelector('.response-chart'),W=dialog.clientWidth<500?360:720,H=290,L=68,R=35,T=28,B=55;
+  // Round outward to a uniform 1/2/5 interval, with no fractional tick drift.
+  const niceStep=span=>{const raw=(span||1)/5,power=10**Math.floor(Math.log10(raw)),unit=raw/power;return (unit<=1?1:unit<=2?2:unit<=5?5:10)*power;};
+  const xstep=niceStep(xs.at(-1)-xs[0]),xmin=Math.floor(xs[0]/xstep)*xstep,xmax=Math.ceil(xs.at(-1)/xstep)*xstep;
+  const low=Math.min(...ys),high=Math.max(...ys),ystep=niceStep(high-low||Math.max(1,Math.abs(high))*.2);
+  const ymin=Math.floor(low/ystep)*ystep,ymax=Math.max(ymin+ystep,Math.ceil(high/ystep)*ystep);
   const x=v=>L+(v-xmin)/(xmax-xmin)*(W-L-R),y=v=>T+(ymax-v)/(ymax-ymin)*(H-T-B);
   chart.setAttribute('viewBox',`0 0 ${W} ${H}`);chart.setAttribute('preserveAspectRatio','none');chart.replaceChildren();
   chart.append(svg('rect',{x:x(curve.current_main),y:T,width:Math.max(0,x(curve.current_main+5)-x(curve.current_main)),height:H-T-B,fill:'#b7ed7212'}));
-  for(let i=0;i<=4;i++){const value=ymin+(ymax-ymin)*i/4;chart.append(svg('line',{x1:L,x2:W-R,y1:y(value),y2:y(value),stroke:'#2a3840'}),svg('text',{x:L-7,y:y(value)+4,'text-anchor':'end',fill:'#91a0aa','font-size':10},fmt(value)));}
-  for(let i=0;i<=6;i++){const value=xmin+(xmax-xmin)*i/6;chart.append(svg('text',{x:x(value),y:H-B+17,'text-anchor':'middle',fill:'#91a0aa','font-size':10},fmt(value,0)));}
+  for(let value=ymin;value<=ymax+ystep/2;value+=ystep)chart.append(svg('line',{x1:L,x2:W-R,y1:y(value),y2:y(value),stroke:'#2a3840'}),svg('text',{x:L-7,y:y(value)+4,'text-anchor':'end',fill:'#91a0aa','font-size':12},fmt(value,4)));
+  for(let value=xmin;value<=xmax+xstep/2;value+=xstep)chart.append(svg('line',{x1:x(value),x2:x(value),y1:T,y2:H-B,stroke:'#2a3840'}),svg('text',{x:x(value),y:H-B+18,'text-anchor':'middle',fill:'#91a0aa','font-size':12},fmt(value,1)));
   chart.append(svg('text',{x:L,y:12,fill:'#aab7bd','font-size':10},metric.label+' ('+metric.unit+')'),svg('text',{x:W/2,y:H-3,'text-anchor':'middle',fill:'#91a0aa','font-size':11},'Effective '+titles[curve.attribute_id]+' points'));
   chart.append(svg('path',{d:ys.map((v,i)=>`${i?'L':'M'}${x(xs[i])},${y(v)}`).join(' '),fill:'none',stroke:'#b7ed72','stroke-width':2.2}));
   chart.append(svg('line',{x1:x(curve.current_main),x2:x(curve.current_main),y1:T,y2:H-B,stroke:'#b7ed72','stroke-dasharray':'4 4','data-marker':'current'}),svg('circle',{cx:x(curve.current_main),cy:y(current),r:4,fill:'#b7ed72'}),svg('text',{x:Math.max(L+5,Math.min(W-R-70,x(curve.current_main)+7)),y:T+11,fill:'#cce9b0','font-size':10},'Current '+fmt(curve.current_main)));
@@ -46,8 +50,9 @@ export function createStatResponseView({load,getContext}){
   else if(Math.abs(previousGain)<1e-9)marginal=`Previous +5 was flat; next +5 improves this metric by ${fmt(nextGain)} ${metric.unit}.`;
   else marginal=`Next +5 improves this metric by ${fmt(nextGain)} ${metric.unit}.`;
   dialog.querySelector('.curve-marginal').textContent=marginal;
-  const slider=dialog.querySelector('.curve-inspection input'),output=dialog.querySelector('.curve-inspection output');
-  function inspect(index){index=Math.max(0,Math.min(xs.length-1,index));slider.value=index;cursor.setAttribute('x1',x(xs[index]));cursor.setAttribute('x2',x(xs[index]));dot.setAttribute('cx',x(xs[index]));dot.setAttribute('cy',y(ys[index]));output.textContent=`${fmt(xs[index])} pts → ${fmt(ys[index])} ${metric.unit}`;}
-  slider.oninput=()=>inspect(Number(slider.value));chart.onpointermove=event=>{const rect=chart.getBoundingClientRect(),position=(event.clientX-rect.left)/rect.width*W;inspect(indexAt(xmin+(position-L)/(W-L-R)*(xmax-xmin)));};inspect(currentIndex);
+  const axisX=svg('text',{y:H-B+33,'text-anchor':'middle',fill:'#e7eff0','font-size':12}),axisY=svg('text',{x:L+5,fill:'#e7eff0','font-size':12});chart.append(axisX,axisY);
+  function inspect(index){index=Math.max(0,Math.min(xs.length-1,index));cursor.setAttribute('x1',x(xs[index]));cursor.setAttribute('x2',x(xs[index]));dot.setAttribute('cx',x(xs[index]));dot.setAttribute('cy',y(ys[index]));axisX.setAttribute('x',Math.max(L+30,Math.min(W-R-30,x(xs[index]))));axisX.textContent=fmt(xs[index])+' pts';axisY.setAttribute('y',Math.max(T+14,Math.min(H-B-7,y(ys[index])-8)));axisY.textContent=fmt(ys[index])+' '+metric.unit;chart.setAttribute('aria-label',axisX.textContent+', '+axisY.textContent);chart.dataset.inspectedIndex=index;}
+  chart.tabIndex=0;chart.onkeydown=event=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(event.key)){event.preventDefault();inspect(event.key==='Home'?0:event.key==='End'?xs.length-1:Number(chart.dataset.inspectedIndex)+(event.key==='ArrowRight'?1:-1));}};
+  chart.onpointermove=event=>{const rect=chart.getBoundingClientRect(),position=(event.clientX-rect.left)/rect.width*W;inspect(indexAt(xmin+(position-L)/(W-L-R)*(xmax-xmin)));};inspect(currentIndex);
  }
 }

@@ -24,9 +24,10 @@ def catalog():
     translations = json.loads((ROOT / 'translation/translations.json').read_text('utf-8'))
     with sqlite3.connect(f'{(ROOT / "delta_force_weapons.sqlite").as_uri()}?mode=ro', uri=True) as db:
         shop = json.loads(db.execute("SELECT record_json FROM dfttk_raw_files WHERE path='catalog/bd-shop.json' ORDER BY rowid DESC LIMIT 1").fetchone()[0])
+        weapon_prices = dict(db.execute("SELECT item_id,price_daily FROM prices WHERE item_type='weapon'"))
         prices = dict(db.execute("SELECT item_id,price_daily FROM prices WHERE item_type='part'"))
         sources = [dict(zip(('type', 'currency', 'updated_at', 'source'), r)) for r in db.execute('SELECT item_type,currency,updated_at,source FROM price_sources')]
-        weapons = [dict(id=i, name=translations.get('weapon:' + key, {}).get('english') or name, original=name, category=category, tier=shop['weapons'].get(i)) for key, i, name, category in db.execute('SELECT profile_key,weapon_id,name,category FROM weapons WHERE is_variant=0') if i in MANIFEST['weaponPacks']]
+        weapons = [dict(id=i, name=translations.get('weapon:' + key, {}).get('english') or name, original=name, category=category, price=weapon_prices.get(i), tier=shop['weapons'].get(i)) for key, i, name, category in db.execute('SELECT profile_key,weapon_id,name,category FROM weapons WHERE is_variant=0') if i in MANIFEST['weaponPacks']]
         names = {i: translations.get('part:' + i, {}).get('english') or name for i, name in db.execute('SELECT item_id,name FROM parts')}
         slots = dict(db.execute('SELECT item_id,slot FROM parts'))
     return dict(weapons=weapons, names=names, slots=slots, shop=shop, prices=prices, provenance=dict(data_version=MANIFEST['dataVersion'], runtime_version=MANIFEST['version'], price_sources=sources, global_verified=False))
