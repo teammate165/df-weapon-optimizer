@@ -142,3 +142,11 @@ interaction with live calculation, both presets/cache/layout regression, eight
 exact calculator comparisons including non-default tuning, Apply and saved-build
 reload. See `.scratch/browser-qa/calibration-display-report.json` and
 `.scratch/browser-qa/static-live-report.json`.
+
+## Horizontal recoil penalty release (2026-11-15)
+
+Source `22e06d0` deployed as generated `baef9df`, release token `00c8bd79fc0611e4`. [Successful deployment](https://github.com/teammate165/df-weapon-optimizer/actions/runs/43630286922).
+
+Lowest Recoil now scores supported automatic base protocols using `V + H + 1.5 * max(0, H - 1.5)` with a fixed 20-point source-chart window: candidate horizontal threshold 1.5, marginal horizontal weight 2.5x. Preserve 30/40/30 normalization and Handling tie-breaking; no implicit Handling floor. Unsupported base protocols retain explicit legacy fallback, and Highest Agility retains its previous recoil tie-breaker. See [definition](horizontal_recoil_penalty.md). Eight optimizer integration and four builder tests, all-207 default-score audit, boundary/category checks and both local browser suites pass. Live release token and served formula verified.
+
+Both public-site browser suites pass: both presets/cache handling, score tooltip/layout at desktop/mobile, eight exact calculator comparisons, worker optimization, Apply and saved-build reload, no page errors or backend requests. Initial full-regression page-readiness timeout did not recur on diagnostic reload/retry.
