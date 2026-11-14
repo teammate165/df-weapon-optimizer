@@ -182,7 +182,7 @@ function renderTuning(){
  for(const control of controls){if(!bySlot.has(control.slotPath))bySlot.set(control.slotPath,[]);bySlot.get(control.slotPath).push(control);}
  $('tune-part').textContent=`${controls.length} sliders / ${bySlot.size} attachments`;
  if(!controls.length){$('tuning').innerHTML='<p class="tune-note">Equip a tunable attachment to calibrate it.</p>';renderCalibrationSummary();return;}
- const tuningNames={'\u539a\u5ea6':'Thickness','\u957f\u5ea6':'Length','\u91cd\u91cf':'Weight','\u4f4d\u7f6e':'Position','\u91cd\u5fc3':'Balance','\u914d\u91cd':'Counterweight'};
+ const tuningNames={'\u539a\u5ea6':'Thickness','\u957f\u5ea6':'Length','\u91cd\u91cf':'Weight','\u4f4d\u7f6e':'Position','\u91cd\u5fc3':'Balance','\u914d\u91cd':'Weight','\u77b3\u8ddd':'Eye Relief','\u7f29\u653e\u500d\u7387':'Zoom','\u6258\u816e\u677f\u5b89\u88c5\u4f4d\u7f6e':'Cheek Pad Placement','\u5b89\u88c5\u4f4d\u7f6e':'Position'};
  $('tuning').innerHTML=[...bySlot].map(([path,list])=>`<section class="tune-group ${path===state.slot?'selected-tune-group':''}"><h3>${esc(name(list[0].itemId))}<small>Socket ${esc(path)}</small></h3>${[...list].reverse().map(t=>{
   const raw=t.control.labels.mainLocId.replace('authoring:',''),label=tuningNames[raw]??raw;
   const value=state.tunes[t.slotPath]?.[t.id]??t.value,index=t.values.findIndex(v=>Math.abs(v-value)<1e-6);
