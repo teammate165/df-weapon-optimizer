@@ -1,4 +1,4 @@
-import {timedRecoil} from './timed_recoil.mjs?v=c734d8eb6933df72';
+import {timedRecoil} from './timed_recoil.mjs?v=a7f7ff83ab7a3f8e';
 // Each preset supplies lower-is-better normalized loss plus diagnostic components.
 // The engine is independent of the particular game metrics being optimized.
 export const horizontalPatternLoss=(vertical,horizontal)=>vertical+horizontal+1.5*Math.max(0,horizontal-1.5);

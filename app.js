@@ -1,9 +1,9 @@
-import {createStaticClient} from './static-client.js?v=c734d8eb6933df72';
-import {createSavedBuildStore} from './saved-builds.js?v=c734d8eb6933df72';
-import {slotIcons} from './assets/slot-icons.js?v=c734d8eb6933df72';
-import {portraits} from './assets/portraits.js?v=c734d8eb6933df72';
-import {statChanges,groupStatChanges,majorStatGroups} from './part-comparisons.js?v=c734d8eb6933df72';
-import {createStatResponseView} from './stat-response-view.js?v=c734d8eb6933df72';
+import {createStaticClient} from './static-client.js?v=a7f7ff83ab7a3f8e';
+import {createSavedBuildStore} from './saved-builds.js?v=a7f7ff83ab7a3f8e';
+import {slotIcons} from './assets/slot-icons.js?v=a7f7ff83ab7a3f8e';
+import {portraits} from './assets/portraits.js?v=a7f7ff83ab7a3f8e';
+import {statChanges,groupStatChanges,majorStatGroups} from './part-comparisons.js?v=a7f7ff83ab7a3f8e';
+import {createStatResponseView} from './stat-response-view.js?v=a7f7ff83ab7a3f8e';
 const $=id=>document.getElementById(id);
 const state={catalog:null,model:null,config:[],tunes:{},locks:new Set(),slot:null,preview:null,previewSerial:0,previewLoading:false,busy:false,tab:'builder',results:null,resultIndex:0,solutionPreview:null,solutionPreviewLoading:false};
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -313,7 +313,7 @@ function renderResults(){
  const picker=rows.length>1?`<div class="result-picker">${ordered.map(({r,i})=>`<button data-result="${i}" title="${esc(r.category_note??solutionName(r))}" aria-pressed="${state.resultIndex===i}">${esc(solutionName(r))}</button>`).join('')}</div>`:'';
  const stat=(key,label)=>`<section class="solution-panel solution-preview-stat" data-stat="${key}" aria-label="${label}"><div class="solution-cell-title"><span>${label}</span></div><strong>${fmt(row.stats[key])}</strong></section>`;
  const context=`<p class="solution-context">${esc(name(run.weapon_id))} &middot; ${esc(run.mode.toUpperCase())} &middot; ${esc(solutionName(row))}</p>`;
- $('results').innerHTML=context+picker+(row.status!=='best_found'?`<article class="result"><h3>${row.status==='unavailable'?'No distinct alternative':'No feasible build'}</h3><p class="helper">${esc(row.reason)}</p></article>`:`<article class="result compact-solution"><div class="solution-grid solution-preview"><section class="solution-panel solution-preview-top" aria-label="Relative score"><span>Relative score</span><strong title="Improvement over default; default 0; higher is better">${fmt(solutionScore(run,row))}</strong></section><section class="solution-panel solution-preview-top" aria-label="Build cost"><span>Cost</span><strong>${row.cost===null?'Unpriced':fmt(row.cost,0)}</strong></section><div class="solution-stat-row">${stat('control','Control')}${stat('handling','Handling')}${stat('stability','Stability')}${stat('accuracy','Accuracy')}</div></div><div class="solution-actions"><button class="primary" data-apply="${state.resultIndex}">Apply build</button></div><button class="solution-save" id="save-result-build">Save this build</button></article>`);
+ $('results').innerHTML=context+picker+(row.status!=='best_found'?`<article class="result"><h3>${row.status==='unavailable'?'No distinct alternative':'No feasible build'}</h3><p class="helper">${esc(row.reason)}</p></article>`:`<article class="result compact-solution"><div class="solution-grid solution-preview"><section class="solution-panel solution-preview-top" aria-label="Relative score"><span>Relative score</span><strong title="Improvement over default; default 0; higher is better">${fmt(solutionScore(run,row))}</strong></section><section class="solution-panel solution-preview-top" aria-label="Build cost"><span>Cost</span><strong>${row.cost===null?'Unpriced':fmt(row.cost,0)}</strong></section><div class="solution-stat-row">${stat('control','Control')}${stat('handling','Handling')}${stat('stability','Stability')}${stat('accuracy','Accuracy')}</div></div><div class="solution-actions"><button class="primary" data-apply="${state.resultIndex}">Apply build</button><button class="solution-save" id="save-result-build">Save build</button></div></article>`);
  document.querySelectorAll('[data-result]').forEach(button=>button.onclick=()=>{state.resultIndex=Number(button.dataset.result);renderResults();});
  const apply=$('results').querySelector('[data-apply]');
  if(apply)apply.onclick=()=>{
@@ -388,5 +388,3 @@ try{setBusy(true);state.catalog=await api('catalog');state.catalog.weapons.sort(
 
 $('open-source-notes').onclick=()=>$('source-notes-dialog').showModal();
 $('close-source-notes').onclick=()=>$('source-notes-dialog').close();
-function summarizeConstraints(){const fields=['control','handling','stability','accuracy'].filter(k=>$(`minimum-${k}`).value!=='');$('constraint-summary').textContent=fields.length?`(${fields.length} minimum${fields.length===1?'':'s'})`:'';}
-for(const key of ['control','handling','stability','accuracy'])$(`minimum-${key}`).addEventListener('input',summarizeConstraints);
