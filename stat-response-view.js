@@ -1,4 +1,4 @@
-import {majorStatGroups} from './part-comparisons.js?v=9f0f704c6527c845';
+import {majorStatGroups} from './part-comparisons.js?v=c734d8eb6933df72';
 const titles=Object.fromEntries(majorStatGroups.map(g=>[g.attribute,g.title]));
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(v,d=3)=>Number.isFinite(v)?(Math.abs(v)<1e-12?0:v).toLocaleString(undefined,{maximumFractionDigits:d}):'—';
@@ -18,7 +18,7 @@ export function createStatResponseView({load,getContext}){
   try{
    if(!cache.has(key)){cache.set(key,load(r).then(result=>result.response_curve).catch(error=>{cache.delete(key);throw error;}));if(cache.size>8)cache.delete(cache.keys().next().value);}
    const curve=await cache.get(key);if(ticket!==serial||!dialog.open)return;activeCurve=curve;
-   frame(context,attribute,`<div class="curve-controls"><label>Performance metric <select id="response-metric">${curve.series.map(s=>`<option value="${esc(s.key)}">${esc(s.label)} (${esc(s.unit)})</option>`).join('')}</select></label><span>Current effective: <strong>${fmt(curve.current_main)}</strong><br>Displayed: ${fmt(curve.displayed_current)}</span></div><svg class="response-chart" role="img" data-current-main="${curve.current_main}" aria-label="${titles[attribute]} response for ${esc(context.weapon_name)}"></svg><div class="curve-investment"></div><p class="curve-marginal"></p><p class="curve-note">One effective stat varies; this build’s equipment, tuning and other main stats stay fixed. Exploratory range, not an attainable-build guarantee.</p>`);
+   frame(context,attribute,`<p class="curve-note curve-note-top">Attachments and calibration stay fixed along this curve; only the selected stat varies.</p><div class="curve-controls"><label>Performance metric <select id="response-metric">${curve.series.map(s=>`<option value="${esc(s.key)}">${esc(s.label)} (${esc(s.unit)})</option>`).join('')}</select></label><span>Current effective: <strong>${fmt(curve.current_main)}</strong><br>Displayed: ${fmt(curve.displayed_current)}</span></div><svg class="response-chart" role="img" data-current-main="${curve.current_main}" aria-label="${titles[attribute]} response for ${esc(context.weapon_name)}"></svg><div class="curve-investment"></div><p class="curve-marginal"></p>`);
    const select=dialog.querySelector('#response-metric');select.onchange=()=>draw(curve,select.value);draw(curve,curve.series[0].key);
   }catch(error){if(ticket===serial&&dialog.open)frame(context,attribute,`<p class="helper curve-loading" role="alert">${esc(error.message)}</p>`);}
  };
