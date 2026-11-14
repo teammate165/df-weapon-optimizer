@@ -1,16 +1,16 @@
-import {createStaticClient} from './static-client.js?v=00c8bd79fc0611e4';
-import {createSavedBuildStore} from './saved-builds.js?v=00c8bd79fc0611e4';
-import {slotIcons} from './assets/slot-icons.js?v=00c8bd79fc0611e4';
-import {portraits} from './assets/portraits.js?v=00c8bd79fc0611e4';
-import {statChanges,groupStatChanges,majorStatGroups} from './part-comparisons.js?v=00c8bd79fc0611e4';
-import {createStatResponseView} from './stat-response-view.js?v=00c8bd79fc0611e4';
+import {createStaticClient} from './static-client.js?v=9f0f704c6527c845';
+import {createSavedBuildStore} from './saved-builds.js?v=9f0f704c6527c845';
+import {slotIcons} from './assets/slot-icons.js?v=9f0f704c6527c845';
+import {portraits} from './assets/portraits.js?v=9f0f704c6527c845';
+import {statChanges,groupStatChanges,majorStatGroups} from './part-comparisons.js?v=9f0f704c6527c845';
+import {createStatResponseView} from './stat-response-view.js?v=9f0f704c6527c845';
 const $=id=>document.getElementById(id);
 const state={catalog:null,model:null,config:[],tunes:{},locks:new Set(),slot:null,preview:null,previewSerial:0,previewLoading:false,busy:false,tab:'builder',results:null,resultIndex:0,solutionPreview:null,solutionPreviewLoading:false};
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(v,d=1)=>Number.isFinite(v)?v.toLocaleString(undefined,{maximumFractionDigits:d}):'—';
 const labels={rearGrip:'Pistol grip',barrel:'Barrel',stock:'Stock',magazine:'Magazine',scope:'Optic',muzzle:'Muzzle',foregrip:'Foregrip',functional:'Rail accessory',unique:'Component'};
 const sockets={1:'Pistol grip',2:'Barrel',3:'Stock',4:'Handguard',5:'Magazine',6:'Muzzle',7:'Front sight',8:'Foregrip',9:'Rear sight',10:'Rail bipod',11:'Optic',12:'Magazine',13:'Rear optic',14:'Tactical',15:'Front rail',16:'Rear rail',17:'Top rail',18:'Bottom rail',19:'Left rail',20:'Right rail',21:'Optic mount',22:'Unique',23:'Upgrade kit',24:'Aux optic',25:'Aux optic',26:'Aux optic',27:'Handguard',28:'Stock pad',29:'Cheek rest',30:'Grip patch',31:'Side sight',32:'Top patch',33:'Bottom patch',34:'Left patch',35:'Right patch',36:'Barrel bipod',37:'Handguard kit',38:'Stock kit',39:'Barrel kit',40:'Top sight',41:'Raised sight',43:'Grip mount',44:'Magwell',45:'Lens hood',46:'Upper guard',47:'Gas system',48:'Hammer',49:'Trigger',50:'Raised sight',51:'Heat shield',52:'Bolt',53:'Pistol grip',54:'Charging handle',55:'Bowstring',56:'Grip panel',57:'Bow limbs',58:'Bow sight',59:'Arrow rest',60:'Stabilizer',61:'Release',62:'Lever',63:'Guard sight',64:'Guard sight',65:'Handguard',66:'Magazine',67:'Stock',68:'Pistol grip',69:'Raised sight',70:'Left rail',71:'Right rail',72:'Barrel',73:'Ammo',74:'Bowstring',75:'Stock',76:'Bolt kit',77:'Muzzle',78:'Line',79:'Reel',100:'Conflict',150:'Charm'};
-const name=id=>state.catalog?.names[id]??state.catalog?.weapons.find(w=>w.id===id)?.name??id;
+const name=id=>state.catalog?.weapons.find(w=>w.id===id)?.name??state.catalog?.names[id]??id;
 const category=slot=>state.catalog.slots[slot.options[0]??slot.defaultItemId]??'unique';
 const slotName=slot=>sockets[slot.socketId]??labels[category(slot)]??category(slot);
 const selectedSlot=()=>state.model?.build.slots.find(s=>s.slotPath===state.slot);
@@ -53,7 +53,7 @@ function adopt(model){
 function render(){
  const mode=$('mode').value,w=state.catalog.weapons.find(w=>w.id===$('weapon').value),m=state.model;
  $('weapon-name').textContent=w.name;$('stage-title').textContent=w.name;
- $('cap').innerHTML=mode==='bd'?`TIER ${esc(w.tier?.tier)} · MODS <strong class="${m.cost>w.tier?.gunsmithLimit?'negative':''}">${fmt(m.cost,0)} / ${fmt(w.tier?.gunsmithLimit,0)}</strong>`:mode==='mp'?'WARFARE <strong>No budget</strong>':`MOD COST <strong>${fmt(m.cost,0)}</strong>`;
+ $('cap').innerHTML=mode==='bd'?`TIER ${esc(w.tier?.tier)} · MODS <strong class="${m.cost>w.tier?.gunsmithLimit?'negative':''}">${fmt(m.cost,0)} / ${fmt(w.tier?.gunsmithLimit,0)}</strong> · TOTAL <strong>${fmt(m.cost+w.tier.price,0)}</strong>`:mode==='mp'?'WARFARE <strong>No budget</strong>':`MOD COST <strong>${fmt(m.cost,0)}</strong> · TOTAL <strong>${Number.isFinite(w.price)?fmt(m.cost+w.price,0):'Unavailable'}</strong>`;
  $('gun-image').classList.remove('failed');$('gun-image').src=asset(w.id);$('gun-image').alt=w.name+' base weapon reference';
  $('operations-budgets').hidden=mode!=='sol';
  $('category-info').hidden=false;
@@ -94,7 +94,10 @@ function renderParts(){
  const slot=selectedSlot();if(!slot){$('parts-list').innerHTML='<p class="helper">No configurable sockets for this weapon.</p>';return;}
  $('slot-title').textContent=slotName(slot);const hidden=$('mode').value==='bd'?state.catalog.shop.hiddenItemIds:[];
  const ids=['',...new Set(slot.options.filter(id=>!hidden.includes(id)))],query=$('part-search').value.trim().toLowerCase();
- const filtered=ids.filter(id=>!query||(id?name(id)+' '+id:'default none').toLowerCase().includes(query));
+ const costs=$('mode').value==='bd'?state.catalog.shop.partCosts:state.catalog.prices;
+ const tiers={'绿':2,'蓝':3,'紫':4,'金':5,'橙':6};
+ const tier=id=>tiers[state.model.display?.[id]?.rarityId]??0;
+ const filtered=ids.filter(id=>!query||(id?name(id)+' '+id:'default none').toLowerCase().includes(query)).sort((a,b)=>Number(b===equippedId())-Number(a===equippedId())||tier(a)-tier(b)||(costs[a]??Infinity)-(costs[b]??Infinity)||name(a).localeCompare(name(b)));
  $('part-count').textContent=`${filtered.length} / ${ids.length}`;
  const previousScroll=$('parts-list').scrollTop;
  $('parts-list').innerHTML=filtered.map(id=>`<button class="part-card ${id===equippedId()?'equipped':''} ${id===(state.preview?.id??equippedId())?'selected':''}" data-part="${esc(id)}" aria-pressed="${id===(state.preview?.id??equippedId())}" title="${esc(id?name(id)+' · '+id:'Restore default / remove selection')}">${portrait(id,slotName(slot),slot.socketId)}<span class="part-copy"><span class="part-name">${id?esc(name(id)):slot.defaultItemId?'Default (bundled)':'No attachment'}</span><span class="part-changes" data-part-changes="${esc(id)}">Comparing stats...</span><small><span>${esc(costText(id))}</span>${id===equippedId()?'<b>EQUIPPED</b>':''}</small></span></button>`).join('')||'<p class="helper">No matching attachments.</p>';
@@ -157,15 +160,15 @@ async function previewPart(id,equipAfter=false){
  }catch(error){if(serial!==state.previewSerial)return;state.previewLoading=false;updateActions();status(error.message,true);}
 }
 function cancelPreview(){clearPreview();renderParts();renderStats();drawGraph();updateActions();status('Equipped build restored.');}
-function equipPreview(){cancelLiveCalibration();if(!state.preview||state.previewLoading)return;const model=state.preview.model;clearPreview();adopt(model);status('Attachment equipped · Stats and calibration updated.');}
+function equipPreview(){cancelLiveCalibration();if(!state.preview||state.previewLoading)return;const model=state.preview.model;clearPreview();adopt(model);$('parts-list').scrollTop=0;status('Attachment equipped · Stats and calibration updated.');}
 function updateActions(){
- const part=mounted(state.slot),canLock=part?.source==='equipped';$('lock').disabled=state.busy||!canLock;$('lock').setAttribute('aria-pressed',String(state.locks.has(state.slot)));$('lock').textContent=state.locks.has(state.slot)?'Locked':'Lock';
+ const part=mounted(state.slot),allLocked=state.config.length>0&&state.config.every(x=>state.locks.has(x.slotPath));$('lock').disabled=state.busy||!state.config.length;$('lock').setAttribute('aria-pressed',String(allLocked));$('lock').textContent=allLocked?'Unlock selected attachments':'Lock selected attachments';
  $('equip').disabled=state.busy||state.previewLoading||!state.preview;$('equip').textContent=state.previewLoading?'Comparing…':state.preview?'Equip attachment':'Equipped';$('cancel-preview').hidden=!state.preview&&!state.previewLoading;
  $('selection-info').textContent=state.preview?(state.preview.id?name(state.preview.id):'Restore default')+' · '+costText(state.preview.id):part?.source==='equipped'?name(part.itemId):'Default / empty slot. Select a part to compare.';
  $('locks').textContent=state.locks.size?`${state.locks.size} part(s) locked + required parents. Tuning remains adjustable.`:'No parts locked. Attachments and calibration may change.';
 
 }
-$('lock').onclick=()=>{state.locks.has(state.slot)?state.locks.delete(state.slot):state.locks.add(state.slot);renderSlots();updateActions();};
+$('lock').onclick=()=>{const allLocked=state.config.every(x=>state.locks.has(x.slotPath));state.locks=new Set(allLocked?[]:state.config.map(x=>x.slotPath));renderSlots();updateActions();};
 $('equip').onclick=equipPreview;$('cancel-preview').onclick=cancelPreview;
 $('part-search').oninput=()=>{$('parts-list').scrollTop=0;renderParts();};
 let calibrationRevision=0,calibrationPending=null,calibrationRunning=false;
@@ -241,16 +244,21 @@ function drawGraph(){if(!state.model)return;const key=$('view').value,{base,curr
  const line=(points,color,dash='')=>`<polyline points="${[{x:0,y:0},...points].map(p=>`${x(p.x)},${y(p.y)}`).join(' ')}" fill="none" stroke="${color}" stroke-width="2" ${dash?'stroke-dasharray="5 4"':''}/>`;
  $('graph').innerHTML=Array.from({length:9},(_,i)=>`<line x1="${i*55}" y1="0" x2="${i*55}" y2="270" stroke="#202a32"/>`).join('')+Array.from({length:6},(_,i)=>`<line x1="0" y1="${i*54}" x2="440" y2="${i*54}" stroke="#202a32"/>`).join('')+line(a,'#71818c','dash')+line(b,'#b7ed72')+b.map(p=>`<circle cx="${x(p.x)}" cy="${y(p.y)}" r="2.3" fill="#b7ed72"/>`).join('')+`<text x="12" y="254" fill="#8a9aa6" font-size="10">${esc(fmt(100/scale,2))} model units / 100 px · ${b.length} shots</text>`;
 }
+// Presets share controls, constraints and solution rendering; add display metadata here.
+const presetTemplates={
+ recoil:{title:'Lowest Recoil',priorities:'1. ADS recoil / 2. Handling'},
+ agility:{title:'Highest Agility',priorities:'1. Hip-fire spread / 2. Handling / 3. ADS recoil'}
+};
 function updatePreset(){
- const agility=$('optimizer-preset').value==='agility',box=document.querySelector('.objective');
+ const preset=presetTemplates[$('optimizer-preset').value],agility=$('optimizer-preset').value==='agility',box=document.querySelector('.objective');
  $('optimizer-panel').dataset.preset=$('optimizer-preset').value;
- box.querySelector('strong').textContent=agility?'Highest Agility':'Lowest Recoil';
- box.querySelector('.weight-bar').hidden=agility;
+ box.querySelector('strong').textContent=preset.title;
+
  const info=$('optimizer-score-info'),explain=()=>showAccuracyInfo(info,{preset:$('optimizer-preset').value});
  info.onmouseenter=explain;info.onmouseleave=hideAccuracyInfo;info.onfocus=explain;info.onblur=hideAccuracyInfo;info.onclick=explain;info.onkeydown=e=>{if(e.key==='Escape')hideAccuracyInfo();};
- box.querySelector('p').textContent=agility?'1. Hip-fire spread / 2. Handling / 3. ADS recoil':'1. ADS recoil: Pattern 30% / Camera 40% / Kick 30% / 2. Handling';
+ box.querySelector('p').textContent=preset.priorities;
  $('category-info').textContent='Max / Balanced / Min. Cheaper choices retain at least 50% of best improvement. No duplicate builds.';
- document.querySelector('#optimizer-panel .model-note').textContent=agility?'Minimize hip-fire spread, then ADS/sprint-to-fire times, then ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Automatic pattern penalizes horizontal span above 1.5 model units at 2.5x marginal weight. Unsupported firing protocols retain the multiplier proxy. Best found; experimental proxy.';
+ $('optimizer-model-note').textContent=agility?'Minimize hip-fire spread, then ADS/sprint-to-fire times, then ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Automatic pattern penalizes horizontal span above 1.5 model units at 2.5x marginal weight. Unsupported firing protocols retain the multiplier proxy. Best found; experimental proxy.';
 }
 $('optimizer-preset').onchange=()=>{clearResults();updatePreset();renderStats();drawGraph();};
 $('generate').onclick=async()=>{
