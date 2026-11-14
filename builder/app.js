@@ -164,7 +164,7 @@ function updateActions(){
  const part=mounted(state.slot),allLocked=state.config.length>0&&state.config.every(x=>state.locks.has(x.slotPath));$('lock').disabled=state.busy||!state.config.length;$('lock').setAttribute('aria-pressed',String(allLocked));$('lock').textContent=allLocked?'Unlock selected attachments':'Lock selected attachments';
  $('equip').disabled=state.busy||state.previewLoading||!state.preview;$('equip').textContent=state.previewLoading?'Comparing…':state.preview?'Equip attachment':'Equipped';$('cancel-preview').hidden=!state.preview&&!state.previewLoading;
  $('selection-info').textContent=state.preview?(state.preview.id?name(state.preview.id):'Restore default')+' · '+costText(state.preview.id):part?.source==='equipped'?name(part.itemId):'Default / empty slot. Select a part to compare.';
- $('locks').textContent=state.locks.size?`${state.locks.size} part(s) locked + required parents. Tuning remains adjustable.`:'No parts locked. Attachments and calibration may change.';
+ $('locks').textContent=state.locks.size?`${state.locks.size} attachments locked. Tuning adjustable.`:'No attachments locked.';
 
 }
 $('lock').onclick=()=>{const allLocked=state.config.every(x=>state.locks.has(x.slotPath));state.locks=new Set(allLocked?[]:state.config.map(x=>x.slotPath));renderSlots();updateActions();};
@@ -384,3 +384,8 @@ $('save-build-form').onsubmit=event=>{
 };
 $('export').onclick=()=>{const blob=new Blob([JSON.stringify({request:request(),locked_slots:[...state.locks],model:state.model,optimization:state.results},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`delta-${$('weapon').value}-${$('mode').value}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
 try{setBusy(true);const response=await fetch('/api/catalog');if(!response.ok)throw Error('Catalog unavailable');state.catalog=await response.json();state.catalog.weapons.sort((a,b)=>a.name.localeCompare(b.name));$('weapon').value='18010000001';await evaluate();}catch(error){status(error.message,true);}
+
+$('open-source-notes').onclick=()=>$('source-notes-dialog').showModal();
+$('close-source-notes').onclick=()=>$('source-notes-dialog').close();
+function summarizeConstraints(){const fields=['control','handling','stability','accuracy'].filter(k=>$(`minimum-${k}`).value!=='');$('constraint-summary').textContent=fields.length?`(${fields.length} minimum${fields.length===1?'':'s'})`:'';}
+for(const key of ['control','handling','stability','accuracy'])$(`minimum-${key}`).addEventListener('input',summarizeConstraints);
