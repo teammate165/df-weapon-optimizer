@@ -1,9 +1,9 @@
-import {createStaticClient} from './static-client.js?v=10c9ce9a446a12bb';
-import {createSavedBuildStore} from './saved-builds.js?v=10c9ce9a446a12bb';
-import {slotIcons} from './assets/slot-icons.js?v=10c9ce9a446a12bb';
-import {portraits} from './assets/portraits.js?v=10c9ce9a446a12bb';
-import {statChanges,groupStatChanges,majorStatGroups} from './part-comparisons.js?v=10c9ce9a446a12bb';
-import {createStatResponseView} from './stat-response-view.js?v=10c9ce9a446a12bb';
+import {createStaticClient} from './static-client.js?v=72386b22693a6087';
+import {createSavedBuildStore} from './saved-builds.js?v=72386b22693a6087';
+import {slotIcons} from './assets/slot-icons.js?v=72386b22693a6087';
+import {portraits} from './assets/portraits.js?v=72386b22693a6087';
+import {statChanges,groupStatChanges,majorStatGroups} from './part-comparisons.js?v=72386b22693a6087';
+import {createStatResponseView} from './stat-response-view.js?v=72386b22693a6087';
 const $=id=>document.getElementById(id);
 const state={catalog:null,model:null,config:[],tunes:{},locks:new Set(),slot:null,preview:null,previewSerial:0,previewLoading:false,busy:false,tab:'builder',results:null,resultIndex:0,solutionPreview:null,solutionPreviewLoading:false};
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -170,20 +170,28 @@ $('equip').onclick=equipPreview;$('cancel-preview').onclick=cancelPreview;
 $('part-search').oninput=()=>{$('parts-list').scrollTop=0;renderParts();};
 let calibrationRevision=0,calibrationPending=null,calibrationRunning=false;
 function cancelLiveCalibration(){calibrationRevision++;calibrationPending=null;}
+// Placement labels count source notches from neutral; requests retain source coordinates.
+function tuningDisplay(t,value){
+ if(t.control.sliderType!=='Discrete')return fmt(value,3);
+ const index=t.values.findIndex(v=>Math.abs(v-value)<1e-6);
+ const neutral=t.values.findIndex(v=>Math.abs(v-t.control.range.defaultValue)<1e-6);
+ const slots=index-neutral;
+ return `${slots>0?'+':''}${slots} ${Math.abs(slots)===1?'slot':'slots'}`;
+}
 function renderTuning(){
  const controls=state.model.controls,bySlot=new Map();
  for(const control of controls){if(!bySlot.has(control.slotPath))bySlot.set(control.slotPath,[]);bySlot.get(control.slotPath).push(control);}
  $('tune-part').textContent=`${controls.length} sliders / ${bySlot.size} attachments`;
  if(!controls.length){$('tuning').innerHTML='<p class="tune-note">Equip a tunable attachment to calibrate it.</p>';renderCalibrationSummary();return;}
  const tuningNames={'\u539a\u5ea6':'Thickness','\u957f\u5ea6':'Length','\u91cd\u91cf':'Weight','\u4f4d\u7f6e':'Position','\u91cd\u5fc3':'Balance','\u914d\u91cd':'Counterweight'};
- $('tuning').innerHTML=[...bySlot].map(([path,list])=>`<section class="tune-group ${path===state.slot?'selected-tune-group':''}"><h3>${esc(name(list[0].itemId))}<small>Socket ${esc(path)}</small></h3>${list.map(t=>{
+ $('tuning').innerHTML=[...bySlot].map(([path,list])=>`<section class="tune-group ${path===state.slot?'selected-tune-group':''}"><h3>${esc(name(list[0].itemId))}<small>Socket ${esc(path)}</small></h3>${[...list].reverse().map(t=>{
   const raw=t.control.labels.mainLocId.replace('authoring:',''),label=tuningNames[raw]??raw;
   const value=state.tunes[t.slotPath]?.[t.id]??t.value,index=t.values.findIndex(v=>Math.abs(v-value)<1e-6);
-  return `<label class="tune"><span>${esc(label)}<small>${fmt(t.values[0],2)} to ${fmt(t.values.at(-1),2)}</small></span><input type="range" data-tune="${esc(t.id)}" data-tune-slot="${esc(t.slotPath)}" min="0" max="${t.values.length-1}" value="${index}" step="1" aria-label="${esc(name(t.itemId)+' '+label)}"><output>${fmt(value,3)}</output></label>`;
+  return `<label class="tune"><span>${esc(label)}<small>${tuningDisplay(t,t.values[0])} to ${tuningDisplay(t,t.values.at(-1))}</small></span><input type="range" data-tune="${esc(t.id)}" data-tune-slot="${esc(t.slotPath)}" min="0" max="${t.values.length-1}" value="${index}" step="1" aria-label="${esc(name(t.itemId)+' '+label)}"><output>${tuningDisplay(t,value)}</output></label>`;
  }).join('')}</section>`).join('');
  $('tuning').querySelectorAll('input').forEach(input=>{
   const t=controls.find(c=>c.id===input.dataset.tune&&c.slotPath===input.dataset.tuneSlot);
-  input.oninput=()=>{const value=t.values[Number(input.value)];input.nextElementSibling.textContent=fmt(value,3);(state.tunes[t.slotPath]??={})[t.id]=value;clearPreview();
+  input.oninput=()=>{const value=t.values[Number(input.value)];input.nextElementSibling.textContent=tuningDisplay(t,value);(state.tunes[t.slotPath]??={})[t.id]=value;clearPreview();
    calibrationRevision++;calibrationPending={revision:calibrationRevision,request:structuredClone(request())};status('Updating calibration...');pumpCalibration();
   };
  });
