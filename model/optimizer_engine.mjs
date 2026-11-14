@@ -1,14 +1,14 @@
-import {timedRecoil} from './timed_recoil.mjs?v=e4d53caa155c3d39';
-import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=e4d53caa155c3d39';
-import {presets} from './optimizer_presets.mjs?v=e4d53caa155c3d39';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=e4d53caa155c3d39';
+import {timedRecoil} from './timed_recoil.mjs?v=00c8bd79fc0611e4';
+import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=00c8bd79fc0611e4';
+import {presets} from './optimizer_presets.mjs?v=00c8bd79fc0611e4';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=00c8bd79fc0611e4';
 
 async function loadRuntime(directory) {
   const {pathToFileURL}=await import('node:url');
   const path=await import('node:path');
-  const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=e4d53caa155c3d39')));
-  const kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=e4d53caa155c3d39')));
-  const {t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=e4d53caa155c3d39')));
+  const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=00c8bd79fc0611e4')));
+  const kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=00c8bd79fc0611e4')));
+  const {t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=00c8bd79fc0611e4')));
   return {curves,kernel,calculate};
 }
 
@@ -31,7 +31,7 @@ export async function generate(input, runtime) {
   };
   const retains = build => fixed.every(f=>build.mounted.some(m=>m.slotPath===f.slotPath && m.itemId===f.itemId));
   if (r.firing && !['auto','spam'].includes(r.firing)) throw Error('firing must be auto or spam');
-  const {raw,score,baseline,weights,objectives,objectiveNames,limitations,allowTargets=false}=presets[settings.preset].create({pack,request:r,kernel,resolve,mode});
+  const {raw,score,baseline,weights,objectives,objectiveNames,limitations,allowTargets=false}=presets[settings.preset].create({pack,request:r,kernel,resolve,mode,calculate,curves});
   if(objectives && !allowTargets && r.effectiveness_targets!==undefined)throw Error('This preset does not support custom effectiveness targets');
   const timedModules={calculate,curves,kernel};
   const baseNumeric=kernel.u(pack,resolve([]),{mode,tunes:{}}).numeric;

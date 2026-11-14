@@ -1,9 +1,9 @@
-import {createStaticClient} from './static-client.js?v=e4d53caa155c3d39';
-import {createSavedBuildStore} from './saved-builds.js?v=e4d53caa155c3d39';
-import {slotIcons} from './assets/slot-icons.js?v=e4d53caa155c3d39';
-import {portraits} from './assets/portraits.js?v=e4d53caa155c3d39';
-import {statChanges,groupStatChanges,majorStatGroups} from './part-comparisons.js?v=e4d53caa155c3d39';
-import {createStatResponseView} from './stat-response-view.js?v=e4d53caa155c3d39';
+import {createStaticClient} from './static-client.js?v=00c8bd79fc0611e4';
+import {createSavedBuildStore} from './saved-builds.js?v=00c8bd79fc0611e4';
+import {slotIcons} from './assets/slot-icons.js?v=00c8bd79fc0611e4';
+import {portraits} from './assets/portraits.js?v=00c8bd79fc0611e4';
+import {statChanges,groupStatChanges,majorStatGroups} from './part-comparisons.js?v=00c8bd79fc0611e4';
+import {createStatResponseView} from './stat-response-view.js?v=00c8bd79fc0611e4';
 const $=id=>document.getElementById(id);
 const state={catalog:null,model:null,config:[],tunes:{},locks:new Set(),slot:null,preview:null,previewSerial:0,previewLoading:false,busy:false,tab:'builder',results:null,resultIndex:0,solutionPreview:null,solutionPreviewLoading:false};
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -250,7 +250,7 @@ function updatePreset(){
  info.onmouseenter=explain;info.onmouseleave=hideAccuracyInfo;info.onfocus=explain;info.onblur=hideAccuracyInfo;info.onclick=explain;info.onkeydown=e=>{if(e.key==='Escape')hideAccuracyInfo();};
  box.querySelector('p').textContent=agility?'1. Hip-fire spread / 2. Handling / 3. ADS recoil':'1. ADS recoil: Pattern 30% / Camera 40% / Kick 30% / 2. Handling';
  $('category-info').textContent='Max / Balanced / Min. Cheaper choices retain at least 50% of best improvement. No duplicate builds.';
- document.querySelector('#optimizer-panel .model-note').textContent=agility?'Minimize hip-fire spread, then ADS/sprint-to-fire times, then ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Best found; experimental proxy.';
+ document.querySelector('#optimizer-panel .model-note').textContent=agility?'Minimize hip-fire spread, then ADS/sprint-to-fire times, then ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Automatic pattern penalizes horizontal span above 1.5 model units at 2.5x marginal weight. Unsupported firing protocols retain the multiplier proxy. Best found; experimental proxy.';
 }
 $('optimizer-preset').onchange=()=>{clearResults();updatePreset();renderStats();drawGraph();};
 $('generate').onclick=async()=>{
