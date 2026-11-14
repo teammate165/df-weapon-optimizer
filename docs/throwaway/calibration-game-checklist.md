@@ -31,9 +31,9 @@ Reported 2026-11-14 in the project conversation. Step means the gap between adja
 | Thickness | 0.4 mm | Not supplied | Not supplied |
 | Collapsible Stock Placement | 1 slot | -3 slot | +3 slot |
 
-Eye Relief (Distance) is **0.4 mm per stop**, matching the source expectation. The user corrected the earlier 0.04 mm report as a typo on 2026-11-15. Placement values are game slots, while the dfttk inventory includes source-coordinate units and host-dependent variants. Do not equate these coordinates without a per-control mapping. Trajectory offset remains unreported. Patch, mode, exact attachment/weapon/host context, and screenshots were not supplied; record them in the evidence table before treating these observations as fully reproduced validation.
+Eye Relief (Distance) is **0.4 mm per stop**, matching the source expectation. The user corrected the earlier 0.04 mm report as a typo on 2026-11-15. Placement values are game slots, while the dfttk inventory includes source-coordinate units and host-dependent variants. On 2026-11-15 the user confirmed that one game slot equals one existing calculator source notch. Display slots relative to the contextual default (zero slots); retain source coordinates for effect evaluation. Trajectory offset remains unreported. Patch, mode, exact attachment/weapon/host context, and screenshots were not supplied; record them in the evidence table before treating these observations as fully reproduced validation.
 
-These observations are retained separately from `data/calibration/controls.csv` and the calculation model; runtime mapping and verification remain follow-up work.
+These observations are retained separately from `data/calibration/controls.csv` and the calculation model. The builder displays discrete positions as signed integer slots from neutral and reverses slider order within each attachment, as requested on 2026-11-15. Source values, legal positions and effect evaluation remain unchanged. Full client evidence and verification remain pending.
 
 For each slider record attachment/weapon IDs, host rail or frame, patch, mode, capture date, min/max and two adjacent values. Save screenshots. Leave mismatches as evidence; do not overwrite expected source values with assumptions.
 
