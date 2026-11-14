@@ -125,3 +125,20 @@ Includes full browser dependency versioning, an explicit one-row major-stat grid
 and a larger scoring information button. Local static regression and all eight
 exact calculator comparisons, application and saved-build reload checks passed;
 four backend builder tests passed. Public-site validation is recorded in TODO.md.
+
+## Translation and calibration display release (2026-11-15)
+
+Source `4eb0f76` deployed as generated `57ffa99`, release token
+`72386b22693a6087`. [Successful deployment](https://github.com/teammate165/df-weapon-optimizer/actions/runs/43625335906).
+
+Includes the throwaway branch?s translations and observations, the corrected
+0.4 mm Eye Relief step, integer slot display relative to neutral for discrete
+placement controls, and reversed slider order within each attachment. One game
+slot maps to one existing source notch per user confirmation; calculator inputs,
+saved tuning values, allowed positions and optimizer semantics are unchanged.
+
+Local and public-site checks pass: stock slider order, neutral/adjacent slot
+interaction with live calculation, both presets/cache/layout regression, eight
+exact calculator comparisons including non-default tuning, Apply and saved-build
+reload. See `.scratch/browser-qa/calibration-display-report.json` and
+`.scratch/browser-qa/static-live-report.json`.
