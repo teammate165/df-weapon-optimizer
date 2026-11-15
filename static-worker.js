@@ -1,7 +1,7 @@
-import {executeModel} from './model/builder_model.mjs?v=5893bf04f4180971';
-import * as curves from './runtime/curves.mjs?v=5893bf04f4180971';
-import * as kernel from './runtime/kernel.mjs?v=5893bf04f4180971';
-import {t as calculate} from './runtime/attributes.mjs?v=5893bf04f4180971';
+import {executeModel} from './model/builder_model.mjs?v=e6e3c470b921ffef';
+import * as curves from './runtime/curves.mjs?v=e6e3c470b921ffef';
+import * as kernel from './runtime/kernel.mjs?v=e6e3c470b921ffef';
+import {t as calculate} from './runtime/attributes.mjs?v=e6e3c470b921ffef';
 const modules={curves,kernel,calculate};
 async function loadJSON(path) {
   const response=await fetch(new URL(path,import.meta.url));
@@ -15,12 +15,12 @@ let queue=Promise.resolve();
 self.onmessage=({data})=>{queue=queue.then(async()=>{
   const {id,action,request}=data;
   try {
-    catalog??=await loadJSON('./data/catalog.json?v=5893bf04f4180971');
+    catalog??=await loadJSON('./data/catalog.json?v=e6e3c470b921ffef');
     if(action==='catalog'){self.postMessage({id,result:catalog});return;}
     if(!catalog.weapons.some(w=>w.id===request.weapon_id))throw Error('Unknown weapon');
     if(!['bd','mp','sol'].includes(request.mode))throw Error('Unknown mode');
     if(!Number.isInteger(request.shot_count??20)||(request.shot_count??20)<2||(request.shot_count??20)>200)throw Error('Shot count must be 2–200');
-    if(!packs.has(request.weapon_id))packs.set(request.weapon_id,await loadJSON(`./data/weapons/${request.weapon_id}.json?v=5893bf04f4180971`));
+    if(!packs.has(request.weapon_id))packs.set(request.weapon_id,await loadJSON(`./data/weapons/${request.weapon_id}.json?v=e6e3c470b921ffef`));
     if(action==='optimize'&&request.mode==='bd')request.budgets=[catalog.shop.weapons[request.weapon_id].gunsmithLimit];
     const result=await executeModel({action,request,pack:packs.get(request.weapon_id),shop:catalog.shop,prices:catalog.prices,provenance:catalog.provenance},modules);
     self.postMessage({id,result});

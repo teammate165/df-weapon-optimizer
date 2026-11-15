@@ -1,15 +1,15 @@
-import {completeRiserOptics} from './optimizer_mounts.mjs?v=5893bf04f4180971';
-import {timedRecoil} from './timed_recoil.mjs?v=5893bf04f4180971';
-import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=5893bf04f4180971';
-import {presets} from './optimizer_presets.mjs?v=5893bf04f4180971';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=5893bf04f4180971';
+import {completeRiserOptics} from './optimizer_mounts.mjs?v=e6e3c470b921ffef';
+import {timedRecoil} from './timed_recoil.mjs?v=e6e3c470b921ffef';
+import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=e6e3c470b921ffef';
+import {presets} from './optimizer_presets.mjs?v=e6e3c470b921ffef';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=e6e3c470b921ffef';
 
 async function loadRuntime(directory) {
   const {pathToFileURL}=await import('node:url');
   const path=await import('node:path');
-  const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=5893bf04f4180971')));
-  const kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=5893bf04f4180971')));
-  const {t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=5893bf04f4180971')));
+  const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=e6e3c470b921ffef')));
+  const kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=e6e3c470b921ffef')));
+  const {t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=e6e3c470b921ffef')));
   return {curves,kernel,calculate};
 }
 
@@ -228,5 +228,5 @@ export async function generate(input, runtime) {
       else seen.add(row.signature);
     }
   }
-  return {weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:!settings.automatic?'custom_targets':objectives?'lexicographic':'automatic',objective_names:objectiveNames,limitations,cheapest_gate_percent:mode==='mp'?null:cheapestGate,minimum_stats:settings.minimums,effectiveness_definition:settings.preset==='agility'?'Accuracy improvement only; handling and recoil break ties':'ADS recoil improvement over default; Handling breaks recoil ties',experimental:true,method:'Coordinate search; no global optimality guarantee',score_model:presets[settings.preset].description,weights,baseline,baseline_stats,baseline_score:0,baseline_loss:100,score_direction:'higher',score_definition:'Percent reduction of primary loss from the default build; default = 0; higher is better',baseline_recoil_path:baselinePath,tier,provenance:input.provenance,results};
+  return {weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:!settings.automatic?'custom_targets':settings.preset==='agility'?'weighted':objectives?'lexicographic':'automatic',objective_names:objectiveNames,limitations,cheapest_gate_percent:mode==='mp'?null:cheapestGate,minimum_stats:settings.minimums,effectiveness_definition:settings.preset==='agility'?'Weighted improvement: 50% handling, 30% hip accuracy, 20% ADS recoil':'ADS recoil improvement over default; Handling breaks recoil ties',experimental:true,method:'Coordinate search; no global optimality guarantee',score_model:presets[settings.preset].description,weights,baseline,baseline_stats,baseline_score:0,baseline_loss:100,score_direction:'higher',score_definition:'Percent reduction of primary loss from the default build; default = 0; higher is better',baseline_recoil_path:baselinePath,tier,provenance:input.provenance,results};
 }

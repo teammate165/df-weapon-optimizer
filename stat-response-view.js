@@ -1,4 +1,4 @@
-import {majorStatGroups} from './part-comparisons.js?v=5893bf04f4180971';
+import {majorStatGroups} from './part-comparisons.js?v=e6e3c470b921ffef';
 const titles=Object.fromEntries(majorStatGroups.map(g=>[g.attribute,g.title]));
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(v,d=3)=>Number.isFinite(v)?(Math.abs(v)<1e-12?0:v).toLocaleString(undefined,{maximumFractionDigits:d}):'—';
