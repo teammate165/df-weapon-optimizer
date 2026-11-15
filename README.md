@@ -10,7 +10,7 @@ respective owners. This is an independent, unofficial project.
 
 Source model: dfttk snapshot `20261108-an94-bd-shop.1`. Global/Garena validation,
 prices and translations remain provisional. Optimization is best-found coordinate
-search using the experimental 30/40/30 proxy, without an optimality guarantee.
+search using the experimental 40/30/30 proxy, without an optimality guarantee.
 Saved builds stay in this browser's cookies; JSON export provides a backup.
 
 Published with GitHub Actions to GitHub Pages. Local preview:

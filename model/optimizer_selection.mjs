@@ -30,4 +30,4 @@ export function selectCategories(frontier) {
   });
   return {strongest,cheapest,value};
 }
-import {compareObjectives} from './optimizer_policy.mjs?v=a7f7ff83ab7a3f8e';
+import {compareObjectives} from './optimizer_policy.mjs?v=5893bf04f4180971';
