@@ -60,3 +60,9 @@ summary changed; testing only the summary and Apply routing did not detect it.
 The score-direction contract is explicit: `score_direction: "higher"`, `baseline_score: 0`, `baseline_loss: 100`, and `row.score = 100 - row.loss = row.improvement_percent`. The search and category gates continue using loss; changing display direction must not change rankings or the 50% improvement floor. Older results without the direction field are converted when displayed.
 
 The optimizer form has no Automatic/Spam firing selector and sends no firing field. The shared engine defaults to its ordinary ADS recoil proxy; legacy research API inputs are outside the UI.
+
+## Weapon and mode context lifecycle
+
+Weapon/mode changes and explicit loadout resets invalidate optimizer results, cached solution evaluations and pending preview serials before rendering the new context. Adopting a different weapon/mode (including saved-build loads) also clears this state. Opening Optimizer without results for the current context therefore shows its equipped build. Late previous-context solution responses fail the existing serial/run-identity checks and cannot restore the old weapon image, stats or chart. Same-context tab switches retain valid results.
+
+Regression: `.scratch/browser-qa/weapon-context-check.cjs` covers loaded and deliberately delayed previous-weapon previews, mode changes and fresh result rendering.

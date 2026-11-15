@@ -1,5 +1,7 @@
 # Builder portrait audit
 
+The weapon workbench now uses an [attachment-aware layer compositor](weapon_composition.md). The static portraits audited below remain the picker art and labeled failure fallback.
+
 Checked 2026-11-13 at `2026-11-13T02:24:52.243Z`, against preserved dfttk snapshot `20261108-an94-bd-shop.1`.
 
 The inventory covers all 69 weapons and 583 selectable attachment/ammo entries across Operations, Warfare and Detonation. Sources come from all preserved build-pack display objects plus the mode libraries, matched by ID. Source-relative URLs resolve against `https://dfttk.com/`. Four entries have no declared portrait; their existing legacy CDN fallback URLs were also checked.

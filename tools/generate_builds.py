@@ -6,6 +6,7 @@ import sqlite3
 import subprocess
 from pathlib import Path
 from sync_dfttk_database import ROOT, assemble, load
+from prepare_project_runtime import prepare
 
 
 def main():
@@ -24,8 +25,9 @@ def main():
     directory.mkdir(parents=True, exist_ok=True)
     # Reuse the preserved, previously checked source snapshot without network access.
     reference = ROOT / '.scratch' / 'calibration-check'
+    prepare(reference)
     calculator_hashes = {}
-    for name in ('curves.mjs', 'kernel.mjs', 'attributes.mjs'):
+    for name in ('curves.mjs', 'kernel.mjs', 'attributes.mjs', 'laser_effects.mjs'):
         if not (reference / name).exists():
             raise ValueError('Run tools/verify_calibration_reference.py first')
         body = (reference / name).read_bytes()
@@ -37,7 +39,7 @@ def main():
         # The original shop catalog, including tiers, is also preserved in dfttk_raw_files.
         shop = json.loads(db.execute("SELECT record_json FROM dfttk_raw_files WHERE path='catalog/bd-shop.json' ORDER BY rowid DESC LIMIT 1").fetchone()[0])
     payload = dict(request=request, pack=pack, shop=shop, prices=prices,
-                   provenance=dict(data_version=manifest['dataVersion'], runtime_version=manifest['version'], calculator_module_sha256=calculator_hashes, price_sources=sources, global_verified=False))
+                   provenance=dict(data_version=manifest['dataVersion'], runtime_version=manifest['version'], calculator_module_sha256=calculator_hashes, price_sources=sources, model_policies={'laser_bonus_stacking': 'strongest_per_stat_v1'}, global_verified=False))
     input_path = directory / 'input.json'
     input_path.write_text(json.dumps(payload), encoding='utf-8')
     subprocess.run(['node', str(ROOT / 'tools' / 'recoil_generator.mjs'), str(input_path), str(args.output.resolve())], check=True)

@@ -39,12 +39,21 @@ class GeneratorTests(unittest.TestCase):
             expected_handling=50*(row['components']['ads_seconds']/result['baseline']['ads_seconds']+row['components']['sprint_to_fire_seconds']/result['baseline']['sprint_to_fire_seconds'])
             self.assertAlmostEqual(row['objectives'][1], expected_handling)
             c = row['components']
-            self.assertEqual(c['pattern_model'], 'ads-chart-span-v1')
+            self.assertEqual(c['pattern_model'], 'ads-chart-speed-tier-v2')
             points = row['recoil_path']['points']
             horizontal = max(p['x'] for p in points) - min(p['x'] for p in points)
             vertical = max(p['y'] for p in points) - min(p['y'] for p in points)
             self.assertAlmostEqual(c['horizontal_span'], horizontal)
-            self.assertAlmostEqual(c['pattern'], vertical + horizontal + 1.5 * max(0, horizontal - 1.5))
+            import sys
+            sys.path.insert(0, str(ROOT/'tools'))
+            from audit_horizontal_window_speed import window_speed
+            speed = window_speed(points, 200)['fastest_speed']
+            multiplier = 5 if speed > 5 else 3 if speed > 4 else 2 if speed > 3 else 1
+            self.assertAlmostEqual(c['horizontal_speed'], speed)
+            self.assertEqual(c['horizontal_multiplier'], multiplier)
+            distance = max(abs(p['x']) for p in points)
+            self.assertAlmostEqual(c['horizontal_distance'], distance)
+            self.assertAlmostEqual(c['pattern'], vertical + multiplier * distance)
             expected_loss = 100 * sum(w * c[k] / result['baseline'][k] for k, w in result['weights'].items()) / sum(result['weights'].values())
             self.assertAlmostEqual(row['loss'], expected_loss)
             self.assertTrue(all(any(m['slotPath']==f['slotPath'] and m['itemId']==f['itemId'] for m in row['mounted']) for f in fixed))

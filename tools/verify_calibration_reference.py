@@ -45,6 +45,9 @@ def main():
     output = ROOT / 'data' / 'calibration' / 'reference_checks.json'
     output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print('Evidence:', output)
+    # Source parity above is checked before adding the explicit project policy.
+    from prepare_project_runtime import prepare
+    prepare(directory)
 
 
 if __name__ == '__main__':

@@ -10,8 +10,10 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from sync_dfttk_database import ROOT, assemble, load
+from prepare_project_runtime import prepare
 
 REFERENCE = ROOT / '.scratch/calibration-check'
+prepare(REFERENCE)
 MANIFEST = load('manifest.json')
 
 
@@ -30,7 +32,7 @@ def catalog():
         weapons = [dict(id=i, name=translations.get('weapon:' + key, {}).get('english') or name, original=name, category=category, price=weapon_prices.get(i), tier=shop['weapons'].get(i)) for key, i, name, category in db.execute('SELECT profile_key,weapon_id,name,category FROM weapons WHERE is_variant=0') if i in MANIFEST['weaponPacks']]
         names = {i: translations.get('part:' + i, {}).get('english') or name for i, name in db.execute('SELECT item_id,name FROM parts')}
         slots = dict(db.execute('SELECT item_id,slot FROM parts'))
-    return dict(weapons=weapons, names=names, slots=slots, shop=shop, prices=prices, provenance=dict(data_version=MANIFEST['dataVersion'], runtime_version=MANIFEST['version'], price_sources=sources, global_verified=False))
+    return dict(weapons=weapons, names=names, slots=slots, shop=shop, prices=prices, provenance=dict(data_version=MANIFEST['dataVersion'], runtime_version=MANIFEST['version'], price_sources=sources, model_policies={'laser_bonus_stacking': 'strongest_per_stat_v1'}, global_verified=False))
 
 
 def execute(action, request):

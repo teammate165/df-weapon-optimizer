@@ -1,3 +1,4 @@
+import {completeRiserOptics} from './optimizer_mounts.mjs';
 import {timedRecoil} from './timed_recoil.mjs';
 import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs';
 import {presets} from './optimizer_presets.mjs';
@@ -34,7 +35,7 @@ export async function generate(input, runtime) {
   const {raw,score,baseline,weights,objectives,objectiveNames,limitations,allowTargets=false}=presets[settings.preset].create({pack,request:r,kernel,resolve,mode,calculate,curves});
   if(objectives && !allowTargets && r.effectiveness_targets!==undefined)throw Error('This preset does not support custom effectiveness targets');
   const timedModules={calculate,curves,kernel};
-  const baseNumeric=kernel.u(pack,resolve([]),{mode,tunes:{}}).numeric;
+  const baseNumeric=kernel.u(pack,resolve([]),{tacticalEffective:true,mode,tunes:{}}).numeric;
   const baseline_stats=Object.fromEntries(Object.entries(statIds).map(([key,id])=>[key,baseNumeric.mainAttr[id]]));
   const baselinePath=timedRecoil(pack,resolve([]),{},r,timedModules);
   const costs=mode==='bd'?shop.partCosts:prices;
@@ -77,9 +78,13 @@ export async function generate(input, runtime) {
   };
   const search=(budget,seed,targetScore=null)=>{
     const better=comparator(settings.minimums,targetScore);
-    const evaluate=(config,tunes={})=>{
+    const evaluateSingle=(config,tunes={})=>{
       const build=resolve(config);
       if(!retains(build))return null;
+      // Extra enabled devices cannot supply extra bonuses. Preserve explicitly
+      // locked multi-device setups, but never add redundant devices in search.
+      const lockedLasers=fixed.filter(f=>kernel.l(pack,f.itemId,mode)).length;
+      if(build.mounted.filter(m=>kernel.l(pack,m.itemId,mode)).length>Math.max(1,lockedLasers))return null;
       if(mode==='bd'&&build.mounted.some(m=>shop.hiddenItemIds.includes(m.itemId)))return null;
       const quote=mode==='mp'?{total:null}:cost(build);
       if(budget!==null&&(quote.total===null||quote.total>budget))return null;
@@ -87,7 +92,7 @@ export async function generate(input, runtime) {
       const key=JSON.stringify([build.config,tunes]);
       let metrics=cache.get(key);
       if(!metrics){
-        const state=kernel.u(pack,build,{mode,tunes});
+        const state=kernel.u(pack,build,{tacticalEffective:true,mode,tunes});
         const components=raw(build,tunes,state);
         const numeric=state.numeric;
         metrics={components,score:score(components),stats:Object.fromEntries(Object.entries(statIds).map(([k,id])=>[k,numeric.mainAttr[id]]))};
@@ -107,6 +112,14 @@ export async function generate(input, runtime) {
         frontier.push(candidate);
       }
       return candidate;
+    };
+    const evaluate=(config,tunes={})=>{
+      let best=null;
+      for(const completed of completeRiserOptics(pack,resolve(config),resolve,fixed)) {
+        const candidate=evaluateSingle(completed.config,tunes);
+        if(candidate&&(!best||better(candidate,best)))best=candidate;
+      }
+      return best;
     };
     const tune=(candidate,changedPath=null)=>{
       let best=candidate;

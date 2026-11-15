@@ -1,0 +1,5246 @@
+{
+  "data_version": "20261108-an94-bd-shop.1",
+  "shot_count": 20,
+  "windows_ms": [
+    100,
+    200,
+    300
+  ],
+  "percentile": 0.9,
+  "selected_window_ms": 200,
+  "multiplier_tiers": [
+    {
+      "above": 5,
+      "multiplier": 5
+    },
+    {
+      "above": 4,
+      "multiplier": 3
+    },
+    {
+      "above": 3,
+      "multiplier": 2
+    }
+  ],
+  "default_multiplier": 1,
+  "selected_statistic": "maximum",
+  "selected_units": "source-model units/second",
+  "maximum_method": "exact piecewise-linear breakpoints; no P90 normalization",
+  "interpolation": "piecewise linear",
+  "sampling_step_ms": 1,
+  "max_half_step_difference": 0.014818807339448625,
+  "global_verified": false,
+  "rows": [
+    {
+      "weapon_id": "18010000001",
+      "name": "M4A1 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.020701754385965,
+        "windows": {
+          "100": {
+            "p90_speed": 3.2933333333333334,
+            "sample_count": 1326,
+            "fastest_speed": 3.293333333333335,
+            "fastest_start_ms": 1025,
+            "fastest_end_ms": 1125,
+            "fastest_displacement": -0.3293333333333335,
+            "half_ms_p90": 3.2933333333333334
+          },
+          "200": {
+            "p90_speed": 3.293333333333333,
+            "sample_count": 1226,
+            "fastest_speed": 3.2933333333333334,
+            "fastest_start_ms": 750,
+            "fastest_end_ms": 950,
+            "fastest_displacement": -0.6586666666666667,
+            "half_ms_p90": 3.293333333333333
+          },
+          "300": {
+            "p90_speed": 3.2933333333333334,
+            "sample_count": 1126,
+            "fastest_speed": 3.2933333333333334,
+            "fastest_start_ms": 750,
+            "fastest_end_ms": 1050,
+            "fastest_displacement": -0.988,
+            "half_ms_p90": 3.2933333333333334
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000001",
+      "name": "M4A1 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.020701754385965,
+        "windows": {
+          "100": {
+            "p90_speed": 3.2933333333333334,
+            "sample_count": 1326,
+            "fastest_speed": 3.293333333333335,
+            "fastest_start_ms": 1025,
+            "fastest_end_ms": 1125,
+            "fastest_displacement": -0.3293333333333335,
+            "half_ms_p90": 3.2933333333333334
+          },
+          "200": {
+            "p90_speed": 3.293333333333333,
+            "sample_count": 1226,
+            "fastest_speed": 3.2933333333333334,
+            "fastest_start_ms": 750,
+            "fastest_end_ms": 950,
+            "fastest_displacement": -0.6586666666666667,
+            "half_ms_p90": 3.293333333333333
+          },
+          "300": {
+            "p90_speed": 3.2933333333333334,
+            "sample_count": 1126,
+            "fastest_speed": 3.2933333333333334,
+            "fastest_start_ms": 750,
+            "fastest_end_ms": 1050,
+            "fastest_displacement": -0.988,
+            "half_ms_p90": 3.2933333333333334
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000001",
+      "name": "M4A1 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.020701754385965,
+        "windows": {
+          "100": {
+            "p90_speed": 3.2933333333333334,
+            "sample_count": 1326,
+            "fastest_speed": 3.293333333333335,
+            "fastest_start_ms": 1025,
+            "fastest_end_ms": 1125,
+            "fastest_displacement": -0.3293333333333335,
+            "half_ms_p90": 3.2933333333333334
+          },
+          "200": {
+            "p90_speed": 3.293333333333333,
+            "sample_count": 1226,
+            "fastest_speed": 3.2933333333333334,
+            "fastest_start_ms": 750,
+            "fastest_end_ms": 950,
+            "fastest_displacement": -0.6586666666666667,
+            "half_ms_p90": 3.293333333333333
+          },
+          "300": {
+            "p90_speed": 3.2933333333333334,
+            "sample_count": 1126,
+            "fastest_speed": 3.2933333333333334,
+            "fastest_start_ms": 750,
+            "fastest_end_ms": 1050,
+            "fastest_displacement": -0.988,
+            "half_ms_p90": 3.2933333333333334
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000006",
+      "name": "AKM Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.624421052631579,
+        "windows": {
+          "100": {
+            "p90_speed": 3.7356599999999998,
+            "sample_count": 1801,
+            "fastest_speed": 4.554,
+            "fastest_start_ms": 200,
+            "fastest_end_ms": 300,
+            "fastest_displacement": 0.4554,
+            "half_ms_p90": 3.7370975
+          },
+          "200": {
+            "p90_speed": 3.2905525,
+            "sample_count": 1701,
+            "fastest_speed": 3.5650000000000004,
+            "fastest_start_ms": 200,
+            "fastest_end_ms": 400,
+            "fastest_displacement": 0.7130000000000001,
+            "half_ms_p90": 3.2922487499999997
+          },
+          "300": {
+            "p90_speed": 3.136280000000002,
+            "sample_count": 1601,
+            "fastest_speed": 3.7221666666666664,
+            "fastest_start_ms": 200,
+            "fastest_end_ms": 500,
+            "fastest_displacement": 1.11665,
+            "half_ms_p90": 3.1360883333333334
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000006",
+      "name": "AKM Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.624421052631579,
+        "windows": {
+          "100": {
+            "p90_speed": 3.7356599999999998,
+            "sample_count": 1801,
+            "fastest_speed": 4.554,
+            "fastest_start_ms": 200,
+            "fastest_end_ms": 300,
+            "fastest_displacement": 0.4554,
+            "half_ms_p90": 3.7370975
+          },
+          "200": {
+            "p90_speed": 3.2905525,
+            "sample_count": 1701,
+            "fastest_speed": 3.5650000000000004,
+            "fastest_start_ms": 200,
+            "fastest_end_ms": 400,
+            "fastest_displacement": 0.7130000000000001,
+            "half_ms_p90": 3.2922487499999997
+          },
+          "300": {
+            "p90_speed": 3.136280000000002,
+            "sample_count": 1601,
+            "fastest_speed": 3.7221666666666664,
+            "fastest_start_ms": 200,
+            "fastest_end_ms": 500,
+            "fastest_displacement": 1.11665,
+            "half_ms_p90": 3.1360883333333334
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000006",
+      "name": "AKM Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.624421052631579,
+        "windows": {
+          "100": {
+            "p90_speed": 3.7356599999999998,
+            "sample_count": 1801,
+            "fastest_speed": 4.554,
+            "fastest_start_ms": 200,
+            "fastest_end_ms": 300,
+            "fastest_displacement": 0.4554,
+            "half_ms_p90": 3.7370975
+          },
+          "200": {
+            "p90_speed": 3.2905525,
+            "sample_count": 1701,
+            "fastest_speed": 3.5650000000000004,
+            "fastest_start_ms": 200,
+            "fastest_end_ms": 400,
+            "fastest_displacement": 0.7130000000000001,
+            "half_ms_p90": 3.2922487499999997
+          },
+          "300": {
+            "p90_speed": 3.136280000000002,
+            "sample_count": 1601,
+            "fastest_speed": 3.7221666666666664,
+            "fastest_start_ms": 200,
+            "fastest_end_ms": 500,
+            "fastest_displacement": 1.11665,
+            "half_ms_p90": 3.1360883333333334
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000008",
+      "name": "QBZ95-1 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.5363538937842334,
+        "windows": {
+          "100": {
+            "p90_speed": 3.97333588235292,
+            "sample_count": 1580,
+            "fastest_speed": 5.348357918552034,
+            "fastest_start_ms": 1402.8000000000004,
+            "fastest_end_ms": 1502.8000000000004,
+            "fastest_displacement": 0.5348357918552034,
+            "half_ms_p90": 3.97774231900454
+          },
+          "200": {
+            "p90_speed": 3.431994128959271,
+            "sample_count": 1480,
+            "fastest_speed": 4.545278959276016,
+            "fastest_start_ms": 1302.8000000000004,
+            "fastest_end_ms": 1502.8000000000004,
+            "fastest_displacement": 0.9090557918552031,
+            "half_ms_p90": 3.431766430995468
+          },
+          "300": {
+            "p90_speed": 3.6630366515837047,
+            "sample_count": 1380,
+            "fastest_speed": 4.015979185520358,
+            "fastest_start_ms": 1202.8000000000004,
+            "fastest_end_ms": 1502.8000000000004,
+            "fastest_displacement": 1.2047937556561072,
+            "half_ms_p90": 3.663908959276012
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000008",
+      "name": "QBZ95-1 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.5363538937842334,
+        "windows": {
+          "100": {
+            "p90_speed": 3.97333588235292,
+            "sample_count": 1580,
+            "fastest_speed": 5.348357918552034,
+            "fastest_start_ms": 1402.8000000000004,
+            "fastest_end_ms": 1502.8000000000004,
+            "fastest_displacement": 0.5348357918552034,
+            "half_ms_p90": 3.97774231900454
+          },
+          "200": {
+            "p90_speed": 3.431994128959271,
+            "sample_count": 1480,
+            "fastest_speed": 4.545278959276016,
+            "fastest_start_ms": 1302.8000000000004,
+            "fastest_end_ms": 1502.8000000000004,
+            "fastest_displacement": 0.9090557918552031,
+            "half_ms_p90": 3.431766430995468
+          },
+          "300": {
+            "p90_speed": 3.6630366515837047,
+            "sample_count": 1380,
+            "fastest_speed": 4.015979185520358,
+            "fastest_start_ms": 1202.8000000000004,
+            "fastest_end_ms": 1502.8000000000004,
+            "fastest_displacement": 1.2047937556561072,
+            "half_ms_p90": 3.663908959276012
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000008",
+      "name": "QBZ95-1 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.5363538937842334,
+        "windows": {
+          "100": {
+            "p90_speed": 3.97333588235292,
+            "sample_count": 1580,
+            "fastest_speed": 5.348357918552034,
+            "fastest_start_ms": 1402.8000000000004,
+            "fastest_end_ms": 1502.8000000000004,
+            "fastest_displacement": 0.5348357918552034,
+            "half_ms_p90": 3.97774231900454
+          },
+          "200": {
+            "p90_speed": 3.431994128959271,
+            "sample_count": 1480,
+            "fastest_speed": 4.545278959276016,
+            "fastest_start_ms": 1302.8000000000004,
+            "fastest_end_ms": 1502.8000000000004,
+            "fastest_displacement": 0.9090557918552031,
+            "half_ms_p90": 3.431766430995468
+          },
+          "300": {
+            "p90_speed": 3.6630366515837047,
+            "sample_count": 1380,
+            "fastest_speed": 4.015979185520358,
+            "fastest_start_ms": 1202.8000000000004,
+            "fastest_end_ms": 1502.8000000000004,
+            "fastest_displacement": 1.2047937556561072,
+            "half_ms_p90": 3.663908959276012
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000010",
+      "name": "AKS-74 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.093156959895298,
+        "windows": {
+          "100": {
+            "p90_speed": 1.7003062166962701,
+            "sample_count": 2040,
+            "fastest_speed": 2.2380106571936076,
+            "fastest_start_ms": 1026,
+            "fastest_end_ms": 1126,
+            "fastest_displacement": 0.22380106571936076,
+            "half_ms_p90": 1.7011566607460054
+          },
+          "200": {
+            "p90_speed": 1.481742095914744,
+            "sample_count": 1940,
+            "fastest_speed": 1.8468063943161643,
+            "fastest_start_ms": 1013.4000000000001,
+            "fastest_end_ms": 1213.4,
+            "fastest_displacement": 0.3693612788632329,
+            "half_ms_p90": 1.4819211367673195
+          },
+          "300": {
+            "p90_speed": 1.4876802841918302,
+            "sample_count": 1840,
+            "fastest_speed": 1.6788063943161646,
+            "fastest_start_ms": 1013.4000000000001,
+            "fastest_end_ms": 1313.4,
+            "fastest_displacement": 0.5036419182948494,
+            "half_ms_p90": 1.4878294849023106
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000010",
+      "name": "AKS-74 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.093156959895298,
+        "windows": {
+          "100": {
+            "p90_speed": 1.7003062166962701,
+            "sample_count": 2040,
+            "fastest_speed": 2.2380106571936076,
+            "fastest_start_ms": 1026,
+            "fastest_end_ms": 1126,
+            "fastest_displacement": 0.22380106571936076,
+            "half_ms_p90": 1.7011566607460054
+          },
+          "200": {
+            "p90_speed": 1.481742095914744,
+            "sample_count": 1940,
+            "fastest_speed": 1.8468063943161643,
+            "fastest_start_ms": 1013.4000000000001,
+            "fastest_end_ms": 1213.4,
+            "fastest_displacement": 0.3693612788632329,
+            "half_ms_p90": 1.4819211367673195
+          },
+          "300": {
+            "p90_speed": 1.4876802841918302,
+            "sample_count": 1840,
+            "fastest_speed": 1.6788063943161646,
+            "fastest_start_ms": 1013.4000000000001,
+            "fastest_end_ms": 1313.4,
+            "fastest_displacement": 0.5036419182948494,
+            "half_ms_p90": 1.4878294849023106
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000010",
+      "name": "AKS-74 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.093156959895298,
+        "windows": {
+          "100": {
+            "p90_speed": 1.7003062166962701,
+            "sample_count": 2040,
+            "fastest_speed": 2.2380106571936076,
+            "fastest_start_ms": 1026,
+            "fastest_end_ms": 1126,
+            "fastest_displacement": 0.22380106571936076,
+            "half_ms_p90": 1.7011566607460054
+          },
+          "200": {
+            "p90_speed": 1.481742095914744,
+            "sample_count": 1940,
+            "fastest_speed": 1.8468063943161643,
+            "fastest_start_ms": 1013.4000000000001,
+            "fastest_end_ms": 1213.4,
+            "fastest_displacement": 0.3693612788632329,
+            "half_ms_p90": 1.4819211367673195
+          },
+          "300": {
+            "p90_speed": 1.4876802841918302,
+            "sample_count": 1840,
+            "fastest_speed": 1.6788063943161646,
+            "fastest_start_ms": 1013.4000000000001,
+            "fastest_end_ms": 1313.4,
+            "fastest_displacement": 0.5036419182948494,
+            "half_ms_p90": 1.4878294849023106
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000012",
+      "name": "Ash-12 Battle Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.75,
+        "windows": {
+          "100": {
+            "p90_speed": 1.7500000000000004,
+            "sample_count": 2181,
+            "fastest_speed": 1.7500000000000016,
+            "fastest_start_ms": 1320,
+            "fastest_end_ms": 1420,
+            "fastest_displacement": 0.17500000000000016,
+            "half_ms_p90": 1.7500000000000004
+          },
+          "200": {
+            "p90_speed": 1.75,
+            "sample_count": 2081,
+            "fastest_speed": 1.7500000000000004,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 200,
+            "fastest_displacement": -0.3500000000000001,
+            "half_ms_p90": 1.75
+          },
+          "300": {
+            "p90_speed": 1.7500000000000002,
+            "sample_count": 1981,
+            "fastest_speed": 1.7500000000000004,
+            "fastest_start_ms": 1080,
+            "fastest_end_ms": 1380,
+            "fastest_displacement": 0.5250000000000001,
+            "half_ms_p90": 1.7500000000000002
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000012",
+      "name": "Ash-12 Battle Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.75,
+        "windows": {
+          "100": {
+            "p90_speed": 1.7500000000000004,
+            "sample_count": 2181,
+            "fastest_speed": 1.7500000000000016,
+            "fastest_start_ms": 1320,
+            "fastest_end_ms": 1420,
+            "fastest_displacement": 0.17500000000000016,
+            "half_ms_p90": 1.7500000000000004
+          },
+          "200": {
+            "p90_speed": 1.75,
+            "sample_count": 2081,
+            "fastest_speed": 1.7500000000000004,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 200,
+            "fastest_displacement": -0.3500000000000001,
+            "half_ms_p90": 1.75
+          },
+          "300": {
+            "p90_speed": 1.7500000000000002,
+            "sample_count": 1981,
+            "fastest_speed": 1.7500000000000004,
+            "fastest_start_ms": 1080,
+            "fastest_end_ms": 1380,
+            "fastest_displacement": 0.5250000000000001,
+            "half_ms_p90": 1.7500000000000002
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000012",
+      "name": "Ash-12 Battle Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.75,
+        "windows": {
+          "100": {
+            "p90_speed": 1.7500000000000004,
+            "sample_count": 2181,
+            "fastest_speed": 1.7500000000000016,
+            "fastest_start_ms": 1320,
+            "fastest_end_ms": 1420,
+            "fastest_displacement": 0.17500000000000016,
+            "half_ms_p90": 1.7500000000000004
+          },
+          "200": {
+            "p90_speed": 1.75,
+            "sample_count": 2081,
+            "fastest_speed": 1.7500000000000004,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 200,
+            "fastest_displacement": -0.3500000000000001,
+            "half_ms_p90": 1.75
+          },
+          "300": {
+            "p90_speed": 1.7500000000000002,
+            "sample_count": 1981,
+            "fastest_speed": 1.7500000000000004,
+            "fastest_start_ms": 1080,
+            "fastest_end_ms": 1380,
+            "fastest_displacement": 0.5250000000000001,
+            "half_ms_p90": 1.7500000000000002
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000013",
+      "name": "K416 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.7826825127334451,
+        "windows": {
+          "100": {
+            "p90_speed": 2.5877419354838693,
+            "sample_count": 1196,
+            "fastest_speed": 2.6716715542521996,
+            "fastest_start_ms": 377.4,
+            "fastest_end_ms": 477.4,
+            "fastest_displacement": -0.26716715542521996,
+            "half_ms_p90": 2.5878826979472125
+          },
+          "200": {
+            "p90_speed": 2.5658357771260976,
+            "sample_count": 1096,
+            "fastest_speed": 2.583343108504397,
+            "fastest_start_ms": 686.6000000000003,
+            "fastest_end_ms": 886.6000000000003,
+            "fastest_displacement": -0.5166686217008795,
+            "half_ms_p90": 2.5659061583577696
+          },
+          "300": {
+            "p90_speed": 2.5433431085043976,
+            "sample_count": 996,
+            "fastest_speed": 2.555343108504397,
+            "fastest_start_ms": 613.8000000000001,
+            "fastest_end_ms": 913.8000000000001,
+            "fastest_displacement": -0.7666029325513192,
+            "half_ms_p90": 2.5433431085043976
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000013",
+      "name": "K416 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.7826825127334451,
+        "windows": {
+          "100": {
+            "p90_speed": 2.5877419354838693,
+            "sample_count": 1196,
+            "fastest_speed": 2.6716715542521996,
+            "fastest_start_ms": 377.4,
+            "fastest_end_ms": 477.4,
+            "fastest_displacement": -0.26716715542521996,
+            "half_ms_p90": 2.5878826979472125
+          },
+          "200": {
+            "p90_speed": 2.5658357771260976,
+            "sample_count": 1096,
+            "fastest_speed": 2.583343108504397,
+            "fastest_start_ms": 686.6000000000003,
+            "fastest_end_ms": 886.6000000000003,
+            "fastest_displacement": -0.5166686217008795,
+            "half_ms_p90": 2.5659061583577696
+          },
+          "300": {
+            "p90_speed": 2.5433431085043976,
+            "sample_count": 996,
+            "fastest_speed": 2.555343108504397,
+            "fastest_start_ms": 613.8000000000001,
+            "fastest_end_ms": 913.8000000000001,
+            "fastest_displacement": -0.7666029325513192,
+            "half_ms_p90": 2.5433431085043976
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000013",
+      "name": "K416 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.7826825127334451,
+        "windows": {
+          "100": {
+            "p90_speed": 2.5877419354838693,
+            "sample_count": 1196,
+            "fastest_speed": 2.6716715542521996,
+            "fastest_start_ms": 377.4,
+            "fastest_end_ms": 477.4,
+            "fastest_displacement": -0.26716715542521996,
+            "half_ms_p90": 2.5878826979472125
+          },
+          "200": {
+            "p90_speed": 2.5658357771260976,
+            "sample_count": 1096,
+            "fastest_speed": 2.583343108504397,
+            "fastest_start_ms": 686.6000000000003,
+            "fastest_end_ms": 886.6000000000003,
+            "fastest_displacement": -0.5166686217008795,
+            "half_ms_p90": 2.5659061583577696
+          },
+          "300": {
+            "p90_speed": 2.5433431085043976,
+            "sample_count": 996,
+            "fastest_speed": 2.555343108504397,
+            "fastest_start_ms": 613.8000000000001,
+            "fastest_end_ms": 913.8000000000001,
+            "fastest_displacement": -0.7666029325513192,
+            "half_ms_p90": 2.5433431085043976
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000014",
+      "name": "M16A4 Assault Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18010000014",
+      "name": "M16A4 Assault Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18010000014",
+      "name": "M16A4 Assault Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18010000015",
+      "name": "AUG Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.1154560609668966,
+        "windows": {
+          "100": {
+            "p90_speed": 1.6622183031674207,
+            "sample_count": 1580,
+            "fastest_speed": 1.8733334841628961,
+            "fastest_start_ms": 783.9999999999999,
+            "fastest_end_ms": 883.9999999999999,
+            "fastest_displacement": -0.18733334841628962,
+            "half_ms_p90": 1.663136425339367
+          },
+          "200": {
+            "p90_speed": 1.625909457013575,
+            "sample_count": 1480,
+            "fastest_speed": 1.8234703619909505,
+            "fastest_start_ms": 683.9999999999999,
+            "fastest_end_ms": 883.9999999999999,
+            "fastest_displacement": -0.36469407239819013,
+            "half_ms_p90": 1.6261203506787334
+          },
+          "300": {
+            "p90_speed": 1.5808917043740576,
+            "sample_count": 1380,
+            "fastest_speed": 1.6707714932126703,
+            "fastest_start_ms": 618.8,
+            "fastest_end_ms": 918.8,
+            "fastest_displacement": -0.501231447963801,
+            "half_ms_p90": 1.5814095776772248
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000015",
+      "name": "AUG Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.1154560609668966,
+        "windows": {
+          "100": {
+            "p90_speed": 1.6622183031674207,
+            "sample_count": 1580,
+            "fastest_speed": 1.8733334841628961,
+            "fastest_start_ms": 783.9999999999999,
+            "fastest_end_ms": 883.9999999999999,
+            "fastest_displacement": -0.18733334841628962,
+            "half_ms_p90": 1.663136425339367
+          },
+          "200": {
+            "p90_speed": 1.625909457013575,
+            "sample_count": 1480,
+            "fastest_speed": 1.8234703619909505,
+            "fastest_start_ms": 683.9999999999999,
+            "fastest_end_ms": 883.9999999999999,
+            "fastest_displacement": -0.36469407239819013,
+            "half_ms_p90": 1.6261203506787334
+          },
+          "300": {
+            "p90_speed": 1.5808917043740576,
+            "sample_count": 1380,
+            "fastest_speed": 1.6707714932126703,
+            "fastest_start_ms": 618.8,
+            "fastest_end_ms": 918.8,
+            "fastest_displacement": -0.501231447963801,
+            "half_ms_p90": 1.5814095776772248
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000015",
+      "name": "AUG Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.1154560609668966,
+        "windows": {
+          "100": {
+            "p90_speed": 1.6622183031674207,
+            "sample_count": 1580,
+            "fastest_speed": 1.8733334841628961,
+            "fastest_start_ms": 783.9999999999999,
+            "fastest_end_ms": 883.9999999999999,
+            "fastest_displacement": -0.18733334841628962,
+            "half_ms_p90": 1.663136425339367
+          },
+          "200": {
+            "p90_speed": 1.625909457013575,
+            "sample_count": 1480,
+            "fastest_speed": 1.8234703619909505,
+            "fastest_start_ms": 683.9999999999999,
+            "fastest_end_ms": 883.9999999999999,
+            "fastest_displacement": -0.36469407239819013,
+            "half_ms_p90": 1.6261203506787334
+          },
+          "300": {
+            "p90_speed": 1.5808917043740576,
+            "sample_count": 1380,
+            "fastest_speed": 1.6707714932126703,
+            "fastest_start_ms": 618.8,
+            "fastest_end_ms": 918.8,
+            "fastest_displacement": -0.501231447963801,
+            "half_ms_p90": 1.5814095776772248
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000016",
+      "name": "M7 Battle Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.9055023923444978,
+        "windows": {
+          "100": {
+            "p90_speed": 2.357181818181819,
+            "sample_count": 1656,
+            "fastest_speed": 2.556818181818182,
+            "fastest_start_ms": 269.59999999999997,
+            "fastest_end_ms": 369.59999999999997,
+            "fastest_displacement": -0.25568181818181823,
+            "half_ms_p90": 2.3587874999999876
+          },
+          "200": {
+            "p90_speed": 2.1297784090909087,
+            "sample_count": 1556,
+            "fastest_speed": 2.5024090909090906,
+            "fastest_start_ms": 184.79999999999998,
+            "fastest_end_ms": 384.79999999999995,
+            "fastest_displacement": -0.5004818181818181,
+            "half_ms_p90": 2.130064772727272
+          },
+          "300": {
+            "p90_speed": 2.0318181818181813,
+            "sample_count": 1456,
+            "fastest_speed": 2.2819090909090907,
+            "fastest_start_ms": 184.79999999999998,
+            "fastest_end_ms": 484.79999999999995,
+            "fastest_displacement": -0.6845727272727272,
+            "half_ms_p90": 2.0315079545454537
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000016",
+      "name": "M7 Battle Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.9055023923444978,
+        "windows": {
+          "100": {
+            "p90_speed": 2.357181818181819,
+            "sample_count": 1656,
+            "fastest_speed": 2.556818181818182,
+            "fastest_start_ms": 269.59999999999997,
+            "fastest_end_ms": 369.59999999999997,
+            "fastest_displacement": -0.25568181818181823,
+            "half_ms_p90": 2.3587874999999876
+          },
+          "200": {
+            "p90_speed": 2.1297784090909087,
+            "sample_count": 1556,
+            "fastest_speed": 2.5024090909090906,
+            "fastest_start_ms": 184.79999999999998,
+            "fastest_end_ms": 384.79999999999995,
+            "fastest_displacement": -0.5004818181818181,
+            "half_ms_p90": 2.130064772727272
+          },
+          "300": {
+            "p90_speed": 2.0318181818181813,
+            "sample_count": 1456,
+            "fastest_speed": 2.2819090909090907,
+            "fastest_start_ms": 184.79999999999998,
+            "fastest_end_ms": 484.79999999999995,
+            "fastest_displacement": -0.6845727272727272,
+            "half_ms_p90": 2.0315079545454537
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000016",
+      "name": "M7 Battle Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.9055023923444978,
+        "windows": {
+          "100": {
+            "p90_speed": 2.357181818181819,
+            "sample_count": 1656,
+            "fastest_speed": 2.556818181818182,
+            "fastest_start_ms": 269.59999999999997,
+            "fastest_end_ms": 369.59999999999997,
+            "fastest_displacement": -0.25568181818181823,
+            "half_ms_p90": 2.3587874999999876
+          },
+          "200": {
+            "p90_speed": 2.1297784090909087,
+            "sample_count": 1556,
+            "fastest_speed": 2.5024090909090906,
+            "fastest_start_ms": 184.79999999999998,
+            "fastest_end_ms": 384.79999999999995,
+            "fastest_displacement": -0.5004818181818181,
+            "half_ms_p90": 2.130064772727272
+          },
+          "300": {
+            "p90_speed": 2.0318181818181813,
+            "sample_count": 1456,
+            "fastest_speed": 2.2819090909090907,
+            "fastest_start_ms": 184.79999999999998,
+            "fastest_end_ms": 484.79999999999995,
+            "fastest_displacement": -0.6845727272727272,
+            "half_ms_p90": 2.0315079545454537
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000017",
+      "name": "SG 552 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.1702973445698834,
+        "windows": {
+          "100": {
+            "p90_speed": 1.775238670694863,
+            "sample_count": 1158,
+            "fastest_speed": 1.8731117824773402,
+            "fastest_start_ms": 662,
+            "fastest_end_ms": 762,
+            "fastest_displacement": 0.18731117824773402,
+            "half_ms_p90": 1.7759456193353471
+          },
+          "200": {
+            "p90_speed": 1.6614561933534733,
+            "sample_count": 1058,
+            "fastest_speed": 1.8179818731117816,
+            "fastest_start_ms": 660.6000000000001,
+            "fastest_end_ms": 860.6000000000001,
+            "fastest_displacement": 0.36359637462235633,
+            "half_ms_p90": 1.6624048338368576
+          },
+          "300": {
+            "p90_speed": 1.5745820745216508,
+            "sample_count": 958,
+            "fastest_speed": 1.6788076535750245,
+            "fastest_start_ms": 560.6000000000001,
+            "fastest_end_ms": 860.6000000000001,
+            "fastest_displacement": 0.5036422960725073,
+            "half_ms_p90": 1.5752386706948636
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000017",
+      "name": "SG 552 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.1702973445698834,
+        "windows": {
+          "100": {
+            "p90_speed": 1.775238670694863,
+            "sample_count": 1158,
+            "fastest_speed": 1.8731117824773402,
+            "fastest_start_ms": 662,
+            "fastest_end_ms": 762,
+            "fastest_displacement": 0.18731117824773402,
+            "half_ms_p90": 1.7759456193353471
+          },
+          "200": {
+            "p90_speed": 1.6614561933534733,
+            "sample_count": 1058,
+            "fastest_speed": 1.8179818731117816,
+            "fastest_start_ms": 660.6000000000001,
+            "fastest_end_ms": 860.6000000000001,
+            "fastest_displacement": 0.36359637462235633,
+            "half_ms_p90": 1.6624048338368576
+          },
+          "300": {
+            "p90_speed": 1.5745820745216508,
+            "sample_count": 958,
+            "fastest_speed": 1.6788076535750245,
+            "fastest_start_ms": 560.6000000000001,
+            "fastest_end_ms": 860.6000000000001,
+            "fastest_displacement": 0.5036422960725073,
+            "half_ms_p90": 1.5752386706948636
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000017",
+      "name": "SG 552 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.1702973445698834,
+        "windows": {
+          "100": {
+            "p90_speed": 1.775238670694863,
+            "sample_count": 1158,
+            "fastest_speed": 1.8731117824773402,
+            "fastest_start_ms": 662,
+            "fastest_end_ms": 762,
+            "fastest_displacement": 0.18731117824773402,
+            "half_ms_p90": 1.7759456193353471
+          },
+          "200": {
+            "p90_speed": 1.6614561933534733,
+            "sample_count": 1058,
+            "fastest_speed": 1.8179818731117816,
+            "fastest_start_ms": 660.6000000000001,
+            "fastest_end_ms": 860.6000000000001,
+            "fastest_displacement": 0.36359637462235633,
+            "half_ms_p90": 1.6624048338368576
+          },
+          "300": {
+            "p90_speed": 1.5745820745216508,
+            "sample_count": 958,
+            "fastest_speed": 1.6788076535750245,
+            "fastest_start_ms": 560.6000000000001,
+            "fastest_end_ms": 860.6000000000001,
+            "fastest_displacement": 0.5036422960725073,
+            "half_ms_p90": 1.5752386706948636
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000018",
+      "name": "AK-12 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.006514447884418,
+        "windows": {
+          "100": {
+            "p90_speed": 3.441176470588234,
+            "sample_count": 1451,
+            "fastest_speed": 3.4541764705882394,
+            "fastest_start_ms": 1042.4,
+            "fastest_end_ms": 1142.4,
+            "fastest_displacement": 0.34541764705882394,
+            "half_ms_p90": 3.441176470588234
+          },
+          "200": {
+            "p90_speed": 3.3898455882352962,
+            "sample_count": 1351,
+            "fastest_speed": 3.447676470588237,
+            "fastest_start_ms": 942.4000000000001,
+            "fastest_end_ms": 1142.4,
+            "fastest_displacement": 0.6895352941176474,
+            "half_ms_p90": 3.3902438725490223
+          },
+          "300": {
+            "p90_speed": 3.3614452614379116,
+            "sample_count": 1251,
+            "fastest_speed": 3.4161960784313736,
+            "fastest_start_ms": 897.6000000000001,
+            "fastest_end_ms": 1197.6000000000001,
+            "fastest_displacement": 1.024858823529412,
+            "half_ms_p90": 3.3614452614379116
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000018",
+      "name": "AK-12 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.006514447884418,
+        "windows": {
+          "100": {
+            "p90_speed": 3.441176470588234,
+            "sample_count": 1451,
+            "fastest_speed": 3.4541764705882394,
+            "fastest_start_ms": 1042.4,
+            "fastest_end_ms": 1142.4,
+            "fastest_displacement": 0.34541764705882394,
+            "half_ms_p90": 3.441176470588234
+          },
+          "200": {
+            "p90_speed": 3.3898455882352962,
+            "sample_count": 1351,
+            "fastest_speed": 3.447676470588237,
+            "fastest_start_ms": 942.4000000000001,
+            "fastest_end_ms": 1142.4,
+            "fastest_displacement": 0.6895352941176474,
+            "half_ms_p90": 3.3902438725490223
+          },
+          "300": {
+            "p90_speed": 3.3614452614379116,
+            "sample_count": 1251,
+            "fastest_speed": 3.4161960784313736,
+            "fastest_start_ms": 897.6000000000001,
+            "fastest_end_ms": 1197.6000000000001,
+            "fastest_displacement": 1.024858823529412,
+            "half_ms_p90": 3.3614452614379116
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000018",
+      "name": "AK-12 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.006514447884418,
+        "windows": {
+          "100": {
+            "p90_speed": 3.441176470588234,
+            "sample_count": 1451,
+            "fastest_speed": 3.4541764705882394,
+            "fastest_start_ms": 1042.4,
+            "fastest_end_ms": 1142.4,
+            "fastest_displacement": 0.34541764705882394,
+            "half_ms_p90": 3.441176470588234
+          },
+          "200": {
+            "p90_speed": 3.3898455882352962,
+            "sample_count": 1351,
+            "fastest_speed": 3.447676470588237,
+            "fastest_start_ms": 942.4000000000001,
+            "fastest_end_ms": 1142.4,
+            "fastest_displacement": 0.6895352941176474,
+            "half_ms_p90": 3.3902438725490223
+          },
+          "300": {
+            "p90_speed": 3.3614452614379116,
+            "sample_count": 1251,
+            "fastest_speed": 3.4161960784313736,
+            "fastest_start_ms": 897.6000000000001,
+            "fastest_end_ms": 1197.6000000000001,
+            "fastest_displacement": 1.024858823529412,
+            "half_ms_p90": 3.3614452614379116
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000021",
+      "name": "SCAR-H Battle Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.1787626962142206,
+        "windows": {
+          "100": {
+            "p90_speed": 1.49307992202729,
+            "sample_count": 1850,
+            "fastest_speed": 1.7917153996101365,
+            "fastest_start_ms": 102.6,
+            "fastest_end_ms": 202.6,
+            "fastest_displacement": 0.17917153996101365,
+            "half_ms_p90": 1.49307992202729
+          },
+          "200": {
+            "p90_speed": 1.3871733040935672,
+            "sample_count": 1750,
+            "fastest_speed": 1.6462799220272908,
+            "fastest_start_ms": 102.6,
+            "fastest_end_ms": 302.6,
+            "fastest_displacement": 0.32925598440545817,
+            "half_ms_p90": 1.3870732651072124
+          },
+          "300": {
+            "p90_speed": 1.3109519883040937,
+            "sample_count": 1650,
+            "fastest_speed": 1.5008444444444446,
+            "fastest_start_ms": 102.6,
+            "fastest_end_ms": 402.6,
+            "fastest_displacement": 0.4502533333333334,
+            "half_ms_p90": 1.3109767771280052
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000021",
+      "name": "SCAR-H Battle Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.1787626962142206,
+        "windows": {
+          "100": {
+            "p90_speed": 1.49307992202729,
+            "sample_count": 1850,
+            "fastest_speed": 1.7917153996101365,
+            "fastest_start_ms": 102.6,
+            "fastest_end_ms": 202.6,
+            "fastest_displacement": 0.17917153996101365,
+            "half_ms_p90": 1.49307992202729
+          },
+          "200": {
+            "p90_speed": 1.3871733040935672,
+            "sample_count": 1750,
+            "fastest_speed": 1.6462799220272908,
+            "fastest_start_ms": 102.6,
+            "fastest_end_ms": 302.6,
+            "fastest_displacement": 0.32925598440545817,
+            "half_ms_p90": 1.3870732651072124
+          },
+          "300": {
+            "p90_speed": 1.3109519883040937,
+            "sample_count": 1650,
+            "fastest_speed": 1.5008444444444446,
+            "fastest_start_ms": 102.6,
+            "fastest_end_ms": 402.6,
+            "fastest_displacement": 0.4502533333333334,
+            "half_ms_p90": 1.3109767771280052
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000021",
+      "name": "SCAR-H Battle Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.1787626962142206,
+        "windows": {
+          "100": {
+            "p90_speed": 1.49307992202729,
+            "sample_count": 1850,
+            "fastest_speed": 1.7917153996101365,
+            "fastest_start_ms": 102.6,
+            "fastest_end_ms": 202.6,
+            "fastest_displacement": 0.17917153996101365,
+            "half_ms_p90": 1.49307992202729
+          },
+          "200": {
+            "p90_speed": 1.3871733040935672,
+            "sample_count": 1750,
+            "fastest_speed": 1.6462799220272908,
+            "fastest_start_ms": 102.6,
+            "fastest_end_ms": 302.6,
+            "fastest_displacement": 0.32925598440545817,
+            "half_ms_p90": 1.3870732651072124
+          },
+          "300": {
+            "p90_speed": 1.3109519883040937,
+            "sample_count": 1650,
+            "fastest_speed": 1.5008444444444446,
+            "fastest_start_ms": 102.6,
+            "fastest_end_ms": 402.6,
+            "fastest_displacement": 0.4502533333333334,
+            "half_ms_p90": 1.3109767771280052
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000023",
+      "name": "G3 Battle Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.4134804150696465,
+        "windows": {
+          "100": {
+            "p90_speed": 1.790408525754884,
+            "sample_count": 2040,
+            "fastest_speed": 2.110124333925399,
+            "fastest_start_ms": 112.60000000000001,
+            "fastest_end_ms": 212.60000000000002,
+            "fastest_displacement": -0.21101243339253994,
+            "half_ms_p90": 1.790408525754884
+          },
+          "200": {
+            "p90_speed": 1.676321136767318,
+            "sample_count": 1940,
+            "fastest_speed": 1.9704085257548847,
+            "fastest_start_ms": 112.60000000000001,
+            "fastest_end_ms": 312.6,
+            "fastest_displacement": -0.39408170515097696,
+            "half_ms_p90": 1.6769989342806386
+          },
+          "300": {
+            "p90_speed": 1.5817321492007106,
+            "sample_count": 1840,
+            "fastest_speed": 1.8147495559502667,
+            "fastest_start_ms": 112.60000000000001,
+            "fastest_end_ms": 412.6,
+            "fastest_displacement": -0.54442486678508,
+            "half_ms_p90": 1.5814593250444047
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000023",
+      "name": "G3 Battle Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.4134804150696465,
+        "windows": {
+          "100": {
+            "p90_speed": 1.790408525754884,
+            "sample_count": 2040,
+            "fastest_speed": 2.110124333925399,
+            "fastest_start_ms": 112.60000000000001,
+            "fastest_end_ms": 212.60000000000002,
+            "fastest_displacement": -0.21101243339253994,
+            "half_ms_p90": 1.790408525754884
+          },
+          "200": {
+            "p90_speed": 1.676321136767318,
+            "sample_count": 1940,
+            "fastest_speed": 1.9704085257548847,
+            "fastest_start_ms": 112.60000000000001,
+            "fastest_end_ms": 312.6,
+            "fastest_displacement": -0.39408170515097696,
+            "half_ms_p90": 1.6769989342806386
+          },
+          "300": {
+            "p90_speed": 1.5817321492007106,
+            "sample_count": 1840,
+            "fastest_speed": 1.8147495559502667,
+            "fastest_start_ms": 112.60000000000001,
+            "fastest_end_ms": 412.6,
+            "fastest_displacement": -0.54442486678508,
+            "half_ms_p90": 1.5814593250444047
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000023",
+      "name": "G3 Battle Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.4134804150696465,
+        "windows": {
+          "100": {
+            "p90_speed": 1.790408525754884,
+            "sample_count": 2040,
+            "fastest_speed": 2.110124333925399,
+            "fastest_start_ms": 112.60000000000001,
+            "fastest_end_ms": 212.60000000000002,
+            "fastest_displacement": -0.21101243339253994,
+            "half_ms_p90": 1.790408525754884
+          },
+          "200": {
+            "p90_speed": 1.676321136767318,
+            "sample_count": 1940,
+            "fastest_speed": 1.9704085257548847,
+            "fastest_start_ms": 112.60000000000001,
+            "fastest_end_ms": 312.6,
+            "fastest_displacement": -0.39408170515097696,
+            "half_ms_p90": 1.6769989342806386
+          },
+          "300": {
+            "p90_speed": 1.5817321492007106,
+            "sample_count": 1840,
+            "fastest_speed": 1.8147495559502667,
+            "fastest_start_ms": 112.60000000000001,
+            "fastest_end_ms": 412.6,
+            "fastest_displacement": -0.54442486678508,
+            "half_ms_p90": 1.5814593250444047
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000024",
+      "name": "PTR-32 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.8426598635682985,
+        "windows": {
+          "100": {
+            "p90_speed": 3.003161222339302,
+            "sample_count": 1704,
+            "fastest_speed": 3.0031612223393083,
+            "fastest_start_ms": 948.9999999999999,
+            "fastest_end_ms": 1049.0,
+            "fastest_displacement": -0.30031612223393084,
+            "half_ms_p90": 3.003161222339302
+          },
+          "200": {
+            "p90_speed": 3.003161222339302,
+            "sample_count": 1604,
+            "fastest_speed": 3.0031612223393056,
+            "fastest_start_ms": 948.9999999999999,
+            "fastest_end_ms": 1149.0,
+            "fastest_displacement": -0.6006322444678611,
+            "half_ms_p90": 3.003161222339302
+          },
+          "300": {
+            "p90_speed": 3.003161222339302,
+            "sample_count": 1504,
+            "fastest_speed": 3.0031612223393043,
+            "fastest_start_ms": 948.9999999999999,
+            "fastest_end_ms": 1249.0,
+            "fastest_displacement": -0.9009483667017912,
+            "half_ms_p90": 3.003161222339302
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000024",
+      "name": "PTR-32 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.8426598635682985,
+        "windows": {
+          "100": {
+            "p90_speed": 3.003161222339302,
+            "sample_count": 1704,
+            "fastest_speed": 3.0031612223393083,
+            "fastest_start_ms": 948.9999999999999,
+            "fastest_end_ms": 1049.0,
+            "fastest_displacement": -0.30031612223393084,
+            "half_ms_p90": 3.003161222339302
+          },
+          "200": {
+            "p90_speed": 3.003161222339302,
+            "sample_count": 1604,
+            "fastest_speed": 3.0031612223393056,
+            "fastest_start_ms": 948.9999999999999,
+            "fastest_end_ms": 1149.0,
+            "fastest_displacement": -0.6006322444678611,
+            "half_ms_p90": 3.003161222339302
+          },
+          "300": {
+            "p90_speed": 3.003161222339302,
+            "sample_count": 1504,
+            "fastest_speed": 3.0031612223393043,
+            "fastest_start_ms": 948.9999999999999,
+            "fastest_end_ms": 1249.0,
+            "fastest_displacement": -0.9009483667017912,
+            "half_ms_p90": 3.003161222339302
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000024",
+      "name": "PTR-32 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.8426598635682985,
+        "windows": {
+          "100": {
+            "p90_speed": 3.003161222339302,
+            "sample_count": 1704,
+            "fastest_speed": 3.0031612223393083,
+            "fastest_start_ms": 948.9999999999999,
+            "fastest_end_ms": 1049.0,
+            "fastest_displacement": -0.30031612223393084,
+            "half_ms_p90": 3.003161222339302
+          },
+          "200": {
+            "p90_speed": 3.003161222339302,
+            "sample_count": 1604,
+            "fastest_speed": 3.0031612223393056,
+            "fastest_start_ms": 948.9999999999999,
+            "fastest_end_ms": 1149.0,
+            "fastest_displacement": -0.6006322444678611,
+            "half_ms_p90": 3.003161222339302
+          },
+          "300": {
+            "p90_speed": 3.003161222339302,
+            "sample_count": 1504,
+            "fastest_speed": 3.0031612223393043,
+            "fastest_start_ms": 948.9999999999999,
+            "fastest_end_ms": 1249.0,
+            "fastest_displacement": -0.9009483667017912,
+            "half_ms_p90": 3.003161222339302
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000031",
+      "name": "CAR-15 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.6376518218623477,
+        "windows": {
+          "100": {
+            "p90_speed": 2.4866174920969417,
+            "sample_count": 1704,
+            "fastest_speed": 2.796969336143309,
+            "fastest_start_ms": 854.0999999999999,
+            "fastest_end_ms": 954.0999999999999,
+            "fastest_displacement": 0.2796969336143309,
+            "half_ms_p90": 2.4866174920969417
+          },
+          "200": {
+            "p90_speed": 2.4866174920969417,
+            "sample_count": 1604,
+            "fastest_speed": 2.486617492096942,
+            "fastest_start_ms": 1328.6000000000001,
+            "fastest_end_ms": 1528.6000000000001,
+            "fastest_displacement": 0.4973234984193885,
+            "half_ms_p90": 2.4866174920969417
+          },
+          "300": {
+            "p90_speed": 2.486617492096942,
+            "sample_count": 1504,
+            "fastest_speed": 2.4866174920969426,
+            "fastest_start_ms": 1313.3000000000004,
+            "fastest_end_ms": 1613.3000000000004,
+            "fastest_displacement": 0.7459852476290827,
+            "half_ms_p90": 2.486617492096942
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000031",
+      "name": "CAR-15 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.6376518218623477,
+        "windows": {
+          "100": {
+            "p90_speed": 2.4866174920969417,
+            "sample_count": 1704,
+            "fastest_speed": 2.796969336143309,
+            "fastest_start_ms": 854.0999999999999,
+            "fastest_end_ms": 954.0999999999999,
+            "fastest_displacement": 0.2796969336143309,
+            "half_ms_p90": 2.4866174920969417
+          },
+          "200": {
+            "p90_speed": 2.4866174920969417,
+            "sample_count": 1604,
+            "fastest_speed": 2.486617492096942,
+            "fastest_start_ms": 1328.6000000000001,
+            "fastest_end_ms": 1528.6000000000001,
+            "fastest_displacement": 0.4973234984193885,
+            "half_ms_p90": 2.4866174920969417
+          },
+          "300": {
+            "p90_speed": 2.486617492096942,
+            "sample_count": 1504,
+            "fastest_speed": 2.4866174920969426,
+            "fastest_start_ms": 1313.3000000000004,
+            "fastest_end_ms": 1613.3000000000004,
+            "fastest_displacement": 0.7459852476290827,
+            "half_ms_p90": 2.486617492096942
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000031",
+      "name": "CAR-15 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.6376518218623477,
+        "windows": {
+          "100": {
+            "p90_speed": 2.4866174920969417,
+            "sample_count": 1704,
+            "fastest_speed": 2.796969336143309,
+            "fastest_start_ms": 854.0999999999999,
+            "fastest_end_ms": 954.0999999999999,
+            "fastest_displacement": 0.2796969336143309,
+            "half_ms_p90": 2.4866174920969417
+          },
+          "200": {
+            "p90_speed": 2.4866174920969417,
+            "sample_count": 1604,
+            "fastest_speed": 2.486617492096942,
+            "fastest_start_ms": 1328.6000000000001,
+            "fastest_end_ms": 1528.6000000000001,
+            "fastest_displacement": 0.4973234984193885,
+            "half_ms_p90": 2.4866174920969417
+          },
+          "300": {
+            "p90_speed": 2.486617492096942,
+            "sample_count": 1504,
+            "fastest_speed": 2.4866174920969426,
+            "fastest_start_ms": 1313.3000000000004,
+            "fastest_end_ms": 1613.3000000000004,
+            "fastest_displacement": 0.7459852476290827,
+            "half_ms_p90": 2.486617492096942
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000037",
+      "name": "AS Val Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18010000037",
+      "name": "AS Val Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18010000037",
+      "name": "AS Val Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18010000038",
+      "name": "CI-19 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 3.517523219814241,
+        "windows": {
+          "100": {
+            "p90_speed": 4.501411764705883,
+            "sample_count": 1516,
+            "fastest_speed": 4.912941176470588,
+            "fastest_start_ms": 665,
+            "fastest_end_ms": 765,
+            "fastest_displacement": -0.4912941176470589,
+            "half_ms_p90": 4.500000000000002
+          },
+          "200": {
+            "p90_speed": 3.8203529411764707,
+            "sample_count": 1416,
+            "fastest_speed": 4.425882352941176,
+            "fastest_start_ms": 565,
+            "fastest_end_ms": 765,
+            "fastest_displacement": -0.8851764705882353,
+            "half_ms_p90": 3.8203529411764707
+          },
+          "300": {
+            "p90_speed": 3.7304313725490195,
+            "sample_count": 1316,
+            "fastest_speed": 3.945176470588236,
+            "fastest_start_ms": 465,
+            "fastest_end_ms": 765,
+            "fastest_displacement": -1.1835529411764707,
+            "half_ms_p90": 3.7305882352941175
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000038",
+      "name": "CI-19 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 3.517523219814241,
+        "windows": {
+          "100": {
+            "p90_speed": 4.501411764705883,
+            "sample_count": 1516,
+            "fastest_speed": 4.912941176470588,
+            "fastest_start_ms": 665,
+            "fastest_end_ms": 765,
+            "fastest_displacement": -0.4912941176470589,
+            "half_ms_p90": 4.500000000000002
+          },
+          "200": {
+            "p90_speed": 3.8203529411764707,
+            "sample_count": 1416,
+            "fastest_speed": 4.425882352941176,
+            "fastest_start_ms": 565,
+            "fastest_end_ms": 765,
+            "fastest_displacement": -0.8851764705882353,
+            "half_ms_p90": 3.8203529411764707
+          },
+          "300": {
+            "p90_speed": 3.7304313725490195,
+            "sample_count": 1316,
+            "fastest_speed": 3.945176470588236,
+            "fastest_start_ms": 465,
+            "fastest_end_ms": 765,
+            "fastest_displacement": -1.1835529411764707,
+            "half_ms_p90": 3.7305882352941175
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000038",
+      "name": "CI-19 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 3.517523219814241,
+        "windows": {
+          "100": {
+            "p90_speed": 4.501411764705883,
+            "sample_count": 1516,
+            "fastest_speed": 4.912941176470588,
+            "fastest_start_ms": 665,
+            "fastest_end_ms": 765,
+            "fastest_displacement": -0.4912941176470589,
+            "half_ms_p90": 4.500000000000002
+          },
+          "200": {
+            "p90_speed": 3.8203529411764707,
+            "sample_count": 1416,
+            "fastest_speed": 4.425882352941176,
+            "fastest_start_ms": 565,
+            "fastest_end_ms": 765,
+            "fastest_displacement": -0.8851764705882353,
+            "half_ms_p90": 3.8203529411764707
+          },
+          "300": {
+            "p90_speed": 3.7304313725490195,
+            "sample_count": 1316,
+            "fastest_speed": 3.945176470588236,
+            "fastest_start_ms": 465,
+            "fastest_end_ms": 765,
+            "fastest_displacement": -1.1835529411764707,
+            "half_ms_p90": 3.7305882352941175
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000040",
+      "name": "K437 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.4543836835261101,
+        "windows": {
+          "100": {
+            "p90_speed": 2.470741222366708,
+            "sample_count": 1362,
+            "fastest_speed": 2.4707412223667107,
+            "fastest_start_ms": 845.8999999999999,
+            "fastest_end_ms": 945.8999999999999,
+            "fastest_displacement": -0.24707412223667108,
+            "half_ms_p90": 2.470741222366708
+          },
+          "200": {
+            "p90_speed": 2.470741222366707,
+            "sample_count": 1262,
+            "fastest_speed": 2.47074122236671,
+            "fastest_start_ms": 845.8999999999999,
+            "fastest_end_ms": 1045.8999999999999,
+            "fastest_displacement": -0.494148244473342,
+            "half_ms_p90": 2.470741222366707
+          },
+          "300": {
+            "p90_speed": 2.4167022106631966,
+            "sample_count": 1162,
+            "fastest_speed": 2.470741222366709,
+            "fastest_start_ms": 845.8999999999999,
+            "fastest_end_ms": 1145.8999999999999,
+            "fastest_displacement": -0.7412223667100126,
+            "half_ms_p90": 2.4178846987429545
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000040",
+      "name": "K437 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.4543836835261101,
+        "windows": {
+          "100": {
+            "p90_speed": 2.470741222366708,
+            "sample_count": 1362,
+            "fastest_speed": 2.4707412223667107,
+            "fastest_start_ms": 845.8999999999999,
+            "fastest_end_ms": 945.8999999999999,
+            "fastest_displacement": -0.24707412223667108,
+            "half_ms_p90": 2.470741222366708
+          },
+          "200": {
+            "p90_speed": 2.470741222366707,
+            "sample_count": 1262,
+            "fastest_speed": 2.47074122236671,
+            "fastest_start_ms": 845.8999999999999,
+            "fastest_end_ms": 1045.8999999999999,
+            "fastest_displacement": -0.494148244473342,
+            "half_ms_p90": 2.470741222366707
+          },
+          "300": {
+            "p90_speed": 2.4167022106631966,
+            "sample_count": 1162,
+            "fastest_speed": 2.470741222366709,
+            "fastest_start_ms": 845.8999999999999,
+            "fastest_end_ms": 1145.8999999999999,
+            "fastest_displacement": -0.7412223667100126,
+            "half_ms_p90": 2.4178846987429545
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000040",
+      "name": "K437 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.4543836835261101,
+        "windows": {
+          "100": {
+            "p90_speed": 2.470741222366708,
+            "sample_count": 1362,
+            "fastest_speed": 2.4707412223667107,
+            "fastest_start_ms": 845.8999999999999,
+            "fastest_end_ms": 945.8999999999999,
+            "fastest_displacement": -0.24707412223667108,
+            "half_ms_p90": 2.470741222366708
+          },
+          "200": {
+            "p90_speed": 2.470741222366707,
+            "sample_count": 1262,
+            "fastest_speed": 2.47074122236671,
+            "fastest_start_ms": 845.8999999999999,
+            "fastest_end_ms": 1045.8999999999999,
+            "fastest_displacement": -0.494148244473342,
+            "half_ms_p90": 2.470741222366707
+          },
+          "300": {
+            "p90_speed": 2.4167022106631966,
+            "sample_count": 1162,
+            "fastest_speed": 2.470741222366709,
+            "fastest_start_ms": 845.8999999999999,
+            "fastest_end_ms": 1145.8999999999999,
+            "fastest_displacement": -0.7412223667100126,
+            "half_ms_p90": 2.4178846987429545
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000042",
+      "name": "KC17 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.4066505294575473,
+        "windows": {
+          "100": {
+            "p90_speed": 3.41313735647069,
+            "sample_count": 1441,
+            "fastest_speed": 4.452670539337207,
+            "fastest_start_ms": 143.24299999999997,
+            "fastest_end_ms": 243.24299999999997,
+            "fastest_displacement": 0.4452670539337208,
+            "half_ms_p90": 3.4127611894278567
+          },
+          "200": {
+            "p90_speed": 1.9155811472478135,
+            "sample_count": 1341,
+            "fastest_speed": 4.020336453669787,
+            "fastest_start_ms": 43.24299999999997,
+            "fastest_end_ms": 243.24299999999997,
+            "fastest_displacement": 0.8040672907339576,
+            "half_ms_p90": 1.9141751458418133
+          },
+          "300": {
+            "p90_speed": 1.1444454722232498,
+            "sample_count": 1241,
+            "fastest_speed": 2.9409990009990015,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 300,
+            "fastest_displacement": 0.8822997002997004,
+            "half_ms_p90": 1.1444496162273947
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000042",
+      "name": "KC17 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.4066505294575473,
+        "windows": {
+          "100": {
+            "p90_speed": 3.41313735647069,
+            "sample_count": 1441,
+            "fastest_speed": 4.452670539337207,
+            "fastest_start_ms": 143.24299999999997,
+            "fastest_end_ms": 243.24299999999997,
+            "fastest_displacement": 0.4452670539337208,
+            "half_ms_p90": 3.4127611894278567
+          },
+          "200": {
+            "p90_speed": 1.9155811472478135,
+            "sample_count": 1341,
+            "fastest_speed": 4.020336453669787,
+            "fastest_start_ms": 43.24299999999997,
+            "fastest_end_ms": 243.24299999999997,
+            "fastest_displacement": 0.8040672907339576,
+            "half_ms_p90": 1.9141751458418133
+          },
+          "300": {
+            "p90_speed": 1.1444454722232498,
+            "sample_count": 1241,
+            "fastest_speed": 2.9409990009990015,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 300,
+            "fastest_displacement": 0.8822997002997004,
+            "half_ms_p90": 1.1444496162273947
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000042",
+      "name": "KC17 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.4066505294575473,
+        "windows": {
+          "100": {
+            "p90_speed": 3.41313735647069,
+            "sample_count": 1441,
+            "fastest_speed": 4.452670539337207,
+            "fastest_start_ms": 143.24299999999997,
+            "fastest_end_ms": 243.24299999999997,
+            "fastest_displacement": 0.4452670539337208,
+            "half_ms_p90": 3.4127611894278567
+          },
+          "200": {
+            "p90_speed": 1.9155811472478135,
+            "sample_count": 1341,
+            "fastest_speed": 4.020336453669787,
+            "fastest_start_ms": 43.24299999999997,
+            "fastest_end_ms": 243.24299999999997,
+            "fastest_displacement": 0.8040672907339576,
+            "half_ms_p90": 1.9141751458418133
+          },
+          "300": {
+            "p90_speed": 1.1444454722232498,
+            "sample_count": 1241,
+            "fastest_speed": 2.9409990009990015,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 300,
+            "fastest_displacement": 0.8822997002997004,
+            "half_ms_p90": 1.1444496162273947
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000043",
+      "name": "MK47 Battle Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.786732456140351,
+        "windows": {
+          "100": {
+            "p90_speed": 5.988604166666667,
+            "sample_count": 1725,
+            "fastest_speed": 7.203750000000002,
+            "fastest_start_ms": 192,
+            "fastest_end_ms": 292,
+            "fastest_displacement": 0.7203750000000002,
+            "half_ms_p90": 5.991083333333331
+          },
+          "200": {
+            "p90_speed": 6.039427083333333,
+            "sample_count": 1625,
+            "fastest_speed": 6.495416666666666,
+            "fastest_start_ms": 184,
+            "fastest_end_ms": 384,
+            "fastest_displacement": 1.2990833333333334,
+            "half_ms_p90": 6.039427083333333
+          },
+          "300": {
+            "p90_speed": 5.678708333333335,
+            "sample_count": 1525,
+            "fastest_speed": 6.240416666666667,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 300,
+            "fastest_displacement": 1.872125,
+            "half_ms_p90": 5.6787083333333355
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000043",
+      "name": "MK47 Battle Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.786732456140351,
+        "windows": {
+          "100": {
+            "p90_speed": 5.988604166666667,
+            "sample_count": 1725,
+            "fastest_speed": 7.203750000000002,
+            "fastest_start_ms": 192,
+            "fastest_end_ms": 292,
+            "fastest_displacement": 0.7203750000000002,
+            "half_ms_p90": 5.991083333333331
+          },
+          "200": {
+            "p90_speed": 6.039427083333333,
+            "sample_count": 1625,
+            "fastest_speed": 6.495416666666666,
+            "fastest_start_ms": 184,
+            "fastest_end_ms": 384,
+            "fastest_displacement": 1.2990833333333334,
+            "half_ms_p90": 6.039427083333333
+          },
+          "300": {
+            "p90_speed": 5.678708333333335,
+            "sample_count": 1525,
+            "fastest_speed": 6.240416666666667,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 300,
+            "fastest_displacement": 1.872125,
+            "half_ms_p90": 5.6787083333333355
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000043",
+      "name": "MK47 Battle Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.786732456140351,
+        "windows": {
+          "100": {
+            "p90_speed": 5.988604166666667,
+            "sample_count": 1725,
+            "fastest_speed": 7.203750000000002,
+            "fastest_start_ms": 192,
+            "fastest_end_ms": 292,
+            "fastest_displacement": 0.7203750000000002,
+            "half_ms_p90": 5.991083333333331
+          },
+          "200": {
+            "p90_speed": 6.039427083333333,
+            "sample_count": 1625,
+            "fastest_speed": 6.495416666666666,
+            "fastest_start_ms": 184,
+            "fastest_end_ms": 384,
+            "fastest_displacement": 1.2990833333333334,
+            "half_ms_p90": 6.039427083333333
+          },
+          "300": {
+            "p90_speed": 5.678708333333335,
+            "sample_count": 1525,
+            "fastest_speed": 6.240416666666667,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 300,
+            "fastest_displacement": 1.872125,
+            "half_ms_p90": 5.6787083333333355
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000044",
+      "name": "MCX LT Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.6983635559486947,
+        "windows": {
+          "100": {
+            "p90_speed": 1.680672268907563,
+            "sample_count": 1257,
+            "fastest_speed": 2.3529411764705888,
+            "fastest_start_ms": 713.9999999999999,
+            "fastest_end_ms": 813.9999999999999,
+            "fastest_displacement": 0.23529411764705888,
+            "half_ms_p90": 1.680672268907563
+          },
+          "200": {
+            "p90_speed": 1.5764705882352947,
+            "sample_count": 1157,
+            "fastest_speed": 1.6806722689075628,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 200,
+            "fastest_displacement": -0.3361344537815126,
+            "half_ms_p90": 1.5752100840336145
+          },
+          "300": {
+            "p90_speed": 1.0113613445378156,
+            "sample_count": 1057,
+            "fastest_speed": 1.6,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 300,
+            "fastest_displacement": -0.48,
+            "half_ms_p90": 1.0106610644257699
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000044",
+      "name": "MCX LT Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.6983635559486947,
+        "windows": {
+          "100": {
+            "p90_speed": 1.680672268907563,
+            "sample_count": 1257,
+            "fastest_speed": 2.3529411764705888,
+            "fastest_start_ms": 713.9999999999999,
+            "fastest_end_ms": 813.9999999999999,
+            "fastest_displacement": 0.23529411764705888,
+            "half_ms_p90": 1.680672268907563
+          },
+          "200": {
+            "p90_speed": 1.5764705882352947,
+            "sample_count": 1157,
+            "fastest_speed": 1.6806722689075628,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 200,
+            "fastest_displacement": -0.3361344537815126,
+            "half_ms_p90": 1.5752100840336145
+          },
+          "300": {
+            "p90_speed": 1.0113613445378156,
+            "sample_count": 1057,
+            "fastest_speed": 1.6,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 300,
+            "fastest_displacement": -0.48,
+            "half_ms_p90": 1.0106610644257699
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000044",
+      "name": "MCX LT Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.6983635559486947,
+        "windows": {
+          "100": {
+            "p90_speed": 1.680672268907563,
+            "sample_count": 1257,
+            "fastest_speed": 2.3529411764705888,
+            "fastest_start_ms": 713.9999999999999,
+            "fastest_end_ms": 813.9999999999999,
+            "fastest_displacement": 0.23529411764705888,
+            "half_ms_p90": 1.680672268907563
+          },
+          "200": {
+            "p90_speed": 1.5764705882352947,
+            "sample_count": 1157,
+            "fastest_speed": 1.6806722689075628,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 200,
+            "fastest_displacement": -0.3361344537815126,
+            "half_ms_p90": 1.5752100840336145
+          },
+          "300": {
+            "p90_speed": 1.0113613445378156,
+            "sample_count": 1057,
+            "fastest_speed": 1.6,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 300,
+            "fastest_displacement": -0.48,
+            "half_ms_p90": 1.0106610644257699
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000045",
+      "name": "AR-57 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.8385810173891226,
+        "windows": {
+          "100": {
+            "p90_speed": 4.077787852878534,
+            "sample_count": 1167,
+            "fastest_speed": 4.398792712927131,
+            "fastest_start_ms": 1166.6539999999993,
+            "fastest_end_ms": 1266.6539999999993,
+            "fastest_displacement": 0.4398792712927131,
+            "half_ms_p90": 4.079509120091207
+          },
+          "200": {
+            "p90_speed": 3.963598985989865,
+            "sample_count": 1067,
+            "fastest_speed": 4.271288887888882,
+            "fastest_start_ms": 1066.6539999999993,
+            "fastest_end_ms": 1266.6539999999993,
+            "fastest_displacement": 0.8542577775777764,
+            "half_ms_p90": 3.964889936399369
+          },
+          "300": {
+            "p90_speed": 2.556658966589662,
+            "sample_count": 967,
+            "fastest_speed": 4.122536975369757,
+            "fastest_start_ms": 966.6539999999993,
+            "fastest_end_ms": 1266.6539999999993,
+            "fastest_displacement": 1.236761092610927,
+            "half_ms_p90": 2.5580642856428577
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000045",
+      "name": "AR-57 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.8385810173891226,
+        "windows": {
+          "100": {
+            "p90_speed": 4.077787852878534,
+            "sample_count": 1167,
+            "fastest_speed": 4.398792712927131,
+            "fastest_start_ms": 1166.6539999999993,
+            "fastest_end_ms": 1266.6539999999993,
+            "fastest_displacement": 0.4398792712927131,
+            "half_ms_p90": 4.079509120091207
+          },
+          "200": {
+            "p90_speed": 3.963598985989865,
+            "sample_count": 1067,
+            "fastest_speed": 4.271288887888882,
+            "fastest_start_ms": 1066.6539999999993,
+            "fastest_end_ms": 1266.6539999999993,
+            "fastest_displacement": 0.8542577775777764,
+            "half_ms_p90": 3.964889936399369
+          },
+          "300": {
+            "p90_speed": 2.556658966589662,
+            "sample_count": 967,
+            "fastest_speed": 4.122536975369757,
+            "fastest_start_ms": 966.6539999999993,
+            "fastest_end_ms": 1266.6539999999993,
+            "fastest_displacement": 1.236761092610927,
+            "half_ms_p90": 2.5580642856428577
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000045",
+      "name": "AR-57 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.8385810173891226,
+        "windows": {
+          "100": {
+            "p90_speed": 4.077787852878534,
+            "sample_count": 1167,
+            "fastest_speed": 4.398792712927131,
+            "fastest_start_ms": 1166.6539999999993,
+            "fastest_end_ms": 1266.6539999999993,
+            "fastest_displacement": 0.4398792712927131,
+            "half_ms_p90": 4.079509120091207
+          },
+          "200": {
+            "p90_speed": 3.963598985989865,
+            "sample_count": 1067,
+            "fastest_speed": 4.271288887888882,
+            "fastest_start_ms": 1066.6539999999993,
+            "fastest_end_ms": 1266.6539999999993,
+            "fastest_displacement": 0.8542577775777764,
+            "half_ms_p90": 3.964889936399369
+          },
+          "300": {
+            "p90_speed": 2.556658966589662,
+            "sample_count": 967,
+            "fastest_speed": 4.122536975369757,
+            "fastest_start_ms": 966.6539999999993,
+            "fastest_end_ms": 1266.6539999999993,
+            "fastest_displacement": 1.236761092610927,
+            "half_ms_p90": 2.5580642856428577
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000049",
+      "name": "RM277 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.2080975374215353,
+        "windows": {
+          "100": {
+            "p90_speed": 3.3219119266055035,
+            "sample_count": 1972,
+            "fastest_speed": 3.4403669724770647,
+            "fastest_start_ms": 1635,
+            "fastest_end_ms": 1735,
+            "fastest_displacement": 0.34403669724770647,
+            "half_ms_p90": 3.3220183486238537
+          },
+          "200": {
+            "p90_speed": 3.266215596330276,
+            "sample_count": 1872,
+            "fastest_speed": 3.377752293577981,
+            "fastest_start_ms": 1635,
+            "fastest_end_ms": 1835,
+            "fastest_displacement": 0.6755504587155963,
+            "half_ms_p90": 3.2662217889908263
+          },
+          "300": {
+            "p90_speed": 3.238036697247707,
+            "sample_count": 1772,
+            "fastest_speed": 3.3151376146789002,
+            "fastest_start_ms": 1553,
+            "fastest_end_ms": 1853,
+            "fastest_displacement": 0.9945412844036701,
+            "half_ms_p90": 3.2383669724770643
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000049",
+      "name": "RM277 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.2080975374215353,
+        "windows": {
+          "100": {
+            "p90_speed": 3.3219119266055035,
+            "sample_count": 1972,
+            "fastest_speed": 3.4403669724770647,
+            "fastest_start_ms": 1635,
+            "fastest_end_ms": 1735,
+            "fastest_displacement": 0.34403669724770647,
+            "half_ms_p90": 3.3220183486238537
+          },
+          "200": {
+            "p90_speed": 3.266215596330276,
+            "sample_count": 1872,
+            "fastest_speed": 3.377752293577981,
+            "fastest_start_ms": 1635,
+            "fastest_end_ms": 1835,
+            "fastest_displacement": 0.6755504587155963,
+            "half_ms_p90": 3.2662217889908263
+          },
+          "300": {
+            "p90_speed": 3.238036697247707,
+            "sample_count": 1772,
+            "fastest_speed": 3.3151376146789002,
+            "fastest_start_ms": 1553,
+            "fastest_end_ms": 1853,
+            "fastest_displacement": 0.9945412844036701,
+            "half_ms_p90": 3.2383669724770643
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000049",
+      "name": "RM277 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.2080975374215353,
+        "windows": {
+          "100": {
+            "p90_speed": 3.3219119266055035,
+            "sample_count": 1972,
+            "fastest_speed": 3.4403669724770647,
+            "fastest_start_ms": 1635,
+            "fastest_end_ms": 1735,
+            "fastest_displacement": 0.34403669724770647,
+            "half_ms_p90": 3.3220183486238537
+          },
+          "200": {
+            "p90_speed": 3.266215596330276,
+            "sample_count": 1872,
+            "fastest_speed": 3.377752293577981,
+            "fastest_start_ms": 1635,
+            "fastest_end_ms": 1835,
+            "fastest_displacement": 0.6755504587155963,
+            "half_ms_p90": 3.2662217889908263
+          },
+          "300": {
+            "p90_speed": 3.238036697247707,
+            "sample_count": 1772,
+            "fastest_speed": 3.3151376146789002,
+            "fastest_start_ms": 1553,
+            "fastest_end_ms": 1853,
+            "fastest_displacement": 0.9945412844036701,
+            "half_ms_p90": 3.2383669724770643
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000051",
+      "name": "MDR Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.3448138222044825,
+        "windows": {
+          "100": {
+            "p90_speed": 3.1202600216684715,
+            "sample_count": 1654,
+            "fastest_speed": 3.1351787648970753,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 100,
+            "fastest_displacement": 0.3135178764897075,
+            "half_ms_p90": 3.1202600216684715
+          },
+          "200": {
+            "p90_speed": 2.5062026002166844,
+            "sample_count": 1554,
+            "fastest_speed": 3.120260021668473,
+            "fastest_start_ms": 184.6,
+            "fastest_end_ms": 384.6,
+            "fastest_displacement": -0.6240520043336946,
+            "half_ms_p90": 2.5100687973997853
+          },
+          "300": {
+            "p90_speed": 2.2778223185265465,
+            "sample_count": 1454,
+            "fastest_speed": 2.7298374864572046,
+            "fastest_start_ms": 184.6,
+            "fastest_end_ms": 484.6,
+            "fastest_displacement": -0.8189512459371613,
+            "half_ms_p90": 2.2772047670639224
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000051",
+      "name": "MDR Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.3448138222044825,
+        "windows": {
+          "100": {
+            "p90_speed": 3.1202600216684715,
+            "sample_count": 1654,
+            "fastest_speed": 3.1351787648970753,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 100,
+            "fastest_displacement": 0.3135178764897075,
+            "half_ms_p90": 3.1202600216684715
+          },
+          "200": {
+            "p90_speed": 2.5062026002166844,
+            "sample_count": 1554,
+            "fastest_speed": 3.120260021668473,
+            "fastest_start_ms": 184.6,
+            "fastest_end_ms": 384.6,
+            "fastest_displacement": -0.6240520043336946,
+            "half_ms_p90": 2.5100687973997853
+          },
+          "300": {
+            "p90_speed": 2.2778223185265465,
+            "sample_count": 1454,
+            "fastest_speed": 2.7298374864572046,
+            "fastest_start_ms": 184.6,
+            "fastest_end_ms": 484.6,
+            "fastest_displacement": -0.8189512459371613,
+            "half_ms_p90": 2.2772047670639224
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000051",
+      "name": "MDR Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.3448138222044825,
+        "windows": {
+          "100": {
+            "p90_speed": 3.1202600216684715,
+            "sample_count": 1654,
+            "fastest_speed": 3.1351787648970753,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 100,
+            "fastest_displacement": 0.3135178764897075,
+            "half_ms_p90": 3.1202600216684715
+          },
+          "200": {
+            "p90_speed": 2.5062026002166844,
+            "sample_count": 1554,
+            "fastest_speed": 3.120260021668473,
+            "fastest_start_ms": 184.6,
+            "fastest_end_ms": 384.6,
+            "fastest_displacement": -0.6240520043336946,
+            "half_ms_p90": 2.5100687973997853
+          },
+          "300": {
+            "p90_speed": 2.2778223185265465,
+            "sample_count": 1454,
+            "fastest_speed": 2.7298374864572046,
+            "fastest_start_ms": 184.6,
+            "fastest_end_ms": 484.6,
+            "fastest_displacement": -0.8189512459371613,
+            "half_ms_p90": 2.2772047670639224
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000052",
+      "name": "AN-94 Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.3856603773584903,
+        "windows": {
+          "100": {
+            "p90_speed": 2.2043733333333337,
+            "sample_count": 1667,
+            "fastest_speed": 3.3200000000000007,
+            "fastest_start_ms": 1066.6666666666667,
+            "fastest_end_ms": 1166.6666666666667,
+            "fastest_displacement": 0.3320000000000001,
+            "half_ms_p90": 2.2038433333333334
+          },
+          "200": {
+            "p90_speed": 2.065973333333334,
+            "sample_count": 1567,
+            "fastest_speed": 2.9650000000000003,
+            "fastest_start_ms": 966.6666666666667,
+            "fastest_end_ms": 1166.6666666666667,
+            "fastest_displacement": 0.5930000000000001,
+            "half_ms_p90": 2.067703333333334
+          },
+          "300": {
+            "p90_speed": 1.8161422222222237,
+            "sample_count": 1467,
+            "fastest_speed": 2.4933333333333336,
+            "fastest_start_ms": 866.6666666666667,
+            "fastest_end_ms": 1166.6666666666667,
+            "fastest_displacement": 0.748,
+            "half_ms_p90": 1.8181077777777779
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000052",
+      "name": "AN-94 Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.3856603773584903,
+        "windows": {
+          "100": {
+            "p90_speed": 2.2043733333333337,
+            "sample_count": 1667,
+            "fastest_speed": 3.3200000000000007,
+            "fastest_start_ms": 1066.6666666666667,
+            "fastest_end_ms": 1166.6666666666667,
+            "fastest_displacement": 0.3320000000000001,
+            "half_ms_p90": 2.2038433333333334
+          },
+          "200": {
+            "p90_speed": 2.065973333333334,
+            "sample_count": 1567,
+            "fastest_speed": 2.9650000000000003,
+            "fastest_start_ms": 966.6666666666667,
+            "fastest_end_ms": 1166.6666666666667,
+            "fastest_displacement": 0.5930000000000001,
+            "half_ms_p90": 2.067703333333334
+          },
+          "300": {
+            "p90_speed": 1.8161422222222237,
+            "sample_count": 1467,
+            "fastest_speed": 2.4933333333333336,
+            "fastest_start_ms": 866.6666666666667,
+            "fastest_end_ms": 1166.6666666666667,
+            "fastest_displacement": 0.748,
+            "half_ms_p90": 1.8181077777777779
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18010000052",
+      "name": "AN-94 Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.3856603773584903,
+        "windows": {
+          "100": {
+            "p90_speed": 2.2043733333333337,
+            "sample_count": 1667,
+            "fastest_speed": 3.3200000000000007,
+            "fastest_start_ms": 1066.6666666666667,
+            "fastest_end_ms": 1166.6666666666667,
+            "fastest_displacement": 0.3320000000000001,
+            "half_ms_p90": 2.2038433333333334
+          },
+          "200": {
+            "p90_speed": 2.065973333333334,
+            "sample_count": 1567,
+            "fastest_speed": 2.9650000000000003,
+            "fastest_start_ms": 966.6666666666667,
+            "fastest_end_ms": 1166.6666666666667,
+            "fastest_displacement": 0.5930000000000001,
+            "half_ms_p90": 2.067703333333334
+          },
+          "300": {
+            "p90_speed": 1.8161422222222237,
+            "sample_count": 1467,
+            "fastest_speed": 2.4933333333333336,
+            "fastest_start_ms": 866.6666666666667,
+            "fastest_end_ms": 1166.6666666666667,
+            "fastest_displacement": 0.748,
+            "half_ms_p90": 1.8181077777777779
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000001",
+      "name": "MP5 Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.2075064710957717,
+        "windows": {
+          "100": {
+            "p90_speed": 1.6550983606557375,
+            "sample_count": 1291,
+            "fastest_speed": 2.2763934426229504,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 100,
+            "fastest_displacement": 0.22763934426229507,
+            "half_ms_p90": 1.6505270491803279
+          },
+          "200": {
+            "p90_speed": 1.4044590163934414,
+            "sample_count": 1191,
+            "fastest_speed": 1.8999672131147531,
+            "fastest_start_ms": 585.6,
+            "fastest_end_ms": 785.6,
+            "fastest_displacement": 0.37999344262295065,
+            "half_ms_p90": 1.405157377049179
+          },
+          "300": {
+            "p90_speed": 1.2977322404371583,
+            "sample_count": 1091,
+            "fastest_speed": 1.5520983606557375,
+            "fastest_start_ms": 585.6,
+            "fastest_end_ms": 885.6,
+            "fastest_displacement": 0.4656295081967212,
+            "half_ms_p90": 1.299217486338798
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000001",
+      "name": "MP5 Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.2075064710957717,
+        "windows": {
+          "100": {
+            "p90_speed": 1.6550983606557375,
+            "sample_count": 1291,
+            "fastest_speed": 2.2763934426229504,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 100,
+            "fastest_displacement": 0.22763934426229507,
+            "half_ms_p90": 1.6505270491803279
+          },
+          "200": {
+            "p90_speed": 1.4044590163934414,
+            "sample_count": 1191,
+            "fastest_speed": 1.8999672131147531,
+            "fastest_start_ms": 585.6,
+            "fastest_end_ms": 785.6,
+            "fastest_displacement": 0.37999344262295065,
+            "half_ms_p90": 1.405157377049179
+          },
+          "300": {
+            "p90_speed": 1.2977322404371583,
+            "sample_count": 1091,
+            "fastest_speed": 1.5520983606557375,
+            "fastest_start_ms": 585.6,
+            "fastest_end_ms": 885.6,
+            "fastest_displacement": 0.4656295081967212,
+            "half_ms_p90": 1.299217486338798
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000001",
+      "name": "MP5 Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.2075064710957717,
+        "windows": {
+          "100": {
+            "p90_speed": 1.6550983606557375,
+            "sample_count": 1291,
+            "fastest_speed": 2.2763934426229504,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 100,
+            "fastest_displacement": 0.22763934426229507,
+            "half_ms_p90": 1.6505270491803279
+          },
+          "200": {
+            "p90_speed": 1.4044590163934414,
+            "sample_count": 1191,
+            "fastest_speed": 1.8999672131147531,
+            "fastest_start_ms": 585.6,
+            "fastest_end_ms": 785.6,
+            "fastest_displacement": 0.37999344262295065,
+            "half_ms_p90": 1.405157377049179
+          },
+          "300": {
+            "p90_speed": 1.2977322404371583,
+            "sample_count": 1091,
+            "fastest_speed": 1.5520983606557375,
+            "fastest_start_ms": 585.6,
+            "fastest_end_ms": 885.6,
+            "fastest_displacement": 0.4656295081967212,
+            "half_ms_p90": 1.299217486338798
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000002",
+      "name": "P90 Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 3.378900094547748,
+        "windows": {
+          "100": {
+            "p90_speed": 4.387239520958082,
+            "sample_count": 1170,
+            "fastest_speed": 4.860359281437129,
+            "fastest_start_ms": 534.4,
+            "fastest_end_ms": 634.4,
+            "fastest_displacement": 0.4860359281437129,
+            "half_ms_p90": 4.3872485029940105
+          },
+          "200": {
+            "p90_speed": 3.909022455089822,
+            "sample_count": 1070,
+            "fastest_speed": 4.333967065868263,
+            "fastest_start_ms": 133.6,
+            "fastest_end_ms": 333.6,
+            "fastest_displacement": -0.8667934131736528,
+            "half_ms_p90": 3.9091976047904207
+          },
+          "300": {
+            "p90_speed": 3.1650029940119766,
+            "sample_count": 970,
+            "fastest_speed": 3.438532934131737,
+            "fastest_start_ms": 400.8,
+            "fastest_end_ms": 700.8,
+            "fastest_displacement": 1.0315598802395212,
+            "half_ms_p90": 3.1653652694610783
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000002",
+      "name": "P90 Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 3.378900094547748,
+        "windows": {
+          "100": {
+            "p90_speed": 4.387239520958082,
+            "sample_count": 1170,
+            "fastest_speed": 4.860359281437129,
+            "fastest_start_ms": 534.4,
+            "fastest_end_ms": 634.4,
+            "fastest_displacement": 0.4860359281437129,
+            "half_ms_p90": 4.3872485029940105
+          },
+          "200": {
+            "p90_speed": 3.909022455089822,
+            "sample_count": 1070,
+            "fastest_speed": 4.333967065868263,
+            "fastest_start_ms": 133.6,
+            "fastest_end_ms": 333.6,
+            "fastest_displacement": -0.8667934131736528,
+            "half_ms_p90": 3.9091976047904207
+          },
+          "300": {
+            "p90_speed": 3.1650029940119766,
+            "sample_count": 970,
+            "fastest_speed": 3.438532934131737,
+            "fastest_start_ms": 400.8,
+            "fastest_end_ms": 700.8,
+            "fastest_displacement": 1.0315598802395212,
+            "half_ms_p90": 3.1653652694610783
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000002",
+      "name": "P90 Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 3.378900094547748,
+        "windows": {
+          "100": {
+            "p90_speed": 4.387239520958082,
+            "sample_count": 1170,
+            "fastest_speed": 4.860359281437129,
+            "fastest_start_ms": 534.4,
+            "fastest_end_ms": 634.4,
+            "fastest_displacement": 0.4860359281437129,
+            "half_ms_p90": 4.3872485029940105
+          },
+          "200": {
+            "p90_speed": 3.909022455089822,
+            "sample_count": 1070,
+            "fastest_speed": 4.333967065868263,
+            "fastest_start_ms": 133.6,
+            "fastest_end_ms": 333.6,
+            "fastest_displacement": -0.8667934131736528,
+            "half_ms_p90": 3.9091976047904207
+          },
+          "300": {
+            "p90_speed": 3.1650029940119766,
+            "sample_count": 970,
+            "fastest_speed": 3.438532934131737,
+            "fastest_start_ms": 400.8,
+            "fastest_end_ms": 700.8,
+            "fastest_displacement": 1.0315598802395212,
+            "half_ms_p90": 3.1653652694610783
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000003",
+      "name": "Vector Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18020000003",
+      "name": "Vector Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18020000003",
+      "name": "Vector Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18020000004",
+      "name": "UZI Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.9481212784888098,
+        "windows": {
+          "100": {
+            "p90_speed": 2.9462356306892072,
+            "sample_count": 1362,
+            "fastest_speed": 3.579401820546165,
+            "fastest_start_ms": 668.9999999999999,
+            "fastest_end_ms": 768.9999999999999,
+            "fastest_displacement": 0.35794018205461653,
+            "half_ms_p90": 2.9487355006501947
+          },
+          "200": {
+            "p90_speed": 2.5615412223667096,
+            "sample_count": 1262,
+            "fastest_speed": 2.8321872561768533,
+            "fastest_start_ms": 568.9999999999999,
+            "fastest_end_ms": 768.9999999999999,
+            "fastest_displacement": 0.5664374512353707,
+            "half_ms_p90": 2.5616769830949275
+          },
+          "300": {
+            "p90_speed": 2.3405669700910274,
+            "sample_count": 1162,
+            "fastest_speed": 2.4159115734720427,
+            "fastest_start_ms": 615.1999999999999,
+            "fastest_end_ms": 915.1999999999999,
+            "fastest_displacement": 0.7247734720416128,
+            "half_ms_p90": 2.340801040312094
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000004",
+      "name": "UZI Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.9481212784888098,
+        "windows": {
+          "100": {
+            "p90_speed": 2.9462356306892072,
+            "sample_count": 1362,
+            "fastest_speed": 3.579401820546165,
+            "fastest_start_ms": 668.9999999999999,
+            "fastest_end_ms": 768.9999999999999,
+            "fastest_displacement": 0.35794018205461653,
+            "half_ms_p90": 2.9487355006501947
+          },
+          "200": {
+            "p90_speed": 2.5615412223667096,
+            "sample_count": 1262,
+            "fastest_speed": 2.8321872561768533,
+            "fastest_start_ms": 568.9999999999999,
+            "fastest_end_ms": 768.9999999999999,
+            "fastest_displacement": 0.5664374512353707,
+            "half_ms_p90": 2.5616769830949275
+          },
+          "300": {
+            "p90_speed": 2.3405669700910274,
+            "sample_count": 1162,
+            "fastest_speed": 2.4159115734720427,
+            "fastest_start_ms": 615.1999999999999,
+            "fastest_end_ms": 915.1999999999999,
+            "fastest_displacement": 0.7247734720416128,
+            "half_ms_p90": 2.340801040312094
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000004",
+      "name": "UZI Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.9481212784888098,
+        "windows": {
+          "100": {
+            "p90_speed": 2.9462356306892072,
+            "sample_count": 1362,
+            "fastest_speed": 3.579401820546165,
+            "fastest_start_ms": 668.9999999999999,
+            "fastest_end_ms": 768.9999999999999,
+            "fastest_displacement": 0.35794018205461653,
+            "half_ms_p90": 2.9487355006501947
+          },
+          "200": {
+            "p90_speed": 2.5615412223667096,
+            "sample_count": 1262,
+            "fastest_speed": 2.8321872561768533,
+            "fastest_start_ms": 568.9999999999999,
+            "fastest_end_ms": 768.9999999999999,
+            "fastest_displacement": 0.5664374512353707,
+            "half_ms_p90": 2.5616769830949275
+          },
+          "300": {
+            "p90_speed": 2.3405669700910274,
+            "sample_count": 1162,
+            "fastest_speed": 2.4159115734720427,
+            "fastest_start_ms": 615.1999999999999,
+            "fastest_end_ms": 915.1999999999999,
+            "fastest_displacement": 0.7247734720416128,
+            "half_ms_p90": 2.340801040312094
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000005",
+      "name": "Bizon Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.1885482938114522,
+        "windows": {
+          "100": {
+            "p90_speed": 2.2556456043956046,
+            "sample_count": 1630,
+            "fastest_speed": 2.4111263736263733,
+            "fastest_start_ms": 264,
+            "fastest_end_ms": 364,
+            "fastest_displacement": -0.24111263736263736,
+            "half_ms_p90": 2.2567582417582424
+          },
+          "200": {
+            "p90_speed": 2.0532609890109894,
+            "sample_count": 1530,
+            "fastest_speed": 2.3732142857142855,
+            "fastest_start_ms": 637,
+            "fastest_end_ms": 837,
+            "fastest_displacement": 0.47464285714285714,
+            "half_ms_p90": 2.0532609890109894
+          },
+          "300": {
+            "p90_speed": 1.9621840659340664,
+            "sample_count": 1430,
+            "fastest_speed": 2.2288186813186814,
+            "fastest_start_ms": 637,
+            "fastest_end_ms": 937,
+            "fastest_displacement": 0.6686456043956044,
+            "half_ms_p90": 1.9622252747252753
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000005",
+      "name": "Bizon Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.1885482938114522,
+        "windows": {
+          "100": {
+            "p90_speed": 2.2556456043956046,
+            "sample_count": 1630,
+            "fastest_speed": 2.4111263736263733,
+            "fastest_start_ms": 264,
+            "fastest_end_ms": 364,
+            "fastest_displacement": -0.24111263736263736,
+            "half_ms_p90": 2.2567582417582424
+          },
+          "200": {
+            "p90_speed": 2.0532609890109894,
+            "sample_count": 1530,
+            "fastest_speed": 2.3732142857142855,
+            "fastest_start_ms": 637,
+            "fastest_end_ms": 837,
+            "fastest_displacement": 0.47464285714285714,
+            "half_ms_p90": 2.0532609890109894
+          },
+          "300": {
+            "p90_speed": 1.9621840659340664,
+            "sample_count": 1430,
+            "fastest_speed": 2.2288186813186814,
+            "fastest_start_ms": 637,
+            "fastest_end_ms": 937,
+            "fastest_displacement": 0.6686456043956044,
+            "half_ms_p90": 1.9622252747252753
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000005",
+      "name": "Bizon Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.1885482938114522,
+        "windows": {
+          "100": {
+            "p90_speed": 2.2556456043956046,
+            "sample_count": 1630,
+            "fastest_speed": 2.4111263736263733,
+            "fastest_start_ms": 264,
+            "fastest_end_ms": 364,
+            "fastest_displacement": -0.24111263736263736,
+            "half_ms_p90": 2.2567582417582424
+          },
+          "200": {
+            "p90_speed": 2.0532609890109894,
+            "sample_count": 1530,
+            "fastest_speed": 2.3732142857142855,
+            "fastest_start_ms": 637,
+            "fastest_end_ms": 837,
+            "fastest_displacement": 0.47464285714285714,
+            "half_ms_p90": 2.0532609890109894
+          },
+          "300": {
+            "p90_speed": 1.9621840659340664,
+            "sample_count": 1430,
+            "fastest_speed": 2.2288186813186814,
+            "fastest_start_ms": 637,
+            "fastest_end_ms": 937,
+            "fastest_displacement": 0.6686456043956044,
+            "half_ms_p90": 1.9622252747252753
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000006",
+      "name": "SMG-45 Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.24660441426146,
+        "windows": {
+          "100": {
+            "p90_speed": 2.2383532258064514,
+            "sample_count": 1785,
+            "fastest_speed": 2.834854838709676,
+            "fastest_start_ms": 1289.6000000000001,
+            "fastest_end_ms": 1389.6000000000001,
+            "fastest_displacement": 0.2834854838709676,
+            "half_ms_p90": 2.2406709677419325
+          },
+          "200": {
+            "p90_speed": 2.21744758064516,
+            "sample_count": 1685,
+            "fastest_speed": 2.7134516129032247,
+            "fastest_start_ms": 1288.0000000000002,
+            "fastest_end_ms": 1488.0000000000002,
+            "fastest_displacement": 0.542690322580645,
+            "half_ms_p90": 2.2184788306451586
+          },
+          "300": {
+            "p90_speed": 2.086354032258065,
+            "sample_count": 1585,
+            "fastest_speed": 2.366596774193548,
+            "fastest_start_ms": 1190.4,
+            "fastest_end_ms": 1490.4,
+            "fastest_displacement": 0.7099790322580644,
+            "half_ms_p90": 2.0875997983870955
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000006",
+      "name": "SMG-45 Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.24660441426146,
+        "windows": {
+          "100": {
+            "p90_speed": 2.2383532258064514,
+            "sample_count": 1785,
+            "fastest_speed": 2.834854838709676,
+            "fastest_start_ms": 1289.6000000000001,
+            "fastest_end_ms": 1389.6000000000001,
+            "fastest_displacement": 0.2834854838709676,
+            "half_ms_p90": 2.2406709677419325
+          },
+          "200": {
+            "p90_speed": 2.21744758064516,
+            "sample_count": 1685,
+            "fastest_speed": 2.7134516129032247,
+            "fastest_start_ms": 1288.0000000000002,
+            "fastest_end_ms": 1488.0000000000002,
+            "fastest_displacement": 0.542690322580645,
+            "half_ms_p90": 2.2184788306451586
+          },
+          "300": {
+            "p90_speed": 2.086354032258065,
+            "sample_count": 1585,
+            "fastest_speed": 2.366596774193548,
+            "fastest_start_ms": 1190.4,
+            "fastest_end_ms": 1490.4,
+            "fastest_displacement": 0.7099790322580644,
+            "half_ms_p90": 2.0875997983870955
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000006",
+      "name": "SMG-45 Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.24660441426146,
+        "windows": {
+          "100": {
+            "p90_speed": 2.2383532258064514,
+            "sample_count": 1785,
+            "fastest_speed": 2.834854838709676,
+            "fastest_start_ms": 1289.6000000000001,
+            "fastest_end_ms": 1389.6000000000001,
+            "fastest_displacement": 0.2834854838709676,
+            "half_ms_p90": 2.2406709677419325
+          },
+          "200": {
+            "p90_speed": 2.21744758064516,
+            "sample_count": 1685,
+            "fastest_speed": 2.7134516129032247,
+            "fastest_start_ms": 1288.0000000000002,
+            "fastest_end_ms": 1488.0000000000002,
+            "fastest_displacement": 0.542690322580645,
+            "half_ms_p90": 2.2184788306451586
+          },
+          "300": {
+            "p90_speed": 2.086354032258065,
+            "sample_count": 1585,
+            "fastest_speed": 2.366596774193548,
+            "fastest_start_ms": 1190.4,
+            "fastest_end_ms": 1490.4,
+            "fastest_displacement": 0.7099790322580644,
+            "half_ms_p90": 2.0875997983870955
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000008",
+      "name": "SR-3M Compact Assault Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18020000008",
+      "name": "SR-3M Compact Assault Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18020000008",
+      "name": "SR-3M Compact Assault Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18020000009",
+      "name": "Vityaz Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.3722287047841304,
+        "windows": {
+          "100": {
+            "p90_speed": 2.0996455075845972,
+            "sample_count": 1529,
+            "fastest_speed": 2.2193593932322058,
+            "fastest_start_ms": 257.09999999999997,
+            "fastest_end_ms": 357.09999999999997,
+            "fastest_displacement": -0.2219359393232206,
+            "half_ms_p90": 2.0996994165694276
+          },
+          "200": {
+            "p90_speed": 2.0071744457409557,
+            "sample_count": 1429,
+            "fastest_speed": 2.176179113185531,
+            "fastest_start_ms": 257.09999999999997,
+            "fastest_end_ms": 457.09999999999997,
+            "fastest_displacement": -0.43523582263710625,
+            "half_ms_p90": 2.0074766627771283
+          },
+          "300": {
+            "p90_speed": 1.8168438739789958,
+            "sample_count": 1329,
+            "fastest_speed": 1.8995239206534418,
+            "fastest_start_ms": 599.8999999999999,
+            "fastest_end_ms": 899.8999999999999,
+            "fastest_displacement": 0.5698571761960325,
+            "half_ms_p90": 1.8171194087903535
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000009",
+      "name": "Vityaz Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.3722287047841304,
+        "windows": {
+          "100": {
+            "p90_speed": 2.0996455075845972,
+            "sample_count": 1529,
+            "fastest_speed": 2.2193593932322058,
+            "fastest_start_ms": 257.09999999999997,
+            "fastest_end_ms": 357.09999999999997,
+            "fastest_displacement": -0.2219359393232206,
+            "half_ms_p90": 2.0996994165694276
+          },
+          "200": {
+            "p90_speed": 2.0071744457409557,
+            "sample_count": 1429,
+            "fastest_speed": 2.176179113185531,
+            "fastest_start_ms": 257.09999999999997,
+            "fastest_end_ms": 457.09999999999997,
+            "fastest_displacement": -0.43523582263710625,
+            "half_ms_p90": 2.0074766627771283
+          },
+          "300": {
+            "p90_speed": 1.8168438739789958,
+            "sample_count": 1329,
+            "fastest_speed": 1.8995239206534418,
+            "fastest_start_ms": 599.8999999999999,
+            "fastest_end_ms": 899.8999999999999,
+            "fastest_displacement": 0.5698571761960325,
+            "half_ms_p90": 1.8171194087903535
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000009",
+      "name": "Vityaz Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 1.3722287047841304,
+        "windows": {
+          "100": {
+            "p90_speed": 2.0996455075845972,
+            "sample_count": 1529,
+            "fastest_speed": 2.2193593932322058,
+            "fastest_start_ms": 257.09999999999997,
+            "fastest_end_ms": 357.09999999999997,
+            "fastest_displacement": -0.2219359393232206,
+            "half_ms_p90": 2.0996994165694276
+          },
+          "200": {
+            "p90_speed": 2.0071744457409557,
+            "sample_count": 1429,
+            "fastest_speed": 2.176179113185531,
+            "fastest_start_ms": 257.09999999999997,
+            "fastest_end_ms": 457.09999999999997,
+            "fastest_displacement": -0.43523582263710625,
+            "half_ms_p90": 2.0074766627771283
+          },
+          "300": {
+            "p90_speed": 1.8168438739789958,
+            "sample_count": 1329,
+            "fastest_speed": 1.8995239206534418,
+            "fastest_start_ms": 599.8999999999999,
+            "fastest_end_ms": 899.8999999999999,
+            "fastest_displacement": 0.5698571761960325,
+            "half_ms_p90": 1.8171194087903535
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000010",
+      "name": "MP7 Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.8590405030737935,
+        "windows": {
+          "100": {
+            "p90_speed": 3.7063496366198514,
+            "sample_count": 1100,
+            "fastest_speed": 4.053042798106304,
+            "fastest_start_ms": 505.256,
+            "fastest_end_ms": 605.256,
+            "fastest_displacement": 0.40530427981063044,
+            "half_ms_p90": 3.706245135139414
+          },
+          "200": {
+            "p90_speed": 3.1960610985322284,
+            "sample_count": 1000,
+            "fastest_speed": 3.6360436056177456,
+            "fastest_start_ms": 126.31400000000001,
+            "fastest_end_ms": 326.314,
+            "fastest_displacement": -0.7272087211235492,
+            "half_ms_p90": 3.1986079326123797
+          },
+          "300": {
+            "p90_speed": 2.425374922811406,
+            "sample_count": 900,
+            "fastest_speed": 2.900038760549107,
+            "fastest_start_ms": 378.942,
+            "fastest_end_ms": 678.942,
+            "fastest_displacement": 0.8700116281647321,
+            "half_ms_p90": 2.42649996674953
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000010",
+      "name": "MP7 Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.8590405030737935,
+        "windows": {
+          "100": {
+            "p90_speed": 3.7063496366198514,
+            "sample_count": 1100,
+            "fastest_speed": 4.053042798106304,
+            "fastest_start_ms": 505.256,
+            "fastest_end_ms": 605.256,
+            "fastest_displacement": 0.40530427981063044,
+            "half_ms_p90": 3.706245135139414
+          },
+          "200": {
+            "p90_speed": 3.1960610985322284,
+            "sample_count": 1000,
+            "fastest_speed": 3.6360436056177456,
+            "fastest_start_ms": 126.31400000000001,
+            "fastest_end_ms": 326.314,
+            "fastest_displacement": -0.7272087211235492,
+            "half_ms_p90": 3.1986079326123797
+          },
+          "300": {
+            "p90_speed": 2.425374922811406,
+            "sample_count": 900,
+            "fastest_speed": 2.900038760549107,
+            "fastest_start_ms": 378.942,
+            "fastest_end_ms": 678.942,
+            "fastest_displacement": 0.8700116281647321,
+            "half_ms_p90": 2.42649996674953
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000010",
+      "name": "MP7 Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.8590405030737935,
+        "windows": {
+          "100": {
+            "p90_speed": 3.7063496366198514,
+            "sample_count": 1100,
+            "fastest_speed": 4.053042798106304,
+            "fastest_start_ms": 505.256,
+            "fastest_end_ms": 605.256,
+            "fastest_displacement": 0.40530427981063044,
+            "half_ms_p90": 3.706245135139414
+          },
+          "200": {
+            "p90_speed": 3.1960610985322284,
+            "sample_count": 1000,
+            "fastest_speed": 3.6360436056177456,
+            "fastest_start_ms": 126.31400000000001,
+            "fastest_end_ms": 326.314,
+            "fastest_displacement": -0.7272087211235492,
+            "half_ms_p90": 3.1986079326123797
+          },
+          "300": {
+            "p90_speed": 2.425374922811406,
+            "sample_count": 900,
+            "fastest_speed": 2.900038760549107,
+            "fastest_start_ms": 378.942,
+            "fastest_end_ms": 678.942,
+            "fastest_displacement": 0.8700116281647321,
+            "half_ms_p90": 2.42649996674953
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000011",
+      "name": "QCQ171 Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 3.5347529128163933,
+        "windows": {
+          "100": {
+            "p90_speed": 4.4698534351145005,
+            "sample_count": 1394,
+            "fastest_speed": 4.536549618320609,
+            "fastest_start_ms": 628.8000000000001,
+            "fastest_end_ms": 728.8000000000001,
+            "fastest_displacement": 0.4536549618320609,
+            "half_ms_p90": 4.470687022900761
+          },
+          "200": {
+            "p90_speed": 4.408549618320609,
+            "sample_count": 1294,
+            "fastest_speed": 4.50928244274809,
+            "fastest_start_ms": 628.8000000000001,
+            "fastest_end_ms": 828.8000000000001,
+            "fastest_displacement": 0.9018564885496181,
+            "half_ms_p90": 4.408625954198471
+          },
+          "300": {
+            "p90_speed": 4.293969465648856,
+            "sample_count": 1194,
+            "fastest_speed": 4.461343511450381,
+            "fastest_start_ms": 628.8000000000001,
+            "fastest_end_ms": 928.8000000000001,
+            "fastest_displacement": 1.3384030534351141,
+            "half_ms_p90": 4.293969465648856
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000011",
+      "name": "QCQ171 Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 3.5347529128163933,
+        "windows": {
+          "100": {
+            "p90_speed": 4.4698534351145005,
+            "sample_count": 1394,
+            "fastest_speed": 4.536549618320609,
+            "fastest_start_ms": 628.8000000000001,
+            "fastest_end_ms": 728.8000000000001,
+            "fastest_displacement": 0.4536549618320609,
+            "half_ms_p90": 4.470687022900761
+          },
+          "200": {
+            "p90_speed": 4.408549618320609,
+            "sample_count": 1294,
+            "fastest_speed": 4.50928244274809,
+            "fastest_start_ms": 628.8000000000001,
+            "fastest_end_ms": 828.8000000000001,
+            "fastest_displacement": 0.9018564885496181,
+            "half_ms_p90": 4.408625954198471
+          },
+          "300": {
+            "p90_speed": 4.293969465648856,
+            "sample_count": 1194,
+            "fastest_speed": 4.461343511450381,
+            "fastest_start_ms": 628.8000000000001,
+            "fastest_end_ms": 928.8000000000001,
+            "fastest_displacement": 1.3384030534351141,
+            "half_ms_p90": 4.293969465648856
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000011",
+      "name": "QCQ171 Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 3.5347529128163933,
+        "windows": {
+          "100": {
+            "p90_speed": 4.4698534351145005,
+            "sample_count": 1394,
+            "fastest_speed": 4.536549618320609,
+            "fastest_start_ms": 628.8000000000001,
+            "fastest_end_ms": 728.8000000000001,
+            "fastest_displacement": 0.4536549618320609,
+            "half_ms_p90": 4.470687022900761
+          },
+          "200": {
+            "p90_speed": 4.408549618320609,
+            "sample_count": 1294,
+            "fastest_speed": 4.50928244274809,
+            "fastest_start_ms": 628.8000000000001,
+            "fastest_end_ms": 828.8000000000001,
+            "fastest_displacement": 0.9018564885496181,
+            "half_ms_p90": 4.408625954198471
+          },
+          "300": {
+            "p90_speed": 4.293969465648856,
+            "sample_count": 1194,
+            "fastest_speed": 4.461343511450381,
+            "fastest_start_ms": 628.8000000000001,
+            "fastest_end_ms": 928.8000000000001,
+            "fastest_displacement": 1.3384030534351141,
+            "half_ms_p90": 4.293969465648856
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000012",
+      "name": "MK4 Submachine Gun",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18020000012",
+      "name": "MK4 Submachine Gun",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18020000012",
+      "name": "MK4 Submachine Gun",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18020000046",
+      "name": "Thompson Submachine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.651949405466862,
+        "windows": {
+          "100": {
+            "p90_speed": 3.587633483348336,
+            "sample_count": 1167,
+            "fastest_speed": 4.752223222322232,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 100,
+            "fastest_displacement": 0.4752223222322232,
+            "half_ms_p90": 3.5957893789378947
+          },
+          "200": {
+            "p90_speed": 3.047300450045002,
+            "sample_count": 1067,
+            "fastest_speed": 4.110147614761477,
+            "fastest_start_ms": 533.2799999999999,
+            "fastest_end_ms": 733.2799999999999,
+            "fastest_displacement": 0.8220295229522954,
+            "half_ms_p90": 3.048062466246622
+          },
+          "300": {
+            "p90_speed": 2.7657658565856598,
+            "sample_count": 967,
+            "fastest_speed": 3.252165616561657,
+            "fastest_start_ms": 533.2799999999999,
+            "fastest_end_ms": 833.2799999999999,
+            "fastest_displacement": 0.975649684968497,
+            "half_ms_p90": 2.766072247224724
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000046",
+      "name": "Thompson Submachine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.651949405466862,
+        "windows": {
+          "100": {
+            "p90_speed": 3.587633483348336,
+            "sample_count": 1167,
+            "fastest_speed": 4.752223222322232,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 100,
+            "fastest_displacement": 0.4752223222322232,
+            "half_ms_p90": 3.5957893789378947
+          },
+          "200": {
+            "p90_speed": 3.047300450045002,
+            "sample_count": 1067,
+            "fastest_speed": 4.110147614761477,
+            "fastest_start_ms": 533.2799999999999,
+            "fastest_end_ms": 733.2799999999999,
+            "fastest_displacement": 0.8220295229522954,
+            "half_ms_p90": 3.048062466246622
+          },
+          "300": {
+            "p90_speed": 2.7657658565856598,
+            "sample_count": 967,
+            "fastest_speed": 3.252165616561657,
+            "fastest_start_ms": 533.2799999999999,
+            "fastest_end_ms": 833.2799999999999,
+            "fastest_displacement": 0.975649684968497,
+            "half_ms_p90": 2.766072247224724
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18020000046",
+      "name": "Thompson Submachine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.651949405466862,
+        "windows": {
+          "100": {
+            "p90_speed": 3.587633483348336,
+            "sample_count": 1167,
+            "fastest_speed": 4.752223222322232,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 100,
+            "fastest_displacement": 0.4752223222322232,
+            "half_ms_p90": 3.5957893789378947
+          },
+          "200": {
+            "p90_speed": 3.047300450045002,
+            "sample_count": 1067,
+            "fastest_speed": 4.110147614761477,
+            "fastest_start_ms": 533.2799999999999,
+            "fastest_end_ms": 733.2799999999999,
+            "fastest_displacement": 0.8220295229522954,
+            "half_ms_p90": 3.048062466246622
+          },
+          "300": {
+            "p90_speed": 2.7657658565856598,
+            "sample_count": 967,
+            "fastest_speed": 3.252165616561657,
+            "fastest_start_ms": 533.2799999999999,
+            "fastest_end_ms": 833.2799999999999,
+            "fastest_displacement": 0.975649684968497,
+            "half_ms_p90": 2.766072247224724
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18030000001",
+      "name": "M1014 Shotgun",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18030000001",
+      "name": "M1014 Shotgun",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18030000001",
+      "name": "M1014 Shotgun",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18030000002",
+      "name": "S12K Shotgun",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18030000002",
+      "name": "S12K Shotgun",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18030000002",
+      "name": "S12K Shotgun",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18030000004",
+      "name": "M870 Shotgun",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18030000004",
+      "name": "M870 Shotgun",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18030000004",
+      "name": "M870 Shotgun",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18030000005",
+      "name": "725 Double Barrel Shotgun",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18030000005",
+      "name": "725 Double Barrel Shotgun",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18030000005",
+      "name": "725 Double Barrel Shotgun",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18030000006",
+      "name": "FS-12 Shotgun",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Source firing schedule is not modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18030000006",
+      "name": "FS-12 Shotgun",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Source firing schedule is not modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18030000006",
+      "name": "FS-12 Shotgun",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Source firing schedule is not modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18040000001",
+      "name": "PKM General Machine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.583582702575836,
+        "windows": {
+          "100": {
+            "p90_speed": 3.958769230769232,
+            "sample_count": 1605,
+            "fastest_speed": 5.438247491638795,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 100,
+            "fastest_displacement": -0.5438247491638796,
+            "half_ms_p90": 3.960155183946489
+          },
+          "200": {
+            "p90_speed": 2.590624749163874,
+            "sample_count": 1505,
+            "fastest_speed": 4.296003344481603,
+            "fastest_start_ms": 1504.3000000000006,
+            "fastest_end_ms": 1704.3000000000006,
+            "fastest_displacement": -0.8592006688963207,
+            "half_ms_p90": 2.590585953177259
+          },
+          "300": {
+            "p90_speed": 1.7777135637309534,
+            "sample_count": 1405,
+            "fastest_speed": 2.965484949832775,
+            "fastest_start_ms": 1404.3000000000006,
+            "fastest_end_ms": 1704.3000000000006,
+            "fastest_displacement": -0.8896454849498325,
+            "half_ms_p90": 1.7780735785953181
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18040000001",
+      "name": "PKM General Machine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.583582702575836,
+        "windows": {
+          "100": {
+            "p90_speed": 3.958769230769232,
+            "sample_count": 1605,
+            "fastest_speed": 5.438247491638795,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 100,
+            "fastest_displacement": -0.5438247491638796,
+            "half_ms_p90": 3.960155183946489
+          },
+          "200": {
+            "p90_speed": 2.590624749163874,
+            "sample_count": 1505,
+            "fastest_speed": 4.296003344481603,
+            "fastest_start_ms": 1504.3000000000006,
+            "fastest_end_ms": 1704.3000000000006,
+            "fastest_displacement": -0.8592006688963207,
+            "half_ms_p90": 2.590585953177259
+          },
+          "300": {
+            "p90_speed": 1.7777135637309534,
+            "sample_count": 1405,
+            "fastest_speed": 2.965484949832775,
+            "fastest_start_ms": 1404.3000000000006,
+            "fastest_end_ms": 1704.3000000000006,
+            "fastest_displacement": -0.8896454849498325,
+            "half_ms_p90": 1.7780735785953181
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18040000001",
+      "name": "PKM General Machine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 2.583582702575836,
+        "windows": {
+          "100": {
+            "p90_speed": 3.958769230769232,
+            "sample_count": 1605,
+            "fastest_speed": 5.438247491638795,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 100,
+            "fastest_displacement": -0.5438247491638796,
+            "half_ms_p90": 3.960155183946489
+          },
+          "200": {
+            "p90_speed": 2.590624749163874,
+            "sample_count": 1505,
+            "fastest_speed": 4.296003344481603,
+            "fastest_start_ms": 1504.3000000000006,
+            "fastest_end_ms": 1704.3000000000006,
+            "fastest_displacement": -0.8592006688963207,
+            "half_ms_p90": 2.590585953177259
+          },
+          "300": {
+            "p90_speed": 1.7777135637309534,
+            "sample_count": 1405,
+            "fastest_speed": 2.965484949832775,
+            "fastest_start_ms": 1404.3000000000006,
+            "fastest_end_ms": 1704.3000000000006,
+            "fastest_displacement": -0.8896454849498325,
+            "half_ms_p90": 1.7780735785953181
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18040000002",
+      "name": "M249 Light Machine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 4.723409381823656,
+        "windows": {
+          "100": {
+            "p90_speed": 7.2758483261802525,
+            "sample_count": 1229,
+            "fastest_speed": 8.948429184549358,
+            "fastest_start_ms": 878.5999999999998,
+            "fastest_end_ms": 978.5999999999998,
+            "fastest_displacement": 0.8948429184549358,
+            "half_ms_p90": 7.278561888412008
+          },
+          "200": {
+            "p90_speed": 6.0170309012875505,
+            "sample_count": 1129,
+            "fastest_speed": 6.2653519313304695,
+            "fastest_start_ms": 838.7999999999998,
+            "fastest_end_ms": 1038.7999999999997,
+            "fastest_displacement": 1.253070386266094,
+            "half_ms_p90": 6.019575107296139
+          },
+          "300": {
+            "p90_speed": 6.173042918454936,
+            "sample_count": 1029,
+            "fastest_speed": 6.687429184549353,
+            "fastest_start_ms": 888.3,
+            "fastest_end_ms": 1188.3,
+            "fastest_displacement": 2.006228755364806,
+            "half_ms_p90": 6.178805436337624
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18040000002",
+      "name": "M249 Light Machine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 4.723409381823656,
+        "windows": {
+          "100": {
+            "p90_speed": 7.2758483261802525,
+            "sample_count": 1229,
+            "fastest_speed": 8.948429184549358,
+            "fastest_start_ms": 878.5999999999998,
+            "fastest_end_ms": 978.5999999999998,
+            "fastest_displacement": 0.8948429184549358,
+            "half_ms_p90": 7.278561888412008
+          },
+          "200": {
+            "p90_speed": 6.0170309012875505,
+            "sample_count": 1129,
+            "fastest_speed": 6.2653519313304695,
+            "fastest_start_ms": 838.7999999999998,
+            "fastest_end_ms": 1038.7999999999997,
+            "fastest_displacement": 1.253070386266094,
+            "half_ms_p90": 6.019575107296139
+          },
+          "300": {
+            "p90_speed": 6.173042918454936,
+            "sample_count": 1029,
+            "fastest_speed": 6.687429184549353,
+            "fastest_start_ms": 888.3,
+            "fastest_end_ms": 1188.3,
+            "fastest_displacement": 2.006228755364806,
+            "half_ms_p90": 6.178805436337624
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18040000002",
+      "name": "M249 Light Machine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 4.723409381823656,
+        "windows": {
+          "100": {
+            "p90_speed": 7.2758483261802525,
+            "sample_count": 1229,
+            "fastest_speed": 8.948429184549358,
+            "fastest_start_ms": 878.5999999999998,
+            "fastest_end_ms": 978.5999999999998,
+            "fastest_displacement": 0.8948429184549358,
+            "half_ms_p90": 7.278561888412008
+          },
+          "200": {
+            "p90_speed": 6.0170309012875505,
+            "sample_count": 1129,
+            "fastest_speed": 6.2653519313304695,
+            "fastest_start_ms": 838.7999999999998,
+            "fastest_end_ms": 1038.7999999999997,
+            "fastest_displacement": 1.253070386266094,
+            "half_ms_p90": 6.019575107296139
+          },
+          "300": {
+            "p90_speed": 6.173042918454936,
+            "sample_count": 1029,
+            "fastest_speed": 6.687429184549353,
+            "fastest_start_ms": 888.3,
+            "fastest_end_ms": 1188.3,
+            "fastest_displacement": 2.006228755364806,
+            "half_ms_p90": 6.178805436337624
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18040000003",
+      "name": "M250 General Machine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 3.2684693384838237,
+        "windows": {
+          "100": {
+            "p90_speed": 5.292979357798165,
+            "sample_count": 1972,
+            "fastest_speed": 7.513761467889908,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 100,
+            "fastest_displacement": -0.7513761467889908,
+            "half_ms_p90": 5.278160550458717
+          },
+          "200": {
+            "p90_speed": 3.7742683486238553,
+            "sample_count": 1872,
+            "fastest_speed": 6.855424311926606,
+            "fastest_start_ms": 1871,
+            "fastest_end_ms": 2071,
+            "fastest_displacement": -1.3710848623853211,
+            "half_ms_p90": 3.768769495412844
+          },
+          "300": {
+            "p90_speed": 2.808803516819572,
+            "sample_count": 1772,
+            "fastest_speed": 5.0943195718654435,
+            "fastest_start_ms": 1771,
+            "fastest_end_ms": 2071,
+            "fastest_displacement": -1.5282958715596329,
+            "half_ms_p90": 2.808803516819572
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18040000003",
+      "name": "M250 General Machine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 3.2684693384838237,
+        "windows": {
+          "100": {
+            "p90_speed": 5.292979357798165,
+            "sample_count": 1972,
+            "fastest_speed": 7.513761467889908,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 100,
+            "fastest_displacement": -0.7513761467889908,
+            "half_ms_p90": 5.278160550458717
+          },
+          "200": {
+            "p90_speed": 3.7742683486238553,
+            "sample_count": 1872,
+            "fastest_speed": 6.855424311926606,
+            "fastest_start_ms": 1871,
+            "fastest_end_ms": 2071,
+            "fastest_displacement": -1.3710848623853211,
+            "half_ms_p90": 3.768769495412844
+          },
+          "300": {
+            "p90_speed": 2.808803516819572,
+            "sample_count": 1772,
+            "fastest_speed": 5.0943195718654435,
+            "fastest_start_ms": 1771,
+            "fastest_end_ms": 2071,
+            "fastest_displacement": -1.5282958715596329,
+            "half_ms_p90": 2.808803516819572
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18040000003",
+      "name": "M250 General Machine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 3.2684693384838237,
+        "windows": {
+          "100": {
+            "p90_speed": 5.292979357798165,
+            "sample_count": 1972,
+            "fastest_speed": 7.513761467889908,
+            "fastest_start_ms": 0,
+            "fastest_end_ms": 100,
+            "fastest_displacement": -0.7513761467889908,
+            "half_ms_p90": 5.278160550458717
+          },
+          "200": {
+            "p90_speed": 3.7742683486238553,
+            "sample_count": 1872,
+            "fastest_speed": 6.855424311926606,
+            "fastest_start_ms": 1871,
+            "fastest_end_ms": 2071,
+            "fastest_displacement": -1.3710848623853211,
+            "half_ms_p90": 3.768769495412844
+          },
+          "300": {
+            "p90_speed": 2.808803516819572,
+            "sample_count": 1772,
+            "fastest_speed": 5.0943195718654435,
+            "fastest_start_ms": 1771,
+            "fastest_end_ms": 2071,
+            "fastest_displacement": -1.5282958715596329,
+            "half_ms_p90": 2.808803516819572
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18040000004",
+      "name": "QJB 201 Light Machine Gun",
+      "mode": "bd",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 3.5541058142739033,
+        "windows": {
+          "100": {
+            "p90_speed": 5.006834528795809,
+            "sample_count": 1352,
+            "fastest_speed": 5.664984293193713,
+            "fastest_start_ms": 969.5999999999999,
+            "fastest_end_ms": 1069.6,
+            "fastest_displacement": -0.5664984293193713,
+            "half_ms_p90": 5.006588678010467
+          },
+          "200": {
+            "p90_speed": 4.44467192408377,
+            "sample_count": 1252,
+            "fastest_speed": 4.8269782722513055,
+            "fastest_start_ms": 1222.4,
+            "fastest_end_ms": 1422.4,
+            "fastest_displacement": -0.9653956544502611,
+            "half_ms_p90": 4.4449331479057586
+          },
+          "300": {
+            "p90_speed": 4.157005881326353,
+            "sample_count": 1152,
+            "fastest_speed": 4.315741186736472,
+            "fastest_start_ms": 1151.6000000000004,
+            "fastest_end_ms": 1451.6000000000004,
+            "fastest_displacement": -1.2947223560209413,
+            "half_ms_p90": 4.157234816753927
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18040000004",
+      "name": "QJB 201 Light Machine Gun",
+      "mode": "sol",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 3.5541058142739033,
+        "windows": {
+          "100": {
+            "p90_speed": 5.006834528795809,
+            "sample_count": 1352,
+            "fastest_speed": 5.664984293193713,
+            "fastest_start_ms": 969.5999999999999,
+            "fastest_end_ms": 1069.6,
+            "fastest_displacement": -0.5664984293193713,
+            "half_ms_p90": 5.006588678010467
+          },
+          "200": {
+            "p90_speed": 4.44467192408377,
+            "sample_count": 1252,
+            "fastest_speed": 4.8269782722513055,
+            "fastest_start_ms": 1222.4,
+            "fastest_end_ms": 1422.4,
+            "fastest_displacement": -0.9653956544502611,
+            "half_ms_p90": 4.4449331479057586
+          },
+          "300": {
+            "p90_speed": 4.157005881326353,
+            "sample_count": 1152,
+            "fastest_speed": 4.315741186736472,
+            "fastest_start_ms": 1151.6000000000004,
+            "fastest_end_ms": 1451.6000000000004,
+            "fastest_displacement": -1.2947223560209413,
+            "half_ms_p90": 4.157234816753927
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18040000004",
+      "name": "QJB 201 Light Machine Gun",
+      "mode": "mp",
+      "automatic": true,
+      "status": "modeled",
+      "reason": null,
+      "metrics": {
+        "raw_speed": 3.5541058142739033,
+        "windows": {
+          "100": {
+            "p90_speed": 5.006834528795809,
+            "sample_count": 1352,
+            "fastest_speed": 5.664984293193713,
+            "fastest_start_ms": 969.5999999999999,
+            "fastest_end_ms": 1069.6,
+            "fastest_displacement": -0.5664984293193713,
+            "half_ms_p90": 5.006588678010467
+          },
+          "200": {
+            "p90_speed": 4.44467192408377,
+            "sample_count": 1252,
+            "fastest_speed": 4.8269782722513055,
+            "fastest_start_ms": 1222.4,
+            "fastest_end_ms": 1422.4,
+            "fastest_displacement": -0.9653956544502611,
+            "half_ms_p90": 4.4449331479057586
+          },
+          "300": {
+            "p90_speed": 4.157005881326353,
+            "sample_count": 1152,
+            "fastest_speed": 4.315741186736472,
+            "fastest_start_ms": 1151.6000000000004,
+            "fastest_end_ms": 1451.6000000000004,
+            "fastest_displacement": -1.2947223560209413,
+            "half_ms_p90": 4.157234816753927
+          }
+        }
+      }
+    },
+    {
+      "weapon_id": "18050000002",
+      "name": "Mini-14 Marksman Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000002",
+      "name": "Mini-14 Marksman Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000002",
+      "name": "Mini-14 Marksman Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000003",
+      "name": "VSS Marksman Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000003",
+      "name": "VSS Marksman Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000003",
+      "name": "VSS Marksman Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000004",
+      "name": "SVD Sniper Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000004",
+      "name": "SVD Sniper Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000004",
+      "name": "SVD Sniper Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000005",
+      "name": "M14 Marksman Rifle",
+      "mode": "bd",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000005",
+      "name": "M14 Marksman Rifle",
+      "mode": "sol",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000005",
+      "name": "M14 Marksman Rifle",
+      "mode": "mp",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000006",
+      "name": "SKS Marksman Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000006",
+      "name": "SKS Marksman Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000006",
+      "name": "SKS Marksman Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000007",
+      "name": "SR-25 Marksman Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000007",
+      "name": "SR-25 Marksman Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000007",
+      "name": "SR-25 Marksman Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000008",
+      "name": "SR9 Marksman Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000008",
+      "name": "SR9 Marksman Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000008",
+      "name": "SR9 Marksman Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000031",
+      "name": "PSG-1 Marksman Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000031",
+      "name": "PSG-1 Marksman Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000031",
+      "name": "PSG-1 Marksman Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000032",
+      "name": "Lever-Action Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000032",
+      "name": "Lever-Action Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000032",
+      "name": "Lever-Action Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000033",
+      "name": "SVCH Marksman Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000033",
+      "name": "SVCH Marksman Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18050000033",
+      "name": "SVCH Marksman Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18060000007",
+      "name": "SV-98 Sniper Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18060000007",
+      "name": "SV-98 Sniper Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18060000007",
+      "name": "SV-98 Sniper Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18060000008",
+      "name": "R93 Sniper Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18060000008",
+      "name": "R93 Sniper Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18060000008",
+      "name": "R93 Sniper Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18060000009",
+      "name": "M700 Sniper Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18060000009",
+      "name": "M700 Sniper Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18060000009",
+      "name": "M700 Sniper Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18060000011",
+      "name": "AWM Sniper Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18060000011",
+      "name": "AWM Sniper Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18060000011",
+      "name": "AWM Sniper Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18060000033",
+      "name": "Barrett M82 Sniper Rifle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18060000033",
+      "name": "Barrett M82 Sniper Rifle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18060000033",
+      "name": "Barrett M82 Sniper Rifle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000002",
+      "name": "QSZ-92G",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000002",
+      "name": "QSZ-92G",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000002",
+      "name": "QSZ-92G",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000003",
+      "name": ".357 Revolver",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000003",
+      "name": ".357 Revolver",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000003",
+      "name": ".357 Revolver",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000004",
+      "name": "Desert Eagle",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000004",
+      "name": "Desert Eagle",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000004",
+      "name": "Desert Eagle",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000005",
+      "name": "G18",
+      "mode": "bd",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000005",
+      "name": "G18",
+      "mode": "sol",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000005",
+      "name": "G18",
+      "mode": "mp",
+      "automatic": true,
+      "status": "unavailable",
+      "reason": "Requested shots exceed this build magazine; no reload or silent truncation is modeled",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000006",
+      "name": "93R",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000006",
+      "name": "93R",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000006",
+      "name": "93R",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000010",
+      "name": "G17",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000010",
+      "name": "G17",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000010",
+      "name": "G17",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000033",
+      "name": "M1911",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000033",
+      "name": "M1911",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18070000033",
+      "name": "M1911",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18150000001",
+      "name": "Compound Bow",
+      "mode": "bd",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18150000001",
+      "name": "Compound Bow",
+      "mode": "sol",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    },
+    {
+      "weapon_id": "18150000001",
+      "name": "Compound Bow",
+      "mode": "mp",
+      "automatic": false,
+      "status": "unavailable",
+      "reason": "Weapon requires a prescribed single/burst trigger cadence; continuous hold is not supported",
+      "metrics": null
+    }
+  ]
+}

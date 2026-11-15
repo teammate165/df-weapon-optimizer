@@ -36,7 +36,8 @@ def build(destination):
     destination.mkdir(parents=True, exist_ok=True)
     # Copy only reviewed browser source types. Never copy local binary assets.
     for source in (ROOT / 'builder').rglob('*'):
-        if source.is_file() and source.suffix in ('.html', '.css', '.js'):
+        if source.is_file() and (source.suffix in ('.html', '.css', '.js') or
+                                 source.suffix == '.json' and 'weapon-layers' in source.parts):
             target = destination / source.relative_to(ROOT / 'builder')
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, target)
@@ -61,12 +62,12 @@ def build(destination):
     style += '\n.default-slot-icon,.slot-tile.active .default-slot-icon{background-color:transparent;opacity:.8}\n'
     css.write_text(style, 'utf-8')
     (destination / 'assets/slot-icons.js').write_text(icons.replace('"dfttk-slot-icons.webp"', json.dumps(atlas)), 'utf-8')
-    modules = ['builder_model', 'builder_stat_response', 'optimizer_engine', 'optimizer_policy', 'optimizer_presets', 'optimizer_selection', 'timed_recoil']
+    modules = ['builder_model', 'builder_stat_response', 'optimizer_engine', 'optimizer_mounts', 'optimizer_policy', 'optimizer_presets', 'optimizer_selection', 'timed_recoil', 'horizontal_speed']
     (destination / 'model').mkdir(exist_ok=True)
     for name in modules:
         shutil.copyfile(ROOT / f'tools/{name}.mjs', destination / f'model/{name}.mjs')
     (destination / 'runtime').mkdir(exist_ok=True)
-    for name in ('curves', 'kernel', 'attributes'):
+    for name in ('curves', 'kernel', 'attributes', 'laser_effects'):
         shutil.copyfile(REFERENCE / f'{name}.mjs', destination / f'runtime/{name}.mjs')
     data = catalog()
     data_dir = destination / 'data'
@@ -89,7 +90,7 @@ respective owners. This is an independent, unofficial project.
 
 Source model: dfttk snapshot `20261108-an94-bd-shop.1`. Global/Garena validation,
 prices and translations remain provisional. Optimization is best-found coordinate
-search using the experimental 30/40/30 proxy, without an optimality guarantee.
+search using the experimental 40/30/30 proxy, without an optimality guarantee.
 Saved builds stay in this browser's cookies; JSON export provides a backup.
 
 Published with GitHub Actions to GitHub Pages. Local preview:

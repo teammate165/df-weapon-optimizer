@@ -11,7 +11,7 @@ const definitions={
 };
 export function statResponse(pack,build,tunes,mode,attribute,calculate,kernel){
  const metrics=definitions[attribute];if(!metrics)throw Error('Unknown response stat');
- const reference=kernel.u(pack,build,{mode,tunes}),current=reference.numeric.mainAttr[attribute];
+ const reference=kernel.u(pack,build,{tacticalEffective:true,mode,tunes}),current=reference.numeric.mainAttr[attribute];
  const bucket=reference.numeric.buckets.get(`WeaponMainAttribute.MainAttrValues.${attribute}`);
  const scale=bucket?(1+bucket.multA)*bucket.multC:1;
  if(!Number.isFinite(current)||!Number.isFinite(scale)||scale===0)throw Error('Cannot isolate this main attribute');
@@ -21,10 +21,10 @@ export function statResponse(pack,build,tunes,mode,attribute,calculate,kernel){
  const effects=pack.effectsByItemId?.[pack.weaponId]?.[mode]??[];
  for(const x of xs){
   const probe={...pack,effectsByItemId:{...pack.effectsByItemId,[pack.weaponId]:{...pack.effectsByItemId[pack.weaponId],[mode]:[...effects,{operation:'StaticAttributeModify',target:`WeaponMainAttribute.MainAttrValues.${attribute}`,modifier:'Addend',value:(x-current)/scale,scope:'NONE'}]}}};
-  const numeric=kernel.u(probe,build,{mode,tunes}).numeric;
+  const numeric=kernel.u(probe,build,{tacticalEffective:true,mode,tunes}).numeric;
   if(Math.abs(numeric.mainAttr[attribute]-x)>1e-7)throw Error('Main-attribute probe did not reach its requested value');
   for(const id of ['3','4','5','6'])if(id!==attribute&&numeric.mainAttr[id]!==reference.numeric.mainAttr[id])throw Error('Probe changed another main stat');
-  const output=calculate(probe,{mode,resolvedLoadout:build,tunes,preservePrecision:true,trajectoryShotCount:2}).current;
+  const output=calculate(probe,{tacticalEffective:true,mode,resolvedLoadout:build,tunes,preservePrecision:true,trajectoryShotCount:2}).current;
   for(let i=0;i<metrics.length;i++){
    const value=metrics[i].slice(4).reduce((o,k)=>o?.[k],output);
    if(!Number.isFinite(value))throw Error('Unavailable curve metric: '+metrics[i][0]);

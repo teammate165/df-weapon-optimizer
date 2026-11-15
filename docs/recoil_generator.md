@@ -42,7 +42,7 @@ Generator JSON now also includes [timed ADS paths, climb diagnostics and exporta
 
 The [proposed perceived-recoil definition](perceived_recoil_score.md) now incorporates component-score research and validation in one task. Its climb-speed/camera/sight draft is not implemented here; this generator retains the experimental three-component proxy described below.
 
-This is an experimental within-weapon proxy, pending the existing controlled-test score-validation backlog. Default score is 100. Pattern, firing-camera shake, and random/spring weapon kick are normalized to the mode's default build, weighted 0.3/0.4/0.3. Override with `weights: {"pattern":0.3,"camera":0.4,"kick":0.3}`. Each component uses the Euclidean norm of its two source multipliers. All component values and weights are returned. `firing: "auto"` uses continuous recoil; `"spam"` uses source single/burst modifiers. This does not measure cadence, trajectory irregularity, rendered sight movement, optic magnification, or actual camera displacement. No post-fire recovery term is scored. Do not use these scores to rank different weapons.
+This is an experimental within-weapon proxy, pending the existing controlled-test score-validation backlog. Default score is 100. Pattern, firing-camera shake, and random/spring weapon kick are normalized to the mode's default build, weighted 0.4/0.3/0.3. Override with `weights: {"pattern":0.4,"camera":0.3,"kick":0.3}`. Each component uses the Euclidean norm of its two source multipliers. All component values and weights are returned. `firing: "auto"` uses continuous recoil; `"spam"` uses source single/burst modifiers. This does not measure cadence, trajectory irregularity, rendered sight movement, optic magnification, or actual camera displacement. No post-fire recovery term is scored. Do not use these scores to rank different weapons.
 
 Coordinate search re-resolves source sockets, dependencies, coupling, occupancy and mode restrictions, preserving fixed parts. It calibrates the initial build before purchases and screens replacement parts with source-declared endpoints, quartiles and default positions. Accepted incumbents search every declared position for each slider. Calibration has no attachment cost in this source model, so equally effective builds prefer lower cost, including the best-performance category. Replacements discard displaced tuning and validate retained positions against contextual ranges.
 
@@ -66,7 +66,7 @@ This is an engineering recommendation, not a benchmark result. Validate a solver
 
 Lowest Recoil uses the same lexicographic comparator as Highest Agility:
 
-1. Minimize the existing ADS-only pattern/camera/kick proxy (30/40/30 by default).
+1. Minimize the existing ADS-only pattern/camera/kick proxy (40/30/30 by default).
 2. Among equal recoil results, minimize `50 * (ADS_seconds / default_ADS_seconds + sprint_to_fire_seconds / default_sprint_to_fire_seconds)`.
 3. Among equal objective vectors, prefer lower cost.
 
@@ -76,8 +76,27 @@ Max follows that strict ordering. Min and Balanced retain their explicit price/p
 
 Reproduction: `node tests/agility_optimizer.mjs`, `node tests/optimizer_selection.mjs`, and the generator/backend integration suites. Tests prove that faster Handling can win at higher cost when recoil is tied, but cannot offset a real recoil loss. The shared preview uses Control for main attribute 3; detailed recoil metrics retain their own recoil labels.
 
-## Horizontal-span pattern update (2026-11-15)
+## Historical horizontal-span pattern update (superseded)
 
 Lowest Recoil uses `pattern = V + H + 1.5 * max(0, H - 1.5)` for supported automatic base builds: H is horizontal span and V is vertical excursion of exactly 20 post-shot ADS source-chart points. The threshold checks each candidate, not the base weapon. Marginal H weight is 1 below 1.5 and 2.5 above it. Normalize the resulting pattern by the default build evaluated with the same formula; preserve 30/40/30 pattern/camera/kick weights, Handling tie-breaking, price policies, locks and user-entered stat floors. This supersedes the multiplier-norm description above for eligible Lowest Recoil runs only. No automatic Handling minimum is introduced.
 
 Protocol eligibility is fixed from the base timed path. Short default magazines, single/burst/spam or unsupported source schedules retain the legacy multiplier score and an explicit limitation. Highest Agility retains its prior recoil tie-breaker. The chart score uses 20 points even if the display graph shot count changes; candidate magazines under 20 represent an abstract profile comparison. Returned components include pattern model/version, H, V, excess, threshold, marginal weight and window size. Source-model comparison only, not a validated perceived-recoil measurement.
+
+## Current horizontal-speed tiers (2026-11-15)
+
+For eligible Lowest Recoil runs, `pattern = V + multiplier(speed) * H`. H is `max(abs(x))` from the pre-fire origin; V is `max(y)-min(y)`. Both use exactly 20 post-shot ADS points. Speed is the candidate build's fastest complete 200 ms net-displacement window, using source firing cadence and exact piecewise-linear breakpoint evaluation: `max_t(abs(x(t+200ms)-x(t))/0.2s)`. P90 is not used.
+
+| Candidate speed (model units/s) | Horizontal multiplier |
+| --- | ---: |
+| Up to and including 3.0 | 1 |
+| Above 3.0, up to and including 4.0 | 2 |
+| Above 4.0, up to and including 5.0 | 3 |
+| Above 5.0 | 5 |
+
+Apply the multiplier to the whole H term, not just excess over a threshold. Tiers are discrete, so crossing a threshold produces a step in pattern loss. Candidate attachments/calibration and firing-rate effects can change the tier. Normalize against the default pattern computed with the same formula; preserve pattern/camera/kick weights 40/30/30, Handling ties, costs, locks, stat floors and legacy fallback eligibility. Highest Agility keeps its legacy recoil tie-breaker. Source timing starts at the first post-shot point; the first impulse has no assigned duration. Short candidate magazines remain abstract 20-point profile comparisons for eligible base weapons. Returned diagnostics include speed, multiplier, distance, span, vertical excursion and peak-window timestamps.
+
+Implementation: [exact speed helper](../tools/horizontal_speed.mjs), [preset](../tools/optimizer_presets.mjs). Validation: `node tests/horizontal_speed.mjs` and generator integration replay against the independent Python window analysis. This is a source-model heuristic, pending client/perception validation.
+
+## ADS recoil weights (2026-11-16)
+
+Default pattern/camera/weapon-kick weights are **40/30/30**, superseding earlier 30/40/30 defaults in historical records. Loss is `100 * (0.4 * pattern/default_pattern + 0.3 * camera/default_camera + 0.3 * kick/default_kick)`. This shared default also applies to Highest Agility's recoil tie-breaker. Explicit request weight overrides remain supported.

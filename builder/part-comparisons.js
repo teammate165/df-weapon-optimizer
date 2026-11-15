@@ -41,3 +41,29 @@ export function statChanges(before,after){
  }
  return changes;
 }
+
+// Conditional bonuses are intrinsic ON-versus-OFF effects, independent of the
+// equipped-part comparison (which can be zero for two equivalent lasers).
+export function tacticalBenefits(tactical){
+ const labels={
+  'WeaponMainAttribute.MainAttrValues.3':['Control',1],
+  'WeaponMainAttribute.MainAttrValues.4':['Accuracy',1],
+  'WeaponMainAttribute.MainAttrValues.5':['Handling',1],
+  'WeaponMainAttribute.MainAttrValues.6':['Stability',1],
+  GRecoil_H:['Horizontal recoil',-1],GRecoil_V:['Vertical recoil',-1],
+  GGunkickRandom:['Random weapon kick',-1],GGunkickSpring:['Spring weapon kick',-1],
+  GRecoil_HShake:['Horizontal camera shake',-1],GRecoil_VShake:['Vertical camera shake',-1],
+  'WeaponAppearanceTable.HoldBreathId.StandBreathFactor':['Standing breath sway',-1],
+  'WeaponAppearanceTable.HoldBreathId.CrouchBreathFactor':['Crouched breath sway',-1],
+  'WeaponAppearanceTable.HoldBreathId.ProneBreathFactor':['Prone breath sway',-1],
+ };
+ const benefits=[];
+ for(const op of tactical?.operations??[]){
+  const definition=labels[op.target];if(!definition)continue;
+  const delta=op.modifier==='Mult_C'?(op.value-1)*100:op.modifier==='Mult_A'?op.value*100:op.modifier==='Addend'?op.value:null;
+  if(!Number.isFinite(delta)||delta*definition[1]<=0)continue;
+  const value=Number(delta.toFixed(3));
+  benefits.push({label:definition[0],value:(value>0?'+':'')+value+(op.modifier==='Addend'?' pts':'%')});
+ }
+ return benefits;
+}

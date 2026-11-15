@@ -20,8 +20,8 @@ export async function executeModel(input,modules) {
     (tunes[mounted.slotPath]??={})[id]=value;
     controls.push({slotPath:mounted.slotPath,itemId:mounted.itemId,id,control,values,value});
   }
-  const stats=calculate(pack,{mode:r.mode,resolvedLoadout:build,tunes,preservePrecision:true,trajectoryShotCount:r.shot_count??20});
-  const numeric=kernel.u(pack,build,{mode:r.mode,tunes}).numeric;
+  const stats=calculate(pack,{tacticalEffective:true,mode:r.mode,resolvedLoadout:build,tunes,preservePrecision:true,trajectoryShotCount:r.shot_count??20});
+  const numeric=kernel.u(pack,build,{tacticalEffective:true,mode:r.mode,tunes}).numeric;
   const effective_stats=Object.fromEntries(Object.entries(statIds).map(([key,id])=>[key,numeric.mainAttr[id]]));
   let response_curve;
   if(r.response_stat!==undefined){
@@ -49,10 +49,14 @@ export async function executeModel(input,modules) {
         comparisons.push({itemId,available:true,stats:compact(stats.current)});continue;
       }
       try {
-        const current=calculate(pack,{mode:r.mode,resolvedLoadout:candidate,tunes:candidateTunes,preservePrecision:true,trajectoryShotCount:2}).current;
+        const current=calculate(pack,{tacticalEffective:true,mode:r.mode,resolvedLoadout:candidate,tunes:candidateTunes,preservePrecision:true,trajectoryShotCount:2}).current;
         comparisons.push({itemId,available:true,stats:compact(current)});
       }catch(error){comparisons.push({itemId,available:false,reason:error.message});}
     }
+  }
+  if(comparisons)for(const row of comparisons){
+    const operations=kernel.c(pack,row.itemId,r.mode).filter(op=>op.scope==='TacticalEffective');
+    if(operations.length)row.tactical={operations,included:kernel.l(pack,row.itemId,r.mode),stacking:'strongest_per_stat'};
   }
   const costs=r.mode==='bd'?shop.partCosts:prices;
   let total=0;const missing=[];

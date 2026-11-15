@@ -1,9 +1,12 @@
+import {imageLoaded,prepareImageCache} from './image-loading.js';
 import {createSavedBuildStore} from './saved-builds.js';
 import {slotIcons} from './assets/slot-icons.js';
 import {portraits} from './assets/portraits.js';
-import {statChanges,groupStatChanges,majorStatGroups} from './part-comparisons.js?v=control-20261113';
+import {statChanges,groupStatChanges,majorStatGroups,tacticalBenefits} from './part-comparisons.js?v=tactical-20261115';
 import {createStatResponseView} from './stat-response-view.js';
+import {createWeaponImage} from './weapon-layers.js';
 const $=id=>document.getElementById(id);
+const updateWeaponImage=createWeaponImage({canvas:$('gun-assembly'),fallback:$('gun-image'),caption:$('gun-image-caption')});
 const state={catalog:null,model:null,config:[],tunes:{},locks:new Set(),slot:null,preview:null,previewSerial:0,previewLoading:false,busy:false,tab:'builder',results:null,resultIndex:0,solutionPreview:null,solutionPreviewLoading:false};
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(v,d=1)=>Number.isFinite(v)?v.toLocaleString(undefined,{maximumFractionDigits:d}):'—';
@@ -29,22 +32,27 @@ for(const id of ['builder','optimizer']){$(`${id}-tab`).onclick=()=>tab(id);$(`$
 document.querySelectorAll('button[data-pane]').forEach(b=>b.onclick=()=>pane(b.dataset.pane));
 function asset(id){if(Object.hasOwn(portraits,id)&&portraits[id]===null)return null;const source=state.model?.display?.[id]?.imagePath??portraits[id];return source?new URL(source,'https://dfttk.com/').href:`https://playerhub.df.qq.com/playerhub/60004/object/${encodeURIComponent(id)}.png`;}
 function slotIcon(label){const s=label.toLowerCase();let path='M12 3 21 8v9l-9 5-9-5V8Z M8 10h8v6H8Z';if(s.includes('grip'))path='M7 3h11v5h-3l-2 13H7l2-13H7Z';else if(s.includes('stock'))path='M3 7h7l5-3h6v16h-4l-7-7H3Z M6 7v6';else if(s.includes('barrel')||s.includes('muzzle'))path='M2 9h17v6H2Z M19 7h3v10h-3 M6 9v6 M9 9v6';else if(s.includes('mag'))path='M7 3h10v8l3 8-8 3-4-10Z M10 7h4 M11 11h4 M12 15l4-1';else if(s.includes('optic')||s.includes('sight'))path='M4 7h16v9H4Z M4 7C0 7 0 16 4 16 M20 7c4 0 4 9 0 9 M9 16v4h7v-4 M8 4v3 M15 4v3';else if(s.includes('rail')||s.includes('patch'))path='M3 9h18v6H3Z M5 5v4 M9 5v4 M13 5v4 M17 5v4 M5 15v4 M9 15v4 M13 15v4 M17 15v4';return `<svg class="fallback-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="${path}" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>`;}
-function portrait(id,fallback='—',socketId){
- const rarity=state.model?.display?.[id]?.rarityId;const rarities={'紫':'purple','蓝':'blue','绿':'green','金':'gold','橙':'gold'};
+const rarityClass=id=>({'红':'red','橙':'red','金':'red','紫':'purple','蓝':'blue','绿':'green'}[state.model?.display?.[id]?.rarityId]??'');
+function portrait(id,fallback='—',socketId,eager=true){
+ const rarity=rarityClass(id);
  const url=id?asset(id):null;
- return `<span class="portrait ${url?'':'empty'} ${rarities[rarity]?'rarity-'+rarities[rarity]:''}">${socketId===undefined?slotIcon(fallback):defaultSlotIcon(socketId)}${url?`<img src="${esc(url)}" alt="" loading="lazy" decoding="async">`:''}</span>`;
+ return `<span class="portrait ${url&&!imageLoaded(url)?'image-loading':''} ${url?'':'empty'} ${rarity?'rarity-'+rarity:''}">${socketId===undefined?slotIcon(fallback):defaultSlotIcon(socketId)}${url?`<img src="${esc(url)}" alt="" loading="${eager?'eager':'lazy'}" decoding="async">`:''}</span>`;
 }
 document.addEventListener('error',event=>{if(event.target.tagName==='IMG')event.target.classList.add('failed');},true);
 async function evaluate({reset=false}={}){
  cancelLiveCalibration();
- clearPreview();if(reset){state.config=[];state.tunes={};state.locks.clear();state.slot=null;}
+ clearPreview();if(reset){clearResults();state.config=[];state.tunes={};state.locks.clear();state.slot=null;}
  setBusy(true);status('Resolving loadout…');
  try{const model=await api('evaluate',request());adopt(model);status('');}
  catch(error){if(state.model){state.config=structuredClone(state.model.build.config);state.tunes=structuredClone(state.model.tunes);$('mode').value=state.model.stats.mode;$('weapon').value=state.model.stats.weaponId;$('shots').value=state.model.stats.current.recoil.adsTrajectory.length;render();}status(error.message,true);}
  finally{setBusy(false);}
 }
 function adopt(model){
- const old=state.model;state.model=model;state.config=structuredClone(model.build.config);state.tunes=structuredClone(model.tunes);
+ const old=state.model;
+ // Context changes also enter here through saved builds. Invalidate pending
+ // solution requests before the new model can render an old workspace preview.
+ if(old&&(old.stats.weaponId!==model.stats.weaponId||old.stats.mode!==model.stats.mode)){clearPreview();clearResults();}
+ state.model=model;state.config=structuredClone(model.build.config);state.tunes=structuredClone(model.tunes);
  state.locks=new Set([...state.locks].filter(path=>model.build.mounted.some(m=>m.slotPath===path&&m.source==='equipped'&&(!old||m.itemId===old.build.mounted.find(o=>o.slotPath===path)?.itemId))));
  if(!model.build.slots.some(s=>s.slotPath===state.slot)){state.slot=model.build.slots[0]?.slotPath??null;$('part-search').value='';}
  render();
@@ -53,7 +61,6 @@ function render(){
  const mode=$('mode').value,w=state.catalog.weapons.find(w=>w.id===$('weapon').value),m=state.model;
  $('weapon-name').textContent=w.name;$('stage-title').textContent=w.name;
  $('cap').innerHTML=mode==='bd'?`TIER ${esc(w.tier?.tier)} · MODS <strong class="${m.cost>w.tier?.gunsmithLimit?'negative':''}">${fmt(m.cost,0)} / ${fmt(w.tier?.gunsmithLimit,0)}</strong> · TOTAL <strong>${fmt(m.cost+w.tier.price,0)}</strong>`:mode==='mp'?'WARFARE <strong>No budget</strong>':`MOD COST <strong>${fmt(m.cost,0)}</strong> · TOTAL <strong>${Number.isFinite(w.price)?fmt(m.cost+w.price,0):'Unavailable'}</strong>`;
- $('gun-image').classList.remove('failed');$('gun-image').src=asset(w.id);$('gun-image').alt=w.name+' base weapon reference';
  $('operations-budgets').hidden=mode!=='sol';
  $('category-info').hidden=false;
  $('budget-info').innerHTML=mode==='bd'?`Fixed weapon cap: <strong>${fmt(w.tier?.gunsmithLimit,0)}</strong>. Best performance plus affordable target builds.`:mode==='mp'?'<strong>No budget in Warfare.</strong> Max is unpriced; Balanced and Min are unavailable without price comparisons.':'One maximum budget; cheapest builds meeting your targets. Dated market quotes; weapon cost excluded.';
@@ -71,20 +78,29 @@ function renderSlots(){
  const order=[17,19,20,32,34,35,11,21,41,50,69,40,31,6,2,38,3,10,8,5,44,1,30];
  const slots=[...state.model.build.slots].sort((a,b)=>{const x=order.indexOf(a.socketId),y=order.indexOf(b.socketId);return (x<0?100+a.socketId:x)-(y<0?100+b.socketId:y)||a.slotPath.localeCompare(b.slotPath);});
  const areaFor=slot=>[2,6,77,72,39,4,27,37,46,65].includes(slot.socketId)?'left':[3,38,28,29,67,75].includes(slot.socketId)?'right':[10,8,5,12,44,1,30,53,66,68,43].includes(slot.socketId)?'bottom':'top';
- const top=slots.filter(slot=>areaFor(slot)==='top'),paths=new Set(top.map(slot=>slot.slotPath)),ordered=[],topFamilies=new Map();
- const parent=slot=>slot.slotPath.includes('/')?slot.slotPath.slice(0,slot.slotPath.lastIndexOf('/')):null;
- function appendWithChildren(slot){ordered.push(slot);for(const child of top.filter(s=>parent(s)===slot.slotPath))appendWithChildren(child);}
- for(const slot of top.filter(s=>!paths.has(parent(s))))appendWithChildren(slot);
- // A riser/scope is followed immediately by the sockets that it provides.
- for(const slot of [...ordered,...slots.filter(s=>areaFor(s)!=='top')]){const part=mounted(slot.slotPath),explicit=part?.source==='equipped',item=explicit?part.itemId:null;
- const html=`<button class="slot-tile ${state.slot===slot.slotPath?'active':''} ${explicit?'mounted':''} ${state.locks.has(slot.slotPath)?'locked':''}" data-slot="${esc(slot.slotPath)}" aria-pressed="${state.slot===slot.slotPath}" aria-label="${esc(slotName(slot)+' socket '+slot.slotPath)}" title="${esc(slotName(slot)+' / '+slot.slotPath+' / '+(item?name(item):slot.defaultItemId?'Bundled default':'Empty'))}">${item?portrait(item,slotName(slot),slot.socketId):defaultSlotIcon(slot.socketId)}<span class="tile-copy"><strong>${esc(slotName(slot))}</strong><small>${item?esc(name(item)):slot.defaultItemId?'Default':'Empty'}</small></span></button>`;
+ const topRows={rails:new Map(),patches:new Map(),raised:[],other:[]};
+ const railIds=[17,19,20,18],patchIds=[32,34,35,33];
+ const raisedIds=[21,41,50,69,40];
+ const isRaised=slot=>raisedIds.includes(slot.socketId)||slots.some(parent=>raisedIds.includes(parent.socketId)&&slot.slotPath.startsWith(parent.slotPath+'/'));
+ for(const slot of slots){const part=mounted(slot.slotPath),explicit=part?.source==='equipped',item=explicit?part.itemId:null;
+ const html=`<button class="slot-tile ${state.slot===slot.slotPath?'active':''} ${explicit?'mounted rarity-'+rarityClass(item):''} ${state.locks.has(slot.slotPath)?'locked':''}" data-slot="${esc(slot.slotPath)}" aria-pressed="${state.slot===slot.slotPath}" aria-label="${esc(slotName(slot)+' socket '+slot.slotPath)}" title="${esc(slotName(slot)+' / '+slot.slotPath+' / '+(item?name(item):slot.defaultItemId?'Bundled default':'Empty'))}">${item?portrait(item,slotName(slot),slot.socketId):defaultSlotIcon(slot.socketId)}<span class="tile-copy"><strong>${esc(slotName(slot))}</strong><small>${item?esc(name(item)):slot.defaultItemId?'Default':'Empty'}</small></span></button>`;
  const area=areaFor(slot);
- if(area==='top'){
-  let root=slot;while(paths.has(parent(root)))root=top.find(s=>s.slotPath===parent(root));
-  if(!topFamilies.has(root.slotPath))topFamilies.set(root.slotPath,[]);topFamilies.get(root.slotPath).push(html);
- }else rails[area].push(html);
+ if(area!=='top'){rails[area].push(html);continue;}
+ if(railIds.includes(slot.socketId)){
+  topRows.rails.set(slot.socketId,(topRows.rails.get(slot.socketId)??'')+html);
+ }else if(patchIds.includes(slot.socketId)){
+  topRows.patches.set(slot.socketId,(topRows.patches.get(slot.socketId)??'')+html);
+ }else if(isRaised(slot)){topRows.raised.push({html,path:slot.slotPath});
+ }else if(slot.socketId===11||slot.socketId===31||slot.socketId===14){
+  topRows.patches.set(slot.socketId,(topRows.patches.get(slot.socketId)??'')+html);
+ }else topRows.other.push(html);
  }
- rails.top=[...topFamilies].map(([path,items])=>items.length>1?`<div class="slot-family" data-slot-family="${esc(path)}">${items.join('')}</div>`:items[0]);
+ const cell=(map,id)=>`<div class="accessory-cell" data-socket-cell="${id}">${map.get(id)??''}</div>`;
+ const directions=railIds.map((id,i)=>i).filter(i=>topRows.rails.has(railIds[i])||topRows.patches.has(patchIds[i]));
+ const extraColumns=Math.max(3+topRows.other.length,topRows.raised.length);
+ const columns=directions.length+extraColumns;
+ rails.top=[`<div class="accessory-row" data-accessory-row="patches" style="--accessory-columns:${columns}">${directions.map(i=>cell(topRows.patches,patchIds[i])).join('')}<div class="raised-sights" style="grid-column:span ${extraColumns}" aria-label="Raised sights">${topRows.raised.sort((a,b)=>a.path.localeCompare(b.path,undefined,{numeric:true})).map(item=>item.html).join('')}</div></div>`,
+ `<div class="accessory-row" data-accessory-row="rails" style="--accessory-columns:${columns}">${directions.map(i=>cell(topRows.rails,railIds[i])).join('')}${[11,31,14].map(id=>cell(topRows.patches,id)).join('')}${topRows.other.map(html=>`<div class="accessory-cell">${html}</div>`).join('')}</div>`];
  for(const area of Object.keys(rails))$(`slots-${area}`).innerHTML=rails[area].join('');
  document.querySelectorAll('[data-slot]').forEach(button=>button.onclick=()=>{clearPreview();state.slot=button.dataset.slot;$('part-search').value='';tab('builder');renderSlots();renderParts();renderTuning();renderStats();drawGraph();updateActions();pane('parts');status(`${slotName(selectedSlot())} selected - Preview a part to compare.`);});
 }
@@ -94,9 +110,9 @@ function renderParts(){
  $('slot-title').textContent=slotName(slot);const hidden=$('mode').value==='bd'?state.catalog.shop.hiddenItemIds:[];
  const ids=['',...new Set(slot.options.filter(id=>!hidden.includes(id)))],query=$('part-search').value.trim().toLowerCase();
  const costs=$('mode').value==='bd'?state.catalog.shop.partCosts:state.catalog.prices;
- const tiers={'绿':2,'蓝':3,'紫':4,'金':5,'橙':6};
+ const tiers={'红':5,'橙':5,'金':5,'紫':4,'蓝':3,'绿':2};
  const tier=id=>tiers[state.model.display?.[id]?.rarityId]??0;
- const filtered=ids.filter(id=>!query||(id?name(id)+' '+id:'default none').toLowerCase().includes(query)).sort((a,b)=>Number(b===equippedId())-Number(a===equippedId())||tier(a)-tier(b)||(costs[a]??Infinity)-(costs[b]??Infinity)||name(a).localeCompare(name(b)));
+ const filtered=ids.filter(id=>!query||(id?name(id)+' '+id:'default none').toLowerCase().includes(query)).sort((a,b)=>Number(b===equippedId())-Number(a===equippedId())||tier(b)-tier(a)||(costs[a]??Infinity)-(costs[b]??Infinity)||name(a).localeCompare(name(b)));
  $('part-count').textContent=`${filtered.length} / ${ids.length}`;
  const previousScroll=$('parts-list').scrollTop;
  $('parts-list').innerHTML=filtered.map(id=>`<button class="part-card ${id===equippedId()?'equipped':''} ${id===(state.preview?.id??equippedId())?'selected':''}" data-part="${esc(id)}" aria-pressed="${id===(state.preview?.id??equippedId())}" title="${esc(id?name(id)+' · '+id:'Restore default / remove selection')}">${portrait(id,slotName(slot),slot.socketId)}<span class="part-copy"><span class="part-name">${id?esc(name(id)):slot.defaultItemId?'Default (bundled)':'No attachment'}</span><span class="part-changes" data-part-changes="${esc(id)}">Comparing stats...</span><small><span>${esc(costText(id))}</span>${id===equippedId()?'<b>EQUIPPED</b>':''}</small></span></button>`).join('')||'<p class="helper">No matching attachments.</p>';
@@ -119,6 +135,12 @@ async function refreshPartComparisons(){
  if(key!==comparisonKey())return;paintPartSummaries(entry);if(tooltipCard?.isConnected&&!partTooltip.hidden)fillPartTooltip(tooltipCard,entry);
 }
 function changesFor(entry,id){const row=entry?.items?.get(id);return row?.available?statChanges(entry.before,row.stats):[];}
+function tacticalMarkup(row){
+ if(!row?.available)return '';
+ const benefits=tacticalBenefits(row?.tactical);if(!benefits.length)return '';
+ const caption=row.tactical.included?'When ON · Included in totals · strongest bonus only':'When deployed · Not included in totals';
+ return `<span class="tactical-benefits"><span class="tactical-caption">${caption}</span>${benefits.map(b=>`<span class="benefit">${esc(b.label)} ${esc(b.value)}</span>`).join(' / ')}</span>`;
+}
 function paintPartSummaries(entry){
  document.querySelectorAll('[data-part-changes]').forEach(element=>{
   if(entry.loading){element.textContent='Comparing stats...';return;}if(entry.error){element.textContent='Comparison unavailable';return;}
@@ -126,6 +148,7 @@ function paintPartSummaries(entry){
   if(!row?.available){element.textContent='Not compatible with this build';return;}
   const major=changes.filter(change=>change.path.startsWith('panel.'));
   element.innerHTML=major.length?major.map(change=>`<span class="${change.tone}">${esc(majorStatGroups.find(g=>'panel.'+g.key===change.path)?.title??change.label)} ${signedPartNumber(change.delta)}</span>`).join(' / '):`<span class="neutral">${changes.length?'Detailed effects only':'No stat change'}</span>`;
+  element.innerHTML+=tacticalMarkup(row);
  });
 }
 function hidePartTooltip(){clearTimeout(tooltipHideTimer);if(partTooltip)partTooltip.hidden=true;if(tooltipCard)tooltipCard.removeAttribute('aria-describedby');tooltipCard=null;}
@@ -139,7 +162,7 @@ function showPartTooltip(card){
 function fillPartTooltip(card,entry){
  const id=card.dataset.part,row=entry?.items?.get(id),changes=changesFor(entry,id),title=id?name(id):selectedSlot()?.defaultItemId?'Default (bundled)':'No attachment';
  const body=entry?.error?`<p class="helper">${esc(entry.error)}</p>`:!entry||entry.loading?'<p class="helper">Calculating source-model changes...</p>':!row?.available?`<p class="helper">${esc(row?.reason??'Comparison unavailable')}</p>`:!changes.length?'<p class="helper">No modeled stat changes from the equipped build.</p>':`<table><thead><tr><th>Stat</th><th>Equipped</th><th>This part</th></tr></thead><tbody>${groupStatChanges(changes).map(group=>`<tr class="comparison-group"><th scope="rowgroup">${esc(group.title)}${group.summary?' <small>pts</small>':''}</th>${group.summary?`<td>${partNumber(group.summary.before)}</td><td class="${group.summary.tone}">${partNumber(group.summary.after)} <span class="inline-change">(${signedPartNumber(group.summary.delta)})</span></td>`:'<td></td><td></td>'}</tr>${group.details.map(change=>`<tr class="comparison-detail"><th>${esc(change.label)} <small>${esc(change.unit)}</small></th><td>${partNumber(change.before)}</td><td class="${change.tone}">${partNumber(change.after)} <span class="inline-change">(${signedPartNumber(change.delta)})</span></td></tr>`).join('')}`).join('')}</tbody></table>`;
- partTooltip.innerHTML=`<div class="tooltip-heading"><strong>${esc(title)}</strong><span>${esc(costText(id))}</span></div><p class="tooltip-context">Compared with equipped build / replacement at default calibration</p>${body}`;
+ partTooltip.innerHTML=`<div class="tooltip-heading"><strong>${esc(title)}</strong><span>${esc(costText(id))}</span></div><p class="tooltip-context">Compared with equipped build / replacement at default calibration</p>${tacticalMarkup(row)}${body}`;
  const box=card.getBoundingClientRect(),width=Math.min(400,innerWidth-24);partTooltip.style.width=width+'px';
  const left=box.right+12+width<=innerWidth-12?box.right+12:Math.max(12,box.left-width-12);
  partTooltip.style.left=left+'px';partTooltip.style.top=Math.max(12,Math.min(box.top,innerHeight-partTooltip.offsetHeight-12))+'px';
@@ -218,6 +241,8 @@ const groups=majorStatGroups.map(g=>[g.title,g.key,g.detail]);
 const detailLabels={autoVertical:'Auto vertical ×',autoHorizontal:'Auto horizontal ×',singleVertical:'Single vertical ×',singleHorizontal:'Single horizontal ×',fireWeaponStability:'Weapon kick ratio',gunKickHorizontal:'Horizontal kick ×',gunKickVertical:'Vertical kick ×',adsTimeMs:'ADS time (ms)',sprintToFireMs:'Sprint to fire (ms)',adsMoveSpeed:'ADS speed (m/s)',walkSpeed:'Walk speed (m/s)',sprintSpeed:'Sprint speed (m/s)',reloadTime:'Tactical reload (s)',emptyReloadTime:'Empty reload (s)',holsterTime:'Equip time (s, source)',drawTime:'Holster time (s, source)',breathRangeDeg:'Breath sway (°)',holdBreathSeconds:'Hold breath (s)',holdBreathRecoilScale:'Held recoil ×',beHitScale:'Hit sway ×',moveStability:'Movement stability',fireCameraStability:'Firing camera ratio',hipSpreadDeg:'Standing spread (°)',maxSpreadDeg:'Max hip spread (°)',aimSpreadDeg:'ADS spread (°)',aimMaxSpreadDeg:'Max ADS spread (°)',uiFactor:'UI scale ×'};
 function renderStats(){
  if(!state.model)return;const {base,current}=viewed().stats,eq=state.model.stats.current;
+ const imageModel=viewed(),imageWeapon=state.catalog.weapons.find(w=>w.id===imageModel.stats.weaponId);
+ updateWeaponImage(imageModel,asset(imageModel.stats.weaponId),imageWeapon?.name??imageModel.stats.weaponId);
  $('stats-context').textContent=state.preview?'PREVIEW / DELTAS VS EQUIPPED':state.tab==='optimizer'&&state.solutionPreviewLoading?'LOADING SOLUTION PREVIEW':state.tab==='optimizer'&&state.solutionPreview?'SOLUTION PREVIEW / '+state.solutionPreview.label.toUpperCase()+' / DELTAS VS DEFAULT':'EQUIPPED / DELTAS VS DEFAULT';
  const extraLabels={legend_moving:'Moving spread (deg)',legend_idle:'Idle spread (deg)',legend_max:'Max spread (deg)',breathLegend_normal:'Normal breath sway',breathLegend_held:'Held breath sway',breathLegend_unstable:'Unstable breath sway'};
  const numericRows=detail=>Object.entries(detail??{}).flatMap(([k,v])=>typeof v==='number'?[[k,v]]:v&&typeof v==='object'&&!Array.isArray(v)?Object.entries(v).filter(([,n])=>typeof n==='number').map(([child,n])=>[k+'_'+child,n]):[]);
@@ -257,7 +282,7 @@ function updatePreset(){
  info.onmouseenter=explain;info.onmouseleave=hideAccuracyInfo;info.onfocus=explain;info.onblur=hideAccuracyInfo;info.onclick=explain;info.onkeydown=e=>{if(e.key==='Escape')hideAccuracyInfo();};
  box.querySelector('p').textContent=preset.priorities;
  $('category-info').textContent='Max / Balanced / Min. Cheaper choices retain at least 50% of best improvement. No duplicate builds.';
- $('optimizer-model-note').textContent=agility?'Minimize hip-fire spread, then ADS/sprint-to-fire times, then ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Automatic pattern penalizes horizontal span above 1.5 model units at 2.5x marginal weight. Unsupported firing protocols retain the multiplier proxy. Best found; experimental proxy.';
+ $('optimizer-model-note').textContent=agility?'Minimize hip-fire spread, then ADS/sprint-to-fire times, then ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Automatic pattern uses horizontal distance from origin, weighted by candidate fastest 200 ms speed: 1x up to 3, 2x above 3, 3x above 4, 5x above 5 model units/s. Unsupported firing protocols retain the multiplier proxy. Best found; experimental proxy.';
 }
 $('optimizer-preset').onchange=()=>{clearResults();updatePreset();renderStats();drawGraph();};
 $('generate').onclick=async()=>{
@@ -339,7 +364,7 @@ function showAccuracyInfo(button,run){
 }
 document.addEventListener('pointerdown',e=>{if(!e.target.closest('.optimizer-score-info'))hideAccuracyInfo();});
 window.addEventListener('resize',hideAccuracyInfo);document.addEventListener('scroll',hideAccuracyInfo,true);
-function renderWeapons(){const query=$('weapon-search').value.toLowerCase().trim();$('weapon-list').innerHTML=state.catalog.weapons.filter(w=>(w.name+' '+w.id).toLowerCase().includes(query)).map(w=>`<button class="part-card ${w.id===$('weapon').value?'selected':''}" data-weapon="${esc(w.id)}">${portrait(w.id,'GUN')}<span><span class="part-name">${esc(w.name)}</span><small>${w.tier?'Tier '+esc(w.tier.tier)+' · '+fmt(w.tier.gunsmithLimit,0)+' cap':'Catalog weapon'}</small></span></button>`).join('')||'<p class="helper">No matching weapons.</p>';
+function renderWeapons(){const query=$('weapon-search').value.toLowerCase().trim();$('weapon-list').innerHTML=state.catalog.weapons.filter(w=>(w.name+' '+w.id).toLowerCase().includes(query)).map(w=>`<button class="part-card ${w.id===$('weapon').value?'selected':''}" data-weapon="${esc(w.id)}">${portrait(w.id,'GUN',undefined,false)}<span><span class="part-name">${esc(w.name)}</span><small>${w.tier?'Tier '+esc(w.tier.tier)+' · '+fmt(w.tier.gunsmithLimit,0)+' cap':'Catalog weapon'}</small></span></button>`).join('')||'<p class="helper">No matching weapons.</p>';
  document.querySelectorAll('[data-weapon]').forEach(button=>button.onclick=()=>{$('weapon').value=button.dataset.weapon;$('weapon-dialog').close();evaluate({reset:true});});
 }
 $('choose-weapon').onclick=()=>{$('weapon-search').value='';renderWeapons();$('weapon-dialog').showModal();$('weapon-search').focus();};$('close-weapons').onclick=()=>$('weapon-dialog').close();$('weapon-search').oninput=renderWeapons;
@@ -383,6 +408,7 @@ $('save-build-form').onsubmit=event=>{
  try{const saved=savedBuilds.save(saveDraft,$('save-build-name').value);renderSavedBuilds();$('saved-build-status').textContent=`Saved ${saved.name}.`;}catch(error){$('saved-build-status').textContent=error.message;}
 };
 $('export').onclick=()=>{const blob=new Blob([JSON.stringify({request:request(),locked_slots:[...state.locks],model:state.model,optimization:state.results},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`delta-${$('weapon').value}-${$('mode').value}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+await prepareImageCache();
 try{setBusy(true);const response=await fetch('/api/catalog');if(!response.ok)throw Error('Catalog unavailable');state.catalog=await response.json();state.catalog.weapons.sort((a,b)=>a.name.localeCompare(b.name));$('weapon').value='18010000001';await evaluate();}catch(error){status(error.message,true);}
 
 $('open-source-notes').onclick=()=>$('source-notes-dialog').showModal();
