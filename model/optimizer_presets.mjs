@@ -1,5 +1,5 @@
-import {timedRecoil} from './timed_recoil.mjs?v=d9e647a2a2b1ee40';
-import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=d9e647a2a2b1ee40';
+import {timedRecoil} from './timed_recoil.mjs?v=4ff8cb158b5ce7d6';
+import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=4ff8cb158b5ce7d6';
 // Each preset supplies lower-is-better normalized loss plus diagnostic components.
 // The engine is independent of the particular game metrics being optimized.
 export const horizontalPatternLoss=(vertical,horizontal,speed)=>vertical+horizontalSpeedMultiplier(speed)*horizontal;

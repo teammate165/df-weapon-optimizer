@@ -1,7 +1,7 @@
 // Shared heuristic attachment screening. A discarded combination can still be
 // optimal after calibration. Production ranking is comparator-driven; the
 // sampled/diversity selector below is retained for offline experiments.
-import {compareObjectives,shortfall} from './optimizer_policy.mjs?v=d9e647a2a2b1ee40';
+import {compareObjectives,shortfall} from './optimizer_policy.mjs?v=4ff8cb158b5ce7d6';
 
 export const attachmentGateFraction=.05;
 

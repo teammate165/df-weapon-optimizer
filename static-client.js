@@ -1,6 +1,6 @@
 // Module workers keep optimization off the interface thread.
 export function createStaticClient() {
-  const worker=new Worker(new URL('./static-worker.js?v=d9e647a2a2b1ee40',import.meta.url),{type:'module'});
+  const worker=new Worker(new URL('./static-worker.js?v=4ff8cb158b5ce7d6',import.meta.url),{type:'module'});
   const pending=new Map();let serial=0;let failed;
   worker.onmessage=({data})=>{
     const task=pending.get(data.id);if(!task)return;
