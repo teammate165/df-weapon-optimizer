@@ -37,7 +37,7 @@ The explorer marks whether lower or higher is favorable for each metric. A 100% 
 
 The x-axis is the **effective main attribute**, not the independently rounded `DisplayAttrValues` panel. The probe intentionally changes the main value without changing the independent display bucket. Normal attachments often change both, but direct/hidden effects can make the panel an imperfect proxy. Every response records both default main and displayed values.
 
-Most mappings use a change from the weapon's raw base main attribute, not the absolute point value. Handling ADS time uses an absolute mapping. Curves use endpoint clamping, linear or cubic Hermite segments, and source modifier stacking; their shapes are not assumed linear. See [calibration arithmetic and mapping order](dfttk_calibration_source_trace.md).
+Most mappings use a change from the weapon's raw base main attribute, not the absolute point value. Handling ADS time uses an absolute mapping. Curves use endpoint clamping, linear or cubic Hermite segments, and source modifier stacking; their shapes are not assumed linear. See [calibration arithmetic and mapping order](weapon_calibration.md#dfttk-calibration-source-trace).
 
 ## Weapon and mode differences
 

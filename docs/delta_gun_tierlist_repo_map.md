@@ -43,7 +43,7 @@ Open this map first. Pick the smallest set of files and symbols relevant to the 
 
 ## Local dfttk source refresh (2026-11-12)
 
-AN94-specific paths above (`data/tables/weapons/18010000052.json`, `data/game/profiles.json`, `src/engine/weapon_state.py`) were reverified against upstream commit `67abdb7a2e9472bd13dc3fe091fcb6b724e12d69`. This does not update the initial-import revision for other paths. See [AN94 source trace](an94_recoil_source.md) for hashes and comparison with dfttk's builder chart/lab.
+AN94-specific paths above (`data/tables/weapons/18010000052.json`, `data/game/profiles.json`, `src/engine/weapon_state.py`) were reverified against upstream commit `67abdb7a2e9472bd13dc3fe091fcb6b724e12d69`. This does not update the initial-import revision for other paths. See [AN94 source trace](an94_automatic_timing.md#an94-recoil-source) for hashes and comparison with dfttk's builder chart/lab.
 
 The project database now also contains direct dfttk snapshot `09f820e0d3ada199-abdb2e6ebdd3`, data version `20261108-an94-bd-shop.1`. The original upstream revision above remains the initial-import provenance. For current mode-specific local stats, use `weapon_mode_stats`, `part_mode_stats`, `weapon_library_stats`, and raw context inputs; see [database sync documentation](dfttk_database_sync.md). User direction gives dfttk precedence on catalog conflicts. Prices and manual translations remain separately sourced; Garena-client equivalence is unverified.
 

@@ -130,7 +130,11 @@ def main():
         'Matching uses model identifiers with punctuation/case normalization and explicit provisional identity hypotheses for four translated names. AKS-74U is not assumed to equal the page’s AKS-74. 腾龙 → CI-19 remains an unconfirmed hypothesis and was not applied. Attachments are outside this page’s scope.', '',
         f'{"Applied" if applied else "Preview only"}: {added} new provisional names. Existing nonblank entries are preserved, including notes/status. A missing wiki match does not mean a weapon is absent from the game.', '',
         '| Weapon ID | Catalog name | Wiki candidate | Action | Match basis |', '| --- | --- | --- | --- | --- |', *rows, '']
-    (ROOT / 'docs' / 'firearms_wiki_matching.md').write_text('\n'.join(report), encoding='utf-8')
+    report_path = ROOT / 'docs' / 'firearms_wiki_matching.md'
+    marker = '<!-- preserved-source-evidence -->'
+    previous = report_path.read_text(encoding='utf-8') if report_path.exists() else ''
+    appendix = '\n\n' + marker + previous.split(marker, 1)[1].rstrip() if marker in previous else ''
+    report_path.write_text(('\n'.join(report)).rstrip() + appendix + '\n', encoding='utf-8')
     print(f'{"Applied" if applied else "Preview"}: {added} new names; {sum("unmatched |" in row for row in rows)} unfilled weapons. Report: docs/firearms_wiki_matching.md')
 
 

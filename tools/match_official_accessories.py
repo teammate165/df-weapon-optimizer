@@ -106,12 +106,16 @@ def main():
         f'{len(official)} official accessories; {len(matches)} exact ID matches; {len(missing)} selectable catalog accessories absent from this source.', '',
         f'{"Applied" if applied else "Preview"}: {len(added)} missing names filled provisionally; all {len(before)} existing entries preserved. {len(differences)} existing accessory names differ from the official name and were kept.', '',
         'Names are linked by shared item ID, not fuzzy text translation. The official Chinese locale is Traditional Chinese; the local original is Simplified Chinese. Official-source matching does not establish current in-game patch verification. Internal components and weapons are outside this import.', '',
-        'Machine-readable pairs, source links, unmatched IDs, and existing-name differences: `data/official_accessory_names.json` (written on apply). Source discovery: [official_wiki_accessory_source.md](official_wiki_accessory_source.md).', '',
+        'Machine-readable pairs, source links, unmatched IDs, and existing-name differences: `data/official_accessory_names.json` (written on apply). Source discovery: [source discovery](official_wiki_accessory_matching.md#official-wiki-accessory-source).', '',
         'Reproduce: `uv run --no-project tools/match_official_accessories.py` (preview); add `--apply` to fill missing names. Existing names/status/notes are preserved.', '',
         '## Examples', '', '| Item ID | Catalog original | Official English | Official Chinese (Traditional) |', '| --- | --- | --- | --- |']
     for item_id, match in list(matches.items())[:8]:
         report.append(f'| `{item_id}` | {match["original"]} | {match["english"]} | {match["traditional_chinese"]} |')
-    (ROOT / 'docs' / 'official_wiki_accessory_matching.md').write_text('\n'.join(report) + '\n', encoding='utf-8')
+    report_path = ROOT / 'docs' / 'official_wiki_accessory_matching.md'
+    marker = '<!-- preserved-source-evidence -->'
+    previous = report_path.read_text(encoding='utf-8') if report_path.exists() else ''
+    appendix = '\n\n' + marker + previous.split(marker, 1)[1].rstrip() if marker in previous else ''
+    report_path.write_text(('\n'.join(report) + '\n').rstrip() + appendix + '\n', encoding='utf-8')
     print(f'{"Applied" if applied else "Preview"}: {len(matches)} exact matches; {len(added)} new names; {len(differences)} differing existing names preserved; {len(missing)} unmatched selectable accessories.')
 
 
