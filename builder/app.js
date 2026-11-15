@@ -281,6 +281,7 @@ function updatePreset(){
  const info=$('optimizer-score-info'),explain=()=>showAccuracyInfo(info,{preset:$('optimizer-preset').value});
  info.onmouseenter=explain;info.onmouseleave=hideAccuracyInfo;info.onfocus=explain;info.onblur=hideAccuracyInfo;info.onclick=explain;info.onkeydown=e=>{if(e.key==='Escape')hideAccuracyInfo();};
  box.querySelector('p').textContent=preset.priorities;
+ $('optimizer-search-note').textContent='Top 5% attachment screening · Best found';
  $('category-info').textContent='Max / Balanced / Min. Cheaper choices retain at least 50% of best improvement. No duplicate builds.';
  $('optimizer-model-note').textContent=agility?'Weighted loss: 50% Handling (equal normalized ADS/sprint-to-fire times), 30% idle hip-fire spread, 20% ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Automatic pattern uses horizontal distance from origin, weighted by candidate fastest 200 ms speed: 1x up to 3, 2x above 3, 3x above 4, 5x above 5 model units/s. Unsupported firing protocols retain the multiplier proxy. Best found; experimental proxy.';
 }
