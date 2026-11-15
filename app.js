@@ -1,11 +1,11 @@
-import {createStaticClient} from './static-client.js?v=e6e3c470b921ffef';
-import {imageLoaded,prepareImageCache} from './image-loading.js?v=e6e3c470b921ffef';
-import {createSavedBuildStore} from './saved-builds.js?v=e6e3c470b921ffef';
-import {slotIcons} from './assets/slot-icons.js?v=e6e3c470b921ffef';
-import {portraits} from './assets/portraits.js?v=e6e3c470b921ffef';
-import {statChanges,groupStatChanges,majorStatGroups,tacticalBenefits} from './part-comparisons.js?v=e6e3c470b921ffef';
-import {createStatResponseView} from './stat-response-view.js?v=e6e3c470b921ffef';
-import {createWeaponImage} from './weapon-layers.js?v=e6e3c470b921ffef';
+import {createStaticClient} from './static-client.js?v=67909c847800af3a';
+import {imageLoaded,prepareImageCache} from './image-loading.js?v=67909c847800af3a';
+import {createSavedBuildStore} from './saved-builds.js?v=67909c847800af3a';
+import {slotIcons} from './assets/slot-icons.js?v=67909c847800af3a';
+import {portraits} from './assets/portraits.js?v=67909c847800af3a';
+import {statChanges,groupStatChanges,majorStatGroups,tacticalBenefits} from './part-comparisons.js?v=67909c847800af3a';
+import {createStatResponseView} from './stat-response-view.js?v=67909c847800af3a';
+import {createWeaponImage} from './weapon-layers.js?v=67909c847800af3a';
 const $=id=>document.getElementById(id);
 const updateWeaponImage=createWeaponImage({canvas:$('gun-assembly'),fallback:$('gun-image'),caption:$('gun-image-caption')});
 const state={catalog:null,model:null,config:[],tunes:{},locks:new Set(),slot:null,preview:null,previewSerial:0,previewLoading:false,busy:false,tab:'builder',results:null,resultIndex:0,solutionPreview:null,solutionPreviewLoading:false};
@@ -272,7 +272,7 @@ function drawGraph(){if(!state.model)return;const key=$('view').value,{base,curr
 // Presets share controls, constraints and solution rendering; add display metadata here.
 const presetTemplates={
  recoil:{title:'Lowest Recoil',priorities:'1. ADS recoil / 2. Handling'},
- agility:{title:'Highest Agility',priorities:'1. Handling (50%) / 2. Hip-fire spread (30%) / 3. ADS recoil (20%)'}
+ agility:{title:'Highest Agility',priorities:'1. Handling / 2. Hip-fire spread / 3. ADS recoil'}
 };
 function updatePreset(){
  const preset=presetTemplates[$('optimizer-preset').value],agility=$('optimizer-preset').value==='agility',box=document.querySelector('.objective');
