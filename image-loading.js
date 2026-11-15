@@ -28,7 +28,7 @@ new MutationObserver(records => {
 export async function prepareImageCache() {
   if (!('serviceWorker' in navigator) || !window.isSecureContext) return;
   try {
-    await navigator.serviceWorker.register(new URL('./image-cache-sw.js?v=67909c847800af3a', import.meta.url), {scope: './'});
+    await navigator.serviceWorker.register(new URL('./image-cache-sw.js?v=d9e647a2a2b1ee40', import.meta.url), {scope: './'});
     if (!navigator.serviceWorker.controller) {
       await Promise.race([
         new Promise(resolve => navigator.serviceWorker.addEventListener('controllerchange', resolve, {once: true})),

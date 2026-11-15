@@ -1,19 +1,21 @@
-import {completeRiserOptics} from './optimizer_mounts.mjs?v=67909c847800af3a';
-import {timedRecoil} from './timed_recoil.mjs?v=67909c847800af3a';
-import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=67909c847800af3a';
-import {presets} from './optimizer_presets.mjs?v=67909c847800af3a';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=67909c847800af3a';
+import {completeRiserOptics} from './optimizer_mounts.mjs?v=d9e647a2a2b1ee40';
+import {timedRecoil} from './timed_recoil.mjs?v=d9e647a2a2b1ee40';
+import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=d9e647a2a2b1ee40';
+import {presets} from './optimizer_presets.mjs?v=d9e647a2a2b1ee40';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=d9e647a2a2b1ee40';
+import {attachmentGateFraction,retainTopAttachmentCandidates} from './attachment_gate.mjs?v=d9e647a2a2b1ee40';
 
 async function loadRuntime(directory) {
   const {pathToFileURL}=await import('node:url');
   const path=await import('node:path');
-  const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=67909c847800af3a')));
-  const kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=67909c847800af3a')));
-  const {t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=67909c847800af3a')));
+  const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=d9e647a2a2b1ee40')));
+  const kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=d9e647a2a2b1ee40')));
+  const {t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=d9e647a2a2b1ee40')));
   return {curves,kernel,calculate};
 }
 
-// Best-found coordinate search; all mounting/coupling and effect arithmetic use
+// Best-found top-5% attachment screening and coordinate calibration. All presets
+// share this search; all mounting/coupling and effect arithmetic use
 // the preserved source resolver. No source UI heuristics enter the objective.
 export async function generate(input, runtime) {
   const {curves,kernel,calculate} = typeof runtime === 'object' ? runtime : await loadRuntime(runtime);
@@ -63,6 +65,7 @@ export async function generate(input, runtime) {
   const results=[];
   const cache=new Map();
   let frontier=[];
+  const attachmentGate={fraction:attachmentGateFraction,scope:'complete compatible replacement configurations per search pass',screening:'default calibration',screened:0,retained:0,neighborhoods:0,global_optimality:false};
   const targetLoss=(anchor,target)=>anchor.score>=100?anchor.score:100-(100-anchor.score)*target/100;
   // Normalize tuning whenever equipment changes: old values cannot leak into a
   // replacement part with different calibration ranges.
@@ -78,7 +81,7 @@ export async function generate(input, runtime) {
   };
   const search=(budget,seed,targetScore=null)=>{
     const better=comparator(settings.minimums,targetScore);
-    const evaluateSingle=(config,tunes={})=>{
+    const evaluateSingle=(config,tunes={},collectFrontier=true)=>{
       const build=resolve(config);
       if(!retains(build))return null;
       // Extra enabled devices cannot supply extra bonuses. Preserve explicitly
@@ -107,7 +110,7 @@ export async function generate(input, runtime) {
       }
       const signature=JSON.stringify([build.mounted.map(m=>[m.slotPath,m.itemId]).sort(),effectiveTunes.sort()]);
       const candidate={config:build.config,tunes,...metrics,cost:quote.total,build,signature};
-      if(shortfall(candidate.stats,settings.minimums)<1e-8 && !frontier.some(c=>compareObjectives(c,candidate)<=0 && (c.cost??0)<=(candidate.cost??0))){
+      if(collectFrontier&&shortfall(candidate.stats,settings.minimums)<1e-8 && !frontier.some(c=>compareObjectives(c,candidate)<=0 && (c.cost??0)<=(candidate.cost??0))){
         frontier=frontier.filter(c=>!(compareObjectives(candidate,c)<=0 && (candidate.cost??0)<=(c.cost??0)));
         frontier.push(candidate);
       }
@@ -128,9 +131,9 @@ export async function generate(input, runtime) {
         const control=curves.c(pack,mounted,id);
         if(!control||control.enabled===false)continue;
         const positions=curves.n(control);
-        // Replacement screening includes both endpoints and intermediate
-        // trade-offs. Incumbent calibration searches every legal position.
-        const probes=changedPath===null?positions:[...new Set([positions[0],positions[Math.floor((positions.length-1)/4)],positions[Math.floor((positions.length-1)/2)],positions[Math.floor(3*(positions.length-1)/4)],positions.at(-1),control.range.defaultValue])];
+        // Only retained attachment configurations reach this stage. Search
+        // every legal position of each eligible control, one control at a time.
+        const probes=positions;
         for(const value of probes){
           const tunes=structuredClone(best.tunes);
           (tunes[mounted.slotPath]??={})[id]=value;
@@ -145,6 +148,7 @@ export async function generate(input, runtime) {
     let converged=false;
     for(let pass=0;pass<passes;pass++) {
       let changed=false;
+      const screened=[];
       for (const slot of best.build.slots) {
         if (fixed.some(f=>f.slotPath===slot.slotPath)) continue;
         for(const itemId of [null,...slot.options]) {
@@ -154,9 +158,22 @@ export async function generate(input, runtime) {
           // Retain tuning only for unchanged items, then tune this candidate
           // before comparing it with a more expensive attachment combination.
           const retained=Object.fromEntries(Object.entries(best.tunes).filter(([path])=>path!==slot.slotPath&&!path.startsWith(slot.slotPath+'/')));
-          const candidate=tune(evaluate(config,retained),slot.slotPath);
-          if(candidate&&better(candidate,best)){best=tune(candidate);changed=true;}
+          // Complete required optics before pricing/ranking the entire setup.
+          // Default tuning determines the gate; incumbent tuning is restored
+          // only for unchanged parts after a setup survives screening.
+          for(const completed of completeRiserOptics(pack,resolve(config),resolve,fixed)){
+            const candidate=evaluateSingle(completed.config,{},false);
+            if(candidate)screened.push({...candidate,changedPath:slot.slotPath,retainedTunes:retained});
+          }
         }
+      }
+      const gate=retainTopAttachmentCandidates(screened,better);
+      attachmentGate.screened+=gate.screened;
+      attachmentGate.retained+=gate.retained.length;
+      attachmentGate.neighborhoods++;
+      for(const candidate of gate.retained){
+        const calibrated=tune(evaluateSingle(candidate.config,candidate.retainedTunes),candidate.changedPath);
+        if(calibrated&&better(calibrated,best)){best=calibrated;changed=true;}
       }
       const calibrated=tune(best);
       if(better(calibrated,best)){best=calibrated;changed=true;}
@@ -228,5 +245,5 @@ export async function generate(input, runtime) {
       else seen.add(row.signature);
     }
   }
-  return {weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:!settings.automatic?'custom_targets':settings.preset==='agility'?'weighted':objectives?'lexicographic':'automatic',objective_names:objectiveNames,limitations,cheapest_gate_percent:mode==='mp'?null:cheapestGate,minimum_stats:settings.minimums,effectiveness_definition:settings.preset==='agility'?'Weighted improvement: 50% handling, 30% hip accuracy, 20% ADS recoil':'ADS recoil improvement over default; Handling breaks recoil ties',experimental:true,method:'Coordinate search; no global optimality guarantee',score_model:presets[settings.preset].description,weights,baseline,baseline_stats,baseline_score:0,baseline_loss:100,score_direction:'higher',score_definition:'Percent reduction of primary loss from the default build; default = 0; higher is better',baseline_recoil_path:baselinePath,tier,provenance:input.provenance,results};
+  return {weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:!settings.automatic?'custom_targets':settings.preset==='agility'?'weighted':objectives?'lexicographic':'automatic',objective_names:objectiveNames,limitations:[...limitations,'Default-tuned attachment screening retains the top 5% of compatible replacements per pass; calibration is coordinate search over legal positions. Heuristic best found, not global optimality.'],attachment_gate:attachmentGate,cheapest_gate_percent:mode==='mp'?null:cheapestGate,minimum_stats:settings.minimums,effectiveness_definition:settings.preset==='agility'?'Weighted improvement: 50% handling, 30% hip accuracy, 20% ADS recoil':'ADS recoil improvement over default; Handling breaks recoil ties',experimental:true,method:'Top 5% attachment screening + coordinate calibration; no global optimality guarantee',score_model:presets[settings.preset].description,weights,baseline,baseline_stats,baseline_score:0,baseline_loss:100,score_direction:'higher',score_definition:'Percent reduction of primary loss from the default build; default = 0; higher is better',baseline_recoil_path:baselinePath,tier,provenance:input.provenance,results};
 }

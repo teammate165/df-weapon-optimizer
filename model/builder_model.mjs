@@ -1,6 +1,6 @@
-import {generate} from './optimizer_engine.mjs?v=67909c847800af3a';
-import {statResponse} from './builder_stat_response.mjs?v=67909c847800af3a';
-import {statIds} from './optimizer_policy.mjs?v=67909c847800af3a';
+import {generate} from './optimizer_engine.mjs?v=d9e647a2a2b1ee40';
+import {statResponse} from './builder_stat_response.mjs?v=d9e647a2a2b1ee40';
+import {statIds} from './optimizer_policy.mjs?v=d9e647a2a2b1ee40';
 
 export async function executeModel(input,modules) {
   if(input.action==='optimize')return generate(input,modules);
