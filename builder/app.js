@@ -271,7 +271,7 @@ function drawGraph(){if(!state.model)return;const key=$('view').value,{base,curr
 // Presets share controls, constraints and solution rendering; add display metadata here.
 const presetTemplates={
  recoil:{title:'Lowest Recoil',priorities:'1. ADS recoil / 2. Handling'},
- agility:{title:'Highest Agility',priorities:'1. Handling (50%) / 2. Hip-fire spread (30%) / 3. ADS recoil (20%)'}
+ agility:{title:'Highest Agility',priorities:'1. Handling / 2. Hip-fire spread / 3. ADS recoil'}
 };
 function updatePreset(){
  const preset=presetTemplates[$('optimizer-preset').value],agility=$('optimizer-preset').value==='agility',box=document.querySelector('.objective');
