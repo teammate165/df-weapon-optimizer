@@ -162,3 +162,11 @@ The uncommitted `part:13030000194` translation was preserved in the source worki
 Local repository-subpath checks pass: both presets/cache/score-tooltip layout, eight exact calculator comparisons, real six-pass optimization/Apply/save/reload, portrait preview/fallback/retry and responsive layouts. Two parallel browser starts timed out; independent reload was clean and the isolated checks passed. Published release token and nine critical files match the committed Git blobs (comparison uses normalized committed bytes, not Windows working-tree line endings). [Artifact verification](../.scratch/browser-qa/publish-live-artifacts.json), [local browser report](../.scratch/browser-qa/publish-local-static-report.json).
 
 Final public-site verification passed: eight exact browser/backend comparisons, real six-pass worker optimization/Apply, saved-build persistence, three viewport widths, no page errors or backend requests. The weapon/mode invalidation test (including delayed old responses), spinner-only initial/update loading and portrait preview/cancel/equip/failure/keyboard-retry checks also pass at the production repository URL. [Live browser evidence](../.scratch/browser-qa/publish-live-static-report.json).
+
+## Weighted agility release (2026-11-16)
+
+Published source `e84a28b` as generated `9ee8f9a`, release `e6e3c470b921ffef`. [Successful deployment](https://github.com/teammate165/df-weapon-optimizer/actions/runs/43747655986).
+
+Highest Agility now uses default-normalized Handling/hip spread/ADS recoil weights 50/30/20. Panel retains numbered slash-separated format with percentages; score and category floors use weighted improvement. Existing recoil metric definitions remain.
+
+Eight generator integration tests pass. Local subpath checks pass for exact calculator results, optimization/Apply/save/reload, both presets and cache/layout. Live browser checks confirm the label, weights, independent weighted-loss calculation, both presets, versioned dependencies and desktop/mobile score tooltips with no page errors/backend calls. Reproduction: `.scratch/browser-qa/agility-weighted-release.cjs` and `tests/github_pages.cjs`. Uncommitted translations and unrelated research edits were excluded.
