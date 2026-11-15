@@ -10,7 +10,7 @@ const handlingLoss=(components,baseline)=>{
 export const presets = {
   agility: {
     label:'Highest Agility',
-    description:'Strict hip-fire spread / handling / ADS recoil hierarchy. Accuracy minimizes idle hip-fire spread; maximum spread is excluded. Handling averages default-normalized ADS and sprint-to-fire times. Ordinary ADS ranks airborne ADS under the shared-scaling assumption. Recoil is the shared provisional ADS-only pattern/camera/kick proxy.',
+    description:'Weighted handling / hip-fire accuracy / ADS recoil loss: 50/30/20. Accuracy minimizes idle hip-fire spread; maximum spread is excluded. Handling averages default-normalized ADS and sprint-to-fire times. Ordinary ADS ranks airborne ADS under the shared-scaling assumption. Recoil is the shared provisional ADS-only pattern/camera/kick proxy.',
     create(context) {
       const {pack,kernel,resolve,mode}=context;
       const recoil=presets.recoil.create({...context,legacyRecoil:true});
@@ -26,14 +26,11 @@ export const presets = {
       };
       const baseline=raw(resolve([]),{});
       const ratio=(value,base)=>base>0?value/base:value;
-      const objectives=c=>[
-        100*ratio(c.accuracy,baseline.accuracy),
-        handlingLoss(c,baseline),
-        c.recoil,
-      ];
-      return {raw,baseline,score:c=>objectives(c)[0],objectives,
-        objectiveNames:['accuracy','handling','recoil'],
-        weights:{handling:{ads:0.5,sprint_to_fire:0.5},ads_recoil:recoil.weights},
+      const score=c=>0.5*handlingLoss(c,baseline)+0.3*100*ratio(c.accuracy,baseline.accuracy)+0.2*c.recoil;
+      const objectives=c=>[score(c)];
+      return {raw,baseline,score,objectives,
+        objectiveNames:['weighted_agility'],
+        weights:{objectives:{handling:0.5,accuracy:0.3,recoil:0.2},handling:{ads:0.5,sprint_to_fire:0.5},ads_recoil:recoil.weights},
         limitations:['Accuracy uses idle hip spread; moving spread is proportional and jumping mechanics remain unknown. Maximum spread is excluded.',
           'Ordinary ADS ranks airborne ADS assuming a build-independent airborne multiplier (user hypothesis; not client-verified).',
           'Range-aware hit probability is not modeled; angular spread is minimized.',
@@ -89,7 +86,7 @@ export const presets = {
       return {raw,score,baseline,weights,objectives:c=>[score(c),handlingLoss(c,baseline)],
         objectiveNames:['ads_recoil','handling'],allowTargets:true,
         limitations:chartPattern?['Pattern uses 20 post-shot source-chart points; not measured angular recoil. The scoring window is fixed independently of graph shot count. For candidate magazines below 20, this is an abstract profile comparison, not a continuous firing claim.']:
-          [`Legacy recoil multiplier proxy retained: ${legacyRecoil?'Highest Agility keeps its existing recoil tie-breaker':basePath?.reason??'source chart runtime unavailable'}. No horizontal-speed tiers applied.`]};
+          [`Legacy recoil multiplier proxy retained: ${legacyRecoil?'Highest Agility keeps its existing recoil component':basePath?.reason??'source chart runtime unavailable'}. No horizontal-speed tiers applied.`]};
     },
   },
 };

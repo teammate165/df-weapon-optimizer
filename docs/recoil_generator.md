@@ -64,7 +64,7 @@ This is an engineering recommendation, not a benchmark result. Validate a solver
 
 ## Strict Lowest Recoil priorities
 
-Lowest Recoil uses the same lexicographic comparator as Highest Agility:
+Lowest Recoil uses the shared lexicographic comparator (Highest Agility now supplies a single 50/30/20 weighted loss):
 
 1. Minimize the existing ADS-only pattern/camera/kick proxy (40/30/30 by default).
 2. Among equal recoil results, minimize `50 * (ADS_seconds / default_ADS_seconds + sprint_to_fire_seconds / default_sprint_to_fire_seconds)`.
@@ -93,10 +93,10 @@ For eligible Lowest Recoil runs, `pattern = V + multiplier(speed) * H`. H is `ma
 | Above 4.0, up to and including 5.0 | 3 |
 | Above 5.0 | 5 |
 
-Apply the multiplier to the whole H term, not just excess over a threshold. Tiers are discrete, so crossing a threshold produces a step in pattern loss. Candidate attachments/calibration and firing-rate effects can change the tier. Normalize against the default pattern computed with the same formula; preserve pattern/camera/kick weights 40/30/30, Handling ties, costs, locks, stat floors and legacy fallback eligibility. Highest Agility keeps its legacy recoil tie-breaker. Source timing starts at the first post-shot point; the first impulse has no assigned duration. Short candidate magazines remain abstract 20-point profile comparisons for eligible base weapons. Returned diagnostics include speed, multiplier, distance, span, vertical excursion and peak-window timestamps.
+Apply the multiplier to the whole H term, not just excess over a threshold. Tiers are discrete, so crossing a threshold produces a step in pattern loss. Candidate attachments/calibration and firing-rate effects can change the tier. Normalize against the default pattern computed with the same formula; preserve pattern/camera/kick weights 40/30/30, Handling ties, costs, locks, stat floors and legacy fallback eligibility. Highest Agility keeps its legacy recoil proxy as its 20% component. Source timing starts at the first post-shot point; the first impulse has no assigned duration. Short candidate magazines remain abstract 20-point profile comparisons for eligible base weapons. Returned diagnostics include speed, multiplier, distance, span, vertical excursion and peak-window timestamps.
 
 Implementation: [exact speed helper](../tools/horizontal_speed.mjs), [preset](../tools/optimizer_presets.mjs). Validation: `node tests/horizontal_speed.mjs` and generator integration replay against the independent Python window analysis. This is a source-model heuristic, pending client/perception validation.
 
 ## ADS recoil weights (2026-11-16)
 
-Default pattern/camera/weapon-kick weights are **40/30/30**, superseding earlier 30/40/30 defaults in historical records. Loss is `100 * (0.4 * pattern/default_pattern + 0.3 * camera/default_camera + 0.3 * kick/default_kick)`. This shared default also applies to Highest Agility's recoil tie-breaker. Explicit request weight overrides remain supported.
+Default pattern/camera/weapon-kick weights are **40/30/30**, superseding earlier 30/40/30 defaults in historical records. Loss is `100 * (0.4 * pattern/default_pattern + 0.3 * camera/default_camera + 0.3 * kick/default_kick)`. This shared default also applies to Highest Agility's recoil component. Explicit request weight overrides remain supported.

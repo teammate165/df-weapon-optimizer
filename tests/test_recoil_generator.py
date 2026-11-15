@@ -129,9 +129,9 @@ class GeneratorTests(unittest.TestCase):
         for mode in ['detonation', 'warfare', 'operations']:
             process, result = self.run_request(preset='agility', mode=mode, budget=300000, passes=1)
             self.assertEqual(process.returncode, 0, process.stderr)
-            self.assertEqual(result['selection'], 'lexicographic')
+            self.assertEqual(result['selection'], 'weighted')
             self.assertEqual(result['recoil_context'], 'ads')
-            self.assertEqual(result['objective_names'], ['accuracy', 'handling', 'recoil'])
+            self.assertEqual(result['objective_names'], ['weighted_agility'])
             self.assertEqual([r['label'] for r in result['results']], ['Max', 'Balanced', 'Min'])
             self.assertEqual(result['output_standard'], 'max_balanced_min')
             available=[r for r in result['results'] if r['status']=='best_found']
@@ -146,6 +146,10 @@ class GeneratorTests(unittest.TestCase):
                 self.assertTrue(all(r['effectiveness_percent']+1e-7>=50 for r in available[1:]))
             for alternative in available:
                 replay=execute('evaluate',dict(weapon_id=result['weapon_id'],mode=result['mode'],config=alternative['config'],tunes=alternative['tunes']))
+                c = alternative['components']
+                b = result['baseline']
+                expected = 25*(c['ads_seconds']/b['ads_seconds'] + c['sprint_to_fire_seconds']/b['sprint_to_fire_seconds']) + 30*c['accuracy']/b['accuracy'] + 0.2*c['recoil']
+                self.assertAlmostEqual(alternative['loss'], expected)
                 self.assertEqual(alternative['stats'],replay['effective_stats'])
                 self.assertEqual(alternative['cost'],replay['cost'])
             row = result['results'][0]

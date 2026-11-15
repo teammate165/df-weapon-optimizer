@@ -1,25 +1,20 @@
 # Experimental agility preset
 
-Select **Agility: accuracy → handling → recoil** in the optimizer, or supply
-`"preset": "agility"` to `tools/generate_builds.py` / the optimize API.
-The existing recoil preset remains the default.
+Select **Highest Agility** or supply `"preset": "agility"` to the generator/API.
 
-The shared coordinate search compares these lower-is-better objectives in order:
+As of 2026-11-16, agility minimizes one weighted, default-normalized loss:
 
-1. Accuracy: idle hip-fire spread, normalized to the weapon/mode's default build (100). Maximum spread is excluded by user decision.
-2. Handling: the equal-weight average of default-normalized ADS and sprint-to-fire durations (100 at default).
-3. The existing recoil preset's provisional ADS-only pattern/camera/kick score (default weights 30/40/30), not a validated perceived recoil measure. Hip-fire spread belongs exclusively to Accuracy; hip recoil profiles and hip trajectories do not enter this tie-breaker.
+`loss = 0.50 * handling + 0.30 * hip_spread + 0.20 * recoil`
 
-Comparison is strictly lexicographic. A higher-priority loss cannot be offset
-by a lower-priority gain. Equality uses a relative floating-point tolerance of
-`1e-12 × max(1, |a|, |b|)`; this is not a gameplay compromise allowance.
-Cost breaks ties after all three objectives. Constraints, fixed attachments,
-mode prices/caps and legal calibration positions use the shared engine.
-Results are best found, not globally proven optimal.
+- Handling: 50 times the sum of build/default ADS and sprint-to-fire duration ratios.
+- Hip spread: 100 times build/default idle hip-fire spread. Maximum spread is excluded.
+- Recoil: existing legacy ADS-only pattern/camera/kick proxy, default-normalized with internal weights 40/30/30.
 
-Automatic output includes Max, Balanced and Min category slots. Max follows strict priorities. Balanced and Min use the shared 50% primary-improvement floor to find lower-cost, physically distinct builds. If there is no distinct eligible alternative, that slot is unavailable instead of cloned. Custom effectiveness-target requests remain unsupported for agility.
-The scalar `score` equals `improvement_percent`: percent reduction in idle spread from default (default 0; higher is better). `loss` retains the lower-is-better primary objective (default 100);
-`objectives` supplies accuracy, handling and recoil losses in priority order.
+Each component is 100 at default. Improvements can compensate for regressions in another component; there are no strict component priorities. Cost breaks equal weighted-loss ties. Public score and improvement_percent equal `100 - loss`; objectives contains only weighted_agility. Returned weights.objectives records 50/30/20. Explicit recoil weight overrides affect only the internal recoil proxy.
+
+Max minimizes weighted loss. Balanced and Min retain at least 50% of Max's weighted improvement and must be physically distinct. Missing alternatives remain unavailable. Budgets, locks, stat floors, legal tuning and mounting remain mandatory. Custom effectiveness targets remain unsupported. Search is best found, without a global guarantee.
+
+This supersedes the previous strict Accuracy ? Handling ? recoil hierarchy and accuracy-only score/category floor.
 
 ## Source coverage and assumptions
 
@@ -48,9 +43,7 @@ than dividing by zero; default = 100 applies to positive baselines.
 
 ## Validation
 
-`node tests/agility_optimizer.mjs` checks priority preservation despite arbitrarily
-large secondary gains, numerical comparison, cost ties, idle-only spread,
-handling normalization and resolved profile replacements.
+`node tests/agility_optimizer.mjs` checks independent 50/30/20 contributions, cross-component compensation, idle-only spread, handling normalization and resolved profile replacements.
 
 `python -m unittest discover -s tests -p test_recoil_generator.py` includes real
 M4A1 generation in Detonation, Operations and Warfare, source-calculator stat/cost
@@ -60,6 +53,6 @@ replay and rejection of scalar targets. Browser reproduction:
 
 ## Solution presentation
 
-Use the [shared six-cell preview standard](solution_preview.md): relative score/cost above Control, Handling, Stability and Accuracy effective points. Cells show titles and one number only. The preset-heading information icon explains the idle-spread relative score; the result Accuracy cell shows raw points without additional information. The overall scalar is Accuracy improvement, not a weighted combination of lexicographic priorities.
+Use the [shared six-cell preview standard](solution_preview.md): relative score/cost above Control, Handling, Stability and Accuracy effective points. Cells show titles and one number only. The preset-heading information icon explains the weighted relative score; the result Accuracy cell shows raw points without additional information. The overall scalar is weighted improvement using 50/30/20 handling/hip accuracy/recoil.
 
-The recoil preset choices remain Max (strongest), Balanced (value knee), Min (cheapest above the 50% improvement gate). Agility returns all three category slots, with distinct cost/performance alternatives subject to the 50% accuracy-improvement floor. It never clones a build into another category; missing alternatives are explicitly unavailable. Historical labels map to the new names without changing saved configurations.
+The recoil preset choices remain Max (strongest), Balanced (value knee), Min (cheapest above the 50% improvement gate). Agility returns all three category slots, with distinct cost/performance alternatives subject to the 50% weighted-improvement floor. It never clones a build into another category; missing alternatives are explicitly unavailable. Historical labels map to the new names without changing saved configurations.

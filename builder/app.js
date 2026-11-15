@@ -271,7 +271,7 @@ function drawGraph(){if(!state.model)return;const key=$('view').value,{base,curr
 // Presets share controls, constraints and solution rendering; add display metadata here.
 const presetTemplates={
  recoil:{title:'Lowest Recoil',priorities:'1. ADS recoil / 2. Handling'},
- agility:{title:'Highest Agility',priorities:'1. Hip-fire spread / 2. Handling / 3. ADS recoil'}
+ agility:{title:'Highest Agility',priorities:'1. Handling (50%) / 2. Hip-fire spread (30%) / 3. ADS recoil (20%)'}
 };
 function updatePreset(){
  const preset=presetTemplates[$('optimizer-preset').value],agility=$('optimizer-preset').value==='agility',box=document.querySelector('.objective');
@@ -282,7 +282,7 @@ function updatePreset(){
  info.onmouseenter=explain;info.onmouseleave=hideAccuracyInfo;info.onfocus=explain;info.onblur=hideAccuracyInfo;info.onclick=explain;info.onkeydown=e=>{if(e.key==='Escape')hideAccuracyInfo();};
  box.querySelector('p').textContent=preset.priorities;
  $('category-info').textContent='Max / Balanced / Min. Cheaper choices retain at least 50% of best improvement. No duplicate builds.';
- $('optimizer-model-note').textContent=agility?'Minimize hip-fire spread, then ADS/sprint-to-fire times, then ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Automatic pattern uses horizontal distance from origin, weighted by candidate fastest 200 ms speed: 1x up to 3, 2x above 3, 3x above 4, 5x above 5 model units/s. Unsupported firing protocols retain the multiplier proxy. Best found; experimental proxy.';
+ $('optimizer-model-note').textContent=agility?'Weighted loss: 50% Handling (equal normalized ADS/sprint-to-fire times), 30% idle hip-fire spread, 20% ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Automatic pattern uses horizontal distance from origin, weighted by candidate fastest 200 ms speed: 1x up to 3, 2x above 3, 3x above 4, 5x above 5 model units/s. Unsupported firing protocols retain the multiplier proxy. Best found; experimental proxy.';
 }
 $('optimizer-preset').onchange=()=>{clearResults();updatePreset();renderStats();drawGraph();};
 $('generate').onclick=async()=>{
@@ -356,7 +356,7 @@ function hideAccuracyInfo(){if(accuracyInfoCard)accuracyInfoCard.hidden=true;if(
 function showAccuracyInfo(button,run){
  hideAccuracyInfo();accuracyInfoButton=button;
  if(!accuracyInfoCard){accuracyInfoCard=document.createElement('div');accuracyInfoCard.id='optimizer-score-tooltip';accuracyInfoCard.className='solution-info-card';accuracyInfoCard.role='tooltip';document.body.append(accuracyInfoCard);}
- accuracyInfoCard.innerHTML=`<strong>Preset scoring</strong><p>Solution cells show raw effective stat points, including Accuracy. Higher points generally mean tighter hip-fire spread.</p>${run.preset==='agility'?'<p>Agility score = (1 &minus; build idle hip spread / default idle hip spread) &times; 100. Default is 0; higher is better. Handling and ADS recoil break ties for Max. Balanced and Min may trade accuracy for cost while retaining at least 50% of Max improvement.</p>':run.preset==='recoil'?'<p>The relative score measures the ADS recoil proxy, not Accuracy. Handling breaks equal-recoil ties, using ADS and sprint-to-fire times. It shows percentage improvement over default: default is 0; higher is better.</p>':`<p>${esc(run.score_model??'Relative score follows the selected preset objective; Accuracy points are a separate main stat.')}</p>`}<p>Moving spread scales with idle spread. Maximum spread and separate jumping penalties are excluded from agility scoring.</p>`;
+ accuracyInfoCard.innerHTML=`<strong>Preset scoring</strong><p>Solution cells show raw effective stat points, including Accuracy. Higher points generally mean tighter hip-fire spread.</p>${run.preset==='agility'?'<p>Agility score measures weighted improvement over default: 50% Handling, 30% hip accuracy, 20% ADS recoil. Metrics are default-normalized; Handling averages ADS and sprint-to-fire times. Default is 0; higher is better. Balanced and Min retain at least 50% of Max weighted improvement.</p>':run.preset==='recoil'?'<p>The relative score measures the ADS recoil proxy, not Accuracy. Handling breaks equal-recoil ties, using ADS and sprint-to-fire times. It shows percentage improvement over default: default is 0; higher is better.</p>':`<p>${esc(run.score_model??'Relative score follows the selected preset objective; Accuracy points are a separate main stat.')}</p>`}<p>Moving spread scales with idle spread. Maximum spread and separate jumping penalties are excluded from agility scoring.</p>`;
  accuracyInfoCard.hidden=false;button.setAttribute('aria-expanded','true');button.setAttribute('aria-describedby',accuracyInfoCard.id);
  const rect=button.getBoundingClientRect(),width=Math.min(300,innerWidth-24);accuracyInfoCard.style.width=width+'px';
  accuracyInfoCard.style.left=Math.max(12,Math.min(rect.right-width,innerWidth-width-12))+'px';

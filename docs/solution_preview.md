@@ -11,15 +11,15 @@ provide data and score semantics rather than separate preview layouts.
 - No inline detailed metrics, effectiveness card, or baseline-change annotations.
 - Relative score uses `row.score`, the percent reduction of primary loss from default.
   Default is 0; higher is better; negative means worse than default. The API preserves
-  `row.loss` (default 100, lower is better) for search diagnostics. Agility's scalar score represents hip-fire spread improvement;
-  Handling and ADS recoil are lexicographic tie-breakers, not weighted into it.
+  `row.loss` (default 100, lower is better) for search diagnostics. Agility's scalar score represents weighted improvement;
+  Agility weights default-normalized Handling, hip accuracy and ADS recoil at 50/30/20.
 - Cost uses the existing quoted attachment total; unavailable values say Unpriced.
 - Keep the same two-row structure on desktop and mobile. Apply and Save actions
   remain beneath the preview, with Max/Balanced/Min selection for every automatic preset/mode.
 
 Scoring information belongs beside the preset heading, outside optimizer results. The preview Accuracy cell contains only raw effective Accuracy points; it has no icon or tooltip. The preset heading has an information button. Hover, keyboard focus or click
 opens a short card explaining effective Accuracy points versus the relative
-objective score. Agility explains `100 * (1 - current idle spread / default idle spread)`;
+objective score. Agility explains `100 - (0.50 * handling_loss + 0.30 * hip_spread_loss + 0.20 * recoil_loss)`;
 recoil identifies its overall score as the ADS recoil proxy. The current accuracy
 model excludes maximum spread and independent jumping penalties. New presets must
 keep their score interpretation clear without changing the shared six-cell layout.
@@ -33,7 +33,7 @@ Evidence: `.scratch/browser-qa/agility-distinct-report.json`.
 
 Every automatic preset returns exactly three choices in this order: **Max**, **Balanced**, **Min**. This is shared engine behavior, including future presets, not a frontend-only duplicate of one response. Legacy custom effectiveness-target requests remain an explicit research interface outside this default contract; legacy three-budget requests still produce one result per budget, ordered by the three standard names.
 
-For both priced presets, Max is best found; Highest Agility uses strict Accuracy -> Handling -> ADS recoil ordering for this search. Min is the cheapest evaluated distinct build retaining at least 50% of Max's primary improvement over default. Balanced is a distinct interior cost/performance knee above the same floor. Thus cheaper categories may sacrifice primary performance under an explicit bound; they do not claim equal primary performance to Max. Locks, mounting, legal tuning, mode restrictions, optional stat floors, budgets and missing-quote exclusions remain mandatory.
+For both priced presets, Max is best found; Highest Agility minimizes weighted Handling/hip accuracy/ADS recoil loss (50/30/20). Min is the cheapest evaluated distinct build retaining at least 50% of Max's primary improvement over default. Balanced is a distinct interior cost/performance knee above the same floor. Thus cheaper categories may sacrifice primary performance under an explicit bound; they do not claim equal primary performance to Max. Locks, mounting, legal tuning, mode restrictions, optional stat floors, budgets and missing-quote exclusions remain mandatory.
 
 Successful categories must represent distinct physical equipment/tuning, with strictly descending cost from Max to Balanced to Min. Build signatures include mounted item/slot pairs and non-default legal tuning, so omitted/default slider values cannot create fake alternatives. If no distinct eligible build is found, the category is `unavailable` with a reason, not a copy. If all constraints are infeasible, entries remain `infeasible`. Warfare provides Max but has no priced alternatives; Balanced/Min are unavailable. No global optimality is claimed.
 

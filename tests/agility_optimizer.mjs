@@ -27,9 +27,14 @@ const worseRecoil=recoilPreset.raw({}, {}, state({GRecoil_H:1.01,GAiming_ADSTime
 assert(!better(candidate(recoilPreset.objectives(worseRecoil),0),candidate([100,100],1000)));
 const base=preset.raw({},{});
 assert.equal(base.accuracy,2);
-assert.deepEqual(preset.objectives(base),[100,100,100]);
+assert.deepEqual(preset.objectives(base),[100]);
 const changed=preset.raw({}, {}, state({GSpread_Hip:1,GAiming_ADSTime:0.15,GSprintToFireTime:0.1}));
-assert.deepEqual(preset.objectives(changed),[50,50,100]);
+assert.deepEqual(preset.objectives(changed),[60]);
+assert.equal(preset.score({...base,ads_seconds:0.15,sprint_to_fire_seconds:0.1}),75);
+assert.equal(preset.score({...base,accuracy:1}),85);
+assert.equal(preset.score({...base,recoil:50}),90);
+assert.deepEqual(preset.weights.objectives,{handling:0.5,accuracy:0.3,recoil:0.2});
+assert(better(candidate(preset.objectives({...base,ads_seconds:0.15,sprint_to_fire_seconds:0.1,accuracy:2.2})),candidate(preset.objectives(base))));
 // Moving/max spread do not contribute to the objective; resolved idle/ADS do.
 pack.handling.spreadProfiles.hip.runtimeScaleFactor=2;
 pack.handling.aimingProfiles.aim.adsOnTimeSeconds=0.6;
@@ -38,4 +43,4 @@ assert.equal(replacement.accuracy,2);
 assert.equal(replacement.jumping_spread_proxy_deg,undefined);
 assert.equal(replacement.running_spread_deg,undefined);
 assert.equal(replacement.ads_seconds,0.6);
-console.log('Agility hierarchy and source metric checks passed');
+console.log('Agility weighted trade-off and source metric checks passed');
