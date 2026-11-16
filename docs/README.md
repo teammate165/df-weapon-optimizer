@@ -9,6 +9,7 @@ pinned source snapshots; they do not establish Global/Garena-client verification
 - [Builder setup, interaction and validation](../builder/README.md)
 - [Deployment workflow and release evidence](github_pages.md)
 - [Lowest Recoil objective, constraints and search](recoil_generator.md)
+- [Production SCIP model, runtime and validation](scip_optimizer.md)
 - [Highest Agility objective](agility_optimizer.md)
 - [Shared solution presentation and context lifecycle](solution_preview.md)
 - [Calibration workflow](weapon_calibration.md), [input precision](weapon_calibration.md#calibration-input-precision), [deployed source trace](weapon_calibration.md#dfttk-calibration-source-trace)

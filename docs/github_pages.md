@@ -243,3 +243,13 @@ Evidence: `.scratch/multistart-release/` contains `regression.json`,
 `live-artifacts.json`. Persistent results are in
 `data/optimizer_validation/multistart_20261116.json`. Unrelated working-copy
 translations and research edits were preserved and excluded from publication.
+
+## Full SCIP replacement release, 2026-11-16
+
+Source `47fb9df8ab8c98c8463beac32649f86271627c7e`, generated `c99ff8ef47aff8d5986992000c41bd179d2d3510`, release `c6355afe3934f145`. [Pages deployment succeeded](https://github.com/teammate165/df-weapon-optimizer/actions/runs/43848538456).
+
+Both presets now use the [full-weapon linear SCIP model](scip_optimizer.md). Pass selection is replaced by 5/30/120-second budgets; old screening and multi-start modules are removed from the generated site. Optional incumbent starts do not restrict SCIP's model. The pinned loader, WASM and license notices retain their upstream checksums through both Git repositories.
+
+All 16 critical public artifacts match the generated commit, including the 6.4 MB WASM, all compiler modules and a solver-start file. Public real-worker checks pass for both presets, cancellation/recovery, exact stat/cost replay and P90 Operations at budget 5,000,000. Results remain best found when numerical model optimality is unproven. Existing uncommitted translations and research edits were excluded.
+
+Final public checks also pass: eight exact calculator comparisons, optimization/Apply/save/reload, obsolete-cache bypass, score tooltips and desktop/mobile layout, with no page errors or backend requests. The unversioned public release endpoint also reports the new token. Evidence: `.scratch/scip-release/live-artifacts.json`, `browser-live.json`, `static-live.json` and `pages-live.txt`.

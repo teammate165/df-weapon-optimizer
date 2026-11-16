@@ -1,5 +1,7 @@
 # Experimental recoil generator
 
+Current production search: [full-weapon SCIP model and solve budgets](scip_optimizer.md). The objective and constraint descriptions below remain applicable; historical pass/coordinate-search descriptions are superseded. Legacy `passes` requests map to a solve-time budget.
+
 Run from the repository root with Python 3 and Node.js:
 
 ```powershell

@@ -1,5 +1,7 @@
 # Multi-start attachment refinement
 
+Historical release: superseded by the [full-weapon SCIP optimizer](scip_optimizer.md). The previous JavaScript search does not execute on the current production site.
+
 All presets keep the existing top-5% attachment search and its evaluated
 price-target frontier, then run a shared refinement stage. Scoring formulas,
 weights, prices, locks, budgets, minimum stats and category definitions stay
