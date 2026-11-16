@@ -3,7 +3,7 @@ export function createStaticClient() {
   let worker;
   const pending=new Map();let serial=0;let failed;
   const start=()=>{
-  worker=new Worker(new URL('./static-worker.js?v=6be8e9ba4f046b71',import.meta.url),{type:'module'});
+  worker=new Worker(new URL('./static-worker.js?v=c6355afe3934f145',import.meta.url),{type:'module'});
   worker.onmessage=({data})=>{
     const task=pending.get(data.id);if(!task)return;
     pending.delete(data.id);
