@@ -3,9 +3,10 @@ export function createStaticClient() {
   let worker;
   const pending=new Map();let serial=0;let failed;
   const start=()=>{
-  worker=new Worker(new URL('./static-worker.js?v=c6355afe3934f145',import.meta.url),{type:'module'});
+  worker=new Worker(new URL('./static-worker.js?v=cb0a6cf829d3634f',import.meta.url),{type:'module'});
   worker.onmessage=({data})=>{
     const task=pending.get(data.id);if(!task)return;
+    if(data.progress){task.onProgress?.(data.progress);return;}
     pending.delete(data.id);
     if(data.error)task.reject(new Error(data.error));else task.resolve(data.result);
   };
@@ -16,7 +17,7 @@ export function createStaticClient() {
   };
   };
   start();
-  return (action,request,{signal}={})=>new Promise((resolve,reject)=>{
+  return (action,request,{signal,onProgress}={})=>new Promise((resolve,reject)=>{
     if(signal?.aborted){reject(new DOMException('Search cancelled.','AbortError'));return;}
     if(failed){reject(failed);return;}
     const abort=()=>{
@@ -26,7 +27,7 @@ export function createStaticClient() {
       pending.clear();start();
     };
     const finish=callback=>value=>{signal?.removeEventListener('abort',abort);callback(value);};
-    const id=++serial;pending.set(id,{resolve:finish(resolve),reject:finish(reject)});
+    const id=++serial;pending.set(id,{resolve:finish(resolve),reject:finish(reject),onProgress});
     signal?.addEventListener('abort',abort,{once:true});
     worker.postMessage({id,action,request});
   });

@@ -1,18 +1,19 @@
-import {compileMounts} from './scip_mount_model.mjs?v=c6355afe3934f145';
-import {compileStats} from './scip_stat_model.mjs?v=c6355afe3934f145';
-import {compileObjective} from './scip_objective_model.mjs?v=c6355afe3934f145';
-import {solveLinearModel} from './scip_runtime.mjs?v=c6355afe3934f145';
-import {presets} from './optimizer_presets.mjs?v=c6355afe3934f145';
-import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=c6355afe3934f145';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=c6355afe3934f145';
-import {completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=c6355afe3934f145';
-import {timedRecoil} from './timed_recoil.mjs?v=c6355afe3934f145';
+import {compileMounts} from './scip_mount_model.mjs?v=cb0a6cf829d3634f';
+import {compileStats} from './scip_stat_model.mjs?v=cb0a6cf829d3634f';
+import {compileObjective} from './scip_objective_model.mjs?v=cb0a6cf829d3634f';
+import {solveLinearModel} from './scip_runtime.mjs?v=cb0a6cf829d3634f';
+import {presets} from './optimizer_presets.mjs?v=cb0a6cf829d3634f';
+import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=cb0a6cf829d3634f';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=cb0a6cf829d3634f';
+import {completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=cb0a6cf829d3634f';
+import {timedRecoil} from './timed_recoil.mjs?v=cb0a6cf829d3634f';
+import {exhaustiveAttachmentGate,configKey} from './exhaustive_attachment_gate.mjs?v=cb0a6cf829d3634f';
 
 let factoryPromise;
 async function runtimeModules(runtime){
  if(typeof runtime==='object')return runtime;
  const {pathToFileURL}=await import('node:url'),path=await import('node:path');
- const curves=await import(pathToFileURL(path.join(runtime,'curves.mjs?v=c6355afe3934f145'))),kernel=await import(pathToFileURL(path.join(runtime,'kernel.mjs?v=c6355afe3934f145'))),{t:calculate}=await import(pathToFileURL(path.join(runtime,'attributes.mjs?v=c6355afe3934f145')));
+ const curves=await import(pathToFileURL(path.join(runtime,'curves.mjs?v=cb0a6cf829d3634f'))),kernel=await import(pathToFileURL(path.join(runtime,'kernel.mjs?v=cb0a6cf829d3634f'))),{t:calculate}=await import(pathToFileURL(path.join(runtime,'attributes.mjs?v=cb0a6cf829d3634f')));
  return {curves,kernel,calculate};
 }
 export async function generateSCIP(input,runtime){
@@ -33,19 +34,24 @@ export async function generateSCIP(input,runtime){
  const preset=presets[settings.preset].create({pack,request:r,kernel,curves,calculate,mode,resolve});
  if(!preset.solverPlan)throw Error('Preset does not declare a full SCIP objective');
  if(preset.objectives&&!preset.allowTargets&&r.effectiveness_targets!==undefined)throw Error('This preset does not support custom effectiveness targets');
- factoryPromise??=import('../vendor/scip-7e68f9ca/scip.js?v=c6355afe3934f145').then(m=>m.default);
- const createRuntime=await factoryPromise,started=performance.now(),deadline=started+limit*1000;
+ factoryPromise??=import('../vendor/scip-7e68f9ca/scip.js?v=cb0a6cf829d3634f').then(m=>m.default);
+ const createRuntime=await factoryPromise,started=performance.now();
  let starts=input.solver_starts;
  if(!starts&&typeof process!=='undefined'&&process.versions?.node){try{const fs=await import('node:fs/promises');starts=JSON.parse(await fs.readFile(new URL('../data/solver_starts/'+pack.weaponId+'.json',import.meta.url),'utf8'));}catch{}}
  const baselinePath=timedRecoil(pack,resolve([]),{},r,modules),baseState=kernel.u(pack,resolve([]),{mode,tacticalEffective:true,tunes:{}}),baselineStats=Object.fromEntries(Object.entries(statIds).map(([k,id])=>[k,baseState.numeric.mainAttr[id]]));
- const diagnostics={name:'SCIP',version:'10.0.2',formulation:'full-weapon linear mixed-integer model with norm supporting cuts',full_weapon:true,time_limit_seconds:limit,elapsed_ms:0,solves:0,norm_cuts:0,rounding_cuts:0,phases:[],global_optimality:false,interval_arithmetic_used:false,numerics:{feasibility_tolerance:1e-9,source_replay_tolerance:1e-7,norm_supporting_cut_tolerance:1e-8}};
- const results=[];
+ const diagnostics={name:'SCIP',version:'10.0.2',formulation:'calibration over exhaustive two-stage top-5% attachment survivors with norm supporting cuts',full_weapon:false,time_limit_seconds:limit,time_limit_scope:'calibration_only',screening_elapsed_ms:0,calibration_elapsed_ms:0,elapsed_ms:0,solves:0,norm_cuts:0,rounding_cuts:0,phases:[],global_optimality:false,interval_arithmetic_used:false,numerics:{feasibility_tolerance:1e-9,source_replay_tolerance:1e-7,norm_supporting_cut_tolerance:1e-8}};
+ const results=[],gateReports=[];
  for(const [budgetIndex,budget] of budgets.entries()){
-  const budgetDeadline=started+limit*1000*(budgetIndex+1)/budgets.length;
   const request={...r,budget,budgets:undefined};delete request.validationConfig;delete request.validationTunes;delete request.feasibility_only;
-  const compiled=compileMounts({...input,request},kernel),numeric=compileStats(compiled,{pack,request},modules),objective=compileObjective(compiled,numeric,{pack,request},modules,preset.solverPlan),m=compiled.model;
+  const screened=exhaustiveAttachmentGate({...input,request},modules,preset);
+  gateReports.push({budget,...screened.diagnostics});diagnostics.screening_elapsed_ms+=screened.diagnostics.elapsed_ms;
+  const candidateConfigs=screened.candidates.map(c=>c.config),allowed=new Set(candidateConfigs.map(configKey));
+  input.signal?.throwIfAborted();input.onProgress?.({phase:'calibration',budget,candidates:candidateConfigs.length,time_limit_seconds:limit/budgets.length});
+  const calibrationStarted=performance.now(),budgetDeadline=calibrationStarted+limit*1000/budgets.length,deadline=budgetDeadline;
+  const compiled=compileMounts({...input,request,candidateConfigs},kernel),numeric=compileStats(compiled,{pack,request},modules),objective=compileObjective(compiled,numeric,{pack,request},modules,preset.solverPlan),m=compiled.model;
   const better=comparator(settings.minimums),frontier=[];let incumbent=null,warm=null;
   function candidate(config,tunes={},strict=false){
+   if(!allowed.has(configKey(config)))return null;
    const build=resolve(config);
    if(!retains(build)||config.some(c=>!build.config.some(x=>x.slotPath===c.slotPath&&x.itemId===c.itemId))||build.mounted.some(n=>hidden.has(n.itemId))||build.mounted.filter(n=>kernel.l(pack,n.itemId,mode)).length>laserLimit||emptyRisers(pack,build).length)return null;
    let cost=mode==='mp'?null:0;
@@ -62,7 +68,7 @@ export async function generateSCIP(input,runtime){
     return row;
    }catch(error){if(strict)throw error;return null;}
   }
-  for(const build of completeRiserOptics(pack,initial,resolve,fixed))candidate(build.config,{});
+  for(const row of screened.candidates)candidate(row.config,{});
   if(r.config)candidate(r.config,r.tunes??{});
   for(const start of starts?.starts??[]){
    candidate(start.config,start.tunes);
@@ -73,9 +79,9 @@ export async function generateSCIP(input,runtime){
   }
   // A small feasibility MILP supplies a source-checked start when locks/floors
   // rule out the shipped starts. Calibration does not change main-stat points
-  // in the current catalog; the full score model remains unrestricted.
+  // in the current catalog; feasibility is restricted to screened combinations.
   if(!incumbent&&performance.now()<budgetDeadline-100){
-   const feasibleInput={...input,request:{...request,feasibility_only:true}},feasible=compileMounts(feasibleInput,kernel);compileStats(feasible,feasibleInput,modules);
+   const feasibleInput={...input,request:{...request,feasibility_only:true}},feasible=compileMounts({...feasibleInput,candidateConfigs},kernel);compileStats(feasible,feasibleInput,modules);
    for(let attempt=0;attempt<4&&performance.now()<budgetDeadline-100;attempt++){
     const result=await solveLinearModel(feasible.model.cip(0),{createRuntime,seconds:Math.max(.05,Math.min(1,(budgetDeadline-performance.now())/1000))});diagnostics.solves++;
     if(result.errorCount)throw Error('SCIP feasibility runtime error: '+result.errors.join('; '));if(!result.hasIncumbent)break;
@@ -141,7 +147,7 @@ export async function generateSCIP(input,runtime){
     if(matched&&result.status==='optimal')break;
     if(!checked||!checked.cuts&&result.status!=='optimal')break;
    }
-   const record={label,budget,status:pending?'limited':last?.status??'not_run',termination:pending?'supporting-cut refinement time limit':last?.status??'not_run',primal_bound:last?.primalBound??null,dual_bound:last?.dualBound??null,gap_percent:matched?last?.gapPercent??null:null,source_verified:matched};diagnostics.phases.push(record);return record;
+   const record={label,budget,scope:'screened_calibration_model',status:pending?'limited':last?.status??'not_run',termination:pending?'supporting-cut refinement time limit':last?.status??'not_run',primal_bound:last?.primalBound??null,dual_bound:last?.dualBound??null,gap_percent:matched?last?.gapPercent??null:null,source_verified:matched};diagnostics.phases.push(record);return record;
   }
   if(!incumbent)await phase('Feasibility',0,performance.now()+Math.max(0,(budgetDeadline-performance.now())*.15));
   const remaining=budgetDeadline-performance.now(),primaryEnd=performance.now()+Math.max(0,remaining*.6);
@@ -153,8 +159,7 @@ export async function generateSCIP(input,runtime){
    if(mode!=='mp')await phase('Max cost',compiled.cost,performance.now()+Math.max(0,(budgetDeadline-performance.now())*.1));
    m.constraints=m.constraints.filter(c=>!temporary.includes(c));
   }
-  // Price categories are additional optimizations over the same full model,
-  // never a SCIP choice restricted to the warm-start candidate table.
+  // Price categories optimize over the same screened calibration domain.
   if(mode!=='mp'&&budgets.length===1&&incumbent&&incumbent.score<100-1e-8){
    const gates=settings.automatic?[cheapestGate]:settings.targets;
    for(const target of gates){
@@ -187,10 +192,11 @@ export async function generateSCIP(input,runtime){
     }
    }
   }
+  diagnostics.calibration_elapsed_ms+=performance.now()-calibrationStarted;
   const strongest=incumbent;
   diagnostics.variables=m.variables.size;diagnostics.constraints=m.constraints.length;
   const publish=(row,label,target=null)=>{
-   if(!row){results.push({label,budget,status:'infeasible',reason:'No feasible build found within the solver time limit.'});return;}
+   if(!row){results.push({label,budget,status:'infeasible',reason:'No feasible screened build found within the calibration time limit.'});return;}
    const path=timedRecoil(pack,row.build,row.tunes,r,modules),{build,...rest}=row;
    results.push({...rest,label,budget,status:'best_found',loss:row.score,score:100-row.score,improvement_percent:100-row.score,effectiveness_percent:strongest&&100-strongest.score>1e-8?100*(100-row.score)/(100-strongest.score):100,target_effectiveness_percent:target,category_note:null,mounted:build.mounted,recoil_path:path,converged:primaryStatus.status==='optimal'&&primaryStatus.source_verified});
   };
@@ -200,12 +206,12 @@ export async function generateSCIP(input,runtime){
    for(const target of settings.targets){const threshold=strongest?100-(100-strongest.score)*target/100:null;const eligible=strongest?frontier.filter(row=>row.score<=threshold+1e-8):[];const chosen=eligible.reduce((a,b)=>!a||b.cost<a.cost||b.cost===a.cost&&better(b,a)?b:a,null);publish(chosen,target===70?'cheapest':target===90?'mid-range':target+'% effective',target);}
    continue;
   }
-  if(mode==='mp'||!strongest){publish(strongest,'Max');for(const label of ['Balanced','Min'])results.push({label,budget,status:strongest?'unavailable':'infeasible',reason:strongest?'Cost is unavailable in Warfare; no distinct price-based alternative can be selected.':'No feasible build found within the solver time limit.'});continue;}
+  if(mode==='mp'||!strongest){publish(strongest,'Max');for(const label of ['Balanced','Min'])results.push({label,budget,status:strongest?'unavailable':'infeasible',reason:strongest?'Cost is unavailable in Warfare; no distinct price-based alternative can be selected.':'No feasible screened build found within the calibration time limit.'});continue;}
   const selected=selectCategories(frontier);publish(selected.strongest,'Max');
   for(const [key,label] of [['value','Balanced'],['cheapest','Min']])if(selected[key])publish(selected[key],label,cheapestGate);else results.push({label,budget,status:'unavailable',reason:'No distinct feasible price-based alternative found.'});
  }
  diagnostics.elapsed_ms=performance.now()-started;
  if(settings.automatic)results.sort((a,b)=>['Max','Balanced','Min'].indexOf(a.label)-['Max','Balanced','Min'].indexOf(b.label));
  if(settings.automatic){const seen=new Set();for(let i=0;i<results.length;i++)if(results[i].status==='best_found'){if(seen.has(results[i].signature))results[i]={label:results[i].label,budget:results[i].budget,status:'unavailable',reason:'No distinct price-based alternative found.'};else seen.add(results[i].signature);}}
- return {weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:settings.automatic?(preset.solverPlan.kind==='agility'?'weighted':'lexicographic'):'custom_targets',objective_names:preset.objectiveNames,minimum_stats:settings.minimums,baseline:preset.baseline,baseline_stats:baselineStats,baseline_recoil_path:baselinePath,baseline_score:0,baseline_loss:100,score_direction:'higher',weights:preset.weights,tier,cheapest_gate_percent:mode==='mp'?null:cheapestGate,experimental:true,method:'SCIP full-weapon MILP with source-verified incumbents and linear norm cuts',score_model:presets[settings.preset].description,limitations:[...preset.limitations,'SCIP searches the complete encoded attachment/calibration model. Time-limited results remain best found; model bounds and numerical tolerances are separate from game accuracy.'],solver:diagnostics,provenance:input.provenance,results};
+ return {weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:settings.automatic?(preset.solverPlan.kind==='agility'?'weighted':'lexicographic'):'custom_targets',objective_names:preset.objectiveNames,minimum_stats:settings.minimums,baseline:preset.baseline,baseline_stats:baselineStats,baseline_recoil_path:baselinePath,baseline_score:0,baseline_loss:100,score_direction:'higher',weights:preset.weights,tier,cheapest_gate_percent:mode==='mp'?null:cheapestGate,experimental:true,method:'Exhaustive attachment top-5%, exhaustive tactical top-5% per survivor, then SCIP calibration',score_model:presets[settings.preset].description,limitations:[...preset.limitations,'Both attachment screens exhaust all legal combinations at default calibration. SCIP calibrates only the survivors; screening can discard the best calibrated build. The time limit applies after exhaustive screening. Model bounds apply only to the screened calibration domain; results remain best found.'],attachment_gate:{fraction:.05,complete:true,screening:'exhaustive_default_calibration',budgets:gateReports,global_optimality:false},solver:diagnostics,provenance:input.provenance,results};
 }

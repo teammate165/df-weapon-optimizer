@@ -65,7 +65,7 @@ export function compileObjective(compiled,numeric,{pack,request},runtime,plan){
    chart.regimes.push({flag,items:list.filter((_,i)=>mask&(2**i)),times});
   }
   m.constrain(m.add(...chart.regimes.map(r=>r.flag)),'==',1,'one_fire_state');
-  chart.tiers=[1,2,3,5].map(multiplier=>({multiplier,flag:m.variable('speed_tier')}));
+  chart.tiers=[1,4,6,10].map(multiplier=>({multiplier,flag:m.variable('speed_tier')}));
   m.constrain(m.add(...chart.tiers.map(t=>t.flag)),'==',1,'one_speed_tier');
   for(const regime of chart.regimes){
    const intervals=speedWindows(regime.times,200);

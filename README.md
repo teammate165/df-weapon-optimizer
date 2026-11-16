@@ -9,9 +9,10 @@ External assets may change or become unavailable. These assets belong to their
 respective owners. This is an independent, unofficial project.
 
 Source model: dfttk snapshot `20261108-an94-bd-shop.1`. Global/Garena validation,
-prices and translations remain provisional. All presets use the full-weapon SCIP MILP in a single-threaded browser worker.
-All attachment slots, source calibration, budgets, floors and locks are modeled.
-Time-limited results remain best found; model gaps are reported. Lowest Recoil uses the experimental 40/30/30 proxy.
+prices and translations remain provisional. Both presets use time-limited top-K search in a browser worker.
+Ordinary builds, patch/laser completions and source-scored calibration share the total search budget.
+Shortlists retain at most 256 ordinary and 512 complete builds. Legal combinations can remain unexplored.
+Results are best found, with no global-optimum claim. Lowest Recoil uses the experimental 40/30/30 proxy.
 Saved builds stay in this browser's cookies; JSON export provides a backup.
 
 Published with GitHub Actions to GitHub Pages. Local preview:
