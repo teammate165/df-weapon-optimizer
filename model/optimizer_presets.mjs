@@ -1,5 +1,5 @@
-import {timedRecoil} from './timed_recoil.mjs?v=4ff8cb158b5ce7d6';
-import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=4ff8cb158b5ce7d6';
+import {timedRecoil} from './timed_recoil.mjs?v=6be8e9ba4f046b71';
+import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=6be8e9ba4f046b71';
 // Each preset supplies lower-is-better normalized loss plus diagnostic components.
 // The engine is independent of the particular game metrics being optimized.
 export const horizontalPatternLoss=(vertical,horizontal,speed)=>vertical+horizontalSpeedMultiplier(speed)*horizontal;
@@ -28,7 +28,7 @@ export const presets = {
       const ratio=(value,base)=>base>0?value/base:value;
       const score=c=>0.5*handlingLoss(c,baseline)+0.3*100*ratio(c.accuracy,baseline.accuracy)+0.2*c.recoil;
       const objectives=c=>[score(c)];
-      return {raw,baseline,score,objectives,
+      return {raw,baseline,score,objectives,calibrationPriorities:[['GAiming_ADSTime','GSprintToFireTime','GSpread_Hip'],['GRecoil_H','GRecoil_V','GGunkickRandom','GGunkickSpring']],
         objectiveNames:['weighted_agility'],
         weights:{objectives:{handling:0.5,accuracy:0.3,recoil:0.2},handling:{ads:0.5,sprint_to_fire:0.5},ads_recoil:recoil.weights},
         limitations:['Accuracy uses idle hip spread; moving spread is proportional and jumping mechanics remain unknown. Maximum spread is excluded.',
@@ -83,7 +83,7 @@ export const presets = {
         if (baseline[key]===0 && w>0) throw Error('Cannot normalize zero baseline');
         return sum+(w===0?0:w*components[key]/baseline[key]);
       },0)/Object.values(weights).reduce((a,b)=>a+b,0);
-      return {raw,score,baseline,weights,objectives:c=>[score(c),handlingLoss(c,baseline)],
+      return {raw,score,baseline,weights,calibrationPriorities:[['GRecoil_H','GRecoil_V','GRecoil_HShake','GRecoil_VShake','GGunkickRandom','GGunkickSpring'],['GAiming_ADSTime','GSprintToFireTime']],objectives:c=>[score(c),handlingLoss(c,baseline)],
         objectiveNames:['ads_recoil','handling'],allowTargets:true,
         limitations:chartPattern?['Pattern uses 20 post-shot source-chart points; not measured angular recoil. The scoring window is fixed independently of graph shot count. For candidate magazines below 20, this is an abstract profile comparison, not a continuous firing claim.']:
           [`Legacy recoil multiplier proxy retained: ${legacyRecoil?'Highest Agility keeps its existing recoil component':basePath?.reason??'source chart runtime unavailable'}. No horizontal-speed tiers applied.`]};

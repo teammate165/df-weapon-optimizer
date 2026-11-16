@@ -1,7 +1,9 @@
 // Module workers keep optimization off the interface thread.
 export function createStaticClient() {
-  const worker=new Worker(new URL('./static-worker.js?v=4ff8cb158b5ce7d6',import.meta.url),{type:'module'});
+  let worker;
   const pending=new Map();let serial=0;let failed;
+  const start=()=>{
+  worker=new Worker(new URL('./static-worker.js?v=6be8e9ba4f046b71',import.meta.url),{type:'module'});
   worker.onmessage=({data})=>{
     const task=pending.get(data.id);if(!task)return;
     pending.delete(data.id);
@@ -12,9 +14,20 @@ export function createStaticClient() {
     for(const task of pending.values())task.reject(failed);
     pending.clear();
   };
-  return (action,request)=>new Promise((resolve,reject)=>{
+  };
+  start();
+  return (action,request,{signal}={})=>new Promise((resolve,reject)=>{
+    if(signal?.aborted){reject(new DOMException('Search cancelled.','AbortError'));return;}
     if(failed){reject(failed);return;}
-    const id=++serial;pending.set(id,{resolve,reject});
+    const abort=()=>{
+      worker.terminate();
+      const error=new DOMException('Search cancelled.','AbortError');
+      for(const task of pending.values())task.reject(error);
+      pending.clear();start();
+    };
+    const finish=callback=>value=>{signal?.removeEventListener('abort',abort);callback(value);};
+    const id=++serial;pending.set(id,{resolve:finish(resolve),reject:finish(reject)});
+    signal?.addEventListener('abort',abort,{once:true});
     worker.postMessage({id,action,request});
   });
 }

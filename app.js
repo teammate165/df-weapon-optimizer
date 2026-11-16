@@ -1,11 +1,11 @@
-import {createStaticClient} from './static-client.js?v=4ff8cb158b5ce7d6';
-import {imageLoaded,prepareImageCache} from './image-loading.js?v=4ff8cb158b5ce7d6';
-import {createSavedBuildStore} from './saved-builds.js?v=4ff8cb158b5ce7d6';
-import {slotIcons} from './assets/slot-icons.js?v=4ff8cb158b5ce7d6';
-import {portraits} from './assets/portraits.js?v=4ff8cb158b5ce7d6';
-import {statChanges,groupStatChanges,majorStatGroups,tacticalBenefits} from './part-comparisons.js?v=4ff8cb158b5ce7d6';
-import {createStatResponseView} from './stat-response-view.js?v=4ff8cb158b5ce7d6';
-import {createWeaponImage} from './weapon-layers.js?v=4ff8cb158b5ce7d6';
+import {createStaticClient} from './static-client.js?v=6be8e9ba4f046b71';
+import {imageLoaded,prepareImageCache} from './image-loading.js?v=6be8e9ba4f046b71';
+import {createSavedBuildStore} from './saved-builds.js?v=6be8e9ba4f046b71';
+import {slotIcons} from './assets/slot-icons.js?v=6be8e9ba4f046b71';
+import {portraits} from './assets/portraits.js?v=6be8e9ba4f046b71';
+import {statChanges,groupStatChanges,majorStatGroups,tacticalBenefits} from './part-comparisons.js?v=6be8e9ba4f046b71';
+import {createStatResponseView} from './stat-response-view.js?v=6be8e9ba4f046b71';
+import {createWeaponImage} from './weapon-layers.js?v=6be8e9ba4f046b71';
 const $=id=>document.getElementById(id);
 const updateWeaponImage=createWeaponImage({canvas:$('gun-assembly'),fallback:$('gun-image'),caption:$('gun-image-caption')});
 const state={catalog:null,model:null,config:[],tunes:{},locks:new Set(),slot:null,preview:null,previewSerial:0,previewLoading:false,busy:false,tab:'builder',results:null,resultIndex:0,solutionPreview:null,solutionPreviewLoading:false};
@@ -24,7 +24,7 @@ const viewed=()=>state.preview?.model??(state.tab==='optimizer'?state.solutionPr
 const showStatResponse=createStatResponseView({load:r=>api('evaluate',r),getContext:()=>{const model=viewed();return{weapon_id:model.stats.weaponId,weapon_name:state.catalog.weapons.find(w=>w.id===model.stats.weaponId)?.name??model.stats.weaponId,mode:model.stats.mode,config:model.build.config,tunes:model.tunes};}});
 function status(message,error=false){$('status').textContent=message;$('status').title=message;$('status').classList.toggle('error',error);}
 const api=createStaticClient();
-function setBusy(value){state.busy=value;document.querySelectorAll('button,input,select').forEach(el=>el.disabled=value);document.body.setAttribute('aria-busy',String(value));if(!value)updateActions();}
+function setBusy(value){state.busy=value;document.querySelectorAll('button,input,select').forEach(el=>el.disabled=value);$('cancel-generate').hidden=!state.searchController;$('cancel-generate').disabled=!state.searchController;document.body.setAttribute('aria-busy',String(value));if(!value)updateActions();}
 function clearResults(){hideAccuracyInfo();solutionPreviewSerial++;solutionPreviewCache.clear();state.solutionPreview=null;state.solutionPreviewLoading=false;state.results=null;$('results').replaceChildren();}
 function clearPreview(){state.previewSerial++;state.preview=null;state.previewLoading=false;$('preview-summary').hidden=true;}
 function pane(value){document.querySelector('.workspace').dataset.pane=value;document.querySelectorAll('[data-pane]').forEach(button=>{if(button.tagName==='BUTTON')button.setAttribute('aria-pressed',String(button.dataset.pane===value));});}
@@ -282,13 +282,14 @@ function updatePreset(){
  const info=$('optimizer-score-info'),explain=()=>showAccuracyInfo(info,{preset:$('optimizer-preset').value});
  info.onmouseenter=explain;info.onmouseleave=hideAccuracyInfo;info.onfocus=explain;info.onblur=hideAccuracyInfo;info.onclick=explain;info.onkeydown=e=>{if(e.key==='Escape')hideAccuracyInfo();};
  box.querySelector('p').textContent=preset.priorities;
- $('optimizer-search-note').textContent='Top 5% attachment screening · Best found';
+ $('optimizer-search-note').textContent='Multi-start search · Best found';
  $('category-info').textContent='Max / Balanced / Min. Cheaper choices retain at least 50% of best improvement. No duplicate builds.';
  $('optimizer-model-note').textContent=agility?'Weighted loss: 50% Handling (equal normalized ADS/sprint-to-fire times), 30% idle hip-fire spread, 20% ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Automatic pattern uses horizontal distance from origin, weighted by candidate fastest 200 ms speed: 1x up to 3, 2x above 3, 3x above 4, 5x above 5 model units/s. Unsupported firing protocols retain the multiplier proxy. Best found; experimental proxy.';
 }
 $('optimizer-preset').onchange=()=>{clearResults();updatePreset();renderStats();drawGraph();};
 $('generate').onclick=async()=>{
  const started=Date.now();let progress;
+ state.searchController=new AbortController();
  const feedback=(message,error=false)=>{$('results').innerHTML=`<p class="search-feedback ${error?'error':''}" role="status">${esc(message)}</p>`;};
  try{
   cancelLiveCalibration();clearPreview();clearResults();setBusy(true);renderStats();drawGraph();
@@ -299,13 +300,14 @@ $('generate').onclick=async()=>{
   const fixed=state.config.filter(x=>[...state.locks].some(path=>path===x.slotPath||path.startsWith(x.slotPath+'/'))),r={...request(),preset:$('optimizer-preset').value,fixed,passes:Number($('passes').value)};
   r.minimum_stats=Object.fromEntries(['control','handling','stability','accuracy'].filter(k=>$(`minimum-${k}`).value!=='').map(k=>[k,Number($(`minimum-${k}`).value)]));
   if(r.mode==='sol')r.budget=Number($('budget-0').value);
-  const result=await api('optimize',r);
+  const result=await api('optimize',r,{signal:state.searchController.signal});
   if(!Array.isArray(result.results)||!result.results.length)throw Error('Search returned no builds. Try different constraints or another weapon.');
   state.results=result;state.results.request=structuredClone(r);state.resultIndex=0;
   clearInterval(progress);renderResults();status('Search complete - Best builds found.');
- }catch(error){clearInterval(progress);feedback(error.message,true);status(error.message,true);}
- finally{clearInterval(progress);$('generate').textContent='Generate best build';setBusy(false);}
+ }catch(error){clearInterval(progress);const cancelled=error.name==='AbortError';feedback(cancelled?'Search cancelled. Your equipped build is unchanged.':error.message,!cancelled);status(cancelled?'Search cancelled.':error.message,!cancelled);}
+ finally{clearInterval(progress);state.searchController=null;$('generate').textContent='Generate best build';setBusy(false);}
 };
+$('cancel-generate').onclick=()=>state.searchController?.abort();
 
 let solutionPreviewSerial=0;
 const solutionPreviewCache=new Map();

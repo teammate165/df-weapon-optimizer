@@ -1,21 +1,22 @@
-import {completeRiserOptics} from './optimizer_mounts.mjs?v=4ff8cb158b5ce7d6';
-import {timedRecoil} from './timed_recoil.mjs?v=4ff8cb158b5ce7d6';
-import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=4ff8cb158b5ce7d6';
-import {presets} from './optimizer_presets.mjs?v=4ff8cb158b5ce7d6';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=4ff8cb158b5ce7d6';
-import {attachmentGateFraction,retainTopAttachmentCandidates} from './attachment_gate.mjs?v=4ff8cb158b5ce7d6';
+import {completeRiserOptics} from './optimizer_mounts.mjs?v=6be8e9ba4f046b71';
+import {timedRecoil} from './timed_recoil.mjs?v=6be8e9ba4f046b71';
+import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=6be8e9ba4f046b71';
+import {presets} from './optimizer_presets.mjs?v=6be8e9ba4f046b71';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=6be8e9ba4f046b71';
+import {attachmentGateFraction,retainTopAttachmentCandidates} from './attachment_gate.mjs?v=6be8e9ba4f046b71';
+import {exploreAttachments} from './optimizer_exploration.mjs?v=6be8e9ba4f046b71';
 
 async function loadRuntime(directory) {
   const {pathToFileURL}=await import('node:url');
   const path=await import('node:path');
-  const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=4ff8cb158b5ce7d6')));
-  const kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=4ff8cb158b5ce7d6')));
-  const {t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=4ff8cb158b5ce7d6')));
+  const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=6be8e9ba4f046b71')));
+  const kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=6be8e9ba4f046b71')));
+  const {t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=6be8e9ba4f046b71')));
   return {curves,kernel,calculate};
 }
 
-// Best-found top-5% attachment screening and coordinate calibration. All presets
-// share this search; all mounting/coupling and effect arithmetic use
+// Retained top-5% baseline plus all-slot multi-start refinement. All presets
+// share this best-found search; all mounting/coupling and effect arithmetic use
 // the preserved source resolver. No source UI heuristics enter the objective.
 export async function generate(input, runtime) {
   const {curves,kernel,calculate} = typeof runtime === 'object' ? runtime : await loadRuntime(runtime);
@@ -29,12 +30,15 @@ export async function generate(input, runtime) {
   const buildCache=new Map();
   const resolve=config=>{
     const key=JSON.stringify(config);
-    if(!buildCache.has(key))buildCache.set(key,curves.o(pack,config,mode));
+    if(!buildCache.has(key)){
+      buildCache.set(key,curves.o(pack,config,mode));
+      if(buildCache.size>2048)buildCache.delete(buildCache.keys().next().value);
+    }
     return buildCache.get(key);
   };
   const retains = build => fixed.every(f=>build.mounted.some(m=>m.slotPath===f.slotPath && m.itemId===f.itemId));
   if (r.firing && !['auto','spam'].includes(r.firing)) throw Error('firing must be auto or spam');
-  const {raw,score,baseline,weights,objectives,objectiveNames,limitations,allowTargets=false}=presets[settings.preset].create({pack,request:r,kernel,resolve,mode,calculate,curves});
+  const {raw,score,baseline,weights,objectives,objectiveNames,limitations,calibrationPriorities=[],allowTargets=false}=presets[settings.preset].create({pack,request:r,kernel,resolve,mode,calculate,curves});
   if(objectives && !allowTargets && r.effectiveness_targets!==undefined)throw Error('This preset does not support custom effectiveness targets');
   const timedModules={calculate,curves,kernel};
   const baseNumeric=kernel.u(pack,resolve([]),{tacticalEffective:true,mode,tunes:{}}).numeric;
@@ -65,6 +69,8 @@ export async function generate(input, runtime) {
   const results=[];
   const cache=new Map();
   let frontier=[];
+  let explore;
+  const exploration={strategy:'all-slot multi-start refinement',evaluations:0,configurations:0,passes:0,restarts:0,structural_starts:0,global_optimality:false};
   const attachmentGate={fraction:attachmentGateFraction,scope:'complete compatible replacement configurations per search pass',screening:'default calibration',screened:0,retained:0,neighborhoods:0,global_optimality:false};
   const targetLoss=(anchor,target)=>anchor.score>=100?anchor.score:100-(100-anchor.score)*target/100;
   // Normalize tuning whenever equipment changes: old values cannot leak into a
@@ -102,6 +108,7 @@ export async function generate(input, runtime) {
         if(objectives)metrics.objectives=objectives(components);
         if(!Number.isFinite(metrics.score)||metrics.objectives?.some(v=>!Number.isFinite(v)))throw Error('Non-finite optimizer objective');
         cache.set(key,metrics);
+        if(cache.size>20000)cache.delete(cache.keys().next().value);
       }
       const effectiveTunes=[];
       for(const mounted of build.mounted)for(const id of pack.parts[mounted.itemId]?.tuneIds??[]){
@@ -179,6 +186,7 @@ export async function generate(input, runtime) {
       if(better(calibrated,best)){best=calibrated;changed=true;}
       if(!changed){converged=true;break;}
     }
+    if(targetScore===null)explore=candidate=>exploreAttachments({seed:candidate,pack,curves,resolve,evaluate:(config,tunes)=>evaluateSingle(config,tunes),complete:build=>completeRiserOptics(pack,build,resolve,fixed),fixed,hidden:new Set(mode==='bd'?shop.hiddenItemIds:[]),better,priorities:calibrationPriorities,passes,diagnostics:exploration});
     return {...best,converged};
   };
   const publish=(best,label,budget,target=null,anchor=null,categoryNote=null)=>{
@@ -196,7 +204,8 @@ export async function generate(input, runtime) {
   };
   for(const [index,budget] of budgets.entries()){
     frontier=[];
-    const anchor=search(budget);
+    let anchor=search(budget);
+    if(anchor&&(mode==='mp'||budgets.length!==1||shortfall(anchor.stats,settings.minimums)>=1e-8))anchor=explore(anchor);
     const label=budgets.length===1?'Max':['Min','Balanced','Max'][index];
     if(settings.automatic && budgets.length===1 && (mode==='mp' || !anchor || shortfall(anchor.stats,settings.minimums)>=1e-8)){
       publish(anchor,'Max',budget);
@@ -216,7 +225,9 @@ export async function generate(input, runtime) {
       }
       // Every evaluated feasible configuration participates in the final
       // selection, even if another search direction rejected it locally.
-      const strongest=frontier.reduce((a,b)=>comparator(settings.minimums)(b,a)?b:a,anchor);
+      const original=frontier.reduce((a,b)=>comparator(settings.minimums)(b,a)?b:a,anchor);
+      const improved=explore(original);
+      const strongest=frontier.reduce((a,b)=>comparator(settings.minimums)(b,a)?b:a,improved);
       if(settings.automatic){
         const selected=selectCategories(frontier);
         publish(selected.strongest,'Max',budget);
@@ -245,5 +256,5 @@ export async function generate(input, runtime) {
       else seen.add(row.signature);
     }
   }
-  return {weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:!settings.automatic?'custom_targets':settings.preset==='agility'?'weighted':objectives?'lexicographic':'automatic',objective_names:objectiveNames,limitations:[...limitations,'Default-tuned attachment screening retains the top 5% of compatible replacements per pass; calibration is coordinate search over legal positions. Heuristic best found, not global optimality.'],attachment_gate:attachmentGate,cheapest_gate_percent:mode==='mp'?null:cheapestGate,minimum_stats:settings.minimums,effectiveness_definition:settings.preset==='agility'?'Weighted improvement: 50% handling, 30% hip accuracy, 20% ADS recoil':'ADS recoil improvement over default; Handling breaks recoil ties',experimental:true,method:'Top 5% attachment screening + coordinate calibration; no global optimality guarantee',score_model:presets[settings.preset].description,weights,baseline,baseline_stats,baseline_score:0,baseline_loss:100,score_direction:'higher',score_definition:'Percent reduction of primary loss from the default build; default = 0; higher is better',baseline_recoil_path:baselinePath,tier,provenance:input.provenance,results};
+  return {weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:!settings.automatic?'custom_targets':settings.preset==='agility'?'weighted':objectives?'lexicographic':'automatic',objective_names:objectiveNames,limitations:[...limitations,'Top-5% baseline is retained, then all-slot replacements and multiple starting builds refine the result. Calibration proposals and legal-position coordinate search remain heuristic. Best found, not global optimality.'],attachment_gate:attachmentGate,exploration,cheapest_gate_percent:mode==='mp'?null:cheapestGate,minimum_stats:settings.minimums,effectiveness_definition:settings.preset==='agility'?'Weighted improvement: 50% handling, 30% hip accuracy, 20% ADS recoil':'ADS recoil improvement over default; Handling breaks recoil ties',experimental:true,method:'Top 5% baseline + all-slot multi-start refinement; no global optimality guarantee',score_model:presets[settings.preset].description,weights,baseline,baseline_stats,baseline_score:0,baseline_loss:100,score_direction:'higher',score_definition:'Percent reduction of primary loss from the default build; default = 0; higher is better',baseline_recoil_path:baselinePath,tier,provenance:input.provenance,results};
 }
