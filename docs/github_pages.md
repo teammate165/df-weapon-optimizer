@@ -208,3 +208,38 @@ Evidence: `.scratch/top5-release/catalog-report.json`, `browser-local.json`,
 `browser-live.json`, `static-live.json`, `live-artifacts.json`. Browser reproduction:
 `.scratch/browser-qa/top5-release.cjs`, `tests/github_pages.cjs` and
 `.scratch/browser-qa/static-check.cjs` with STATIC_SITE_URL set to the public URL.
+
+## Multi-start refinement release (2026-11-16)
+
+Published source `e81d22f2d15e39561fe348462c92ea615f23cc8e` as generated
+`21db06f4bd1c54c5749040af84dd87f309cf1a70`, release `6be8e9ba4f046b71`.
+[Successful deployment](https://github.com/teammate165/df-weapon-optimizer/actions/runs/43824320832).
+
+All presets retain the old top-5% search and price-target frontier, then explore
+all-slot replacements, structural alternatives and deterministic multi-start
+perturbations. Added bounded caches and Cancel search with worker recovery.
+Scoring, weights, budget/floor/lock rules, required optics, enabled-laser policy
+and distinct Max/Balanced/Min selection remain. Results are still best found.
+See [the implementation contract](multistart_optimizer.md).
+
+All 69 weapons / both presets pass (138 Detonation searches), with no Max-score
+regressions against the published one-pass baseline and exact calculator replay.
+Standard full-budget checks improve all eight previous non-optimal cases and
+preserve both exact G18 results. Eight generator/four builder integration tests,
+future-preset, exploration, multiple-budget, category and special-effect checks
+pass. Standard ten-case local timings range from 2 to 64 seconds.
+
+Reviewed-export and public browser checks pass: cancellation/regeneration,
+worker recovery, both presets, calculator parity, cache/versioning, desktop/mobile
+layout, real Generate/Apply/save/reload and no page errors/backend calls. Ten
+critical public assets match the committed Git blobs. The public P90 Operations
+search at 5,000,000 and 12 passes returns loss 32.660529010656475, cost 293,171,
+with exact replay in about 35.4 seconds. The public six-pass UI search takes
+about 24 seconds. These are individual desktop observations.
+
+Evidence: `.scratch/multistart-release/` contains `regression.json`,
+`catalog-report.json`, `browser-reviewed.json`, `static-reviewed.json`,
+`browser-live.json`, `static-live.json`, `operations-live.json` and
+`live-artifacts.json`. Persistent results are in
+`data/optimizer_validation/multistart_20261116.json`. Unrelated working-copy
+translations and research edits were preserved and excluded from publication.

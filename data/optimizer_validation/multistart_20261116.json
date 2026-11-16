@@ -6270,5 +6270,25 @@
     ],
     "errors": [],
     "apiRequests": []
+  },
+  "deployment": {
+    "source_tree": "068b4687b09abe26e03e2af0d830e5e5f4575906",
+    "source_directory": "C:\\Users\\USER\\Documents\\df_build_optimizer\\.scratch\\multistart-release\\reviewed-068b4687b09a",
+    "destination": "C:\\Users\\USER\\Documents\\df_build_optimizer\\.scratch\\github-pages-site",
+    "release": "6be8e9ba4f046b71",
+    "source_commit": "e81d22f2d15e39561fe348462c92ea615f23cc8e",
+    "deploy_commit": "21db06f4bd1c54c5749040af84dd87f309cf1a70",
+    "workflow": "https://github.com/teammate165/df-weapon-optimizer/actions/runs/43824320832",
+    "conclusion": "success",
+    "public_browser_passed": true,
+    "critical_artifacts_matched": 10,
+    "operations_check": {
+      "budget": 5000000,
+      "passes": 12,
+      "loss": 32.660529010656475,
+      "cost": 293171,
+      "ms": 35445.40000000596,
+      "calculator_replay": true
+    }
   }
 }
