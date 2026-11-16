@@ -1,3 +1,4 @@
+import {createLocalClient} from './local-client.js';
 import {imageLoaded,prepareImageCache} from './image-loading.js';
 import {createSavedBuildStore} from './saved-builds.js';
 import {slotIcons} from './assets/slot-icons.js';
@@ -22,9 +23,9 @@ const request=()=>({weapon_id:$('weapon').value,mode:$('mode').value,config:stat
 const viewed=()=>state.preview?.model??(state.tab==='optimizer'?state.solutionPreview?.model:null)??state.model;
 const showStatResponse=createStatResponseView({load:r=>api('evaluate',r),getContext:()=>{const model=viewed();return{weapon_id:model.stats.weaponId,weapon_name:state.catalog.weapons.find(w=>w.id===model.stats.weaponId)?.name??model.stats.weaponId,mode:model.stats.mode,config:model.build.config,tunes:model.tunes};}});
 function status(message,error=false){$('status').textContent=message;$('status').title=message;$('status').classList.toggle('error',error);}
-async function api(action,payload,{signal}={}){const response=await fetch(`/api/${action}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal});const body=await response.json();if(!response.ok)throw Error(body.error??'Request failed');return body;}
+const api=createLocalClient();
 function setBusy(value){state.busy=value;document.querySelectorAll('button,input,select').forEach(el=>el.disabled=value);$('cancel-generate').hidden=!state.searchController;$('cancel-generate').disabled=!state.searchController;document.body.setAttribute('aria-busy',String(value));if(!value)updateActions();}
-function clearResults(){$('optimizer-search-note').textContent='SCIP full-weapon search / Best found';hideAccuracyInfo();solutionPreviewSerial++;solutionPreviewCache.clear();state.solutionPreview=null;state.solutionPreviewLoading=false;state.results=null;$('results').replaceChildren();}
+function clearResults(){$('optimizer-search-note').textContent='Time-limited attachment search and calibration / Best found';hideAccuracyInfo();solutionPreviewSerial++;solutionPreviewCache.clear();state.solutionPreview=null;state.solutionPreviewLoading=false;state.results=null;$('results').replaceChildren();}
 function clearPreview(){state.previewSerial++;state.preview=null;state.previewLoading=false;$('preview-summary').hidden=true;}
 function pane(value){document.querySelector('.workspace').dataset.pane=value;document.querySelectorAll('[data-pane]').forEach(button=>{if(button.tagName==='BUTTON')button.setAttribute('aria-pressed',String(button.dataset.pane===value));});}
 function tab(value){clearPreview();state.tab=value;for(const id of ['builder','optimizer']){$(`${id}-panel`).hidden=id!==value;$(`${id}-tab`).setAttribute('aria-selected',String(id===value));$(`${id}-tab`).tabIndex=id===value?0:-1;}if(state.model){renderStats();drawGraph();updateActions();}if(value==='optimizer')pane('parts');}
@@ -281,28 +282,36 @@ function updatePreset(){
  const info=$('optimizer-score-info'),explain=()=>showAccuracyInfo(info,{preset:$('optimizer-preset').value});
  info.onmouseenter=explain;info.onmouseleave=hideAccuracyInfo;info.onfocus=explain;info.onblur=hideAccuracyInfo;info.onclick=explain;info.onkeydown=e=>{if(e.key==='Escape')hideAccuracyInfo();};
  box.querySelector('p').textContent=preset.priorities;
- $('optimizer-search-note').textContent='SCIP full-weapon search · Best found';
+ $('optimizer-search-note').textContent='Time-limited attachment search and calibration / Best found';
  $('category-info').textContent='Max / Balanced / Min. Cheaper choices retain at least 50% of best improvement. No duplicate builds.';
- $('optimizer-model-note').textContent=agility?'Weighted loss: 50% Handling (equal normalized ADS/sprint-to-fire times), 30% idle hip-fire spread, 20% ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Automatic pattern uses horizontal distance from origin, weighted by candidate fastest 200 ms speed: 1x up to 3, 2x above 3, 3x above 4, 5x above 5 model units/s. Unsupported firing protocols retain the multiplier proxy. Best found; experimental proxy.';
+ $('optimizer-model-note').textContent=agility?'Weighted loss: 50% Handling (equal normalized ADS/sprint-to-fire times), 30% idle hip-fire spread, 20% ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Automatic pattern uses horizontal distance from origin, weighted by candidate fastest 200 ms speed: 1x up to 3, 4x above 3, 6x above 4, 10x above 5 model units/s. Unsupported firing protocols retain the multiplier proxy. Best found; experimental proxy.';
 }
 $('optimizer-preset').onchange=()=>{clearResults();updatePreset();renderStats();drawGraph();};
 $('generate').onclick=async()=>{
- const started=Date.now();let progress;
+ const started=Date.now();let progress,searchProgress=null;
+ const progressText=()=>{
+  const p=searchProgress,elapsed=Math.floor((Date.now()-started)/1000);
+  const budget=Number($('solver-time-limit').value);
+  if(!p)return `Starting attachment search... ${elapsed}s of ${budget}s. Best found within the total search budget.`;
+  if(p.phase==='calibration')return `Calibrating ${Number(p.candidates??0).toLocaleString()} shortlisted builds... ${elapsed}s of ${budget}s.`;
+  const tactical=p.phase==='search_tactical',stage=tactical?'Searching patches and lasers':'Searching ordinary attachments';
+  return `${stage}: ${Number(p.evaluated??0).toLocaleString()} builds scored, ${Number(p.ordinary_retained??0).toLocaleString()} ordinary / ${Number(p.candidates??0).toLocaleString()} complete retained... ${elapsed}s of ${budget}s.`;
+ };
  state.searchController=new AbortController();
  const feedback=(message,error=false)=>{$('results').innerHTML=`<p class="search-feedback ${error?'error':''}" role="status">${esc(message)}</p>`;};
  try{
   cancelLiveCalibration();clearPreview();clearResults();setBusy(true);renderStats();drawGraph();
-  status('Searching attachments and calibration...');
-  feedback('Searching attachments and calibration...');
+  status('Searching attachments and calibrating a bounded shortlist...');
+  feedback(progressText());
   $('generate').textContent='Searching...';
-  progress=setInterval(()=>{feedback(`Searching attachments and calibration... ${Math.floor((Date.now()-started)/1000)}s elapsed. Deeper searches can take longer.`);},1000);
+  progress=setInterval(()=>feedback(progressText()),1000);
   const fixed=state.config.filter(x=>[...state.locks].some(path=>path===x.slotPath||path.startsWith(x.slotPath+'/'))),r={...request(),preset:$('optimizer-preset').value,fixed,time_limit_seconds:Number($('solver-time-limit').value)};
   r.minimum_stats=Object.fromEntries(['control','handling','stability','accuracy'].filter(k=>$(`minimum-${k}`).value!=='').map(k=>[k,Number($(`minimum-${k}`).value)]));
   if(r.mode==='sol')r.budget=Number($('budget-0').value);
-  const result=await api('optimize',r,{signal:state.searchController.signal});
+  const result=await api('optimize',r,{signal:state.searchController.signal,onProgress:p=>{searchProgress=p;feedback(progressText());}});
   if(!Array.isArray(result.results)||!result.results.length)throw Error('Search returned no builds. Try different constraints or another weapon.');
   state.results=result;state.results.request=structuredClone(r);state.resultIndex=0;
-  clearInterval(progress);renderResults();const primary=result.solver?.phases?.find(p=>p.label==='Max primary');if(primary){const gap=primary.gap_percent;$('optimizer-search-note').textContent=primary.status==='optimal'&&primary.source_verified?'SCIP primary model solved / Best found':Number.isFinite(gap)?'SCIP / Best found / Model gap '+fmt(gap,1)+'%':'SCIP / Best found / Time limit reached';}status('Search complete - Best builds found.');
+  clearInterval(progress);renderResults();$('optimizer-search-note').textContent='Best found within search budget / Global optimum unproven';status('Search complete - Best builds found.');
  }catch(error){clearInterval(progress);const cancelled=error.name==='AbortError';feedback(cancelled?'Search cancelled. Your equipped build is unchanged.':error.message,!cancelled);status(cancelled?'Search cancelled.':error.message,!cancelled);}
  finally{clearInterval(progress);state.searchController=null;$('generate').textContent='Generate best build';setBusy(false);}
 };

@@ -1,0 +1,755 @@
+{
+  "date": "2026-11-16",
+  "status": "prototype; not production; larger walks incomplete",
+  "request": "all legal combinations, default calibration; best 5% ordinary attachment combinations excluding patches/lasers, then best 5% patch/laser combinations per retained base, then calibration",
+  "timing_scope": "10-second first-stage walk per weapon; initial five-weapon run does not run tactical expansion",
+  "stage_one": [
+    {
+      "weapon": "P90 Submachine Gun",
+      "weapon_id": "18020000002",
+      "budget": 800,
+      "stage": "non-patch non-laser attachments, default calibration",
+      "complete": false,
+      "visited": 15753,
+      "nodes": 22592,
+      "elapsed_ms": 10015.3984,
+      "best": {
+        "objectives": [
+          70.8877718442845,
+          106.54515845858063
+        ],
+        "cost": 200,
+        "config": [
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000022"
+          },
+          {
+            "slotPath": "4/11",
+            "itemId": "13110000052"
+          }
+        ]
+      }
+    },
+    {
+      "weapon": "Vector Submachine Gun",
+      "weapon_id": "18020000003",
+      "budget": 2000,
+      "stage": "non-patch non-laser attachments, default calibration",
+      "complete": false,
+      "visited": 45860,
+      "nodes": 65920,
+      "elapsed_ms": 10003.882399999999,
+      "best": {
+        "objectives": [
+          66.46356216722945,
+          122.24428218695613
+        ],
+        "cost": 220,
+        "config": [
+          {
+            "slotPath": "11",
+            "itemId": "13110000052"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "5/44",
+            "itemId": "13340000002"
+          }
+        ]
+      }
+    },
+    {
+      "weapon": "SR-25 Marksman Rifle",
+      "weapon_id": "18050000007",
+      "budget": 2000,
+      "stage": "non-patch non-laser attachments, default calibration",
+      "complete": false,
+      "visited": 11442,
+      "nodes": 47104,
+      "elapsed_ms": 10005.291799999999,
+      "best": {
+        "objectives": [
+          80.02669941309934,
+          103.67836116865266
+        ],
+        "cost": 220,
+        "config": [
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000022"
+          },
+          {
+            "slotPath": "4/17",
+            "itemId": "13320000020"
+          },
+          {
+            "slotPath": "4/19",
+            "itemId": "13320000020"
+          },
+          {
+            "slotPath": "4/20",
+            "itemId": "13320000020"
+          }
+        ]
+      }
+    },
+    {
+      "weapon": "M249 Light Machine Gun",
+      "weapon_id": "18040000002",
+      "budget": 800,
+      "stage": "non-patch non-laser attachments, default calibration",
+      "complete": false,
+      "visited": 12025,
+      "nodes": 41600,
+      "elapsed_ms": 10015.030400000003,
+      "best": {
+        "objectives": [
+          53.01453459900283,
+          121.37242460308626
+        ],
+        "cost": 240,
+        "config": [
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000041"
+          }
+        ]
+      }
+    },
+    {
+      "weapon": "G18",
+      "weapon_id": "18070000005",
+      "budget": 200,
+      "stage": "non-patch non-laser attachments, default calibration",
+      "complete": true,
+      "visited": 458,
+      "nodes": 683,
+      "elapsed_ms": 70.1704000000027,
+      "best": {
+        "objectives": [
+          72.03393454860955,
+          113.3023664958869
+        ],
+        "cost": 200,
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000128"
+          },
+          {
+            "slotPath": "2",
+            "itemId": "13020000456"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000193"
+          }
+        ]
+      }
+    }
+  ],
+  "completed_two_stage_example": [
+    {
+      "weapon": "G18",
+      "weapon_id": "18070000005",
+      "budget": 200,
+      "stage": "non-patch non-laser attachments, default calibration",
+      "complete": true,
+      "visited": 458,
+      "base_retained": 23,
+      "tactical_complete": true,
+      "tactical_visited": 24,
+      "tactical_retained": 23,
+      "calibration_ready": true,
+      "calibration_candidates": [
+        {
+          "objectives": [
+            72.03393454860955,
+            113.3023664958869
+          ],
+          "cost": 200,
+          "config": [
+            {
+              "slotPath": "1",
+              "itemId": "13030000128"
+            },
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000128\",\"equipped\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"5\",\"13120000292\",\"default\"]]"
+        },
+        {
+          "objectives": [
+            73.47755823457764,
+            109.33484081873304
+          ],
+          "cost": 200,
+          "config": [
+            {
+              "slotPath": "1",
+              "itemId": "13030000127"
+            },
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000127\",\"equipped\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"5\",\"13120000292\",\"default\"]]"
+        },
+        {
+          "objectives": [
+            74.99322246138908,
+            92.30220320079316
+          ],
+          "cost": 200,
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            },
+            {
+              "slotPath": "18",
+              "itemId": "13160000020"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000153\",\"default\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"5\",\"13120000292\",\"default\"],[\"18\",\"13160000020\",\"equipped\"]]"
+        },
+        {
+          "objectives": [
+            74.99322246138908,
+            119.82921656162328
+          ],
+          "cost": 200,
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "18",
+              "itemId": "13160000008"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000153\",\"default\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"5\",\"13120000292\",\"default\"],[\"18\",\"13160000008\",\"equipped\"]]"
+        },
+        {
+          "objectives": [
+            74.99322246138908,
+            122.11558351898151
+          ],
+          "cost": 140,
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000043"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000153\",\"default\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"2/11\",\"13110000043\",\"equipped\"],[\"5\",\"13120000292\",\"default\"]]"
+        },
+        {
+          "objectives": [
+            74.99322246138908,
+            122.11558351898151
+          ],
+          "cost": 140,
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000044"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000153\",\"default\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"2/11\",\"13110000044\",\"equipped\"],[\"5\",\"13120000292\",\"default\"]]"
+        },
+        {
+          "objectives": [
+            74.99322246138908,
+            122.11558351898151
+          ],
+          "cost": 140,
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000062"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000153\",\"default\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"2/11\",\"13110000062\",\"equipped\"],[\"5\",\"13120000292\",\"default\"]]"
+        },
+        {
+          "objectives": [
+            74.99322246138908,
+            122.11558351898151
+          ],
+          "cost": 140,
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000063"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000153\",\"default\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"2/11\",\"13110000063\",\"equipped\"],[\"5\",\"13120000292\",\"default\"]]"
+        },
+        {
+          "objectives": [
+            74.99322246138908,
+            122.11558351898151
+          ],
+          "cost": 140,
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000087"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000153\",\"default\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"2/11\",\"13110000087\",\"equipped\"],[\"5\",\"13120000292\",\"default\"]]"
+        },
+        {
+          "objectives": [
+            74.99322246138908,
+            122.11558351898151
+          ],
+          "cost": 140,
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000102"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000153\",\"default\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"2/11\",\"13110000102\",\"equipped\"],[\"5\",\"13120000292\",\"default\"]]"
+        },
+        {
+          "objectives": [
+            74.99322246138908,
+            127.16440270095215
+          ],
+          "cost": 180,
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "5",
+              "itemId": "13120000293"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000153\",\"default\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"5\",\"13120000293\",\"equipped\"]]"
+        },
+        {
+          "objectives": [
+            74.99322246138908,
+            133.04447403000168
+          ],
+          "cost": 200,
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "5",
+              "itemId": "13120000293"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000043"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000153\",\"default\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"2/11\",\"13110000043\",\"equipped\"],[\"5\",\"13120000293\",\"equipped\"]]"
+        },
+        {
+          "objectives": [
+            74.99322246138908,
+            133.04447403000168
+          ],
+          "cost": 200,
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "5",
+              "itemId": "13120000293"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000044"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000153\",\"default\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"2/11\",\"13110000044\",\"equipped\"],[\"5\",\"13120000293\",\"equipped\"]]"
+        },
+        {
+          "objectives": [
+            74.99322246138908,
+            133.04447403000168
+          ],
+          "cost": 200,
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "5",
+              "itemId": "13120000293"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000062"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000153\",\"default\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"2/11\",\"13110000062\",\"equipped\"],[\"5\",\"13120000293\",\"equipped\"]]"
+        },
+        {
+          "objectives": [
+            74.99322246138908,
+            133.04447403000168
+          ],
+          "cost": 200,
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "5",
+              "itemId": "13120000293"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000063"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000153\",\"default\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"2/11\",\"13110000063\",\"equipped\"],[\"5\",\"13120000293\",\"equipped\"]]"
+        },
+        {
+          "objectives": [
+            74.99322246138908,
+            133.04447403000168
+          ],
+          "cost": 200,
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "5",
+              "itemId": "13120000293"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000087"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000153\",\"default\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"2/11\",\"13110000087\",\"equipped\"],[\"5\",\"13120000293\",\"equipped\"]]"
+        },
+        {
+          "objectives": [
+            74.99322246138908,
+            133.04447403000168
+          ],
+          "cost": 200,
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "5",
+              "itemId": "13120000293"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000102"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000153\",\"default\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"2/11\",\"13110000102\",\"equipped\"],[\"5\",\"13120000293\",\"equipped\"]]"
+        },
+        {
+          "objectives": [
+            75.48235445515733,
+            107.49823989857377
+          ],
+          "cost": 180,
+          "config": [
+            {
+              "slotPath": "1",
+              "itemId": "13030000128"
+            },
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000192"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000128\",\"equipped\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000192\",\"equipped\"],[\"5\",\"13120000292\",\"default\"]]"
+        },
+        {
+          "objectives": [
+            75.48235445515733,
+            111.27311075210594
+          ],
+          "cost": 200,
+          "config": [
+            {
+              "slotPath": "1",
+              "itemId": "13030000128"
+            },
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000192"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000043"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000128\",\"equipped\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000192\",\"equipped\"],[\"2/11\",\"13110000043\",\"equipped\"],[\"5\",\"13120000292\",\"default\"]]"
+        },
+        {
+          "objectives": [
+            75.48235445515733,
+            111.27311075210594
+          ],
+          "cost": 200,
+          "config": [
+            {
+              "slotPath": "1",
+              "itemId": "13030000128"
+            },
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000192"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000044"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000128\",\"equipped\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000192\",\"equipped\"],[\"2/11\",\"13110000044\",\"equipped\"],[\"5\",\"13120000292\",\"default\"]]"
+        },
+        {
+          "objectives": [
+            75.48235445515733,
+            111.27311075210594
+          ],
+          "cost": 200,
+          "config": [
+            {
+              "slotPath": "1",
+              "itemId": "13030000128"
+            },
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000192"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000062"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000128\",\"equipped\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000192\",\"equipped\"],[\"2/11\",\"13110000062\",\"equipped\"],[\"5\",\"13120000292\",\"default\"]]"
+        },
+        {
+          "objectives": [
+            75.48235445515733,
+            111.27311075210594
+          ],
+          "cost": 200,
+          "config": [
+            {
+              "slotPath": "1",
+              "itemId": "13030000128"
+            },
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000192"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000063"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000128\",\"equipped\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000192\",\"equipped\"],[\"2/11\",\"13110000063\",\"equipped\"],[\"5\",\"13120000292\",\"default\"]]"
+        },
+        {
+          "objectives": [
+            75.48235445515733,
+            111.27311075210594
+          ],
+          "cost": 200,
+          "config": [
+            {
+              "slotPath": "1",
+              "itemId": "13030000128"
+            },
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000192"
+            },
+            {
+              "slotPath": "2/11",
+              "itemId": "13110000087"
+            }
+          ],
+          "signature": "[[\"1\",\"13030000128\",\"equipped\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000192\",\"equipped\"],[\"2/11\",\"13110000087\",\"equipped\"],[\"5\",\"13120000292\",\"default\"]]"
+        }
+      ],
+      "nodes": 683,
+      "elapsed_ms": 78.7493,
+      "best": {
+        "objectives": [
+          72.03393454860955,
+          113.3023664958869
+        ],
+        "cost": 200,
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000128"
+          },
+          {
+            "slotPath": "2",
+            "itemId": "13020000456"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000193"
+          }
+        ],
+        "signature": "[[\"1\",\"13030000128\",\"equipped\"],[\"2\",\"13020000456\",\"equipped\"],[\"2/6\",\"13130000193\",\"equipped\"],[\"5\",\"13120000292\",\"default\"]]"
+      }
+    }
+  ],
+  "hashes": {
+    ".scratch\\staged-exact-screen\\benchmark.mjs": "0fd5f64daab7daddfa48d8a1c6f450af23322adefd625dfc5a1a1d95e39887d2",
+    "tools\\horizontal_speed.mjs": "73d742fcf95a47407856e071c3e5d5a5d45996a2f6bcd9594e2214728766e76b",
+    "tools\\optimizer_presets.mjs": "363e70c69eba3e3dea7019cc1111235e8ef4c121c502e88cbfa8457804a832bb"
+  }
+}

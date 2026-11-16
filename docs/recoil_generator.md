@@ -1,6 +1,6 @@
 # Experimental recoil generator
 
-Current production search: [full-weapon SCIP model and solve budgets](scip_optimizer.md). The objective and constraint descriptions below remain applicable; historical pass/coordinate-search descriptions are superseded. Legacy `passes` requests map to a solve-time budget.
+Current local search: [anytime bounded top-K search and source calibration](anytime_top_k_optimizer.md). The total time budget covers ordinary attachments, patches/lasers and tuning. Legal combinations can remain unexplored; outputs are best found. The objective and constraint descriptions below remain applicable; historical percentage-gate and SCIP search descriptions are superseded locally. Legacy `passes` requests map to a total search budget. This update has not been deployed.
 
 Run from the repository root with Python 3 and Node.js:
 
@@ -46,9 +46,9 @@ The [proposed perceived-recoil definition](perceived_recoil_score.md) now incorp
 
 This is an experimental within-weapon proxy, pending the existing controlled-test score-validation backlog. Default score is 100. Pattern, firing-camera shake, and random/spring weapon kick are normalized to the mode's default build, weighted 0.4/0.3/0.3. Override with `weights: {"pattern":0.4,"camera":0.3,"kick":0.3}`. Each component uses the Euclidean norm of its two source multipliers. All component values and weights are returned. `firing: "auto"` uses continuous recoil; `"spam"` uses source single/burst modifiers. This does not measure cadence, trajectory irregularity, rendered sight movement, optic magnification, or actual camera displacement. No post-fire recovery term is scored. Do not use these scores to rank different weapons.
 
-Every preset uses shared top-5% attachment screening followed by coordinate calibration. Each pass re-resolves source sockets, dependencies, coupling, occupancy and mode restrictions, preserving fixed parts. It enumerates complete compatible one-slot replacement configurations around the incumbent, including required raised optics, and scores them at default tuning. After deduplication it retains `ceil(0.05 * N)` candidates (at least one when nonempty), ranked by that search's feasibility/objective/cost comparator. Price-target searches retain their price priorities. Only survivors enter replacement calibration, which checks every legal position of each changed control one at a time. The initial build and accepted incumbent also receive coordinate calibration across all eligible controls. Replacements discard displaced tuning and validate retained positions against contextual ranges. Screening never clears an already better incumbent.
+Every preset now uses [exhaustive two-stage attachment screening](exhaustive_staged_screening.md): rank all legal ordinary attachment combinations at default calibration, retain their best 5%, then rank all legal patch/laser completions per retained base and retain their best 5%. Patches include grip socket 30 and directional sockets 32-35. SCIP optimizes legal calibration positions only for complete surviving configurations. This is shared automatically by current and future presets.
 
-This gate applies to all current and future presets using the shared engine; it has no preset-specific opt-in. It is the production adaptation of the bounded trial, not exhaustive enumeration of all complete weapon builds. The response's `attachment_gate` records fraction, default-tuning screen, pass-neighborhood scope, screened/retained totals and `global_optimality: false`. Screening-only candidates do not enter the calibrated frontier. Locks, mode restrictions, valid complete optic costs and budgets apply before ranking; stat floors participate in ranking without excluding every temporarily sub-floor candidate.
+Generate waits until both screens finish; the selected time budget starts at calibration. Complete enumeration makes the default-tuned screens exact within their stated domains; it does not make the calibrated result globally optimal. A build discarded before calibration may calibrate better than a survivor. Returned `attachment_gate` diagnostics contain complete counts, per-base tactical counts and timing. Locks, source defaults, mode restrictions, occupancy, complete optics, quotes and budgets remain enforced. Base-stage floors rank shortfalls without excluding builds that tactical additions can improve; final floors are enforced on tactical completions before ranking.
 
 Automatic search uses internal improvement targets at 50/60/70/80/90% to explore the frontier from both the calibrated best build and the fixed-only build. These are search probes, not output thresholds for Balanced. A shared frontier retains non-dominated feasible candidates from every probe. Final category selection and the 50% gate are reapplied against the strongest candidate discovered. The selector is exact over evaluated candidates; the frontier itself is an approximation from coordinate search.
 
@@ -86,16 +86,16 @@ Lowest Recoil uses `pattern = V + H + 1.5 * max(0, H - 1.5)` for supported autom
 
 Protocol eligibility is fixed from the base timed path. Short default magazines, single/burst/spam or unsupported source schedules retain the legacy multiplier score and an explicit limitation. Highest Agility retains its prior recoil tie-breaker. The chart score uses 20 points even if the display graph shot count changes; candidate magazines under 20 represent an abstract profile comparison. Returned components include pattern model/version, H, V, excess, threshold, marginal weight and window size. Source-model comparison only, not a validated perceived-recoil measurement.
 
-## Current horizontal-speed tiers (2026-11-15)
+## Current horizontal-speed tiers (2026-11-16)
 
 For eligible Lowest Recoil runs, `pattern = V + multiplier(speed) * H`. H is `max(abs(x))` from the pre-fire origin; V is `max(y)-min(y)`. Both use exactly 20 post-shot ADS points. Speed is the candidate build's fastest complete 200 ms net-displacement window, using source firing cadence and exact piecewise-linear breakpoint evaluation: `max_t(abs(x(t+200ms)-x(t))/0.2s)`. P90 is not used.
 
 | Candidate speed (model units/s) | Horizontal multiplier |
 | --- | ---: |
 | Up to and including 3.0 | 1 |
-| Above 3.0, up to and including 4.0 | 2 |
-| Above 4.0, up to and including 5.0 | 3 |
-| Above 5.0 | 5 |
+| Above 3.0, up to and including 4.0 | 4 |
+| Above 4.0, up to and including 5.0 | 6 |
+| Above 5.0 | 10 |
 
 Apply the multiplier to the whole H term, not just excess over a threshold. Tiers are discrete, so crossing a threshold produces a step in pattern loss. Candidate attachments/calibration and firing-rate effects can change the tier. Normalize against the default pattern computed with the same formula; preserve pattern/camera/kick weights 40/30/30, Handling ties, costs, locks, stat floors and legacy fallback eligibility. Highest Agility keeps its legacy recoil proxy as its 20% component. Source timing starts at the first post-shot point; the first impulse has no assigned duration. Short candidate magazines remain abstract 20-point profile comparisons for eligible base weapons. Returned diagnostics include speed, multiplier, distance, span, vertical excursion and peak-window timestamps.
 

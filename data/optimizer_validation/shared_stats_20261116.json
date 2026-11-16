@@ -1,0 +1,2275 @@
+{
+  "date": "2026-11-16",
+  "implementation": "Shared native default-calibration stat calculation; local only",
+  "release": "1f6eceed730a0177",
+  "deployment_performed": false,
+  "contract": {
+    "all_legal_combinations": true,
+    "exact_both_stage_top_5_percent": true,
+    "source_operation_and_float_order": true,
+    "strongest_laser_policy": true,
+    "calibration_unchanged": true,
+    "bounded_caches": true,
+    "native_fallback_for_unknown_runtime_context_or_scorer": true
+  },
+  "hashes": {
+    "tools/shared_stats.mjs": "f942069cf1acc8f73bd2b273abec2ea822fb0126feb5cdadce69cc832130d729",
+    "tools/exhaustive_attachment_gate.mjs": "a0ac751be56a380eecc7e754a914f49ee34d4ee6d8714126524ec6a4f6409dc8",
+    "tools/optimizer_presets.mjs": "03997ebd7bd3c6fe0ddcda14dd34ec93e9193d997dc917958e8a0c51a377447b",
+    "tools/prepare_project_runtime.py": "330b4412ecf9fe2240a09e430a56ad9add537fbac7e181b7721c779fa73b5069",
+    "tools/build_github_pages.py": "df1c557a6c824367b3f05f0ffcb3a63b06339ef068a6ab8d0964a6e3acb462ff",
+    "tests/shared_stats.mjs": "494fc4dcccca8a7519ead34dcee598af4139b4e1c415500ca88e740200f62627",
+    "tests/shared_gate.mjs": "e904dfb095245df1bef4950608355e8d956f156810e255495080403b2cdfd217",
+    "tests/test_shared_runtime.py": "496618e35152ef988e5a9dba3cb38c97c501930076055ddad48bed7238aceab4",
+    "tests/scip_browser.cjs": "44d5fa207aaba96657745073abf5e54d43579cb89124438ca720c88391802993",
+    ".scratch/calibration-check/kernel.mjs": "a834dec1bcdf85bb155a7b4c2feabb1dc35d8486bdde85d581e84ef841ea2dfb",
+    ".scratch/calibration-check/kernel.state-cache-base.mjs": "fdb5afdc78af20d5d4c88eb2af17dfd6a20652b18677cc8d5824edb42b5a9d09",
+    ".scratch/calibration-check/laser_effects.mjs": "1898c81a9ea892c3f4cac806595ab0884d67209e9286abb5fa6462b5e6d4692c"
+  },
+  "state_parity": {
+    "passed": true,
+    "before_shim_states": 5343,
+    "weapons": 69,
+    "modes": [
+      "bd",
+      "sol",
+      "mp"
+    ],
+    "native_fallbacks": 0,
+    "additional_cases": [
+      "Full-domain G18 with ordinary, zero and tiny caches",
+      "Duplicate and reordered lasers in all modes",
+      "Non-associative float additions and duplicate main-stat aliases",
+      "Ordered reference replacements",
+      "Explicit tuning, ammo and mode/tactical fallbacks",
+      "Returned Map/list mutation isolation",
+      "Opaque unknown runtime fallback"
+    ]
+  },
+  "gate_parity_and_timings": {
+    "passed": true,
+    "scope": "Alternating runs, first pair warmup, three timed pairs; scoped budgets only",
+    "rows": [
+      {
+        "id": "18020000002",
+        "budget": 80,
+        "preset": "recoil",
+        "mode": "bd",
+        "floor": false,
+        "candidates": 45,
+        "before_ms": [
+          690.2172,
+          1632.5967999999998,
+          1643.813299999999
+        ],
+        "after_ms": [
+          699.0120000000002,
+          1462.3991999999998,
+          1697.6281999999992
+        ],
+        "before_median_ms": 1632.5967999999998,
+        "after_median_ms": 1462.3991999999998,
+        "speedup": 1.1163824487868976,
+        "stat_reuse": {
+          "supported": true,
+          "requests": 939,
+          "native_fallbacks": 0,
+          "context_fallbacks": 0,
+          "unsupported_fallbacks": 0,
+          "error_fallbacks": 0,
+          "part_hits": 6139,
+          "part_misses": 95,
+          "prefix_hits": 3260,
+          "prefix_misses": 148,
+          "core_hits": 868,
+          "core_misses": 71,
+          "reference_hits": 70,
+          "reference_misses": 1,
+          "numeric_noops": 0,
+          "part_entries_peak": 95,
+          "part_operations_peak": 918,
+          "prefix_entries_peak": 148,
+          "prefix_key_chars_peak": 2106,
+          "reference_entries_peak": 1,
+          "reference_key_chars_peak": 3,
+          "token_entries_peak": 50,
+          "token_key_chars_peak": 3568,
+          "saturated": false
+        }
+      },
+      {
+        "id": "18020000002",
+        "budget": 80,
+        "preset": "agility",
+        "mode": "bd",
+        "floor": false,
+        "candidates": 45,
+        "before_ms": [
+          1459.9199000000008,
+          1515.058000000001,
+          1544.1139000000003
+        ],
+        "after_ms": [
+          1475.0478999999996,
+          1290.1052999999993,
+          1083.152299999998
+        ],
+        "before_median_ms": 1515.058000000001,
+        "after_median_ms": 1290.1052999999993,
+        "speedup": 1.1743677047137173,
+        "stat_reuse": {
+          "supported": true,
+          "requests": 939,
+          "native_fallbacks": 0,
+          "context_fallbacks": 0,
+          "unsupported_fallbacks": 0,
+          "error_fallbacks": 0,
+          "part_hits": 6162,
+          "part_misses": 95,
+          "prefix_hits": 3283,
+          "prefix_misses": 148,
+          "core_hits": 868,
+          "core_misses": 71,
+          "reference_hits": 70,
+          "reference_misses": 1,
+          "numeric_noops": 0,
+          "part_entries_peak": 95,
+          "part_operations_peak": 918,
+          "prefix_entries_peak": 148,
+          "prefix_key_chars_peak": 2106,
+          "reference_entries_peak": 1,
+          "reference_key_chars_peak": 3,
+          "token_entries_peak": 50,
+          "token_key_chars_peak": 3568,
+          "saturated": false
+        }
+      },
+      {
+        "id": "18010000001",
+        "budget": 40,
+        "preset": "recoil",
+        "mode": "bd",
+        "floor": false,
+        "candidates": 24,
+        "before_ms": [
+          1668.7997000000032,
+          2024.1588999999985,
+          1511.6924999999974
+        ],
+        "after_ms": [
+          1724.7871000000014,
+          1488.852899999998,
+          1736.0844999999972
+        ],
+        "before_median_ms": 1668.7997000000032,
+        "after_median_ms": 1724.7871000000014,
+        "speedup": 0.9675395299512629,
+        "stat_reuse": {
+          "supported": true,
+          "requests": 499,
+          "native_fallbacks": 0,
+          "context_fallbacks": 0,
+          "unsupported_fallbacks": 0,
+          "error_fallbacks": 0,
+          "part_hits": 3327,
+          "part_misses": 93,
+          "prefix_hits": 1320,
+          "prefix_misses": 108,
+          "core_hits": 428,
+          "core_misses": 71,
+          "reference_hits": 70,
+          "reference_misses": 1,
+          "numeric_noops": 0,
+          "part_entries_peak": 93,
+          "part_operations_peak": 885,
+          "prefix_entries_peak": 108,
+          "prefix_key_chars_peak": 1771,
+          "reference_entries_peak": 1,
+          "reference_key_chars_peak": 3,
+          "token_entries_peak": 59,
+          "token_key_chars_peak": 4235,
+          "saturated": false
+        }
+      },
+      {
+        "id": "18070000005",
+        "budget": 200,
+        "preset": "recoil",
+        "mode": "bd",
+        "floor": false,
+        "candidates": 23,
+        "before_ms": [
+          31.076900000000023,
+          36.20079999999871,
+          32.85659999999916
+        ],
+        "after_ms": [
+          26.227500000000873,
+          37.42029999999795,
+          30.1675000000032
+        ],
+        "before_median_ms": 32.85659999999916,
+        "after_median_ms": 30.1675000000032,
+        "speedup": 1.0891389740613466,
+        "stat_reuse": {
+          "supported": true,
+          "requests": 482,
+          "native_fallbacks": 0,
+          "context_fallbacks": 0,
+          "unsupported_fallbacks": 0,
+          "error_fallbacks": 0,
+          "part_hits": 2305,
+          "part_misses": 21,
+          "prefix_hits": 1561,
+          "prefix_misses": 195,
+          "core_hits": 343,
+          "core_misses": 139,
+          "reference_hits": 136,
+          "reference_misses": 3,
+          "numeric_noops": 0,
+          "part_entries_peak": 21,
+          "part_operations_peak": 196,
+          "prefix_entries_peak": 195,
+          "prefix_key_chars_peak": 4438,
+          "reference_entries_peak": 3,
+          "reference_key_chars_peak": 5,
+          "token_entries_peak": 64,
+          "token_key_chars_peak": 4539,
+          "saturated": false
+        }
+      },
+      {
+        "id": "18070000005",
+        "budget": 200,
+        "preset": "agility",
+        "mode": "bd",
+        "floor": false,
+        "candidates": 23,
+        "before_ms": [
+          37.51670000000013,
+          31.977899999998044,
+          30.162300000003597
+        ],
+        "after_ms": [
+          27.299800000000687,
+          25.261899999997695,
+          45.214099999997416
+        ],
+        "before_median_ms": 31.977899999998044,
+        "after_median_ms": 27.299800000000687,
+        "speedup": 1.1713602297451717,
+        "stat_reuse": {
+          "supported": true,
+          "requests": 499,
+          "native_fallbacks": 0,
+          "context_fallbacks": 0,
+          "unsupported_fallbacks": 0,
+          "error_fallbacks": 0,
+          "part_hits": 2380,
+          "part_misses": 21,
+          "prefix_hits": 1604,
+          "prefix_misses": 202,
+          "core_hits": 353,
+          "core_misses": 146,
+          "reference_hits": 143,
+          "reference_misses": 3,
+          "numeric_noops": 0,
+          "part_entries_peak": 21,
+          "part_operations_peak": 196,
+          "prefix_entries_peak": 202,
+          "prefix_key_chars_peak": 4725,
+          "reference_entries_peak": 3,
+          "reference_key_chars_peak": 5,
+          "token_entries_peak": 64,
+          "token_key_chars_peak": 4539,
+          "saturated": false
+        }
+      },
+      {
+        "id": "18070000005",
+        "budget": 200,
+        "preset": "recoil",
+        "mode": "sol",
+        "floor": false,
+        "candidates": 1,
+        "before_ms": [
+          0.8355000000010477,
+          0.7990000000063446,
+          1.0075999999971827
+        ],
+        "after_ms": [
+          0.9585999999981141,
+          0.8712000000014086,
+          0.8238999999957741
+        ],
+        "before_median_ms": 0.8355000000010477,
+        "after_median_ms": 0.8712000000014086,
+        "speedup": 0.9590220385671451,
+        "stat_reuse": {
+          "supported": true,
+          "requests": 2,
+          "native_fallbacks": 0,
+          "context_fallbacks": 0,
+          "unsupported_fallbacks": 0,
+          "error_fallbacks": 0,
+          "part_hits": 3,
+          "part_misses": 3,
+          "prefix_hits": 1,
+          "prefix_misses": 1,
+          "core_hits": 1,
+          "core_misses": 1,
+          "reference_hits": 0,
+          "reference_misses": 1,
+          "numeric_noops": 0,
+          "part_entries_peak": 3,
+          "part_operations_peak": 1,
+          "prefix_entries_peak": 1,
+          "prefix_key_chars_peak": 1,
+          "reference_entries_peak": 1,
+          "reference_key_chars_peak": 1,
+          "token_entries_peak": 1,
+          "token_key_chars_peak": 60,
+          "saturated": false
+        }
+      },
+      {
+        "id": "18070000005",
+        "budget": 5000000,
+        "preset": "agility",
+        "mode": "sol",
+        "floor": false,
+        "candidates": 84,
+        "before_ms": [
+          155.27219999999943,
+          179.75970000000234,
+          207.67079999999987
+        ],
+        "after_ms": [
+          79.34169999999722,
+          112.85579999999754,
+          144.99809999999707
+        ],
+        "before_median_ms": 179.75970000000234,
+        "after_median_ms": 112.85579999999754,
+        "speedup": 1.5928264209726595,
+        "stat_reuse": {
+          "supported": true,
+          "requests": 1868,
+          "native_fallbacks": 0,
+          "context_fallbacks": 0,
+          "unsupported_fallbacks": 0,
+          "error_fallbacks": 0,
+          "part_hits": 9607,
+          "part_misses": 22,
+          "prefix_hits": 7588,
+          "prefix_misses": 593,
+          "core_hits": 1354,
+          "core_misses": 514,
+          "reference_hits": 511,
+          "reference_misses": 3,
+          "numeric_noops": 0,
+          "part_entries_peak": 22,
+          "part_operations_peak": 210,
+          "prefix_entries_peak": 593,
+          "prefix_key_chars_peak": 16417,
+          "reference_entries_peak": 3,
+          "reference_key_chars_peak": 5,
+          "token_entries_peak": 68,
+          "token_key_chars_peak": 4831,
+          "saturated": false
+        }
+      },
+      {
+        "id": "18070000005",
+        "budget": 200,
+        "preset": "agility",
+        "mode": "mp",
+        "floor": false,
+        "candidates": 84,
+        "before_ms": [
+          153.76580000000104,
+          145.15069999999832,
+          158.74400000000605
+        ],
+        "after_ms": [
+          126.87720000000263,
+          142.51800000000367,
+          159.61850000000413
+        ],
+        "before_median_ms": 153.76580000000104,
+        "after_median_ms": 142.51800000000367,
+        "speedup": 1.078921960734764,
+        "stat_reuse": {
+          "supported": true,
+          "requests": 1862,
+          "native_fallbacks": 0,
+          "context_fallbacks": 0,
+          "unsupported_fallbacks": 0,
+          "error_fallbacks": 0,
+          "part_hits": 9582,
+          "part_misses": 22,
+          "prefix_hits": 7723,
+          "prefix_misses": 439,
+          "core_hits": 1482,
+          "core_misses": 380,
+          "reference_hits": 377,
+          "reference_misses": 3,
+          "numeric_noops": 0,
+          "part_entries_peak": 22,
+          "part_operations_peak": 215,
+          "prefix_entries_peak": 439,
+          "prefix_key_chars_peak": 12911,
+          "reference_entries_peak": 3,
+          "reference_key_chars_peak": 5,
+          "token_entries_peak": 72,
+          "token_key_chars_peak": 5065,
+          "saturated": false
+        }
+      },
+      {
+        "id": "18020000002",
+        "budget": 20,
+        "preset": "recoil",
+        "mode": "bd",
+        "floor": true,
+        "candidates": 0,
+        "before_ms": [
+          141.24519999999757,
+          117.5815999999977,
+          105.17059999999765
+        ],
+        "after_ms": [
+          136.58170000000246,
+          87.0876999999964,
+          104.82979999999952
+        ],
+        "before_median_ms": 117.5815999999977,
+        "after_median_ms": 104.82979999999952,
+        "speedup": 1.1216428916204957,
+        "stat_reuse": {
+          "supported": true,
+          "requests": 25,
+          "native_fallbacks": 0,
+          "context_fallbacks": 0,
+          "unsupported_fallbacks": 0,
+          "error_fallbacks": 0,
+          "part_hits": 98,
+          "part_misses": 24,
+          "prefix_hits": 42,
+          "prefix_misses": 5,
+          "core_hits": 22,
+          "core_misses": 3,
+          "reference_hits": 2,
+          "reference_misses": 1,
+          "numeric_noops": 0,
+          "part_entries_peak": 24,
+          "part_operations_peak": 201,
+          "prefix_entries_peak": 5,
+          "prefix_key_chars_peak": 48,
+          "reference_entries_peak": 1,
+          "reference_key_chars_peak": 3,
+          "token_entries_peak": 14,
+          "token_key_chars_peak": 1001,
+          "saturated": false
+        }
+      }
+    ]
+  },
+  "catalog": {
+    "passed": true,
+    "cases": 138,
+    "scope": "All 69 weapons, both presets, Detonation budget 20, calibration budget 1 second; not original-cap performance evidence",
+    "prior_counts_retention_and_cardinality_match": true,
+    "native_fallbacks": 0,
+    "rows": [
+      {
+        "weapon_id": "18010000001",
+        "preset": "recoil",
+        "base": {
+          "screened": 34,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 215.05759999999998,
+        "stat_requests": 36,
+        "core_hits": 27
+      },
+      {
+        "weapon_id": "18010000001",
+        "preset": "agility",
+        "base": {
+          "screened": 34,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 199.7296,
+        "stat_requests": 36,
+        "core_hits": 27
+      },
+      {
+        "weapon_id": "18010000006",
+        "preset": "recoil",
+        "base": {
+          "screened": 28,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 158.43700000000013,
+        "stat_requests": 30,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000006",
+        "preset": "agility",
+        "base": {
+          "screened": 28,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 180.8071,
+        "stat_requests": 30,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000008",
+        "preset": "recoil",
+        "base": {
+          "screened": 4,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 29.294800000000123,
+        "stat_requests": 5,
+        "core_hits": 3
+      },
+      {
+        "weapon_id": "18010000008",
+        "preset": "agility",
+        "base": {
+          "screened": 4,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 25.907600000000002,
+        "stat_requests": 5,
+        "core_hits": 3
+      },
+      {
+        "weapon_id": "18010000010",
+        "preset": "recoil",
+        "base": {
+          "screened": 28,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 72.18799999999965,
+        "stat_requests": 30,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000010",
+        "preset": "agility",
+        "base": {
+          "screened": 28,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 64.64309999999978,
+        "stat_requests": 30,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000012",
+        "preset": "recoil",
+        "base": {
+          "screened": 36,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 89.28669999999966,
+        "stat_requests": 38,
+        "core_hits": 30
+      },
+      {
+        "weapon_id": "18010000012",
+        "preset": "agility",
+        "base": {
+          "screened": 36,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 102.77359999999999,
+        "stat_requests": 38,
+        "core_hits": 30
+      },
+      {
+        "weapon_id": "18010000013",
+        "preset": "recoil",
+        "base": {
+          "screened": 34,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 202.19630000000006,
+        "stat_requests": 36,
+        "core_hits": 27
+      },
+      {
+        "weapon_id": "18010000013",
+        "preset": "agility",
+        "base": {
+          "screened": 34,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 265.90160000000014,
+        "stat_requests": 36,
+        "core_hits": 27
+      },
+      {
+        "weapon_id": "18010000014",
+        "preset": "recoil",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 215.71389999999974,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000014",
+        "preset": "agility",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 204.3706000000002,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000015",
+        "preset": "recoil",
+        "base": {
+          "screened": 29,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 190.28979999999956,
+        "stat_requests": 31,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000015",
+        "preset": "agility",
+        "base": {
+          "screened": 29,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 184.19750000000022,
+        "stat_requests": 31,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000016",
+        "preset": "recoil",
+        "base": {
+          "screened": 29,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 161.15129999999954,
+        "stat_requests": 31,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000016",
+        "preset": "agility",
+        "base": {
+          "screened": 29,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 152.59009999999944,
+        "stat_requests": 31,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000017",
+        "preset": "recoil",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 128.20370000000003,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000017",
+        "preset": "agility",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 107.61509999999998,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000018",
+        "preset": "recoil",
+        "base": {
+          "screened": 30,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 154.35739999999987,
+        "stat_requests": 32,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000018",
+        "preset": "agility",
+        "base": {
+          "screened": 30,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 144.6322,
+        "stat_requests": 32,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000021",
+        "preset": "recoil",
+        "base": {
+          "screened": 39,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 193.14689999999973,
+        "stat_requests": 41,
+        "core_hits": 33
+      },
+      {
+        "weapon_id": "18010000021",
+        "preset": "agility",
+        "base": {
+          "screened": 39,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 189.23049999999967,
+        "stat_requests": 41,
+        "core_hits": 33
+      },
+      {
+        "weapon_id": "18010000023",
+        "preset": "recoil",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 150.10899999999856,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000023",
+        "preset": "agility",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 149.95880000000034,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000024",
+        "preset": "recoil",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 171.95890000000145,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000024",
+        "preset": "agility",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 149.2043999999987,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000031",
+        "preset": "recoil",
+        "base": {
+          "screened": 19,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 187.5005999999994,
+        "stat_requests": 20,
+        "core_hits": 16
+      },
+      {
+        "weapon_id": "18010000031",
+        "preset": "agility",
+        "base": {
+          "screened": 19,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 204.83179999999993,
+        "stat_requests": 20,
+        "core_hits": 16
+      },
+      {
+        "weapon_id": "18010000037",
+        "preset": "recoil",
+        "base": {
+          "screened": 27,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 150.757599999999,
+        "stat_requests": 29,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000037",
+        "preset": "agility",
+        "base": {
+          "screened": 27,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 108.66790000000037,
+        "stat_requests": 29,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000038",
+        "preset": "recoil",
+        "base": {
+          "screened": 39,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 157.45319999999992,
+        "stat_requests": 41,
+        "core_hits": 33
+      },
+      {
+        "weapon_id": "18010000038",
+        "preset": "agility",
+        "base": {
+          "screened": 39,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 135.98559999999998,
+        "stat_requests": 41,
+        "core_hits": 33
+      },
+      {
+        "weapon_id": "18010000040",
+        "preset": "recoil",
+        "base": {
+          "screened": 39,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 170.63980000000083,
+        "stat_requests": 41,
+        "core_hits": 33
+      },
+      {
+        "weapon_id": "18010000040",
+        "preset": "agility",
+        "base": {
+          "screened": 39,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 226.8791000000001,
+        "stat_requests": 41,
+        "core_hits": 33
+      },
+      {
+        "weapon_id": "18010000042",
+        "preset": "recoil",
+        "base": {
+          "screened": 29,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 144.28360000000066,
+        "stat_requests": 31,
+        "core_hits": 23
+      },
+      {
+        "weapon_id": "18010000042",
+        "preset": "agility",
+        "base": {
+          "screened": 29,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 141.95980000000054,
+        "stat_requests": 31,
+        "core_hits": 23
+      },
+      {
+        "weapon_id": "18010000043",
+        "preset": "recoil",
+        "base": {
+          "screened": 29,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 140.70370000000003,
+        "stat_requests": 31,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000043",
+        "preset": "agility",
+        "base": {
+          "screened": 29,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 175.15170000000035,
+        "stat_requests": 31,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000044",
+        "preset": "recoil",
+        "base": {
+          "screened": 39,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 225.5556000000015,
+        "stat_requests": 41,
+        "core_hits": 33
+      },
+      {
+        "weapon_id": "18010000044",
+        "preset": "agility",
+        "base": {
+          "screened": 39,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 179.09809999999925,
+        "stat_requests": 41,
+        "core_hits": 33
+      },
+      {
+        "weapon_id": "18010000045",
+        "preset": "recoil",
+        "base": {
+          "screened": 29,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 126.28619999999864,
+        "stat_requests": 31,
+        "core_hits": 23
+      },
+      {
+        "weapon_id": "18010000045",
+        "preset": "agility",
+        "base": {
+          "screened": 29,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 125.04030000000057,
+        "stat_requests": 31,
+        "core_hits": 23
+      },
+      {
+        "weapon_id": "18010000049",
+        "preset": "recoil",
+        "base": {
+          "screened": 34,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 177.0356000000029,
+        "stat_requests": 36,
+        "core_hits": 28
+      },
+      {
+        "weapon_id": "18010000049",
+        "preset": "agility",
+        "base": {
+          "screened": 34,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 174.48119999999835,
+        "stat_requests": 36,
+        "core_hits": 28
+      },
+      {
+        "weapon_id": "18010000051",
+        "preset": "recoil",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 136.5613000000012,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000051",
+        "preset": "agility",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 131.10050000000047,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18010000052",
+        "preset": "recoil",
+        "base": {
+          "screened": 22,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 123.6775000000016,
+        "stat_requests": 24,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18010000052",
+        "preset": "agility",
+        "base": {
+          "screened": 22,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 157.41340000000127,
+        "stat_requests": 24,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18020000001",
+        "preset": "recoil",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 182.39770000000135,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18020000001",
+        "preset": "agility",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 184.18429999999717,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18020000002",
+        "preset": "recoil",
+        "base": {
+          "screened": 21,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 128.79070000000138,
+        "stat_requests": 23,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18020000002",
+        "preset": "agility",
+        "base": {
+          "screened": 21,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 120.00470000000132,
+        "stat_requests": 23,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18020000003",
+        "preset": "recoil",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 133.2584999999999,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18020000003",
+        "preset": "agility",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 163.62349999999788,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18020000004",
+        "preset": "recoil",
+        "base": {
+          "screened": 19,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 125.0702999999994,
+        "stat_requests": 20,
+        "core_hits": 16
+      },
+      {
+        "weapon_id": "18020000004",
+        "preset": "agility",
+        "base": {
+          "screened": 19,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 77.40290000000095,
+        "stat_requests": 20,
+        "core_hits": 16
+      },
+      {
+        "weapon_id": "18020000005",
+        "preset": "recoil",
+        "base": {
+          "screened": 23,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 82.85039999999935,
+        "stat_requests": 25,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18020000005",
+        "preset": "agility",
+        "base": {
+          "screened": 23,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 99.02639999999883,
+        "stat_requests": 25,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18020000006",
+        "preset": "recoil",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 235.04509999999937,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18020000006",
+        "preset": "agility",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 219.52390000000014,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18020000008",
+        "preset": "recoil",
+        "base": {
+          "screened": 27,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 123.4919000000009,
+        "stat_requests": 29,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18020000008",
+        "preset": "agility",
+        "base": {
+          "screened": 27,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 122.21039999999994,
+        "stat_requests": 29,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18020000009",
+        "preset": "recoil",
+        "base": {
+          "screened": 26,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 106.60510000000068,
+        "stat_requests": 28,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18020000009",
+        "preset": "agility",
+        "base": {
+          "screened": 26,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 134.5476000000017,
+        "stat_requests": 28,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18020000010",
+        "preset": "recoil",
+        "base": {
+          "screened": 21,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 171.29289999999673,
+        "stat_requests": 23,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18020000010",
+        "preset": "agility",
+        "base": {
+          "screened": 21,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 189.26770000000033,
+        "stat_requests": 23,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18020000011",
+        "preset": "recoil",
+        "base": {
+          "screened": 39,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 195.11219999999958,
+        "stat_requests": 41,
+        "core_hits": 33
+      },
+      {
+        "weapon_id": "18020000011",
+        "preset": "agility",
+        "base": {
+          "screened": 39,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 157.40569999999934,
+        "stat_requests": 41,
+        "core_hits": 33
+      },
+      {
+        "weapon_id": "18020000012",
+        "preset": "recoil",
+        "base": {
+          "screened": 29,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 172.33819999999832,
+        "stat_requests": 31,
+        "core_hits": 23
+      },
+      {
+        "weapon_id": "18020000012",
+        "preset": "agility",
+        "base": {
+          "screened": 29,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 171.96900000000096,
+        "stat_requests": 31,
+        "core_hits": 23
+      },
+      {
+        "weapon_id": "18020000046",
+        "preset": "recoil",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 198.09640000000218,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18020000046",
+        "preset": "agility",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 138.3058000000019,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18030000001",
+        "preset": "recoil",
+        "base": {
+          "screened": 22,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 73.57359999999971,
+        "stat_requests": 24,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18030000001",
+        "preset": "agility",
+        "base": {
+          "screened": 22,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 72.21589999999924,
+        "stat_requests": 24,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18030000002",
+        "preset": "recoil",
+        "base": {
+          "screened": 26,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 154.71159999999873,
+        "stat_requests": 28,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18030000002",
+        "preset": "agility",
+        "base": {
+          "screened": 26,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 150.4953999999998,
+        "stat_requests": 28,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18030000004",
+        "preset": "recoil",
+        "base": {
+          "screened": 22,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 37.96630000000005,
+        "stat_requests": 24,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18030000004",
+        "preset": "agility",
+        "base": {
+          "screened": 22,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 52.28410000000076,
+        "stat_requests": 24,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18030000005",
+        "preset": "recoil",
+        "base": {
+          "screened": 16,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 45.027100000002974,
+        "stat_requests": 17,
+        "core_hits": 14
+      },
+      {
+        "weapon_id": "18030000005",
+        "preset": "agility",
+        "base": {
+          "screened": 16,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 41.697900000002846,
+        "stat_requests": 17,
+        "core_hits": 14
+      },
+      {
+        "weapon_id": "18030000006",
+        "preset": "recoil",
+        "base": {
+          "screened": 22,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 36.74620000000141,
+        "stat_requests": 24,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18030000006",
+        "preset": "agility",
+        "base": {
+          "screened": 22,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 40.09070000000065,
+        "stat_requests": 24,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18040000001",
+        "preset": "recoil",
+        "base": {
+          "screened": 16,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 171.79799999999886,
+        "stat_requests": 17,
+        "core_hits": 14
+      },
+      {
+        "weapon_id": "18040000001",
+        "preset": "agility",
+        "base": {
+          "screened": 16,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 181.21600000000035,
+        "stat_requests": 17,
+        "core_hits": 14
+      },
+      {
+        "weapon_id": "18040000002",
+        "preset": "recoil",
+        "base": {
+          "screened": 21,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 261.3809000000001,
+        "stat_requests": 23,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18040000002",
+        "preset": "agility",
+        "base": {
+          "screened": 21,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 253.33269999999902,
+        "stat_requests": 23,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18040000003",
+        "preset": "recoil",
+        "base": {
+          "screened": 26,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 77.76929999999993,
+        "stat_requests": 28,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18040000003",
+        "preset": "agility",
+        "base": {
+          "screened": 26,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 70.83179999999993,
+        "stat_requests": 28,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18040000004",
+        "preset": "recoil",
+        "base": {
+          "screened": 16,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 99.99369999999908,
+        "stat_requests": 17,
+        "core_hits": 14
+      },
+      {
+        "weapon_id": "18040000004",
+        "preset": "agility",
+        "base": {
+          "screened": 16,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 116.56150000000343,
+        "stat_requests": 17,
+        "core_hits": 14
+      },
+      {
+        "weapon_id": "18050000002",
+        "preset": "recoil",
+        "base": {
+          "screened": 21,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 92.57160000000295,
+        "stat_requests": 23,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18050000002",
+        "preset": "agility",
+        "base": {
+          "screened": 21,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 92.54269999999815,
+        "stat_requests": 23,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18050000003",
+        "preset": "recoil",
+        "base": {
+          "screened": 27,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 99.48059999999532,
+        "stat_requests": 29,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18050000003",
+        "preset": "agility",
+        "base": {
+          "screened": 27,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 77.3888999999981,
+        "stat_requests": 29,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18050000004",
+        "preset": "recoil",
+        "base": {
+          "screened": 27,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 106.25920000000042,
+        "stat_requests": 29,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18050000004",
+        "preset": "agility",
+        "base": {
+          "screened": 27,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 119.4027999999962,
+        "stat_requests": 29,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18050000005",
+        "preset": "recoil",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 168.8446999999942,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18050000005",
+        "preset": "agility",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 136.46850000000268,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18050000006",
+        "preset": "recoil",
+        "base": {
+          "screened": 16,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 59.338700000000244,
+        "stat_requests": 17,
+        "core_hits": 14
+      },
+      {
+        "weapon_id": "18050000006",
+        "preset": "agility",
+        "base": {
+          "screened": 16,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 72.79950000000099,
+        "stat_requests": 17,
+        "core_hits": 14
+      },
+      {
+        "weapon_id": "18050000007",
+        "preset": "recoil",
+        "base": {
+          "screened": 36,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 252.27520000000368,
+        "stat_requests": 38,
+        "core_hits": 30
+      },
+      {
+        "weapon_id": "18050000007",
+        "preset": "agility",
+        "base": {
+          "screened": 36,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 238.745600000002,
+        "stat_requests": 38,
+        "core_hits": 30
+      },
+      {
+        "weapon_id": "18050000008",
+        "preset": "recoil",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 122.45880000000034,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18050000008",
+        "preset": "agility",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 124.18279999999504,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18050000031",
+        "preset": "recoil",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 143.5118999999977,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18050000031",
+        "preset": "agility",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 157.78710000000137,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18050000032",
+        "preset": "recoil",
+        "base": {
+          "screened": 17,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 49.88259999999718,
+        "stat_requests": 18,
+        "core_hits": 15
+      },
+      {
+        "weapon_id": "18050000032",
+        "preset": "agility",
+        "base": {
+          "screened": 17,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 64.11679999999615,
+        "stat_requests": 18,
+        "core_hits": 15
+      },
+      {
+        "weapon_id": "18050000033",
+        "preset": "recoil",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 241.74489999999787,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18050000033",
+        "preset": "agility",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 184.42179999999644,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18060000007",
+        "preset": "recoil",
+        "base": {
+          "screened": 26,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 49.84649999999965,
+        "stat_requests": 28,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18060000007",
+        "preset": "agility",
+        "base": {
+          "screened": 26,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 50.4120999999941,
+        "stat_requests": 28,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18060000008",
+        "preset": "recoil",
+        "base": {
+          "screened": 22,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 59.9343000000008,
+        "stat_requests": 24,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18060000008",
+        "preset": "agility",
+        "base": {
+          "screened": 22,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 50.614199999996345,
+        "stat_requests": 24,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18060000009",
+        "preset": "recoil",
+        "base": {
+          "screened": 21,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 127.66679999999906,
+        "stat_requests": 23,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18060000009",
+        "preset": "agility",
+        "base": {
+          "screened": 21,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 156.31259999999747,
+        "stat_requests": 23,
+        "core_hits": 20
+      },
+      {
+        "weapon_id": "18060000011",
+        "preset": "recoil",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 36.36120000000665,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18060000011",
+        "preset": "agility",
+        "base": {
+          "screened": 24,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 38.11119999999937,
+        "stat_requests": 26,
+        "core_hits": 22
+      },
+      {
+        "weapon_id": "18060000033",
+        "preset": "recoil",
+        "base": {
+          "screened": 25,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 73.97230000000127,
+        "stat_requests": 27,
+        "core_hits": 19
+      },
+      {
+        "weapon_id": "18060000033",
+        "preset": "agility",
+        "base": {
+          "screened": 25,
+          "retained": 2
+        },
+        "candidates": 2,
+        "screen_ms": 57.494000000006054,
+        "stat_requests": 27,
+        "core_hits": 19
+      },
+      {
+        "weapon_id": "18070000002",
+        "preset": "recoil",
+        "base": {
+          "screened": 9,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 2.7462000000014086,
+        "stat_requests": 10,
+        "core_hits": 6
+      },
+      {
+        "weapon_id": "18070000002",
+        "preset": "agility",
+        "base": {
+          "screened": 9,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 3.0042999999932363,
+        "stat_requests": 10,
+        "core_hits": 6
+      },
+      {
+        "weapon_id": "18070000003",
+        "preset": "recoil",
+        "base": {
+          "screened": 18,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 28.74489999999787,
+        "stat_requests": 19,
+        "core_hits": 14
+      },
+      {
+        "weapon_id": "18070000003",
+        "preset": "agility",
+        "base": {
+          "screened": 18,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 31.654300000001967,
+        "stat_requests": 19,
+        "core_hits": 14
+      },
+      {
+        "weapon_id": "18070000004",
+        "preset": "recoil",
+        "base": {
+          "screened": 17,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 13.369200000001001,
+        "stat_requests": 18,
+        "core_hits": 13
+      },
+      {
+        "weapon_id": "18070000004",
+        "preset": "agility",
+        "base": {
+          "screened": 17,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 15.725500000000466,
+        "stat_requests": 18,
+        "core_hits": 13
+      },
+      {
+        "weapon_id": "18070000005",
+        "preset": "recoil",
+        "base": {
+          "screened": 9,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 3.875899999999092,
+        "stat_requests": 10,
+        "core_hits": 6
+      },
+      {
+        "weapon_id": "18070000005",
+        "preset": "agility",
+        "base": {
+          "screened": 9,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 6.707000000002154,
+        "stat_requests": 10,
+        "core_hits": 6
+      },
+      {
+        "weapon_id": "18070000006",
+        "preset": "recoil",
+        "base": {
+          "screened": 9,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 20.92710000000079,
+        "stat_requests": 10,
+        "core_hits": 6
+      },
+      {
+        "weapon_id": "18070000006",
+        "preset": "agility",
+        "base": {
+          "screened": 9,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 21.99749999999767,
+        "stat_requests": 10,
+        "core_hits": 6
+      },
+      {
+        "weapon_id": "18070000010",
+        "preset": "recoil",
+        "base": {
+          "screened": 9,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 4.666299999997136,
+        "stat_requests": 10,
+        "core_hits": 6
+      },
+      {
+        "weapon_id": "18070000010",
+        "preset": "agility",
+        "base": {
+          "screened": 9,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 5.849600000001374,
+        "stat_requests": 10,
+        "core_hits": 6
+      },
+      {
+        "weapon_id": "18070000033",
+        "preset": "recoil",
+        "base": {
+          "screened": 9,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 7.593600000000151,
+        "stat_requests": 10,
+        "core_hits": 6
+      },
+      {
+        "weapon_id": "18070000033",
+        "preset": "agility",
+        "base": {
+          "screened": 9,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 4.125700000004144,
+        "stat_requests": 10,
+        "core_hits": 6
+      },
+      {
+        "weapon_id": "18150000001",
+        "preset": "recoil",
+        "base": {
+          "screened": 3,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 1.8130000000019209,
+        "stat_requests": 4,
+        "core_hits": 1
+      },
+      {
+        "weapon_id": "18150000001",
+        "preset": "agility",
+        "base": {
+          "screened": 3,
+          "retained": 1
+        },
+        "candidates": 1,
+        "screen_ms": 1.8963000000003376,
+        "stat_requests": 4,
+        "core_hits": 1
+      }
+    ]
+  },
+  "browser": {
+    "static": {
+      "passed": true,
+      "url": "http://127.0.0.1:8770/github-pages-site/",
+      "release": "1f6eceed730a0177",
+      "bounded_and_shared_parity": {
+        "native_contract": 1,
+        "same_candidates": true,
+        "counting": {
+          "strategy": "memoized_residual_subtrees",
+          "calls": 46,
+          "source_floor_fallbacks": 0,
+          "nodes": 3122,
+          "cache_hits": 256,
+          "analytical_subtrees": 62,
+          "memo_entries_peak": 207,
+          "memo_key_chars_peak": 253923,
+          "intern_entries_peak": 489,
+          "intern_key_chars_peak": 5696,
+          "cache_saturated": false,
+          "intern_saturated": false,
+          "fixed_layers_skipped": 2567,
+          "numeric_fallback": false
+        },
+        "scoring": {
+          "strategy": "source_signature_group_bounds",
+          "supported": true,
+          "considered": 939,
+          "full_evaluations": 228,
+          "bounds_evaluated": 849,
+          "pruned": 711,
+          "unsupported_fallbacks": 0,
+          "groups_evaluated": 20,
+          "group_cache_hits": 829,
+          "group_entries_peak": 20,
+          "group_key_chars_peak": 7410,
+          "group_cache_saturated": false
+        },
+        "stat_reuse": {
+          "supported": true,
+          "requests": 939,
+          "native_fallbacks": 0,
+          "context_fallbacks": 0,
+          "unsupported_fallbacks": 0,
+          "error_fallbacks": 0,
+          "part_hits": 6139,
+          "part_misses": 95,
+          "prefix_hits": 3260,
+          "prefix_misses": 148,
+          "core_hits": 868,
+          "core_misses": 71,
+          "reference_hits": 70,
+          "reference_misses": 1,
+          "numeric_noops": 0,
+          "part_entries_peak": 95,
+          "part_operations_peak": 918,
+          "prefix_entries_peak": 148,
+          "prefix_key_chars_peak": 2106,
+          "reference_entries_peak": 1,
+          "reference_key_chars_peak": 3,
+          "token_entries_peak": 50,
+          "token_key_chars_peak": 3568,
+          "saturated": false
+        }
+      },
+      "source_replay_presets": [
+        "recoil",
+        "agility"
+      ],
+      "errors": [],
+      "backend_requests": []
+    },
+    "local": {
+      "passed": true,
+      "progress": "Screening all legal attachment combinations: counted 47,058... 0s elapsed. Calibration follows screening.",
+      "completed": "Screening complete / Calibration model solved / Best found",
+      "errors": [],
+      "checks": [
+        "local HTTP streamed exhaustive counts",
+        "cancel and regenerate",
+        "real completed G18 screen and calibration",
+        "UI labels and no errors"
+      ]
+    }
+  },
+  "checks_passed": [
+    "node tests/shared_stats.mjs",
+    "node tests/shared_gate.mjs",
+    "python -m unittest discover -s tests -p test_shared_runtime.py",
+    "python -m unittest discover -s tests -p test_scoring_runtime.py",
+    "node tests/bounded_gate.mjs",
+    "node tests/scoring_bounds.mjs",
+    "node tests/exhaustive_attachment_gate.mjs",
+    "node tests/subtree_counting.mjs",
+    "node tests/scip_engine.mjs",
+    "node tests/horizontal_speed.mjs",
+    "python -m unittest discover -s tests -p test_exhaustive_stream.py",
+    "node .scratch/shared-stats/catalog-small.mjs",
+    "node tests/scip_browser.cjs",
+    "LOCAL_SITE_URL=http://127.0.0.1:8766/ node tests/exhaustive_local_browser.cjs"
+  ],
+  "timing_caveats": [
+    "Alternating three timed pairs following one warmup pair; screening only, not calibration.",
+    "Reported gate timing run excludes the stale builder subprocess stopped beforehand. Earlier contaminated timing trials excluded.",
+    "M4 at 40 Detonation points regressed slightly in this sample; sub-millisecond cases may have overhead. No universal speedup claim.",
+    "Initial instrumented profile is diagnostic, not a controlled whole-screen speed comparison.",
+    "Larger original-cap completion times and global calibrated optimality remain unvalidated.",
+    "The final curve-override fallback operator matches native semantics; catalog data and measured domains are unaffected by that final correction."
+  ],
+  "raw_evidence": {
+    ".scratch/shared-stats/state-tests.json": {
+      "sha256": "0f0d2eabcc40c5f35a0103eeaf5f6c1c905b601829f74c3e71fa82454b0d817b"
+    },
+    ".scratch/shared-stats/gate-parity.json": {
+      "sha256": "4dbf2afb986f8763f03f2f782037a6e2988a8635c0dea329552666d11f2d3d01"
+    },
+    ".scratch/shared-stats/catalog-small.json": {
+      "sha256": "894c51c8a6ad6c7c1be40341ddcaad4524271fc2a4c0f2cae784456868e72860"
+    },
+    ".scratch/shared-stats/profile.json": {
+      "sha256": "490cf0f6d7e88e13de6fad9567529cd755cc10a015f81f5bea23ecf49ce1e2f9"
+    },
+    ".scratch/shared-stats/profile-fast.json": {
+      "sha256": "dff736f82b10257d14be6da1775bd63eb313458ed7d4b929cdb17c6e0720a194"
+    },
+    ".scratch/staged-exact-screen/browser-static.json": {
+      "sha256": "8b9acbf62f500a079be67e40b5d46323ba75448e648861b9274a20b5d60a1743"
+    },
+    ".scratch/staged-exact-screen/browser-local.json": {
+      "sha256": "41220b0742d69cf0fb598f89971320db5628dfab31c68c5b7f9f995e41b66907"
+    }
+  }
+}

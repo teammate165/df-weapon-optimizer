@@ -1,0 +1,515 @@
+{
+  "date": "2026-11-16",
+  "implementation": "Incremental legality checking and conservative branch score bounds",
+  "deployment_performed": false,
+  "release": "0d0ecee5af389baa",
+  "focus_weapon": {
+    "id": "18010000001",
+    "name": "M4A1"
+  },
+  "source_hashes": {
+    "tools/mount_search.mjs": "1c85a5626b178e750b94d27e66cc0891703e047b27cf9ad7db9542f47ca39f4c",
+    "tools/branch_score_bounds.mjs": "1cc3ec18f49ec825fe456e89ea798b9c5af79a561d81d6d262fbff4355d107d6",
+    "tools/exhaustive_attachment_gate.mjs": "c8ecb70b682ca7ad6aa793827cd575ecf9cde671366d37dd7291faeba97b7c66",
+    "tools/optimizer_presets.mjs": "82f77803309e311ac3f2e70e233b1c2373785690fc90da912a3ec533255f3b48",
+    "tools/build_github_pages.py": "2279bf3cdf3279fad3c8132a0a818c4ee9f08d9e780bf6e8abcdcb6ef8ee6b75",
+    "tests/branch_screening.mjs": "6bf54cf43d60210bc2049921974c7b6be430307ee387f0b58f5ea7329633b6c5",
+    "tests/scip_browser.cjs": "b7c76b1f2f3f933e822d217ef014675f128bbd085f05fe3e712975dcb7b8ddc7",
+    ".scratch/calibration-check/kernel.mjs": "a834dec1bcdf85bb155a7b4c2feabb1dc35d8486bdde85d581e84ef841ea2dfb",
+    ".scratch/calibration-check/attributes.mjs": "7fd496bb66a3b9a31bf7b4d5b749a2258f8a14ab0f241c4c5fe2bd711c097cdc"
+  },
+  "tests": {
+    "passed": true,
+    "weapon_id": "18010000001",
+    "source_scores": 2120,
+    "bound_completion_comparisons": 70968,
+    "reports": [
+      {
+        "mode": "bd",
+        "budget": 40,
+        "preset": "recoil",
+        "extra": {},
+        "counts": {
+          "screened": 475,
+          "retained": 24
+        },
+        "candidates": 24,
+        "full_ms": 1092.6064,
+        "incremental_ms": 294.2807,
+        "bounded_ms": 300.0583999999999,
+        "full_constraints": 8229896,
+        "incremental_constraints": 348432,
+        "bounded": {
+          "supported": true,
+          "evaluations": 18,
+          "cache_hits": 6,
+          "declined": 0,
+          "entries_peak": 12,
+          "key_chars_peak": 1378,
+          "saturated": false,
+          "elapsed_ms": 13.402399999999943,
+          "budget_skips": 1185
+        },
+        "pruned_branches": 0,
+        "uncapped_pruned_branches": 300
+      },
+      {
+        "mode": "bd",
+        "budget": 40,
+        "preset": "agility",
+        "extra": {},
+        "counts": {
+          "screened": 475,
+          "retained": 24
+        },
+        "candidates": 24,
+        "full_ms": 1129.8094,
+        "incremental_ms": 359.54200000000037,
+        "bounded_ms": 418.1091999999999,
+        "full_constraints": 8224776,
+        "incremental_constraints": 348271,
+        "bounded": {
+          "supported": true,
+          "evaluations": 39,
+          "cache_hits": 20,
+          "declined": 0,
+          "entries_peak": 19,
+          "key_chars_peak": 2214,
+          "saturated": false,
+          "elapsed_ms": 17.811899999997422,
+          "budget_skips": 1163
+        },
+        "pruned_branches": 4,
+        "uncapped_pruned_branches": 288
+      },
+      {
+        "mode": "bd",
+        "budget": 60,
+        "preset": "recoil",
+        "extra": {},
+        "counts": {
+          "screened": 3733,
+          "retained": 187
+        },
+        "candidates": 187,
+        "full_ms": 7524.6114,
+        "incremental_ms": 1901.8709999999992,
+        "bounded_ms": 2205.8742999999995,
+        "full_constraints": 44830379,
+        "incremental_constraints": 1849877,
+        "bounded": {
+          "supported": true,
+          "evaluations": 1128,
+          "cache_hits": 960,
+          "declined": 0,
+          "entries_peak": 168,
+          "key_chars_peak": 17664,
+          "saturated": false,
+          "elapsed_ms": 94.53139999995437,
+          "budget_skips": 7418
+        },
+        "pruned_branches": 155,
+        "uncapped_pruned_branches": 2006
+      },
+      {
+        "mode": "bd",
+        "budget": 20,
+        "preset": "recoil",
+        "extra": {
+          "minimum_stats": {
+            "control": 55
+          }
+        },
+        "counts": {
+          "screened": 34,
+          "retained": 2
+        },
+        "candidates": 0,
+        "full_ms": 244.79709999999977,
+        "incremental_ms": 66.71329999999944,
+        "bounded_ms": 87.85420000000158,
+        "full_constraints": 1032941,
+        "incremental_constraints": 49379,
+        "bounded": {
+          "supported": true,
+          "evaluations": 0,
+          "cache_hits": 0,
+          "declined": 0,
+          "entries_peak": 0,
+          "key_chars_peak": 0,
+          "saturated": false,
+          "elapsed_ms": 3.324300000000221,
+          "budget_skips": 0
+        },
+        "pruned_branches": 0,
+        "uncapped_pruned_branches": 0
+      },
+      {
+        "mode": "bd",
+        "budget": 40,
+        "preset": "agility",
+        "extra": {
+          "fixed": [
+            {
+              "slotPath": "11",
+              "itemId": "13110000043"
+            }
+          ]
+        },
+        "counts": {
+          "screened": 19,
+          "retained": 1
+        },
+        "candidates": 1,
+        "full_ms": 109.20080000000235,
+        "incremental_ms": 42.59350000000268,
+        "bounded_ms": 53.561900000000605,
+        "full_constraints": 369211,
+        "incremental_constraints": 17307,
+        "bounded": {
+          "supported": true,
+          "evaluations": 1,
+          "cache_hits": 0,
+          "declined": 0,
+          "entries_peak": 1,
+          "key_chars_peak": 55,
+          "saturated": false,
+          "elapsed_ms": 7.2546000000002095,
+          "budget_skips": 47
+        },
+        "pruned_branches": 0,
+        "uncapped_pruned_branches": 0
+      },
+      {
+        "mode": "sol",
+        "budget": 20000,
+        "preset": "recoil",
+        "extra": {},
+        "counts": {
+          "screened": 8962,
+          "retained": 449
+        },
+        "candidates": 449,
+        "full_ms": 16200.356899999999,
+        "incremental_ms": 6348.302199999998,
+        "bounded_ms": 7371.017099999997,
+        "full_constraints": 68480181,
+        "incremental_constraints": 2492372,
+        "bounded": {
+          "supported": true,
+          "evaluations": 1786,
+          "cache_hits": 1034,
+          "declined": 0,
+          "entries_peak": 752,
+          "key_chars_peak": 66171,
+          "saturated": false,
+          "elapsed_ms": 316.60040000011213,
+          "budget_skips": 15638
+        },
+        "pruned_branches": 335,
+        "uncapped_pruned_branches": 4942
+      }
+    ]
+  },
+  "final_controlled_timing": {
+    "passed": true,
+    "scope": "M4A1 Detonation screening only; frozen pre-change gate versus incremental-only versus both, alternating, one warmup and three timed pairs. Not a full-cap completion claim.",
+    "rows": [
+      {
+        "weapon_id": "18010000001",
+        "preset": "recoil",
+        "budget": 40,
+        "times_ms": {
+          "before": [
+            949.9299999999998,
+            1434.4877999999999,
+            1367.2743
+          ],
+          "incremental": [
+            273.34239999999977,
+            406.4992000000002,
+            399.1167999999998
+          ],
+          "both": [
+            313.10310000000004,
+            394.27800000000025,
+            550.3309999999992
+          ]
+        },
+        "median_ms": {
+          "before": 1367.2743,
+          "incremental": 399.1167999999998,
+          "both": 394.27800000000025
+        },
+        "speedup": 3.4677925220276027,
+        "legal": {
+          "screened": 475,
+          "retained": 24
+        },
+        "ranking": {
+          "constraint_evaluations": 347610,
+          "boolean_evaluations": 1781685,
+          "pruned_branches": 9
+        },
+        "branch_scoring": {
+          "supported": true,
+          "evaluations": 122,
+          "cache_hits": 70,
+          "declined": 0,
+          "entries_peak": 52,
+          "key_chars_peak": 4918,
+          "saturated": false,
+          "elapsed_ms": 25.2258000000038,
+          "budget_skips": 1075
+        }
+      },
+      {
+        "weapon_id": "18010000001",
+        "preset": "agility",
+        "budget": 40,
+        "times_ms": {
+          "before": [
+            1191.9266000000007,
+            1320.7445000000007,
+            1134.8595000000005
+          ],
+          "incremental": [
+            294.0663999999997,
+            360.52109999999993,
+            321.14080000000104
+          ],
+          "both": [
+            338.27310000000034,
+            349.3579000000009,
+            318.1022000000012
+          ]
+        },
+        "median_ms": {
+          "before": 1191.9266000000007,
+          "incremental": 321.14080000000104,
+          "both": 338.27310000000034
+        },
+        "speedup": 3.523563061916539,
+        "legal": {
+          "screened": 475,
+          "retained": 24
+        },
+        "ranking": {
+          "constraint_evaluations": 347592,
+          "boolean_evaluations": 1780840,
+          "pruned_branches": 7
+        },
+        "branch_scoring": {
+          "supported": true,
+          "evaluations": 75,
+          "cache_hits": 52,
+          "declined": 0,
+          "entries_peak": 23,
+          "key_chars_peak": 2584,
+          "saturated": false,
+          "elapsed_ms": 14.32240000001184,
+          "budget_skips": 1123
+        }
+      }
+    ]
+  },
+  "earlier_60_point_timing": {
+    "note": "Captured before the final additional per-part floating-fold error enclosure; final code reran the 60-point exact-parity test. Not a final-code controlled timing.",
+    "rows": [
+      {
+        "weapon_id": "18010000001",
+        "preset": "recoil",
+        "budget": 60,
+        "times_ms": {
+          "before": [
+            8272.888400000003,
+            7450.886400000003,
+            8245.193900000006
+          ],
+          "incremental": [
+            2375.5812000000005,
+            2379.3213999999934,
+            2044.1198999999979
+          ],
+          "both": [
+            2331.2305000000015,
+            2597.2767999999996,
+            2381.135000000002
+          ]
+        },
+        "median_ms": {
+          "before": 8245.193900000006,
+          "incremental": 2375.5812000000005,
+          "both": 2381.135000000002
+        },
+        "speedup": 3.462715847694481,
+        "legal": {
+          "screened": 3733,
+          "retained": 187
+        },
+        "ranking": {
+          "constraint_evaluations": 1833794,
+          "boolean_evaluations": 9806702,
+          "pruned_branches": 185
+        },
+        "branch_scoring": {
+          "supported": true,
+          "evaluations": 1596,
+          "cache_hits": 1504,
+          "declined": 0,
+          "entries_peak": 92,
+          "key_chars_peak": 7704,
+          "saturated": false,
+          "elapsed_ms": 103.38310000017373,
+          "budget_skips": 6918
+        }
+      }
+    ]
+  },
+  "browser": {
+    "static": {
+      "passed": true,
+      "release": "0d0ecee5af389baa",
+      "m4_native_survivor_parity": {
+        "weapon_id": "18010000001",
+        "native_contract": 1,
+        "same_candidates": true,
+        "counting": {
+          "strategy": "memoized_residual_subtrees",
+          "calls": 25,
+          "source_floor_fallbacks": 0,
+          "nodes": 2210,
+          "cache_hits": 112,
+          "analytical_subtrees": 27,
+          "memo_entries_peak": 160,
+          "memo_key_chars_peak": 316327,
+          "intern_entries_peak": 524,
+          "intern_key_chars_peak": 7420,
+          "cache_saturated": false,
+          "intern_saturated": false,
+          "fixed_layers_skipped": 2034,
+          "numeric_fallback": false,
+          "constraint_evaluations": 32681,
+          "boolean_evaluations": 126488
+        },
+        "scoring": {
+          "strategy": "source_signature_group_bounds",
+          "supported": true,
+          "considered": 474,
+          "full_evaluations": 135,
+          "bounds_evaluated": 426,
+          "pruned": 339,
+          "unsupported_fallbacks": 0,
+          "groups_evaluated": 19,
+          "group_cache_hits": 407,
+          "group_entries_peak": 19,
+          "group_key_chars_peak": 6744,
+          "group_cache_saturated": false
+        },
+        "stat_reuse": {
+          "supported": true,
+          "requests": 474,
+          "native_fallbacks": 0,
+          "context_fallbacks": 0,
+          "unsupported_fallbacks": 0,
+          "error_fallbacks": 0,
+          "part_hits": 3157,
+          "part_misses": 90,
+          "prefix_hits": 1247,
+          "prefix_misses": 108,
+          "core_hits": 403,
+          "core_misses": 71,
+          "reference_hits": 70,
+          "reference_misses": 1,
+          "numeric_noops": 0,
+          "part_entries_peak": 90,
+          "part_operations_peak": 855,
+          "prefix_entries_peak": 108,
+          "prefix_key_chars_peak": 1771,
+          "reference_entries_peak": 1,
+          "reference_key_chars_peak": 3,
+          "token_entries_peak": 59,
+          "token_key_chars_peak": 4235,
+          "saturated": false
+        },
+        "ranking": {
+          "constraint_evaluations": 346537,
+          "boolean_evaluations": 1779474,
+          "pruned_branches": 22
+        },
+        "reference_ranking": {
+          "constraint_evaluations": 8229896,
+          "boolean_evaluations": 29265792,
+          "pruned_branches": 0
+        },
+        "branch_scoring": {
+          "supported": true,
+          "evaluations": 72,
+          "cache_hits": 46,
+          "declined": 0,
+          "entries_peak": 26,
+          "key_chars_peak": 2617,
+          "saturated": false,
+          "elapsed_ms": 16.400000005960464,
+          "budget_skips": 1110
+        }
+      },
+      "errors": [],
+      "backend_requests": []
+    },
+    "local": {
+      "passed": true,
+      "progress": "Screening all legal attachment combinations: counted 47,058... 0s elapsed. Calibration follows screening.",
+      "completed": "Screening complete / Calibration model solved / Best found",
+      "errors": [],
+      "checks": [
+        "local HTTP streamed exhaustive counts",
+        "cancel and regenerate",
+        "real completed G18 screen and calibration",
+        "UI labels and no errors"
+      ]
+    }
+  },
+  "checks_passed": [
+    "node tests/branch_screening.mjs",
+    "node tests/subtree_counting.mjs",
+    "node tests/exhaustive_attachment_gate.mjs",
+    "node tests/bounded_gate.mjs",
+    "node tests/scoring_bounds.mjs",
+    "node tests/scip_engine.mjs",
+    "python -m unittest discover -s tests -p test_exhaustive_stream.py",
+    "node tests/scip_browser.cjs",
+    "LOCAL_SITE_URL=http://127.0.0.1:8766/ node tests/exhaustive_local_browser.cjs"
+  ],
+  "limits": [
+    "Final controlled measurements are M4A1 Detonation 40 points, both presets; screening only, excluding calibration.",
+    "Incremental legality produces most of the measured gain. Branch bounds are capped against 5% of elapsed screening time, with one initial check allowed.",
+    "Unsupported/unsafe bounds and skipped checks retain exact ordinary traversal; no additional percentage filter.",
+    "Exact domain counts are independent of ranking branch pruning. Ties, stat-floor priorities and calibration candidates are preserved.",
+    "Focused M4A1 plus existing G18/source/count/calibration/cancellation regressions; the prior 138-case catalog matrix was not repeated for this change.",
+    "No original-cap M4A1 runtime or global calibrated optimum claim."
+  ],
+  "raw_evidence": {
+    ".scratch/branch-screen/tests.json": {
+      "sha256": "c4f150c8d1d53c44dfebaaf9aa5aafd5fac7b9848bd347a1b20cd0d19f1986b8"
+    },
+    ".scratch/branch-screen/benchmark-final.json": {
+      "sha256": "c1625a032d2ebe2d5fcd84ba812d7102c66665165dab6105faa9caaeaca5c101"
+    },
+    ".scratch/branch-screen/benchmark.json": {
+      "sha256": "1c2f80680128f9925448f6c1fe5c10c5fb9733d0a95f2a5ec3e89f45bbe8ddd7"
+    },
+    ".scratch/branch-screen/baseline-gate.mjs": {
+      "sha256": "9cc22be16e6446cad216d53fdb3b2e76cf3ecfde524135565c41374d5d9b7f40"
+    },
+    ".scratch/branch-screen/baseline-mount-search.mjs": {
+      "sha256": "da99cc3e2ac3d626be80294b996895a3968d484857fc367fe8a134586683a6ee"
+    },
+    ".scratch/staged-exact-screen/browser-static.json": {
+      "sha256": "ad56e7059826203d20546fa2c4481da6ce4c54b35921d613732f4695095637c3"
+    },
+    ".scratch/staged-exact-screen/browser-local.json": {
+      "sha256": "41220b0742d69cf0fb598f89971320db5628dfab31c68c5b7f9f995e41b66907"
+    }
+  }
+}

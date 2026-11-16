@@ -1,5 +1,6 @@
 import {timedRecoil} from './timed_recoil.mjs';
 import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs';
+import {createRecoilScreeningBound} from './scoring_bounds.mjs';
 // Each preset supplies lower-is-better normalized loss plus diagnostic components.
 // The engine is independent of the particular game metrics being optimized.
 export const horizontalPatternLoss=(vertical,horizontal,speed)=>vertical+horizontalSpeedMultiplier(speed)*horizontal;
@@ -28,7 +29,7 @@ export const presets = {
       const ratio=(value,base)=>base>0?value/base:value;
       const score=c=>0.5*handlingLoss(c,baseline)+0.3*100*ratio(c.accuracy,baseline.accuracy)+0.2*c.recoil;
       const objectives=c=>[score(c)];
-      return {raw,baseline,score,objectives,solverPlan:{kind:'agility',baseline,recoil:recoil.solverPlan},calibrationPriorities:[['GAiming_ADSTime','GSprintToFireTime','GSpread_Hip'],['GRecoil_H','GRecoil_V','GGunkickRandom','GGunkickSpring']],
+      return {raw,baseline,score,objectives,stateReuse:{raw},branchScoring:{raw,score,objectives},solverPlan:{kind:'agility',baseline,recoil:recoil.solverPlan},calibrationPriorities:[['GAiming_ADSTime','GSprintToFireTime','GSpread_Hip'],['GRecoil_H','GRecoil_V','GGunkickRandom','GGunkickSpring']],
         objectiveNames:['weighted_agility'],
         weights:{objectives:{handling:0.5,accuracy:0.3,recoil:0.2},handling:{ads:0.5,sprint_to_fire:0.5},ads_recoil:recoil.weights},
         limitations:['Accuracy uses idle hip spread; moving spread is proportional and jumping mechanics remain unknown. Maximum spread is excluded.',
@@ -39,7 +40,7 @@ export const presets = {
   },
   recoil: {
     label:'Lowest Recoil',
-    description:'Strict ADS recoil then Handling. Automatic pattern: V + multiplier * H over 20 ADS source-chart points; H=max(abs(x)) from pre-fire origin. Candidate fastest 200ms net horizontal speed selects multiplier: 1 up to 3, 2 above 3, 3 above 4, 5 above 5 model units/s. Exact piecewise-linear maximum; no P90. Pattern/camera/kick weights 40/30/30; default-normalized. Unsupported base firing protocols retain the legacy multiplier proxy. Experimental, not client-validated.',
+    description:'Strict ADS recoil then Handling. Automatic pattern: V + multiplier * H over 20 ADS source-chart points; H=max(abs(x)) from pre-fire origin. Candidate fastest 200ms net horizontal speed selects multiplier: 1 up to 3, 4 above 3, 6 above 4, 10 above 5 model units/s. Exact piecewise-linear maximum; no P90. Pattern/camera/kick weights 40/30/30; default-normalized. Unsupported base firing protocols retain the legacy multiplier proxy. Experimental, not client-validated.',
     create({pack,request:r,kernel,resolve,mode,calculate,curves,legacyRecoil=false}) {
       const weights = r.weights ?? {pattern:0.4, camera:0.3, kick:0.3};
       if (Object.keys(weights).sort().join() !== 'camera,kick,pattern' || Object.values(weights).some(x=>!Number.isFinite(x)||x<0) || Object.values(weights).reduce((a,b)=>a+b,0)<=0) throw Error('Invalid weights');
@@ -83,7 +84,9 @@ export const presets = {
         if (baseline[key]===0 && w>0) throw Error('Cannot normalize zero baseline');
         return sum+(w===0?0:w*components[key]/baseline[key]);
       },0)/Object.values(weights).reduce((a,b)=>a+b,0);
-      return {raw,score,baseline,weights,solverPlan:{kind:'recoil',chartPattern,weights,baseline},calibrationPriorities:[['GRecoil_H','GRecoil_V','GRecoil_HShake','GRecoil_VShake','GGunkickRandom','GGunkickSpring'],['GAiming_ADSTime','GSprintToFireTime']],objectives:c=>[score(c),handlingLoss(c,baseline)],
+      const objectives=c=>[score(c),handlingLoss(c,baseline)];
+      const screeningBound=createRecoilScreeningBound({pack,request:r,kernel,curves,calculate,raw,score,objectives,chartPattern});
+      return {raw,score,baseline,weights,screeningBound,stateReuse:{raw},branchScoring:{raw,score,objectives},solverPlan:{kind:'recoil',chartPattern,weights,baseline},calibrationPriorities:[['GRecoil_H','GRecoil_V','GRecoil_HShake','GRecoil_VShake','GGunkickRandom','GGunkickSpring'],['GAiming_ADSTime','GSprintToFireTime']],objectives,
         objectiveNames:['ads_recoil','handling'],allowTargets:true,
         limitations:chartPattern?['Pattern uses 20 post-shot source-chart points; not measured angular recoil. The scoring window is fixed independently of graph shot count. For candidate magazines below 20, this is an abstract profile comparison, not a continuous firing claim.']:
           [`Legacy recoil multiplier proxy retained: ${legacyRecoil?'Highest Agility keeps its existing recoil component':basePath?.reason??'source chart runtime unavailable'}. No horizontal-speed tiers applied.`]};

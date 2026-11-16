@@ -1,0 +1,3750 @@
+{
+  "date": "2026-11-16",
+  "release": "8729fd447b6676a3",
+  "deployment_performed": false,
+  "production_entry": "tools/optimizer_engine.mjs -> generateAnytime in tools/anytime_optimizer.mjs; shared by local Node API and static Worker",
+  "contract": {
+    "previous_exhaustive_requirement_superseded_by_user": true,
+    "time_limit_scope": "total_search",
+    "ordinary_cap": 256,
+    "tactical_per_base_cap": 16,
+    "complete_cap": 512,
+    "cache_cap": 2048,
+    "global_top_k_proven": false,
+    "global_optimality": false,
+    "calibration": "source-scored legal-position coordinate refinement plus jointly proposed hints and attachment feedback",
+    "reference_path_retained": "generateSCIP in tools/scip_optimizer.mjs"
+  },
+  "source_sha256": {
+    "tools/anytime_optimizer.mjs": "6cc2f4fd51ac71ce5421116952822f874ec5f74ced8ffbcfd1dc49cfcf1fbd44",
+    "tools/optimizer_engine.mjs": "87a87411b96b7499b25cdfa0df178cd725d98c8673eb9267c1c01a8fefa17f23",
+    "tools/mount_search.mjs": "544fae93f9f1e5e9fd39ff667dfa1802de05c5240c144fe528f34618630170c2",
+    "tools/build_github_pages.py": "ccb2070982a4b877045182fa666fdc9eb4ac9983d851b8ce5b54b3be2b4f4d98",
+    "builder/app.js": "fb2c75f5f1e99c7ba678777e8010f5981140322afb00ebb5b0b62d72ed6a6ff1",
+    "builder/index.html": "403ce480f900346b535394c2fdd67510c4fbc155b5a7e6eb1df00b76296866bd",
+    "builder/static-worker.js": "4710eb0563dd3ec52d996798ea820b74a393d5133f185efa42118a01a40df80e",
+    "builder/local-client.js": "7ca4ac09f996342641ea6655b55e070d296f0b9f2278fe8beebddb836b73e523",
+    "tools/optimizer_presets.mjs": "82f77803309e311ac3f2e70e233b1c2373785690fc90da912a3ec533255f3b48",
+    "tests/anytime_optimizer.mjs": "0dda49bc45b9cd8f8fa6a9432a960f95b1eb453e6d6bbc6c55f3d9c9d35dd0af",
+    "tests/anytime_browser.cjs": "c6b6b860babfd96686f6f5dd91fe7ef50d5b4bb98a043df2a85c8f9b99160534",
+    "tests/test_exhaustive_stream.py": "c21e389665879dc2d760433ba9dd590b8a94647d786326e9958226568d273e27",
+    "tests/test_recoil_generator.py": "15e61c3aadc28b2fe2ea5639a738b3dc5ee79010509b68388b5eb7bf30920c77",
+    ".scratch/calibration-check/kernel.mjs": "a834dec1bcdf85bb155a7b4c2feabb1dc35d8486bdde85d581e84ef841ea2dfb",
+    ".scratch/calibration-check/attributes.mjs": "7fd496bb66a3b9a31bf7b4d5b749a2258f8a14ab0f241c4c5fe2bd711c097cdc"
+  },
+  "focused_tests": {
+    "passed": true,
+    "reports": [
+      {
+        "id": "18010000001",
+        "request": {
+          "mode": "bd",
+          "preset": "recoil",
+          "time_limit_seconds": 5
+        },
+        "elapsed_ms": 5003.8463,
+        "gate": {
+          "fraction": null,
+          "complete": false,
+          "screening": "anytime_top_k",
+          "limits": {
+            "ordinary": 256,
+            "tactical_per_base": 16,
+            "complete": 512
+          },
+          "budgets": [
+            {
+              "budget": 800,
+              "screening": "anytime_top_k",
+              "complete": false,
+              "limits": {
+                "ordinary": 256,
+                "tactical_per_base": 16,
+                "complete": 512
+              },
+              "evaluated": 9124,
+              "invalid": 314,
+              "source_errors": 0,
+              "calibration_evaluations": 3303,
+              "ordinary_evaluated": 4250,
+              "tactical_evaluated": 1587,
+              "tree_nodes": 26152,
+              "pruned_branches": 810,
+              "ordinary_retained": 211,
+              "candidate_count": 396,
+              "cache_peak": 2048,
+              "ordinary_storage_peak": 213,
+              "complete_storage_peak": 401,
+              "phases": [
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 1743.016
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 749.6949000000002
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 1500.2824
+                },
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 399.6686000000004
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 200.05599999999959
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 400.2622000000001
+                }
+              ],
+              "tree_slices": 1,
+              "stat_reuse": {
+                "supported": true,
+                "requests": 5515,
+                "native_fallbacks": 0,
+                "context_fallbacks": 0,
+                "unsupported_fallbacks": 0,
+                "error_fallbacks": 0,
+                "part_hits": 57493,
+                "part_misses": 172,
+                "prefix_hits": 33663,
+                "prefix_misses": 13687,
+                "core_hits": 2059,
+                "core_misses": 3456,
+                "reference_hits": 3453,
+                "reference_misses": 3,
+                "numeric_noops": 0,
+                "part_entries_peak": 172,
+                "part_operations_peak": 1777,
+                "prefix_entries_peak": 2048,
+                "prefix_key_chars_peak": 54724,
+                "reference_entries_peak": 3,
+                "reference_key_chars_peak": 25,
+                "token_entries_peak": 171,
+                "token_key_chars_peak": 12104,
+                "saturated": true
+              },
+              "branch_scoring": {
+                "supported": true,
+                "evaluations": 810,
+                "cache_hits": 447,
+                "declined": 0,
+                "entries_peak": 363,
+                "key_chars_peak": 41672,
+                "saturated": false
+              },
+              "elapsed_ms": 5001.2415
+            }
+          ],
+          "global_optimality": false
+        },
+        "solver": {
+          "name": "Anytime",
+          "formulation": "bounded diverse top-K attachment search and source-calculator coordinate calibration",
+          "time_limit_seconds": 5,
+          "time_limit_scope": "total_search",
+          "global_optimality": false,
+          "elapsed_ms": 5002.6987,
+          "screening_elapsed_ms": 3092.4355,
+          "calibration_elapsed_ms": 1900.5446000000002,
+          "phases": [
+            {
+              "label": "search_attachments",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 1743.016,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 749.6949000000002,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 1500.2824,
+              "source_verified": true
+            },
+            {
+              "label": "search_attachments",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 399.6686000000004,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 200.05599999999959,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 400.2622000000001,
+              "source_verified": true
+            }
+          ]
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "cost": 740,
+            "loss": 22.985555414115936
+          },
+          {
+            "label": "Balanced",
+            "status": "best_found",
+            "cost": 460,
+            "loss": 32.22044604399801
+          },
+          {
+            "label": "Min",
+            "status": "best_found",
+            "cost": 120,
+            "loss": 59.778428291113606
+          }
+        ]
+      },
+      {
+        "id": "18010000001",
+        "request": {
+          "mode": "bd",
+          "preset": "agility",
+          "time_limit_seconds": 5
+        },
+        "elapsed_ms": 5002.6695,
+        "gate": {
+          "fraction": null,
+          "complete": false,
+          "screening": "anytime_top_k",
+          "limits": {
+            "ordinary": 256,
+            "tactical_per_base": 16,
+            "complete": 512
+          },
+          "budgets": [
+            {
+              "budget": 800,
+              "screening": "anytime_top_k",
+              "complete": false,
+              "limits": {
+                "ordinary": 256,
+                "tactical_per_base": 16,
+                "complete": 512
+              },
+              "evaluated": 13274,
+              "invalid": 2575,
+              "source_errors": 0,
+              "calibration_evaluations": 5440,
+              "ordinary_evaluated": 7312,
+              "tactical_evaluated": 936,
+              "tree_nodes": 37457,
+              "pruned_branches": 353,
+              "ordinary_retained": 241,
+              "candidate_count": 419,
+              "cache_peak": 2048,
+              "ordinary_storage_peak": 242,
+              "complete_storage_peak": 432,
+              "phases": [
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 1745.4858999999997
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 749.5470000000005
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 1499.7014999999992
+                },
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 399.8687999999984
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 200.1976999999988
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 399.71500000000015
+                }
+              ],
+              "tree_slices": 1,
+              "stat_reuse": {
+                "supported": true,
+                "requests": 7504,
+                "native_fallbacks": 0,
+                "context_fallbacks": 0,
+                "unsupported_fallbacks": 0,
+                "error_fallbacks": 0,
+                "part_hits": 71042,
+                "part_misses": 179,
+                "prefix_hits": 40053,
+                "prefix_misses": 16629,
+                "core_hits": 3557,
+                "core_misses": 3947,
+                "reference_hits": 3942,
+                "reference_misses": 5,
+                "numeric_noops": 0,
+                "part_entries_peak": 179,
+                "part_operations_peak": 1802,
+                "prefix_entries_peak": 2048,
+                "prefix_key_chars_peak": 55757,
+                "reference_entries_peak": 5,
+                "reference_key_chars_peak": 85,
+                "token_entries_peak": 163,
+                "token_key_chars_peak": 11597,
+                "saturated": true
+              },
+              "branch_scoring": {
+                "supported": true,
+                "evaluations": 353,
+                "cache_hits": 165,
+                "declined": 0,
+                "entries_peak": 188,
+                "key_chars_peak": 20742,
+                "saturated": false
+              },
+              "elapsed_ms": 5000.554499999999
+            }
+          ],
+          "global_optimality": false
+        },
+        "solver": {
+          "name": "Anytime",
+          "formulation": "bounded diverse top-K attachment search and source-calculator coordinate calibration",
+          "time_limit_seconds": 5,
+          "time_limit_scope": "total_search",
+          "global_optimality": false,
+          "elapsed_ms": 5002.3335,
+          "screening_elapsed_ms": 3095.0993999999973,
+          "calibration_elapsed_ms": 1899.4164999999994,
+          "phases": [
+            {
+              "label": "search_attachments",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 1745.4858999999997,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 749.5470000000005,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 1499.7014999999992,
+              "source_verified": true
+            },
+            {
+              "label": "search_attachments",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 399.8687999999984,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 200.1976999999988,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 399.71500000000015,
+              "source_verified": true
+            }
+          ]
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "cost": 800,
+            "loss": 37.32893065630899
+          },
+          {
+            "label": "Balanced",
+            "status": "best_found",
+            "cost": 400,
+            "loss": 45.6537321695852
+          },
+          {
+            "label": "Min",
+            "status": "best_found",
+            "cost": 120,
+            "loss": 67.44473215473039
+          }
+        ]
+      },
+      {
+        "id": "18010000001",
+        "request": {
+          "mode": "bd",
+          "preset": "recoil",
+          "fixed": [
+            {
+              "slotPath": "11",
+              "itemId": "13110000043"
+            }
+          ],
+          "minimum_stats": {
+            "control": 60
+          },
+          "time_limit_seconds": 1
+        },
+        "elapsed_ms": 1002.3453000000009,
+        "gate": {
+          "fraction": null,
+          "complete": false,
+          "screening": "anytime_top_k",
+          "limits": {
+            "ordinary": 256,
+            "tactical_per_base": 16,
+            "complete": 512
+          },
+          "budgets": [
+            {
+              "budget": 800,
+              "screening": "anytime_top_k",
+              "complete": false,
+              "limits": {
+                "ordinary": 256,
+                "tactical_per_base": 16,
+                "complete": 512
+              },
+              "evaluated": 1545,
+              "invalid": 126,
+              "source_errors": 0,
+              "calibration_evaluations": 528,
+              "ordinary_evaluated": 729,
+              "tactical_evaluated": 381,
+              "tree_nodes": 2789,
+              "pruned_branches": 56,
+              "ordinary_retained": 208,
+              "candidate_count": 393,
+              "cache_peak": 1545,
+              "ordinary_storage_peak": 213,
+              "complete_storage_peak": 399,
+              "phases": [
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 344.53750000000036
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 149.91820000000007
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 299.90390000000116
+                },
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 79.91640000000007
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 40.48669999999947
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 79.55799999999908
+                }
+              ],
+              "tree_slices": 1,
+              "stat_reuse": {
+                "supported": true,
+                "requests": 949,
+                "native_fallbacks": 0,
+                "context_fallbacks": 0,
+                "unsupported_fallbacks": 0,
+                "error_fallbacks": 0,
+                "part_hits": 10201,
+                "part_misses": 107,
+                "prefix_hits": 7165,
+                "prefix_misses": 1635,
+                "core_hits": 565,
+                "core_misses": 384,
+                "reference_hits": 381,
+                "reference_misses": 3,
+                "numeric_noops": 0,
+                "part_entries_peak": 107,
+                "part_operations_peak": 1127,
+                "prefix_entries_peak": 1635,
+                "prefix_key_chars_peak": 39084,
+                "reference_entries_peak": 3,
+                "reference_key_chars_peak": 25,
+                "token_entries_peak": 163,
+                "token_key_chars_peak": 11564,
+                "saturated": false
+              },
+              "branch_scoring": {
+                "supported": true,
+                "evaluations": 56,
+                "cache_hits": 19,
+                "declined": 0,
+                "entries_peak": 37,
+                "key_chars_peak": 3991,
+                "saturated": false
+              },
+              "elapsed_ms": 1000.6169000000009
+            }
+          ],
+          "global_optimality": false
+        },
+        "solver": {
+          "name": "Anytime",
+          "formulation": "bounded diverse top-K attachment search and source-calculator coordinate calibration",
+          "time_limit_seconds": 1,
+          "time_limit_scope": "total_search",
+          "global_optimality": false,
+          "elapsed_ms": 1002.0497000000014,
+          "screening_elapsed_ms": 614.8588,
+          "calibration_elapsed_ms": 379.46190000000024,
+          "phases": [
+            {
+              "label": "search_attachments",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 344.53750000000036,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 149.91820000000007,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 299.90390000000116,
+              "source_verified": true
+            },
+            {
+              "label": "search_attachments",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 79.91640000000007,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 40.48669999999947,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 79.55799999999908,
+              "source_verified": true
+            }
+          ]
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "cost": 760,
+            "loss": 22.985555414115936
+          },
+          {
+            "label": "Balanced",
+            "status": "best_found",
+            "cost": 480,
+            "loss": 32.22044604399801
+          },
+          {
+            "label": "Min",
+            "status": "best_found",
+            "cost": 460,
+            "loss": 40.181359575526834
+          }
+        ]
+      },
+      {
+        "id": "18010000001",
+        "request": {
+          "mode": "bd",
+          "preset": "agility",
+          "minimum_stats": {
+            "control": 1000
+          },
+          "time_limit_seconds": 1
+        },
+        "elapsed_ms": 920.8582999999999,
+        "gate": {
+          "fraction": null,
+          "complete": false,
+          "screening": "anytime_top_k",
+          "limits": {
+            "ordinary": 256,
+            "tactical_per_base": 16,
+            "complete": 512
+          },
+          "budgets": [
+            {
+              "budget": 800,
+              "screening": "anytime_top_k",
+              "complete": false,
+              "limits": {
+                "ordinary": 256,
+                "tactical_per_base": 16,
+                "complete": 512
+              },
+              "evaluated": 2412,
+              "invalid": 439,
+              "source_errors": 0,
+              "calibration_evaluations": 0,
+              "ordinary_evaluated": 3219,
+              "tactical_evaluated": 497,
+              "tree_nodes": 16865,
+              "pruned_branches": 0,
+              "ordinary_retained": 232,
+              "candidate_count": 0,
+              "cache_peak": 2048,
+              "ordinary_storage_peak": 234,
+              "complete_storage_peak": 0,
+              "phases": [
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 348.03679999999986
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 149.91349999999875
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 0.19690000000082364
+                },
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 379.85020000000077
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 39.908400000000256
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 0.19139999999970314
+                }
+              ],
+              "tree_slices": 2,
+              "stat_reuse": {
+                "supported": true,
+                "requests": 2405,
+                "native_fallbacks": 0,
+                "context_fallbacks": 0,
+                "unsupported_fallbacks": 0,
+                "error_fallbacks": 0,
+                "part_hits": 24033,
+                "part_misses": 175,
+                "prefix_hits": 14416,
+                "prefix_misses": 7318,
+                "core_hits": 768,
+                "core_misses": 1637,
+                "reference_hits": 1634,
+                "reference_misses": 3,
+                "numeric_noops": 0,
+                "part_entries_peak": 175,
+                "part_operations_peak": 1773,
+                "prefix_entries_peak": 2048,
+                "prefix_key_chars_peak": 56760,
+                "reference_entries_peak": 3,
+                "reference_key_chars_peak": 41,
+                "token_entries_peak": 159,
+                "token_key_chars_peak": 11328,
+                "saturated": true
+              },
+              "branch_scoring": {
+                "supported": true,
+                "evaluations": 0,
+                "cache_hits": 0,
+                "declined": 0,
+                "entries_peak": 0,
+                "key_chars_peak": 0,
+                "saturated": false
+              },
+              "elapsed_ms": 920.3828000000012
+            }
+          ],
+          "global_optimality": false
+        },
+        "solver": {
+          "name": "Anytime",
+          "formulation": "bounded diverse top-K attachment search and source-calculator coordinate calibration",
+          "time_limit_seconds": 1,
+          "time_limit_scope": "total_search",
+          "global_optimality": false,
+          "elapsed_ms": 920.5536000000011,
+          "screening_elapsed_ms": 917.7088999999996,
+          "calibration_elapsed_ms": 0.3883000000005268,
+          "phases": [
+            {
+              "label": "search_attachments",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 348.03679999999986,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 149.91349999999875,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 0.19690000000082364,
+              "source_verified": true
+            },
+            {
+              "label": "search_attachments",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 379.85020000000077,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 39.908400000000256,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 0.19139999999970314,
+              "source_verified": true
+            }
+          ]
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "not_found"
+          },
+          {
+            "label": "Balanced",
+            "status": "not_found"
+          },
+          {
+            "label": "Min",
+            "status": "not_found"
+          }
+        ]
+      },
+      {
+        "id": "18070000005",
+        "request": {
+          "mode": "sol",
+          "preset": "recoil",
+          "budget": 5000000,
+          "time_limit_seconds": 1
+        },
+        "elapsed_ms": 1002.5805,
+        "gate": {
+          "fraction": null,
+          "complete": false,
+          "screening": "anytime_top_k",
+          "limits": {
+            "ordinary": 256,
+            "tactical_per_base": 16,
+            "complete": 512
+          },
+          "budgets": [
+            {
+              "budget": 5000000,
+              "screening": "anytime_top_k",
+              "complete": false,
+              "limits": {
+                "ordinary": 256,
+                "tactical_per_base": 16,
+                "complete": 512
+              },
+              "evaluated": 4268,
+              "invalid": 0,
+              "source_errors": 0,
+              "calibration_evaluations": 2849,
+              "ordinary_evaluated": 4805,
+              "tactical_evaluated": 245,
+              "tree_nodes": 1061,
+              "pruned_branches": 8,
+              "ordinary_retained": 221,
+              "candidate_count": 420,
+              "cache_peak": 2048,
+              "ordinary_storage_peak": 247,
+              "complete_storage_peak": 478,
+              "phases": [
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 254.2590999999993
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 130.4948000000004
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 411.501400000001
+                },
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 62.09890000000087
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 0.7058000000015454
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 137.33669999999984
+                }
+              ],
+              "ordinary_tree_exhausted": true,
+              "stat_reuse": {
+                "supported": true,
+                "requests": 1352,
+                "native_fallbacks": 0,
+                "context_fallbacks": 0,
+                "unsupported_fallbacks": 0,
+                "error_fallbacks": 0,
+                "part_hits": 7057,
+                "part_misses": 22,
+                "prefix_hits": 6323,
+                "prefix_misses": 412,
+                "core_hits": 983,
+                "core_misses": 369,
+                "reference_hits": 366,
+                "reference_misses": 3,
+                "numeric_noops": 0,
+                "part_entries_peak": 22,
+                "part_operations_peak": 210,
+                "prefix_entries_peak": 412,
+                "prefix_key_chars_peak": 12576,
+                "reference_entries_peak": 3,
+                "reference_key_chars_peak": 5,
+                "token_entries_peak": 68,
+                "token_key_chars_peak": 4831,
+                "saturated": false
+              },
+              "branch_scoring": {
+                "supported": true,
+                "evaluations": 48,
+                "cache_hits": 0,
+                "declined": 0,
+                "entries_peak": 48,
+                "key_chars_peak": 3196,
+                "saturated": false
+              },
+              "elapsed_ms": 1000.6676000000007
+            }
+          ],
+          "global_optimality": false
+        },
+        "solver": {
+          "name": "Anytime",
+          "formulation": "bounded diverse top-K attachment search and source-calculator coordinate calibration",
+          "time_limit_seconds": 1,
+          "time_limit_scope": "total_search",
+          "global_optimality": false,
+          "elapsed_ms": 1002.2706999999991,
+          "screening_elapsed_ms": 447.5586000000021,
+          "calibration_elapsed_ms": 548.8381000000008,
+          "phases": [
+            {
+              "label": "search_attachments",
+              "budget": 5000000,
+              "status": "best_found",
+              "elapsed_ms": 254.2590999999993,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 5000000,
+              "status": "best_found",
+              "elapsed_ms": 130.4948000000004,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 5000000,
+              "status": "best_found",
+              "elapsed_ms": 411.501400000001,
+              "source_verified": true
+            },
+            {
+              "label": "search_attachments",
+              "budget": 5000000,
+              "status": "best_found",
+              "elapsed_ms": 62.09890000000087,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 5000000,
+              "status": "best_found",
+              "elapsed_ms": 0.7058000000015454,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 5000000,
+              "status": "best_found",
+              "elapsed_ms": 137.33669999999984,
+              "source_verified": true
+            }
+          ]
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "cost": 181655,
+            "loss": 64.82422827732532
+          },
+          {
+            "label": "Balanced",
+            "status": "best_found",
+            "cost": 69251,
+            "loss": 67.80523211645217
+          },
+          {
+            "label": "Min",
+            "status": "best_found",
+            "cost": 41200,
+            "loss": 73.87422246138908
+          }
+        ]
+      },
+      {
+        "id": "18070000005",
+        "request": {
+          "mode": "mp",
+          "preset": "agility",
+          "time_limit_seconds": 1
+        },
+        "elapsed_ms": 1000.8606,
+        "gate": {
+          "fraction": null,
+          "complete": false,
+          "screening": "anytime_top_k",
+          "limits": {
+            "ordinary": 256,
+            "tactical_per_base": 16,
+            "complete": 512
+          },
+          "budgets": [
+            {
+              "budget": null,
+              "screening": "anytime_top_k",
+              "complete": false,
+              "limits": {
+                "ordinary": 256,
+                "tactical_per_base": 16,
+                "complete": 512
+              },
+              "evaluated": 5903,
+              "invalid": 0,
+              "source_errors": 0,
+              "calibration_evaluations": 3936,
+              "ordinary_evaluated": 4581,
+              "tactical_evaluated": 271,
+              "tree_nodes": 1673,
+              "pruned_branches": 10,
+              "ordinary_retained": 219,
+              "candidate_count": 424,
+              "cache_peak": 2048,
+              "ordinary_storage_peak": 230,
+              "complete_storage_peak": 453,
+              "phases": [
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 300.35589999999866
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 149.59280000000035
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 345.83719999999994
+                },
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 59.08230000000003
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 1.6589999999996508
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 139.20750000000044
+                }
+              ],
+              "ordinary_tree_exhausted": true,
+              "stat_reuse": {
+                "supported": true,
+                "requests": 1910,
+                "native_fallbacks": 0,
+                "context_fallbacks": 0,
+                "unsupported_fallbacks": 0,
+                "error_fallbacks": 0,
+                "part_hits": 9889,
+                "part_misses": 22,
+                "prefix_hits": 7699,
+                "prefix_misses": 423,
+                "core_hits": 1546,
+                "core_misses": 364,
+                "reference_hits": 361,
+                "reference_misses": 3,
+                "numeric_noops": 0,
+                "part_entries_peak": 22,
+                "part_operations_peak": 215,
+                "prefix_entries_peak": 423,
+                "prefix_key_chars_peak": 11028,
+                "reference_entries_peak": 3,
+                "reference_key_chars_peak": 5,
+                "token_entries_peak": 72,
+                "token_key_chars_peak": 5065,
+                "saturated": false
+              },
+              "branch_scoring": {
+                "supported": true,
+                "evaluations": 72,
+                "cache_hits": 18,
+                "declined": 0,
+                "entries_peak": 54,
+                "key_chars_peak": 3465,
+                "saturated": false
+              },
+              "elapsed_ms": 1000.3244999999988
+            }
+          ],
+          "global_optimality": false
+        },
+        "solver": {
+          "name": "Anytime",
+          "formulation": "bounded diverse top-K attachment search and source-calculator coordinate calibration",
+          "time_limit_seconds": 1,
+          "time_limit_scope": "total_search",
+          "global_optimality": false,
+          "elapsed_ms": 1000.6966999999986,
+          "screening_elapsed_ms": 510.6899999999987,
+          "calibration_elapsed_ms": 485.0447000000004,
+          "phases": [
+            {
+              "label": "search_attachments",
+              "budget": null,
+              "status": "best_found",
+              "elapsed_ms": 300.35589999999866,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": null,
+              "status": "best_found",
+              "elapsed_ms": 149.59280000000035,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": null,
+              "status": "best_found",
+              "elapsed_ms": 345.83719999999994,
+              "source_verified": true
+            },
+            {
+              "label": "search_attachments",
+              "budget": null,
+              "status": "best_found",
+              "elapsed_ms": 59.08230000000003,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": null,
+              "status": "best_found",
+              "elapsed_ms": 1.6589999999996508,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": null,
+              "status": "best_found",
+              "elapsed_ms": 139.20750000000044,
+              "source_verified": true
+            }
+          ]
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "cost": null,
+            "loss": 81.1390983442816
+          },
+          {
+            "label": "Balanced",
+            "status": "unavailable"
+          },
+          {
+            "label": "Min",
+            "status": "unavailable"
+          }
+        ]
+      },
+      {
+        "id": "18070000005",
+        "request": {
+          "mode": "bd",
+          "preset": "future_test",
+          "budgets": [
+            0,
+            100,
+            200
+          ],
+          "time_limit_seconds": 1
+        },
+        "elapsed_ms": 1001.7187999999987,
+        "gate": {
+          "fraction": null,
+          "complete": false,
+          "screening": "anytime_top_k",
+          "limits": {
+            "ordinary": 256,
+            "tactical_per_base": 16,
+            "complete": 512
+          },
+          "budgets": [
+            {
+              "budget": 0,
+              "screening": "anytime_top_k",
+              "complete": false,
+              "limits": {
+                "ordinary": 256,
+                "tactical_per_base": 16,
+                "complete": 512
+              },
+              "evaluated": 1,
+              "invalid": 55,
+              "source_errors": 0,
+              "calibration_evaluations": 0,
+              "ordinary_evaluated": 3,
+              "tactical_evaluated": 0,
+              "tree_nodes": 24,
+              "pruned_branches": 0,
+              "ordinary_retained": 1,
+              "candidate_count": 1,
+              "cache_peak": 1,
+              "ordinary_storage_peak": 2,
+              "complete_storage_peak": 2,
+              "phases": [
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 4.320999999999913
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 0.638199999999415
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 0.06090000000040163
+                },
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 1.7148999999990338
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 0.002899999999499414
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 0.02900000000045111
+                }
+              ],
+              "ordinary_tree_exhausted": true,
+              "stat_reuse": {
+                "supported": true,
+                "requests": 1,
+                "native_fallbacks": 0,
+                "context_fallbacks": 0,
+                "unsupported_fallbacks": 0,
+                "error_fallbacks": 0,
+                "part_hits": 0,
+                "part_misses": 3,
+                "prefix_hits": 0,
+                "prefix_misses": 1,
+                "core_hits": 0,
+                "core_misses": 1,
+                "reference_hits": 0,
+                "reference_misses": 1,
+                "numeric_noops": 0,
+                "part_entries_peak": 3,
+                "part_operations_peak": 1,
+                "prefix_entries_peak": 1,
+                "prefix_key_chars_peak": 1,
+                "reference_entries_peak": 1,
+                "reference_key_chars_peak": 1,
+                "token_entries_peak": 1,
+                "token_key_chars_peak": 60,
+                "saturated": false
+              },
+              "branch_scoring": {
+                "supported": true,
+                "evaluations": 0,
+                "cache_hits": 0,
+                "declined": 0,
+                "entries_peak": 0,
+                "key_chars_peak": 0,
+                "saturated": false
+              },
+              "elapsed_ms": 8.61239999999998
+            },
+            {
+              "budget": 100,
+              "screening": "anytime_top_k",
+              "complete": false,
+              "limits": {
+                "ordinary": 256,
+                "tactical_per_base": 16,
+                "complete": 512
+              },
+              "evaluated": 3748,
+              "invalid": 1163,
+              "source_errors": 0,
+              "calibration_evaluations": 3639,
+              "ordinary_evaluated": 1096,
+              "tactical_evaluated": 9,
+              "tree_nodes": 286,
+              "pruned_branches": 0,
+              "ordinary_retained": 86,
+              "candidate_count": 95,
+              "cache_peak": 2048,
+              "ordinary_storage_peak": 95,
+              "complete_storage_peak": 105,
+              "phases": [
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 129.44510000000082
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 32.841199999998935
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 364.0478000000003
+                },
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 20.98110000000088
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 0.05400000000008731
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 110.7401000000009
+                }
+              ],
+              "ordinary_tree_exhausted": true,
+              "stat_reuse": {
+                "supported": true,
+                "requests": 110,
+                "native_fallbacks": 0,
+                "context_fallbacks": 0,
+                "unsupported_fallbacks": 0,
+                "error_fallbacks": 0,
+                "part_hits": 465,
+                "part_misses": 18,
+                "prefix_hits": 245,
+                "prefix_misses": 54,
+                "core_hits": 75,
+                "core_misses": 35,
+                "reference_hits": 33,
+                "reference_misses": 2,
+                "numeric_noops": 0,
+                "part_entries_peak": 18,
+                "part_operations_peak": 163,
+                "prefix_entries_peak": 54,
+                "prefix_key_chars_peak": 959,
+                "reference_entries_peak": 2,
+                "reference_key_chars_peak": 3,
+                "token_entries_peak": 54,
+                "token_key_chars_peak": 3842,
+                "saturated": false
+              },
+              "branch_scoring": {
+                "supported": true,
+                "evaluations": 0,
+                "cache_hits": 0,
+                "declined": 0,
+                "entries_peak": 0,
+                "key_chars_peak": 0,
+                "saturated": false
+              },
+              "elapsed_ms": 658.3424999999988
+            },
+            {
+              "budget": 200,
+              "screening": "anytime_top_k",
+              "complete": false,
+              "limits": {
+                "ordinary": 256,
+                "tactical_per_base": 16,
+                "complete": 512
+              },
+              "evaluated": 970,
+              "invalid": 906,
+              "source_errors": 0,
+              "calibration_evaluations": 483,
+              "ordinary_evaluated": 1365,
+              "tactical_evaluated": 16,
+              "tree_nodes": 848,
+              "pruned_branches": 0,
+              "ordinary_retained": 196,
+              "candidate_count": 157,
+              "cache_peak": 970,
+              "ordinary_storage_peak": 216,
+              "complete_storage_peak": 176,
+              "phases": [
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 103.16479999999865
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 63.09519999999975
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 99.8036000000011
+                },
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 23.700199999999313
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 16.045799999999872
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 26.65610000000015
+                }
+              ],
+              "ordinary_tree_exhausted": true,
+              "stat_reuse": {
+                "supported": true,
+                "requests": 476,
+                "native_fallbacks": 0,
+                "context_fallbacks": 0,
+                "unsupported_fallbacks": 0,
+                "error_fallbacks": 0,
+                "part_hits": 2284,
+                "part_misses": 21,
+                "prefix_hits": 1530,
+                "prefix_misses": 202,
+                "core_hits": 330,
+                "core_misses": 146,
+                "reference_hits": 143,
+                "reference_misses": 3,
+                "numeric_noops": 0,
+                "part_entries_peak": 21,
+                "part_operations_peak": 196,
+                "prefix_entries_peak": 202,
+                "prefix_key_chars_peak": 4049,
+                "reference_entries_peak": 3,
+                "reference_key_chars_peak": 5,
+                "token_entries_peak": 64,
+                "token_key_chars_peak": 4539,
+                "saturated": false
+              },
+              "branch_scoring": {
+                "supported": true,
+                "evaluations": 36,
+                "cache_hits": 0,
+                "declined": 0,
+                "entries_peak": 36,
+                "key_chars_peak": 2294,
+                "saturated": false
+              },
+              "elapsed_ms": 333.0635999999995
+            }
+          ],
+          "global_optimality": false
+        },
+        "solver": {
+          "name": "Anytime",
+          "formulation": "bounded diverse top-K attachment search and source-calculator coordinate calibration",
+          "time_limit_seconds": 1,
+          "time_limit_scope": "total_search",
+          "global_optimality": false,
+          "elapsed_ms": 1001.5570000000007,
+          "screening_elapsed_ms": 396.00439999999617,
+          "calibration_elapsed_ms": 601.3375000000033,
+          "phases": [
+            {
+              "label": "search_attachments",
+              "budget": 0,
+              "status": "best_found",
+              "elapsed_ms": 4.320999999999913,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 0,
+              "status": "best_found",
+              "elapsed_ms": 0.638199999999415,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 0,
+              "status": "best_found",
+              "elapsed_ms": 0.06090000000040163,
+              "source_verified": true
+            },
+            {
+              "label": "search_attachments",
+              "budget": 0,
+              "status": "best_found",
+              "elapsed_ms": 1.7148999999990338,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 0,
+              "status": "best_found",
+              "elapsed_ms": 0.002899999999499414,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 0,
+              "status": "best_found",
+              "elapsed_ms": 0.02900000000045111,
+              "source_verified": true
+            },
+            {
+              "label": "search_attachments",
+              "budget": 100,
+              "status": "best_found",
+              "elapsed_ms": 129.44510000000082,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 100,
+              "status": "best_found",
+              "elapsed_ms": 32.841199999998935,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 100,
+              "status": "best_found",
+              "elapsed_ms": 364.0478000000003,
+              "source_verified": true
+            },
+            {
+              "label": "search_attachments",
+              "budget": 100,
+              "status": "best_found",
+              "elapsed_ms": 20.98110000000088,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 100,
+              "status": "best_found",
+              "elapsed_ms": 0.05400000000008731,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 100,
+              "status": "best_found",
+              "elapsed_ms": 110.7401000000009,
+              "source_verified": true
+            },
+            {
+              "label": "search_attachments",
+              "budget": 200,
+              "status": "best_found",
+              "elapsed_ms": 103.16479999999865,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 200,
+              "status": "best_found",
+              "elapsed_ms": 63.09519999999975,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 200,
+              "status": "best_found",
+              "elapsed_ms": 99.8036000000011,
+              "source_verified": true
+            },
+            {
+              "label": "search_attachments",
+              "budget": 200,
+              "status": "best_found",
+              "elapsed_ms": 23.700199999999313,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 200,
+              "status": "best_found",
+              "elapsed_ms": 16.045799999999872,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 200,
+              "status": "best_found",
+              "elapsed_ms": 26.65610000000015,
+              "source_verified": true
+            }
+          ]
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "cost": 200,
+            "loss": 69.10201827626494
+          },
+          {
+            "label": "Balanced",
+            "status": "best_found",
+            "cost": 100,
+            "loss": 77.37882297618273
+          },
+          {
+            "label": "Min",
+            "status": "best_found",
+            "cost": 0,
+            "loss": 100
+          }
+        ]
+      }
+    ]
+  },
+  "browser": {
+    "local": {
+      "passed": true,
+      "url": "http://127.0.0.1:8766/",
+      "release": null,
+      "ui_elapsed_ms": 5313,
+      "aborted_and_recovered": true,
+      "errors": [],
+      "wasm_requests": [],
+      "runs": [
+        {
+          "preset": "recoil",
+          "elapsed_ms": 5251.0999999940395,
+          "mode": "bd",
+          "weapon_id": "18010000001",
+          "solver": {
+            "name": "Anytime",
+            "formulation": "bounded diverse top-K attachment search and source-calculator coordinate calibration",
+            "time_limit_seconds": 5,
+            "time_limit_scope": "total_search",
+            "global_optimality": false,
+            "elapsed_ms": 5002.6223,
+            "screening_elapsed_ms": 3089.8669999999997,
+            "calibration_elapsed_ms": 1900.0336000000002,
+            "phases": [
+              {
+                "label": "search_attachments",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 1739.7992,
+                "source_verified": true
+              },
+              {
+                "label": "search_tactical",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 750.1524,
+                "source_verified": true
+              },
+              {
+                "label": "calibration",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 1499.8079000000002,
+                "source_verified": true
+              },
+              {
+                "label": "search_attachments",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 400.1288000000004,
+                "source_verified": true
+              },
+              {
+                "label": "search_tactical",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 199.78659999999945,
+                "source_verified": true
+              },
+              {
+                "label": "calibration",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 400.22569999999996,
+                "source_verified": true
+              }
+            ]
+          },
+          "gate": {
+            "fraction": null,
+            "complete": false,
+            "screening": "anytime_top_k",
+            "limits": {
+              "ordinary": 256,
+              "tactical_per_base": 16,
+              "complete": 512
+            },
+            "budgets": [
+              {
+                "budget": 800,
+                "screening": "anytime_top_k",
+                "complete": false,
+                "limits": {
+                  "ordinary": 256,
+                  "tactical_per_base": 16,
+                  "complete": 512
+                },
+                "evaluated": 10070,
+                "invalid": 389,
+                "source_errors": 0,
+                "calibration_evaluations": 3578,
+                "ordinary_evaluated": 4876,
+                "tactical_evaluated": 1707,
+                "tree_nodes": 26098,
+                "pruned_branches": 753,
+                "ordinary_retained": 211,
+                "candidate_count": 396,
+                "cache_peak": 2048,
+                "ordinary_storage_peak": 213,
+                "complete_storage_peak": 401,
+                "phases": [
+                  {
+                    "phase": "search_attachments",
+                    "elapsed_ms": 1739.7992
+                  },
+                  {
+                    "phase": "search_tactical",
+                    "elapsed_ms": 750.1524
+                  },
+                  {
+                    "phase": "calibration",
+                    "elapsed_ms": 1499.8079000000002
+                  },
+                  {
+                    "phase": "search_attachments",
+                    "elapsed_ms": 400.1288000000004
+                  },
+                  {
+                    "phase": "search_tactical",
+                    "elapsed_ms": 199.78659999999945
+                  },
+                  {
+                    "phase": "calibration",
+                    "elapsed_ms": 400.22569999999996
+                  }
+                ],
+                "tree_slices": 1,
+                "stat_reuse": {
+                  "supported": true,
+                  "requests": 6137,
+                  "native_fallbacks": 0,
+                  "context_fallbacks": 0,
+                  "unsupported_fallbacks": 0,
+                  "error_fallbacks": 0,
+                  "part_hits": 63121,
+                  "part_misses": 174,
+                  "prefix_hits": 34830,
+                  "prefix_misses": 17348,
+                  "core_hits": 2305,
+                  "core_misses": 3832,
+                  "reference_hits": 3829,
+                  "reference_misses": 3,
+                  "numeric_noops": 0,
+                  "part_entries_peak": 174,
+                  "part_operations_peak": 1797,
+                  "prefix_entries_peak": 2048,
+                  "prefix_key_chars_peak": 56345,
+                  "reference_entries_peak": 3,
+                  "reference_key_chars_peak": 25,
+                  "token_entries_peak": 171,
+                  "token_key_chars_peak": 12104,
+                  "saturated": true
+                },
+                "branch_scoring": {
+                  "supported": true,
+                  "evaluations": 753,
+                  "cache_hits": 400,
+                  "declined": 0,
+                  "entries_peak": 353,
+                  "key_chars_peak": 38928,
+                  "saturated": false
+                },
+                "elapsed_ms": 5000.910800000001
+              }
+            ],
+            "global_optimality": false
+          },
+          "results": [
+            {
+              "label": "Max",
+              "status": "best_found",
+              "cost": 740,
+              "loss": 22.985555414115936
+            },
+            {
+              "label": "Balanced",
+              "status": "best_found",
+              "cost": 460,
+              "loss": 32.22044604399801
+            },
+            {
+              "label": "Min",
+              "status": "best_found",
+              "cost": 120,
+              "loss": 59.778428291113606
+            }
+          ]
+        },
+        {
+          "preset": "agility",
+          "elapsed_ms": 5250.4000000059605,
+          "mode": "bd",
+          "weapon_id": "18010000001",
+          "solver": {
+            "name": "Anytime",
+            "formulation": "bounded diverse top-K attachment search and source-calculator coordinate calibration",
+            "time_limit_seconds": 5,
+            "time_limit_scope": "total_search",
+            "global_optimality": false,
+            "elapsed_ms": 5004.618399999999,
+            "screening_elapsed_ms": 3091.5094000000004,
+            "calibration_elapsed_ms": 1899.8431,
+            "phases": [
+              {
+                "label": "search_attachments",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 1741.5185000000001,
+                "source_verified": true
+              },
+              {
+                "label": "search_tactical",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 750.1160999999997,
+                "source_verified": true
+              },
+              {
+                "label": "calibration",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 1499.9189999999999,
+                "source_verified": true
+              },
+              {
+                "label": "search_attachments",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 399.866,
+                "source_verified": true
+              },
+              {
+                "label": "search_tactical",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 200.00880000000052,
+                "source_verified": true
+              },
+              {
+                "label": "calibration",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 399.9241000000002,
+                "source_verified": true
+              }
+            ]
+          },
+          "gate": {
+            "fraction": null,
+            "complete": false,
+            "screening": "anytime_top_k",
+            "limits": {
+              "ordinary": 256,
+              "tactical_per_base": 16,
+              "complete": 512
+            },
+            "budgets": [
+              {
+                "budget": 800,
+                "screening": "anytime_top_k",
+                "complete": false,
+                "limits": {
+                  "ordinary": 256,
+                  "tactical_per_base": 16,
+                  "complete": 512
+                },
+                "evaluated": 17908,
+                "invalid": 3132,
+                "source_errors": 0,
+                "calibration_evaluations": 7350,
+                "ordinary_evaluated": 9821,
+                "tactical_evaluated": 1275,
+                "tree_nodes": 51890,
+                "pruned_branches": 471,
+                "ordinary_retained": 243,
+                "candidate_count": 420,
+                "cache_peak": 2048,
+                "ordinary_storage_peak": 244,
+                "complete_storage_peak": 432,
+                "phases": [
+                  {
+                    "phase": "search_attachments",
+                    "elapsed_ms": 1741.5185000000001
+                  },
+                  {
+                    "phase": "search_tactical",
+                    "elapsed_ms": 750.1160999999997
+                  },
+                  {
+                    "phase": "calibration",
+                    "elapsed_ms": 1499.9189999999999
+                  },
+                  {
+                    "phase": "search_attachments",
+                    "elapsed_ms": 399.866
+                  },
+                  {
+                    "phase": "search_tactical",
+                    "elapsed_ms": 200.00880000000052
+                  },
+                  {
+                    "phase": "calibration",
+                    "elapsed_ms": 399.9241000000002
+                  }
+                ],
+                "tree_slices": 1,
+                "stat_reuse": {
+                  "supported": true,
+                  "requests": 10152,
+                  "native_fallbacks": 0,
+                  "context_fallbacks": 0,
+                  "unsupported_fallbacks": 0,
+                  "error_fallbacks": 0,
+                  "part_hits": 95792,
+                  "part_misses": 177,
+                  "prefix_hits": 51955,
+                  "prefix_misses": 23585,
+                  "core_hits": 3933,
+                  "core_misses": 6219,
+                  "reference_hits": 6214,
+                  "reference_misses": 5,
+                  "numeric_noops": 0,
+                  "part_entries_peak": 177,
+                  "part_operations_peak": 1782,
+                  "prefix_entries_peak": 2048,
+                  "prefix_key_chars_peak": 55757,
+                  "reference_entries_peak": 5,
+                  "reference_key_chars_peak": 85,
+                  "token_entries_peak": 163,
+                  "token_key_chars_peak": 11597,
+                  "saturated": true
+                },
+                "branch_scoring": {
+                  "supported": true,
+                  "evaluations": 471,
+                  "cache_hits": 214,
+                  "declined": 0,
+                  "entries_peak": 257,
+                  "key_chars_peak": 28132,
+                  "saturated": false
+                },
+                "elapsed_ms": 5000.5967
+              }
+            ],
+            "global_optimality": false
+          },
+          "results": [
+            {
+              "label": "Max",
+              "status": "best_found",
+              "cost": 800,
+              "loss": 37.7648976499533
+            },
+            {
+              "label": "Balanced",
+              "status": "best_found",
+              "cost": 400,
+              "loss": 45.6537321695852
+            },
+            {
+              "label": "Min",
+              "status": "best_found",
+              "cost": 120,
+              "loss": 67.44473215473039
+            }
+          ]
+        }
+      ]
+    },
+    "static": {
+      "passed": true,
+      "url": "http://127.0.0.1:8770/github-pages-site/",
+      "release": "8729fd447b6676a3",
+      "ui_elapsed_ms": 5092,
+      "aborted_and_recovered": true,
+      "errors": [],
+      "wasm_requests": [],
+      "runs": [
+        {
+          "preset": "recoil",
+          "elapsed_ms": 5018.5,
+          "mode": "bd",
+          "weapon_id": "18010000001",
+          "solver": {
+            "name": "Anytime",
+            "formulation": "bounded diverse top-K attachment search and source-calculator coordinate calibration",
+            "time_limit_seconds": 5,
+            "time_limit_scope": "total_search",
+            "global_optimality": false,
+            "elapsed_ms": 5002.5999999940395,
+            "screening_elapsed_ms": 3093.2000000178814,
+            "calibration_elapsed_ms": 1900.699999988079,
+            "phases": [
+              {
+                "label": "search_attachments",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 1743.699999988079,
+                "source_verified": true
+              },
+              {
+                "label": "search_tactical",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 750.1000000238419,
+                "source_verified": true
+              },
+              {
+                "label": "calibration",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 1500.199999988079,
+                "source_verified": true
+              },
+              {
+                "label": "search_attachments",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 399.7000000178814,
+                "source_verified": true
+              },
+              {
+                "label": "search_tactical",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 199.69999998807907,
+                "source_verified": true
+              },
+              {
+                "label": "calibration",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 400.5,
+                "source_verified": true
+              }
+            ]
+          },
+          "gate": {
+            "fraction": null,
+            "complete": false,
+            "screening": "anytime_top_k",
+            "limits": {
+              "ordinary": 256,
+              "tactical_per_base": 16,
+              "complete": 512
+            },
+            "budgets": [
+              {
+                "budget": 800,
+                "screening": "anytime_top_k",
+                "complete": false,
+                "limits": {
+                  "ordinary": 256,
+                  "tactical_per_base": 16,
+                  "complete": 512
+                },
+                "evaluated": 11553,
+                "invalid": 409,
+                "source_errors": 0,
+                "calibration_evaluations": 4846,
+                "ordinary_evaluated": 4944,
+                "tactical_evaluated": 1777,
+                "tree_nodes": 26613,
+                "pruned_branches": 981,
+                "ordinary_retained": 211,
+                "candidate_count": 396,
+                "cache_peak": 2048,
+                "ordinary_storage_peak": 213,
+                "complete_storage_peak": 401,
+                "phases": [
+                  {
+                    "phase": "search_attachments",
+                    "elapsed_ms": 1743.699999988079
+                  },
+                  {
+                    "phase": "search_tactical",
+                    "elapsed_ms": 750.1000000238419
+                  },
+                  {
+                    "phase": "calibration",
+                    "elapsed_ms": 1500.199999988079
+                  },
+                  {
+                    "phase": "search_attachments",
+                    "elapsed_ms": 399.7000000178814
+                  },
+                  {
+                    "phase": "search_tactical",
+                    "elapsed_ms": 199.69999998807907
+                  },
+                  {
+                    "phase": "calibration",
+                    "elapsed_ms": 400.5
+                  }
+                ],
+                "tree_slices": 1,
+                "stat_reuse": {
+                  "supported": true,
+                  "requests": 6268,
+                  "native_fallbacks": 0,
+                  "context_fallbacks": 0,
+                  "unsupported_fallbacks": 0,
+                  "error_fallbacks": 0,
+                  "part_hits": 64760,
+                  "part_misses": 174,
+                  "prefix_hits": 33943,
+                  "prefix_misses": 19698,
+                  "core_hits": 2330,
+                  "core_misses": 3938,
+                  "reference_hits": 3935,
+                  "reference_misses": 3,
+                  "numeric_noops": 0,
+                  "part_entries_peak": 174,
+                  "part_operations_peak": 1797,
+                  "prefix_entries_peak": 2048,
+                  "prefix_key_chars_peak": 56345,
+                  "reference_entries_peak": 3,
+                  "reference_key_chars_peak": 25,
+                  "token_entries_peak": 171,
+                  "token_key_chars_peak": 12104,
+                  "saturated": true
+                },
+                "branch_scoring": {
+                  "supported": true,
+                  "evaluations": 981,
+                  "cache_hits": 547,
+                  "declined": 0,
+                  "entries_peak": 434,
+                  "key_chars_peak": 49942,
+                  "saturated": false
+                },
+                "elapsed_ms": 5001.299999982119
+              }
+            ],
+            "global_optimality": false
+          },
+          "results": [
+            {
+              "label": "Max",
+              "status": "best_found",
+              "cost": 740,
+              "loss": 22.985555414115936
+            },
+            {
+              "label": "Balanced",
+              "status": "best_found",
+              "cost": 460,
+              "loss": 32.22044604399801
+            },
+            {
+              "label": "Min",
+              "status": "best_found",
+              "cost": 120,
+              "loss": 59.778428291113606
+            }
+          ]
+        },
+        {
+          "preset": "agility",
+          "elapsed_ms": 5002.699999988079,
+          "mode": "bd",
+          "weapon_id": "18010000001",
+          "solver": {
+            "name": "Anytime",
+            "formulation": "bounded diverse top-K attachment search and source-calculator coordinate calibration",
+            "time_limit_seconds": 5,
+            "time_limit_scope": "total_search",
+            "global_optimality": false,
+            "elapsed_ms": 5002.299999982119,
+            "screening_elapsed_ms": 3099.5999999940395,
+            "calibration_elapsed_ms": 1899.9000000059605,
+            "phases": [
+              {
+                "label": "search_attachments",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 1749.5,
+                "source_verified": true
+              },
+              {
+                "label": "search_tactical",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 750.0999999940395,
+                "source_verified": true
+              },
+              {
+                "label": "calibration",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 1499.9000000059605,
+                "source_verified": true
+              },
+              {
+                "label": "search_attachments",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 400.7999999821186,
+                "source_verified": true
+              },
+              {
+                "label": "search_tactical",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 199.2000000178814,
+                "source_verified": true
+              },
+              {
+                "label": "calibration",
+                "budget": 800,
+                "status": "best_found",
+                "elapsed_ms": 400,
+                "source_verified": true
+              }
+            ]
+          },
+          "gate": {
+            "fraction": null,
+            "complete": false,
+            "screening": "anytime_top_k",
+            "limits": {
+              "ordinary": 256,
+              "tactical_per_base": 16,
+              "complete": 512
+            },
+            "budgets": [
+              {
+                "budget": 800,
+                "screening": "anytime_top_k",
+                "complete": false,
+                "limits": {
+                  "ordinary": 256,
+                  "tactical_per_base": 16,
+                  "complete": 512
+                },
+                "evaluated": 20008,
+                "invalid": 3364,
+                "source_errors": 0,
+                "calibration_evaluations": 9284,
+                "ordinary_evaluated": 9796,
+                "tactical_evaluated": 1378,
+                "tree_nodes": 50752,
+                "pruned_branches": 605,
+                "ordinary_retained": 243,
+                "candidate_count": 421,
+                "cache_peak": 2048,
+                "ordinary_storage_peak": 244,
+                "complete_storage_peak": 432,
+                "phases": [
+                  {
+                    "phase": "search_attachments",
+                    "elapsed_ms": 1749.5
+                  },
+                  {
+                    "phase": "search_tactical",
+                    "elapsed_ms": 750.0999999940395
+                  },
+                  {
+                    "phase": "calibration",
+                    "elapsed_ms": 1499.9000000059605
+                  },
+                  {
+                    "phase": "search_attachments",
+                    "elapsed_ms": 400.7999999821186
+                  },
+                  {
+                    "phase": "search_tactical",
+                    "elapsed_ms": 199.2000000178814
+                  },
+                  {
+                    "phase": "calibration",
+                    "elapsed_ms": 400
+                  }
+                ],
+                "tree_slices": 2,
+                "stat_reuse": {
+                  "supported": true,
+                  "requests": 10299,
+                  "native_fallbacks": 0,
+                  "context_fallbacks": 0,
+                  "unsupported_fallbacks": 0,
+                  "error_fallbacks": 0,
+                  "part_hits": 99001,
+                  "part_misses": 181,
+                  "prefix_hits": 54308,
+                  "prefix_misses": 24997,
+                  "core_hits": 4180,
+                  "core_misses": 6119,
+                  "reference_hits": 6114,
+                  "reference_misses": 5,
+                  "numeric_noops": 0,
+                  "part_entries_peak": 181,
+                  "part_operations_peak": 1842,
+                  "prefix_entries_peak": 2048,
+                  "prefix_key_chars_peak": 55757,
+                  "reference_entries_peak": 5,
+                  "reference_key_chars_peak": 85,
+                  "token_entries_peak": 163,
+                  "token_key_chars_peak": 11597,
+                  "saturated": true
+                },
+                "branch_scoring": {
+                  "supported": true,
+                  "evaluations": 17,
+                  "cache_hits": 3,
+                  "declined": 0,
+                  "entries_peak": 14,
+                  "key_chars_peak": 1766,
+                  "saturated": false
+                },
+                "elapsed_ms": 5000.5
+              }
+            ],
+            "global_optimality": false
+          },
+          "results": [
+            {
+              "label": "Max",
+              "status": "best_found",
+              "cost": 800,
+              "loss": 37.7648976499533
+            },
+            {
+              "label": "Balanced",
+              "status": "best_found",
+              "cost": 400,
+              "loss": 45.6537321695852
+            },
+            {
+              "label": "Min",
+              "status": "best_found",
+              "cost": 120,
+              "loss": 67.44473215473039
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "catalog": {
+    "passed": true,
+    "cases": 138,
+    "weapons": 69,
+    "presets": [
+      "recoil",
+      "agility"
+    ],
+    "scope": "Actual full Detonation cap for every weapon, one-second total search; actual source stat/cost replay, bounded retained pools; three concurrent independent batches",
+    "max_elapsed_ms": 1005.1061000000009,
+    "source_errors": 0,
+    "rows": [
+      {
+        "id": "18010000001",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1004.6768,
+        "ordinary": 240,
+        "complete": 401,
+        "best_loss": 38.138902434135304,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000001",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1002.3105999999999,
+        "ordinary": 204,
+        "complete": 396,
+        "best_loss": 22.985555414115936,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000006",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1002.0962999999999,
+        "ordinary": 241,
+        "complete": 393,
+        "best_loss": 36.749148938002904,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000006",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1002.6834,
+        "ordinary": 207,
+        "complete": 288,
+        "best_loss": 29.001826640142387,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000008",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1001.9473,
+        "ordinary": 220,
+        "complete": 386,
+        "best_loss": 55.82339308588493,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000008",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1002.6585,
+        "ordinary": 221,
+        "complete": 330,
+        "best_loss": 31.042600098113343,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000010",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1002.5069000000003,
+        "ordinary": 207,
+        "complete": 107,
+        "best_loss": 49.66173642457083,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000010",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1002.7451000000001,
+        "ordinary": 199,
+        "complete": 226,
+        "best_loss": 43.58548283597179,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000012",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1003.8792000000003,
+        "ordinary": 204,
+        "complete": 220,
+        "best_loss": 48.81895637107134,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000012",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1003.0790999999999,
+        "ordinary": 203,
+        "complete": 395,
+        "best_loss": 30.58697769367238,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000013",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1001.9546999999998,
+        "ordinary": 227,
+        "complete": 387,
+        "best_loss": 46.43819584512195,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000013",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1001.5666000000006,
+        "ordinary": 197,
+        "complete": 320,
+        "best_loss": 34.044800286201855,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000014",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1001.7934999999998,
+        "ordinary": 230,
+        "complete": 145,
+        "best_loss": 41.25504920170272,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000014",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1002.2419,
+        "ordinary": 221,
+        "complete": 206,
+        "best_loss": 40.65751462246323,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000015",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1001.5260000000007,
+        "ordinary": 202,
+        "complete": 273,
+        "best_loss": 53.14230818448934,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000015",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1001.4459999999999,
+        "ordinary": 206,
+        "complete": 131,
+        "best_loss": 37.99023630101052,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000016",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1001.9119000000001,
+        "ordinary": 244,
+        "complete": 392,
+        "best_loss": 44.665329364706636,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000016",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1001.6418000000003,
+        "ordinary": 217,
+        "complete": 395,
+        "best_loss": 31.819915569690554,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000017",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1003.4670999999998,
+        "ordinary": 231,
+        "complete": 233,
+        "best_loss": 55.09375793797213,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000017",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1001.8597,
+        "ordinary": 223,
+        "complete": 156,
+        "best_loss": 38.760060222300396,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000018",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1002.5411000000004,
+        "ordinary": 227,
+        "complete": 257,
+        "best_loss": 45.55525440053805,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000018",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1002.9537,
+        "ordinary": 220,
+        "complete": 182,
+        "best_loss": 29.442900587483273,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000021",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1003.2784999999994,
+        "ordinary": 233,
+        "complete": 323,
+        "best_loss": 48.33269330064639,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000021",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1003.2519000000002,
+        "ordinary": 223,
+        "complete": 307,
+        "best_loss": 32.014602751758446,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000023",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1003.600199999999,
+        "ordinary": 206,
+        "complete": 269,
+        "best_loss": 51.9134279915145,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000023",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1001.7530999999999,
+        "ordinary": 204,
+        "complete": 144,
+        "best_loss": 37.164801476864056,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000024",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1003.1754999999994,
+        "ordinary": 235,
+        "complete": 274,
+        "best_loss": 51.855619133618745,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000024",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1001.7483000000011,
+        "ordinary": 200,
+        "complete": 158,
+        "best_loss": 32.162969637798966,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000031",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1002.9147999999986,
+        "ordinary": 232,
+        "complete": 174,
+        "best_loss": 41.145952444918564,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000031",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1002.4217000000008,
+        "ordinary": 198,
+        "complete": 178,
+        "best_loss": 40.745954602931135,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000037",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1002.0637999999999,
+        "ordinary": 232,
+        "complete": 336,
+        "best_loss": 53.48500979414712,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000037",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1002.2863000000016,
+        "ordinary": 216,
+        "complete": 358,
+        "best_loss": 43.1238557566859,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000038",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1002.2790999999997,
+        "ordinary": 230,
+        "complete": 403,
+        "best_loss": 43.39693536043206,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000038",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1001.8027000000002,
+        "ordinary": 193,
+        "complete": 347,
+        "best_loss": 19.67589732205157,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000040",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1002.1456000000017,
+        "ordinary": 235,
+        "complete": 388,
+        "best_loss": 49.88277737582061,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000040",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1002.4585000000006,
+        "ordinary": 200,
+        "complete": 402,
+        "best_loss": 32.09259153752482,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000042",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1001.7932999999994,
+        "ordinary": 237,
+        "complete": 377,
+        "best_loss": 48.399423899022324,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000042",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1001.6278000000002,
+        "ordinary": 208,
+        "complete": 401,
+        "best_loss": 36.062385467892035,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000043",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1005.1061000000009,
+        "ordinary": 226,
+        "complete": 389,
+        "best_loss": 40.040917610850464,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000043",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1001.7522999999983,
+        "ordinary": 200,
+        "complete": 386,
+        "best_loss": 27.21400769448935,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000044",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1001.7146999999986,
+        "ordinary": 236,
+        "complete": 388,
+        "best_loss": 49.666814113431556,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000044",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1001.8343999999997,
+        "ordinary": 220,
+        "complete": 399,
+        "best_loss": 35.047092657715396,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000045",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1002.4431000000004,
+        "ordinary": 237,
+        "complete": 389,
+        "best_loss": 49.371860241690555,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000045",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1001.5993999999992,
+        "ordinary": 202,
+        "complete": 391,
+        "best_loss": 34.33961692931084,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000049",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1001.6203000000005,
+        "ordinary": 234,
+        "complete": 389,
+        "best_loss": 49.435526053236735,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000049",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1002.2706999999991,
+        "ordinary": 198,
+        "complete": 279,
+        "best_loss": 36.11489569952876,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000051",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1002.1438999999991,
+        "ordinary": 226,
+        "complete": 391,
+        "best_loss": 48.10019405847885,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000051",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1002.7246000000014,
+        "ordinary": 200,
+        "complete": 387,
+        "best_loss": 36.44075143533876,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000052",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1002.5264999999999,
+        "ordinary": 225,
+        "complete": 166,
+        "best_loss": 46.80138656076995,
+        "source_errors": 0
+      },
+      {
+        "id": "18010000052",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1001.6206999999995,
+        "ordinary": 205,
+        "complete": 149,
+        "best_loss": 37.2015261616063,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000001",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1002.9135000000024,
+        "ordinary": 220,
+        "complete": 391,
+        "best_loss": 55.546439702989765,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000001",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1002.6612999999998,
+        "ordinary": 211,
+        "complete": 389,
+        "best_loss": 50.34104821072096,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000002",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1003.0322999999989,
+        "ordinary": 208,
+        "complete": 377,
+        "best_loss": 51.649524143682505,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000002",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1002.797599999998,
+        "ordinary": 202,
+        "complete": 291,
+        "best_loss": 30.681066748969897,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000003",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1004.0900000000001,
+        "ordinary": 241,
+        "complete": 370,
+        "best_loss": 52.93914657471164,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000003",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1002.7857999999978,
+        "ordinary": 222,
+        "complete": 347,
+        "best_loss": 40.096791155002464,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000004",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1001.9688999999998,
+        "ordinary": 234,
+        "complete": 340,
+        "best_loss": 53.14430672751142,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000004",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1001.5550999999978,
+        "ordinary": 200,
+        "complete": 140,
+        "best_loss": 46.984719708532566,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000005",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1003.7462000000014,
+        "ordinary": 229,
+        "complete": 184,
+        "best_loss": 53.48394350647746,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000005",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1001.3971999999994,
+        "ordinary": 202,
+        "complete": 139,
+        "best_loss": 46.60357453127834,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000006",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1002.5480000000025,
+        "ordinary": 233,
+        "complete": 229,
+        "best_loss": 53.616396181012696,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000006",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1001.074700000001,
+        "ordinary": 199,
+        "complete": 140,
+        "best_loss": 40.34538368273539,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000008",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1002.4120999999977,
+        "ordinary": 229,
+        "complete": 391,
+        "best_loss": 54.0350836451225,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000008",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1003.618599999998,
+        "ordinary": 209,
+        "complete": 404,
+        "best_loss": 48.660592416256,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000009",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1002.622800000001,
+        "ordinary": 206,
+        "complete": 180,
+        "best_loss": 52.81661450693494,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000009",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1002.3845000000001,
+        "ordinary": 203,
+        "complete": 129,
+        "best_loss": 45.47275607524687,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000010",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1002.8647999999994,
+        "ordinary": 236,
+        "complete": 391,
+        "best_loss": 48.88477244238101,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000010",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1002.4553999999989,
+        "ordinary": 216,
+        "complete": 301,
+        "best_loss": 36.93353172376471,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000011",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1002.4933999999994,
+        "ordinary": 211,
+        "complete": 183,
+        "best_loss": 49.577438770860354,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000011",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1002.9349999999977,
+        "ordinary": 215,
+        "complete": 138,
+        "best_loss": 20.99748650765524,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000012",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1003.4765000000007,
+        "ordinary": 234,
+        "complete": 346,
+        "best_loss": 47.2920358057849,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000012",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1003.6238999999987,
+        "ordinary": 209,
+        "complete": 394,
+        "best_loss": 43.449049988964596,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000046",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1002.1568000000007,
+        "ordinary": 204,
+        "complete": 371,
+        "best_loss": 58.47134845053945,
+        "source_errors": 0
+      },
+      {
+        "id": "18020000046",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1001.7784000000029,
+        "ordinary": 200,
+        "complete": 306,
+        "best_loss": 32.07857466116592,
+        "source_errors": 0
+      },
+      {
+        "id": "18030000001",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1002.5600000000013,
+        "ordinary": 216,
+        "complete": 397,
+        "best_loss": 56.9548769024344,
+        "source_errors": 0
+      },
+      {
+        "id": "18030000001",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1002.3827999999994,
+        "ordinary": 206,
+        "complete": 354,
+        "best_loss": 42.169270732081145,
+        "source_errors": 0
+      },
+      {
+        "id": "18030000002",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1002.1079000000027,
+        "ordinary": 236,
+        "complete": 294,
+        "best_loss": 49.80940850935909,
+        "source_errors": 0
+      },
+      {
+        "id": "18030000002",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1001.3159999999989,
+        "ordinary": 233,
+        "complete": 240,
+        "best_loss": 43.34909431388784,
+        "source_errors": 0
+      },
+      {
+        "id": "18030000004",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1003.0198999999993,
+        "ordinary": 227,
+        "complete": 249,
+        "best_loss": 57.16906267378072,
+        "source_errors": 0
+      },
+      {
+        "id": "18030000004",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1001.8676000000014,
+        "ordinary": 212,
+        "complete": 391,
+        "best_loss": 52.329134153728,
+        "source_errors": 0
+      },
+      {
+        "id": "18030000005",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1002.8620999999985,
+        "ordinary": 203,
+        "complete": 388,
+        "best_loss": 55.782130420108984,
+        "source_errors": 0
+      },
+      {
+        "id": "18030000005",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1001.6478999999999,
+        "ordinary": 201,
+        "complete": 385,
+        "best_loss": 32.131034260116095,
+        "source_errors": 0
+      },
+      {
+        "id": "18030000006",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1002.9710000000014,
+        "ordinary": 240,
+        "complete": 405,
+        "best_loss": 54.5773845840536,
+        "source_errors": 0
+      },
+      {
+        "id": "18030000006",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1001.8040999999976,
+        "ordinary": 224,
+        "complete": 390,
+        "best_loss": 51.75417266512397,
+        "source_errors": 0
+      },
+      {
+        "id": "18040000001",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1002.2387999999992,
+        "ordinary": 200,
+        "complete": 389,
+        "best_loss": 46.35243133683954,
+        "source_errors": 0
+      },
+      {
+        "id": "18040000001",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1001.3359999999993,
+        "ordinary": 224,
+        "complete": 420,
+        "best_loss": 38.041763275349524,
+        "source_errors": 0
+      },
+      {
+        "id": "18040000002",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1003.9537999999993,
+        "ordinary": 221,
+        "complete": 167,
+        "best_loss": 43.8226403817148,
+        "source_errors": 0
+      },
+      {
+        "id": "18040000002",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1001.4127000000008,
+        "ordinary": 215,
+        "complete": 156,
+        "best_loss": 17.151156382086718,
+        "source_errors": 0
+      },
+      {
+        "id": "18040000003",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1001.6274999999987,
+        "ordinary": 227,
+        "complete": 395,
+        "best_loss": 46.45334802675213,
+        "source_errors": 0
+      },
+      {
+        "id": "18040000003",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1001.6483000000007,
+        "ordinary": 212,
+        "complete": 390,
+        "best_loss": 33.997309204337476,
+        "source_errors": 0
+      },
+      {
+        "id": "18040000004",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1002.7163,
+        "ordinary": 228,
+        "complete": 334,
+        "best_loss": 38.53168565790932,
+        "source_errors": 0
+      },
+      {
+        "id": "18040000004",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1003.0722000000023,
+        "ordinary": 206,
+        "complete": 284,
+        "best_loss": 19.020106090190453,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000002",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1002.9828000000016,
+        "ordinary": 205,
+        "complete": 184,
+        "best_loss": 56.03716431081166,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000002",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1003.1382000000012,
+        "ordinary": 197,
+        "complete": 340,
+        "best_loss": 66.46356216722945,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000003",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1003.0778000000028,
+        "ordinary": 200,
+        "complete": 386,
+        "best_loss": 66.83899252569095,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000003",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1001.3254999999954,
+        "ordinary": 200,
+        "complete": 165,
+        "best_loss": 44.0260515738927,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000004",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1002.1558999999979,
+        "ordinary": 203,
+        "complete": 184,
+        "best_loss": 51.52329134955475,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000004",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1002.4329999999973,
+        "ordinary": 207,
+        "complete": 392,
+        "best_loss": 46.28071839544214,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000005",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1001.6726999999955,
+        "ordinary": 211,
+        "complete": 346,
+        "best_loss": 48.72228343415682,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000005",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1001.7148000000016,
+        "ordinary": 208,
+        "complete": 389,
+        "best_loss": 44.91178379392193,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000006",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1002.6034,
+        "ordinary": 196,
+        "complete": 80,
+        "best_loss": 53.86604541642923,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000006",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1002.1651000000056,
+        "ordinary": 199,
+        "complete": 150,
+        "best_loss": 48.04851204827918,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000007",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1004.0453000000052,
+        "ordinary": 230,
+        "complete": 318,
+        "best_loss": 49.81912999668588,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000007",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1003.8625000000029,
+        "ordinary": 208,
+        "complete": 393,
+        "best_loss": 39.26971901280046,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000008",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1001.7277000000031,
+        "ordinary": 203,
+        "complete": 292,
+        "best_loss": 54.38186156001899,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000008",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1001.6635999999999,
+        "ordinary": 199,
+        "complete": 390,
+        "best_loss": 46.09193316846184,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000031",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1003.3925000000017,
+        "ordinary": 218,
+        "complete": 391,
+        "best_loss": 48.08034451806542,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000031",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1002.3509999999951,
+        "ordinary": 216,
+        "complete": 160,
+        "best_loss": 36.12439334427731,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000032",
+        "preset": "agility",
+        "budget": 600,
+        "elapsed_ms": 1001.3164999999935,
+        "ordinary": 207,
+        "complete": 143,
+        "best_loss": 53.384393827679375,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000032",
+        "preset": "recoil",
+        "budget": 600,
+        "elapsed_ms": 1002.9212999999945,
+        "ordinary": 201,
+        "complete": 315,
+        "best_loss": 50.660288833804856,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000033",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1003.5785000000033,
+        "ordinary": 226,
+        "complete": 387,
+        "best_loss": 48.2737170781256,
+        "source_errors": 0
+      },
+      {
+        "id": "18050000033",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1002.8409000000029,
+        "ordinary": 228,
+        "complete": 405,
+        "best_loss": 37.47199220513813,
+        "source_errors": 0
+      },
+      {
+        "id": "18060000007",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1002.3855999999942,
+        "ordinary": 213,
+        "complete": 386,
+        "best_loss": 65.07505108839618,
+        "source_errors": 0
+      },
+      {
+        "id": "18060000007",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1002.1140999999989,
+        "ordinary": 203,
+        "complete": 391,
+        "best_loss": 55.02931445515733,
+        "source_errors": 0
+      },
+      {
+        "id": "18060000008",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1001.4256999999998,
+        "ordinary": 202,
+        "complete": 387,
+        "best_loss": 64.0174645407203,
+        "source_errors": 0
+      },
+      {
+        "id": "18060000008",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1002.4544999999998,
+        "ordinary": 200,
+        "complete": 389,
+        "best_loss": 51.961720910636814,
+        "source_errors": 0
+      },
+      {
+        "id": "18060000009",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1002.7826999999961,
+        "ordinary": 200,
+        "complete": 389,
+        "best_loss": 65.07716126164182,
+        "source_errors": 0
+      },
+      {
+        "id": "18060000009",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1002.931700000001,
+        "ordinary": 198,
+        "complete": 388,
+        "best_loss": 56.35999005713541,
+        "source_errors": 0
+      },
+      {
+        "id": "18060000011",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1001.5923000000039,
+        "ordinary": 197,
+        "complete": 373,
+        "best_loss": 68.36589194125828,
+        "source_errors": 0
+      },
+      {
+        "id": "18060000011",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1003.6074000000008,
+        "ordinary": 196,
+        "complete": 383,
+        "best_loss": 60.30271167783621,
+        "source_errors": 0
+      },
+      {
+        "id": "18060000033",
+        "preset": "agility",
+        "budget": 2000,
+        "elapsed_ms": 1004.9272999999957,
+        "ordinary": 210,
+        "complete": 342,
+        "best_loss": 50.94876103883216,
+        "source_errors": 0
+      },
+      {
+        "id": "18060000033",
+        "preset": "recoil",
+        "budget": 2000,
+        "elapsed_ms": 1003.8949999999968,
+        "ordinary": 198,
+        "complete": 398,
+        "best_loss": 48.24237061389519,
+        "source_errors": 0
+      },
+      {
+        "id": "18070000002",
+        "preset": "agility",
+        "budget": 200,
+        "elapsed_ms": 1001.1998999999996,
+        "ordinary": 119,
+        "complete": 176,
+        "best_loss": 74.43421365025159,
+        "source_errors": 0
+      },
+      {
+        "id": "18070000002",
+        "preset": "recoil",
+        "budget": 200,
+        "elapsed_ms": 1002.6327000000019,
+        "ordinary": 119,
+        "complete": 176,
+        "best_loss": 86.43197663490099,
+        "source_errors": 0
+      },
+      {
+        "id": "18070000003",
+        "preset": "agility",
+        "budget": 200,
+        "elapsed_ms": 1002.159599999999,
+        "ordinary": 204,
+        "complete": 260,
+        "best_loss": 58.107461332564355,
+        "source_errors": 0
+      },
+      {
+        "id": "18070000003",
+        "preset": "recoil",
+        "budget": 200,
+        "elapsed_ms": 1001.5674999999974,
+        "ordinary": 199,
+        "complete": 129,
+        "best_loss": 57.38635767421134,
+        "source_errors": 0
+      },
+      {
+        "id": "18070000004",
+        "preset": "agility",
+        "budget": 200,
+        "elapsed_ms": 1001.0672999999952,
+        "ordinary": 208,
+        "complete": 261,
+        "best_loss": 65.3319721171333,
+        "source_errors": 0
+      },
+      {
+        "id": "18070000004",
+        "preset": "recoil",
+        "budget": 200,
+        "elapsed_ms": 1002.1261999999988,
+        "ordinary": 204,
+        "complete": 262,
+        "best_loss": 66.8800874183691,
+        "source_errors": 0
+      },
+      {
+        "id": "18070000005",
+        "preset": "agility",
+        "budget": 200,
+        "elapsed_ms": 1001.0850999999966,
+        "ordinary": 198,
+        "complete": 258,
+        "best_loss": 70.74140478097416,
+        "source_errors": 0
+      },
+      {
+        "id": "18070000005",
+        "preset": "recoil",
+        "budget": 200,
+        "elapsed_ms": 1003.8018000000011,
+        "ordinary": 196,
+        "complete": 237,
+        "best_loss": 69.10201827626494,
+        "source_errors": 0
+      },
+      {
+        "id": "18070000006",
+        "preset": "agility",
+        "budget": 200,
+        "elapsed_ms": 1002.4517999999953,
+        "ordinary": 214,
+        "complete": 290,
+        "best_loss": 66.19878272138277,
+        "source_errors": 0
+      },
+      {
+        "id": "18070000006",
+        "preset": "recoil",
+        "budget": 200,
+        "elapsed_ms": 1002.6340999999957,
+        "ordinary": 214,
+        "complete": 283,
+        "best_loss": 64.4392615809183,
+        "source_errors": 0
+      },
+      {
+        "id": "18070000010",
+        "preset": "agility",
+        "budget": 200,
+        "elapsed_ms": 1000.9806000000026,
+        "ordinary": 207,
+        "complete": 263,
+        "best_loss": 66.17993700937478,
+        "source_errors": 0
+      },
+      {
+        "id": "18070000010",
+        "preset": "recoil",
+        "budget": 200,
+        "elapsed_ms": 1002.3747999999978,
+        "ordinary": 204,
+        "complete": 243,
+        "best_loss": 69.10201827626494,
+        "source_errors": 0
+      },
+      {
+        "id": "18070000033",
+        "preset": "agility",
+        "budget": 200,
+        "elapsed_ms": 1001.9532999999938,
+        "ordinary": 205,
+        "complete": 267,
+        "best_loss": 71.14252811989998,
+        "source_errors": 0
+      },
+      {
+        "id": "18070000033",
+        "preset": "recoil",
+        "budget": 200,
+        "elapsed_ms": 1002.275999999998,
+        "ordinary": 211,
+        "complete": 273,
+        "best_loss": 82.71151958901586,
+        "source_errors": 0
+      },
+      {
+        "id": "18150000001",
+        "preset": "agility",
+        "budget": 800,
+        "elapsed_ms": 1001.8781000000017,
+        "ordinary": 195,
+        "complete": 207,
+        "best_loss": 52.2740714250948,
+        "source_errors": 0
+      },
+      {
+        "id": "18150000001",
+        "preset": "recoil",
+        "budget": 800,
+        "elapsed_ms": 1000.9591,
+        "ordinary": 193,
+        "complete": 198,
+        "best_loss": 73.6,
+        "source_errors": 0
+      }
+    ]
+  },
+  "checks_passed": [
+    "node tests/anytime_optimizer.mjs",
+    "python -m unittest discover -s tests -p test_exhaustive_stream.py (2 tests)",
+    "python -m unittest discover -s tests -p test_builder_server.py (4 tests)",
+    "python -m unittest discover -s tests -p test_recoil_generator.py (8 tests)",
+    "node tests/scip_browser.cjs",
+    "LOCAL_SITE_URL=http://127.0.0.1:8766/ node tests/exhaustive_local_browser.cjs",
+    "node .scratch/anytime-top-k/catalog.mjs 0/1/2 (138 cases total)",
+    "git diff --check"
+  ],
+  "limits": [
+    "Shortlists are heuristic score/diversity sets, not proven global top-K. Legal combinations may remain unexplored.",
+    "Source-scored coordinate calibration has no global joint-calibration guarantee; no SCIP solving is used on the production path.",
+    "A valid calibrated hint/incumbent may remain retained independently of ordinary default-score ranking.",
+    "Shortlist bounds and time checks prevent domain-size growth; startup, one in-flight source operation and response rendering add small wall-time overhead.",
+    "No strict monotonic quality guarantee across separate short/long runs; they can explore different candidates.",
+    "Source-model validation does not establish actual Global-client/game fidelity."
+  ],
+  "raw_evidence": {
+    ".scratch/anytime-top-k/tests.json": {
+      "sha256": "a9f7f4c1bd9f9af825cd2d5e748d12c49b19036a1aeb058bdc61f6306e5cb145"
+    },
+    ".scratch/anytime-top-k/browser-local.json": {
+      "sha256": "fd942f17e94ccf2de1931a7f6b862262beac737952f7a04bc2db6f3c11dd8a62"
+    },
+    ".scratch/anytime-top-k/browser-static.json": {
+      "sha256": "8e2ac6091d82924e2e086bb4eca718eee063f67544e46d4b152bb53242eecc5b"
+    },
+    ".scratch/anytime-top-k/catalog-0.json": {
+      "sha256": "17d3ea5ae4332e5dd18ad65a573e62c20241e417efe0852c5f196c6cb3204f0e"
+    },
+    ".scratch/anytime-top-k/catalog-1.json": {
+      "sha256": "6f5de3b854041faf6809ec376e68b5b05020c675a7affb3885423412dfa2cad4"
+    },
+    ".scratch/anytime-top-k/catalog-2.json": {
+      "sha256": "bc4faf77066e087b9ae9d0a34643aa38b98c47d8e3fe03979f6e1020bcbccfc9"
+    }
+  }
+}

@@ -7,7 +7,7 @@ import * as kernel from '../.scratch/calibration-check/kernel.mjs';
 import {t as calculate} from '../.scratch/calibration-check/attributes.mjs';
 import {timedRecoil} from '../tools/timed_recoil.mjs';
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-9,`${a} != ${b}`);
-for(const [speed,m] of [[0,1],[3,1],[3+1e-9,2],[4,2],[4+1e-9,3],[5,3],[5+1e-9,5]])assert.equal(horizontalSpeedMultiplier(speed),m);
+for(const [speed,m] of [[0,1],[3,1],[3+1e-9,4],[4,4],[4+1e-9,6],[5,6],[5+1e-9,10]])assert.equal(horizontalSpeedMultiplier(speed),m);
 for(const s of [-1,NaN,Infinity])assert.throws(()=>horizontalSpeedMultiplier(s));
 const pulse=[{time_ms:0,x:0},{time_ms:200.25,x:0},{time_ms:400.25,x:2},{time_ms:600.5,x:2}];
 const peak=fastestHorizontalSpeed(pulse);

@@ -52,7 +52,7 @@ class GeneratorTests(unittest.TestCase):
             sys.path.insert(0, str(ROOT/'tools'))
             from audit_horizontal_window_speed import window_speed
             speed = window_speed(points, 200)['fastest_speed']
-            multiplier = 5 if speed > 5 else 3 if speed > 4 else 2 if speed > 3 else 1
+            multiplier = 10 if speed > 5 else 6 if speed > 4 else 4 if speed > 3 else 1
             self.assertAlmostEqual(c['horizontal_speed'], speed)
             self.assertEqual(c['horizontal_multiplier'], multiplier)
             distance = max(abs(p['x']) for p in points)
@@ -63,10 +63,10 @@ class GeneratorTests(unittest.TestCase):
             self.assertTrue(all(any(m['slotPath']==f['slotPath'] and m['itemId']==f['itemId'] for m in row['mounted']) for f in fixed))
         process, repeat = self.run_request(fixed=fixed)
         self.assertEqual(process.returncode, 0, process.stderr)
-        # Wall-time-limited SCIP runs may terminate at different incumbents;
+        # Wall-time-limited anytime runs may terminate at different incumbents;
         # elapsed times/bounds are not deterministic output fields.
-        self.assertEqual(result['solver']['name'],'SCIP')
-        self.assertEqual(repeat['solver']['name'],'SCIP')
+        self.assertEqual(result['solver']['name'],'Anytime')
+        self.assertEqual(repeat['solver']['name'],'Anytime')
         self.assertEqual(result['minimum_stats'],repeat['minimum_stats'])
         self.assertEqual([r['label'] for r in result['results']],[r['label'] for r in repeat['results']])
         self.assertEqual(repeat['results'][0]['status'],'best_found')
@@ -103,7 +103,7 @@ class GeneratorTests(unittest.TestCase):
         process, result = self.run_request(minimum_stats=dict(handling=10000), passes=1)
         self.assertEqual(process.returncode, 0, process.stderr)
         self.assertEqual([r['label'] for r in result['results']], ['Max', 'Balanced', 'Min'])
-        self.assertTrue(all(row['status']=='infeasible' for row in result['results']))
+        self.assertTrue(all(row['status']=='not_found' for row in result['results']))
         for options in [dict(minimum_stats=dict(range=10)), dict(minimum_stats=dict(control=-1)), dict(effectiveness_targets=[101]), dict(preset='unknown')]:
             process, _ = self.run_request(**options)
             self.assertNotEqual(process.returncode, 0)

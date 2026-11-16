@@ -7,4 +7,6 @@ const runtime=process.argv[3];
 const curves=await import(pathToFileURL(path.join(runtime,'curves.mjs')));
 const kernel=await import(pathToFileURL(path.join(runtime,'kernel.mjs')));
 const {t:calculate}=await import(pathToFileURL(path.join(runtime,'attributes.mjs')));
-process.stdout.write(JSON.stringify(await executeModel(input,{curves,kernel,calculate})));
+if(input.stream_progress)input.onProgress=progress=>process.stdout.write(JSON.stringify({progress})+'\n');
+const result=await executeModel(input,{curves,kernel,calculate});
+process.stdout.write(JSON.stringify(input.stream_progress?{result}:result)+(input.stream_progress?'\n':''));

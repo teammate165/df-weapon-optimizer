@@ -45,9 +45,8 @@ def build(destination):
             shutil.copyfile(source, target)
     app = destination / 'app.js'
     text = app.read_text('utf-8')
-    start = text.index('async function api(')
-    end = text.index('\n', start)
-    text = text[:start] + "const api=createStaticClient();" + text[end:]
+    text = text.replace("import {createLocalClient} from './local-client.js';\n", '')
+    text = text.replace('const api=createLocalClient();', 'const api=createStaticClient();')
     text = "import {createStaticClient} from './static-client.js';\n" + text
     text = text.replace("const response=await fetch('/api/catalog');if(!response.ok)throw Error('Catalog unavailable');state.catalog=await response.json();", "state.catalog=await api('catalog');")
     app.write_text(text, 'utf-8')
@@ -64,7 +63,7 @@ def build(destination):
     style += '\n.default-slot-icon,.slot-tile.active .default-slot-icon{background-color:transparent;opacity:.8}\n'
     css.write_text(style, 'utf-8')
     (destination / 'assets/slot-icons.js').write_text(icons.replace('"dfttk-slot-icons.webp"', json.dumps(atlas)), 'utf-8')
-    modules = ['builder_model', 'builder_stat_response', 'optimizer_engine', 'optimizer_mounts', 'optimizer_policy', 'optimizer_presets', 'optimizer_selection', 'scip_optimizer', 'scip_linear_model', 'scip_mount_model', 'scip_stat_model', 'scip_objective_model', 'scip_runtime', 'timed_recoil', 'horizontal_speed']
+    modules = ['builder_model', 'builder_stat_response', 'optimizer_engine', 'anytime_optimizer', 'optimizer_mounts', 'optimizer_policy', 'optimizer_presets', 'optimizer_selection', 'scip_optimizer', 'exhaustive_attachment_gate', 'mount_search', 'scoring_bounds', 'branch_score_bounds', 'shared_stats', 'scip_linear_model', 'scip_mount_model', 'scip_stat_model', 'scip_objective_model', 'scip_runtime', 'timed_recoil', 'horizontal_speed']
     (destination / 'model').mkdir(exist_ok=True)
     for name in ('attachment_gate', 'optimizer_exploration'):
         (destination / f'model/{name}.mjs').unlink(missing_ok=True)
@@ -103,9 +102,10 @@ External assets may change or become unavailable. These assets belong to their
 respective owners. This is an independent, unofficial project.
 
 Source model: dfttk snapshot `20261108-an94-bd-shop.1`. Global/Garena validation,
-prices and translations remain provisional. All presets use the full-weapon SCIP MILP in a single-threaded browser worker.
-All attachment slots, source calibration, budgets, floors and locks are modeled.
-Time-limited results remain best found; model gaps are reported. Lowest Recoil uses the experimental 40/30/30 proxy.
+prices and translations remain provisional. Both presets use time-limited top-K search in a browser worker.
+Ordinary builds, patch/laser completions and source-scored calibration share the total search budget.
+Shortlists retain at most 256 ordinary and 512 complete builds. Legal combinations can remain unexplored.
+Results are best found, with no global-optimum claim. Lowest Recoil uses the experimental 40/30/30 proxy.
 Saved builds stay in this browser's cookies; JSON export provides a backup.
 
 Published with GitHub Actions to GitHub Pages. Local preview:

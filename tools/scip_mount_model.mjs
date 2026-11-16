@@ -3,13 +3,14 @@ import {riserIds,isOptic} from './optimizer_mounts.mjs';
 
 // Symbolically unrolls the source resolver's mounted-item fixed point, rather
 // than assuming a static list of independent sockets.
-export function compileMounts({pack,shop,prices,request},kernel){
+export function compileMounts({pack,shop,prices,request,candidateConfigs},kernel){
  const m=new LinearModel(),mode=request.mode;
  if(!['bd','sol','mp'].includes(mode))throw Error('Unknown mode');
  const hidden=new Set(mode==='bd'?shop.hiddenItemIds:[]),costs=mode==='bd'?shop.partCosts:prices;
  const fixed=request.fixed??[],budget=mode==='mp'?null:request.budget??request.budgets?.[0]??shop.weapons[pack.weaponId]?.gunsmithLimit;
  if(mode!=='mp'&&(!Number.isFinite(budget)||budget<0))throw Error('A finite attachment budget is required');
  const groups=new Map(),players=new Map(),paths=new Map(),incoming=new Map(),nodes=[];
+ const permitted=candidateConfigs===undefined?null:new Set(candidateConfigs.flatMap(config=>config.map(c=>c.slotPath+'|'+c.itemId)));
  const rootKey='|'+pack.weaponId,queue=[{path:'',host:pack.weaponId}];
  function rulesFor(host){return [...(pack.assembly.coupling?.[pack.weaponId]?.rules??[]),...(host===pack.weaponId?[]:pack.assembly.coupling?.[host]?.rules??[])];}
  function player(path,item){
@@ -26,7 +27,7 @@ export function compileMounts({pack,shop,prices,request},kernel){
   for(const socket of pack.assembly.socketProviders[context.host]?.sockets??[]){
    if(socket.modes&&!socket.modes.includes(mode))continue;
    const path=context.path?context.path+'/'+socket.socketId:String(socket.socketId);
-   const options=(socket.optionItemIds??[]).map(String).filter(id=>pack.display.objects[id]?.playerSelectable===true&&!pack.display.objects[id]?.selectionDisabledReason);
+   const options=(socket.optionItemIds??[]).map(String).filter(id=>pack.display.objects[id]?.playerSelectable===true&&!pack.display.objects[id]?.selectionDisabledReason&&(!permitted||permitted.has(path+'|'+id)));
    const rules=group.rules.filter(r=>String(r.targetSocketId)===String(socket.socketId));
    const items=[...new Set([...options,...rules.map(r=>String(r.mountedItemId))])];
    const slot={path,socket,options,rules,nodes:[]};group.slots.push(slot);
@@ -88,6 +89,22 @@ export function compileMounts({pack,shop,prices,request},kernel){
  if(request.validationConfig){
   const selected=new Set(request.validationConfig.map(c=>c.slotPath+'|'+c.itemId));
   for(const [key,p] of players)m.constrain(p.value,'==',selected.has(key)?1:0,'validation_selection');
+ }
+ if(candidateConfigs!==undefined){
+  // Fix one complete survivor. Restricting each socket to the union alone would
+  // incorrectly allow combinations that neither exhaustive screen retained.
+  // One-hot rows need O(rows * equipped-parts) nonzeros, rather than one full
+  // all-socket Boolean guard per row. This keeps the calibration table sparse.
+  const choices=new Map([...players.keys()].map(key=>[key,[]]));
+  const flags=candidateConfigs.map(config=>{
+   const chosen=new Set(config.map(c=>c.slotPath+'|'+c.itemId));
+   if([...chosen].some(key=>!players.has(key)))throw Error('A screened configuration contains an unavailable purchase.');
+   const flag=m.variable('survivor');
+   for(const key of chosen)choices.get(key).push(flag);
+   return flag;
+  });
+  m.constrain(m.add(...flags),'==',1,'screened_combination');
+  for(const [key,p] of players)m.constrain(m.add(p.value,m.scale(m.add(...choices.get(key)),-1)),'==',0,'screened_purchase');
  }
  return {model:m,nodes,players,groups:ordered,cost,budget,iterations,decode:solution=>[...players.values()].filter(p=>p.value!==0&&(solution[p.value]??0)>.5).map(p=>({slotPath:p.path,itemId:p.item}))};
 }

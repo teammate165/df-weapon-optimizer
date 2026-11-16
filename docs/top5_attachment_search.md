@@ -1,4 +1,6 @@
-# Shared top-5% attachment search
+# Historical per-pass top-5% attachment search
+
+Superseded in the current implementation by [exhaustive staged screening](exhaustive_staged_screening.md), followed by SCIP calibration. The neighborhood search described below is historical.
 
 The top-5% search is now the retained baseline. A subsequent shared
 [multi-start refinement](multistart_optimizer.md) checks all-slot replacements

@@ -24,7 +24,7 @@ self.onmessage=({data})=>{queue=queue.then(async()=>{
     if(!packs.has(request.weapon_id))packs.set(request.weapon_id,await loadJSON(`./data/weapons/${request.weapon_id}.json`));
     if(action==='optimize'&&request.mode==='bd')request.budgets=[catalog.shop.weapons[request.weapon_id].gunsmithLimit];
     if(action==='optimize'&&!starts.has(request.weapon_id)){try{starts.set(request.weapon_id,await loadJSON(`./data/solver-starts/${request.weapon_id}.json`));}catch{starts.set(request.weapon_id,{starts:[]});}}
-    const result=await executeModel({action,request,pack:packs.get(request.weapon_id),solver_starts:starts.get(request.weapon_id),shop:catalog.shop,prices:catalog.prices,provenance:catalog.provenance},modules);
+    const result=await executeModel({action,request,pack:packs.get(request.weapon_id),solver_starts:starts.get(request.weapon_id),shop:catalog.shop,prices:catalog.prices,provenance:catalog.provenance,onProgress:progress=>self.postMessage({id,progress})},modules);
     self.postMessage({id,result});
   }catch(error){self.postMessage({id,error:error.message});}
 });};

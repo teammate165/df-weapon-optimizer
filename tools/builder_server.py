@@ -4,6 +4,8 @@ import json
 import sqlite3
 import subprocess
 import tempfile
+import threading
+from queue import Queue, Empty
 from functools import lru_cache
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -35,7 +37,7 @@ def catalog():
     return dict(weapons=weapons, names=names, slots=slots, shop=shop, prices=prices, provenance=dict(data_version=MANIFEST['dataVersion'], runtime_version=MANIFEST['version'], price_sources=sources, model_policies={'laser_bonus_stacking': 'strongest_per_stat_v1'}, global_verified=False))
 
 
-def execute(action, request):
+def execute(action, request, on_progress=None):
     if action not in ('evaluate', 'optimize'):
         raise ValueError('Unknown action')
     if request.get('weapon_id') not in MANIFEST['weaponPacks']:
@@ -48,15 +50,64 @@ def execute(action, request):
     if action == 'optimize' and request['mode'] == 'bd':
         request['budgets'] = [data['shop']['weapons'][request['weapon_id']]['gunsmithLimit']]
     payload = dict(action=action, request=request, pack=pack(request['weapon_id']), **{k: data[k] for k in ('shop', 'prices', 'provenance')})
+    if on_progress is not None:
+        payload['stream_progress'] = True
     with tempfile.TemporaryDirectory(prefix='df-builder-') as directory:
         source = Path(directory) / 'input.json'
         source.write_text(json.dumps(payload), 'utf-8')
-        timeout = max(180, min(660, float(request.get('time_limit_seconds', 30)) + 60)) if action == 'optimize' else 180
+        if on_progress is not None:
+            return execute_stream(source, on_progress)
+        # Exhaustive screening has no deadline; the solve budget starts at calibration.
+        timeout = None if action == 'optimize' else 180
         result = subprocess.run(['node', str(ROOT / 'tools/builder_bridge.mjs'), str(source), str(REFERENCE)], capture_output=True, text=True, encoding='utf-8', timeout=timeout)
     if result.returncode:
         error = next((line.strip() for line in result.stderr.splitlines() if line.startswith('Error:')), 'The model could not resolve this build.')
         raise ValueError(error.removeprefix('Error: '))
     return json.loads(result.stdout)
+
+
+def execute_stream(source, on_progress):
+    """Heartbeat writes detect disconnected browsers even during a SCIP solve."""
+    with tempfile.TemporaryFile(mode='w+', encoding='utf-8') as errors:
+        process = subprocess.Popen(['node', str(ROOT / 'tools/builder_bridge.mjs'), str(source), str(REFERENCE)], stdout=subprocess.PIPE, stderr=errors, text=True, encoding='utf-8')
+        lines = Queue()
+
+        def read_lines():
+            try:
+                for line in process.stdout:
+                    lines.put(line)
+            finally:
+                lines.put(None)
+
+        reader = threading.Thread(target=read_lines, daemon=True)
+        reader.start()
+        result = None
+        try:
+            while True:
+                try:
+                    line = lines.get(timeout=1)
+                except Empty:
+                    on_progress(None)
+                    continue
+                if line is None:
+                    break
+                event = json.loads(line)
+                if 'progress' in event:
+                    on_progress(event['progress'])
+                if 'result' in event:
+                    result = event['result']
+            process.wait()
+            if process.returncode or result is None:
+                errors.seek(0)
+                error = next((line.strip() for line in errors if line.startswith('Error:')), 'Search ended without a complete result.')
+                raise ValueError(error.removeprefix('Error: '))
+            return result
+        finally:
+            if process.poll() is None:
+                process.kill()
+            process.wait()
+            reader.join(timeout=2)
+            process.stdout.close()
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -98,6 +149,26 @@ class Handler(SimpleHTTPRequestHandler):
             if not 0 < length <= 100_000:
                 raise ValueError('Invalid request size')
             request = json.loads(self.rfile.read(length))
+            if action == 'optimize' and self.headers.get('X-Progress-Stream') == '1':
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/x-ndjson; charset=utf-8')
+                self.end_headers()
+
+                def send(event):
+                    self.wfile.write((json.dumps(event, ensure_ascii=False) + '\n').encode('utf-8'))
+                    self.wfile.flush()
+
+                try:
+                    result = execute(action, request, lambda progress: send({'progress': progress} if progress else {'heartbeat': True}))
+                    send({'result': result})
+                except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
+                    return  # execute_stream has already stopped the subprocess.
+                except (ValueError, TypeError, KeyError) as error:
+                    try:
+                        send({'error': str(error)})
+                    except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
+                        pass
+                return
             self.reply(200, execute(action, request))
         except (ValueError, TypeError, KeyError, subprocess.TimeoutExpired) as error:
             self.reply(400, dict(error=str(error)))

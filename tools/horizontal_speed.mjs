@@ -22,5 +22,5 @@ export function fastestHorizontalSpeed(points,windowMs=200) {
 }
 export function horizontalSpeedMultiplier(speed) {
   if(!Number.isFinite(speed)||speed<0)throw Error('Invalid horizontal speed');
-  return speed>5?5:speed>4?3:speed>3?2:1;
+  return speed>5?10:speed>4?6:speed>3?4:1;
 }
