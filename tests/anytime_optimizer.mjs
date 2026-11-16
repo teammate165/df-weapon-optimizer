@@ -41,7 +41,7 @@ try{
     for(const [key,min] of Object.entries(request.minimum_stats??{}))assert(row.stats[key]>=min-1e-8);
    }
   }
-  if(id==='18010000001'&&request.time_limit_seconds===5){const d=result.attachment_gate.budgets[0];assert(d.tactical_evaluated>0);assert(d.calibration_evaluations>0);assert(result.results.some(row=>row.status==='best_found'&&Object.keys(row.tunes).length));assert.equal(d.budget,800);}
+  if(id==='18010000001'&&request.time_limit_seconds===5){const d=result.attachment_gate.budgets[0];assert(d.tactical_evaluated>0);assert(d.calibration_evaluations>0);assert(d.choice_groups.enabled);assert(d.choice_groups.options_after<d.choice_groups.options_before);assert(d.choice_groups.grouped_tactical_configs>0);assert(result.results.some(row=>row.status==='best_found'&&Object.keys(row.tunes).length));assert.equal(d.budget,800);}
   reports.push({id,request,elapsed_ms:ms,gate:result.attachment_gate,solver:result.solver,results:result.results.map(row=>({label:row.label,status:row.status,cost:row.cost,loss:row.loss}))});
   console.log(id+' '+request.mode+' '+request.preset+': bounded pools, total deadline, source replay and '+(request.minimum_stats?.control===1000?'honest not-found':'valid results')+' pass ('+ms.toFixed(0)+' ms)');
  }

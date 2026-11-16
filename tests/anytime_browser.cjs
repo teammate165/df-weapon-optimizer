@@ -32,7 +32,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs');
   for(const run of checked.runs){
    assert(run.elapsed_ms<12000);assert.equal(run.result.solver.name,'Anytime');assert.equal(run.result.solver.time_limit_scope,'total_search');assert(!run.result.attachment_gate.complete);
    assert.deepEqual(run.phases,['search_attachments','search_tactical','calibration']);
-   const d=run.result.attachment_gate.budgets[0];assert.equal(d.budget,800);assert(d.ordinary_storage_peak<=256);assert(d.complete_storage_peak<=512);assert(d.tactical_evaluated>0);assert(d.calibration_evaluations>0);
+   const d=run.result.attachment_gate.budgets[0];assert.equal(d.budget,800);assert(d.ordinary_storage_peak<=256);assert(d.complete_storage_peak<=512);assert(d.tactical_evaluated>0);assert(d.calibration_evaluations>0);assert(d.choice_groups.enabled);assert(d.choice_groups.options_after<d.choice_groups.options_before);assert(d.choice_groups.grouped_tactical_configs>0);
    const rows=run.result.results.filter(r=>r.status==='best_found');assert(rows.length);rows.forEach((row,i)=>{assert.equal(row.cost,run.replays[i].cost);assert.deepEqual(row.stats,run.replays[i].stats);assert(row.cost<=800);assert(!row.converged);});
   }
   await page.click('[data-apply]');await page.waitForFunction(()=>document.body.getAttribute('aria-busy')==='false');

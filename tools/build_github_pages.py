@@ -63,7 +63,7 @@ def build(destination):
     style += '\n.default-slot-icon,.slot-tile.active .default-slot-icon{background-color:transparent;opacity:.8}\n'
     css.write_text(style, 'utf-8')
     (destination / 'assets/slot-icons.js').write_text(icons.replace('"dfttk-slot-icons.webp"', json.dumps(atlas)), 'utf-8')
-    modules = ['builder_model', 'builder_stat_response', 'optimizer_engine', 'anytime_optimizer', 'optimizer_mounts', 'optimizer_policy', 'optimizer_presets', 'optimizer_selection', 'scip_optimizer', 'exhaustive_attachment_gate', 'mount_search', 'scoring_bounds', 'branch_score_bounds', 'shared_stats', 'scip_linear_model', 'scip_mount_model', 'scip_stat_model', 'scip_objective_model', 'scip_runtime', 'timed_recoil', 'horizontal_speed']
+    modules = ['builder_model', 'builder_stat_response', 'optimizer_engine', 'anytime_optimizer', 'choice_groups', 'optimizer_mounts', 'optimizer_policy', 'optimizer_presets', 'optimizer_selection', 'scip_optimizer', 'exhaustive_attachment_gate', 'mount_search', 'scoring_bounds', 'branch_score_bounds', 'shared_stats', 'scip_linear_model', 'scip_mount_model', 'scip_stat_model', 'scip_objective_model', 'scip_runtime', 'timed_recoil', 'horizontal_speed']
     (destination / 'model').mkdir(exist_ok=True)
     for name in ('attachment_gate', 'optimizer_exploration'):
         (destination / f'model/{name}.mjs').unlink(missing_ok=True)

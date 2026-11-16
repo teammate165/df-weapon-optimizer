@@ -53,7 +53,7 @@ console.log('Laser variants and picker comparison parity passed');
 const fixed=[{slotPath:'11',itemId:'13210000013'}];
 const infeasible=await executeModel({...input,prices:{'13210000013':1},action:'optimize',
  request:{mode:'sol',budget:1,passes:1,fixed}},modules);
-assert(infeasible.results.every(r=>r.status==='infeasible'),'riser cannot bypass missing optic quotes/budget');
+assert(infeasible.results.every(r=>r.status==='not_found'),'riser cannot bypass missing optic quotes/budget; timed search does not claim an infeasibility proof');
 const locked=[...fixed,{slotPath:'11/50',itemId:'13110000040'}];
 assert.deepEqual([...completeRiserOptics(pack,resolve(locked),resolve,locked)].map(b=>b.config),[resolve(locked).config]);
 console.log('Required optic cost, missing quotes and locked optic checks passed');
