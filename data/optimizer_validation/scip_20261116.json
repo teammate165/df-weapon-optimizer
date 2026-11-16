@@ -1,0 +1,160 @@
+{
+  "date": "2026-11-16",
+  "formulation": "Full-weapon linear mixed-integer SCIP model; optional primal starts do not restrict variables",
+  "runtime": "SCIP 10.0.2 / pinned single-threaded WASM",
+  "global_optimality_claim": false,
+  "checks": {
+    "catalog_weapon_preset_requests": 138,
+    "catalog_failures": [],
+    "default_mount_weapons": 69,
+    "default_stat_weapon_mode_cases": 207,
+    "equipped_calibrated_stat_cases": 20,
+    "equipped_objective_cases": 10,
+    "generator_tests": 8,
+    "builder_tests": 4
+  },
+  "full_budget_regression": [
+    {
+      "weapon": "P90 Submachine Gun",
+      "weapon_id": "18020000002",
+      "mode": "bd",
+      "budget": 800,
+      "actual": [
+        32.660529010656475,
+        160.19899567439995
+      ],
+      "cost": 720,
+      "vs_original": -1,
+      "vs_trial": 0
+    },
+    {
+      "weapon": "P90 Submachine Gun",
+      "weapon_id": "18020000002",
+      "mode": "sol",
+      "budget": 5000000,
+      "actual": [
+        32.660529010656475,
+        160.19899567439995
+      ],
+      "cost": 293171,
+      "vs_original": -1,
+      "vs_trial": 0
+    },
+    {
+      "weapon": "Vector Submachine Gun",
+      "weapon_id": "18020000003",
+      "mode": "bd",
+      "budget": 2000,
+      "actual": [
+        40.096791155002464,
+        141.02082205719904
+      ],
+      "cost": 860,
+      "vs_original": -1,
+      "vs_trial": 0
+    },
+    {
+      "weapon": "Vector Submachine Gun",
+      "weapon_id": "18020000003",
+      "mode": "sol",
+      "budget": 5000000,
+      "actual": [
+        40.096791155002464,
+        141.02082205719904
+      ],
+      "cost": 311008,
+      "vs_original": -1,
+      "vs_trial": -1
+    },
+    {
+      "weapon": "SR-25 Marksman Rifle",
+      "weapon_id": "18050000007",
+      "mode": "bd",
+      "budget": 2000,
+      "actual": [
+        39.26971901280046,
+        170.5518777987481
+      ],
+      "cost": 960,
+      "vs_original": -1,
+      "vs_trial": 1
+    },
+    {
+      "weapon": "SR-25 Marksman Rifle",
+      "weapon_id": "18050000007",
+      "mode": "sol",
+      "budget": 5000000,
+      "actual": [
+        39.26971901280046,
+        170.5518777987481
+      ],
+      "cost": 286989,
+      "vs_original": -1,
+      "vs_trial": 1
+    },
+    {
+      "weapon": "M249 Light Machine Gun",
+      "weapon_id": "18040000002",
+      "mode": "bd",
+      "budget": 800,
+      "actual": [
+        19.56325885870424,
+        125.36855696608389
+      ],
+      "cost": 780,
+      "vs_original": -1,
+      "vs_trial": 0
+    },
+    {
+      "weapon": "M249 Light Machine Gun",
+      "weapon_id": "18040000002",
+      "mode": "sol",
+      "budget": 5000000,
+      "actual": [
+        17.82747756390126,
+        172.68545469812588
+      ],
+      "cost": 309040,
+      "vs_original": -1,
+      "vs_trial": -1
+    },
+    {
+      "weapon": "G18",
+      "weapon_id": "18070000005",
+      "mode": "bd",
+      "budget": 200,
+      "actual": [
+        69.10201827626494,
+        109.16778659126432
+      ],
+      "cost": 200,
+      "vs_original": 0,
+      "vs_trial": 0
+    },
+    {
+      "weapon": "G18",
+      "weapon_id": "18070000005",
+      "mode": "sol",
+      "budget": 5000000,
+      "actual": [
+        64.82422827732532,
+        92.67346380491605
+      ],
+      "cost": 181655,
+      "vs_original": 0,
+      "vs_trial": 0
+    }
+  ],
+  "reproduction": [
+    "node tests/scip_model.mjs",
+    "node tests/scip_engine.mjs",
+    "python -m unittest discover -s tests -p test_recoil_generator.py",
+    "python -m unittest discover -s tests -p test_builder_server.py",
+    "node tests/scip_browser.cjs"
+  ],
+  "limitations": [
+    "Catalog integration requests are time-limited, not exhaustive optimality proofs.",
+    "No nonlinear interval arithmetic is used. Linear model bounds are numerical bounds for the encoded source objective, not game validation.",
+    "Thirty-second full-budget regression preserves previous Standard results; eight improve the earlier production baseline and two G18 cases match it."
+  ]
+}

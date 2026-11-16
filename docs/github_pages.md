@@ -11,7 +11,7 @@ workflow; only pushes to the generated site's `main` branch deploy. Both
 checkouts use repository-local personal commit identity and GitHub CLI
 authentication; global work-account configuration is preserved.
 
-The static export runs the same builder model and coordinate optimizer in a module
+The static export runs the same builder model and full-weapon SCIP optimizer in a module
 Web Worker. Python/Node.js and SQLite are needed only to regenerate the export,
 not by visitors. Data is loaded per weapon; all 69 weapons and three modes remain
 available. Repository-relative paths support project Pages URLs.

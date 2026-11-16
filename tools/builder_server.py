@@ -51,7 +51,8 @@ def execute(action, request):
     with tempfile.TemporaryDirectory(prefix='df-builder-') as directory:
         source = Path(directory) / 'input.json'
         source.write_text(json.dumps(payload), 'utf-8')
-        result = subprocess.run(['node', str(ROOT / 'tools/builder_bridge.mjs'), str(source), str(REFERENCE)], capture_output=True, text=True, encoding='utf-8', timeout=180)
+        timeout = max(180, min(660, float(request.get('time_limit_seconds', 30)) + 60)) if action == 'optimize' else 180
+        result = subprocess.run(['node', str(ROOT / 'tools/builder_bridge.mjs'), str(source), str(REFERENCE)], capture_output=True, text=True, encoding='utf-8', timeout=timeout)
     if result.returncode:
         error = next((line.strip() for line in result.stderr.splitlines() if line.startswith('Error:')), 'The model could not resolve this build.')
         raise ValueError(error.removeprefix('Error: '))

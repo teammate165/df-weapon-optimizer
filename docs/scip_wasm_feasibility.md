@@ -95,3 +95,7 @@ The nonlinear model must preserve current 40/30/30 scoring, speed-tier boundarie
 attachment dependencies, conditional effects, every legal calibration choice,
 stat floors and price constraints. This runtime experiment deliberately stops
 before encoding that model because it cannot yet rely on the WASM bounds.
+
+## Subsequent production implementation
+
+The [full-weapon linear SCIP model](scip_optimizer.md) avoids nonlinear interval arithmetic entirely. This supersedes the production blocker for the linear path; it does not repair or validate the nonlinear WASM runtime.
