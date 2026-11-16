@@ -1,0 +1,674 @@
+{
+  "date": "2026-11-17",
+  "deployed": true,
+  "site_url": "https://teammate165.github.io/df-weapon-optimizer/",
+  "source_commit": "abaeee6cf7ee3f14bc8579aad9c295c6b87a36d2",
+  "source_tree": "42f5b0fe0eeae86a5239e0cd7ac4c48d047a0378",
+  "generated_commit": "8d03cb4f5e28c8c52a8ec88a86fce33c15cfb65d",
+  "release": "cb0a6cf829d3634f",
+  "workflow": {
+    "conclusion": "success",
+    "databaseId": 43928951241,
+    "headSha": "8d03cb4f5e28c8c52a8ec88a86fce33c15cfb65d",
+    "status": "completed",
+    "url": "https://github.com/teammate165/df-weapon-optimizer/actions/runs/43928951241"
+  },
+  "public_artifacts": {
+    "release": "cb0a6cf829d3634f",
+    "deploy_commit": "8d03cb4f5e28c8c52a8ec88a86fce33c15cfb65d",
+    "artifacts": [
+      {
+        "path": "app.js",
+        "bytes": 53761,
+        "sha256": "91dc86e70fa213c53985fb68f8b465915a7e28bc444adf440adecd4eedec1bee",
+        "matched": true
+      },
+      {
+        "path": "index.html",
+        "bytes": 9536,
+        "sha256": "b7486e67a523e4cf445d789723780705f35fc529b8b87e7d9a1f71adf9743f7b",
+        "matched": true
+      },
+      {
+        "path": "model/optimizer_engine.mjs",
+        "bytes": 246,
+        "sha256": "0d6336b3f12e446cf050e97dffc871804ebb372a4dce3481fbcfa79a18cbfa90",
+        "matched": true
+      },
+      {
+        "path": "model/anytime_optimizer.mjs",
+        "bytes": 23796,
+        "sha256": "e68aa8931216ebe5fa0470a68e4710daf8d45b0ed48f246c755c2ef8ea2fe38d",
+        "matched": true
+      },
+      {
+        "path": "model/mount_search.mjs",
+        "bytes": 11898,
+        "sha256": "04f764da52b8d13e68e02731a32f6f7a457af1aef3076d3270d2f92d1da8ac31",
+        "matched": true
+      },
+      {
+        "path": "model/branch_score_bounds.mjs",
+        "bytes": 17276,
+        "sha256": "8c07ccebe9f0ebbe5e235987295b48daa3dda5b97746ab8996eeedb88058a635",
+        "matched": true
+      },
+      {
+        "path": "model/shared_stats.mjs",
+        "bytes": 8395,
+        "sha256": "f942069cf1acc8f73bd2b273abec2ea822fb0126feb5cdadce69cc832130d729",
+        "matched": true
+      },
+      {
+        "path": "model/exhaustive_attachment_gate.mjs",
+        "bytes": 10203,
+        "sha256": "c8604eb12369c98768e131ed37ef4af0138bc24f0120327634766a81c5192e5d",
+        "matched": true
+      },
+      {
+        "path": "model/scoring_bounds.mjs",
+        "bytes": 6426,
+        "sha256": "b1875c0e7a0d92f742636884d5a25207931147664f08546e6c392430913a5276",
+        "matched": true
+      },
+      {
+        "path": "model/horizontal_speed.mjs",
+        "bytes": 1365,
+        "sha256": "af7daa6011ca572ca7c18943cbbb1fa26d910bd3ae4d5fd08f3dfdc1799cc7f8",
+        "matched": true
+      },
+      {
+        "path": "model/scip_mount_model.mjs",
+        "bytes": 8419,
+        "sha256": "ad2953f8662c0a2d98e9cbb853cb7d8ace8e2001330627e563054b8aba4bf017",
+        "matched": true
+      },
+      {
+        "path": "model/scip_stat_model.mjs",
+        "bytes": 16012,
+        "sha256": "2b1444b9138968aa164b89920700ada7cc2c959743c6d9cdfae4cb246db3b077",
+        "matched": true
+      },
+      {
+        "path": "model/scip_objective_model.mjs",
+        "bytes": 9570,
+        "sha256": "acb1aadf47a35f2146348535f047ab3297fd0c963e6c9a43900f38929e13eb40",
+        "matched": true
+      },
+      {
+        "path": "model/scip_linear_model.mjs",
+        "bytes": 5174,
+        "sha256": "8c1d002b3a5edd15f0c9aa2d25f44fcdc18719504a819bda7b1d6c17948ee0cf",
+        "matched": true
+      },
+      {
+        "path": "model/scip_runtime.mjs",
+        "bytes": 2126,
+        "sha256": "9c3a3a8074a04717f7ffdc5589e07c2d1fbedca8dd7a7b2273f43f190db8989d",
+        "matched": true
+      },
+      {
+        "path": "static-worker.js",
+        "bytes": 2115,
+        "sha256": "b60ed489f08921bd4d469c144f37134648049db31e8d0aebb50f097e8c3ad066",
+        "matched": true
+      },
+      {
+        "path": "static-client.js",
+        "bytes": 1503,
+        "sha256": "3326cf21f3d6e41b4bff24ec5fc916774f97d321721144a1a54b122ca342381e",
+        "matched": true
+      },
+      {
+        "path": "data/catalog.json",
+        "bytes": 158418,
+        "sha256": "9fbff79adf920d22f702b396c804e0090b96fddd2e5f2fe03d2fa77a32442a22",
+        "matched": true
+      },
+      {
+        "path": "data/solver-starts/18020000002.json",
+        "bytes": 4160,
+        "sha256": "b2637b9a30396ccbe189c2c023d1794025a37c0e283399ff7ffbdc7d37a9265d",
+        "matched": true
+      },
+      {
+        "path": "vendor/scip-7e68f9ca/scip.js",
+        "bytes": 79238,
+        "sha256": "fbce1535ff0eea41b0b1d4a3d9e2c3a8e0b6239fcf7fa30715e3fe629964889a",
+        "matched": true
+      },
+      {
+        "path": "vendor/scip-7e68f9ca/scip.wasm",
+        "bytes": 6386959,
+        "sha256": "7e68f9ca51d1fdb1b36e35eeac242792f7afcf1b93eaf601baa44449950fea6b",
+        "matched": true
+      },
+      {
+        "path": "vendor/scip-7e68f9ca/THIRD_PARTY_LICENSES.txt",
+        "bytes": 126190,
+        "sha256": "933567b6be8b65a59ac79fbaf0d50f796579a89cd873536538fd9c00bb5e0eec",
+        "matched": true
+      }
+    ],
+    "passed": true
+  },
+  "live_optimizer": {
+    "passed": true,
+    "ui_elapsed_ms": 5180,
+    "cancel_and_recovery": true,
+    "page_errors": [],
+    "wasm_requests": [],
+    "runs": [
+      {
+        "preset": "recoil",
+        "request_elapsed_ms": 5048,
+        "gate": {
+          "fraction": null,
+          "complete": false,
+          "screening": "anytime_top_k",
+          "limits": {
+            "ordinary": 256,
+            "tactical_per_base": 16,
+            "complete": 512
+          },
+          "budgets": [
+            {
+              "budget": 800,
+              "screening": "anytime_top_k",
+              "complete": false,
+              "limits": {
+                "ordinary": 256,
+                "tactical_per_base": 16,
+                "complete": 512
+              },
+              "evaluated": 2975,
+              "invalid": 114,
+              "source_errors": 0,
+              "calibration_evaluations": 996,
+              "ordinary_evaluated": 1338,
+              "tactical_evaluated": 582,
+              "tree_nodes": 7498,
+              "pruned_branches": 325,
+              "ordinary_retained": 209,
+              "candidate_count": 396,
+              "cache_peak": 2048,
+              "ordinary_storage_peak": 211,
+              "complete_storage_peak": 401,
+              "phases": [
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 1735.4000000059605
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 748.7999999821186
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 1500.300000011921
+                },
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 400.5
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 200.69999998807907
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 398.2999999821186
+                }
+              ],
+              "tree_slices": 1,
+              "stat_reuse": {
+                "supported": true,
+                "requests": 1836,
+                "native_fallbacks": 0,
+                "context_fallbacks": 0,
+                "unsupported_fallbacks": 0,
+                "error_fallbacks": 0,
+                "part_hits": 19036,
+                "part_misses": 172,
+                "prefix_hits": 14427,
+                "prefix_misses": 1688,
+                "core_hits": 1225,
+                "core_misses": 611,
+                "reference_hits": 608,
+                "reference_misses": 3,
+                "numeric_noops": 0,
+                "part_entries_peak": 172,
+                "part_operations_peak": 1777,
+                "prefix_entries_peak": 1688,
+                "prefix_key_chars_peak": 42877,
+                "reference_entries_peak": 3,
+                "reference_key_chars_peak": 25,
+                "token_entries_peak": 171,
+                "token_key_chars_peak": 12104,
+                "saturated": false
+              },
+              "branch_scoring": {
+                "supported": true,
+                "evaluations": 325,
+                "cache_hits": 196,
+                "declined": 0,
+                "entries_peak": 129,
+                "key_chars_peak": 14799,
+                "saturated": false
+              },
+              "elapsed_ms": 5002.199999988079
+            }
+          ],
+          "global_optimality": false
+        },
+        "solver": {
+          "name": "Anytime",
+          "formulation": "bounded diverse top-K attachment search and source-calculator coordinate calibration",
+          "time_limit_seconds": 5,
+          "time_limit_scope": "total_search",
+          "global_optimality": false,
+          "elapsed_ms": 5014.799999982119,
+          "screening_elapsed_ms": 3085.399999976158,
+          "calibration_elapsed_ms": 1898.5999999940395,
+          "phases": [
+            {
+              "label": "search_attachments",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 1735.4000000059605,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 748.7999999821186,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 1500.300000011921,
+              "source_verified": true
+            },
+            {
+              "label": "search_attachments",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 400.5,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 200.69999998807907,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 398.2999999821186,
+              "source_verified": true
+            }
+          ]
+        },
+        "source_replays": [
+          {
+            "cost": 740,
+            "stats": {
+              "control": 89,
+              "handling": 34,
+              "stability": 71,
+              "accuracy": 43
+            }
+          },
+          {
+            "cost": 460,
+            "stats": {
+              "control": 74,
+              "handling": 32,
+              "stability": 71,
+              "accuracy": 43
+            }
+          },
+          {
+            "cost": 120,
+            "stats": {
+              "control": 45,
+              "handling": 52,
+              "stability": 63,
+              "accuracy": 55
+            }
+          }
+        ],
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "cost": 740,
+            "loss": 22.985555414115936
+          },
+          {
+            "label": "Balanced",
+            "status": "best_found",
+            "cost": 460,
+            "loss": 32.22044604399801
+          },
+          {
+            "label": "Min",
+            "status": "best_found",
+            "cost": 120,
+            "loss": 59.778428291113606
+          }
+        ]
+      },
+      {
+        "preset": "agility",
+        "request_elapsed_ms": 5014.5,
+        "gate": {
+          "fraction": null,
+          "complete": false,
+          "screening": "anytime_top_k",
+          "limits": {
+            "ordinary": 256,
+            "tactical_per_base": 16,
+            "complete": 512
+          },
+          "budgets": [
+            {
+              "budget": 800,
+              "screening": "anytime_top_k",
+              "complete": false,
+              "limits": {
+                "ordinary": 256,
+                "tactical_per_base": 16,
+                "complete": 512
+              },
+              "evaluated": 5292,
+              "invalid": 1025,
+              "source_errors": 0,
+              "calibration_evaluations": 2385,
+              "ordinary_evaluated": 2544,
+              "tactical_evaluated": 577,
+              "tree_nodes": 11886,
+              "pruned_branches": 86,
+              "ordinary_retained": 241,
+              "candidate_count": 410,
+              "cache_peak": 2048,
+              "ordinary_storage_peak": 242,
+              "complete_storage_peak": 416,
+              "phases": [
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 1748.699999988079
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 749.9000000059605
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 1500.300000011921
+                },
+                {
+                  "phase": "search_attachments",
+                  "elapsed_ms": 399.2000000178814
+                },
+                {
+                  "phase": "search_tactical",
+                  "elapsed_ms": 200.09999999403954
+                },
+                {
+                  "phase": "calibration",
+                  "elapsed_ms": 399.90000000596046
+                }
+              ],
+              "tree_slices": 1,
+              "stat_reuse": {
+                "supported": true,
+                "requests": 2791,
+                "native_fallbacks": 0,
+                "context_fallbacks": 0,
+                "unsupported_fallbacks": 0,
+                "error_fallbacks": 0,
+                "part_hits": 25943,
+                "part_misses": 177,
+                "prefix_hits": 18809,
+                "prefix_misses": 2139,
+                "core_hits": 1956,
+                "core_misses": 835,
+                "reference_hits": 830,
+                "reference_misses": 5,
+                "numeric_noops": 0,
+                "part_entries_peak": 177,
+                "part_operations_peak": 1782,
+                "prefix_entries_peak": 2048,
+                "prefix_key_chars_peak": 51032,
+                "reference_entries_peak": 5,
+                "reference_key_chars_peak": 85,
+                "token_entries_peak": 163,
+                "token_key_chars_peak": 11597,
+                "saturated": true
+              },
+              "branch_scoring": {
+                "supported": true,
+                "evaluations": 86,
+                "cache_hits": 31,
+                "declined": 0,
+                "entries_peak": 55,
+                "key_chars_peak": 5688,
+                "saturated": false
+              },
+              "elapsed_ms": 5001.5999999940395
+            }
+          ],
+          "global_optimality": false
+        },
+        "solver": {
+          "name": "Anytime",
+          "formulation": "bounded diverse top-K attachment search and source-calculator coordinate calibration",
+          "time_limit_seconds": 5,
+          "time_limit_scope": "total_search",
+          "global_optimality": false,
+          "elapsed_ms": 5011.5,
+          "screening_elapsed_ms": 3097.9000000059605,
+          "calibration_elapsed_ms": 1900.2000000178814,
+          "phases": [
+            {
+              "label": "search_attachments",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 1748.699999988079,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 749.9000000059605,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 1500.300000011921,
+              "source_verified": true
+            },
+            {
+              "label": "search_attachments",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 399.2000000178814,
+              "source_verified": true
+            },
+            {
+              "label": "search_tactical",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 200.09999999403954,
+              "source_verified": true
+            },
+            {
+              "label": "calibration",
+              "budget": 800,
+              "status": "best_found",
+              "elapsed_ms": 399.90000000596046,
+              "source_verified": true
+            }
+          ]
+        },
+        "source_replays": [
+          {
+            "cost": 800,
+            "stats": {
+              "control": 72,
+              "handling": 87,
+              "stability": 35,
+              "accuracy": 67
+            }
+          },
+          {
+            "cost": 400,
+            "stats": {
+              "control": 47,
+              "handling": 78,
+              "stability": 45,
+              "accuracy": 79
+            }
+          },
+          {
+            "cost": 120,
+            "stats": {
+              "control": 31,
+              "handling": 82,
+              "stability": 51,
+              "accuracy": 79
+            }
+          }
+        ],
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "cost": 800,
+            "loss": 38.138902434135304
+          },
+          {
+            "label": "Balanced",
+            "status": "best_found",
+            "cost": 400,
+            "loss": 45.6537321695852
+          },
+          {
+            "label": "Min",
+            "status": "best_found",
+            "cost": 120,
+            "loss": 67.44473215473039
+          }
+        ]
+      }
+    ]
+  },
+  "live_calculator_apply_save_reload": {
+    "passed": true,
+    "checks": [
+      "8 exact browser/backend comparisons, including non-default calibration: M4A1 and AN94 in all modes plus equipped attachment, response curve and socket comparisons",
+      "External weapon portrait loaded; external dfttk socket atlas configured; no horizontal overflow at 1440/1024/390",
+      "Real SCIP optimization completes in worker; interface renders while searching; result applies",
+      "Saved build persists across reload under repository subpath"
+    ],
+    "errors": [],
+    "apiRequests": []
+  },
+  "live_cache_and_layout": {
+    "passed": true,
+    "url": "https://teammate165.github.io/df-weapon-optimizer/",
+    "checks": [
+      "both presets including untouched default",
+      "obsolete unversioned preset dependency bypassed",
+      "hover/focus/click/Escape and viewport bounds",
+      "four major stats share one row at desktop/mobile",
+      "versioned module/worker graph; no backend requests"
+    ],
+    "errors": []
+  },
+  "local_prepublication_checks": {
+    "translation-check.json": {
+      "passed": true,
+      "names_unchanged": true,
+      "weapons": 69,
+      "staged_files": 56
+    },
+    "pages-reviewed.json": {
+      "passed": true,
+      "command": "node tests/github_pages.cjs",
+      "exit_code": 0,
+      "checks": [
+        "both presets",
+        "obsolete unversioned preset dependency bypassed",
+        "score tooltip and viewport layout",
+        "versioned module/worker graph",
+        "no backend requests"
+      ]
+    },
+    "static-reviewed.json": {
+      "passed": true,
+      "checks": [
+        "8 exact browser/backend comparisons, including non-default calibration: M4A1 and AN94 in all modes plus equipped attachment, response curve and socket comparisons",
+        "External weapon portrait loaded; external dfttk socket atlas configured; no horizontal overflow at 1440/1024/390",
+        "Real SCIP optimization completes in worker; interface renders while searching; result applies",
+        "Saved build persists across reload under repository subpath"
+      ],
+      "errors": [],
+      "apiRequests": []
+    }
+  },
+  "unrelated_changes": {
+    "translations_excluded": true,
+    "research_edits_preserved": true
+  },
+  "validation_notes": [
+    "An initial cache check started before export had completed; the completed-build rerun passed. Initial parallel browser startup timeouts also passed on isolated reruns."
+  ],
+  "limits": [
+    "Best-found timed search; shortlists are not proven global top-K and combinations can remain unexplored.",
+    "No global calibrated optimality or in-game fidelity claim.",
+    "Existing tabs must reload to load this versioned release."
+  ],
+  "raw_evidence": {
+    "publish.json": {
+      "sha256": "3a0c30bdd25bf38d2176ad9379e24da236039c981547b94ffd73627dbf424da8"
+    },
+    "workflow.json": {
+      "sha256": "fec18321eaa3b9926bc1b3f6ded2a8ca66cd29bb3254943893289df8e897bc58"
+    },
+    "live-artifacts.json": {
+      "sha256": "f2b9398e92dab450d2aefffcec778a227612a61acde02e6e4ceea75288f98867"
+    },
+    "browser-live.json": {
+      "sha256": "d1b37cda3f44328646cb48890101599461fa251d619d3728cd41df88e0edc8ee"
+    },
+    "static-live.json": {
+      "sha256": "adca8a18bcd2f06188c2b2770217606ab3d997df4b523095b94f9232b859cb40"
+    },
+    "pages-live.json": {
+      "sha256": "e400a7a160a111e0aca344f4f0dc3c4f865b8f0f66adae9881bb5d8a5b5409b1"
+    },
+    "browser-reviewed.json": {
+      "sha256": "df8877a93370d47c17063e6f87cbc99a6d5df144e35cefb51fb5767108e75df2"
+    },
+    "pages-reviewed.json": {
+      "sha256": "dbcb775545e0d6cc759d269b1ca8c887cbb35c29008c9509f43cc63f7d93c783"
+    },
+    "static-reviewed.json": {
+      "sha256": "adca8a18bcd2f06188c2b2770217606ab3d997df4b523095b94f9232b859cb40"
+    },
+    "translation-check.json": {
+      "sha256": "0f31e99b8de09ac4c545e618aed5adc736bdb8f43ea512e050091e022a4851ca"
+    }
+  }
+}

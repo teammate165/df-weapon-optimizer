@@ -253,3 +253,13 @@ Both presets now use the [full-weapon linear SCIP model](scip_optimizer.md). Pas
 All 16 critical public artifacts match the generated commit, including the 6.4 MB WASM, all compiler modules and a solver-start file. Public real-worker checks pass for both presets, cancellation/recovery, exact stat/cost replay and P90 Operations at budget 5,000,000. Results remain best found when numerical model optimality is unproven. Existing uncommitted translations and research edits were excluded.
 
 Final public checks also pass: eight exact calculator comparisons, optimization/Apply/save/reload, obsolete-cache bypass, score tooltips and desktop/mobile layout, with no page errors or backend requests. The unversioned public release endpoint also reports the new token. Evidence: `.scratch/scip-release/live-artifacts.json`, `browser-live.json`, `static-live.json` and `pages-live.txt`.
+
+## Anytime top-K release, 2026-11-17
+
+Published source `abaeee6cf7ee3f14bc8579aad9c295c6b87a36d2` as generated `8d03cb4f5e28c8c52a8ec88a86fce33c15cfb65d`, release `cb0a6cf829d3634f`. [Pages deployment succeeded](https://github.com/teammate165/df-weapon-optimizer/actions/runs/43928951241).
+
+Both presets use the [anytime top-K optimizer](anytime_top_k_optimizer.md). Ordinary builds, patches/lasers and source-scored tuning share the total search budget; shortlists are bounded at 256 ordinary, 16 tactical completions per base and 512 complete builds. The horizontal speed penalties are 1/4/6/10. Results remain best found; legal combinations can remain unexplored and global top-K/optimality is unproven. The exhaustive/SCIP path remains separately available as a reference.
+
+The reviewed export was built from the staged source tree with committed translations. Unrelated translation/research changes were preserved locally and excluded. All 22 critical live artifacts match committed Git blobs. Public full-cap M4A1 five-second Generate completes in about 5.2 seconds, and both presets replay exact source stats/costs. Cancellation/recovery, actual tactical/calibration work, Apply/save/reload, eight calculator comparisons, cache/versioned imports and desktop/mobile checks pass without page errors or backend dependency.
+
+[Persistent release evidence](../data/optimizer_validation/anytime_release_20261117.json); detailed local/public reports are retained under `.scratch/anytime-release/`. Existing tabs must reload to load the newly versioned browser graph.

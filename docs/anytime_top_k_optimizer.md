@@ -1,6 +1,6 @@
 # Anytime top-K optimizer
 
-2026-11-16. This is the local production optimizer. The user approved replacing the exhaustive top-5% requirement after the full-cap M4A1 ordinary domain reached trillions of combinations. No deployment performed.
+2026-11-16. This is the local production optimizer. The user approved replacing the exhaustive top-5% requirement after the full-cap M4A1 ordinary domain reached trillions of combinations. Published on 2026-11-17 as release `cb0a6cf829d3634f` (source `abaeee6`, generated `8d03cb4`). [Successful Pages deployment](https://github.com/teammate165/df-weapon-optimizer/actions/runs/43928951241).
 
 `tools/optimizer_engine.mjs` delegates to `anytime_optimizer.mjs` in both the local Node backend and static module Worker. There is no whole-domain counting pass. The 5/30/120-second UI setting covers attachment search, patch/laser search and calibration together. It is a computational budget; initial HTTP/Worker/data loading and final response rendering add startup/output overhead.
 

@@ -1,6 +1,6 @@
 # Experimental recoil generator
 
-Current local search: [anytime bounded top-K search and source calibration](anytime_top_k_optimizer.md). The total time budget covers ordinary attachments, patches/lasers and tuning. Legal combinations can remain unexplored; outputs are best found. The objective and constraint descriptions below remain applicable; historical percentage-gate and SCIP search descriptions are superseded locally. Legacy `passes` requests map to a total search budget. This update has not been deployed.
+Current local search: [anytime bounded top-K search and source calibration](anytime_top_k_optimizer.md). The total time budget covers ordinary attachments, patches/lasers and tuning. Legal combinations can remain unexplored; outputs are best found. The objective and constraint descriptions below remain applicable; historical percentage-gate and SCIP search descriptions are superseded locally. Legacy `passes` requests map to a total search budget. Published on 2026-11-17 as release `cb0a6cf829d3634f`.
 
 Run from the repository root with Python 3 and Node.js:
 
