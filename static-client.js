@@ -3,7 +3,7 @@ export function createStaticClient() {
   let worker;
   const pending=new Map();let serial=0;let failed;
   const start=()=>{
-  worker=new Worker(new URL('./static-worker.js?v=cb0a6cf829d3634f',import.meta.url),{type:'module'});
+  worker=new Worker(new URL('./static-worker.js?v=0a828ed25f230959',import.meta.url),{type:'module'});
   worker.onmessage=({data})=>{
     const task=pending.get(data.id);if(!task)return;
     if(data.progress){task.onProgress?.(data.progress);return;}

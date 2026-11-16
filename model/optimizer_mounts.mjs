@@ -8,18 +8,18 @@ export function emptyRisers(pack,build) {
 }
 // Explore each compatible sight as an atomic purchase with its riser. Never
 // admit an empty mount into the objective/frontier, including locked mounts.
-export function* completeRiserOptics(pack,build,resolve,fixed=[],depth=0) {
+export function* completeRiserOptics(pack,build,resolve,fixed=[],depth=0,choices=ids=>ids) {
   const missing=emptyRisers(pack,build).sort((a,b)=>b.slotPath.length-a.slotPath.length);
   if(!missing.length){yield build;return;}
   if(depth>=build.mounted.length)return;
   const riser=missing[0];
   for(const slot of build.slots.filter(s=>s.slotPath.startsWith(riser.slotPath+'/'))) {
     if(fixed.some(f=>f.slotPath===slot.slotPath))continue;
-    for(const itemId of slot.options.filter(id=>isOptic(pack,id))) {
+    for(const itemId of choices(slot.options,slot.slotPath).filter(id=>isOptic(pack,id))) {
       const config=build.config.filter(c=>c.slotPath!==slot.slotPath&&!c.slotPath.startsWith(slot.slotPath+'/'));
       const next=resolve([...config,{slotPath:slot.slotPath,itemId}]);
       if(!next.mounted.some(m=>m.slotPath===slot.slotPath&&m.itemId===itemId))continue;
-      yield* completeRiserOptics(pack,next,resolve,fixed,depth+1);
+      yield* completeRiserOptics(pack,next,resolve,fixed,depth+1,choices);
     }
   }
 }

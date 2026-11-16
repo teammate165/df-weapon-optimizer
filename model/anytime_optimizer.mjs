@@ -1,14 +1,15 @@
-import {presets} from './optimizer_presets.mjs?v=cb0a6cf829d3634f';
-import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=cb0a6cf829d3634f';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=cb0a6cf829d3634f';
-import {completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=cb0a6cf829d3634f';
-import {configKey,tacticalChoice} from './exhaustive_attachment_gate.mjs?v=cb0a6cf829d3634f';
-import {compileMounts} from './scip_mount_model.mjs?v=cb0a6cf829d3634f';
-import {createMountSearch} from './mount_search.mjs?v=cb0a6cf829d3634f';
-import {createSharedStatEvaluator} from './shared_stats.mjs?v=cb0a6cf829d3634f';
-import {createBranchScoreBound} from './branch_score_bounds.mjs?v=cb0a6cf829d3634f';
-import {boundCannotBeat} from './scoring_bounds.mjs?v=cb0a6cf829d3634f';
-import {timedRecoil} from './timed_recoil.mjs?v=cb0a6cf829d3634f';
+import {presets} from './optimizer_presets.mjs?v=0a828ed25f230959';
+import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=0a828ed25f230959';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=0a828ed25f230959';
+import {completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=0a828ed25f230959';
+import {configKey,tacticalChoice} from './exhaustive_attachment_gate.mjs?v=0a828ed25f230959';
+import {compileMounts} from './scip_mount_model.mjs?v=0a828ed25f230959';
+import {createMountSearch} from './mount_search.mjs?v=0a828ed25f230959';
+import {createSharedStatEvaluator} from './shared_stats.mjs?v=0a828ed25f230959';
+import {createBranchScoreBound} from './branch_score_bounds.mjs?v=0a828ed25f230959';
+import {boundCannotBeat} from './scoring_bounds.mjs?v=0a828ed25f230959';
+import {timedRecoil} from './timed_recoil.mjs?v=0a828ed25f230959';
+import {createChoiceGroups} from './choice_groups.mjs?v=0a828ed25f230959';
 
 export const shortlistLimits=Object.freeze({ordinary:256,tactical_per_base:16,complete:512});
 
@@ -38,7 +39,7 @@ export class Shortlist {
 
 async function loadRuntime(directory){
  const [{pathToFileURL},path]=await Promise.all([import('node:url'),import('node:path')]);
- const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=cb0a6cf829d3634f'))),kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=cb0a6cf829d3634f'))),{t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=cb0a6cf829d3634f')));
+ const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=0a828ed25f230959'))),kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=0a828ed25f230959'))),{t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=0a828ed25f230959')));
  return {curves,kernel,calculate};
 }
 
@@ -68,6 +69,7 @@ export async function generateAnytime(input,runtime){
   const sliceStart=budgetIndex?performance.now():started,sliceEnd=started+limit*1000*(budgetIndex+1)/budgets.length,duration=Math.max(0,sliceEnd-sliceStart);
   const ordinary=new Shortlist(256,compare,64),complete=new Shortlist(512,compare,128),cache=new Map(),controlCache=new Map(),expanded=new Set(),tacticalVisited=new Set(),hints=new Map();
   const shared=preset.stateReuse?.raw===preset.raw?createSharedStatEvaluator(pack,kernel,{mode}):null;
+  const groups=createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,fixed}),tactical=(path,id)=>groups.enabled?groups.isTactical(path,id):tacticalChoice(pack,kernel,mode,path,id);
   const d={budget,screening:'anytime_top_k',complete:false,limits:{...shortlistLimits},evaluated:0,invalid:0,source_errors:0,calibration_evaluations:0,ordinary_evaluated:0,tactical_evaluated:0,tree_nodes:0,pruned_branches:0,ordinary_retained:0,candidate_count:0,cache_peak:0,ordinary_storage_peak:0,complete_storage_peak:0,phases:[]};
   let phase='search_attachments',phaseDeadline=sliceEnd,currentBase=0;
   const progress=(force=false)=>{
@@ -80,7 +82,10 @@ export async function generateAnytime(input,runtime){
   const evaluate=(config,tunes={})=>{
    check(phaseDeadline);progress();
    try{
-    const build=resolve(config),key=configKey(build.config);
+    let build=resolve(config);
+    if(config.some(c=>!build.config.some(n=>n.slotPath===c.slotPath&&n.itemId===c.itemId))){d.invalid++;return null;}
+    const canonical=groups.normalize(build);if(configKey(canonical)!==configKey(build.config))build=resolve(canonical);config=canonical;
+    const key=configKey(build.config);
     if(!retains(build)||config.some(c=>!build.config.some(n=>n.slotPath===c.slotPath&&n.itemId===c.itemId))||build.mounted.some(n=>hidden.has(n.itemId))||build.mounted.filter(n=>kernel.l(pack,n.itemId,mode)).length>laserLimit||build.mounted.filter(n=>pack.parts[n.itemId]?.boundAmmoByMode?.[mode]).length>1||emptyRisers(pack,build).length){d.invalid++;return null;}
     let cost=mode==='mp'?null:0;if(mode!=='mp')for(const n of build.mounted.filter(n=>n.source==='equipped')){const price=costs[n.itemId];if(!Number.isFinite(price)||price<0){d.invalid++;return null;}cost+=price;}
     if(budget!==null&&cost>budget+1e-8){d.invalid++;return null;}
@@ -94,16 +99,16 @@ export async function generateAnytime(input,runtime){
   };
   const keepComplete=row=>{if(row&&shortfall(row.stats,settings.minimums)<=1e-8)complete.add(row);};
   const locked=path=>fixed.some(f=>f.slotPath===path||f.slotPath.startsWith(path+'/'));
-  const strip=config=>config.filter(c=>!tacticalChoice(pack,kernel,mode,c.slotPath,c.itemId)||fixed.some(f=>f.slotPath===c.slotPath&&f.itemId===c.itemId));
+  const strip=config=>config.filter(c=>!tactical(c.slotPath,c.itemId)||fixed.some(f=>f.slotPath===c.slotPath&&f.itemId===c.itemId));
   const keepOrdinary=config=>{const row=evaluate(strip(config));if(row){ordinary.add(row);d.ordinary_evaluated++;for(const c of row.config){const key=c.slotPath+'|'+c.itemId;hints.set(key,Math.min(hints.get(key)??Infinity,row.score));}}return row;};
-  function* completions(build){for(const next of completeRiserOptics(pack,build,resolve,fixed)){check(phaseDeadline);yield next;}}
+  function* completions(build){for(const next of completeRiserOptics(pack,build,resolve,fixed,0,groups.options)){check(phaseDeadline);yield next;}}
   function* neighbors(row,tactical){
    for(const slot of row.build.slots){
     check(phaseDeadline);if(locked(slot.slotPath))continue;
-    for(const itemId of [null,...slot.options]){
-     check(phaseDeadline);if(itemId&&hidden.has(itemId)||itemId&&tacticalChoice(pack,kernel,mode,slot.slotPath,itemId)!==tactical)continue;
+    for(const itemId of [null,...groups.options(slot.options,slot.slotPath)]){
+     check(phaseDeadline);if(itemId&&hidden.has(itemId)||itemId&&(groups.enabled?groups.isTactical(slot.slotPath,itemId):tacticalChoice(pack,kernel,mode,slot.slotPath,itemId))!==tactical)continue;
      const old=row.config.find(c=>c.slotPath===slot.slotPath);
-     if(!itemId&&(!old||tacticalChoice(pack,kernel,mode,old.slotPath,old.itemId)!==tactical))continue;
+     if(!itemId&&(!old||(groups.enabled?groups.isTactical(old.slotPath,old.itemId):tacticalChoice(pack,kernel,mode,old.slotPath,old.itemId))!==tactical))continue;
      const config=row.config.filter(c=>c.slotPath!==slot.slotPath&&!c.slotPath.startsWith(slot.slotPath+'/'));if(itemId)config.push({slotPath:slot.slotPath,itemId});
      const changed=resolve(config);if(itemId&&!changed.config.some(c=>c.slotPath===slot.slotPath&&c.itemId===itemId))continue;
      yield* completions(changed);
@@ -128,7 +133,8 @@ export async function generateAnytime(input,runtime){
    if(!tree){
     check(phaseDeadline);const request={...r,budget,budgets:undefined};delete request.validationConfig;delete request.validationTunes;delete request.feasibility_only;
     const compiled=compileMounts({...input,request},kernel),restrictions=new Map();
-    for(const p of compiled.players.values())if(typeof p.value==='string'&&tacticalChoice(pack,kernel,mode,p.path,p.item)&&!fixed.some(f=>f.slotPath===p.path&&f.itemId===p.item))restrictions.set(p.value,0);
+    for(const p of compiled.players.values())if(typeof p.value==='string'&&tactical(p.path,p.item)&&!fixed.some(f=>f.slotPath===p.path&&f.itemId===p.item))restrictions.set(p.value,0);
+    groups.constrain(compiled);
     branch=createBranchScoreBound({pack,request,compiled,...modules,preset});const search=createMountSearch(compiled);
     tree=search.enumerate(restrictions,()=>{d.tree_nodes++;if(d.tree_nodes%32===0){check(phaseDeadline);progress();}},{priority:(path,item)=>item===null?ordinary.best()?.score??100:hints.get(path+'|'+item)??1000,prune:context=>{
      const cutoff=ordinary.cutoff();if(!branch||!cutoff||context.remaining<2||context.remaining>4||shortfall(cutoff.stats,settings.minimums)>1e-8||branchTime>.05*(performance.now()-sliceStart))return false;
@@ -139,7 +145,7 @@ export async function generateAnytime(input,runtime){
    try{for(;;){check(phaseDeadline);const next=tree.next();if(next.done){d.ordinary_tree_exhausted=true;break;}keepOrdinary(next.value);}}
    catch(error){if(error===stop){tree=null;d.tree_slices=(d.tree_slices??0)+1;}throw error;}
   };
-  const searchTactical=()=>{
+  const searchTacticalUngrouped=()=>{
    for(const base of ordinary.rows()){
     check(phaseDeadline);if(tacticalVisited.has(base.key))continue;tacticalVisited.add(base.key);currentBase++;
     const perBase=new Shortlist(16,compare),first=evaluate(base.config);if(first)perBase.add(first);
@@ -178,8 +184,18 @@ export async function generateAnytime(input,runtime){
     for(const row of perBase.rows())keepComplete(row);
    }
   };
+  const searchTactical=groups.enabled?()=>{
+   for(const base of ordinary.rows()){
+    check(phaseDeadline);if(tacticalVisited.has(base.key))continue;tacticalVisited.add(base.key);currentBase++;
+    const perBase=new Shortlist(16,compare),first=evaluate(base.config);if(first)perBase.add(first);
+    const shareEnd=Math.min(phaseDeadline,performance.now()+Math.max(5,(phaseDeadline-performance.now())/Math.min(16,Math.max(1,ordinary.rows().length-tacticalVisited.size+1))));
+    try{for(const config of groups.tacticalConfigs(base.build,{budget,check:()=>check(shareEnd)})){const row=evaluate(config);if(row)perBase.add(row);}}
+    catch(error){if(error!==stop)throw error;}
+    for(const row of perBase.rows())keepComplete(row);
+   }
+  }:searchTacticalUngrouped;
   const controls=build=>build.mounted.flatMap(node=>(pack.parts[node.itemId]?.tuneIds??[]).flatMap(id=>{
-   const c=curves.c(pack,node,id);if(!c||c.enabled===false)return [];
+   const c=curves.c(pack,node,id);if(!c||c.enabled===false||!groups.scoredControl(c))return [];
    const key=JSON.stringify([node.itemId,node.socketId,node.hostItemId,id]);
    if(!controlCache.has(key)){
     const positions=curves.n(c);let keep=positions.map(value=>({value,vector:Object.fromEntries((c.functions??[]).map(f=>[f.target,curves.r(pack.curves?.[f.curveId],value)]))}));
@@ -223,7 +239,7 @@ export async function generateAnytime(input,runtime){
   });
   runPhase('search_tactical',.92,searchTactical);
   runPhase('calibration',1,calibrate);
-  d.ordinary_retained=ordinary.rows().length;d.candidate_count=complete.rows().length;d.ordinary_storage_peak=ordinary.peak;d.complete_storage_peak=complete.peak;d.stat_reuse=shared?.getStats()??{supported:false};d.branch_scoring=branch?.getStats()??{supported:false};d.elapsed_ms=performance.now()-sliceStart;reports.push(d);
+  d.ordinary_retained=ordinary.rows().length;d.candidate_count=complete.rows().length;d.ordinary_storage_peak=ordinary.peak;d.complete_storage_peak=complete.peak;d.stat_reuse=shared?.getStats()??{supported:false};d.branch_scoring=branch?.getStats()??{supported:false};d.choice_groups=groups.getStats();d.elapsed_ms=performance.now()-sliceStart;reports.push(d);
   const rows=complete.rows(),strongest=rows[0],publish=(row,label,target=null)=>{
    if(!row){results.push({label,budget,status:'not_found',reason:'No feasible build found within the search budget. Infeasibility has not been proven.'});return;}
    const {build,key,...rest}=row,path=timedRecoil(pack,build,row.tunes,r,modules);
