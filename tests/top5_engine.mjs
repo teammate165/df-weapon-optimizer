@@ -21,6 +21,9 @@ try{
   assert.equal(result.attachment_gate.retained,Math.ceil(result.attachment_gate.screened*.05));
   assert.equal(result.attachment_gate.global_optimality,false);
   assert.match(result.method,/Top 5%/);
+  assert(result.exploration.configurations>0);
+  assert.equal(result.exploration.restarts,2);
+  assert.equal(result.exploration.global_optimality,false);
   const row=result.results.find(r=>r.status==='best_found');assert(row);
   assert.equal(emptyRisers(input.pack,curves.o(input.pack,row.config,'mp')).length,0);
   const replay=await executeModel({...input,action:'evaluate',request:{mode:'mp',config:row.config,tunes:row.tunes}},modules);

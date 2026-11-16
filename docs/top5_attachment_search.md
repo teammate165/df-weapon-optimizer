@@ -1,5 +1,10 @@
 # Shared top-5% attachment search
 
+The top-5% search is now the retained baseline. A subsequent shared
+[multi-start refinement](multistart_optimizer.md) checks all-slot replacements
+and alternative starting builds. The details below describe the baseline phase;
+the page now labels the combined search "Multi-start search / Best found."
+
 All current and future presets using `optimizer_engine.mjs` inherit the same
 attachment gate. No preset-specific opt-in or recoil-only condition exists.
 Preset objectives, normalization, weights and category selection are unchanged.

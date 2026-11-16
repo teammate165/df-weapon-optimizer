@@ -43,7 +43,7 @@ def build(destination):
             shutil.copyfile(source, target)
     app = destination / 'app.js'
     text = app.read_text('utf-8')
-    start = text.index('async function api(action,payload){')
+    start = text.index('async function api(')
     end = text.index('\n', start)
     text = text[:start] + "const api=createStaticClient();" + text[end:]
     text = "import {createStaticClient} from './static-client.js';\n" + text
@@ -62,7 +62,7 @@ def build(destination):
     style += '\n.default-slot-icon,.slot-tile.active .default-slot-icon{background-color:transparent;opacity:.8}\n'
     css.write_text(style, 'utf-8')
     (destination / 'assets/slot-icons.js').write_text(icons.replace('"dfttk-slot-icons.webp"', json.dumps(atlas)), 'utf-8')
-    modules = ['builder_model', 'builder_stat_response', 'optimizer_engine', 'optimizer_mounts', 'optimizer_policy', 'optimizer_presets', 'optimizer_selection', 'attachment_gate', 'timed_recoil', 'horizontal_speed']
+    modules = ['builder_model', 'builder_stat_response', 'optimizer_engine', 'optimizer_mounts', 'optimizer_policy', 'optimizer_presets', 'optimizer_selection', 'attachment_gate', 'optimizer_exploration', 'timed_recoil', 'horizontal_speed']
     (destination / 'model').mkdir(exist_ok=True)
     for name in modules:
         shutil.copyfile(ROOT / f'tools/{name}.mjs', destination / f'model/{name}.mjs')
@@ -89,9 +89,9 @@ External assets may change or become unavailable. These assets belong to their
 respective owners. This is an independent, unofficial project.
 
 Source model: dfttk snapshot `20261108-an94-bd-shop.1`. Global/Garena validation,
-prices and translations remain provisional. All presets use top-5% default-tuned
-attachment screening followed by coordinate calibration, without an optimality
-guarantee. Lowest Recoil uses the experimental 40/30/30 proxy.
+prices and translations remain provisional. All presets retain a top-5% baseline,
+then explore all-slot replacements and multiple starting builds, without an
+optimality guarantee. Lowest Recoil uses the experimental 40/30/30 proxy.
 Saved builds stay in this browser's cookies; JSON export provides a backup.
 
 Published with GitHub Actions to GitHub Pages. Local preview:

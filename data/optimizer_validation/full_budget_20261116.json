@@ -1,0 +1,3621 @@
+{
+  "date": "2026-11-16",
+  "preset": "Lowest Recoil",
+  "production_passes": 12,
+  "operations_attachment_budget": 5000000,
+  "detonation_budget": "Each weapon original gunsmithLimit",
+  "scope": "Every legal selectable slot, compatible priced attachments, legal calibration; unlocked, no stat floors. Laser ON at most once; bipod deployment OFF. Compare Max only.",
+  "production_global_optimality_disproved": true,
+  "counterexamples": 8,
+  "tested_cases": 10,
+  "guarded_exact_matches": 2,
+  "challenger_is_global_optimum": false,
+  "cases": [
+    {
+      "weapon_id": "18020000002",
+      "name": "P90 Submachine Gun",
+      "mode": "bd",
+      "budget": 800,
+      "provenance": {
+        "data_version": "20261108-an94-bd-shop.1",
+        "runtime_version": "09f820e0d3ada199",
+        "price_sources": [
+          {
+            "type": "weapon",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（本体裸枪当日价）"
+          },
+          {
+            "type": "part",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（配件当日价）"
+          }
+        ],
+        "model_policies": {
+          "laser_bonus_stacking": "strongest_per_stat_v1"
+        },
+        "global_verified": false,
+        "runtime-source_sha256": {
+          "curves.mjs": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1",
+          "kernel.mjs": "fdb5afdc78af20d5d4c88eb2af17dfd6a20652b18677cc8d5824edb42b5a9d09",
+          "attributes.mjs": "6cbf4c9f3f065552987922bed7b7fd6df94b4679c74d8d84ea32e807ecea1850",
+          "laser_effects.mjs": "1898c81a9ea892c3f4cac806595ab0884d67209e9286abb5fa6462b5e6d4692c"
+        },
+        "runtime-scorer_sha256": {
+          "optimizer_presets.mjs": "12a2e75f0f98216efcafeb010bffe66356023d688f90f0536bdd9b486722e0cb",
+          "optimizer_policy.mjs": "3d1186fbdd28ea2c40211bb96055ffc10fd956ccf665d6279eaa3e2324358f64",
+          "horizontal_speed.mjs": "a0e17e2f9be4aba82fd4d93dcf1baa4941aff5ae09dcff0f45c632d0089e1ef6",
+          "timed_recoil.mjs": "cc01d3a5695241b21ba7781e8868aeaf8a02a87944432321c82a3257b276ce52",
+          "attachment_gate.mjs": "87d2ae6fe9392df48201e5dcecff9b7c43a5949ee00a4235584306eee5de6623"
+        }
+      },
+      "production": {
+        "config": [
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "4/11",
+            "itemId": "13110000052"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13240000002"
+          },
+          {
+            "slotPath": "29",
+            "itemId": "13290000001"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000029"
+          },
+          {
+            "slotPath": "4/20",
+            "itemId": "13160000005"
+          }
+        ],
+        "tunes": {
+          "3": {
+            "authoring:part:13240000002:tune:thickness:0": 50,
+            "authoring:part:13240000002:tune:weight:1": 50
+          },
+          "29": {
+            "authoring:part:13290000001:tune:thickness:0": 50,
+            "authoring:part:13290000001:tune:weight:1": 50
+          }
+        },
+        "cost": 640,
+        "objectives": [
+          44.58779723494487,
+          90.67951229375711
+        ],
+        "components": {
+          "pattern_model": "ads-chart-speed-tier-v2",
+          "horizontal_distance": 0.46948,
+          "horizontal_span": 0.7861100000000001,
+          "vertical_excursion": 4.6906799999999995,
+          "horizontal_speed": 2.867803892215569,
+          "horizontal_multiplier": 1,
+          "horizontal_speed_window_ms": 200,
+          "horizontal_speed_start_ms": 133.6,
+          "horizontal_speed_end_ms": 333.6,
+          "pattern_shots": 20,
+          "pattern": 5.160159999999999,
+          "camera": 0.2303759687467423,
+          "kick": 0.9699525138892111,
+          "ads_seconds": 0.319,
+          "sprint_to_fire_seconds": 0.12011583401457776
+        },
+        "stats": {
+          "control": 63,
+          "handling": 60,
+          "stability": 57,
+          "accuracy": 72
+        }
+      },
+      "production_ms": 12641.982,
+      "pattern_model": "ads-chart-speed-tier-v2",
+      "challenger": {
+        "config": [
+          {
+            "slotPath": "4/11",
+            "itemId": "13110000052"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13240000002"
+          },
+          {
+            "slotPath": "29",
+            "itemId": "13290000001"
+          },
+          {
+            "slotPath": "2",
+            "itemId": "13020000472"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000042"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "4/19",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/20",
+            "itemId": "13320000001"
+          }
+        ],
+        "tunes": {
+          "2": {
+            "authoring:part:13020000472:tune:length:0": -10,
+            "authoring:part:13020000472:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13240000002:tune:thickness:0": 50,
+            "authoring:part:13240000002:tune:weight:1": 50
+          },
+          "29": {
+            "authoring:part:13290000001:tune:thickness:0": 50,
+            "authoring:part:13290000001:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000042:tune:weight:0": 20
+          }
+        },
+        "cost": 720,
+        "objectives": [
+          32.660529010656475,
+          160.19899567439995
+        ],
+        "components": {
+          "pattern_model": "ads-chart-speed-tier-v2",
+          "horizontal_distance": 0.37878,
+          "horizontal_span": 0.63424,
+          "vertical_excursion": 2.86336,
+          "horizontal_speed": 2.313794311377246,
+          "horizontal_multiplier": 1,
+          "horizontal_speed_window_ms": 200,
+          "horizontal_speed_start_ms": 133.6,
+          "horizontal_speed_end_ms": 333.6,
+          "pattern_shots": 20,
+          "pattern": 3.24214,
+          "camera": 0.13164341071242416,
+          "kick": 0.8415362655714844,
+          "ads_seconds": 0.5328,
+          "sprint_to_fire_seconds": 0.2268527359656
+        },
+        "stats": {
+          "control": 74,
+          "handling": 35,
+          "stability": 61,
+          "accuracy": 48
+        }
+      },
+      "comparison": -1,
+      "recoil_loss_reduction": 11.927268224288397,
+      "handling_loss_reduction": -69.51948338064284,
+      "challenger_ms": 17332.171,
+      "calls": 8231,
+      "distinct_configurations": 8229,
+      "restarts": 24,
+      "improvements": [
+        {
+          "phase": "restart_3:1",
+          "calls": 1642,
+          "builds": 1641,
+          "objectives": [
+            39.91176234048867,
+            151.99786956785476
+          ],
+          "cost": 560,
+          "ms": 15548.2438
+        },
+        {
+          "phase": "restart_3:2",
+          "calls": 1749,
+          "builds": 1748,
+          "objectives": [
+            32.99793078040399,
+            168.9922495484049
+          ],
+          "cost": 720,
+          "ms": 15816.360299999998
+        },
+        {
+          "phase": "restart_3:3",
+          "calls": 1860,
+          "builds": 1859,
+          "objectives": [
+            32.660529010656475,
+            168.9922495484049
+          ],
+          "cost": 720,
+          "ms": 16100.1773
+        },
+        {
+          "phase": "restart_3:4",
+          "calls": 1978,
+          "builds": 1977,
+          "objectives": [
+            32.660529010656475,
+            160.19899567439995
+          ],
+          "cost": 720,
+          "ms": 16382.974
+        }
+      ],
+      "global_proof": false,
+      "source_replay": true
+    },
+    {
+      "weapon_id": "18020000002",
+      "name": "P90 Submachine Gun",
+      "mode": "sol",
+      "budget": 5000000,
+      "provenance": {
+        "data_version": "20261108-an94-bd-shop.1",
+        "runtime_version": "09f820e0d3ada199",
+        "price_sources": [
+          {
+            "type": "weapon",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（本体裸枪当日价）"
+          },
+          {
+            "type": "part",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（配件当日价）"
+          }
+        ],
+        "model_policies": {
+          "laser_bonus_stacking": "strongest_per_stat_v1"
+        },
+        "global_verified": false,
+        "runtime-source_sha256": {
+          "curves.mjs": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1",
+          "kernel.mjs": "fdb5afdc78af20d5d4c88eb2af17dfd6a20652b18677cc8d5824edb42b5a9d09",
+          "attributes.mjs": "6cbf4c9f3f065552987922bed7b7fd6df94b4679c74d8d84ea32e807ecea1850",
+          "laser_effects.mjs": "1898c81a9ea892c3f4cac806595ab0884d67209e9286abb5fa6462b5e6d4692c"
+        },
+        "runtime-scorer_sha256": {
+          "optimizer_presets.mjs": "12a2e75f0f98216efcafeb010bffe66356023d688f90f0536bdd9b486722e0cb",
+          "optimizer_policy.mjs": "3d1186fbdd28ea2c40211bb96055ffc10fd956ccf665d6279eaa3e2324358f64",
+          "horizontal_speed.mjs": "a0e17e2f9be4aba82fd4d93dcf1baa4941aff5ae09dcff0f45c632d0089e1ef6",
+          "timed_recoil.mjs": "cc01d3a5695241b21ba7781e8868aeaf8a02a87944432321c82a3257b276ce52",
+          "attachment_gate.mjs": "87d2ae6fe9392df48201e5dcecff9b7c43a5949ee00a4235584306eee5de6623"
+        }
+      },
+      "production": {
+        "config": [
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "4/11",
+            "itemId": "13110000052"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13240000002"
+          },
+          {
+            "slotPath": "29",
+            "itemId": "13290000001"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000029"
+          },
+          {
+            "slotPath": "4/20",
+            "itemId": "13160000005"
+          }
+        ],
+        "tunes": {
+          "3": {
+            "authoring:part:13240000002:tune:thickness:0": 50,
+            "authoring:part:13240000002:tune:weight:1": 50
+          },
+          "29": {
+            "authoring:part:13290000001:tune:thickness:0": 50,
+            "authoring:part:13290000001:tune:weight:1": 50
+          }
+        },
+        "cost": 239940,
+        "objectives": [
+          44.58779723494487,
+          90.67951229375711
+        ],
+        "components": {
+          "pattern_model": "ads-chart-speed-tier-v2",
+          "horizontal_distance": 0.46948,
+          "horizontal_span": 0.7861100000000001,
+          "vertical_excursion": 4.6906799999999995,
+          "horizontal_speed": 2.867803892215569,
+          "horizontal_multiplier": 1,
+          "horizontal_speed_window_ms": 200,
+          "horizontal_speed_start_ms": 133.6,
+          "horizontal_speed_end_ms": 333.6,
+          "pattern_shots": 20,
+          "pattern": 5.160159999999999,
+          "camera": 0.2303759687467423,
+          "kick": 0.9699525138892111,
+          "ads_seconds": 0.319,
+          "sprint_to_fire_seconds": 0.12011583401457776
+        },
+        "stats": {
+          "control": 63,
+          "handling": 60,
+          "stability": 57,
+          "accuracy": 72
+        }
+      },
+      "production_ms": 22446.7368,
+      "pattern_model": "ads-chart-speed-tier-v2",
+      "challenger": {
+        "config": [
+          {
+            "slotPath": "3",
+            "itemId": "13240000002"
+          },
+          {
+            "slotPath": "29",
+            "itemId": "13290000001"
+          },
+          {
+            "slotPath": "2",
+            "itemId": "13020000472"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "4/19",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/11",
+            "itemId": "13110000052"
+          },
+          {
+            "slotPath": "4/20",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000042"
+          }
+        ],
+        "tunes": {
+          "2": {
+            "authoring:part:13020000472:tune:length:0": -10,
+            "authoring:part:13020000472:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13240000002:tune:thickness:0": 50,
+            "authoring:part:13240000002:tune:weight:1": 50
+          },
+          "29": {
+            "authoring:part:13290000001:tune:thickness:0": 50,
+            "authoring:part:13290000001:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000042:tune:weight:0": 20
+          }
+        },
+        "cost": 293171,
+        "objectives": [
+          32.660529010656475,
+          160.19899567439995
+        ],
+        "components": {
+          "pattern_model": "ads-chart-speed-tier-v2",
+          "horizontal_distance": 0.37878,
+          "horizontal_span": 0.63424,
+          "vertical_excursion": 2.86336,
+          "horizontal_speed": 2.313794311377246,
+          "horizontal_multiplier": 1,
+          "horizontal_speed_window_ms": 200,
+          "horizontal_speed_start_ms": 133.6,
+          "horizontal_speed_end_ms": 333.6,
+          "pattern_shots": 20,
+          "pattern": 3.24214,
+          "camera": 0.13164341071242416,
+          "kick": 0.8415362655714844,
+          "ads_seconds": 0.5328,
+          "sprint_to_fire_seconds": 0.2268527359656
+        },
+        "stats": {
+          "control": 74,
+          "handling": 35,
+          "stability": 61,
+          "accuracy": 48
+        }
+      },
+      "comparison": -1,
+      "recoil_loss_reduction": 11.927268224288397,
+      "handling_loss_reduction": -69.51948338064284,
+      "challenger_ms": 28237.5118,
+      "calls": 12540,
+      "distinct_configurations": 12538,
+      "restarts": 24,
+      "improvements": [
+        {
+          "phase": "restart_7:2",
+          "calls": 2843,
+          "builds": 2842,
+          "objectives": [
+            36.11468923789669,
+            115.94238746171605
+          ],
+          "cost": 485948,
+          "ms": 27669.2995
+        },
+        {
+          "phase": "restart_7:3",
+          "calls": 2949,
+          "builds": 2948,
+          "objectives": [
+            33.84668923789669,
+            108.07690718679362
+          ],
+          "cost": 328132,
+          "ms": 27938.812700000002
+        },
+        {
+          "phase": "restart_7:4",
+          "calls": 3024,
+          "builds": 3023,
+          "objectives": [
+            33.50057771600648,
+            108.07690718679362
+          ],
+          "cost": 333771,
+          "ms": 28136.7719
+        },
+        {
+          "phase": "restart_7:5",
+          "calls": 3153,
+          "builds": 3152,
+          "objectives": [
+            33.15935848042622,
+            133.94493128952303
+          ],
+          "cost": 307789,
+          "ms": 28459.4055
+        },
+        {
+          "phase": "restart_7:6",
+          "calls": 3280,
+          "builds": 3279,
+          "objectives": [
+            33.15935848042622,
+            127.85283516525095
+          ],
+          "cost": 284458,
+          "ms": 28773.5838
+        },
+        {
+          "phase": "restart_12:0",
+          "calls": 6106,
+          "builds": 6105,
+          "objectives": [
+            32.660529010656475,
+            160.19899567439995
+          ],
+          "cost": 293171,
+          "ms": 35746.2189
+        }
+      ],
+      "global_proof": false,
+      "source_replay": true
+    },
+    {
+      "weapon_id": "18020000003",
+      "name": "Vector Submachine Gun",
+      "mode": "bd",
+      "budget": 2000,
+      "provenance": {
+        "data_version": "20261108-an94-bd-shop.1",
+        "runtime_version": "09f820e0d3ada199",
+        "price_sources": [
+          {
+            "type": "weapon",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（本体裸枪当日价）"
+          },
+          {
+            "type": "part",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（配件当日价）"
+          }
+        ],
+        "model_policies": {
+          "laser_bonus_stacking": "strongest_per_stat_v1"
+        },
+        "global_verified": false,
+        "runtime-source_sha256": {
+          "curves.mjs": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1",
+          "kernel.mjs": "fdb5afdc78af20d5d4c88eb2af17dfd6a20652b18677cc8d5824edb42b5a9d09",
+          "attributes.mjs": "6cbf4c9f3f065552987922bed7b7fd6df94b4679c74d8d84ea32e807ecea1850",
+          "laser_effects.mjs": "1898c81a9ea892c3f4cac806595ab0884d67209e9286abb5fa6462b5e6d4692c"
+        },
+        "runtime-scorer_sha256": {
+          "optimizer_presets.mjs": "12a2e75f0f98216efcafeb010bffe66356023d688f90f0536bdd9b486722e0cb",
+          "optimizer_policy.mjs": "3d1186fbdd28ea2c40211bb96055ffc10fd956ccf665d6279eaa3e2324358f64",
+          "horizontal_speed.mjs": "a0e17e2f9be4aba82fd4d93dcf1baa4941aff5ae09dcff0f45c632d0089e1ef6",
+          "timed_recoil.mjs": "cc01d3a5695241b21ba7781e8868aeaf8a02a87944432321c82a3257b276ce52",
+          "attachment_gate.mjs": "87d2ae6fe9392df48201e5dcecff9b7c43a5949ee00a4235584306eee5de6623"
+        }
+      },
+      "production": {
+        "config": [
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "8",
+            "itemId": "13140000035"
+          },
+          {
+            "slotPath": "11",
+            "itemId": "13110000052"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000110"
+          },
+          {
+            "slotPath": "17",
+            "itemId": "13160000005"
+          },
+          {
+            "slotPath": "5/44",
+            "itemId": "13340000002"
+          }
+        ],
+        "tunes": {
+          "3": {
+            "authoring:part:13040000110:tune:position:0": 98,
+            "authoring:part:13040000110:tune:weight:1": 50
+          }
+        },
+        "cost": 620,
+        "objectives": [
+          50.75083804959428,
+          113.0631399068322
+        ],
+        "components": {
+          "pattern_model": "legacy-multiplier-v1",
+          "pattern": 0.8003356866274436,
+          "camera": 0.30292454506031696,
+          "kick": 1.0223786551543166,
+          "ads_seconds": 0.283338999619184,
+          "sprint_to_fire_seconds": 0.11552698548864
+        },
+        "stats": {
+          "control": 52,
+          "handling": 63,
+          "stability": 52,
+          "accuracy": 72
+        }
+      },
+      "production_ms": 7672.696100000001,
+      "pattern_model": "legacy-multiplier-v1",
+      "challenger": {
+        "config": [
+          {
+            "slotPath": "8",
+            "itemId": "13140000035"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000110"
+          },
+          {
+            "slotPath": "2",
+            "itemId": "13020000421"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "11",
+            "itemId": "13110000052"
+          },
+          {
+            "slotPath": "4/17",
+            "itemId": "13320000020"
+          },
+          {
+            "slotPath": "4/32",
+            "itemId": "13320000020"
+          },
+          {
+            "slotPath": "4/34",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/35",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "17",
+            "itemId": "13160000005"
+          },
+          {
+            "slotPath": "5/44",
+            "itemId": "13340000002"
+          }
+        ],
+        "tunes": {
+          "2": {
+            "authoring:part:13020000421:tune:length:0": -10,
+            "authoring:part:13020000421:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000110:tune:position:0": 98,
+            "authoring:part:13040000110:tune:weight:1": 50
+          }
+        },
+        "cost": 860,
+        "objectives": [
+          40.096791155002464,
+          141.02082205719904
+        ],
+        "components": {
+          "pattern_model": "legacy-multiplier-v1",
+          "pattern": 0.6558908940129468,
+          "camera": 0.14255272708720798,
+          "kick": 0.8731069428637314,
+          "ads_seconds": 0.3453237138848,
+          "sprint_to_fire_seconds": 0.1478917527608237
+        },
+        "stats": {
+          "control": 65,
+          "handling": 52,
+          "stability": 58,
+          "accuracy": 60
+        }
+      },
+      "comparison": -1,
+      "recoil_loss_reduction": 10.654046894591815,
+      "handling_loss_reduction": -27.957682150366836,
+      "challenger_ms": 11944.3652,
+      "calls": 12592,
+      "distinct_configurations": 12590,
+      "restarts": 24,
+      "improvements": [
+        {
+          "phase": "restart_3:0",
+          "calls": 2122,
+          "builds": 2121,
+          "objectives": [
+            44.71618296314268,
+            175.15988179189685
+          ],
+          "cost": 1440,
+          "ms": 9037.328000000009
+        },
+        {
+          "phase": "restart_3:1",
+          "calls": 2269,
+          "builds": 2268,
+          "objectives": [
+            43.01518296314268,
+            195.19397300987177
+          ],
+          "cost": 1440,
+          "ms": 9166.680000000008
+        },
+        {
+          "phase": "restart_3:2",
+          "calls": 2380,
+          "builds": 2379,
+          "objectives": [
+            41.99067339970914,
+            199.72168146311063
+          ],
+          "cost": 1460,
+          "ms": 9294.956900000005
+        },
+        {
+          "phase": "restart_3:3",
+          "calls": 2538,
+          "builds": 2537,
+          "objectives": [
+            40.9741324683997,
+            204.42466092381036
+          ],
+          "cost": 1480,
+          "ms": 9460.053400000004
+        },
+        {
+          "phase": "restart_3:4",
+          "calls": 2699,
+          "builds": 2698,
+          "objectives": [
+            40.5320188324267,
+            204.42466092381036
+          ],
+          "cost": 1500,
+          "ms": 9632.041300000012
+        },
+        {
+          "phase": "restart_3:5",
+          "calls": 2861,
+          "builds": 2860,
+          "objectives": [
+            40.096791155002464,
+            204.42466092381036
+          ],
+          "cost": 1520,
+          "ms": 9795.98580000001
+        },
+        {
+          "phase": "restart_3:6",
+          "calls": 3024,
+          "builds": 3023,
+          "objectives": [
+            40.096791155002464,
+            158.00972941883694
+          ],
+          "cost": 1000,
+          "ms": 9960.857300000003
+        },
+        {
+          "phase": "restart_3:7",
+          "calls": 3179,
+          "builds": 3178,
+          "objectives": [
+            40.096791155002464,
+            144.17978373973887
+          ],
+          "cost": 840,
+          "ms": 10126.265
+        },
+        {
+          "phase": "restart_3:8",
+          "calls": 3337,
+          "builds": 3336,
+          "objectives": [
+            40.096791155002464,
+            141.02082205719904
+          ],
+          "cost": 860,
+          "ms": 10290.99990000001
+        }
+      ],
+      "global_proof": false,
+      "source_replay": true
+    },
+    {
+      "weapon_id": "18020000003",
+      "name": "Vector Submachine Gun",
+      "mode": "sol",
+      "budget": 5000000,
+      "provenance": {
+        "data_version": "20261108-an94-bd-shop.1",
+        "runtime_version": "09f820e0d3ada199",
+        "price_sources": [
+          {
+            "type": "weapon",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（本体裸枪当日价）"
+          },
+          {
+            "type": "part",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（配件当日价）"
+          }
+        ],
+        "model_policies": {
+          "laser_bonus_stacking": "strongest_per_stat_v1"
+        },
+        "global_verified": false,
+        "runtime-source_sha256": {
+          "curves.mjs": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1",
+          "kernel.mjs": "fdb5afdc78af20d5d4c88eb2af17dfd6a20652b18677cc8d5824edb42b5a9d09",
+          "attributes.mjs": "6cbf4c9f3f065552987922bed7b7fd6df94b4679c74d8d84ea32e807ecea1850",
+          "laser_effects.mjs": "1898c81a9ea892c3f4cac806595ab0884d67209e9286abb5fa6462b5e6d4692c"
+        },
+        "runtime-scorer_sha256": {
+          "optimizer_presets.mjs": "12a2e75f0f98216efcafeb010bffe66356023d688f90f0536bdd9b486722e0cb",
+          "optimizer_policy.mjs": "3d1186fbdd28ea2c40211bb96055ffc10fd956ccf665d6279eaa3e2324358f64",
+          "horizontal_speed.mjs": "a0e17e2f9be4aba82fd4d93dcf1baa4941aff5ae09dcff0f45c632d0089e1ef6",
+          "timed_recoil.mjs": "cc01d3a5695241b21ba7781e8868aeaf8a02a87944432321c82a3257b276ce52",
+          "attachment_gate.mjs": "87d2ae6fe9392df48201e5dcecff9b7c43a5949ee00a4235584306eee5de6623"
+        }
+      },
+      "production": {
+        "config": [
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "8",
+            "itemId": "13140000035"
+          },
+          {
+            "slotPath": "11",
+            "itemId": "13110000052"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000110"
+          },
+          {
+            "slotPath": "17",
+            "itemId": "13160000005"
+          },
+          {
+            "slotPath": "5/44",
+            "itemId": "13340000010"
+          }
+        ],
+        "tunes": {
+          "3": {
+            "authoring:part:13040000110:tune:position:0": 98,
+            "authoring:part:13040000110:tune:weight:1": 50
+          }
+        },
+        "cost": 238653,
+        "objectives": [
+          50.75083804959428,
+          113.0631399068322
+        ],
+        "components": {
+          "pattern_model": "legacy-multiplier-v1",
+          "pattern": 0.8003356866274436,
+          "camera": 0.30292454506031696,
+          "kick": 1.0223786551543166,
+          "ads_seconds": 0.283338999619184,
+          "sprint_to_fire_seconds": 0.11552698548864
+        },
+        "stats": {
+          "control": 52,
+          "handling": 63,
+          "stability": 52,
+          "accuracy": 72
+        }
+      },
+      "production_ms": 8753.072400000005,
+      "pattern_model": "legacy-multiplier-v1",
+      "challenger": {
+        "config": [
+          {
+            "slotPath": "8",
+            "itemId": "13140000035"
+          },
+          {
+            "slotPath": "11",
+            "itemId": "13110000052"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000110"
+          },
+          {
+            "slotPath": "2",
+            "itemId": "13020000419"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "4/17",
+            "itemId": "13320000020"
+          },
+          {
+            "slotPath": "4/19",
+            "itemId": "13320000020"
+          },
+          {
+            "slotPath": "4/20",
+            "itemId": "13320000020"
+          },
+          {
+            "slotPath": "17",
+            "itemId": "13160000005"
+          },
+          {
+            "slotPath": "5/44",
+            "itemId": "13340000010"
+          }
+        ],
+        "tunes": {
+          "2": {
+            "authoring:part:13020000419:tune:length:0": -10,
+            "authoring:part:13020000419:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000110:tune:position:0": 98,
+            "authoring:part:13040000110:tune:weight:1": 50
+          }
+        },
+        "cost": 292124,
+        "objectives": [
+          45.00793681406462,
+          126.11992106378142
+        ],
+        "components": {
+          "pattern_model": "legacy-multiplier-v1",
+          "pattern": 0.7262787375477452,
+          "camera": 0.22273863607376249,
+          "kick": 0.9305842024252938,
+          "ads_seconds": 0.3142092373973,
+          "sprint_to_fire_seconds": 0.12973825175872
+        },
+        "stats": {
+          "control": 58,
+          "handling": 57,
+          "stability": 55,
+          "accuracy": 72
+        }
+      },
+      "comparison": -1,
+      "recoil_loss_reduction": 5.742901235529658,
+      "handling_loss_reduction": -13.056781156949214,
+      "challenger_ms": 9506.275299999994,
+      "calls": 10285,
+      "distinct_configurations": 10283,
+      "restarts": 24,
+      "improvements": [
+        {
+          "phase": "restart_6:0",
+          "calls": 2622,
+          "builds": 2621,
+          "objectives": [
+            48.225896478459475,
+            144.17978373973887
+          ],
+          "cost": 354041,
+          "ms": 10459.813100000014
+        },
+        {
+          "phase": "restart_6:1",
+          "calls": 2773,
+          "builds": 2772,
+          "objectives": [
+            47.14220704974031,
+            150.6870563302159
+          ],
+          "cost": 354058,
+          "ms": 10607.800200000012
+        },
+        {
+          "phase": "restart_6:2",
+          "calls": 2930,
+          "builds": 2929,
+          "objectives": [
+            46.06973427387124,
+            158.00972941883694
+          ],
+          "cost": 359714,
+          "ms": 10763.5092
+        },
+        {
+          "phase": "restart_6:3",
+          "calls": 3086,
+          "builds": 3085,
+          "objectives": [
+            45.00793681406462,
+            166.19012804353937
+          ],
+          "cost": 365370,
+          "ms": 10918.309600000008
+        },
+        {
+          "phase": "restart_6:4",
+          "calls": 3241,
+          "builds": 3240,
+          "objectives": [
+            45.00793681406462,
+            126.11992106378142
+          ],
+          "cost": 292132,
+          "ms": 11040.890800000008
+        },
+        {
+          "phase": "restart_6:5",
+          "calls": 3390,
+          "builds": 3389,
+          "objectives": [
+            45.00793681406462,
+            126.11992106378142
+          ],
+          "cost": 292124,
+          "ms": 11191.671100000007
+        }
+      ],
+      "global_proof": false,
+      "source_replay": true
+    },
+    {
+      "weapon_id": "18050000007",
+      "name": "SR-25 Marksman Rifle",
+      "mode": "bd",
+      "budget": 2000,
+      "provenance": {
+        "data_version": "20261108-an94-bd-shop.1",
+        "runtime_version": "09f820e0d3ada199",
+        "price_sources": [
+          {
+            "type": "weapon",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（本体裸枪当日价）"
+          },
+          {
+            "type": "part",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（配件当日价）"
+          }
+        ],
+        "model_policies": {
+          "laser_bonus_stacking": "strongest_per_stat_v1"
+        },
+        "global_verified": false,
+        "runtime-source_sha256": {
+          "curves.mjs": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1",
+          "kernel.mjs": "fdb5afdc78af20d5d4c88eb2af17dfd6a20652b18677cc8d5824edb42b5a9d09",
+          "attributes.mjs": "6cbf4c9f3f065552987922bed7b7fd6df94b4679c74d8d84ea32e807ecea1850",
+          "laser_effects.mjs": "1898c81a9ea892c3f4cac806595ab0884d67209e9286abb5fa6462b5e6d4692c"
+        },
+        "runtime-scorer_sha256": {
+          "optimizer_presets.mjs": "12a2e75f0f98216efcafeb010bffe66356023d688f90f0536bdd9b486722e0cb",
+          "optimizer_policy.mjs": "3d1186fbdd28ea2c40211bb96055ffc10fd956ccf665d6279eaa3e2324358f64",
+          "horizontal_speed.mjs": "a0e17e2f9be4aba82fd4d93dcf1baa4941aff5ae09dcff0f45c632d0089e1ef6",
+          "timed_recoil.mjs": "cc01d3a5695241b21ba7781e8868aeaf8a02a87944432321c82a3257b276ce52",
+          "attachment_gate.mjs": "87d2ae6fe9392df48201e5dcecff9b7c43a5949ee00a4235584306eee5de6623"
+        }
+      },
+      "production": {
+        "config": [
+          {
+            "slotPath": "3",
+            "itemId": "13040000113"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000041"
+          },
+          {
+            "slotPath": "1",
+            "itemId": "13030000187"
+          },
+          {
+            "slotPath": "4/17",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/19",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/20",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/32",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/34",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/35",
+            "itemId": "13320000001"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000187:tune:thickness:0": -20,
+            "authoring:part:13030000187:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000113:tune:position:0": 98,
+            "authoring:part:13040000113:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000041:tune:weight:0": 20
+          }
+        },
+        "cost": 600,
+        "objectives": [
+          44.3715611803456,
+          140.0215561262669
+        ],
+        "components": {
+          "pattern_model": "legacy-multiplier-v1",
+          "pattern": 0.7657542593496789,
+          "camera": 0.14255272708720798,
+          "kick": 0.9281370472769633,
+          "ads_seconds": 0.4585734419365215,
+          "sprint_to_fire_seconds": 0.3226729151145244
+        },
+        "stats": {
+          "control": 81,
+          "handling": 39,
+          "stability": 75,
+          "accuracy": 40
+        }
+      },
+      "production_ms": 13937.506800000003,
+      "pattern_model": "legacy-multiplier-v1",
+      "challenger": {
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000187"
+          },
+          {
+            "slotPath": "4/32",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/34",
+            "itemId": "13320000020"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000110"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000035"
+          },
+          {
+            "slotPath": "2",
+            "itemId": "13020000396"
+          },
+          {
+            "slotPath": "4/35",
+            "itemId": "13320000020"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "4/20",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/17",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "11",
+            "itemId": "13110000093"
+          },
+          {
+            "slotPath": "4/19",
+            "itemId": "13320000001"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000187:tune:thickness:0": -20,
+            "authoring:part:13030000187:tune:weight:1": 50
+          },
+          "2": {
+            "authoring:part:13020000396:tune:length:0": -10,
+            "authoring:part:13020000396:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000110:tune:position:0": 98,
+            "authoring:part:13040000110:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000035:tune:position:1": 98
+          }
+        },
+        "cost": 920,
+        "objectives": [
+          37.629956882067006,
+          175.24231079116714
+        ],
+        "components": {
+          "pattern_model": "legacy-multiplier-v1",
+          "pattern": 0.5686751318901442,
+          "camera": 0.14255272708720798,
+          "kick": 0.8731069428637314,
+          "ads_seconds": 0.5479730787924552,
+          "sprint_to_fire_seconds": 0.4236104837558044
+        },
+        "stats": {
+          "control": 83,
+          "handling": 30,
+          "stability": 75,
+          "accuracy": 36
+        }
+      },
+      "comparison": -1,
+      "recoil_loss_reduction": 6.741604298278595,
+      "handling_loss_reduction": -35.220754664900255,
+      "challenger_ms": 33440.4437,
+      "calls": 25840,
+      "distinct_configurations": 25838,
+      "restarts": 24,
+      "improvements": [
+        {
+          "phase": "all_neighbors:0",
+          "calls": 201,
+          "builds": 200,
+          "objectives": [
+            44.31384939774807,
+            136.5024544822756
+          ],
+          "cost": 640,
+          "ms": 14180.223700000002
+        },
+        {
+          "phase": "all_neighbors:1",
+          "calls": 374,
+          "builds": 373,
+          "objectives": [
+            43.266632478098664,
+            147.48627373876454
+          ],
+          "cost": 680,
+          "ms": 14393.065600000002
+        },
+        {
+          "phase": "restart_0:0",
+          "calls": 2504,
+          "builds": 2503,
+          "objectives": [
+            42.955184077662516,
+            147.48627373876454
+          ],
+          "cost": 720,
+          "ms": 16692.970300000015
+        },
+        {
+          "phase": "restart_0:1",
+          "calls": 2695,
+          "builds": 2694,
+          "objectives": [
+            41.38435869818841,
+            168.55477154111122
+          ],
+          "cost": 720,
+          "ms": 16944.244800000015
+        },
+        {
+          "phase": "restart_0:2",
+          "calls": 2836,
+          "builds": 2835,
+          "objectives": [
+            41.23783901280046,
+            155.35270907762416
+          ],
+          "cost": 760,
+          "ms": 17137.74590000001
+        },
+        {
+          "phase": "restart_0:3",
+          "calls": 3011,
+          "builds": 3010,
+          "objectives": [
+            40.670839012800464,
+            163.91566431871823
+          ],
+          "cost": 760,
+          "ms": 17340.374899999995
+        },
+        {
+          "phase": "restart_0:4",
+          "calls": 3198,
+          "builds": 3197,
+          "objectives": [
+            40.10383901280046,
+            173.06108655193606
+          ],
+          "cost": 760,
+          "ms": 17553.764400000015
+        },
+        {
+          "phase": "restart_13:0",
+          "calls": 14153,
+          "builds": 14152,
+          "objectives": [
+            38.030472592871575,
+            161.5210486443377
+          ],
+          "cost": 1100,
+          "ms": 30327.43650000001
+        },
+        {
+          "phase": "restart_13:1",
+          "calls": 14326,
+          "builds": 14325,
+          "objectives": [
+            37.629956882067006,
+            201.65200435949387
+          ],
+          "cost": 920,
+          "ms": 30574.90729999999
+        },
+        {
+          "phase": "restart_13:2",
+          "calls": 14511,
+          "builds": 14510,
+          "objectives": [
+            37.629956882067006,
+            189.8160622032235
+          ],
+          "cost": 920,
+          "ms": 30835.997000000003
+        },
+        {
+          "phase": "restart_13:3",
+          "calls": 14653,
+          "builds": 14652,
+          "objectives": [
+            37.629956882067006,
+            180.02746481305581
+          ],
+          "cost": 920,
+          "ms": 31049.97450000001
+        },
+        {
+          "phase": "restart_20:1",
+          "calls": 22733,
+          "builds": 22732,
+          "objectives": [
+            37.629956882067006,
+            175.24231079116714
+          ],
+          "cost": 920,
+          "ms": 42986.270099999994
+        }
+      ],
+      "global_proof": false,
+      "source_replay": true
+    },
+    {
+      "weapon_id": "18050000007",
+      "name": "SR-25 Marksman Rifle",
+      "mode": "sol",
+      "budget": 5000000,
+      "provenance": {
+        "data_version": "20261108-an94-bd-shop.1",
+        "runtime_version": "09f820e0d3ada199",
+        "price_sources": [
+          {
+            "type": "weapon",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（本体裸枪当日价）"
+          },
+          {
+            "type": "part",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（配件当日价）"
+          }
+        ],
+        "model_policies": {
+          "laser_bonus_stacking": "strongest_per_stat_v1"
+        },
+        "global_verified": false,
+        "runtime-source_sha256": {
+          "curves.mjs": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1",
+          "kernel.mjs": "fdb5afdc78af20d5d4c88eb2af17dfd6a20652b18677cc8d5824edb42b5a9d09",
+          "attributes.mjs": "6cbf4c9f3f065552987922bed7b7fd6df94b4679c74d8d84ea32e807ecea1850",
+          "laser_effects.mjs": "1898c81a9ea892c3f4cac806595ab0884d67209e9286abb5fa6462b5e6d4692c"
+        },
+        "runtime-scorer_sha256": {
+          "optimizer_presets.mjs": "12a2e75f0f98216efcafeb010bffe66356023d688f90f0536bdd9b486722e0cb",
+          "optimizer_policy.mjs": "3d1186fbdd28ea2c40211bb96055ffc10fd956ccf665d6279eaa3e2324358f64",
+          "horizontal_speed.mjs": "a0e17e2f9be4aba82fd4d93dcf1baa4941aff5ae09dcff0f45c632d0089e1ef6",
+          "timed_recoil.mjs": "cc01d3a5695241b21ba7781e8868aeaf8a02a87944432321c82a3257b276ce52",
+          "attachment_gate.mjs": "87d2ae6fe9392df48201e5dcecff9b7c43a5949ee00a4235584306eee5de6623"
+        }
+      },
+      "production": {
+        "config": [
+          {
+            "slotPath": "3",
+            "itemId": "13040000113"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000041"
+          },
+          {
+            "slotPath": "1",
+            "itemId": "13030000187"
+          },
+          {
+            "slotPath": "4/17",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/19",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/20",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/32",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/34",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/35",
+            "itemId": "13320000001"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000187:tune:thickness:0": -20,
+            "authoring:part:13030000187:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000113:tune:position:0": 98,
+            "authoring:part:13040000113:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000041:tune:weight:0": 20
+          }
+        },
+        "cost": 167854,
+        "objectives": [
+          44.3715611803456,
+          140.0215561262669
+        ],
+        "components": {
+          "pattern_model": "legacy-multiplier-v1",
+          "pattern": 0.7657542593496789,
+          "camera": 0.14255272708720798,
+          "kick": 0.9281370472769633,
+          "ads_seconds": 0.4585734419365215,
+          "sprint_to_fire_seconds": 0.3226729151145244
+        },
+        "stats": {
+          "control": 81,
+          "handling": 39,
+          "stability": 75,
+          "accuracy": 40
+        }
+      },
+      "production_ms": 19427.67910000001,
+      "pattern_model": "legacy-multiplier-v1",
+      "challenger": {
+        "config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000396"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000110"
+          },
+          {
+            "slotPath": "11",
+            "itemId": "13110000093"
+          },
+          {
+            "slotPath": "4",
+            "itemId": "13050000178"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000035"
+          },
+          {
+            "slotPath": "1",
+            "itemId": "13030000187"
+          },
+          {
+            "slotPath": "4/17",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/19",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/20",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/32",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/34",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/35",
+            "itemId": "13320000001"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000187:tune:thickness:0": -20,
+            "authoring:part:13030000187:tune:weight:1": 50
+          },
+          "2": {
+            "authoring:part:13020000396:tune:length:0": -10,
+            "authoring:part:13020000396:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000110:tune:position:0": 98,
+            "authoring:part:13040000110:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000035:tune:position:1": 98
+          }
+        },
+        "cost": 420898,
+        "objectives": [
+          37.629956882067006,
+          149.06511160383204
+        ],
+        "components": {
+          "pattern_model": "legacy-multiplier-v1",
+          "pattern": 0.5686751318901442,
+          "camera": 0.14255272708720798,
+          "kick": 0.8731069428637314,
+          "ads_seconds": 0.47680124505497246,
+          "sprint_to_fire_seconds": 0.3521924911644444
+        },
+        "stats": {
+          "control": 83,
+          "handling": 36,
+          "stability": 75,
+          "accuracy": 36
+        }
+      },
+      "comparison": -1,
+      "recoil_loss_reduction": 6.741604298278595,
+      "handling_loss_reduction": -9.04355547756515,
+      "challenger_ms": 34662.29000000001,
+      "calls": 25025,
+      "distinct_configurations": 25023,
+      "restarts": 24,
+      "improvements": [
+        {
+          "phase": "all_neighbors:0",
+          "calls": 201,
+          "builds": 200,
+          "objectives": [
+            44.31384939774807,
+            136.5024544822756
+          ],
+          "cost": 186874,
+          "ms": 19677.893100000016
+        },
+        {
+          "phase": "all_neighbors:1",
+          "calls": 374,
+          "builds": 373,
+          "objectives": [
+            43.266632478098664,
+            147.48627373876454
+          ],
+          "cost": 210871,
+          "ms": 19891.608000000007
+        },
+        {
+          "phase": "restart_3:1",
+          "calls": 3574,
+          "builds": 3573,
+          "objectives": [
+            42.54267173824115,
+            160.6134092523668
+          ],
+          "cost": 353188,
+          "ms": 23575.621200000023
+        },
+        {
+          "phase": "restart_3:2",
+          "calls": 3692,
+          "builds": 3691,
+          "objectives": [
+            42.07021090867645,
+            156.38902193479635
+          ],
+          "cost": 319245,
+          "ms": 23751.93670000002
+        },
+        {
+          "phase": "restart_3:3",
+          "calls": 3855,
+          "builds": 3854,
+          "objectives": [
+            41.6064566941913,
+            160.6134092523668
+          ],
+          "cost": 319253,
+          "ms": 23984.17080000002
+        },
+        {
+          "phase": "restart_4:0",
+          "calls": 4197,
+          "builds": 4196,
+          "objectives": [
+            41.520205499183696,
+            156.26710277512902
+          ],
+          "cost": 311971,
+          "ms": 24469.62520000001
+        },
+        {
+          "phase": "restart_4:1",
+          "calls": 4350,
+          "builds": 4349,
+          "objectives": [
+            40.953205499183696,
+            164.87351058847045
+          ],
+          "cost": 311988,
+          "ms": 24666.83780000001
+        },
+        {
+          "phase": "restart_4:2",
+          "calls": 4515,
+          "builds": 4514,
+          "objectives": [
+            40.38620549918369,
+            174.06477005321125
+          ],
+          "cost": 312005,
+          "ms": 24882.419200000004
+        },
+        {
+          "phase": "restart_5:0",
+          "calls": 4881,
+          "builds": 4880,
+          "objectives": [
+            39.69693209403392,
+            165.97263427130338
+          ],
+          "cost": 379697,
+          "ms": 25332.178800000023
+        },
+        {
+          "phase": "restart_5:1",
+          "calls": 5069,
+          "builds": 5068,
+          "objectives": [
+            39.26971901280046,
+            161.5210486443377
+          ],
+          "cost": 345754,
+          "ms": 25589.549600000028
+        },
+        {
+          "phase": "restart_6:1",
+          "calls": 5634,
+          "builds": 5633,
+          "objectives": [
+            38.030472592871575,
+            194.78656870049315
+          ],
+          "cost": 349238,
+          "ms": 26398.725800000015
+        },
+        {
+          "phase": "restart_6:2",
+          "calls": 5821,
+          "builds": 5820,
+          "objectives": [
+            37.629956882067006,
+            194.78656870049315
+          ],
+          "cost": 354877,
+          "ms": 26660.127600000007
+        },
+        {
+          "phase": "restart_6:3",
+          "calls": 6016,
+          "builds": 6015,
+          "objectives": [
+            37.629956882067006,
+            175.24231079116714
+          ],
+          "cost": 371789,
+          "ms": 26933.3891
+        },
+        {
+          "phase": "restart_11:11",
+          "calls": 13227,
+          "builds": 13226,
+          "objectives": [
+            37.629956882067006,
+            149.06511160383204
+          ],
+          "cost": 420898,
+          "ms": 38149.8701
+        }
+      ],
+      "global_proof": false,
+      "source_replay": true
+    },
+    {
+      "weapon_id": "18040000002",
+      "name": "M249 Light Machine Gun",
+      "mode": "bd",
+      "budget": 800,
+      "provenance": {
+        "data_version": "20261108-an94-bd-shop.1",
+        "runtime_version": "09f820e0d3ada199",
+        "price_sources": [
+          {
+            "type": "weapon",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（本体裸枪当日价）"
+          },
+          {
+            "type": "part",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（配件当日价）"
+          }
+        ],
+        "model_policies": {
+          "laser_bonus_stacking": "strongest_per_stat_v1"
+        },
+        "global_verified": false,
+        "runtime-source_sha256": {
+          "curves.mjs": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1",
+          "kernel.mjs": "fdb5afdc78af20d5d4c88eb2af17dfd6a20652b18677cc8d5824edb42b5a9d09",
+          "attributes.mjs": "6cbf4c9f3f065552987922bed7b7fd6df94b4679c74d8d84ea32e807ecea1850",
+          "laser_effects.mjs": "1898c81a9ea892c3f4cac806595ab0884d67209e9286abb5fa6462b5e6d4692c"
+        },
+        "runtime-scorer_sha256": {
+          "optimizer_presets.mjs": "12a2e75f0f98216efcafeb010bffe66356023d688f90f0536bdd9b486722e0cb",
+          "optimizer_policy.mjs": "3d1186fbdd28ea2c40211bb96055ffc10fd956ccf665d6279eaa3e2324358f64",
+          "horizontal_speed.mjs": "a0e17e2f9be4aba82fd4d93dcf1baa4941aff5ae09dcff0f45c632d0089e1ef6",
+          "timed_recoil.mjs": "cc01d3a5695241b21ba7781e8868aeaf8a02a87944432321c82a3257b276ce52",
+          "attachment_gate.mjs": "87d2ae6fe9392df48201e5dcecff9b7c43a5949ee00a4235584306eee5de6623"
+        }
+      },
+      "production": {
+        "config": [
+          {
+            "slotPath": "3",
+            "itemId": "13040000110"
+          },
+          {
+            "slotPath": "1",
+            "itemId": "13030000198"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000035"
+          },
+          {
+            "slotPath": "5",
+            "itemId": "13120000342"
+          },
+          {
+            "slotPath": "11",
+            "itemId": "13110000099"
+          },
+          {
+            "slotPath": "4/19",
+            "itemId": "13160000005"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000198:tune:thickness:0": -20,
+            "authoring:part:13030000198:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000110:tune:position:0": 98,
+            "authoring:part:13040000110:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000035:tune:position:1": 100
+          }
+        },
+        "cost": 800,
+        "objectives": [
+          22.571448676685783,
+          92.17510023498838
+        ],
+        "components": {
+          "pattern_model": "ads-chart-speed-tier-v2",
+          "horizontal_distance": 1.33032,
+          "horizontal_span": 1.4918399999999998,
+          "vertical_excursion": 3.8095599999999994,
+          "horizontal_speed": 2.4210005007153077,
+          "horizontal_multiplier": 1,
+          "horizontal_speed_window_ms": 200,
+          "horizontal_speed_start_ms": 838.7999999999998,
+          "horizontal_speed_end_ms": 1038.7999999999997,
+          "pattern_shots": 20,
+          "pattern": 5.13988,
+          "camera": 0.10834007258627806,
+          "kick": 0.7770077779172806,
+          "ads_seconds": 0.3668,
+          "sprint_to_fire_seconds": 0.21167075114399997
+        },
+        "stats": {
+          "control": 58,
+          "handling": 50,
+          "stability": 71,
+          "accuracy": 68
+        }
+      },
+      "production_ms": 25399.492000000027,
+      "pattern_model": "ads-chart-speed-tier-v2",
+      "challenger": {
+        "config": [
+          {
+            "slotPath": "3",
+            "itemId": "13040000110"
+          },
+          {
+            "slotPath": "2",
+            "itemId": "13020000239"
+          },
+          {
+            "slotPath": "5",
+            "itemId": "13120000342"
+          },
+          {
+            "slotPath": "1",
+            "itemId": "13030000198"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000042"
+          },
+          {
+            "slotPath": "5/44",
+            "itemId": "13340000001"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000198:tune:thickness:0": -20,
+            "authoring:part:13030000198:tune:weight:1": 50
+          },
+          "2": {
+            "authoring:part:13020000239:tune:length:0": -10,
+            "authoring:part:13020000239:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000110:tune:position:0": 98,
+            "authoring:part:13040000110:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000042:tune:weight:0": 20
+          }
+        },
+        "cost": 780,
+        "objectives": [
+          19.56325885870424,
+          125.36855696608389
+        ],
+        "components": {
+          "pattern_model": "ads-chart-speed-tier-v2",
+          "horizontal_distance": 1.51481,
+          "horizontal_span": 1.69873,
+          "vertical_excursion": 2.68535,
+          "horizontal_speed": 2.7566948497854082,
+          "horizontal_multiplier": 1,
+          "horizontal_speed_window_ms": 200,
+          "horizontal_speed_start_ms": 838.7999999999998,
+          "horizontal_speed_end_ms": 1038.7999999999997,
+          "pattern_shots": 20,
+          "pattern": 4.20016,
+          "camera": 0.10004899214144237,
+          "kick": 0.6885228293003144,
+          "ads_seconds": 0.48863999999999996,
+          "sprint_to_fire_seconds": 0.294859663088
+        },
+        "stats": {
+          "control": 67,
+          "handling": 35,
+          "stability": 74,
+          "accuracy": 36
+        }
+      },
+      "comparison": -1,
+      "recoil_loss_reduction": 3.008189817981542,
+      "handling_loss_reduction": -33.19345673109551,
+      "challenger_ms": 14581.8364,
+      "calls": 8068,
+      "distinct_configurations": 8066,
+      "restarts": 24,
+      "improvements": [
+        {
+          "phase": "restart_0:4",
+          "calls": 1564,
+          "builds": 1563,
+          "objectives": [
+            22.107558105439722,
+            93.91601924436192
+          ],
+          "cost": 800,
+          "ms": 27620.181100000016
+        },
+        {
+          "phase": "restart_7:1",
+          "calls": 3681,
+          "builds": 3680,
+          "objectives": [
+            21.683464854898148,
+            102.6970443068751
+          ],
+          "cost": 760,
+          "ms": 31493.320000000007
+        },
+        {
+          "phase": "restart_7:2",
+          "calls": 3786,
+          "builds": 3785,
+          "objectives": [
+            20.884229846344294,
+            104.73668335961523
+          ],
+          "cost": 800,
+          "ms": 31651.610800000024
+        },
+        {
+          "phase": "restart_9:0",
+          "calls": 3976,
+          "builds": 3975,
+          "objectives": [
+            19.56325885870424,
+            128.3639569472639
+          ],
+          "cost": 760,
+          "ms": 31964.155300000013
+        },
+        {
+          "phase": "restart_9:1",
+          "calls": 4085,
+          "builds": 4084,
+          "objectives": [
+            19.56325885870424,
+            125.36855696608389
+          ],
+          "cost": 780,
+          "ms": 32169.291800000006
+        }
+      ],
+      "global_proof": false,
+      "source_replay": true
+    },
+    {
+      "weapon_id": "18040000002",
+      "name": "M249 Light Machine Gun",
+      "mode": "sol",
+      "budget": 5000000,
+      "provenance": {
+        "data_version": "20261108-an94-bd-shop.1",
+        "runtime_version": "09f820e0d3ada199",
+        "price_sources": [
+          {
+            "type": "weapon",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（本体裸枪当日价）"
+          },
+          {
+            "type": "part",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（配件当日价）"
+          }
+        ],
+        "model_policies": {
+          "laser_bonus_stacking": "strongest_per_stat_v1"
+        },
+        "global_verified": false,
+        "runtime-source_sha256": {
+          "curves.mjs": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1",
+          "kernel.mjs": "fdb5afdc78af20d5d4c88eb2af17dfd6a20652b18677cc8d5824edb42b5a9d09",
+          "attributes.mjs": "6cbf4c9f3f065552987922bed7b7fd6df94b4679c74d8d84ea32e807ecea1850",
+          "laser_effects.mjs": "1898c81a9ea892c3f4cac806595ab0884d67209e9286abb5fa6462b5e6d4692c"
+        },
+        "runtime-scorer_sha256": {
+          "optimizer_presets.mjs": "12a2e75f0f98216efcafeb010bffe66356023d688f90f0536bdd9b486722e0cb",
+          "optimizer_policy.mjs": "3d1186fbdd28ea2c40211bb96055ffc10fd956ccf665d6279eaa3e2324358f64",
+          "horizontal_speed.mjs": "a0e17e2f9be4aba82fd4d93dcf1baa4941aff5ae09dcff0f45c632d0089e1ef6",
+          "timed_recoil.mjs": "cc01d3a5695241b21ba7781e8868aeaf8a02a87944432321c82a3257b276ce52",
+          "attachment_gate.mjs": "87d2ae6fe9392df48201e5dcecff9b7c43a5949ee00a4235584306eee5de6623"
+        }
+      },
+      "production": {
+        "config": [
+          {
+            "slotPath": "3",
+            "itemId": "13040000110"
+          },
+          {
+            "slotPath": "1",
+            "itemId": "13030000198"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000035"
+          },
+          {
+            "slotPath": "5",
+            "itemId": "13120000342"
+          },
+          {
+            "slotPath": "11",
+            "itemId": "13110000099"
+          },
+          {
+            "slotPath": "4/19",
+            "itemId": "13160000005"
+          },
+          {
+            "slotPath": "5/44",
+            "itemId": "13340000009"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000198:tune:thickness:0": -20,
+            "authoring:part:13030000198:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000110:tune:position:0": 98,
+            "authoring:part:13040000110:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000035:tune:position:1": 100
+          }
+        },
+        "cost": 287111,
+        "objectives": [
+          22.571448676685783,
+          89.13422533123307
+        ],
+        "components": {
+          "pattern_model": "ads-chart-speed-tier-v2",
+          "horizontal_distance": 1.33032,
+          "horizontal_span": 1.4918399999999998,
+          "vertical_excursion": 3.8095599999999994,
+          "horizontal_speed": 2.4210005007153077,
+          "horizontal_multiplier": 1,
+          "horizontal_speed_window_ms": 200,
+          "horizontal_speed_start_ms": 838.7999999999998,
+          "horizontal_speed_end_ms": 1038.7999999999997,
+          "pattern_shots": 20,
+          "pattern": 5.13988,
+          "camera": 0.10834007258627806,
+          "kick": 0.7770077779172806,
+          "ads_seconds": 0.3613147664804,
+          "sprint_to_fire_seconds": 0.20019305669096293
+        },
+        "stats": {
+          "control": 58,
+          "handling": 51,
+          "stability": 71,
+          "accuracy": 68
+        }
+      },
+      "production_ms": 28935.349200000026,
+      "pattern_model": "ads-chart-speed-tier-v2",
+      "challenger": {
+        "config": [
+          {
+            "slotPath": "4",
+            "itemId": "13050000186"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000042"
+          },
+          {
+            "slotPath": "4/19",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "4/20",
+            "itemId": "13320000001"
+          },
+          {
+            "slotPath": "2",
+            "itemId": "13020000239"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000110"
+          },
+          {
+            "slotPath": "1",
+            "itemId": "13030000198"
+          },
+          {
+            "slotPath": "5",
+            "itemId": "13120000036"
+          },
+          {
+            "slotPath": "5/44",
+            "itemId": "13340000009"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000198:tune:thickness:0": -20,
+            "authoring:part:13030000198:tune:weight:1": 50
+          },
+          "2": {
+            "authoring:part:13020000239:tune:length:0": -10,
+            "authoring:part:13020000239:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000110:tune:position:0": 98,
+            "authoring:part:13040000110:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000042:tune:weight:0": 20
+          }
+        },
+        "cost": 276652,
+        "objectives": [
+          18.449461730846295,
+          114.7643895105345
+        ],
+        "components": {
+          "pattern_model": "ads-chart-speed-tier-v2",
+          "horizontal_distance": 1.39207,
+          "horizontal_span": 1.5610899999999999,
+          "vertical_excursion": 2.4677700000000002,
+          "horizontal_speed": 2.533377324749642,
+          "horizontal_multiplier": 1,
+          "horizontal_speed_window_ms": 200,
+          "horizontal_speed_start_ms": 838.7999999999998,
+          "horizontal_speed_end_ms": 1038.7999999999997,
+          "pattern_shots": 20,
+          "pattern": 3.85984,
+          "camera": 0.10004899214144237,
+          "kick": 0.6510805002144966,
+          "ads_seconds": 0.4454463395910104,
+          "sprint_to_fire_seconds": 0.27118469643496296
+        },
+        "stats": {
+          "control": 73,
+          "handling": 39,
+          "stability": 72,
+          "accuracy": 36
+        }
+      },
+      "comparison": -1,
+      "recoil_loss_reduction": 4.121986945839488,
+      "handling_loss_reduction": -25.63016417930143,
+      "challenger_ms": 36234.510299999965,
+      "calls": 19747,
+      "distinct_configurations": 19745,
+      "restarts": 24,
+      "improvements": [
+        {
+          "phase": "restart_1:1",
+          "calls": 1636,
+          "builds": 1635,
+          "objectives": [
+            21.073543136365984,
+            114.20502960221862
+          ],
+          "cost": 285922,
+          "ms": 31136.588499999983
+        },
+        {
+          "phase": "restart_1:2",
+          "calls": 1776,
+          "builds": 1775,
+          "objectives": [
+            20.86261367786847,
+            114.20502960221862
+          ],
+          "cost": 291561,
+          "ms": 31371.653900000005
+        },
+        {
+          "phase": "restart_1:3",
+          "calls": 1926,
+          "builds": 1925,
+          "objectives": [
+            20.655038118112028,
+            114.20502960221862
+          ],
+          "cost": 297200,
+          "ms": 31626.267900000006
+        },
+        {
+          "phase": "restart_1:4",
+          "calls": 2076,
+          "builds": 2075,
+          "objectives": [
+            20.655038118112028,
+            108.11340842985695
+          ],
+          "cost": 258894,
+          "ms": 31885.996200000023
+        },
+        {
+          "phase": "restart_1:5",
+          "calls": 2189,
+          "builds": 2188,
+          "objectives": [
+            20.655038118112028,
+            108.11340842985695
+          ],
+          "cost": 258886,
+          "ms": 32097.213699999993
+        },
+        {
+          "phase": "restart_7:1",
+          "calls": 8617,
+          "builds": 8616,
+          "objectives": [
+            19.371893348944358,
+            117.21193033614745
+          ],
+          "cost": 309266,
+          "ms": 43788.92420000004
+        },
+        {
+          "phase": "restart_7:2",
+          "calls": 8775,
+          "builds": 8774,
+          "objectives": [
+            18.449461730846295,
+            128.3639569472639
+          ],
+          "cost": 353600,
+          "ms": 44114.84090000004
+        },
+        {
+          "phase": "restart_7:3",
+          "calls": 8931,
+          "builds": 8930,
+          "objectives": [
+            18.449461730846295,
+            119.79898996586824
+          ],
+          "cost": 303322,
+          "ms": 44436.4528
+        },
+        {
+          "phase": "restart_7:4",
+          "calls": 9046,
+          "builds": 9045,
+          "objectives": [
+            18.449461730846295,
+            114.7643895105345
+          ],
+          "cost": 279991,
+          "ms": 44655.84030000001
+        },
+        {
+          "phase": "restart_15:2",
+          "calls": 15596,
+          "builds": 15595,
+          "objectives": [
+            18.449461730846295,
+            114.7643895105345
+          ],
+          "cost": 276652,
+          "ms": 57442.0264
+        }
+      ],
+      "global_proof": false,
+      "source_replay": true
+    },
+    {
+      "weapon_id": "18070000005",
+      "name": "G18",
+      "mode": "bd",
+      "budget": 200,
+      "provenance": {
+        "data_version": "20261108-an94-bd-shop.1",
+        "runtime_version": "09f820e0d3ada199",
+        "price_sources": [
+          {
+            "type": "weapon",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（本体裸枪当日价）"
+          },
+          {
+            "type": "part",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（配件当日价）"
+          }
+        ],
+        "model_policies": {
+          "laser_bonus_stacking": "strongest_per_stat_v1"
+        },
+        "global_verified": false,
+        "runtime-source_sha256": {
+          "curves.mjs": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1",
+          "kernel.mjs": "fdb5afdc78af20d5d4c88eb2af17dfd6a20652b18677cc8d5824edb42b5a9d09",
+          "attributes.mjs": "6cbf4c9f3f065552987922bed7b7fd6df94b4679c74d8d84ea32e807ecea1850",
+          "laser_effects.mjs": "1898c81a9ea892c3f4cac806595ab0884d67209e9286abb5fa6462b5e6d4692c"
+        },
+        "runtime-scorer_sha256": {
+          "optimizer_presets.mjs": "12a2e75f0f98216efcafeb010bffe66356023d688f90f0536bdd9b486722e0cb",
+          "optimizer_policy.mjs": "3d1186fbdd28ea2c40211bb96055ffc10fd956ccf665d6279eaa3e2324358f64",
+          "horizontal_speed.mjs": "a0e17e2f9be4aba82fd4d93dcf1baa4941aff5ae09dcff0f45c632d0089e1ef6",
+          "timed_recoil.mjs": "cc01d3a5695241b21ba7781e8868aeaf8a02a87944432321c82a3257b276ce52",
+          "attachment_gate.mjs": "87d2ae6fe9392df48201e5dcecff9b7c43a5949ee00a4235584306eee5de6623"
+        }
+      },
+      "production": {
+        "config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000456"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000193"
+          },
+          {
+            "slotPath": "1",
+            "itemId": "13030000128"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000128:tune:thickness:0": -20,
+            "authoring:part:13030000128:tune:weight:1": 50
+          },
+          "2": {
+            "authoring:part:13020000456:tune:length:0": -10,
+            "authoring:part:13020000456:tune:weight:1": 50
+          }
+        },
+        "cost": 200,
+        "objectives": [
+          69.10201827626494,
+          109.16778659126432
+        ],
+        "components": {
+          "pattern_model": "legacy-multiplier-v1",
+          "pattern": 0.9118568927549516,
+          "camera": 0.8164165603415943,
+          "kick": 1.2252746304400495,
+          "ads_seconds": 0.304477113408,
+          "sprint_to_fire_seconds": 0.08677910285918815
+        },
+        "stats": {
+          "control": 43,
+          "handling": 54,
+          "stability": 47,
+          "accuracy": 55
+        }
+      },
+      "production_ms": 1923.445400000026,
+      "pattern_model": "legacy-multiplier-v1",
+      "challenger": {
+        "config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000456"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000193"
+          },
+          {
+            "slotPath": "1",
+            "itemId": "13030000128"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000128:tune:thickness:0": -20,
+            "authoring:part:13030000128:tune:weight:1": 50
+          },
+          "2": {
+            "authoring:part:13020000456:tune:length:0": -10,
+            "authoring:part:13020000456:tune:weight:1": 50
+          }
+        },
+        "cost": 200,
+        "objectives": [
+          69.10201827626494,
+          109.16778659126432
+        ],
+        "components": {
+          "pattern_model": "legacy-multiplier-v1",
+          "pattern": 0.9118568927549516,
+          "camera": 0.8164165603415943,
+          "kick": 1.2252746304400495,
+          "ads_seconds": 0.304477113408,
+          "sprint_to_fire_seconds": 0.08677910285918815
+        },
+        "stats": {
+          "control": 43,
+          "handling": 54,
+          "stability": 47,
+          "accuracy": 55
+        }
+      },
+      "comparison": 0,
+      "recoil_loss_reduction": 0,
+      "handling_loss_reduction": 0,
+      "challenger_ms": 164.09700000000885,
+      "calls": 178,
+      "distinct_configurations": 176,
+      "restarts": 24,
+      "improvements": [],
+      "global_proof": false,
+      "source_replay": true
+    },
+    {
+      "weapon_id": "18070000005",
+      "name": "G18",
+      "mode": "sol",
+      "budget": 5000000,
+      "provenance": {
+        "data_version": "20261108-an94-bd-shop.1",
+        "runtime_version": "09f820e0d3ada199",
+        "price_sources": [
+          {
+            "type": "weapon",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（本体裸枪当日价）"
+          },
+          {
+            "type": "part",
+            "currency": "哈夫币",
+            "updated_at": "2026-11-11",
+            "source": "orzice 三角洲小涛查 · 战备页交易行实时价（配件当日价）"
+          }
+        ],
+        "model_policies": {
+          "laser_bonus_stacking": "strongest_per_stat_v1"
+        },
+        "global_verified": false,
+        "runtime-source_sha256": {
+          "curves.mjs": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1",
+          "kernel.mjs": "fdb5afdc78af20d5d4c88eb2af17dfd6a20652b18677cc8d5824edb42b5a9d09",
+          "attributes.mjs": "6cbf4c9f3f065552987922bed7b7fd6df94b4679c74d8d84ea32e807ecea1850",
+          "laser_effects.mjs": "1898c81a9ea892c3f4cac806595ab0884d67209e9286abb5fa6462b5e6d4692c"
+        },
+        "runtime-scorer_sha256": {
+          "optimizer_presets.mjs": "12a2e75f0f98216efcafeb010bffe66356023d688f90f0536bdd9b486722e0cb",
+          "optimizer_policy.mjs": "3d1186fbdd28ea2c40211bb96055ffc10fd956ccf665d6279eaa3e2324358f64",
+          "horizontal_speed.mjs": "a0e17e2f9be4aba82fd4d93dcf1baa4941aff5ae09dcff0f45c632d0089e1ef6",
+          "timed_recoil.mjs": "cc01d3a5695241b21ba7781e8868aeaf8a02a87944432321c82a3257b276ce52",
+          "attachment_gate.mjs": "87d2ae6fe9392df48201e5dcecff9b7c43a5949ee00a4235584306eee5de6623"
+        }
+      },
+      "production": {
+        "config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000456"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000172"
+          },
+          {
+            "slotPath": "1",
+            "itemId": "13030000129"
+          },
+          {
+            "slotPath": "18",
+            "itemId": "13160000020"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000129:tune:thickness:0": -20,
+            "authoring:part:13030000129:tune:weight:1": 50
+          },
+          "2": {
+            "authoring:part:13020000456:tune:length:0": -10,
+            "authoring:part:13020000456:tune:weight:1": 50
+          }
+        },
+        "cost": 181655,
+        "objectives": [
+          64.82422827732532,
+          92.67346380491605
+        ],
+        "components": {
+          "pattern_model": "legacy-multiplier-v1",
+          "pattern": 0.9225702882363249,
+          "camera": 0.6717514421272203,
+          "kick": 1.1539982668964455,
+          "ads_seconds": 0.25143632599794,
+          "sprint_to_fire_seconds": 0.07569876452105481
+        },
+        "stats": {
+          "control": 50,
+          "handling": 63,
+          "stability": 49,
+          "accuracy": 55
+        }
+      },
+      "production_ms": 3618.7476000000024,
+      "pattern_model": "legacy-multiplier-v1",
+      "challenger": {
+        "config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000456"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000172"
+          },
+          {
+            "slotPath": "1",
+            "itemId": "13030000129"
+          },
+          {
+            "slotPath": "18",
+            "itemId": "13160000020"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000129:tune:thickness:0": -20,
+            "authoring:part:13030000129:tune:weight:1": 50
+          },
+          "2": {
+            "authoring:part:13020000456:tune:length:0": -10,
+            "authoring:part:13020000456:tune:weight:1": 50
+          }
+        },
+        "cost": 181655,
+        "objectives": [
+          64.82422827732532,
+          92.67346380491605
+        ],
+        "components": {
+          "pattern_model": "legacy-multiplier-v1",
+          "pattern": 0.9225702882363249,
+          "camera": 0.6717514421272203,
+          "kick": 1.1539982668964455,
+          "ads_seconds": 0.25143632599794,
+          "sprint_to_fire_seconds": 0.07569876452105481
+        },
+        "stats": {
+          "control": 50,
+          "handling": 63,
+          "stability": 49,
+          "accuracy": 55
+        }
+      },
+      "comparison": 0,
+      "recoil_loss_reduction": 0,
+      "handling_loss_reduction": 0,
+      "challenger_ms": 721.8404999999912,
+      "calls": 861,
+      "distinct_configurations": 859,
+      "restarts": 24,
+      "improvements": [],
+      "global_proof": false,
+      "source_replay": true
+    }
+  ],
+  "exact_g18": {
+    "method": "Complete G18 attachment enumeration with per-control componentwise primary minima, then secondary minima. Guarded positive affine Mult_A targets; no main-stat/profile/fire-timing tuning; legacy objective only.",
+    "operations_budget": 5000000,
+    "provenance": {
+      "data_version": "20261108-an94-bd-shop.1",
+      "runtime_version": "09f820e0d3ada199",
+      "price_sources": [
+        {
+          "type": "weapon",
+          "currency": "哈夫币",
+          "updated_at": "2026-11-11",
+          "source": "orzice 三角洲小涛查 · 战备页交易行实时价（本体裸枪当日价）"
+        },
+        {
+          "type": "part",
+          "currency": "哈夫币",
+          "updated_at": "2026-11-11",
+          "source": "orzice 三角洲小涛查 · 战备页交易行实时价（配件当日价）"
+        }
+      ],
+      "model_policies": {
+        "laser_bonus_stacking": "strongest_per_stat_v1"
+      },
+      "global_verified": false,
+      "runtime-source_sha256": {
+        "curves.mjs": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1",
+        "kernel.mjs": "fdb5afdc78af20d5d4c88eb2af17dfd6a20652b18677cc8d5824edb42b5a9d09",
+        "attributes.mjs": "6cbf4c9f3f065552987922bed7b7fd6df94b4679c74d8d84ea32e807ecea1850",
+        "laser_effects.mjs": "1898c81a9ea892c3f4cac806595ab0884d67209e9286abb5fa6462b5e6d4692c"
+      },
+      "runtime-scorer_sha256": {
+        "optimizer_presets.mjs": "12a2e75f0f98216efcafeb010bffe66356023d688f90f0536bdd9b486722e0cb",
+        "optimizer_policy.mjs": "3d1186fbdd28ea2c40211bb96055ffc10fd956ccf665d6279eaa3e2324358f64",
+        "horizontal_speed.mjs": "a0e17e2f9be4aba82fd4d93dcf1baa4941aff5ae09dcff0f45c632d0089e1ef6",
+        "timed_recoil.mjs": "cc01d3a5695241b21ba7781e8868aeaf8a02a87944432321c82a3257b276ce52",
+        "attachment_gate.mjs": "87d2ae6fe9392df48201e5dcecff9b7c43a5949ee00a4235584306eee5de6623"
+      }
+    },
+    "results": [
+      {
+        "mode": "bd",
+        "budget": 200,
+        "attachment_configurations": 582,
+        "represented_joint_rows": "4166133103842",
+        "exact_ms": 152.2589,
+        "nodes": 900,
+        "best": {
+          "config": [
+            {
+              "slotPath": "1",
+              "itemId": "13030000128"
+            },
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            }
+          ],
+          "tunes": {
+            "1": {
+              "authoring:part:13030000128:tune:thickness:0": -20,
+              "authoring:part:13030000128:tune:weight:1": 50
+            },
+            "2": {
+              "authoring:part:13020000456:tune:length:0": -10,
+              "authoring:part:13020000456:tune:weight:1": 50
+            }
+          },
+          "cost": 200,
+          "objectives": [
+            69.10201827626494,
+            109.16778659126432
+          ],
+          "components": {
+            "pattern_model": "legacy-multiplier-v1",
+            "pattern": 0.9118568927549516,
+            "camera": 0.8164165603415943,
+            "kick": 1.2252746304400495,
+            "ads_seconds": 0.304477113408,
+            "sprint_to_fire_seconds": 0.08677910285918815
+          },
+          "stats": {
+            "control": 43,
+            "handling": 54,
+            "stability": 47,
+            "accuracy": 55
+          }
+        },
+        "production": {
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000193"
+            },
+            {
+              "slotPath": "1",
+              "itemId": "13030000128"
+            }
+          ],
+          "tunes": {
+            "1": {
+              "authoring:part:13030000128:tune:thickness:0": -20,
+              "authoring:part:13030000128:tune:weight:1": 50
+            },
+            "2": {
+              "authoring:part:13020000456:tune:length:0": -10,
+              "authoring:part:13020000456:tune:weight:1": 50
+            }
+          },
+          "cost": 200,
+          "objectives": [
+            69.10201827626494,
+            109.16778659126432
+          ],
+          "components": {
+            "pattern_model": "legacy-multiplier-v1",
+            "pattern": 0.9118568927549516,
+            "camera": 0.8164165603415943,
+            "kick": 1.2252746304400495,
+            "ads_seconds": 0.304477113408,
+            "sprint_to_fire_seconds": 0.08677910285918815
+          },
+          "stats": {
+            "control": 43,
+            "handling": 54,
+            "stability": 47,
+            "accuracy": 55
+          }
+        },
+        "comparison": 0,
+        "production_optimal_in_domain": true,
+        "controls_verified": [
+          {
+            "id": "authoring:part:13110000043:tune:eyeRelief:0",
+            "positions": 101,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeCameraTuneDistance"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000043:tune:zoom:1",
+            "positions": 11,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeZoomTuneRate"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000044:tune:eyeRelief:0",
+            "positions": 101,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeCameraTuneDistance"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000044:tune:zoom:1",
+            "positions": 11,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeZoomTuneRate"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000062:tune:eyeRelief:0",
+            "positions": 101,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeCameraTuneDistance"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000062:tune:zoom:1",
+            "positions": 11,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeZoomTuneRate"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000063:tune:eyeRelief:0",
+            "positions": 101,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeCameraTuneDistance"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000063:tune:zoom:1",
+            "positions": 11,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeZoomTuneRate"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000087:tune:eyeRelief:0",
+            "positions": 101,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeCameraTuneDistance"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000087:tune:zoom:1",
+            "positions": 11,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeZoomTuneRate"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000102:tune:eyeRelief:0",
+            "positions": 101,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeCameraTuneDistance"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000102:tune:zoom:1",
+            "positions": 11,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeZoomTuneRate"
+            ]
+          },
+          {
+            "id": "authoring:part:13020000456:tune:length:0",
+            "positions": 101,
+            "chosen": -10,
+            "primary_minima": {},
+            "secondary_minima": {
+              "GAiming_ADSTime": -0.03
+            },
+            "ignored_targets": [
+              "GBullet_Velocity"
+            ]
+          },
+          {
+            "id": "authoring:part:13020000456:tune:weight:1",
+            "positions": 101,
+            "chosen": 50,
+            "primary_minima": {
+              "GGunkickRandom": -0.04,
+              "GGunkickSpring": -0.04
+            },
+            "secondary_minima": {},
+            "ignored_targets": [
+              "GMovement_ADSSpeed"
+            ]
+          },
+          {
+            "id": "authoring:part:13030000127:tune:thickness:0",
+            "positions": 101,
+            "chosen": -20,
+            "primary_minima": {},
+            "secondary_minima": {
+              "GAiming_ADSTime": -0.04
+            },
+            "ignored_targets": [
+              "AimMoveGunSway"
+            ]
+          },
+          {
+            "id": "authoring:part:13030000127:tune:weight:1",
+            "positions": 101,
+            "chosen": 50,
+            "primary_minima": {
+              "GRecoil_H": -0.06,
+              "GRecoil_V": -0.06
+            },
+            "secondary_minima": {},
+            "ignored_targets": [
+              "GBreathScale"
+            ]
+          },
+          {
+            "id": "authoring:part:13030000128:tune:thickness:0",
+            "positions": 101,
+            "chosen": -20,
+            "primary_minima": {},
+            "secondary_minima": {
+              "GAiming_ADSTime": -0.04
+            },
+            "ignored_targets": [
+              "AimMoveGunSway"
+            ]
+          },
+          {
+            "id": "authoring:part:13030000128:tune:weight:1",
+            "positions": 101,
+            "chosen": 50,
+            "primary_minima": {
+              "GRecoil_H": -0.06,
+              "GRecoil_V": -0.06
+            },
+            "secondary_minima": {},
+            "ignored_targets": [
+              "GBreathScale"
+            ]
+          },
+          {
+            "id": "authoring:part:13030000129:tune:thickness:0",
+            "positions": 101,
+            "chosen": -20,
+            "primary_minima": {},
+            "secondary_minima": {
+              "GAiming_ADSTime": -0.04
+            },
+            "ignored_targets": [
+              "AimMoveGunSway"
+            ]
+          },
+          {
+            "id": "authoring:part:13030000129:tune:weight:1",
+            "positions": 101,
+            "chosen": 50,
+            "primary_minima": {
+              "GRecoil_H": -0.06,
+              "GRecoil_V": -0.06
+            },
+            "secondary_minima": {},
+            "ignored_targets": [
+              "GBreathScale"
+            ]
+          }
+        ],
+        "guarded_reduction_complete": true
+      },
+      {
+        "mode": "sol",
+        "budget": 5000000,
+        "attachment_configurations": 3360,
+        "represented_joint_rows": "124895047640160",
+        "exact_ms": 860.4094,
+        "nodes": 3973,
+        "best": {
+          "config": [
+            {
+              "slotPath": "1",
+              "itemId": "13030000129"
+            },
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "18",
+              "itemId": "13160000020"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000172"
+            }
+          ],
+          "tunes": {
+            "1": {
+              "authoring:part:13030000129:tune:thickness:0": -20,
+              "authoring:part:13030000129:tune:weight:1": 50
+            },
+            "2": {
+              "authoring:part:13020000456:tune:length:0": -10,
+              "authoring:part:13020000456:tune:weight:1": 50
+            }
+          },
+          "cost": 181655,
+          "objectives": [
+            64.82422827732532,
+            92.67346380491605
+          ],
+          "components": {
+            "pattern_model": "legacy-multiplier-v1",
+            "pattern": 0.9225702882363249,
+            "camera": 0.6717514421272203,
+            "kick": 1.1539982668964455,
+            "ads_seconds": 0.25143632599794,
+            "sprint_to_fire_seconds": 0.07569876452105481
+          },
+          "stats": {
+            "control": 50,
+            "handling": 63,
+            "stability": 49,
+            "accuracy": 55
+          }
+        },
+        "production": {
+          "config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000456"
+            },
+            {
+              "slotPath": "2/6",
+              "itemId": "13130000172"
+            },
+            {
+              "slotPath": "1",
+              "itemId": "13030000129"
+            },
+            {
+              "slotPath": "18",
+              "itemId": "13160000020"
+            }
+          ],
+          "tunes": {
+            "1": {
+              "authoring:part:13030000129:tune:thickness:0": -20,
+              "authoring:part:13030000129:tune:weight:1": 50
+            },
+            "2": {
+              "authoring:part:13020000456:tune:length:0": -10,
+              "authoring:part:13020000456:tune:weight:1": 50
+            }
+          },
+          "cost": 181655,
+          "objectives": [
+            64.82422827732532,
+            92.67346380491605
+          ],
+          "components": {
+            "pattern_model": "legacy-multiplier-v1",
+            "pattern": 0.9225702882363249,
+            "camera": 0.6717514421272203,
+            "kick": 1.1539982668964455,
+            "ads_seconds": 0.25143632599794,
+            "sprint_to_fire_seconds": 0.07569876452105481
+          },
+          "stats": {
+            "control": 50,
+            "handling": 63,
+            "stability": 49,
+            "accuracy": 55
+          }
+        },
+        "comparison": 0,
+        "production_optimal_in_domain": true,
+        "controls_verified": [
+          {
+            "id": "authoring:part:13110000043:tune:eyeRelief:0",
+            "positions": 101,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeCameraTuneDistance"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000043:tune:zoom:1",
+            "positions": 11,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeZoomTuneRate"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000044:tune:eyeRelief:0",
+            "positions": 101,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeCameraTuneDistance"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000044:tune:zoom:1",
+            "positions": 11,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeZoomTuneRate"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000062:tune:eyeRelief:0",
+            "positions": 101,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeCameraTuneDistance"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000062:tune:zoom:1",
+            "positions": 11,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeZoomTuneRate"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000063:tune:eyeRelief:0",
+            "positions": 101,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeCameraTuneDistance"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000063:tune:zoom:1",
+            "positions": 11,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeZoomTuneRate"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000087:tune:eyeRelief:0",
+            "positions": 101,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeCameraTuneDistance"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000087:tune:zoom:1",
+            "positions": 11,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeZoomTuneRate"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000102:tune:eyeRelief:0",
+            "positions": 101,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeCameraTuneDistance"
+            ]
+          },
+          {
+            "id": "authoring:part:13110000102:tune:zoom:1",
+            "positions": 11,
+            "chosen": 0,
+            "primary_minima": {},
+            "secondary_minima": {},
+            "ignored_targets": [
+              "ScopeZoomTuneRate"
+            ]
+          },
+          {
+            "id": "authoring:part:13020000456:tune:length:0",
+            "positions": 101,
+            "chosen": -10,
+            "primary_minima": {},
+            "secondary_minima": {
+              "GAiming_ADSTime": -0.03
+            },
+            "ignored_targets": [
+              "GBullet_Velocity"
+            ]
+          },
+          {
+            "id": "authoring:part:13020000456:tune:weight:1",
+            "positions": 101,
+            "chosen": 50,
+            "primary_minima": {
+              "GGunkickRandom": -0.04,
+              "GGunkickSpring": -0.04
+            },
+            "secondary_minima": {},
+            "ignored_targets": [
+              "GMovement_ADSSpeed"
+            ]
+          },
+          {
+            "id": "authoring:part:13030000127:tune:thickness:0",
+            "positions": 101,
+            "chosen": -20,
+            "primary_minima": {},
+            "secondary_minima": {
+              "GAiming_ADSTime": -0.04
+            },
+            "ignored_targets": [
+              "AimMoveGunSway"
+            ]
+          },
+          {
+            "id": "authoring:part:13030000127:tune:weight:1",
+            "positions": 101,
+            "chosen": 50,
+            "primary_minima": {
+              "GRecoil_H": -0.06,
+              "GRecoil_V": -0.06
+            },
+            "secondary_minima": {},
+            "ignored_targets": [
+              "GBreathScale"
+            ]
+          },
+          {
+            "id": "authoring:part:13030000128:tune:thickness:0",
+            "positions": 101,
+            "chosen": -20,
+            "primary_minima": {},
+            "secondary_minima": {
+              "GAiming_ADSTime": -0.04
+            },
+            "ignored_targets": [
+              "AimMoveGunSway"
+            ]
+          },
+          {
+            "id": "authoring:part:13030000128:tune:weight:1",
+            "positions": 101,
+            "chosen": 50,
+            "primary_minima": {
+              "GRecoil_H": -0.06,
+              "GRecoil_V": -0.06
+            },
+            "secondary_minima": {},
+            "ignored_targets": [
+              "GBreathScale"
+            ]
+          },
+          {
+            "id": "authoring:part:13030000129:tune:thickness:0",
+            "positions": 101,
+            "chosen": -20,
+            "primary_minima": {},
+            "secondary_minima": {
+              "GAiming_ADSTime": -0.04
+            },
+            "ignored_targets": [
+              "AimMoveGunSway"
+            ]
+          },
+          {
+            "id": "authoring:part:13030000129:tune:weight:1",
+            "positions": 101,
+            "chosen": 50,
+            "primary_minima": {
+              "GRecoil_H": -0.06,
+              "GRecoil_V": -0.06
+            },
+            "secondary_minima": {},
+            "ignored_targets": [
+              "GBreathScale"
+            ]
+          }
+        ],
+        "guarded_reduction_complete": true
+      }
+    ],
+    "hashes": {
+      "exact-g18.mjs": "50621cf7f9fd9489bb6495ef4b4bda48f93cbeb3462c706b1ace62290345ee10",
+      "18070000005.json": "7f73d52bf77892f3d23de2b81ae14817b183d3b6554b1150622d145587061aca",
+      "runtime-source/curves.mjs": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1",
+      "runtime-source/kernel.mjs": "fdb5afdc78af20d5d4c88eb2af17dfd6a20652b18677cc8d5824edb42b5a9d09",
+      "runtime-scorer/optimizer_presets.mjs": "12a2e75f0f98216efcafeb010bffe66356023d688f90f0536bdd9b486722e0cb",
+      "runtime-scorer/optimizer_engine.mjs": "7c565ae2c69b23c93c3eaee7d91ccf1b89d2948c6ad4e0a609636592e543d349"
+    }
+  },
+  "exact_verification": [
+    {
+      "mode": "bd",
+      "syntactic": 3360,
+      "selections": 582,
+      "joint_rows": "4166133103842",
+      "independent_cartesian_count_matches": true,
+      "certified_rows_replayed": 582,
+      "random_joint_tuning_checks": 11640,
+      "all_dominated": true
+    },
+    {
+      "mode": "sol",
+      "syntactic": 3360,
+      "selections": 3360,
+      "joint_rows": "124895047640160",
+      "independent_cartesian_count_matches": true,
+      "certified_rows_replayed": 3360,
+      "random_joint_tuning_checks": 67200,
+      "all_dominated": true
+    }
+  ],
+  "backend_verification": [
+    {
+      "report": "exact-g18-report.json",
+      "weapon_id": "18070000005",
+      "mode": "bd",
+      "method": "best",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "exact-g18-report.json",
+      "weapon_id": "18070000005",
+      "mode": "bd",
+      "method": "production",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "exact-g18-report.json",
+      "weapon_id": "18070000005",
+      "mode": "sol",
+      "method": "best",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "exact-g18-report.json",
+      "weapon_id": "18070000005",
+      "mode": "sol",
+      "method": "production",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18020000002",
+      "mode": "bd",
+      "method": "production",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18020000002",
+      "mode": "bd",
+      "method": "challenger",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18020000002",
+      "mode": "sol",
+      "method": "production",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18020000002",
+      "mode": "sol",
+      "method": "challenger",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18020000003",
+      "mode": "bd",
+      "method": "production",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18020000003",
+      "mode": "bd",
+      "method": "challenger",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18020000003",
+      "mode": "sol",
+      "method": "production",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18020000003",
+      "mode": "sol",
+      "method": "challenger",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18050000007",
+      "mode": "bd",
+      "method": "production",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18050000007",
+      "mode": "bd",
+      "method": "challenger",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18050000007",
+      "mode": "sol",
+      "method": "production",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18050000007",
+      "mode": "sol",
+      "method": "challenger",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18040000002",
+      "mode": "bd",
+      "method": "production",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18040000002",
+      "mode": "bd",
+      "method": "challenger",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18040000002",
+      "mode": "sol",
+      "method": "production",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18040000002",
+      "mode": "sol",
+      "method": "challenger",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18070000005",
+      "mode": "bd",
+      "method": "production",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18070000005",
+      "mode": "bd",
+      "method": "challenger",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18070000005",
+      "mode": "sol",
+      "method": "production",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    },
+    {
+      "report": "challenge-report.json",
+      "weapon_id": "18070000005",
+      "mode": "sol",
+      "method": "challenger",
+      "exact_cost_stats": true,
+      "tuning_legal": true
+    }
+  ],
+  "sha256": {
+    "18020000002.json": "fa46609d7e1f2da74d458c9c1a5e6836492ba789d075434d24ed45739970dcb3",
+    "18020000003.json": "5f7d4ab540d945f43f1ea611968769f285b035a6032b30db0a36332d052b8a85",
+    "18040000002.json": "23c8483087b2a654650de8c6e421300cd72b7d71380d355073b78557f2872948",
+    "18050000007.json": "9001295ec245d1f0c69cf998d01ff759d2e53ad282cd6841144ed0ad9e4cbb79",
+    "18070000005.json": "7f73d52bf77892f3d23de2b81ae14817b183d3b6554b1150622d145587061aca",
+    "challenge.mjs": "ef8ac3dd2b2c14c687510c5f0a28487acdfee71084ac3b720df3bcdd256db64b",
+    "exact-g18.mjs": "50621cf7f9fd9489bb6495ef4b4bda48f93cbeb3462c706b1ace62290345ee10",
+    "finalize.py": "dba6d65f6c1895a607a2ea425d00bea700dc1fee843b990174ebf8b8d771015c",
+    "prepare.py": "83afb9d027d19a36b85e3b083c50676348cc06b471aa89a6eabc95f8bc83bfde",
+    "replay.py": "0890e761dc5b99e5ccbd3d50b9e2c82936d473f3c9021877758f2be3f7878138",
+    "runtime-scorer/attachment_gate.mjs": "87d2ae6fe9392df48201e5dcecff9b7c43a5949ee00a4235584306eee5de6623",
+    "runtime-scorer/audit_horizontal_origin.mjs": "0e3ae2388bb37baf5c9e53f809b380fddacb43a1af5cb1a169070be0529543ca",
+    "runtime-scorer/base_horizontal_spans.mjs": "97201c1f1b118e0a5bc152804dd8472072b4e73d8f6079a09ff6a405686e5ce3",
+    "runtime-scorer/build_stat_curves.mjs": "7b7ef50f9ade8085ff585dd104c6526f166e2de4a22e8146ebfeeb0fa65961be",
+    "runtime-scorer/builder_bridge.mjs": "a38e23cc659a6d025098be0f9173277c079a46ea3937bc0f6668bcfb673392e5",
+    "runtime-scorer/builder_model.mjs": "98ca6281464628fc4a376391a8b8bcceb7ce030b29586187912e227771e2c8e2",
+    "runtime-scorer/builder_stat_response.mjs": "69843f65206b68ff5e707658d8f3dec374a7f08ceb111f6e2e4b060e798721b2",
+    "runtime-scorer/horizontal_recoil_reports.mjs": "0434746d461acd08b8a99bbba94ba9ff60a13dda47ec5e2ef86563b7ab24acd3",
+    "runtime-scorer/horizontal_speed.mjs": "a0e17e2f9be4aba82fd4d93dcf1baa4941aff5ae09dcff0f45c632d0089e1ef6",
+    "runtime-scorer/laser_effects.mjs": "1898c81a9ea892c3f4cac806595ab0884d67209e9286abb5fa6462b5e6d4692c",
+    "runtime-scorer/milp_finite_table.mjs": "4c7da933eb16afe027f686452de72dc49a59f56eddb81553116516f36784c79f",
+    "runtime-scorer/optimizer_engine.mjs": "7c565ae2c69b23c93c3eaee7d91ccf1b89d2948c6ad4e0a609636592e543d349",
+    "runtime-scorer/optimizer_mounts.mjs": "bc6776d80bf8688f634c87b1136682b0fec8212136c1c3d4e9ecc58cf684bdba",
+    "runtime-scorer/optimizer_policy.mjs": "3d1186fbdd28ea2c40211bb96055ffc10fd956ccf665d6279eaa3e2324358f64",
+    "runtime-scorer/optimizer_presets.mjs": "12a2e75f0f98216efcafeb010bffe66356023d688f90f0536bdd9b486722e0cb",
+    "runtime-scorer/optimizer_selection.mjs": "ba7f59e78ca3033f19933c84c20c04be2e1eda6d2c6f3bcefbbaf176fc5a63a5",
+    "runtime-scorer/recoil_generator.mjs": "ea63fca02cc7f4460b836f45c711615c5b32463b56173cfe6cc5489b829efac0",
+    "runtime-scorer/timed_recoil.mjs": "cc01d3a5695241b21ba7781e8868aeaf8a02a87944432321c82a3257b276ce52",
+    "runtime-source/attributes.mjs": "6cbf4c9f3f065552987922bed7b7fd6df94b4679c74d8d84ea32e807ecea1850",
+    "runtime-source/curves.mjs": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1",
+    "runtime-source/kernel.mjs": "fdb5afdc78af20d5d4c88eb2af17dfd6a20652b18677cc8d5824edb42b5a9d09",
+    "runtime-source/laser_effects.mjs": "1898c81a9ea892c3f4cac806595ab0884d67209e9286abb5fa6462b5e6d4692c",
+    "selection.json": "0bd543b59371bf24696d3c0fecb6f667e9a49765b99f2c9aa1fc45d437c8a0d3",
+    "verify-exact.mjs": "b78588ee298ede0df89bb11707c66ba6754abd2ebedd824a7015ba6516b9615a"
+  },
+  "source_revision": "1adee562dce6315f490eecef27fc33bc9782c187"
+}
