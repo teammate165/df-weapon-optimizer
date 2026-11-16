@@ -1,6 +1,6 @@
 # Equivalent sights, lasers and patch counts
 
-Implemented locally on 2026-11-17 after a fixed-work speedup was measured. This change has not been deployed. Both native optimizer presets use `tools/choice_groups.mjs`; manual selection still offers the concrete attachments, and every result reconstructs real source IDs.
+Implemented and published on 2026-11-17 after a fixed-work speedup was measured. Source `8ea7734`, generated `711f24b`, release `0a828ed25f230959`. [Successful Pages deployment](https://github.com/teammate165/df-weapon-optimizer/actions/runs/43940285040). Both native optimizer presets use `tools/choice_groups.mjs`; manual selection still offers the concrete attachments, and every result reconstructs real source IDs.
 
 Sight and laser classes compare the actual mode-specific source operations, including reference changes, passive penalties and enabled benefits. Price and slot compatibility determine the cheapest representative available in each context. Items involved in coupling/occupancy/fire-control dependencies, child providers, bound ammunition or score-affecting calibration remain distinct. Exact identity locks override grouping.
 
@@ -39,4 +39,4 @@ $env:LOCAL_SITE_URL='http://127.0.0.1:8766/'
 node tests/exhaustive_local_browser.cjs
 ```
 
-The fixed-work benchmark and raw reports are retained under `.scratch/tactical-grouping/`. The published anytime optimizer remains unchanged until a separate deployment.
+The fixed-work benchmark and raw reports are retained under `.scratch/tactical-grouping/`. [Public release verification](../data/optimizer_validation/choice_groups_release_20261117.json) confirms grouping is active on the live site.

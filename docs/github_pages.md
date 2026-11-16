@@ -263,3 +263,13 @@ Both presets use the [anytime top-K optimizer](anytime_top_k_optimizer.md). Ordi
 The reviewed export was built from the staged source tree with committed translations. Unrelated translation/research changes were preserved locally and excluded. All 22 critical live artifacts match committed Git blobs. Public full-cap M4A1 five-second Generate completes in about 5.2 seconds, and both presets replay exact source stats/costs. Cancellation/recovery, actual tactical/calibration work, Apply/save/reload, eight calculator comparisons, cache/versioned imports and desktop/mobile checks pass without page errors or backend dependency.
 
 [Persistent release evidence](../data/optimizer_validation/anytime_release_20261117.json); detailed local/public reports are retained under `.scratch/anytime-release/`. Existing tabs must reload to load the newly versioned browser graph.
+
+## Equivalent attachment groups release, 2026-11-17
+
+Published source `8ea7734acab298a7db6c47b7dc58850facfbbcca` as generated `711f24b5217f10b85897aa0cb4197e62a000ae6f`, release `0a828ed25f230959`. [Pages deployment succeeded](https://github.com/teammate165/df-weapon-optimizer/actions/runs/43940285040).
+
+The [grouping layer](equivalent_attachment_groups.md) merges native-objective-equivalent sights and laser choices, including interchangeable laser positions, and represents patches by counts per effect type. Compatible minimum-cost matching reconstructs actual parts and slots; identity locks, shared rails, bundled replacements and score-affecting calibration stay distinct where necessary. Root M4A1 sight choices reduce 28 -> 12 and the tested default-base patch/laser layouts reduce 51,840 -> 630. The fixed tactical workload improves about 46.5x; this is not an overall search wall-time claim. The chosen total search budget remains unchanged.
+
+The reviewed export preserves previously published translations and excludes unrelated working-copy edits. All 23 checked live artifacts match the generated commit. Public full-cap M4A1 completes a five-second UI search in about 5.1 seconds; both presets confirm active grouping and exact source stat/cost replay. Cancellation/recovery, Apply/save/reload, eight calculator comparisons, cache/versioned imports and desktop/mobile layout pass. Global top-K/optimality and actual client fidelity remain unproven.
+
+[Persistent release evidence](../data/optimizer_validation/choice_groups_release_20261117.json); raw reports are under `.scratch/choice-groups-release/`. Existing tabs must refresh to load the new browser graph.

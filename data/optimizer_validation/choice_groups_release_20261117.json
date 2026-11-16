@@ -1,0 +1,574 @@
+{
+  "date": "2026-11-17",
+  "deployed": true,
+  "site_url": "https://teammate165.github.io/df-weapon-optimizer/",
+  "source_commit": "8ea7734acab298a7db6c47b7dc58850facfbbcca",
+  "source_tree": "1a6fb027f0867b9d9bfe6d40d4d01e36194a4103",
+  "generated_commit": "711f24b5217f10b85897aa0cb4197e62a000ae6f",
+  "release": "0a828ed25f230959",
+  "workflow": {
+    "conclusion": "success",
+    "databaseId": 43940285040,
+    "headSha": "711f24b5217f10b85897aa0cb4197e62a000ae6f",
+    "status": "completed",
+    "url": "https://github.com/teammate165/df-weapon-optimizer/actions/runs/43940285040"
+  },
+  "public_artifacts": {
+    "release": "0a828ed25f230959",
+    "deploy_commit": "711f24b5217f10b85897aa0cb4197e62a000ae6f",
+    "artifacts": [
+      {
+        "path": "app.js",
+        "bytes": 53761,
+        "sha256": "4b9465bdc54f9756cdb3adb076bcb3001a4b2f8acbb63d9efe2d9f35761714ee",
+        "matched": true
+      },
+      {
+        "path": "index.html",
+        "bytes": 9536,
+        "sha256": "0bfc08b4ffc66667e46cb34203676b318e872353803c227e227ecac8b45fe57e",
+        "matched": true
+      },
+      {
+        "path": "model/optimizer_engine.mjs",
+        "bytes": 246,
+        "sha256": "8c13d30bdbf2af18a37fcd03007fff1fba3ee57edf8817b539b6b818e24f4462",
+        "matched": true
+      },
+      {
+        "path": "model/anytime_optimizer.mjs",
+        "bytes": 25308,
+        "sha256": "0b29f979fcc7f1de5b93b9e83f06152a73265b03ea12e8c9b23933e601470b77",
+        "matched": true
+      },
+      {
+        "path": "model/choice_groups.mjs",
+        "bytes": 12319,
+        "sha256": "bdfa495f4f80c91b0159fea01f631802481cb8a70fcc5b40e23e18b59aab1cd9",
+        "matched": true
+      },
+      {
+        "path": "model/mount_search.mjs",
+        "bytes": 11898,
+        "sha256": "04f764da52b8d13e68e02731a32f6f7a457af1aef3076d3270d2f92d1da8ac31",
+        "matched": true
+      },
+      {
+        "path": "model/branch_score_bounds.mjs",
+        "bytes": 17276,
+        "sha256": "e3dee4ae27cd36cadbe090e1991b313281a6684fdfc145e99c387e2b8dc5faeb",
+        "matched": true
+      },
+      {
+        "path": "model/shared_stats.mjs",
+        "bytes": 8395,
+        "sha256": "f942069cf1acc8f73bd2b273abec2ea822fb0126feb5cdadce69cc832130d729",
+        "matched": true
+      },
+      {
+        "path": "model/exhaustive_attachment_gate.mjs",
+        "bytes": 10203,
+        "sha256": "e519f2cea2d032b8512ca02d8b3ab24837bbf4ceac6b00c270b2dd572f01862c",
+        "matched": true
+      },
+      {
+        "path": "model/scoring_bounds.mjs",
+        "bytes": 6426,
+        "sha256": "0af77307263901524e52a107df31b92042f1b3cdcec151f1b007da7604e83237",
+        "matched": true
+      },
+      {
+        "path": "model/horizontal_speed.mjs",
+        "bytes": 1365,
+        "sha256": "af7daa6011ca572ca7c18943cbbb1fa26d910bd3ae4d5fd08f3dfdc1799cc7f8",
+        "matched": true
+      },
+      {
+        "path": "model/scip_mount_model.mjs",
+        "bytes": 8419,
+        "sha256": "6e8d1564f00c605f886983d98f004982275f5580062c5fc1a3fbec2bfde0c58f",
+        "matched": true
+      },
+      {
+        "path": "model/scip_stat_model.mjs",
+        "bytes": 16012,
+        "sha256": "2b1444b9138968aa164b89920700ada7cc2c959743c6d9cdfae4cb246db3b077",
+        "matched": true
+      },
+      {
+        "path": "model/scip_objective_model.mjs",
+        "bytes": 9570,
+        "sha256": "acb1aadf47a35f2146348535f047ab3297fd0c963e6c9a43900f38929e13eb40",
+        "matched": true
+      },
+      {
+        "path": "model/scip_linear_model.mjs",
+        "bytes": 5174,
+        "sha256": "8c1d002b3a5edd15f0c9aa2d25f44fcdc18719504a819bda7b1d6c17948ee0cf",
+        "matched": true
+      },
+      {
+        "path": "model/scip_runtime.mjs",
+        "bytes": 2126,
+        "sha256": "9c3a3a8074a04717f7ffdc5589e07c2d1fbedca8dd7a7b2273f43f190db8989d",
+        "matched": true
+      },
+      {
+        "path": "static-worker.js",
+        "bytes": 2115,
+        "sha256": "74c54ba0850e69fb7fe63669001277c34e13e83e6cd2df09c843e3e1b3eb4763",
+        "matched": true
+      },
+      {
+        "path": "static-client.js",
+        "bytes": 1503,
+        "sha256": "bfc0ae4f3bf864397aa33ceaa7c6d4dd5e56bacc2b522455ad28977a3fd526b5",
+        "matched": true
+      },
+      {
+        "path": "data/catalog.json",
+        "bytes": 158418,
+        "sha256": "9fbff79adf920d22f702b396c804e0090b96fddd2e5f2fe03d2fa77a32442a22",
+        "matched": true
+      },
+      {
+        "path": "data/solver-starts/18020000002.json",
+        "bytes": 4160,
+        "sha256": "b2637b9a30396ccbe189c2c023d1794025a37c0e283399ff7ffbdc7d37a9265d",
+        "matched": true
+      },
+      {
+        "path": "vendor/scip-7e68f9ca/scip.js",
+        "bytes": 79238,
+        "sha256": "fbce1535ff0eea41b0b1d4a3d9e2c3a8e0b6239fcf7fa30715e3fe629964889a",
+        "matched": true
+      },
+      {
+        "path": "vendor/scip-7e68f9ca/scip.wasm",
+        "bytes": 6386959,
+        "sha256": "7e68f9ca51d1fdb1b36e35eeac242792f7afcf1b93eaf601baa44449950fea6b",
+        "matched": true
+      },
+      {
+        "path": "vendor/scip-7e68f9ca/THIRD_PARTY_LICENSES.txt",
+        "bytes": 126190,
+        "sha256": "933567b6be8b65a59ac79fbaf0d50f796579a89cd873536538fd9c00bb5e0eec",
+        "matched": true
+      }
+    ],
+    "passed": true
+  },
+  "laser_position_semantics": {
+    "original_51840_layout_count_distinguishes_positions": true,
+    "grouped_equivalent_positions_share_a_choice": true,
+    "physical_reconstruction": "Locks, shared-slot capacity, compatibility and bundled replacements are preserved."
+  },
+  "live_optimizer": {
+    "passed": true,
+    "ui_elapsed_ms": 5135,
+    "cancel_recovery": true,
+    "page_errors": [],
+    "runs": [
+      {
+        "preset": "recoil",
+        "elapsed_ms": 5030.5999999940395,
+        "gate": {
+          "budget": 800,
+          "screening": "anytime_top_k",
+          "complete": false,
+          "limits": {
+            "ordinary": 256,
+            "tactical_per_base": 16,
+            "complete": 512
+          },
+          "evaluated": 3304,
+          "invalid": 170,
+          "source_errors": 0,
+          "calibration_evaluations": 1434,
+          "ordinary_evaluated": 1354,
+          "tactical_evaluated": 572,
+          "tree_nodes": 7918,
+          "pruned_branches": 315,
+          "ordinary_retained": 214,
+          "candidate_count": 404,
+          "cache_peak": 2048,
+          "ordinary_storage_peak": 221,
+          "complete_storage_peak": 413,
+          "phases": [
+            {
+              "phase": "search_attachments",
+              "elapsed_ms": 1726.7000000178814
+            },
+            {
+              "phase": "search_tactical",
+              "elapsed_ms": 750.1999999880791
+            },
+            {
+              "phase": "calibration",
+              "elapsed_ms": 1500.5
+            },
+            {
+              "phase": "search_attachments",
+              "elapsed_ms": 400.10000002384186
+            },
+            {
+              "phase": "search_tactical",
+              "elapsed_ms": 199.09999999403954
+            },
+            {
+              "phase": "calibration",
+              "elapsed_ms": 399.59999999403954
+            }
+          ],
+          "tree_slices": 1,
+          "stat_reuse": {
+            "supported": true,
+            "requests": 1736,
+            "native_fallbacks": 0,
+            "context_fallbacks": 0,
+            "unsupported_fallbacks": 0,
+            "error_fallbacks": 0,
+            "part_hits": 16624,
+            "part_misses": 122,
+            "prefix_hits": 10661,
+            "prefix_misses": 3020,
+            "core_hits": 841,
+            "core_misses": 895,
+            "reference_hits": 890,
+            "reference_misses": 5,
+            "numeric_noops": 0,
+            "part_entries_peak": 122,
+            "part_operations_peak": 1238,
+            "prefix_entries_peak": 2048,
+            "prefix_key_chars_peak": 53994,
+            "reference_entries_peak": 5,
+            "reference_key_chars_peak": 39,
+            "token_entries_peak": 175,
+            "token_key_chars_peak": 12373,
+            "saturated": true
+          },
+          "branch_scoring": {
+            "supported": true,
+            "evaluations": 315,
+            "cache_hits": 174,
+            "declined": 0,
+            "entries_peak": 141,
+            "key_chars_peak": 16005,
+            "saturated": false
+          },
+          "choice_groups": {
+            "enabled": true,
+            "items_grouped": 38,
+            "option_sets": 47,
+            "options_before": 265,
+            "options_after": 181,
+            "matching_hits": 1175,
+            "matching_misses": 151,
+            "matching_peak": 150,
+            "grouped_tactical_configs": 575,
+            "counts_interchangeable": true,
+            "families": 14
+          },
+          "elapsed_ms": 5000.5999999940395
+        },
+        "source_replays": [
+          {
+            "cost": 740,
+            "stats": {
+              "control": 89,
+              "handling": 34,
+              "stability": 71,
+              "accuracy": 43
+            }
+          },
+          {
+            "cost": 460,
+            "stats": {
+              "control": 74,
+              "handling": 32,
+              "stability": 71,
+              "accuracy": 43
+            }
+          },
+          {
+            "cost": 120,
+            "stats": {
+              "control": 45,
+              "handling": 52,
+              "stability": 63,
+              "accuracy": 55
+            }
+          }
+        ],
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "cost": 740,
+            "loss": 22.985555414115936
+          },
+          {
+            "label": "Balanced",
+            "status": "best_found",
+            "cost": 460,
+            "loss": 32.22044604399801
+          },
+          {
+            "label": "Min",
+            "status": "best_found",
+            "cost": 120,
+            "loss": 59.778428291113606
+          }
+        ]
+      },
+      {
+        "preset": "agility",
+        "elapsed_ms": 5004.799999982119,
+        "gate": {
+          "budget": 800,
+          "screening": "anytime_top_k",
+          "complete": false,
+          "limits": {
+            "ordinary": 256,
+            "tactical_per_base": 16,
+            "complete": 512
+          },
+          "evaluated": 5146,
+          "invalid": 387,
+          "source_errors": 0,
+          "calibration_evaluations": 2157,
+          "ordinary_evaluated": 2438,
+          "tactical_evaluated": 766,
+          "tree_nodes": 17432,
+          "pruned_branches": 179,
+          "ordinary_retained": 242,
+          "candidate_count": 394,
+          "cache_peak": 2048,
+          "ordinary_storage_peak": 247,
+          "complete_storage_peak": 431,
+          "phases": [
+            {
+              "phase": "search_attachments",
+              "elapsed_ms": 1747.9000000059605
+            },
+            {
+              "phase": "search_tactical",
+              "elapsed_ms": 752.6999999880791
+            },
+            {
+              "phase": "calibration",
+              "elapsed_ms": 1496.9000000059605
+            },
+            {
+              "phase": "search_attachments",
+              "elapsed_ms": 400.80000001192093
+            },
+            {
+              "phase": "search_tactical",
+              "elapsed_ms": 199.39999997615814
+            },
+            {
+              "phase": "calibration",
+              "elapsed_ms": 399.7999999821186
+            }
+          ],
+          "tree_slices": 1,
+          "stat_reuse": {
+            "supported": true,
+            "requests": 2862,
+            "native_fallbacks": 0,
+            "context_fallbacks": 0,
+            "unsupported_fallbacks": 0,
+            "error_fallbacks": 0,
+            "part_hits": 25719,
+            "part_misses": 133,
+            "prefix_hits": 16680,
+            "prefix_misses": 3073,
+            "core_hits": 1617,
+            "core_misses": 1245,
+            "reference_hits": 1240,
+            "reference_misses": 5,
+            "numeric_noops": 0,
+            "part_entries_peak": 133,
+            "part_operations_peak": 1318,
+            "prefix_entries_peak": 2048,
+            "prefix_key_chars_peak": 51837,
+            "reference_entries_peak": 5,
+            "reference_key_chars_peak": 85,
+            "token_entries_peak": 165,
+            "token_key_chars_peak": 11744,
+            "saturated": true
+          },
+          "branch_scoring": {
+            "supported": true,
+            "evaluations": 179,
+            "cache_hits": 105,
+            "declined": 0,
+            "entries_peak": 74,
+            "key_chars_peak": 8008,
+            "saturated": false
+          },
+          "choice_groups": {
+            "enabled": true,
+            "items_grouped": 38,
+            "option_sets": 49,
+            "options_before": 265,
+            "options_after": 181,
+            "matching_hits": 1435,
+            "matching_misses": 280,
+            "matching_peak": 279,
+            "grouped_tactical_configs": 731,
+            "counts_interchangeable": true,
+            "families": 14
+          },
+          "elapsed_ms": 5000.699999988079
+        },
+        "source_replays": [
+          {
+            "cost": 800,
+            "stats": {
+              "control": 72,
+              "handling": 87,
+              "stability": 35,
+              "accuracy": 67
+            }
+          },
+          {
+            "cost": 400,
+            "stats": {
+              "control": 47,
+              "handling": 78,
+              "stability": 45,
+              "accuracy": 79
+            }
+          },
+          {
+            "cost": 120,
+            "stats": {
+              "control": 31,
+              "handling": 82,
+              "stability": 51,
+              "accuracy": 79
+            }
+          }
+        ],
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "cost": 800,
+            "loss": 38.138902434135304
+          },
+          {
+            "label": "Balanced",
+            "status": "best_found",
+            "cost": 400,
+            "loss": 45.6537321695852
+          },
+          {
+            "label": "Min",
+            "status": "best_found",
+            "cost": 120,
+            "loss": 67.44473215473039
+          }
+        ]
+      }
+    ]
+  },
+  "live_calculator_apply_save_reload": {
+    "passed": true,
+    "checks": [
+      "8 exact browser/backend comparisons, including non-default calibration: M4A1 and AN94 in all modes plus equipped attachment, response curve and socket comparisons",
+      "External weapon portrait loaded; external dfttk socket atlas configured; no horizontal overflow at 1440/1024/390",
+      "Real SCIP optimization completes in worker; interface renders while searching; result applies",
+      "Saved build persists across reload under repository subpath"
+    ],
+    "errors": [],
+    "apiRequests": []
+  },
+  "live_cache_and_layout": {
+    "passed": true,
+    "url": "https://teammate165.github.io/df-weapon-optimizer/",
+    "checks": [
+      "both presets including untouched default",
+      "obsolete unversioned preset dependency bypassed",
+      "hover/focus/click/Escape and viewport bounds",
+      "four major stats share one row at desktop/mobile",
+      "versioned module/worker graph; no backend requests"
+    ],
+    "errors": []
+  },
+  "local_checks": {
+    "translation-check.json": {
+      "passed": true,
+      "names_unchanged": true,
+      "weapons": 69
+    },
+    "pages-reviewed.json": {
+      "passed": true,
+      "url": "http://127.0.0.1:8770/github-pages-site/",
+      "checks": [
+        "both presets including untouched default",
+        "obsolete unversioned preset dependency bypassed",
+        "hover/focus/click/Escape and viewport bounds",
+        "four major stats share one row at desktop/mobile",
+        "versioned module/worker graph; no backend requests"
+      ],
+      "errors": []
+    },
+    "static-reviewed.json": {
+      "passed": true,
+      "checks": [
+        "8 exact browser/backend comparisons, including non-default calibration: M4A1 and AN94 in all modes plus equipped attachment, response curve and socket comparisons",
+        "External weapon portrait loaded; external dfttk socket atlas configured; no horizontal overflow at 1440/1024/390",
+        "Real SCIP optimization completes in worker; interface renders while searching; result applies",
+        "Saved build persists across reload under repository subpath"
+      ],
+      "errors": [],
+      "apiRequests": []
+    }
+  },
+  "implementation_validation": "data/optimizer_validation/choice_groups_20261117.json",
+  "unrelated_changes": {
+    "translations_excluded": true,
+    "research_edits_preserved": true
+  },
+  "limits": [
+    "Grouping equivalence applies to the native optimized stats, not identical sight magnification/appearance.",
+    "Fixed-work tactical speedup is not a whole-optimizer wall-time multiplier. Total search budgets remain unchanged.",
+    "Time-limited results are best found; global top-K, global calibrated optimality and in-game fidelity are unproven.",
+    "Existing browser tabs must refresh to load the versioned release."
+  ],
+  "raw_evidence": {
+    "publish.json": {
+      "sha256": "571e5b50b2a7e862dcc218dec6b575781b19d455d9372db55f8c97ab3c7cb896"
+    },
+    "workflow.json": {
+      "sha256": "8c1aa60005fb3a92d99755017bdaf372a028975fe61371a5f53844fb02d6124f"
+    },
+    "live-artifacts.json": {
+      "sha256": "22be2ae8e1928a9d3c74682d5c0363555b6e6a29eec866b992f68c1954433d19"
+    },
+    "browser-live.json": {
+      "sha256": "46f7d58472a23877fc275353f4c845de18df8d2ff3ea2f7b35668ba132ae76d4"
+    },
+    "static-live.json": {
+      "sha256": "adca8a18bcd2f06188c2b2770217606ab3d997df4b523095b94f9232b859cb40"
+    },
+    "pages-live.json": {
+      "sha256": "e400a7a160a111e0aca344f4f0dc3c4f865b8f0f66adae9881bb5d8a5b5409b1"
+    },
+    "browser-reviewed.json": {
+      "sha256": "4d7452e89e8692b50d96f4aa08a5a606f511f36b67ba87a62f2ac82879ae8be1"
+    },
+    "pages-reviewed.json": {
+      "sha256": "e2f38c823ab336aaffac111f36e5030f2a2880d415177d6d375cdc1541cfb11f"
+    },
+    "static-reviewed.json": {
+      "sha256": "adca8a18bcd2f06188c2b2770217606ab3d997df4b523095b94f9232b859cb40"
+    },
+    "translation-check.json": {
+      "sha256": "ae1d9f691c651587f5a49a2e5ea57fd9cde418aa398612746771f9c9456ed230"
+    }
+  }
+}
