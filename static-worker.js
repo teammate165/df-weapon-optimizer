@@ -22,7 +22,7 @@ self.onmessage=({data})=>{queue=queue.then(async()=>{
     if(!catalog.weapons.some(w=>w.id===request.weapon_id))throw Error('Unknown weapon');
     if(!['bd','mp','sol'].includes(request.mode))throw Error('Unknown mode');
     if(!Number.isInteger(request.shot_count??20)||(request.shot_count??20)<2||(request.shot_count??20)>200)throw Error('Shot count must be 2–200');
-    if(!packs.has(request.weapon_id))packs.set(request.weapon_id,await loadJSON(`./data/weapons/${request.weapon_id}.json?v=e8255213a43243ff`));
+    if(!packs.has(request.weapon_id))packs.set(request.weapon_id,await loadJSON(`./data/weapons/${request.weapon_id}.json?v=e8255213a43243ff-an94-grip2`));
     const searching=['optimize','prepare-search','merge-search'].includes(action);
     if(searching&&request.mode==='bd')request.budgets=[catalog.shop.weapons[request.weapon_id].gunsmithLimit];
     if(searching&&!starts.has(request.weapon_id)){try{starts.set(request.weapon_id,await loadJSON(`./data/solver-starts/${request.weapon_id}.json?v=e8255213a43243ff`));}catch{starts.set(request.weapon_id,{starts:[]});}}
