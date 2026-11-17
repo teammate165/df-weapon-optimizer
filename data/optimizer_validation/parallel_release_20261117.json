@@ -1,0 +1,304 @@
+{
+  "date": "2026-11-17",
+  "deployed": true,
+  "site_url": "https://teammate165.github.io/df-weapon-optimizer/",
+  "source_commit": "3095cbef3ba71dd94e5dab44d7f5fdf91adee832",
+  "generated_commit": "920fdc6e83820e276f91428a462d83d8d6a10c2f",
+  "source_tree": "fa98da5ea70986719ce20640da16da0a5ee50800",
+  "release": "e8255213a43243ff",
+  "workflow": {
+    "conclusion": "success",
+    "headSha": "920fdc6e83820e276f91428a462d83d8d6a10c2f",
+    "status": "completed",
+    "url": "https://github.com/teammate165/df-weapon-optimizer/actions/runs/44034352389"
+  },
+  "public_artifacts": {
+    "release": "e8255213a43243ff",
+    "deploy_commit": "920fdc6e83820e276f91428a462d83d8d6a10c2f",
+    "artifacts": [
+      {
+        "path": "app.js",
+        "bytes": 53761,
+        "sha256": "8b45a16c743cd729ec0c62f5bfa9e45441bc1838fa4fe381b5565237ab72b65e",
+        "matched": true
+      },
+      {
+        "path": "index.html",
+        "bytes": 9536,
+        "sha256": "cdd817e2e36727c823676594106f714ed5c19a74c524014cb775c8921dd4d9bb",
+        "matched": true
+      },
+      {
+        "path": "model/optimizer_engine.mjs",
+        "bytes": 246,
+        "sha256": "4e711c5d71387a740165cbd39d9047375fe0933cdd3221960c71a69d2978113f",
+        "matched": true
+      },
+      {
+        "path": "model/anytime_optimizer.mjs",
+        "bytes": 28846,
+        "sha256": "e6d911fd485967d1a967cb4d58ddd1341e012ec5de3556187976b7c0d25fc6bb",
+        "matched": true
+      },
+      {
+        "path": "model/choice_groups.mjs",
+        "bytes": 13122,
+        "sha256": "4e1e5b92f3a11ed74377777db0ddebf728d2442e5f7fa3f445e3fe327ff9291b",
+        "matched": true
+      },
+      {
+        "path": "model/mount_search.mjs",
+        "bytes": 11898,
+        "sha256": "04f764da52b8d13e68e02731a32f6f7a457af1aef3076d3270d2f92d1da8ac31",
+        "matched": true
+      },
+      {
+        "path": "model/branch_score_bounds.mjs",
+        "bytes": 17276,
+        "sha256": "0baaadeab8d19721131783498ae61d9247c88a9eaed0625e88e214245962d7a9",
+        "matched": true
+      },
+      {
+        "path": "model/shared_stats.mjs",
+        "bytes": 8395,
+        "sha256": "f942069cf1acc8f73bd2b273abec2ea822fb0126feb5cdadce69cc832130d729",
+        "matched": true
+      },
+      {
+        "path": "model/exhaustive_attachment_gate.mjs",
+        "bytes": 10203,
+        "sha256": "ba9cac5daf6f738bce6556c2ee68a7bb266d6ceb3883478b399cb4305cec54be",
+        "matched": true
+      },
+      {
+        "path": "model/scoring_bounds.mjs",
+        "bytes": 6426,
+        "sha256": "4334a06f3d57b6af238e78c22a45735f37edf6ab5ac014d5da2b4900e2fdbd53",
+        "matched": true
+      },
+      {
+        "path": "model/horizontal_speed.mjs",
+        "bytes": 1365,
+        "sha256": "af7daa6011ca572ca7c18943cbbb1fa26d910bd3ae4d5fd08f3dfdc1799cc7f8",
+        "matched": true
+      },
+      {
+        "path": "model/scip_mount_model.mjs",
+        "bytes": 8419,
+        "sha256": "745584d30951a23ae64396aed8bccbd28637052b480532c1aa195ae72cccd2a3",
+        "matched": true
+      },
+      {
+        "path": "model/scip_stat_model.mjs",
+        "bytes": 16012,
+        "sha256": "2b1444b9138968aa164b89920700ada7cc2c959743c6d9cdfae4cb246db3b077",
+        "matched": true
+      },
+      {
+        "path": "model/scip_objective_model.mjs",
+        "bytes": 9570,
+        "sha256": "acb1aadf47a35f2146348535f047ab3297fd0c963e6c9a43900f38929e13eb40",
+        "matched": true
+      },
+      {
+        "path": "model/scip_linear_model.mjs",
+        "bytes": 5174,
+        "sha256": "8c1d002b3a5edd15f0c9aa2d25f44fcdc18719504a819bda7b1d6c17948ee0cf",
+        "matched": true
+      },
+      {
+        "path": "model/scip_runtime.mjs",
+        "bytes": 2126,
+        "sha256": "9c3a3a8074a04717f7ffdc5589e07c2d1fbedca8dd7a7b2273f43f190db8989d",
+        "matched": true
+      },
+      {
+        "path": "static-worker.js",
+        "bytes": 2559,
+        "sha256": "ea65a108e01549ecc66a4a9723d680d0a6d6dd350dbca3662e16fd180d130f8c",
+        "matched": true
+      },
+      {
+        "path": "static-client.js",
+        "bytes": 4064,
+        "sha256": "03835cfb9a5ba2e99decf2410cdbf5de853b615e4e5ad07ad899c73913275098",
+        "matched": true
+      },
+      {
+        "path": "data/catalog.json",
+        "bytes": 158418,
+        "sha256": "9fbff79adf920d22f702b396c804e0090b96fddd2e5f2fe03d2fa77a32442a22",
+        "matched": true
+      },
+      {
+        "path": "data/solver-starts/18020000002.json",
+        "bytes": 4160,
+        "sha256": "b2637b9a30396ccbe189c2c023d1794025a37c0e283399ff7ffbdc7d37a9265d",
+        "matched": true
+      },
+      {
+        "path": "vendor/scip-7e68f9ca/scip.js",
+        "bytes": 79238,
+        "sha256": "fbce1535ff0eea41b0b1d4a3d9e2c3a8e0b6239fcf7fa30715e3fe629964889a",
+        "matched": true
+      },
+      {
+        "path": "vendor/scip-7e68f9ca/scip.wasm",
+        "bytes": 6386959,
+        "sha256": "7e68f9ca51d1fdb1b36e35eeac242792f7afcf1b93eaf601baa44449950fea6b",
+        "matched": true
+      },
+      {
+        "path": "vendor/scip-7e68f9ca/THIRD_PARTY_LICENSES.txt",
+        "bytes": 126190,
+        "sha256": "933567b6be8b65a59ac79fbaf0d50f796579a89cd873536538fd9c00bb5e0eec",
+        "matched": true
+      }
+    ],
+    "passed": true
+  },
+  "parallel_browser": {
+    "passed": true,
+    "aborted": true,
+    "active_after_abort": 0,
+    "fallback": {
+      "strategy": "diverse_search_orders",
+      "workers": 1,
+      "unique_candidates": [
+        177
+      ],
+      "merged_candidates": [
+        177
+      ],
+      "worker_elapsed_ms": [
+        976.0999999642372
+      ],
+      "worker_evaluated": [
+        2067
+      ],
+      "worker_best_losses": [
+        [
+          69.10201827626494
+        ]
+      ],
+      "requested_workers": 4,
+      "failed_workers": 3,
+      "compute_budget_seconds": 1
+    },
+    "partial": {
+      "strategy": "diverse_search_orders",
+      "workers": 1,
+      "unique_candidates": [
+        177
+      ],
+      "merged_candidates": [
+        177
+      ],
+      "worker_elapsed_ms": [
+        1002.3000000119209
+      ],
+      "worker_evaluated": [
+        2640
+      ],
+      "worker_best_losses": [
+        [
+          69.10201827626494
+        ]
+      ],
+      "requested_workers": 2,
+      "failed_workers": 1,
+      "compute_budget_seconds": 1
+    },
+    "runs": [
+      {
+        "workers": 1,
+        "elapsed_ms": 6458.199999988079,
+        "parallel": {
+          "strategy": "diverse_search_orders",
+          "workers": 1,
+          "unique_candidates": [
+            402
+          ],
+          "merged_candidates": [
+            402
+          ],
+          "worker_elapsed_ms": [
+            4985.800000011921
+          ],
+          "worker_evaluated": [
+            4532
+          ],
+          "worker_best_losses": [
+            [
+              22.985555414115936
+            ]
+          ],
+          "requested_workers": 1,
+          "failed_workers": 0,
+          "compute_budget_seconds": 5
+        },
+        "source_replay_passed": true
+      },
+      {
+        "workers": 4,
+        "elapsed_ms": 5168.800000011921,
+        "parallel": {
+          "strategy": "diverse_search_orders",
+          "workers": 4,
+          "unique_candidates": [
+            1065
+          ],
+          "merged_candidates": [
+            424
+          ],
+          "worker_elapsed_ms": [
+            4984.799999952316,
+            4987.400000035763,
+            4987.100000023842,
+            4987.300000011921
+          ],
+          "worker_evaluated": [
+            4293,
+            4122,
+            4218,
+            4153
+          ],
+          "worker_best_losses": [
+            [
+              22.985555414115936
+            ],
+            [
+              22.985555414115936
+            ],
+            [
+              22.985555414115936
+            ],
+            [
+              22.985555414115936
+            ]
+          ],
+          "requested_workers": 4,
+          "failed_workers": 0,
+          "compute_budget_seconds": 5
+        },
+        "source_replay_passed": true
+      }
+    ]
+  },
+  "live_anytime": {
+    "passed": true,
+    "ui_ms": 5212,
+    "runs": [
+      {
+        "preset": "recoil",
+        "elapsed_ms": 5177,
+        "source_replay_passed": true
+      },
+      {
+        "preset": "agility",
+        "elapsed_ms": 5133.700000047684,
+        "source_replay_passed": true
+      }
+    ]
+  }
+}

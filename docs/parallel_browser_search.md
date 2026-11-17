@@ -1,4 +1,8 @@
-﻿# Parallel browser search
+# Parallel browser search
+
+Published on 2026-11-17 as release `e8255213a43243ff`.
+[Successful deployment](https://github.com/teammate165/df-weapon-optimizer/actions/runs/44034352389);
+[release evidence](../data/optimizer_validation/parallel_release_20261117.json).
 
 The GitHub Pages client uses a pool of ordinary module Web Workers. No backend,
 SharedArrayBuffer, cross-origin isolation, secrets or custom response headers are

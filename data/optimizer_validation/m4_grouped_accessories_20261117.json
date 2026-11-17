@@ -1127,10 +1127,12 @@
   ],
   "previous_grouped": "727847214864",
   "calibration_positions_included": false,
-  "deployed": false,
+  "deployed": true,
   "validation_checks": [
     "node tests/choice_groups.mjs",
     "node tests/anytime_optimizer.mjs",
     "python tools/build_github_pages.py"
-  ]
+  ],
+  "release": "e8255213a43243ff",
+  "release_evidence": "data/optimizer_validation/parallel_release_20261117.json"
 }

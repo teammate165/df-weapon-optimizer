@@ -27,7 +27,7 @@ The classes and reduction depend on the weapon, installed parents, mode, prices,
 
 ## Validation
 
-### Local follow-up: accessory exclusions and magwell groups (2026-11-17)
+### Published follow-up: accessory exclusions and magwell groups (2026-11-17)
 
 Automatic search now omits offset side-sight sockets (`31`), lens-hood sockets
 (`45`) and standalone bipod sockets (`10`). This applies to options, symbolic
@@ -50,7 +50,7 @@ vectors across 96 barrel/modular-grip/occupied-rail contexts. Independently
 weighted raw counts reconcile to **51,292,006,859,520** concrete layouts before
 the exclusions/grouping. [Count evidence](../data/optimizer_validation/m4_grouped_accessories_20261117.json),
 reproduction: `tools/count_m4_grouped_configurations.mjs`.
-These follow-up changes are local and have not been deployed.
+Published as release `e8255213a43243ff`; [release verification](../data/optimizer_validation/parallel_release_20261117.json).
 
 Checks compare all 51,840 M4A1 tactical layouts with grouped source states and cost, including canonical reconstruction samples. Additional tests cover 324 native sight/objective/tuning comparisons across both presets and three modes, a smaller tactical budget, locks, two locked lasers, shared slots, bundled replacements, dependency-sensitive IDs, scored calibration, fractional arithmetic and unknown-scorer fallback. Focused anytime, backend/CLI, source-effect, cancellation and local/static browser checks verify concrete generated builds.
 
