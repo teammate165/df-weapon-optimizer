@@ -1,4 +1,4 @@
-import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=0a828ed25f230959';
+import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=e8255213a43243ff';
 
 // Outward-enclosed real arithmetic, including an allowance for native fold
 // regrouping. Unknown/nonfinite source inputs decline pruning altogether.
