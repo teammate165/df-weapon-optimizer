@@ -1,0 +1,14 @@
+﻿import fs from 'node:fs';import assert from 'node:assert/strict';
+import {generateAnytime,mergeAnytimeResults} from '../tools/anytime_optimizer.mjs';import {executeModel} from '../tools/builder_model.mjs';import {compareObjectives} from '../tools/optimizer_policy.mjs';
+import * as curves from '../.scratch/calibration-check/curves.mjs';import * as kernel from '../.scratch/calibration-check/kernel.mjs';import {t as calculate} from '../.scratch/calibration-check/attributes.mjs';
+const cat=JSON.parse(fs.readFileSync('.scratch/github-pages-site/data/catalog.json')),pack=JSON.parse(fs.readFileSync('.scratch/github-pages-site/data/weapons/18010000001.json')),modules={curves,kernel,calculate},reports=[];
+for(const request of [{mode:'bd',preset:'recoil',fixed:[{slotPath:'11',itemId:'13110000091'}]},{mode:'bd',preset:'recoil',effectiveness_targets:[70,90]},{mode:'bd',preset:'agility'},{mode:'mp',preset:'recoil'},{mode:'bd',preset:'agility',minimum_stats:{control:1000}},{mode:'sol',preset:'recoil',budgets:[10000,100000,1000000]}]){
+ const input={pack,shop:cat.shop,prices:cat.prices,request:{...request,time_limit_seconds:1},collect_candidates:true};const outputs=[];
+ for(let search_variant=0;search_variant<2;search_variant++)outputs.push(await generateAnytime({...input,search_variant},modules));
+ const result=mergeAnytimeResults(outputs,input,modules);assert.equal(result.solver.parallel.workers,2);assert(!result.search_candidates);assert(result.solver.parallel.merged_candidates.every(n=>n<=512));
+ for(const row of result.results.filter(r=>r.status==='best_found')){const replay=await executeModel({...input,action:'evaluate',request:{mode:request.mode,config:row.config,tunes:row.tunes}},modules);assert.deepEqual(row.stats,replay.effective_stats);assert.equal(row.cost,replay.cost);for(const fixed of request.fixed??[])assert(replay.build.mounted.some(n=>n.slotPath===fixed.slotPath&&n.itemId===fixed.itemId));}
+ const best=result.results.find(r=>r.label==='Max'&&r.status==='best_found');if(best)for(const output of outputs){const previous=output.results.find(r=>r.label==='Max'&&r.status==='best_found');if(previous)assert(compareObjectives({...best,score:best.loss},{...previous,score:previous.loss})<=0);}
+ reports.push({request,parallel:result.solver.parallel,results:result.results.map(r=>({label:r.label,status:r.status,loss:r.loss}))});
+}
+const input={pack,shop:cat.shop,prices:cat.prices,request:{mode:'bd',time_limit_seconds:5},search_deadline:Date.now()-1};const started=performance.now();await generateAnytime(input,modules);assert(performance.now()-started<1000);
+fs.mkdirSync('.scratch/parallel-search',{recursive:true});fs.writeFileSync('.scratch/parallel-search/unit.json',JSON.stringify({passed:true,reports},null,2));console.log('Parallel candidate merging, locks, exact source replay, both presets, custom categories, multiple budgets, Warfare, infeasible floors and common deadline pass.');

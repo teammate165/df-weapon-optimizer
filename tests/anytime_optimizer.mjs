@@ -35,6 +35,7 @@ try{
   else{
    assert(result.results.some(row=>row.status==='best_found'));
    for(const row of result.results.filter(row=>row.status==='best_found')){
+    for(const attachment of row.config)assert(!attachment.slotPath.split('/').some(socket=>['10','31','45'].includes(socket))||(request.fixed??[]).some(f=>f.slotPath===attachment.slotPath||f.slotPath.startsWith(attachment.slotPath+'/')),'Unrequested excluded accessory in generated build');
     assert(!row.converged);const replay=await executeModel({...input,action:'evaluate',request:{mode:request.mode,config:row.config,tunes:row.tunes}},modules);assert.deepEqual(row.stats,replay.effective_stats);assert.equal(row.cost,replay.cost);
     if(row.budget!==null)assert(row.cost<=row.budget);
     for(const fixed of request.fixed??[])assert(replay.build.mounted.some(n=>n.slotPath===fixed.slotPath&&n.itemId===fixed.itemId));

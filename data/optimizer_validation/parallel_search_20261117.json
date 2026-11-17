@@ -1,0 +1,828 @@
+{
+  "date": "2026-11-17",
+  "deployed": false,
+  "passed": true,
+  "unit": {
+    "passed": true,
+    "reports": [
+      {
+        "request": {
+          "mode": "bd",
+          "preset": "recoil",
+          "fixed": [
+            {
+              "slotPath": "11",
+              "itemId": "13110000091"
+            }
+          ]
+        },
+        "parallel": {
+          "strategy": "diverse_search_orders",
+          "workers": 2,
+          "merged_candidates": [
+            402
+          ],
+          "worker_elapsed_ms": [
+            1001.9419,
+            1001.1247999999998
+          ],
+          "worker_evaluated": [
+            1912,
+            2153
+          ],
+          "worker_best_losses": [
+            [
+              22.985555414115936
+            ],
+            [
+              22.985555414115936
+            ]
+          ]
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "loss": 22.985555414115936
+          },
+          {
+            "label": "Balanced",
+            "status": "best_found",
+            "loss": 32.22044604399801
+          },
+          {
+            "label": "Min",
+            "status": "best_found",
+            "loss": 55.728428291113595
+          }
+        ]
+      },
+      {
+        "request": {
+          "mode": "bd",
+          "preset": "recoil",
+          "effectiveness_targets": [
+            70,
+            90
+          ]
+        },
+        "parallel": {
+          "strategy": "diverse_search_orders",
+          "workers": 2,
+          "merged_candidates": [
+            407
+          ],
+          "worker_elapsed_ms": [
+            1005.9146000000001,
+            1003.1707999999999
+          ],
+          "worker_evaluated": [
+            2115,
+            626
+          ],
+          "worker_best_losses": [
+            [
+              22.985555414115936
+            ],
+            [
+              22.985555414115936
+            ]
+          ]
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "loss": 22.985555414115936
+          },
+          {
+            "label": "cheapest",
+            "status": "best_found",
+            "loss": 40.856359575526824
+          },
+          {
+            "label": "mid-range",
+            "status": "best_found",
+            "loss": 28.126674227257475
+          }
+        ]
+      },
+      {
+        "request": {
+          "mode": "bd",
+          "preset": "agility"
+        },
+        "parallel": {
+          "strategy": "diverse_search_orders",
+          "workers": 2,
+          "merged_candidates": [
+            397
+          ],
+          "worker_elapsed_ms": [
+            1003.1220000000003,
+            1003.4933999999994
+          ],
+          "worker_evaluated": [
+            1226,
+            1418
+          ],
+          "worker_best_losses": [
+            [
+              38.138902434135304
+            ],
+            [
+              38.138902434135304
+            ]
+          ]
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "loss": 38.138902434135304
+          },
+          {
+            "label": "Balanced",
+            "status": "best_found",
+            "loss": 45.6537321695852
+          },
+          {
+            "label": "Min",
+            "status": "best_found",
+            "loss": 67.44473215473039
+          }
+        ]
+      },
+      {
+        "request": {
+          "mode": "mp",
+          "preset": "recoil"
+        },
+        "parallel": {
+          "strategy": "diverse_search_orders",
+          "workers": 2,
+          "merged_candidates": [
+            309
+          ],
+          "worker_elapsed_ms": [
+            1002.0452000000005,
+            1001.5749999999998
+          ],
+          "worker_evaluated": [
+            584,
+            677
+          ],
+          "worker_best_losses": [
+            [
+              31.895584416778778
+            ],
+            [
+              31.895584416778778
+            ]
+          ]
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "loss": 31.895584416778778
+          },
+          {
+            "label": "Balanced",
+            "status": "unavailable"
+          },
+          {
+            "label": "Min",
+            "status": "unavailable"
+          }
+        ]
+      },
+      {
+        "request": {
+          "mode": "bd",
+          "preset": "agility",
+          "minimum_stats": {
+            "control": 1000
+          }
+        },
+        "parallel": {
+          "strategy": "diverse_search_orders",
+          "workers": 2,
+          "merged_candidates": [
+            0
+          ],
+          "worker_elapsed_ms": [
+            923.5913999999993,
+            920.7685000000001
+          ],
+          "worker_evaluated": [
+            1096,
+            1025
+          ],
+          "worker_best_losses": [
+            [],
+            []
+          ]
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "not_found"
+          },
+          {
+            "label": "Balanced",
+            "status": "not_found"
+          },
+          {
+            "label": "Min",
+            "status": "not_found"
+          }
+        ]
+      },
+      {
+        "request": {
+          "mode": "sol",
+          "preset": "recoil",
+          "budgets": [
+            10000,
+            100000,
+            1000000
+          ]
+        },
+        "parallel": {
+          "strategy": "diverse_search_orders",
+          "workers": 2,
+          "merged_candidates": [
+            63,
+            116,
+            109
+          ],
+          "worker_elapsed_ms": [
+            1001.119999999999,
+            1001.3816000000006
+          ],
+          "worker_evaluated": [
+            584,
+            625
+          ],
+          "worker_best_losses": [
+            [
+              22.985555414115936
+            ],
+            [
+              22.985555414115936
+            ]
+          ]
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "loss": 22.985555414115936
+          },
+          {
+            "label": "Balanced",
+            "status": "best_found",
+            "loss": 46.45926688993554
+          },
+          {
+            "label": "Min",
+            "status": "best_found",
+            "loss": 80.01401581891614
+          }
+        ]
+      }
+    ]
+  },
+  "initial_browser": {
+    "release": "6c6d0414e8038b1f",
+    "counts": [
+      1,
+      1,
+      3,
+      2,
+      4
+    ],
+    "aborted": true,
+    "activeAfterAbort": 0,
+    "peak": 5,
+    "spawned": 9,
+    "terminated": 7,
+    "runs": [
+      {
+        "workers": 1,
+        "elapsed_ms": 5086.099999964237,
+        "parallel": {
+          "strategy": "diverse_search_orders",
+          "workers": 1,
+          "merged_candidates": [
+            402
+          ],
+          "worker_elapsed_ms": [
+            4988.400000035763
+          ],
+          "worker_evaluated": [
+            4465
+          ],
+          "worker_best_losses": [
+            [
+              22.985555414115936
+            ]
+          ],
+          "requested_workers": 1,
+          "failed_workers": 0,
+          "compute_budget_seconds": 5
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "loss": 22.985555414115936,
+            "cost": 760,
+            "stats": {
+              "control": 89,
+              "handling": 27,
+              "stability": 75,
+              "accuracy": 43
+            }
+          },
+          {
+            "label": "Balanced",
+            "status": "best_found",
+            "loss": 32.22044604399801,
+            "cost": 500,
+            "stats": {
+              "control": 74,
+              "handling": 24,
+              "stability": 77,
+              "accuracy": 43
+            }
+          },
+          {
+            "label": "Min",
+            "status": "best_found",
+            "loss": 55.728428291113595,
+            "cost": 160,
+            "stats": {
+              "control": 45,
+              "handling": 44,
+              "stability": 69,
+              "accuracy": 55
+            }
+          }
+        ],
+        "replays": [
+          {
+            "stats": {
+              "control": 89,
+              "handling": 27,
+              "stability": 75,
+              "accuracy": 43
+            },
+            "cost": 760
+          },
+          {
+            "stats": {
+              "control": 74,
+              "handling": 24,
+              "stability": 77,
+              "accuracy": 43
+            },
+            "cost": 500
+          },
+          {
+            "stats": {
+              "control": 45,
+              "handling": 44,
+              "stability": 69,
+              "accuracy": 55
+            },
+            "cost": 160
+          }
+        ]
+      },
+      {
+        "workers": 4,
+        "elapsed_ms": 5184.200000047684,
+        "parallel": {
+          "strategy": "diverse_search_orders",
+          "workers": 4,
+          "merged_candidates": [
+            417
+          ],
+          "worker_elapsed_ms": [
+            4984.599999964237,
+            4985,
+            4982,
+            4985.400000035763
+          ],
+          "worker_evaluated": [
+            4448,
+            4293,
+            4413,
+            4326
+          ],
+          "worker_best_losses": [
+            [
+              22.985555414115936
+            ],
+            [
+              22.985555414115936
+            ],
+            [
+              22.985555414115936
+            ],
+            [
+              22.985555414115936
+            ]
+          ],
+          "requested_workers": 4,
+          "failed_workers": 0,
+          "compute_budget_seconds": 5
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "loss": 22.985555414115936,
+            "cost": 760,
+            "stats": {
+              "control": 89,
+              "handling": 27,
+              "stability": 75,
+              "accuracy": 43
+            }
+          },
+          {
+            "label": "Balanced",
+            "status": "best_found",
+            "loss": 32.22044604399801,
+            "cost": 500,
+            "stats": {
+              "control": 74,
+              "handling": 24,
+              "stability": 77,
+              "accuracy": 43
+            }
+          },
+          {
+            "label": "Min",
+            "status": "best_found",
+            "loss": 37.48135957552683,
+            "cost": 480,
+            "stats": {
+              "control": 67,
+              "handling": 38,
+              "stability": 72,
+              "accuracy": 55
+            }
+          }
+        ],
+        "replays": [
+          {
+            "stats": {
+              "control": 89,
+              "handling": 27,
+              "stability": 75,
+              "accuracy": 43
+            },
+            "cost": 760
+          },
+          {
+            "stats": {
+              "control": 74,
+              "handling": 24,
+              "stability": 77,
+              "accuracy": 43
+            },
+            "cost": 500
+          },
+          {
+            "stats": {
+              "control": 67,
+              "handling": 38,
+              "stability": 72,
+              "accuracy": 55
+            },
+            "cost": 480
+          }
+        ]
+      }
+    ],
+    "fallback": {
+      "strategy": "diverse_search_orders",
+      "workers": 1,
+      "merged_candidates": [
+        177
+      ],
+      "worker_elapsed_ms": [
+        994.2000000476837
+      ],
+      "worker_evaluated": [
+        3286
+      ],
+      "worker_best_losses": [
+        [
+          69.10201827626494
+        ]
+      ],
+      "requested_workers": 4,
+      "failed_workers": 3,
+      "compute_budget_seconds": 1
+    },
+    "partial": {
+      "strategy": "diverse_search_orders",
+      "workers": 1,
+      "merged_candidates": [
+        177
+      ],
+      "worker_elapsed_ms": [
+        997
+      ],
+      "worker_evaluated": [
+        3420
+      ],
+      "worker_best_losses": [
+        [
+          69.10201827626494
+        ]
+      ],
+      "requested_workers": 2,
+      "failed_workers": 1,
+      "compute_budget_seconds": 1
+    },
+    "passed": true,
+    "url": "http://127.0.0.1:8770/github-pages-site/"
+  },
+  "additional_checks": [
+    "node tests/anytime_optimizer.mjs",
+    "node tests/choice_groups.mjs",
+    "node tests/anytime_browser.cjs",
+    "python -m unittest discover -s tests -p test_builder_server.py (4 pass)",
+    "python -m unittest discover -s tests -p test_recoil_generator.py (8 pass)",
+    "node tests/github_pages.cjs (versioned worker graph, cache regression and layouts pass)",
+    "node .scratch/browser-qa/static-check.cjs (8 exact calculator comparisons, Apply and saved-build reload pass)"
+  ],
+  "reviewed_release": "e8255213a43243ff",
+  "reviewed_browser": {
+    "passed": true,
+    "url": "http://127.0.0.1:8770/github-pages-site/",
+    "aborted": true,
+    "active_after_abort": 0,
+    "fallback": {
+      "strategy": "diverse_search_orders",
+      "workers": 1,
+      "unique_candidates": [
+        177
+      ],
+      "merged_candidates": [
+        177
+      ],
+      "worker_elapsed_ms": [
+        993.3000000119209
+      ],
+      "worker_evaluated": [
+        3026
+      ],
+      "worker_best_losses": [
+        [
+          69.10201827626494
+        ]
+      ],
+      "requested_workers": 4,
+      "failed_workers": 3,
+      "compute_budget_seconds": 1
+    },
+    "partial": {
+      "strategy": "diverse_search_orders",
+      "workers": 1,
+      "unique_candidates": [
+        177
+      ],
+      "merged_candidates": [
+        177
+      ],
+      "worker_elapsed_ms": [
+        992
+      ],
+      "worker_evaluated": [
+        3270
+      ],
+      "worker_best_losses": [
+        [
+          69.10201827626494
+        ]
+      ],
+      "requested_workers": 2,
+      "failed_workers": 1,
+      "compute_budget_seconds": 1
+    },
+    "runs": [
+      {
+        "workers": 1,
+        "elapsed_ms": 5087,
+        "parallel": {
+          "strategy": "diverse_search_orders",
+          "workers": 1,
+          "unique_candidates": [
+            402
+          ],
+          "merged_candidates": [
+            402
+          ],
+          "worker_elapsed_ms": [
+            4987
+          ],
+          "worker_evaluated": [
+            4475
+          ],
+          "worker_best_losses": [
+            [
+              22.985555414115936
+            ]
+          ],
+          "requested_workers": 1,
+          "failed_workers": 0,
+          "compute_budget_seconds": 5
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "loss": 22.985555414115936,
+            "cost": 760,
+            "stats": {
+              "control": 89,
+              "handling": 27,
+              "stability": 75,
+              "accuracy": 43
+            }
+          },
+          {
+            "label": "Balanced",
+            "status": "best_found",
+            "loss": 32.22044604399801,
+            "cost": 500,
+            "stats": {
+              "control": 74,
+              "handling": 24,
+              "stability": 77,
+              "accuracy": 43
+            }
+          },
+          {
+            "label": "Min",
+            "status": "best_found",
+            "loss": 55.728428291113595,
+            "cost": 160,
+            "stats": {
+              "control": 45,
+              "handling": 44,
+              "stability": 69,
+              "accuracy": 55
+            }
+          }
+        ],
+        "replays": [
+          {
+            "stats": {
+              "control": 89,
+              "handling": 27,
+              "stability": 75,
+              "accuracy": 43
+            },
+            "cost": 760
+          },
+          {
+            "stats": {
+              "control": 74,
+              "handling": 24,
+              "stability": 77,
+              "accuracy": 43
+            },
+            "cost": 500
+          },
+          {
+            "stats": {
+              "control": 45,
+              "handling": 44,
+              "stability": 69,
+              "accuracy": 55
+            },
+            "cost": 160
+          }
+        ]
+      },
+      {
+        "workers": 4,
+        "elapsed_ms": 5179.800000011921,
+        "parallel": {
+          "strategy": "diverse_search_orders",
+          "workers": 4,
+          "unique_candidates": [
+            1066
+          ],
+          "merged_candidates": [
+            426
+          ],
+          "worker_elapsed_ms": [
+            4989.100000023842,
+            4988.199999988079,
+            4988.300000011921,
+            4989.600000023842
+          ],
+          "worker_evaluated": [
+            4248,
+            4000,
+            4101,
+            4041
+          ],
+          "worker_best_losses": [
+            [
+              22.985555414115936
+            ],
+            [
+              22.985555414115936
+            ],
+            [
+              22.985555414115936
+            ],
+            [
+              22.985555414115936
+            ]
+          ],
+          "requested_workers": 4,
+          "failed_workers": 0,
+          "compute_budget_seconds": 5
+        },
+        "results": [
+          {
+            "label": "Max",
+            "status": "best_found",
+            "loss": 22.985555414115936,
+            "cost": 760,
+            "stats": {
+              "control": 89,
+              "handling": 27,
+              "stability": 75,
+              "accuracy": 43
+            }
+          },
+          {
+            "label": "Balanced",
+            "status": "best_found",
+            "loss": 32.22044604399801,
+            "cost": 500,
+            "stats": {
+              "control": 74,
+              "handling": 24,
+              "stability": 77,
+              "accuracy": 43
+            }
+          },
+          {
+            "label": "Min",
+            "status": "best_found",
+            "loss": 38.90367522247809,
+            "cost": 440,
+            "stats": {
+              "control": 62,
+              "handling": 39,
+              "stability": 71,
+              "accuracy": 43
+            }
+          }
+        ],
+        "replays": [
+          {
+            "stats": {
+              "control": 89,
+              "handling": 27,
+              "stability": 75,
+              "accuracy": 43
+            },
+            "cost": 760
+          },
+          {
+            "stats": {
+              "control": 74,
+              "handling": 24,
+              "stability": 77,
+              "accuracy": 43
+            },
+            "cost": 500
+          },
+          {
+            "stats": {
+              "control": 62,
+              "handling": 39,
+              "stability": 71,
+              "accuracy": 43
+            },
+            "cost": 440
+          }
+        ]
+      }
+    ]
+  }
+}

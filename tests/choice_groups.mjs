@@ -19,6 +19,7 @@ for(const mode of ['bd','sol','mp'])for(const name of ['recoil','agility']){
  const s=setup(original,mode,name),build=s.resolve([]);assert(s.g.enabled);
  for(const slot of build.slots){
   const opts=s.g.options(slot.options,slot.slotPath);
+  if(slot.slotPath==='31'){assert.deepEqual(opts,[]);continue;}
   for(const id of slot.options.filter(id=>isOptic(original,id)&&s.g.item(id).family)){
    const representative=opts.find(other=>s.g.item(other).family===s.g.item(id).family);assert(representative);
    const config=[{slotPath:slot.slotPath,itemId:id}],old=s.resolve(config);if(!old.config.some(c=>c.itemId===id))continue;
@@ -34,6 +35,21 @@ for(const mode of ['bd','sol','mp'])for(const name of ['recoil','agility']){
  const slot=build.slots.find(slot=>slot.slotPath==='11');reports.push({mode,preset:name,sights_before:slot.options.filter(id=>isOptic(original,id)).length,sights_after:s.g.options(slot.options,'11').filter(id=>isOptic(original,id)).length});
 }
 const s=setup(),base=s.resolve([]),configs=[...s.g.tacticalConfigs(base,{budget:800})];assert.equal(configs.length,630);assert.equal(new Set(configs.map(configKey)).size,630);
+// Search exclusions apply to imported starts as well as option/tree walks;
+// explicit accessory locks still override the automatic-search policy.
+for(const mode of ['bd','sol','mp'])for(const name of ['recoil','agility']){
+ const s=setup(original,mode,name),optic={slotPath:'11',itemId:'13110000091'},side={slotPath:'31',itemId:'13110000076'},hood={slotPath:'11/45',itemId:'13370000001'};
+ const bipod={slotPath:'4/10',itemId:'13170000004'},build=s.resolve([optic,side,hood,bipod]);
+ assert.deepEqual(s.g.options(build.slots.find(x=>x.slotPath==='11/45').options,'11/45'),[]);
+ assert.deepEqual(s.g.normalize(build),[optic]);
+ assert.deepEqual(s.g.options(build.slots.find(x=>x.slotPath==='4/10').options,'4/10'),[]);
+ const bipodLock=setup(original,mode,name,[bipod]);assert.deepEqual(bipodLock.g.normalize(bipodLock.resolve([bipod])),[bipod]);
+ const locked=setup(original,mode,name,[side,hood]);assert.deepEqual(locked.g.normalize(locked.resolve([optic,side,hood])),[optic,side,hood]);
+ const ids=['13340000001','13340000005','13340000009'],opts=s.g.options(ids,'5/44');assert.equal(opts.length,1);
+ for(const id of ids){assert.equal(s.g.item(id).kind,'magwell');assert.deepEqual(state(s,[{slotPath:'5/44',itemId:id}]),state(s,[{slotPath:'5/44',itemId:opts[0]}]));assert.deepEqual(s.g.normalize(s.resolve([{slotPath:'5/44',itemId:id}])),[{slotPath:'5/44',itemId:opts[0]}]);}
+ const mag={slotPath:'5/44',itemId:ids[2]},fixed=setup(original,mode,name,[mag]);assert.deepEqual(fixed.g.normalize(fixed.resolve([mag])),[mag]);
+ const dependent=structuredClone(original);dependent.combat.specialFire.itemOverrides[ids[0]]={requiresItemIds:[ids[0]]};assert.equal(setup(dependent,mode,name).g.item(ids[0]).family,null);
+}
 assert.equal([...s.g.tacticalConfigs(base,{budget:120})].length,273);
 for(const config of configs){const build=s.resolve(config);assert.equal(configKey(config),configKey(build.config));assert(build.mounted.filter(n=>kernel.l(original,n.itemId,'bd')).length<=1);assert.deepEqual(state(s,config),state(s,s.g.normalize(build)));}
 const placements=[[{slotPath:'4/32',itemId:'13320000001'},{slotPath:'4/35',itemId:'13320000005'}],[{slotPath:'4/34',itemId:'13320000001'},{slotPath:'4/32',itemId:'13320000005'}]];
@@ -71,7 +87,7 @@ assert.equal(s.g.item('13160000005').family,s.g.item('13160000006').family);asse
 // Mounting-domain representatives remain compatible with source replay.
 {
  const compiled=compileMounts({pack:original,shop:catalog.shop,prices:catalog.prices,request:{mode:'bd',budget:40}},kernel);s.g.constrain(compiled);let count=0;
- for(const config of createMountSearch(compiled).enumerate()){assert.equal(configKey(config),configKey(s.resolve(config).config));count++;}assert(count>0);
+ for(const config of createMountSearch(compiled).enumerate()){assert.equal(configKey(config),configKey(s.resolve(config).config));assert(!config.some(c=>c.slotPath.split('/').some(socket=>['10','31','45'].includes(socket))));count++;}assert(count>0);
 }
 fs.mkdirSync('.scratch/tactical-grouping',{recursive:true});fs.writeFileSync('.scratch/tactical-grouping/tests.json',JSON.stringify({passed:true,sight_checks:sightChecks,tactical_configs:configs.length,reports,grouping:s.g.getStats()},null,2));
 console.log('Equivalent sights preserve '+sightChecks+' native objective/tuning comparisons; 630 tactical groups, 120-point cap, costs, locks, shared slots and conservative fallbacks pass.');

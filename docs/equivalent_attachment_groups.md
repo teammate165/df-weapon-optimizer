@@ -27,6 +27,31 @@ The classes and reduction depend on the weapon, installed parents, mode, prices,
 
 ## Validation
 
+### Local follow-up: accessory exclusions and magwell groups (2026-11-17)
+
+Automatic search now omits offset side-sight sockets (`31`), lens-hood sockets
+(`45`) and standalone bipod sockets (`10`). This applies to options, symbolic
+mounting search and normalization of imported solver starts. Explicit accessory
+locks override these exclusions. Manual builder choices and foregrips with
+integrated bipods remain available.
+
+Magwell/mag-assist items from socket `44` now use the same source-operation,
+calibration and dependency checks as sight/laser groups. Equivalent color
+variants share the cheapest compatible representative; differing effects and
+identity locks remain separate. Both native presets and all three modes are
+covered by source-stat/objective comparisons and lock checks.
+
+With M4A1 Insight 3/7 (`13110000091`) locked at `11`, no budget limit, and no
+other locks or stat floors, this leaves **49,013,711,472** grouped search
+configurations, versus the prior **727,847,214,864**. Calibration positions are
+excluded; the production one-enabled-laser limit and Detonation catalog remain.
+The count weights exact ordinary mounting counts by production tactical-count
+vectors across 96 barrel/modular-grip/occupied-rail contexts. Independently
+weighted raw counts reconcile to **51,292,006,859,520** concrete layouts before
+the exclusions/grouping. [Count evidence](../data/optimizer_validation/m4_grouped_accessories_20261117.json),
+reproduction: `tools/count_m4_grouped_configurations.mjs`.
+These follow-up changes are local and have not been deployed.
+
 Checks compare all 51,840 M4A1 tactical layouts with grouped source states and cost, including canonical reconstruction samples. Additional tests cover 324 native sight/objective/tuning comparisons across both presets and three modes, a smaller tactical budget, locks, two locked lasers, shared slots, bundled replacements, dependency-sensitive IDs, scored calibration, fractional arithmetic and unknown-scorer fallback. Focused anytime, backend/CLI, source-effect, cancellation and local/static browser checks verify concrete generated builds.
 
 ```powershell

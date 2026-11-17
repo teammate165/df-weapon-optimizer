@@ -10,12 +10,16 @@ const pathOrder=(a,b)=>a.localeCompare(b);
 export function createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,fixed=[]}){
  const certificate=preset.branchScoring,c=kernel.u?.screeningStateContract;
  const enabled=c?.version===1&&c.evaluate===kernel.u&&certificate?.raw===preset.raw&&certificate?.score===preset.score&&certificate?.objectives===preset.objectives;
- const costs=mode==='bd'?shop.partCosts:prices,hidden=new Set(mode==='bd'?shop.hiddenItemIds:[]),patchIds=new Set(),sensitive=new Set(),data=new Map(),families=new Map(),optionCache=new Map(),matchingCache=new Map(),normalizations=new Map();
+ const costs=mode==='bd'?shop.partCosts:prices,hidden=new Set(mode==='bd'?shop.hiddenItemIds:[]),patchIds=new Set(),magwellIds=new Set(),sensitive=new Set(),data=new Map(),families=new Map(),optionCache=new Map(),matchingCache=new Map(),normalizations=new Map();
  const stats={enabled,items_grouped:0,option_sets:0,options_before:0,options_after:0,matching_hits:0,matching_misses:0,matching_peak:0,grouped_tactical_configs:0};
  const locked=path=>fixed.some(f=>f.slotPath===path||f.slotPath.startsWith(path+'/'));
+ // These optional accessories are outside automatic search. Explicit
+ // locks still preserve them, and the manual builder remains unchanged.
+ const excluded=path=>!locked(path)&&path.split('/').some(socket=>['10','31','45'].includes(socket));
  const collectIds=value=>{if(Array.isArray(value)){for(const x of value)collectIds(x);}else if(value&&typeof value==='object'){for(const [k,v] of Object.entries(value)){if(pack.parts[k])sensitive.add(k);collectIds(v);}}else if(['string','number'].includes(typeof value)&&pack.parts[String(value)])sensitive.add(String(value));};
  collectIds(pack.assembly.coupling);collectIds(pack.assembly.extraOccupancy);collectIds(pack.combat?.specialFire);
  for(const provider of Object.values(pack.assembly.socketProviders))for(const socket of provider.sockets??[])if(patchSockets.has(Number(socket.socketId))&&(!socket.modes||socket.modes.includes(mode)))for(const id of socket.optionItemIds??[])patchIds.add(String(id));
+ for(const provider of Object.values(pack.assembly.socketProviders))for(const socket of provider.sockets??[])if(Number(socket.socketId)===44&&(!socket.modes||socket.modes.includes(mode)))for(const id of socket.optionItemIds??[])magwellIds.add(String(id));
  const statTargets=new Set(['3','4','5','6'].flatMap(id=>{
   const rule=pack.attributeRules?.weaponOverrides?.[id]||pack.attributeRules?.defaults?.[id],mapped=new Set((rule?.curveMappings??[]).map(m=>m.target));
   return ['WeaponMainAttribute.MainAttrValues.'+id,'DisplayAttrValues.'+id,...(rule?.directRuleTargets??[]).filter(t=>!mapped.has(t))];
@@ -27,7 +31,7 @@ export function createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,f
  const price=id=>mode==='mp'?0:costs[id];
  function item(id){
   if(data.has(id))return data.get(id);
-  const kind=kernel.l(pack,id,mode)?'laser':isPatch(id)?'patch':isOptic(pack,id)?'sight':null;
+  const kind=kernel.l(pack,id,mode)?'laser':isPatch(id)?'patch':magwellIds.has(id)?'magwell':isOptic(pack,id)?'sight':null;
   let family=null,ops=[];
   if(enabled&&kind&&!sensitive.has(id)&&!(pack.assembly.socketProviders[id]?.sockets?.length)&&!pack.parts[id]?.boundAmmoByMode?.[mode]){
    try{
@@ -46,6 +50,7 @@ export function createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,f
  }
  const familyKey=(id,path)=>{const d=item(id);return d.family?(d.kind!=='sight'&&!integerAdds?d.family+'@'+path:d.family):'fixed:'+path+':'+id;};
  function options(ids,path){
+  if(excluded(path))return [];
   if(!enabled||locked(path))return ids.filter(id=>!hidden.has(id));
   const cacheKey=JSON.stringify([path,ids]);if(optionCache.has(cacheKey))return optionCache.get(cacheKey);
   const representatives=new Map(),result=[];
@@ -58,17 +63,19 @@ export function createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,f
   if(optionCache.size>=2048)optionCache.delete(optionCache.keys().next().value);optionCache.set(cacheKey,result);return result;
  }
  function constrain(compiled){
-  if(!enabled)return;
   for(const group of compiled.groups)for(const slot of group.slots){
    if(locked(slot.path))continue;
+   if(excluded(slot.path)){for(const node of slot.nodes)compiled.model.constrain(node.active,'==',0,'excluded_accessory');continue;}
+   if(!enabled)continue;
    const allowed=new Set(options(slot.options,slot.path));
    for(const node of slot.nodes)if(slot.options.includes(node.item)&&item(node.item).family&&!allowed.has(node.item))compiled.model.constrain(node.active,'==',0,'equivalent_choice');
   }
  }
  function normalizeSights(build){
-  if(!enabled)return build.config;
-  return build.config.map(row=>{
-   if(locked(row.slotPath)||item(row.itemId).kind!=='sight'||!item(row.itemId).family)return row;
+  const config=build.config.filter(row=>!excluded(row.slotPath));
+  if(!enabled)return config;
+  return config.map(row=>{
+   if(locked(row.slotPath)||!['sight','magwell'].includes(item(row.itemId).kind)||!item(row.itemId).family)return row;
    const slot=build.slots.find(s=>s.slotPath===row.slotPath);if(!slot)return row;
    const representative=options(slot.options,row.slotPath).find(id=>item(id).family===item(row.itemId).family);
    return representative&&representative!==row.itemId?{...row,itemId:representative}:row;
@@ -112,7 +119,7 @@ export function createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,f
   if(matchingCache.size>=1024)matchingCache.delete(matchingCache.keys().next().value);matchingCache.set(key,result);stats.matching_peak=Math.max(stats.matching_peak,matchingCache.size);return result;
  }
  function normalize(build){
-  if(!enabled)return build.config;
+  if(!enabled)return normalizeSights(build);
   const key=JSON.stringify(build.config);if(normalizations.has(key))return normalizations.get(key);
   const remember=config=>{if(normalizations.size>=2048)normalizations.delete(normalizations.keys().next().value);normalizations.set(key,config);return config;};
   const config=normalizeSights(build),moving=config.filter(row=>!locked(row.slotPath)&&isTactical(row.slotPath,row.itemId));

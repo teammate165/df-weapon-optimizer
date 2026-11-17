@@ -11,8 +11,9 @@ workflow; only pushes to the generated site's `main` branch deploy. Both
 checkouts use repository-local personal commit identity and GitHub CLI
 authentication; global work-account configuration is preserved.
 
-The static export runs the same builder model and anytime top-K optimizer in a module
-Web Worker. Python/Node.js and SQLite are needed only to regenerate the export,
+The static export runs the same builder model and anytime top-K optimizer in up to
+four module Web Workers using [parallel browser search](parallel_browser_search.md).
+Python/Node.js and SQLite are needed only to regenerate the export,
 not by visitors. Data is loaded per weapon; all 69 weapons and three modes remain
 available. Repository-relative paths support project Pages URLs.
 
