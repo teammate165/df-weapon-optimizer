@@ -1,6 +1,10 @@
 // Streaming progress also lets the local server detect a cancelled request and
 // stop its exhaustive Node subprocess instead of leaving it running indefinitely.
 export function createLocalClient(){
+ const select=document.getElementById('solver-time-limit');
+ if(select){select.insertAdjacentHTML('afterbegin','<option value="0">No time limit</option>');select.value='0';}
+ const note=document.getElementById('optimizer-search-note');
+ if(note)note.textContent='Local unlimited search: runs until the search stages finish or you cancel. Bounded shortlists and calibration remain heuristic; global optimality is not proven. Completion percentage is unknown.';
  return async(action,payload,{signal,onProgress}={})=>{
   const response=await fetch(`/api/${action}`,{method:'POST',headers:{'Content-Type':'application/json',...(action==='optimize'?{'X-Progress-Stream':'1'}:{})},body:JSON.stringify(payload),signal});
   if(!response.headers.get('Content-Type')?.includes('application/x-ndjson')){

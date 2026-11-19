@@ -1,12 +1,14 @@
-import {compileMounts} from './scip_mount_model.mjs?v=e8255213a43243ff';
-import {comparator,statIds,shortfall} from './optimizer_policy.mjs?v=e8255213a43243ff';
-import {createMountSearch} from './mount_search.mjs?v=e8255213a43243ff';
-import {boundCannotBeat} from './scoring_bounds.mjs?v=e8255213a43243ff';
-import {createSharedStatEvaluator} from './shared_stats.mjs?v=e8255213a43243ff';
-import {createBranchScoreBound} from './branch_score_bounds.mjs?v=e8255213a43243ff';
+import {compileMounts} from './scip_mount_model.mjs?v=fee7ceeff9061201';
+import {statIds,shortfall} from './optimizer_policy.mjs?v=fee7ceeff9061201';
+import {gateFraction,survivorCount,screeningComparator,rankingContract} from './screening_rank.mjs?v=fee7ceeff9061201';
+import {createMountSearch} from './mount_search.mjs?v=fee7ceeff9061201';
+import {boundCannotBeat} from './scoring_bounds.mjs?v=fee7ceeff9061201';
+import {createSharedStatEvaluator} from './shared_stats.mjs?v=fee7ceeff9061201';
+import {createBranchScoreBound} from './branch_score_bounds.mjs?v=fee7ceeff9061201';
 
-export const gateFraction=.05;
-export const configKey=config=>JSON.stringify(config.map(c=>[c.slotPath,c.itemId]).sort((a,b)=>a[0].localeCompare(b[0])||a[1].localeCompare(b[1])));
+export {gateFraction} from './screening_rank.mjs?v=fee7ceeff9061201';
+const identityOrder=(a,b)=>a<b?-1:a>b?1:0;
+export const configKey=config=>JSON.stringify(config.map(c=>[c.slotPath,c.itemId]).sort((a,b)=>identityOrder(a[0],b[0])||identityOrder(a[1],b[1])));
 export const tacticalChoice=(pack,kernel,mode,path,item)=>[30,32,33,34,35].includes(Number(path.split('/').at(-1)))||kernel.l(pack,item,mode);
 
 // Enumerate the mounting model's explicit decisions, rather than rejecting a
@@ -16,10 +18,9 @@ export function mountConfigurations(compiled,restrictions=new Map(),tick=()=>{})
  return createMountSearch(compiled).enumerate(restrictions,tick);
 }
 
-// Two traversals keep only the winning 5% in memory: count the entire legal
-// domain, then keep its exact ceil(N/20) best rows in a bounded max-heap.
+// Count the entire legal domain, then keep exactly ceil(N/200) rows (0.5%).
 export function retainBest(rows,count,compare,{onThreshold}={}){
- const size=Number((BigInt(count)+19n)/20n),heap=[];
+ const size=Number(survivorCount(count)),heap=[];
  if(!Number.isSafeInteger(size))throw Error('The exhaustive survivor set exceeds the supported collection size.');
  const swap=(a,b)=>{[heap[a],heap[b]]=[heap[b],heap[a]];};
  for(const row of rows){
@@ -42,7 +43,7 @@ export function exhaustiveAttachmentGate(input,modules,preset,{incremental=true,
  // omitting ordinary purchases that only become available during stage two.
  if([...compiled.players.values()].some(p=>tacticalChoice(pack,kernel,mode,p.path,p.item)&&pack.assembly.socketProviders[p.item]?.sockets?.some(s=>(!s.modes||s.modes.includes(mode))&&s.optionItemIds?.length)))throw Error('Tactical attachments with child sockets require an expanded screening domain.');
  const search=createMountSearch(compiled,{incremental}),counting={strategy:'memoized_residual_subtrees',calls:0,source_floor_fallbacks:0,nodes:0,cache_hits:0,analytical_subtrees:0,memo_entries_peak:0,memo_key_chars_peak:0,intern_entries_peak:0,intern_key_chars_peak:0,cache_saturated:false,intern_saturated:false};
- const better=comparator(r.minimum_stats??{}),compare=(a,b)=>better(a,b)?-1:better(b,a)?1:a.signature.localeCompare(b.signature);
+ const compare=screeningComparator(r.minimum_stats??{});
  const shared=preset.stateReuse?.raw===preset.raw?createSharedStatEvaluator(pack,kernel,{mode}):null;
  const count={nodes:0,visited:0n},floors=Object.keys(r.minimum_stats??{}).length>0;
  const certificate=preset.screeningBound,bound=certificate?.raw===preset.raw&&certificate?.score===preset.score&&certificate?.objectives===preset.objectives?certificate:null;
@@ -60,7 +61,7 @@ export function exhaustiveAttachmentGate(input,modules,preset,{incremental=true,
  const tick=()=>{if(++count.nodes%256===0)progress();};
  function* rows(restrictions,scored,enforceFloors){
   const prune=scored&&branch?context=>{
-   if(!cutoff||context.remaining<2||context.remaining>4||shortfall(cutoff.stats,r.minimum_stats??{})>1e-8)return false;
+   if(!cutoff||context.remaining<2||context.remaining>4||shortfall(cutoff.stats,r.minimum_stats??{})!==0)return false;
    if(branchChecks&&branchMs>branchBudgetFraction*(performance.now()-started)){branchBudgetSkips++;return false;}
    const begin=performance.now(),lower=branch.lower(context);branchChecks++;branchMs+=performance.now()-begin;
    return lower!==null&&boundCannotBeat(lower,cutoff.stats,cutoff,r.minimum_stats??{});
@@ -78,7 +79,7 @@ export function exhaustiveAttachmentGate(input,modules,preset,{incremental=true,
    if(bound&&cutoff){
     scoring.bounds_evaluated++;const lower=bound.lower(build,state);
     if(lower===null)scoring.unsupported_fallbacks++;
-    else if(boundCannotBeat(lower,stats,cutoff,r.minimum_stats??{})){scoring.pruned++;continue;}
+    else if((()=>{const delta=shortfall(stats,r.minimum_stats??{})-shortfall(cutoff.stats,r.minimum_stats??{});return delta!==0?delta>0:boundCannotBeat(lower,stats,cutoff,r.minimum_stats??{});})()){scoring.pruned++;continue;}
    }
    scoring.full_evaluations++;
    const components=preset.raw(build,{},state),score=preset.score(components);
@@ -119,5 +120,5 @@ export function exhaustiveAttachmentGate(input,modules,preset,{incremental=true,
   candidates.push(...result.retained);
  }
  const unique=[...new Map(candidates.map(c=>[c.signature,c])).values()];
- return {candidates:unique,diagnostics:{fraction:gateFraction,complete:true,screening:'exhaustive_default_calibration',scope:'all legal ordinary combinations, then all legal tactical completions per retained base',attachments:{screened:reportCount(attachments.legal),retained:attachments.retained.length},tactical,candidate_count:unique.length,counting,ranking,branch_scoring:branch?{...branch.getStats(),elapsed_ms:branchMs,budget_skips:branchBudgetSkips}:{supported:false},stat_reuse:shared?.getStats()??{supported:false,reason:'scorer_requires_ordinary_state'},scoring:{...scoring,...bound?.getStats?.()},elapsed_ms:performance.now()-started,global_optimality:false}};
+ return {candidates:unique,diagnostics:{fraction:gateFraction,ranking_contract:rankingContract,population:'legal explicit configurations before partial-state merging',complete:true,screening:'exhaustive_default_calibration',scope:'all legal ordinary combinations, then all legal tactical completions per retained base',attachments:{screened:reportCount(attachments.legal),retained:attachments.retained.length},tactical,candidate_count:unique.length,counting,ranking,branch_scoring:branch?{...branch.getStats(),elapsed_ms:branchMs,budget_skips:branchBudgetSkips}:{supported:false},stat_reuse:shared?.getStats()??{supported:false,reason:'scorer_requires_ordinary_state'},scoring:{...scoring,...bound?.getStats?.()},elapsed_ms:performance.now()-started,global_optimality:false}};
 }

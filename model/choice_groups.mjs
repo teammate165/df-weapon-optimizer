@@ -1,7 +1,10 @@
-import {isOptic} from './optimizer_mounts.mjs?v=e8255213a43243ff';
+import {isOptic} from './optimizer_mounts.mjs?v=fee7ceeff9061201';
 
 const patchSockets=new Set([30,32,33,34,35]);
 const viewOnlyTargets=new Set(['ScopeCameraTuneDistance','ScopeZoomTuneRate']);
+// Catalog identity: Collapsible Bipod Grip. Automatic search policy; exact
+// user locks and manual mounting remain supported.
+const bipodGripIds=new Set(['13140000038']);
 const noop=op=>op.operation==='StaticAttributeModify'&&((['Addend','Mult_A'].includes(op.modifier)&&Number(op.value)===0)||(op.modifier==='Mult_C'&&Number(op.value)===1));
 const pathOrder=(a,b)=>a.localeCompare(b);
 
@@ -15,7 +18,7 @@ export function createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,f
  const locked=path=>fixed.some(f=>f.slotPath===path||f.slotPath.startsWith(path+'/'));
  // These optional accessories are outside automatic search. Explicit
  // locks still preserve them, and the manual builder remains unchanged.
- const excluded=path=>!locked(path)&&path.split('/').some(socket=>['10','31','45'].includes(socket));
+ const excluded=path=>!locked(path)&&path.split('/').some(socket=>['10','31','36','45'].includes(socket));
  const collectIds=value=>{if(Array.isArray(value)){for(const x of value)collectIds(x);}else if(value&&typeof value==='object'){for(const [k,v] of Object.entries(value)){if(pack.parts[k])sensitive.add(k);collectIds(v);}}else if(['string','number'].includes(typeof value)&&pack.parts[String(value)])sensitive.add(String(value));};
  collectIds(pack.assembly.coupling);collectIds(pack.assembly.extraOccupancy);collectIds(pack.combat?.specialFire);
  for(const provider of Object.values(pack.assembly.socketProviders))for(const socket of provider.sockets??[])if(patchSockets.has(Number(socket.socketId))&&(!socket.modes||socket.modes.includes(mode)))for(const id of socket.optionItemIds??[])patchIds.add(String(id));
@@ -51,6 +54,7 @@ export function createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,f
  const familyKey=(id,path)=>{const d=item(id);return d.family?(d.kind!=='sight'&&!integerAdds?d.family+'@'+path:d.family):'fixed:'+path+':'+id;};
  function options(ids,path){
   if(excluded(path))return [];
+  if(!locked(path))ids=ids.filter(id=>!bipodGripIds.has(id));
   if(!enabled||locked(path))return ids.filter(id=>!hidden.has(id));
   const cacheKey=JSON.stringify([path,ids]);if(optionCache.has(cacheKey))return optionCache.get(cacheKey);
   const representatives=new Map(),result=[];
@@ -66,13 +70,14 @@ export function createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,f
   for(const group of compiled.groups)for(const slot of group.slots){
    if(locked(slot.path))continue;
    if(excluded(slot.path)){for(const node of slot.nodes)compiled.model.constrain(node.active,'==',0,'excluded_accessory');continue;}
+   for(const node of slot.nodes)if(bipodGripIds.has(node.item))compiled.model.constrain(node.active,'==',0,'excluded_bipod_grip');
    if(!enabled)continue;
    const allowed=new Set(options(slot.options,slot.path));
    for(const node of slot.nodes)if(slot.options.includes(node.item)&&item(node.item).family&&!allowed.has(node.item))compiled.model.constrain(node.active,'==',0,'equivalent_choice');
   }
  }
  function normalizeSights(build){
-  const config=build.config.filter(row=>!excluded(row.slotPath));
+  const config=build.config.filter(row=>!excluded(row.slotPath)&&(!bipodGripIds.has(row.itemId)||locked(row.slotPath)));
   if(!enabled)return config;
   return config.map(row=>{
    if(locked(row.slotPath)||!['sight','magwell'].includes(item(row.itemId).kind)||!item(row.itemId).family)return row;

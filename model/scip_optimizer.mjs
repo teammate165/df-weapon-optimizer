@@ -1,19 +1,20 @@
-import {compileMounts} from './scip_mount_model.mjs?v=e8255213a43243ff';
-import {compileStats} from './scip_stat_model.mjs?v=e8255213a43243ff';
-import {compileObjective} from './scip_objective_model.mjs?v=e8255213a43243ff';
-import {solveLinearModel} from './scip_runtime.mjs?v=e8255213a43243ff';
-import {presets} from './optimizer_presets.mjs?v=e8255213a43243ff';
-import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=e8255213a43243ff';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=e8255213a43243ff';
-import {completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=e8255213a43243ff';
-import {timedRecoil} from './timed_recoil.mjs?v=e8255213a43243ff';
-import {exhaustiveAttachmentGate,configKey} from './exhaustive_attachment_gate.mjs?v=e8255213a43243ff';
+import {rankingContract} from './screening_rank.mjs?v=fee7ceeff9061201';
+import {compileMounts} from './scip_mount_model.mjs?v=fee7ceeff9061201';
+import {compileStats} from './scip_stat_model.mjs?v=fee7ceeff9061201';
+import {compileObjective} from './scip_objective_model.mjs?v=fee7ceeff9061201';
+import {solveLinearModel} from './scip_runtime.mjs?v=fee7ceeff9061201';
+import {presets} from './optimizer_presets.mjs?v=fee7ceeff9061201';
+import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=fee7ceeff9061201';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=fee7ceeff9061201';
+import {completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=fee7ceeff9061201';
+import {timedRecoil} from './timed_recoil.mjs?v=fee7ceeff9061201';
+import {exhaustiveAttachmentGate,configKey,gateFraction} from './exhaustive_attachment_gate.mjs?v=fee7ceeff9061201';
 
 let factoryPromise;
 async function runtimeModules(runtime){
  if(typeof runtime==='object')return runtime;
  const {pathToFileURL}=await import('node:url'),path=await import('node:path');
- const curves=await import(pathToFileURL(path.join(runtime,'curves.mjs?v=e8255213a43243ff'))),kernel=await import(pathToFileURL(path.join(runtime,'kernel.mjs?v=e8255213a43243ff'))),{t:calculate}=await import(pathToFileURL(path.join(runtime,'attributes.mjs?v=e8255213a43243ff')));
+ const curves=await import(pathToFileURL(path.join(runtime,'curves.mjs?v=fee7ceeff9061201'))),kernel=await import(pathToFileURL(path.join(runtime,'kernel.mjs?v=fee7ceeff9061201'))),{t:calculate}=await import(pathToFileURL(path.join(runtime,'attributes.mjs?v=fee7ceeff9061201')));
  return {curves,kernel,calculate};
 }
 export async function generateSCIP(input,runtime){
@@ -34,12 +35,12 @@ export async function generateSCIP(input,runtime){
  const preset=presets[settings.preset].create({pack,request:r,kernel,curves,calculate,mode,resolve});
  if(!preset.solverPlan)throw Error('Preset does not declare a full SCIP objective');
  if(preset.objectives&&!preset.allowTargets&&r.effectiveness_targets!==undefined)throw Error('This preset does not support custom effectiveness targets');
- factoryPromise??=import('../vendor/scip-7e68f9ca/scip.js?v=e8255213a43243ff').then(m=>m.default);
+ factoryPromise??=import('../vendor/scip-7e68f9ca/scip.js?v=fee7ceeff9061201').then(m=>m.default);
  const createRuntime=await factoryPromise,started=performance.now();
  let starts=input.solver_starts;
  if(!starts&&typeof process!=='undefined'&&process.versions?.node){try{const fs=await import('node:fs/promises');starts=JSON.parse(await fs.readFile(new URL('../data/solver_starts/'+pack.weaponId+'.json',import.meta.url),'utf8'));}catch{}}
  const baselinePath=timedRecoil(pack,resolve([]),{},r,modules),baseState=kernel.u(pack,resolve([]),{mode,tacticalEffective:true,tunes:{}}),baselineStats=Object.fromEntries(Object.entries(statIds).map(([k,id])=>[k,baseState.numeric.mainAttr[id]]));
- const diagnostics={name:'SCIP',version:'10.0.2',formulation:'calibration over exhaustive two-stage top-5% attachment survivors with norm supporting cuts',full_weapon:false,time_limit_seconds:limit,time_limit_scope:'calibration_only',screening_elapsed_ms:0,calibration_elapsed_ms:0,elapsed_ms:0,solves:0,norm_cuts:0,rounding_cuts:0,phases:[],global_optimality:false,interval_arithmetic_used:false,numerics:{feasibility_tolerance:1e-9,source_replay_tolerance:1e-7,norm_supporting_cut_tolerance:1e-8}};
+ const diagnostics={name:'SCIP',version:'10.0.2',formulation:'calibration over exhaustive two-stage top-0.5% attachment survivors with norm supporting cuts',full_weapon:false,time_limit_seconds:limit,time_limit_scope:'calibration_only',screening_elapsed_ms:0,calibration_elapsed_ms:0,elapsed_ms:0,solves:0,norm_cuts:0,rounding_cuts:0,phases:[],global_optimality:false,interval_arithmetic_used:false,numerics:{feasibility_tolerance:1e-9,source_replay_tolerance:1e-7,norm_supporting_cut_tolerance:1e-8}};
  const results=[],gateReports=[];
  for(const [budgetIndex,budget] of budgets.entries()){
   const request={...r,budget,budgets:undefined};delete request.validationConfig;delete request.validationTunes;delete request.feasibility_only;
@@ -213,5 +214,5 @@ export async function generateSCIP(input,runtime){
  diagnostics.elapsed_ms=performance.now()-started;
  if(settings.automatic)results.sort((a,b)=>['Max','Balanced','Min'].indexOf(a.label)-['Max','Balanced','Min'].indexOf(b.label));
  if(settings.automatic){const seen=new Set();for(let i=0;i<results.length;i++)if(results[i].status==='best_found'){if(seen.has(results[i].signature))results[i]={label:results[i].label,budget:results[i].budget,status:'unavailable',reason:'No distinct price-based alternative found.'};else seen.add(results[i].signature);}}
- return {weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:settings.automatic?(preset.solverPlan.kind==='agility'?'weighted':'lexicographic'):'custom_targets',objective_names:preset.objectiveNames,minimum_stats:settings.minimums,baseline:preset.baseline,baseline_stats:baselineStats,baseline_recoil_path:baselinePath,baseline_score:0,baseline_loss:100,score_direction:'higher',weights:preset.weights,tier,cheapest_gate_percent:mode==='mp'?null:cheapestGate,experimental:true,method:'Exhaustive attachment top-5%, exhaustive tactical top-5% per survivor, then SCIP calibration',score_model:presets[settings.preset].description,limitations:[...preset.limitations,'Both attachment screens exhaust all legal combinations at default calibration. SCIP calibrates only the survivors; screening can discard the best calibrated build. The time limit applies after exhaustive screening. Model bounds apply only to the screened calibration domain; results remain best found.'],attachment_gate:{fraction:.05,complete:true,screening:'exhaustive_default_calibration',budgets:gateReports,global_optimality:false},solver:diagnostics,provenance:input.provenance,results};
+ return {weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:settings.automatic?(preset.solverPlan.kind==='agility'?'weighted':'lexicographic'):'custom_targets',objective_names:preset.objectiveNames,minimum_stats:settings.minimums,baseline:preset.baseline,baseline_stats:baselineStats,baseline_recoil_path:baselinePath,baseline_score:0,baseline_loss:100,score_direction:'higher',weights:preset.weights,tier,cheapest_gate_percent:mode==='mp'?null:cheapestGate,experimental:true,method:'Exhaustive attachment top-0.5%, exhaustive tactical top-0.5% per survivor, then SCIP calibration',score_model:presets[settings.preset].description,limitations:[...preset.limitations,'Both attachment screens exhaust all legal combinations at default calibration. SCIP calibrates only the survivors; screening can discard the best calibrated build. The time limit applies after exhaustive screening. Model bounds apply only to the screened calibration domain; results remain best found.'],attachment_gate:{fraction:gateFraction,ranking_contract:rankingContract,complete:true,screening:'exhaustive_default_calibration',budgets:gateReports,global_optimality:false},solver:diagnostics,provenance:input.provenance,results};
 }

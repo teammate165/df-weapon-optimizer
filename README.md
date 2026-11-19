@@ -1,7 +1,7 @@
 # Delta Weapon Workshop
 
 Static weapon builder and experimental recoil optimizer. Calculations run in a
-browser module Web Workers (one to four, sized to the device). No backend,
+browser module Web Workers (one to eight, sized to the device). No backend,
 credentials, game-server API, special response headers, or image files.
 
 Weapon/attachment portraits use the external URLs supplied by dfttk.com (including

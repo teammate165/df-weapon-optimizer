@@ -1,6 +1,6 @@
-import {timedRecoil} from './timed_recoil.mjs?v=e8255213a43243ff';
-import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=e8255213a43243ff';
-import {createRecoilScreeningBound} from './scoring_bounds.mjs?v=e8255213a43243ff';
+import {timedRecoil} from './timed_recoil.mjs?v=fee7ceeff9061201';
+import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=fee7ceeff9061201';
+import {createRecoilScreeningBound} from './scoring_bounds.mjs?v=fee7ceeff9061201';
 // Each preset supplies lower-is-better normalized loss plus diagnostic components.
 // The engine is independent of the particular game metrics being optimized.
 export const horizontalPatternLoss=(vertical,horizontal,speed)=>vertical+horizontalSpeedMultiplier(speed)*horizontal;
@@ -41,7 +41,9 @@ export const presets = {
   recoil: {
     label:'Lowest Recoil',
     description:'Strict ADS recoil then Handling. Automatic pattern: V + multiplier * H over 20 ADS source-chart points; H=max(abs(x)) from pre-fire origin. Candidate fastest 200ms net horizontal speed selects multiplier: 1 up to 3, 4 above 3, 6 above 4, 10 above 5 model units/s. Exact piecewise-linear maximum; no P90. Pattern/camera/kick weights 40/30/30; default-normalized. Unsupported base firing protocols retain the legacy multiplier proxy. Experimental, not client-validated.',
-    create({pack,request:r,kernel,resolve,mode,calculate,curves,legacyRecoil=false}) {
+    create({pack,request:r,kernel,resolve,mode,calculate,curves,legacyRecoil=false,recoilNorm=null}) {
+      const norm = recoilNorm?.evaluate ?? Math.hypot;
+      const normVersion = recoilNorm?.version ?? 'native-math-hypot';
       const weights = r.weights ?? {pattern:0.4, camera:0.3, kick:0.3};
       if (Object.keys(weights).sort().join() !== 'camera,kick,pattern' || Object.values(weights).some(x=>!Number.isFinite(x)||x<0) || Object.values(weights).reduce((a,b)=>a+b,0)<=0) throw Error('Invalid weights');
       const basePath=!legacyRecoil&&calculate&&curves
@@ -56,7 +58,7 @@ export const presets = {
         const recoil=axis=>single?kernel.j(s.numeric.buckets,`GRecoil_${axis}`,`GRecoil_${axis}_singleorburst`,1):s.value(`GRecoil_${axis}`,1);
         const behavior=pack.handling.weaponBehaviorProfiles?.[pack.weapon.references.weaponBehaviorProfileId];
         const aiming=pack.handling.aimingProfiles[s.references.aimingProfileId];
-        let pattern= Math.hypot(recoil('H'),recoil('V')),diagnostics={pattern_model:patternModel};
+        let pattern= norm(recoil('H'),recoil('V')),diagnostics={pattern_model:patternModel};
         if(chartPattern){
           const path=timedRecoil(pack,build,tunes,{mode,firing:r.firing,shot_count:20},{calculate,curves,kernel},{abstractProfile:true});
           if(path.status!=='modeled')throw Error(`Candidate scoring protocol unavailable: ${path.reason}`);
@@ -74,8 +76,8 @@ export const presets = {
             horizontal_speed_end_ms:peak.end_ms,pattern_shots:20};
         }
         return {...diagnostics,pattern,
-          camera:Math.hypot(s.value('GRecoil_HShake',1),s.value('GRecoil_VShake',1)),
-          kick:Math.hypot(s.value('GGunkickRandom',behavior?.kickScales?.randomKickScale??1),s.value('GGunkickSpring',behavior?.kickScales?.springKickScale??1)),
+          camera:norm(s.value('GRecoil_HShake',1),s.value('GRecoil_VShake',1)),
+          kick:norm(s.value('GGunkickRandom',behavior?.kickScales?.randomKickScale??1),s.value('GGunkickSpring',behavior?.kickScales?.springKickScale??1)),
           ads_seconds:s.value('GAiming_ADSTime',aiming.adsOnTimeSeconds),
           sprint_to_fire_seconds:s.value('GSprintToFireTime',pack.weapon.timings.sprintToFireSeconds)};
       };
@@ -85,8 +87,8 @@ export const presets = {
         return sum+(w===0?0:w*components[key]/baseline[key]);
       },0)/Object.values(weights).reduce((a,b)=>a+b,0);
       const objectives=c=>[score(c),handlingLoss(c,baseline)];
-      const screeningBound=createRecoilScreeningBound({pack,request:r,kernel,curves,calculate,raw,score,objectives,chartPattern});
-      return {raw,score,baseline,weights,screeningBound,stateReuse:{raw},branchScoring:{raw,score,objectives},solverPlan:{kind:'recoil',chartPattern,weights,baseline},calibrationPriorities:[['GRecoil_H','GRecoil_V','GRecoil_HShake','GRecoil_VShake','GGunkickRandom','GGunkickSpring'],['GAiming_ADSTime','GSprintToFireTime']],objectives,
+      const screeningBound=recoilNorm?undefined:createRecoilScreeningBound({pack,request:r,kernel,curves,calculate,raw,score,objectives,chartPattern});
+      return {raw,score,baseline,weights,norm,normVersion,screeningBound,stateReuse:{raw},branchScoring:{raw,score,objectives},solverPlan:{kind:'recoil',chartPattern,weights,baseline},calibrationPriorities:[['GRecoil_H','GRecoil_V','GRecoil_HShake','GRecoil_VShake','GGunkickRandom','GGunkickSpring'],['GAiming_ADSTime','GSprintToFireTime']],objectives,
         objectiveNames:['ads_recoil','handling'],allowTargets:true,
         limitations:chartPattern?['Pattern uses 20 post-shot source-chart points; not measured angular recoil. The scoring window is fixed independently of graph shot count. For candidate magazines below 20, this is an abstract profile comparison, not a continuous firing claim.']:
           [`Legacy recoil multiplier proxy retained: ${legacyRecoil?'Highest Agility keeps its existing recoil component':basePath?.reason??'source chart runtime unavailable'}. No horizontal-speed tiers applied.`]};

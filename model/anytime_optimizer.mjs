@@ -1,15 +1,15 @@
-import {presets} from './optimizer_presets.mjs?v=e8255213a43243ff';
-import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=e8255213a43243ff';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=e8255213a43243ff';
-import {completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=e8255213a43243ff';
-import {configKey,tacticalChoice} from './exhaustive_attachment_gate.mjs?v=e8255213a43243ff';
-import {compileMounts} from './scip_mount_model.mjs?v=e8255213a43243ff';
-import {createMountSearch} from './mount_search.mjs?v=e8255213a43243ff';
-import {createSharedStatEvaluator} from './shared_stats.mjs?v=e8255213a43243ff';
-import {createBranchScoreBound} from './branch_score_bounds.mjs?v=e8255213a43243ff';
-import {boundCannotBeat} from './scoring_bounds.mjs?v=e8255213a43243ff';
-import {timedRecoil} from './timed_recoil.mjs?v=e8255213a43243ff';
-import {createChoiceGroups} from './choice_groups.mjs?v=e8255213a43243ff';
+import {presets} from './optimizer_presets.mjs?v=fee7ceeff9061201';
+import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=fee7ceeff9061201';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=fee7ceeff9061201';
+import {completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=fee7ceeff9061201';
+import {configKey,tacticalChoice} from './exhaustive_attachment_gate.mjs?v=fee7ceeff9061201';
+import {compileMounts} from './scip_mount_model.mjs?v=fee7ceeff9061201';
+import {createMountSearch} from './mount_search.mjs?v=fee7ceeff9061201';
+import {createSharedStatEvaluator} from './shared_stats.mjs?v=fee7ceeff9061201';
+import {createBranchScoreBound} from './branch_score_bounds.mjs?v=fee7ceeff9061201';
+import {boundCannotBeat} from './scoring_bounds.mjs?v=fee7ceeff9061201';
+import {timedRecoil} from './timed_recoil.mjs?v=fee7ceeff9061201';
+import {createChoiceGroups} from './choice_groups.mjs?v=fee7ceeff9061201';
 
 export const shortlistLimits=Object.freeze({ordinary:256,tactical_per_base:16,complete:512});
 
@@ -44,7 +44,7 @@ export class Shortlist {
 
 async function loadRuntime(directory){
  const [{pathToFileURL},path]=await Promise.all([import('node:url'),import('node:path')]);
- const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=e8255213a43243ff'))),kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=e8255213a43243ff'))),{t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=e8255213a43243ff')));
+ const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=fee7ceeff9061201'))),kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=fee7ceeff9061201'))),{t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=fee7ceeff9061201')));
  return {curves,kernel,calculate};
 }
 
@@ -54,7 +54,7 @@ export async function generateAnytime(input,runtime){
  if(!Array.isArray(fixed)||fixed.some(f=>typeof f.slotPath!=='string'||typeof f.itemId!=='string')||new Set(fixed.map(f=>f.slotPath)).size!==fixed.length)throw Error('Invalid fixed attachments');
  if(r.firing&&!['auto','spam'].includes(r.firing))throw Error('Unknown firing protocol');
  if(r.passes!==undefined&&(!Number.isInteger(r.passes)||r.passes<1||r.passes>20))throw Error('Legacy passes must be 1..20');
- const limit=r.time_limit_seconds??(r.passes===undefined?30:Math.max(1,2*r.passes));if(!Number.isFinite(limit)||limit<1||limit>600)throw Error('Search time limit must be 1..600 seconds');
+ const limit=r.time_limit_seconds??(r.passes===undefined?30:Math.max(1,2*r.passes));const unlimited=limit===0;if(!unlimited&&(!Number.isFinite(limit)||limit<1||limit>600))throw Error('Search time limit must be 0 (unlimited) or 1..600 seconds');
  const tier=mode==='bd'?shop.weapons[pack.weaponId]:null,budgets=mode==='mp'?[null]:r.budgets??[mode==='bd'?tier?.gunsmithLimit:r.budget];
  if(mode!=='mp'&&(![1,3].includes(budgets.length)||budgets.some((b,i)=>!Number.isFinite(b)||b<0||i&&b<budgets[i-1]||mode==='bd'&&b>tier?.gunsmithLimit)))throw Error('Invalid budget or weapon cap');
  const resolve=config=>curves.o(pack,config,mode),retains=build=>fixed.every(f=>build.mounted.some(n=>n.slotPath===f.slotPath&&n.itemId===f.itemId)),initial=resolve(fixed);
@@ -67,8 +67,8 @@ export async function generateAnytime(input,runtime){
  let starts=input.solver_starts;
  if(!starts&&typeof process!=='undefined'&&process.versions?.node){try{const fs=await import('node:fs/promises');starts=JSON.parse(await fs.readFile(new URL('../data/solver_starts/'+pack.weaponId+'.json',import.meta.url),'utf8'));}catch{}}
  const variant=Number.isInteger(input.search_variant)&&input.search_variant>0?input.search_variant:0;
- const deadline=Math.min(started+limit*1000,input.search_deadline===undefined?Infinity:started+Math.max(0,input.search_deadline-Date.now())),results=[],reports=[],candidatePools=[],stop=Symbol('phase deadline');
- const solver={name:'Anytime',formulation:'bounded diverse top-K attachment search and source-calculator coordinate calibration',time_limit_seconds:limit,time_limit_scope:'total_search',global_optimality:false,elapsed_ms:0,screening_elapsed_ms:0,calibration_elapsed_ms:0,phases:[]};
+ const deadline=Math.min((unlimited?Infinity:started+limit*1000),input.search_deadline===undefined?Infinity:started+Math.max(0,input.search_deadline-Date.now())),results=[],reports=[],candidatePools=[],stop=Symbol('phase deadline');
+ const solver={name:'Anytime',formulation:'bounded diverse top-K attachment search and source-calculator coordinate calibration',time_limit_seconds:limit,time_limit_scope:unlimited?'unlimited':'total_search',global_optimality:false,elapsed_ms:0,screening_elapsed_ms:0,calibration_elapsed_ms:0,phases:[]};
  const check=until=>{input.signal?.throwIfAborted();if(performance.now()>=Math.min(until,deadline))throw stop;};
  let lastProgress=-Infinity;
  for(const [budgetIndex,budget] of budgets.entries()){
@@ -76,17 +76,17 @@ export async function generateAnytime(input,runtime){
   const ordinary=new Shortlist(256,compare,64),complete=new Shortlist(512,compare,128),cache=new Map(),controlCache=new Map(),expanded=new Set(),tacticalVisited=new Set(),hints=new Map();
   const shared=preset.stateReuse?.raw===preset.raw?createSharedStatEvaluator(pack,kernel,{mode}):null;
   const groups=createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,fixed}),tactical=(path,id)=>groups.enabled?groups.isTactical(path,id):tacticalChoice(pack,kernel,mode,path,id);
-  const d={budget,screening:'anytime_top_k',complete:false,limits:{...shortlistLimits},evaluated:0,invalid:0,source_errors:0,calibration_evaluations:0,ordinary_evaluated:0,tactical_evaluated:0,tree_nodes:0,pruned_branches:0,ordinary_retained:0,candidate_count:0,cache_peak:0,ordinary_storage_peak:0,complete_storage_peak:0,phases:[]};
+  const d={budget,screening:'anytime_top_k',complete:false,limits:{...shortlistLimits},evaluation_attempts:0,cache_hits:0,evaluated:0,invalid:0,source_errors:0,calibration_evaluations:0,ordinary_evaluated:0,tactical_evaluated:0,tree_nodes:0,pruned_branches:0,ordinary_retained:0,candidate_count:0,cache_peak:0,ordinary_storage_peak:0,complete_storage_peak:0,phases:[]};
   let phase='search_attachments',phaseDeadline=sliceEnd,currentBase=0;
   const progress=(force=false)=>{
    input.signal?.throwIfAborted();const now=performance.now();if(!force&&now-lastProgress<150)return;lastProgress=now;
-   input.onProgress?.({phase,budget,evaluated:d.evaluated,ordinary_retained:ordinary.rows().length,candidates:complete.rows().length,base_index:currentBase,elapsed_ms:now-started,time_limit_seconds:limit,best_loss:complete.best()?.score??null,complete:false});
+   input.onProgress?.({phase,budget,evaluated:d.evaluated,ordinary_retained:ordinary.rows().length,candidates:complete.rows().length,base_index:currentBase,elapsed_ms:now-started,time_limit_seconds:limit,best_loss:(complete.best()??ordinary.best())?.score??null,best_complete_loss:complete.best()?.score??null,best_ordinary_loss:ordinary.best()?.score??null,evaluation_attempts:d.evaluation_attempts,cache_hits:d.cache_hits,tree_nodes:d.tree_nodes,pruned_branches:d.pruned_branches,invalid:d.invalid,source_errors:d.source_errors,calibration_evaluations:d.calibration_evaluations,ordinary_tree_exhausted:d.ordinary_tree_exhausted??false,scored_per_second:d.evaluated/Math.max(.001,(now-started)/1000),complete:false});
   };
   const cleanTunes=(build,tunes)=>{
    const out={};for(const n of build.mounted)for(const id of pack.parts[n.itemId]?.tuneIds??[]){const c=curves.c(pack,n,id),v=tunes?.[n.slotPath]?.[id];if(c&&c.enabled!==false&&Number.isFinite(v)&&Math.abs(v-c.range.defaultValue)>1e-6&&curves.n(c).some(p=>Math.abs(p-v)<1e-6))(out[n.slotPath]??={})[id]=v;}return out;
   };
   const evaluate=(config,tunes={})=>{
-   check(phaseDeadline);progress();
+   check(phaseDeadline);progress();d.evaluation_attempts++;
    try{
     let build=resolve(config);
     if(config.some(c=>!build.config.some(n=>n.slotPath===c.slotPath&&n.itemId===c.itemId))){d.invalid++;return null;}
@@ -95,7 +95,7 @@ export async function generateAnytime(input,runtime){
     if(!retains(build)||config.some(c=>!build.config.some(n=>n.slotPath===c.slotPath&&n.itemId===c.itemId))||build.mounted.some(n=>hidden.has(n.itemId))||build.mounted.filter(n=>kernel.l(pack,n.itemId,mode)).length>laserLimit||build.mounted.filter(n=>pack.parts[n.itemId]?.boundAmmoByMode?.[mode]).length>1||emptyRisers(pack,build).length){d.invalid++;return null;}
     let cost=mode==='mp'?null:0;if(mode!=='mp')for(const n of build.mounted.filter(n=>n.source==='equipped')){const price=costs[n.itemId];if(!Number.isFinite(price)||price<0){d.invalid++;return null;}cost+=price;}
     if(budget!==null&&cost>budget+1e-8){d.invalid++;return null;}
-    const clean=cleanTunes(build,tunes),cacheKey=JSON.stringify([key,clean]);if(cache.has(cacheKey))return cache.get(cacheKey);
+    const clean=cleanTunes(build,tunes),cacheKey=JSON.stringify([key,clean]);if(cache.has(cacheKey)){d.cache_hits++;return cache.get(cacheKey);}
     const tuned=Object.keys(clean).length>0,state=!tuned&&shared?shared.evaluate(build):kernel.u(pack,build,{mode,tacticalEffective:true,tunes:clean}),components=preset.raw(build,clean,state),score=preset.score(components),stats=Object.fromEntries(Object.entries(statIds).map(([name,id])=>[name,state.numeric.mainAttr[id]]));
     if(!Number.isFinite(score))return null;
     d.evaluated++;if(phase==='calibration')d.calibration_evaluations++;if(phase==='search_tactical')d.tactical_evaluated++;
@@ -131,7 +131,8 @@ export async function generateAnytime(input,runtime){
   const searchOrdinary=()=>{
    // Improve native-scored seeds across live sockets before the broad tree walk.
    const localEnd=performance.now()+Math.max(0,phaseDeadline-performance.now())*.6;
-   while(performance.now()<localEnd){
+   let localExpansions=0;
+   while(performance.now()<localEnd&&(!unlimited||localExpansions++<256)){
     const rows=ordinary.rows(),seed=searchOrder(rows.slice(0,variant?32:rows.length),variant,row=>row.key).find(row=>!expanded.has(row.key))??rows.find(row=>!expanded.has(row.key));if(!seed)break;
     expanded.add(seed.key);if(expanded.size>2048)expanded.delete(expanded.values().next().value);
     for(const build of neighbors(seed,false)){keepOrdinary(build.config);if(performance.now()>=localEnd)break;}

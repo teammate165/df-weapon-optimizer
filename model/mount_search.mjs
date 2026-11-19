@@ -1,7 +1,7 @@
 // A request-local legality plan shared by exhaustive counting and enumeration.
 // Its only free variables are explicit attachment choices; Boolean auxiliaries
 // are evaluated from those choices, including conditional bundled providers.
-export function createMountSearch(compiled,{incremental=true}={}){
+export function createMountSearch(compiled,{incremental=true,priorityPaths=[]}={}){
  const {model:m,players}=compiled,variables=[...m.variables.keys()],index=new Map(variables.map((v,i)=>[v,i]));
  if([...m.variables.values()].some(v=>v.type!=='binary'))throw Error('Exhaustive mounting enumeration requires a Boolean mounting model.');
  const decisions=new Set([...players.values()].map(p=>p.value).filter(v=>typeof v==='string'));
@@ -22,7 +22,10 @@ export function createMountSearch(compiled,{incremental=true}={}){
   if(!byPath.has(p.path))byPath.set(p.path,[]);
   byPath.get(p.path).push({...p,index:index.get(p.value)});
  }
- const groups=[...byPath].sort((a,b)=>a[0].split('/').length-b[0].split('/').length||a[0].localeCompare(b[0])).map(([,choices])=>choices);
+ const priority=new Map(priorityPaths.map((path,index)=>[path,index]));
+ const order=path=>priority.get(path)??priority.size;
+ const groups=[...byPath].sort((a,b)=>order(a[0])-order(b[0])||
+  a[0].split('/').length-b[0].split('/').length||a[0].localeCompare(b[0])).map(([,choices])=>choices);
  const users=variables.map(()=>[]),readers=variables.map(()=>[]);
  for(let i=0;i<instructions.length;i++)for(const a of instructions[i]?.args??[])if(a.index!==undefined)users[a.index].push(i);
  constraints.forEach((c,j)=>c.terms.forEach(([i])=>readers[i].push(j)));
@@ -88,17 +91,17 @@ export function createMountSearch(compiled,{incremental=true}={}){
   const s=session(restrictions,tick,stats);
   if(priority)for(let i=0;i<groups.length;i++)s.domains[i].sort((a,b)=>priority(groups[i][0].path,a?.item??null)-priority(groups[i][0].path,b?.item??null));
   const remaining=new Uint16Array(groups.length+1);for(let i=groups.length-1;i>=0;i--)remaining[i]=remaining[i+1]+(s.domains[i].length>1?1:0);
-  function* walk(depth,config){
+  function* walk(depth,config,selectedCost){
    const end=s.skipTo[depth],fixed=[];
-   for(;depth<end;depth++){const chosen=s.domains[depth][0];if(chosen)fixed.push({slotPath:chosen.path,itemId:chosen.item});}
+   for(;depth<end;depth++){const chosen=s.domains[depth][0];if(chosen){fixed.push({slotPath:chosen.path,itemId:chosen.item});selectedCost+=chosen.cost;}}
    if(fixed.length)config=[...config,...fixed];
    tick();if(!s.possible())return;
-   if(depth<groups.length&&prune?.({depth,remaining:remaining[depth],interval:s.interval})){stats.pruned_branches=(stats.pruned_branches??0)+1;return;}
+   if(depth<groups.length&&prune?.({depth,remaining:remaining[depth],interval:s.interval,selectedCost})){stats.pruned_branches=(stats.pruned_branches??0)+1;return;}
    if(depth===groups.length){yield config;return;}
-   for(const chosen of s.domains[depth]){s.choose(depth,chosen);yield* walk(depth+1,chosen?[...config,{slotPath:chosen.path,itemId:chosen.item}]:config);}
+   for(const chosen of s.domains[depth]){s.choose(depth,chosen);yield* walk(depth+1,chosen?[...config,{slotPath:chosen.path,itemId:chosen.item}]:config,selectedCost+(chosen?.cost??0));}
    s.restore(depth);
   }
-  yield* walk(0,[]);
+  yield* walk(0,[],0);
  }
 
  function count(restrictions=new Map(),{tick=()=>{},onCount=()=>{},maxEntries=20000,maxKeyChars=4*1024*1024,maxInternEntries=50000,maxInternChars=4*1024*1024}={}){
