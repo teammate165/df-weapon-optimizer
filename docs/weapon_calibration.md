@@ -136,7 +136,7 @@ Units and ranges depend on attachment and host socket. Typical source examples: 
 <a id="calibration-input-precision--can-a-share-code-bypass-those-steps"></a>
 ### Can a share code bypass those steps?
 
-No supported method has been established. The observed 21-character game suffix can be represented as a timestamp-like field, a zero byte and an opaque field; no attachment/calibration payload was recovered. Its metadata representation is insufficient to edit a slider setting or publish a changed build. The inspected official recipe exports contain attachment trees but no calibration fields. See [share-code research](weapon_import_codes.md), which distinguishes observations from the unverified server/account-field interpretation.
+No supported method has been established. The observed 21-character game suffix can be represented as a timestamp-like field, a zero byte and an opaque field; no attachment/calibration payload was recovered. Its metadata representation is insufficient to edit a slider setting or publish a changed build. The inspected official recipe exports contain attachment trees but no calibration fields. See [share-code research](archive/weapon_import_codes.md), which distinguishes observations from the unverified server/account-field interpretation.
 
 Do not claim that changing token characters writes decimals into tuning. Even a hypothetical client request carrying decimals could be rejected or normalized by the server; numeric transport and accepted gameplay values are separate questions.
 

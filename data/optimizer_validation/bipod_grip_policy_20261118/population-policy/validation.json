@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "workers_requested": 8,
+  "workers_ready": 8,
+  "participating_workers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "scope": "full800-point exact count plus complete160-point native/DAG score-identity parity; not a full800-point scored scan",
+  "checks": [
+    "dominance rejected by active exhaustive entry points",
+    "original grouped ordinary count12268642",
+    "top0.5% count61344",
+    "all385 small-domain score/identity rows match",
+    "small-domain survivor order matches"
+  ],
+  "results": [
+    {
+      "passed": true,
+      "id": 0,
+      "full_count": "12268642",
+      "full_survivors": "61344",
+      "small_paths": 385,
+      "elapsed_ms": 2364.4168
+    },
+    {
+      "passed": true,
+      "id": 1,
+      "full_count": "12268642",
+      "full_survivors": "61344",
+      "small_paths": 385,
+      "elapsed_ms": 2387.6067
+    },
+    {
+      "passed": true,
+      "id": 2,
+      "full_count": "12268642",
+      "full_survivors": "61344",
+      "small_paths": 385,
+      "elapsed_ms": 2354.7734
+    },
+    {
+      "passed": true,
+      "id": 3,
+      "full_count": "12268642",
+      "full_survivors": "61344",
+      "small_paths": 385,
+      "elapsed_ms": 2270.0463
+    },
+    {
+      "passed": true,
+      "id": 4,
+      "full_count": "12268642",
+      "full_survivors": "61344",
+      "small_paths": 385,
+      "elapsed_ms": 2351.7694
+    },
+    {
+      "passed": true,
+      "id": 5,
+      "full_count": "12268642",
+      "full_survivors": "61344",
+      "small_paths": 385,
+      "elapsed_ms": 2337.8151000000003
+    },
+    {
+      "passed": true,
+      "id": 6,
+      "full_count": "12268642",
+      "full_survivors": "61344",
+      "small_paths": 385,
+      "elapsed_ms": 2381.0443
+    },
+    {
+      "passed": true,
+      "id": 7,
+      "full_count": "12268642",
+      "full_survivors": "61344",
+      "small_paths": 385,
+      "elapsed_ms": 2288.5199
+    }
+  ]
+}

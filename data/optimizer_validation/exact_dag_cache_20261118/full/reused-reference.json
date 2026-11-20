@@ -1,0 +1,35 @@
+{
+  "directory": "C:\\Users\\USER\\Documents\\df_build_optimizer\\data\\optimizer_validation\\optimized_exact_dag_20261118\\full",
+  "validated_native_data_hashes": true,
+  "validated_identical_root_configs": true,
+  "reference_partitions_reused": true,
+  "new_planner_jobs": 1608,
+  "used_jobs": 1608,
+  "summary": {
+    "phase": "reference",
+    "wall_ms": 2356804.9447999997,
+    "paths": "12885654",
+    "terminal_classes": 12885654,
+    "objective_evaluations": 3854265,
+    "native_witnesses": 3854265,
+    "geometry_evaluations": 8131,
+    "transitions_computed": 0,
+    "transitions_reused": 0,
+    "spill_bytes": 0,
+    "materialized_paths": 0,
+    "audit_ms_sum": 0,
+    "workers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "survivors": 64429,
+    "survivor_manifest": "a513a92efe125b4d6a5acd93e93c0653e66ebcfba7e7a38daab5a6cde4d8720a",
+    "guard_fallback_jobs": 0
+  }
+}

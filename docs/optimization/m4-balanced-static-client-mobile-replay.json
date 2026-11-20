@@ -1,0 +1,134 @@
+{
+  "replays": {
+    "maximum": {
+      "config": [
+        {
+          "slotPath": "2",
+          "itemId": "13020000349"
+        },
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000169"
+        },
+        {
+          "slotPath": "1",
+          "itemId": "13030000166"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000114"
+        },
+        {
+          "slotPath": "4/8",
+          "itemId": "13140000042"
+        },
+        {
+          "slotPath": "11",
+          "itemId": "13110000091"
+        },
+        {
+          "slotPath": "1/43",
+          "itemId": "13330000001"
+        },
+        {
+          "slotPath": "3/29",
+          "itemId": "13290000001"
+        }
+      ],
+      "cost": 760,
+      "tunes": {
+        "1": {
+          "authoring:part:13030000166:tune:thickness:0": 0,
+          "authoring:part:13030000166:tune:weight:1": 50
+        },
+        "2": {
+          "authoring:part:13020000349:tune:length:0": 0,
+          "authoring:part:13020000349:tune:weight:1": 50
+        },
+        "3": {
+          "authoring:part:13040000114:tune:thickness:0": 50,
+          "authoring:part:13040000114:tune:weight:1": 50
+        },
+        "11": {
+          "authoring:part:13110000091:tune:eyeRelief:0": 0,
+          "authoring:part:13110000091:tune:zoom:1": 0
+        },
+        "3/29": {
+          "authoring:part:13290000001:tune:thickness:0": 50,
+          "authoring:part:13290000001:tune:weight:1": 50
+        },
+        "4/8": {
+          "authoring:part:13140000042:tune:weight:0": 20,
+          "authoring:part:13140000042:tune:thickness:1": 0
+        }
+      },
+      "missing": []
+    },
+    "minimum": {
+      "config": [
+        {
+          "slotPath": "2",
+          "itemId": "13020000347"
+        },
+        {
+          "slotPath": "11",
+          "itemId": "13110000091"
+        }
+      ],
+      "cost": 120,
+      "tunes": {
+        "2": {
+          "authoring:part:13020000347:tune:length:0": 0,
+          "authoring:part:13020000347:tune:weight:1": 50
+        },
+        "11": {
+          "authoring:part:13110000091:tune:eyeRelief:0": 0,
+          "authoring:part:13110000091:tune:zoom:1": 0
+        }
+      },
+      "missing": []
+    },
+    "balanced": {
+      "config": [
+        {
+          "slotPath": "38",
+          "itemId": "13030000115"
+        },
+        {
+          "slotPath": "2",
+          "itemId": "13020000347"
+        },
+        {
+          "slotPath": "4/8",
+          "itemId": "13140000041"
+        },
+        {
+          "slotPath": "11",
+          "itemId": "13110000091"
+        }
+      ],
+      "cost": 400,
+      "tunes": {
+        "2": {
+          "authoring:part:13020000347:tune:length:0": 0,
+          "authoring:part:13020000347:tune:weight:1": 50
+        },
+        "11": {
+          "authoring:part:13110000091:tune:eyeRelief:0": 0,
+          "authoring:part:13110000091:tune:zoom:1": 0
+        },
+        "38": {
+          "authoring:part:13030000115:tune:thickness:0": 0,
+          "authoring:part:13030000115:tune:weight:1": 50
+        },
+        "4/8": {
+          "authoring:part:13140000041:tune:weight:0": 20,
+          "authoring:part:13140000041:tune:thickness:1": 0
+        }
+      },
+      "missing": []
+    }
+  },
+  "release": "9f2af68d13f98701",
+  "width": 390
+}

@@ -82,7 +82,7 @@ observations, not promises for mobile hardware.
 - Existing GitHub Pages and static browser suites cover stale dependency cache
   bypass, calculator parity, actual Generate/Apply, saved builds and reload.
 
-`.scratch/multistart-release/regression.json` compares Standard searches for the
+`.scratch-archive/multistart-release/regression.json` compares Standard searches for the
 same ten full-budget cases with the frozen production baseline and offline
 challenger. Every result must replay stats/costs, budgets, optic/laser policies,
 category distinctness and cheaper-category improvement floors. The integrated

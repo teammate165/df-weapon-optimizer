@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "status": "completed",
+  "exact_total": "12885654",
+  "scored": "12885654",
+  "partitions": 102,
+  "native_best_row_replays": 102,
+  "source_errors": 0,
+  "checks": [
+    "all partition IDs unique and complete",
+    "exact independent count reconciled",
+    "every source mounting checked during scan",
+    "best rows replay exact native objective vectors, cost and lock",
+    "no score pruning or deadlines",
+    "ordinary-only scope; top-5% storage and tactical stage not included"
+  ]
+}

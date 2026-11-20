@@ -21,7 +21,25 @@ MANIFEST = load('manifest.json')
 
 @lru_cache(maxsize=69)
 def pack(weapon_id):
-    return assemble(MANIFEST['weaponPacks'][weapon_id])
+    weapon = assemble(MANIFEST['weaponPacks'][weapon_id])
+    if weapon_id == '18010000052':
+        # Preserve the published AN-94 default-barrel foregrip compatibility in BD.
+        sockets = weapon['assembly']['socketProviders']['13050000424']['sockets']
+        bd_foregrips = {
+            '13140000021', '13140000023', '13140000025', '13140000026',
+            '13140000029', '13140000032', '13140000033', '13140000035',
+            '13140000037', '13140000038', '13140000040', '13140000043',
+        }
+        for index, socket in enumerate(sockets):
+            if socket['socketId'] == 8 and 'modes' not in socket:
+                sockets[index:index + 1] = [
+                    {**socket, 'modes': ['sol', 'mp']},
+                    {**socket, 'optionItemIds': [
+                        item for item in socket['optionItemIds'] if item in bd_foregrips
+                    ], 'modes': ['bd']},
+                ]
+                break
+    return weapon
 
 
 def catalog():

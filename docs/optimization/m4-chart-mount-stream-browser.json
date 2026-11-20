@@ -1,0 +1,136 @@
+{
+  "version": "157.0.8103.79",
+  "workerReadyMs": 50.10000002384186,
+  "workerRunMs": 806.3000000119209,
+  "matchesNodeReference": true,
+  "result": {
+    "name": "expanded",
+    "batchSize": 64,
+    "fast": true,
+    "auditPreparation": false,
+    "budget": 800,
+    "choiceCounts": [
+      6,
+      8,
+      9,
+      2,
+      3
+    ],
+    "domainSize": 5184,
+    "prepared": 3888,
+    "gridTuples": 2199009168,
+    "bounds": 6356,
+    "scores": 77,
+    "nodes": 6496,
+    "maxPreparedBatch": 64,
+    "mountNodes": 5084,
+    "mountStats": {
+      "constraint_evaluations": 137849,
+      "boolean_evaluations": 812025
+    },
+    "compileMs": 24.700000047683716,
+    "contextMs": 620.800000667572,
+    "mountIterationMs": 44.699999272823334,
+    "solveMs": 775.1000000238419,
+    "audited": null,
+    "profiles": 2,
+    "schedules": 1,
+    "outputs": {
+      "maximum": {
+        "cost": 600,
+        "gain": 59.29836251489938,
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000114"
+          },
+          {
+            "slotPath": "2",
+            "itemId": "13020000347"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000110"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000158"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000022"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000114:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000110:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000022:tune:position:1": 95
+          }
+        }
+      },
+      "minimum": {
+        "cost": 160,
+        "gain": 30.993693657204375,
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000114"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000104"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000021"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000114:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000104:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000021:tune:position:1": 95
+          }
+        }
+      },
+      "balanced": {
+        "cost": 200,
+        "gain": 44.86357492506914,
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000110"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000113"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000021"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000110:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000113:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000021:tune:position:1": 95
+          }
+        }
+      }
+    }
+  }
+}

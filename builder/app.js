@@ -24,6 +24,9 @@ const viewed=()=>state.preview?.model??(state.tab==='optimizer'?state.solutionPr
 const showStatResponse=createStatResponseView({load:r=>api('evaluate',r),getContext:()=>{const model=viewed();return{weapon_id:model.stats.weaponId,weapon_name:state.catalog.weapons.find(w=>w.id===model.stats.weaponId)?.name??model.stats.weaponId,mode:model.stats.mode,config:model.build.config,tunes:model.tunes};}});
 function status(message,error=false){$('status').textContent=message;$('status').title=message;$('status').classList.toggle('error',error);}
 const api=createLocalClient();
+if(api.exactOrdinary)$('pattern-reduction-option').insertAdjacentHTML('beforeend',
+ '<div><label><input id="exact-ordinary" type="checkbox"> Exact ordinary search (preview)</label></div>');
+if(api.exactBeta)$('solver-time-limit').add(new Option('300s / Exact ordinary M4A1 beta','300'));
 function setBusy(value){state.busy=value;document.querySelectorAll('button,input,select').forEach(el=>el.disabled=value);$('cancel-generate').hidden=!state.searchController;$('cancel-generate').disabled=!state.searchController;document.body.setAttribute('aria-busy',String(value));if(!value)updateActions();}
 function clearResults(){$('optimizer-search-note').textContent='Time-limited attachment search and calibration / Best found';hideAccuracyInfo();solutionPreviewSerial++;solutionPreviewCache.clear();state.solutionPreview=null;state.solutionPreviewLoading=false;state.results=null;$('results').replaceChildren();}
 function clearPreview(){state.previewSerial++;state.preview=null;state.previewLoading=false;$('preview-summary').hidden=true;}
@@ -276,6 +279,8 @@ const presetTemplates={
 };
 function updatePreset(){
  const preset=presetTemplates[$('optimizer-preset').value],agility=$('optimizer-preset').value==='agility',box=document.querySelector('.objective');
+ $('pattern-reduction-option').hidden=agility;
+ syncExactTimeLimit();
  $('optimizer-panel').dataset.preset=$('optimizer-preset').value;
  box.querySelector('strong').textContent=preset.title;
 
@@ -283,35 +288,61 @@ function updatePreset(){
  info.onmouseenter=explain;info.onmouseleave=hideAccuracyInfo;info.onfocus=explain;info.onblur=hideAccuracyInfo;info.onclick=explain;info.onkeydown=e=>{if(e.key==='Escape')hideAccuracyInfo();};
  box.querySelector('p').textContent=preset.priorities;
  $('optimizer-search-note').textContent='Time-limited attachment search and calibration / Best found';
- $('category-info').textContent='Max / Balanced / Min. Cheaper choices retain at least 50% of best improvement. No duplicate builds.';
+ $('category-info').textContent='Max / Balanced / Min. Cheaper choices retain at least 60% of best improvement. No duplicate builds.';
  $('optimizer-model-note').textContent=agility?'Weighted loss: 50% Handling (equal normalized ADS/sprint-to-fire times), 30% idle hip-fire spread, 20% ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Automatic pattern uses horizontal distance from origin, weighted by candidate fastest 200 ms speed: 1x up to 3, 4x above 3, 6x above 4, 10x above 5 model units/s. Unsupported firing protocols retain the multiplier proxy. Best found; experimental proxy.';
 }
 $('optimizer-preset').onchange=()=>{clearResults();updatePreset();renderStats();drawGraph();};
+$('pattern-reduction').onchange=clearResults;
+function syncExactTimeLimit(){
+ const limit=$('solver-time-limit'),enabled=$('optimizer-preset').value==='recoil'&&$('exact-ordinary')?.checked;
+ if(enabled&&!Array.from(limit.options).some(option=>option.value==='300')){
+  const option=new Option('300s / Exact ordinary','300');
+  option.id='exact-ordinary-time-limit';limit.add(option);
+ }else if(!enabled){
+  if($('exact-ordinary-time-limit')?.selected)limit.value='30';
+  $('exact-ordinary-time-limit')?.remove();
+ }
+ if(enabled&&limit.value==='0')limit.value='30';
+}
+if($('exact-ordinary'))$('exact-ordinary').onchange=()=>{
+ syncExactTimeLimit();
+ clearResults();
+};
 $('generate').onclick=async()=>{
  const started=Date.now();let progress,searchProgress=null;
  const progressText=()=>{
   const p=searchProgress,elapsed=Math.floor((Date.now()-started)/1000);
   const budget=Number($('solver-time-limit').value);
-  if(!p)return `Starting attachment search... ${elapsed}s of ${budget}s. Best found within the total search budget.`;
-  if(p.phase==='calibration')return `Calibrating ${Number(p.candidates??0).toLocaleString()} shortlisted builds... ${elapsed}s of ${budget}s.`;
-  const tactical=p.phase==='search_tactical',stage=tactical?'Searching patches and lasers':'Searching ordinary attachments';
-  return `${stage}: ${Number(p.evaluated??0).toLocaleString()} builds scored, ${Number(p.ordinary_retained??0).toLocaleString()} ordinary / ${Number(p.candidates??0).toLocaleString()} complete retained... ${elapsed}s of ${budget}s.`;
+  const clock=budget===0?`${elapsed}s elapsed / no time limit`:`${elapsed}s of ${budget}s`;
+  if(!p)return `Starting attachment search... ${clock}.`;
+  const ordinaryStage=({maximum:'Proving Maximum',minimum:'Proving Minimum Acceptable',balanced:'Proving Balanced'})[p.category];
+  const stage=({exact_ordinary:ordinaryStage??'Enumerating ordinary layouts and tuning',calibration:'Calibrating shortlist',search_tactical:'Searching patches and lasers',search_attachments:'Searching ordinary attachments'})[p.phase]??p.phase;
+  const count=n=>Number(n??0).toLocaleString();
+  return `${stage} / ${clock}. ${count(p.evaluated)} builds scored (${Number(p.scored_per_second??0).toFixed(0)}/s); ${count(p.tree_nodes)} tree nodes; ${count(p.pruned_branches)} pruned branches; ${count(p.invalid)} rejected; ${count(p.source_errors)} source errors. Retained: ${count(p.ordinary_retained)} ordinary / ${count(p.candidates)} complete. Tactical bases: ${count(p.base_index)}. Calibration evaluations: ${count(p.calibration_evaluations)}. Best loss: ${p.best_loss==null?'pending':Number(p.best_loss).toFixed(4)}. Ordinary traversal: ${p.ordinary_tree_exhausted?'finished':'in progress'}. Total completion: unknown.`;
  };
  state.searchController=new AbortController();
  const feedback=(message,error=false)=>{$('results').innerHTML=`<p class="search-feedback ${error?'error':''}" role="status">${esc(message)}</p>`;};
  try{
   cancelLiveCalibration();clearPreview();clearResults();setBusy(true);renderStats();drawGraph();
-  status('Searching attachments and calibrating a bounded shortlist...');
+  const exactOrdinary=$('optimizer-preset').value==='recoil'&&$('exact-ordinary')?.checked;
+  status(exactOrdinary?'Enumerating ordinary layouts and tuning...':'Searching attachments and calibrating a bounded shortlist...');
   feedback(progressText());
   $('generate').textContent='Searching...';
   progress=setInterval(()=>feedback(progressText()),1000);
   const fixed=state.config.filter(x=>[...state.locks].some(path=>path===x.slotPath||path.startsWith(x.slotPath+'/'))),r={...request(),preset:$('optimizer-preset').value,fixed,time_limit_seconds:Number($('solver-time-limit').value)};
+  if(exactOrdinary)r.search_method=new URLSearchParams(location.search).get('exact-ordinary')==='staged'?'exact_ordinary_staged':'exact_ordinary';
+  if(r.preset==='recoil'&&$('pattern-reduction').checked)r.pattern_reduction_percent=5;
   r.minimum_stats=Object.fromEntries(['control','handling','stability','accuracy'].filter(k=>$(`minimum-${k}`).value!=='').map(k=>[k,Number($(`minimum-${k}`).value)]));
   if(r.mode==='sol')r.budget=Number($('budget-0').value);
   const result=await api('optimize',r,{signal:state.searchController.signal,onProgress:p=>{searchProgress=p;feedback(progressText());}});
   if(!Array.isArray(result.results)||!result.results.length)throw Error('Search returned no builds. Try different constraints or another weapon.');
   state.results=result;state.results.request=structuredClone(r);state.resultIndex=0;
-  clearInterval(progress);renderResults();$('optimizer-search-note').textContent='Best found within search budget / Global optimum unproven';status('Search complete - Best builds found.');
+  clearInterval(progress);renderResults();
+  const incomplete=result.solver?.exhausted===false;
+  $('optimizer-search-note').textContent=result.proof_scope
+   ?result.proof_scope+(incomplete?' / Search incomplete':''):'Best found within search budget / Global optimum unproven';
+  status(incomplete?'Search incomplete. See each build for its proof status.':
+   result.proof_scope?'Search complete. See each build for its proof status.':'Search complete - Best builds found.');
  }catch(error){clearInterval(progress);const cancelled=error.name==='AbortError';feedback(cancelled?'Search cancelled. Your equipped build is unchanged.':error.message,!cancelled);status(cancelled?'Search cancelled.':error.message,!cancelled);}
  finally{clearInterval(progress);state.searchController=null;$('generate').textContent='Generate best build';setBusy(false);}
 };
@@ -348,8 +379,10 @@ function renderResults(){
  const ordered=rows.map((r,i)=>({r,i})).sort((a,b)=>(rank[solutionName(a.r)]??3)-(rank[solutionName(b.r)]??3));
  const picker=rows.length>1?`<div class="result-picker">${ordered.map(({r,i})=>`<button data-result="${i}" title="${esc(r.category_note??solutionName(r))}" aria-pressed="${state.resultIndex===i}">${esc(solutionName(r))}</button>`).join('')}</div>`:'';
  const stat=(key,label)=>`<section class="solution-panel solution-preview-stat" data-stat="${key}" aria-label="${label}"><div class="solution-cell-title"><span>${label}</span></div><strong>${fmt(row.stats[key])}</strong></section>`;
- const context=`<p class="solution-context">${esc(name(run.weapon_id))} &middot; ${esc(run.mode.toUpperCase())} &middot; ${esc(solutionName(row))}</p>`;
- $('results').innerHTML=context+picker+(row.status!=='best_found'?`<article class="result"><h3>${row.status==='unavailable'?'No distinct alternative':'No feasible build'}</h3><p class="helper">${esc(row.reason)}</p></article>`:`<article class="result compact-solution"><div class="solution-grid solution-preview"><section class="solution-panel solution-preview-top" aria-label="Relative score"><span>Relative score</span><strong title="Improvement over default; default 0; higher is better">${fmt(solutionScore(run,row))}</strong></section><section class="solution-panel solution-preview-top" aria-label="Build cost"><span>Cost</span><strong>${row.cost===null?'Unpriced':fmt(row.cost,0)}</strong></section><div class="solution-stat-row">${stat('control','Control')}${stat('handling','Handling')}${stat('stability','Stability')}${stat('accuracy','Accuracy')}</div></div><div class="solution-actions"><button class="primary" data-apply="${state.resultIndex}">Apply build</button><button class="solution-save" id="save-result-build">Save build</button></div></article>`);
+ const context=`<p class="solution-context">${esc(name(run.weapon_id))} &middot; ${esc(run.mode.toUpperCase())} &middot; ${esc(solutionName(row))}${row.proof?' &middot; '+esc(row.proof):''}</p>`;
+ const cap=run.pattern_constraint;
+ const pattern=cap?`<p class="helper" id="pattern-constraint-result">${cap.pattern_model==='legacy-multiplier-v1'?'Pattern proxy':'Pattern loss'} ${row.status==='best_found'?`${fmt(row.components.pattern)} / `:''}cap ${fmt(cap.maximum)} &middot; reference ${fmt(cap.reference)}</p>`:'';
+ $('results').innerHTML=context+picker+pattern+(row.status!=='best_found'?`<article class="result"><h3>${row.status==='unavailable'?'No distinct alternative':row.status==='unresolved'?'Search incomplete':'No feasible build'}</h3><p class="helper">${esc(row.reason)}</p></article>`:`<article class="result compact-solution"><div class="solution-grid solution-preview"><section class="solution-panel solution-preview-top" aria-label="Relative score"><span>Relative score</span><strong title="Improvement over default; default 0; higher is better">${fmt(solutionScore(run,row))}</strong></section><section class="solution-panel solution-preview-top" aria-label="Build cost"><span>Cost</span><strong>${row.cost===null?'Unpriced':fmt(row.cost,0)}</strong></section><div class="solution-stat-row">${stat('control','Control')}${stat('handling','Handling')}${stat('stability','Stability')}${stat('accuracy','Accuracy')}</div></div><div class="solution-actions"><button class="primary" data-apply="${state.resultIndex}">Apply build</button><button class="solution-save" id="save-result-build">Save build</button></div></article>`);
  document.querySelectorAll('[data-result]').forEach(button=>button.onclick=()=>{state.resultIndex=Number(button.dataset.result);renderResults();});
  const apply=$('results').querySelector('[data-apply]');
  if(apply)apply.onclick=()=>{
@@ -368,7 +401,7 @@ function hideAccuracyInfo(){if(accuracyInfoCard)accuracyInfoCard.hidden=true;if(
 function showAccuracyInfo(button,run){
  hideAccuracyInfo();accuracyInfoButton=button;
  if(!accuracyInfoCard){accuracyInfoCard=document.createElement('div');accuracyInfoCard.id='optimizer-score-tooltip';accuracyInfoCard.className='solution-info-card';accuracyInfoCard.role='tooltip';document.body.append(accuracyInfoCard);}
- accuracyInfoCard.innerHTML=`<strong>Preset scoring</strong><p>Solution cells show raw effective stat points, including Accuracy. Higher points generally mean tighter hip-fire spread.</p>${run.preset==='agility'?'<p>Agility score measures weighted improvement over default: 50% Handling, 30% hip accuracy, 20% ADS recoil. Metrics are default-normalized; Handling averages ADS and sprint-to-fire times. Default is 0; higher is better. Balanced and Min retain at least 50% of Max weighted improvement.</p>':run.preset==='recoil'?'<p>The relative score measures the ADS recoil proxy, not Accuracy. Handling breaks equal-recoil ties, using ADS and sprint-to-fire times. It shows percentage improvement over default: default is 0; higher is better.</p>':`<p>${esc(run.score_model??'Relative score follows the selected preset objective; Accuracy points are a separate main stat.')}</p>`}<p>Moving spread scales with idle spread. Maximum spread and separate jumping penalties are excluded from agility scoring.</p>`;
+ accuracyInfoCard.innerHTML=`<strong>Preset scoring</strong><p>Solution cells show raw effective stat points, including Accuracy. Higher points generally mean tighter hip-fire spread.</p>${run.preset==='agility'?'<p>Agility score measures weighted improvement over default: 50% Handling, 30% hip accuracy, 20% ADS recoil. Metrics are default-normalized; Handling averages ADS and sprint-to-fire times. Default is 0; higher is better. Balanced and Min retain at least 60% of Max weighted improvement.</p>':run.preset==='recoil'?'<p>The relative score measures the ADS recoil proxy, not Accuracy. Handling breaks equal-recoil ties, using ADS and sprint-to-fire times. It shows percentage improvement over default: default is 0; higher is better.</p>':`<p>${esc(run.score_model??'Relative score follows the selected preset objective; Accuracy points are a separate main stat.')}</p>`}<p>Moving spread scales with idle spread. Maximum spread and separate jumping penalties are excluded from agility scoring.</p>`;
  accuracyInfoCard.hidden=false;button.setAttribute('aria-expanded','true');button.setAttribute('aria-describedby',accuracyInfoCard.id);
  const rect=button.getBoundingClientRect(),width=Math.min(300,innerWidth-24);accuracyInfoCard.style.width=width+'px';
  accuracyInfoCard.style.left=Math.max(12,Math.min(rect.right-width,innerWidth-width-12))+'px';

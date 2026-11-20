@@ -1,0 +1,104 @@
+{
+  "passed": true,
+  "release": "9f2af68d13f98701",
+  "automaticWorkers": 8,
+  "hardwareConcurrency": 14,
+  "deviceMemory": 16,
+  "counts": [
+    1,
+    1,
+    3,
+    2,
+    7
+  ],
+  "aborted": true,
+  "activeAfterAbort": 0,
+  "runs": [
+    {
+      "workerCount": 1,
+      "peakActive": 1,
+      "elapsed_ms": 5117.199999988079,
+      "evaluationsPerWorker": [
+        4112
+      ],
+      "evaluations": 4112,
+      "bestLossByWorker": [
+        [
+          22.985555414115936
+        ]
+      ]
+    },
+    {
+      "workerCount": 4,
+      "peakActive": 4,
+      "elapsed_ms": 5166.199999988079,
+      "evaluationsPerWorker": [
+        4216,
+        4101,
+        4218,
+        4069
+      ],
+      "evaluations": 16604,
+      "bestLossByWorker": [
+        [
+          22.985555414115936
+        ],
+        [
+          22.985555414115936
+        ],
+        [
+          22.985555414115936
+        ],
+        [
+          22.985555414115936
+        ]
+      ]
+    },
+    {
+      "workerCount": 8,
+      "peakActive": 8,
+      "elapsed_ms": 5270.100000023842,
+      "evaluationsPerWorker": [
+        2835,
+        2522,
+        2728,
+        2493,
+        2573,
+        2670,
+        3636,
+        3754
+      ],
+      "evaluations": 23211,
+      "bestLossByWorker": [
+        [
+          22.985555414115936
+        ],
+        [
+          22.985555414115936
+        ],
+        [
+          22.985555414115936
+        ],
+        [
+          22.985555414115936
+        ],
+        [
+          22.985555414115936
+        ],
+        [
+          22.985555414115936
+        ],
+        [
+          22.985555414115936
+        ],
+        [
+          22.985555414115936
+        ]
+      ]
+    }
+  ],
+  "companionFailureSurvivingWorkers": [
+    1,
+    1
+  ]
+}

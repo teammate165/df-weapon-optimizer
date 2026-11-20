@@ -1,0 +1,185 @@
+{
+  "budget": 800,
+  "oracleTuples": 30603,
+  "oracleMs": 23036.2961,
+  "audited": 20401,
+  "maximum": {
+    "gain": 24.366400940830673,
+    "cost": 240
+  },
+  "minimum": {
+    "gain": 17.794900940830672,
+    "cost": 80
+  },
+  "balanced": {
+    "gain": 17.794900940830672,
+    "cost": 80
+  },
+  "samples": [
+    {
+      "grouped": false,
+      "chartBounds": 51,
+      "exactScores": 2,
+      "nodes": 55,
+      "elapsedMs": 1.585399999999936
+    },
+    {
+      "grouped": true,
+      "chartBounds": 90846,
+      "exactScores": 2,
+      "nodes": 50448,
+      "elapsedMs": 347.87279999999737
+    },
+    {
+      "grouped": true,
+      "chartBounds": 90846,
+      "exactScores": 2,
+      "nodes": 50448,
+      "elapsedMs": 321.3738000000012
+    },
+    {
+      "grouped": false,
+      "chartBounds": 51,
+      "exactScores": 2,
+      "nodes": 55,
+      "elapsedMs": 2.404100000003382
+    },
+    {
+      "grouped": false,
+      "chartBounds": 51,
+      "exactScores": 2,
+      "nodes": 55,
+      "elapsedMs": 1.4320999999981723
+    },
+    {
+      "grouped": true,
+      "chartBounds": 90846,
+      "exactScores": 2,
+      "nodes": 50448,
+      "elapsedMs": 333.35159999999814
+    },
+    {
+      "grouped": true,
+      "chartBounds": 90846,
+      "exactScores": 2,
+      "nodes": 50448,
+      "elapsedMs": 354.29859999999826
+    },
+    {
+      "grouped": false,
+      "chartBounds": 51,
+      "exactScores": 2,
+      "nodes": 55,
+      "elapsedMs": 1.7413999999989755
+    },
+    {
+      "grouped": false,
+      "chartBounds": 51,
+      "exactScores": 2,
+      "nodes": 55,
+      "elapsedMs": 1.3374999999978172
+    },
+    {
+      "grouped": true,
+      "chartBounds": 90846,
+      "exactScores": 2,
+      "nodes": 50448,
+      "elapsedMs": 330.6742000000013
+    },
+    {
+      "grouped": true,
+      "chartBounds": 90846,
+      "exactScores": 2,
+      "nodes": 50448,
+      "elapsedMs": 351.47910000000047
+    },
+    {
+      "grouped": false,
+      "chartBounds": 51,
+      "exactScores": 2,
+      "nodes": 55,
+      "elapsedMs": 1.8852000000006228
+    },
+    {
+      "grouped": false,
+      "chartBounds": 51,
+      "exactScores": 2,
+      "nodes": 55,
+      "elapsedMs": 1.3694000000032247
+    },
+    {
+      "grouped": true,
+      "chartBounds": 90846,
+      "exactScores": 2,
+      "nodes": 50448,
+      "elapsedMs": 351.3514000000032
+    }
+  ],
+  "contexts": [
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000104"
+        }
+      ],
+      "cost": 80,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000104"
+        },
+        {
+          "slotPath": "2",
+          "itemId": "13020000173"
+        }
+      ],
+      "cost": 320,
+      "profile": "authoring:part:13020000173:bd:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000104"
+        },
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000169"
+        }
+      ],
+      "cost": 240,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1638.75,
+      "tiers": [
+        4,
+        1
+      ]
+    }
+  ]
+}

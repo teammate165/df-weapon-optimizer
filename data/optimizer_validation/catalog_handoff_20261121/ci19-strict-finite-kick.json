@@ -1,0 +1,1052 @@
+[
+  {
+    "id": "18010000038",
+    "mode": "bd",
+    "layouts": 8,
+    "evaluations": 1000,
+    "eligible": 984,
+    "categories": [
+      "Max",
+      "Min",
+      "Balanced"
+    ]
+  },
+  {
+    "id": "18010000001",
+    "mode": "bd",
+    "layouts": 6,
+    "evaluations": 1710,
+    "eligible": 1710,
+    "categories": [
+      "Max",
+      "Min",
+      "Balanced"
+    ]
+  },
+  {
+    "id": "18010000052",
+    "mode": "sol",
+    "layouts": 6,
+    "evaluations": 190,
+    "eligible": 96,
+    "categories": [
+      "Max"
+    ]
+  },
+  {
+    "id": "18070000005",
+    "mode": "mp",
+    "layouts": 12,
+    "evaluations": 380,
+    "eligible": 360,
+    "categories": [
+      "Max"
+    ]
+  },
+  {
+    "id": "18040000003",
+    "mode": "bd",
+    "layouts": 2,
+    "evaluations": 10,
+    "eligible": 3,
+    "categories": [
+      "Max"
+    ]
+  },
+  {
+    "full_budget_catalog": {
+      "certified": 1,
+      "open": 0,
+      "errors": 0,
+      "total": 1,
+      "cases": [
+        {
+          "id": "18010000038",
+          "request": {
+            "mode": "bd",
+            "budget": 2000,
+            "preset": "recoil",
+            "shot_count": 20,
+            "time_limit_seconds": 300,
+            "config": [
+              {
+                "slotPath": "1",
+                "itemId": "13030000189"
+              },
+              {
+                "slotPath": "5/44",
+                "itemId": "13340000001"
+              },
+              {
+                "slotPath": "3",
+                "itemId": "13040000110"
+              },
+              {
+                "slotPath": "11",
+                "itemId": "13110000099"
+              },
+              {
+                "slotPath": "2",
+                "itemId": "13020000514"
+              },
+              {
+                "slotPath": "2/47",
+                "itemId": "13390000003"
+              },
+              {
+                "slotPath": "4/8",
+                "itemId": "13140000042"
+              },
+              {
+                "slotPath": "4/17",
+                "itemId": "13320000001"
+              },
+              {
+                "slotPath": "4/19",
+                "itemId": "13320000001"
+              },
+              {
+                "slotPath": "4/20",
+                "itemId": "13320000001"
+              },
+              {
+                "slotPath": "4/32",
+                "itemId": "13320000001"
+              },
+              {
+                "slotPath": "4/34",
+                "itemId": "13320000001"
+              },
+              {
+                "slotPath": "4/35",
+                "itemId": "13320000020"
+              },
+              {
+                "slotPath": "2/6",
+                "itemId": "13130000224"
+              }
+            ],
+            "tunes": {
+              "1": {
+                "authoring:part:13030000189:tune:thickness:0": -20,
+                "authoring:part:13030000189:tune:weight:1": 50
+              },
+              "2": {
+                "authoring:part:13020000514:tune:length:0": -10,
+                "authoring:part:13020000514:tune:weight:1": 50
+              },
+              "3": {
+                "authoring:part:13040000110:tune:position:0": 98,
+                "authoring:part:13040000110:tune:weight:1": 50
+              },
+              "4/8": {
+                "authoring:part:13140000042:tune:weight:0": 20
+              }
+            },
+            "pattern_reduction_percent": 5
+          },
+          "wall_ms": 159640.8335,
+          "solver": {
+            "phase": "balanced",
+            "name": "Exact ordinary",
+            "exhausted": true,
+            "workers": 4,
+            "layouts": 114861,
+            "evaluated": 1123,
+            "nodes": 7904514,
+            "pruning": {
+              "bounded_layouts": 39492,
+              "fallback_layouts": 0,
+              "pattern_cuts": 533,
+              "loss_cuts": 40869,
+              "root_pattern_cuts": 0,
+              "root_loss_cuts": 39485,
+              "invariant_controls": 21,
+              "handling_controls": 7,
+              "chart_memo_hits": 159290,
+              "chart_memo_misses": 1498,
+              "pattern_program_cuts": 0,
+              "max_program_cuts": 0
+            },
+            "elapsed_ms": 159628,
+            "partitions": [
+              {
+                "id": 0,
+                "path": "2",
+                "choices": [
+                  null
+                ],
+                "secondary_path": "3",
+                "secondary_choices": [
+                  null,
+                  "13040000105",
+                  "13040000107",
+                  "13040000109",
+                  "13040000112",
+                  "13040000179",
+                  "13040000185",
+                  "13040000225"
+                ],
+                "exhausted": true,
+                "layouts": 3855,
+                "evaluated": 1,
+                "nodes": 285725,
+                "elapsed_ms": 15284.160800000012,
+                "calibration_ms": 1978.1173000000854,
+                "mount_pruning": {
+                  "status": "bounded",
+                  "cuts": 159675,
+                  "price_cuts": 0,
+                  "phase_cuts": 1435,
+                  "envelopes": 0,
+                  "price_bound": {
+                    "envelopes": 33,
+                    "status": "bounded",
+                    "supported": true,
+                    "evaluations": 217820,
+                    "cache_hits": 117445,
+                    "declined": 0,
+                    "entries_peak": 8192,
+                    "key_chars_peak": 1234538,
+                    "saturated": false,
+                    "discrete_norms": 6219,
+                    "evictions": 92183
+                  }
+                }
+              },
+              {
+                "id": 1,
+                "path": "2",
+                "choices": [
+                  null
+                ],
+                "secondary_path": "3",
+                "secondary_choices": [
+                  "13040000104",
+                  "13040000106",
+                  "13040000108",
+                  "13040000110",
+                  "13040000113",
+                  "13040000184",
+                  "13040000224",
+                  "13040000234"
+                ],
+                "exhausted": true,
+                "layouts": 8672,
+                "evaluated": 14,
+                "nodes": 407742,
+                "elapsed_ms": 19470.522599999997,
+                "calibration_ms": 4062.6303000004264,
+                "mount_pruning": {
+                  "status": "bounded",
+                  "cuts": 181054,
+                  "price_cuts": 0,
+                  "phase_cuts": 1758,
+                  "envelopes": 0,
+                  "price_bound": {
+                    "envelopes": 34,
+                    "status": "bounded",
+                    "supported": true,
+                    "evaluations": 286054,
+                    "cache_hits": 168503,
+                    "declined": 0,
+                    "entries_peak": 8192,
+                    "key_chars_peak": 1194033,
+                    "saturated": false,
+                    "discrete_norms": 9064,
+                    "evictions": 109359
+                  }
+                }
+              },
+              {
+                "id": 2,
+                "path": "2",
+                "choices": [
+                  "13020000513"
+                ],
+                "exhausted": true,
+                "layouts": 4479,
+                "evaluated": 0,
+                "nodes": 618183,
+                "elapsed_ms": 36780.0536,
+                "calibration_ms": 2193.5655000004626,
+                "mount_pruning": {
+                  "status": "bounded",
+                  "cuts": 321226,
+                  "price_cuts": 0,
+                  "phase_cuts": 4194,
+                  "envelopes": 0,
+                  "price_bound": {
+                    "envelopes": 42,
+                    "status": "bounded",
+                    "supported": true,
+                    "evaluations": 430150,
+                    "cache_hits": 89082,
+                    "declined": 0,
+                    "entries_peak": 8192,
+                    "key_chars_peak": 1324647,
+                    "saturated": false,
+                    "discrete_norms": 16944,
+                    "evictions": 332876
+                  }
+                }
+              },
+              {
+                "id": 3,
+                "path": "2",
+                "choices": [
+                  "13020000514"
+                ],
+                "exhausted": true,
+                "layouts": 22486,
+                "evaluated": 14,
+                "nodes": 1034784,
+                "elapsed_ms": 55202.018899999995,
+                "calibration_ms": 9171.191799999971,
+                "mount_pruning": {
+                  "status": "bounded",
+                  "cuts": 394408,
+                  "price_cuts": 0,
+                  "phase_cuts": 4616,
+                  "envelopes": 0,
+                  "price_bound": {
+                    "envelopes": 65,
+                    "status": "bounded",
+                    "supported": true,
+                    "evaluations": 663861,
+                    "cache_hits": 210503,
+                    "declined": 0,
+                    "entries_peak": 8192,
+                    "key_chars_peak": 1326652,
+                    "saturated": false,
+                    "discrete_norms": 41696,
+                    "evictions": 445166
+                  }
+                }
+              }
+            ],
+            "phases": [
+              {
+                "phase": "maximum",
+                "name": "Exact ordinary",
+                "exhausted": true,
+                "workers": 4,
+                "layouts": 75150,
+                "evaluated": 569,
+                "nodes": 4769488,
+                "pruning": {
+                  "bounded_layouts": 75150,
+                  "fallback_layouts": 0,
+                  "pattern_cuts": 19360,
+                  "loss_cuts": 214859,
+                  "root_pattern_cuts": 0,
+                  "root_loss_cuts": 74474,
+                  "invariant_controls": 1921,
+                  "handling_controls": 1118,
+                  "chart_memo_hits": 700625,
+                  "chart_memo_misses": 839,
+                  "pattern_program_cuts": 0,
+                  "max_program_cuts": 109
+                },
+                "elapsed_ms": 93042.7975,
+                "partitions": [
+                  {
+                    "id": 0,
+                    "path": "2",
+                    "choices": [
+                      null
+                    ],
+                    "secondary_path": "3",
+                    "secondary_choices": [
+                      null,
+                      "13040000105",
+                      "13040000107",
+                      "13040000109",
+                      "13040000112",
+                      "13040000179",
+                      "13040000185",
+                      "13040000225"
+                    ],
+                    "exhausted": true,
+                    "layouts": 0,
+                    "evaluated": 1,
+                    "nodes": 406252,
+                    "elapsed_ms": 15862.692199999998,
+                    "calibration_ms": 0,
+                    "mount_pruning": {
+                      "status": "bounded",
+                      "cuts": 289146,
+                      "price_cuts": 0,
+                      "phase_cuts": 34062,
+                      "envelopes": 0,
+                      "price_bound": {
+                        "envelopes": 33,
+                        "status": "bounded",
+                        "supported": true,
+                        "evaluations": 373629,
+                        "cache_hits": 269107,
+                        "declined": 0,
+                        "entries_peak": 8192,
+                        "key_chars_peak": 1233718,
+                        "saturated": false,
+                        "discrete_norms": 9244,
+                        "evictions": 96330,
+                        "finite_kick_bounds": 12558
+                      }
+                    }
+                  },
+                  {
+                    "id": 1,
+                    "path": "2",
+                    "choices": [
+                      null
+                    ],
+                    "secondary_path": "3",
+                    "secondary_choices": [
+                      "13040000104",
+                      "13040000106",
+                      "13040000108",
+                      "13040000110",
+                      "13040000113",
+                      "13040000184",
+                      "13040000224",
+                      "13040000234"
+                    ],
+                    "exhausted": true,
+                    "layouts": 2284,
+                    "evaluated": 17,
+                    "nodes": 597483,
+                    "elapsed_ms": 20894.1614,
+                    "calibration_ms": 1151.4565999999777,
+                    "mount_pruning": {
+                      "status": "bounded",
+                      "cuts": 386592,
+                      "price_cuts": 0,
+                      "phase_cuts": 59106,
+                      "envelopes": 0,
+                      "price_bound": {
+                        "envelopes": 34,
+                        "status": "bounded",
+                        "supported": true,
+                        "evaluations": 532089,
+                        "cache_hits": 407632,
+                        "declined": 0,
+                        "entries_peak": 8192,
+                        "key_chars_peak": 1193442,
+                        "saturated": false,
+                        "discrete_norms": 13203,
+                        "evictions": 116265,
+                        "finite_kick_bounds": 20279
+                      }
+                    }
+                  },
+                  {
+                    "id": 2,
+                    "path": "2",
+                    "choices": [
+                      "13020000513"
+                    ],
+                    "exhausted": true,
+                    "layouts": 20494,
+                    "evaluated": 0,
+                    "nodes": 1446164,
+                    "elapsed_ms": 63294.450600000004,
+                    "calibration_ms": 9457.35050000009,
+                    "mount_pruning": {
+                      "status": "bounded",
+                      "cuts": 792024,
+                      "price_cuts": 0,
+                      "phase_cuts": 134502,
+                      "envelopes": 0,
+                      "price_bound": {
+                        "envelopes": 42,
+                        "status": "bounded",
+                        "supported": true,
+                        "evaluations": 1206206,
+                        "cache_hits": 777776,
+                        "declined": 0,
+                        "entries_peak": 8192,
+                        "key_chars_peak": 1276071,
+                        "saturated": false,
+                        "discrete_norms": 53172,
+                        "evictions": 420238,
+                        "finite_kick_bounds": 76936
+                      }
+                    }
+                  },
+                  {
+                    "id": 3,
+                    "path": "2",
+                    "choices": [
+                      "13020000514"
+                    ],
+                    "exhausted": true,
+                    "layouts": 52372,
+                    "evaluated": 551,
+                    "nodes": 2319589,
+                    "elapsed_ms": 93042.7975,
+                    "calibration_ms": 21850.422699999675,
+                    "mount_pruning": {
+                      "status": "bounded",
+                      "cuts": 1084854,
+                      "price_cuts": 0,
+                      "phase_cuts": 267090,
+                      "envelopes": 0,
+                      "price_bound": {
+                        "envelopes": 65,
+                        "status": "bounded",
+                        "supported": true,
+                        "evaluations": 1844574,
+                        "cache_hits": 1285937,
+                        "declined": 0,
+                        "entries_peak": 8192,
+                        "key_chars_peak": 1308486,
+                        "saturated": false,
+                        "discrete_norms": 82613,
+                        "evictions": 550445,
+                        "finite_kick_bounds": 117962
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "phase": "minimum",
+                "name": "Exact ordinary",
+                "exhausted": true,
+                "workers": 4,
+                "layouts": 219,
+                "evaluated": 525,
+                "nodes": 788592,
+                "pruning": {
+                  "bounded_layouts": 219,
+                  "fallback_layouts": 0,
+                  "pattern_cuts": 8041,
+                  "loss_cuts": 8641,
+                  "root_pattern_cuts": 0,
+                  "root_loss_cuts": 173,
+                  "invariant_controls": 110,
+                  "handling_controls": 48,
+                  "chart_memo_hits": 36277,
+                  "chart_memo_misses": 8803,
+                  "pattern_program_cuts": 0,
+                  "max_program_cuts": 0
+                },
+                "elapsed_ms": 11158.6302,
+                "partitions": [
+                  {
+                    "id": 0,
+                    "path": "2",
+                    "choices": [
+                      null
+                    ],
+                    "secondary_path": "3",
+                    "secondary_choices": [
+                      null,
+                      "13040000105",
+                      "13040000107",
+                      "13040000109",
+                      "13040000112",
+                      "13040000179",
+                      "13040000185",
+                      "13040000225"
+                    ],
+                    "exhausted": true,
+                    "layouts": 80,
+                    "evaluated": 199,
+                    "nodes": 179560,
+                    "elapsed_ms": 8762.476200000005,
+                    "calibration_ms": 114.85899999990943,
+                    "mount_pruning": {
+                      "status": "bounded",
+                      "cuts": 103895,
+                      "price_cuts": 0,
+                      "phase_cuts": 19,
+                      "envelopes": 0,
+                      "price_bound": {
+                        "envelopes": 33,
+                        "status": "bounded",
+                        "supported": true,
+                        "evaluations": 120141,
+                        "cache_hits": 52808,
+                        "declined": 0,
+                        "entries_peak": 8192,
+                        "key_chars_peak": 1265336,
+                        "saturated": false,
+                        "discrete_norms": 1104,
+                        "evictions": 59141
+                      }
+                    }
+                  },
+                  {
+                    "id": 1,
+                    "path": "2",
+                    "choices": [
+                      null
+                    ],
+                    "secondary_path": "3",
+                    "secondary_choices": [
+                      "13040000104",
+                      "13040000106",
+                      "13040000108",
+                      "13040000110",
+                      "13040000113",
+                      "13040000184",
+                      "13040000224",
+                      "13040000234"
+                    ],
+                    "exhausted": true,
+                    "layouts": 23,
+                    "evaluated": 150,
+                    "nodes": 135745,
+                    "elapsed_ms": 5710.584799999997,
+                    "calibration_ms": 72.60039999998116,
+                    "mount_pruning": {
+                      "status": "bounded",
+                      "cuts": 56711,
+                      "price_cuts": 0,
+                      "phase_cuts": 0,
+                      "envelopes": 0,
+                      "price_bound": {
+                        "envelopes": 34,
+                        "status": "bounded",
+                        "supported": true,
+                        "evaluations": 66845,
+                        "cache_hits": 28188,
+                        "declined": 0,
+                        "entries_peak": 8192,
+                        "key_chars_peak": 1314547,
+                        "saturated": false,
+                        "discrete_norms": 294,
+                        "evictions": 30465
+                      }
+                    }
+                  },
+                  {
+                    "id": 2,
+                    "path": "2",
+                    "choices": [
+                      "13020000513"
+                    ],
+                    "exhausted": true,
+                    "layouts": 60,
+                    "evaluated": 141,
+                    "nodes": 243979,
+                    "elapsed_ms": 11158.6302,
+                    "calibration_ms": 82.3189000000857,
+                    "mount_pruning": {
+                      "status": "bounded",
+                      "cuts": 96027,
+                      "price_cuts": 0,
+                      "phase_cuts": 0,
+                      "envelopes": 0,
+                      "price_bound": {
+                        "envelopes": 42,
+                        "status": "bounded",
+                        "supported": true,
+                        "evaluations": 113863,
+                        "cache_hits": 27958,
+                        "declined": 0,
+                        "entries_peak": 8192,
+                        "key_chars_peak": 1446012,
+                        "saturated": false,
+                        "discrete_norms": 647,
+                        "evictions": 77713
+                      }
+                    }
+                  },
+                  {
+                    "id": 3,
+                    "path": "2",
+                    "choices": [
+                      "13020000514"
+                    ],
+                    "exhausted": true,
+                    "layouts": 56,
+                    "evaluated": 35,
+                    "nodes": 229308,
+                    "elapsed_ms": 9885.3358,
+                    "calibration_ms": 79.97809999999299,
+                    "mount_pruning": {
+                      "status": "bounded",
+                      "cuts": 73725,
+                      "price_cuts": 0,
+                      "phase_cuts": 0,
+                      "envelopes": 0,
+                      "price_bound": {
+                        "envelopes": 65,
+                        "status": "bounded",
+                        "supported": true,
+                        "evaluations": 90338,
+                        "cache_hits": 22486,
+                        "declined": 0,
+                        "entries_peak": 8192,
+                        "key_chars_peak": 1461480,
+                        "saturated": false,
+                        "discrete_norms": 552,
+                        "evictions": 59660
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "phase": "balanced",
+                "name": "Exact ordinary",
+                "exhausted": true,
+                "workers": 4,
+                "layouts": 39492,
+                "evaluated": 29,
+                "nodes": 2346434,
+                "pruning": {
+                  "bounded_layouts": 39492,
+                  "fallback_layouts": 0,
+                  "pattern_cuts": 533,
+                  "loss_cuts": 40869,
+                  "root_pattern_cuts": 0,
+                  "root_loss_cuts": 39485,
+                  "invariant_controls": 21,
+                  "handling_controls": 7,
+                  "chart_memo_hits": 159290,
+                  "chart_memo_misses": 1498,
+                  "pattern_program_cuts": 0,
+                  "max_program_cuts": 0
+                },
+                "elapsed_ms": 55202.018899999995,
+                "partitions": [
+                  {
+                    "id": 0,
+                    "path": "2",
+                    "choices": [
+                      null
+                    ],
+                    "secondary_path": "3",
+                    "secondary_choices": [
+                      null,
+                      "13040000105",
+                      "13040000107",
+                      "13040000109",
+                      "13040000112",
+                      "13040000179",
+                      "13040000185",
+                      "13040000225"
+                    ],
+                    "exhausted": true,
+                    "layouts": 3855,
+                    "evaluated": 1,
+                    "nodes": 285725,
+                    "elapsed_ms": 15284.160800000012,
+                    "calibration_ms": 1978.1173000000854,
+                    "mount_pruning": {
+                      "status": "bounded",
+                      "cuts": 159675,
+                      "price_cuts": 0,
+                      "phase_cuts": 1435,
+                      "envelopes": 0,
+                      "price_bound": {
+                        "envelopes": 33,
+                        "status": "bounded",
+                        "supported": true,
+                        "evaluations": 217820,
+                        "cache_hits": 117445,
+                        "declined": 0,
+                        "entries_peak": 8192,
+                        "key_chars_peak": 1234538,
+                        "saturated": false,
+                        "discrete_norms": 6219,
+                        "evictions": 92183
+                      }
+                    }
+                  },
+                  {
+                    "id": 1,
+                    "path": "2",
+                    "choices": [
+                      null
+                    ],
+                    "secondary_path": "3",
+                    "secondary_choices": [
+                      "13040000104",
+                      "13040000106",
+                      "13040000108",
+                      "13040000110",
+                      "13040000113",
+                      "13040000184",
+                      "13040000224",
+                      "13040000234"
+                    ],
+                    "exhausted": true,
+                    "layouts": 8672,
+                    "evaluated": 14,
+                    "nodes": 407742,
+                    "elapsed_ms": 19470.522599999997,
+                    "calibration_ms": 4062.6303000004264,
+                    "mount_pruning": {
+                      "status": "bounded",
+                      "cuts": 181054,
+                      "price_cuts": 0,
+                      "phase_cuts": 1758,
+                      "envelopes": 0,
+                      "price_bound": {
+                        "envelopes": 34,
+                        "status": "bounded",
+                        "supported": true,
+                        "evaluations": 286054,
+                        "cache_hits": 168503,
+                        "declined": 0,
+                        "entries_peak": 8192,
+                        "key_chars_peak": 1194033,
+                        "saturated": false,
+                        "discrete_norms": 9064,
+                        "evictions": 109359
+                      }
+                    }
+                  },
+                  {
+                    "id": 2,
+                    "path": "2",
+                    "choices": [
+                      "13020000513"
+                    ],
+                    "exhausted": true,
+                    "layouts": 4479,
+                    "evaluated": 0,
+                    "nodes": 618183,
+                    "elapsed_ms": 36780.0536,
+                    "calibration_ms": 2193.5655000004626,
+                    "mount_pruning": {
+                      "status": "bounded",
+                      "cuts": 321226,
+                      "price_cuts": 0,
+                      "phase_cuts": 4194,
+                      "envelopes": 0,
+                      "price_bound": {
+                        "envelopes": 42,
+                        "status": "bounded",
+                        "supported": true,
+                        "evaluations": 430150,
+                        "cache_hits": 89082,
+                        "declined": 0,
+                        "entries_peak": 8192,
+                        "key_chars_peak": 1324647,
+                        "saturated": false,
+                        "discrete_norms": 16944,
+                        "evictions": 332876
+                      }
+                    }
+                  },
+                  {
+                    "id": 3,
+                    "path": "2",
+                    "choices": [
+                      "13020000514"
+                    ],
+                    "exhausted": true,
+                    "layouts": 22486,
+                    "evaluated": 14,
+                    "nodes": 1034784,
+                    "elapsed_ms": 55202.018899999995,
+                    "calibration_ms": 9171.191799999971,
+                    "mount_pruning": {
+                      "status": "bounded",
+                      "cuts": 394408,
+                      "price_cuts": 0,
+                      "phase_cuts": 4616,
+                      "envelopes": 0,
+                      "price_bound": {
+                        "envelopes": 65,
+                        "status": "bounded",
+                        "supported": true,
+                        "evaluations": 663861,
+                        "cache_hits": 210503,
+                        "declined": 0,
+                        "entries_peak": 8192,
+                        "key_chars_peak": 1326652,
+                        "saturated": false,
+                        "discrete_norms": 41696,
+                        "evictions": 445166
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "proven": {
+              "maximum": true,
+              "minimum": true,
+              "balanced": true
+            },
+            "infeasible": false
+          },
+          "pattern_constraint": {
+            "reference": 4.09971,
+            "maximum": 3.8947244999999997,
+            "reduction_percent": 5,
+            "pattern_model": "ads-chart-speed-tier-v2"
+          },
+          "witnesses": [
+            {
+              "label": "Max",
+              "status": "best_found",
+              "proof": "Proven optimal",
+              "cost": 940,
+              "loss": 20.849228491298565,
+              "handling": 174.46631729873044,
+              "pattern": 2.90902,
+              "config": [
+                {
+                  "slotPath": "2",
+                  "itemId": "13020000514"
+                },
+                {
+                  "slotPath": "11",
+                  "itemId": "13110000052"
+                },
+                {
+                  "slotPath": "3",
+                  "itemId": "13040000110"
+                },
+                {
+                  "slotPath": "1",
+                  "itemId": "13030000189"
+                },
+                {
+                  "slotPath": "4/8",
+                  "itemId": "13140000042"
+                },
+                {
+                  "slotPath": "2/6",
+                  "itemId": "13130000168"
+                },
+                {
+                  "slotPath": "2/47",
+                  "itemId": "13390000003"
+                },
+                {
+                  "slotPath": "5/44",
+                  "itemId": "13340000001"
+                }
+              ],
+              "tunes": {
+                "1": {
+                  "authoring:part:13030000189:tune:thickness:0": -20,
+                  "authoring:part:13030000189:tune:weight:1": 50
+                },
+                "2": {
+                  "authoring:part:13020000514:tune:length:0": -10,
+                  "authoring:part:13020000514:tune:weight:1": 50
+                },
+                "3": {
+                  "authoring:part:13040000110:tune:weight:1": 50,
+                  "authoring:part:13040000110:tune:position:0": 98
+                },
+                "11": {
+                  "authoring:part:13110000052:tune:eyeRelief:0": 0,
+                  "authoring:part:13110000052:tune:zoom:1": 0
+                },
+                "4/8": {
+                  "authoring:part:13140000042:tune:weight:0": 20,
+                  "authoring:part:13140000042:tune:thickness:1": 0
+                }
+              }
+            },
+            {
+              "label": "Balanced",
+              "status": "best_found",
+              "proof": "Proven optimal",
+              "cost": 640,
+              "loss": 29.757582976146423,
+              "handling": 173.09850593039593,
+              "pattern": 3.80513,
+              "config": [
+                {
+                  "slotPath": "2",
+                  "itemId": "13020000514"
+                },
+                {
+                  "slotPath": "11",
+                  "itemId": "13110000052"
+                },
+                {
+                  "slotPath": "3",
+                  "itemId": "13040000104"
+                },
+                {
+                  "slotPath": "4/8",
+                  "itemId": "13140000042"
+                },
+                {
+                  "slotPath": "2/6",
+                  "itemId": "13130000168"
+                },
+                {
+                  "slotPath": "2/47",
+                  "itemId": "13390000003"
+                }
+              ],
+              "tunes": {
+                "2": {
+                  "authoring:part:13020000514:tune:length:0": -10,
+                  "authoring:part:13020000514:tune:weight:1": 50
+                },
+                "3": {
+                  "authoring:part:13040000104:tune:weight:1": 50,
+                  "authoring:part:13040000104:tune:position:0": 98
+                },
+                "11": {
+                  "authoring:part:13110000052:tune:eyeRelief:0": 0,
+                  "authoring:part:13110000052:tune:zoom:1": 0
+                },
+                "4/8": {
+                  "authoring:part:13140000042:tune:weight:0": 20,
+                  "authoring:part:13140000042:tune:thickness:1": 0
+                }
+              }
+            },
+            {
+              "label": "Min",
+              "status": "best_found",
+              "proof": "Proven optimal",
+              "cost": 560,
+              "loss": 45.10941231997431,
+              "handling": 119.63405351775225,
+              "pattern": 3.66806,
+              "config": [
+                {
+                  "slotPath": "3",
+                  "itemId": "13040000108"
+                },
+                {
+                  "slotPath": "1",
+                  "itemId": "13030000181"
+                },
+                {
+                  "slotPath": "4/8",
+                  "itemId": "13140000042"
+                },
+                {
+                  "slotPath": "2/6",
+                  "itemId": "13130000168"
+                }
+              ],
+              "tunes": {
+                "1": {
+                  "authoring:part:13030000181:tune:thickness:0": -20,
+                  "authoring:part:13030000181:tune:weight:1": 50
+                },
+                "3": {
+                  "authoring:part:13040000108:tune:weight:1": 50,
+                  "authoring:part:13040000108:tune:position:0": 98
+                },
+                "4/8": {
+                  "authoring:part:13140000042:tune:weight:0": 20,
+                  "authoring:part:13140000042:tune:thickness:1": 0
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

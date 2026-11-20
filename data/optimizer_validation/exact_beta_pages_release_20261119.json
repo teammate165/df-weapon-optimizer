@@ -1,0 +1,104 @@
+{
+  "commit": "8c97e176c22cf132e32817d2000598aa10117bc5",
+  "workflow": "https://github.com/teammate165/df-weapon-optimizer/actions/runs/44467568097",
+  "workflowConclusion": "success",
+  "artifacts": {
+    "version": "fee7ceeff9061201",
+    "filesMatched": 45,
+    "omittedPages": [
+      "calibration-engine-study.html",
+      "exact-dag-study.html",
+      "screening-study.html",
+      "solver-diagnostics.html"
+    ]
+  },
+  "ordinary": {
+    "passed": true,
+    "url": "https://teammate165.github.io/df-weapon-optimizer/",
+    "checks": [
+      "both presets including untouched default",
+      "obsolete unversioned preset dependency bypassed",
+      "hover/focus/click/Escape and viewport bounds",
+      "four major stats share one row at desktop/mobile",
+      "versioned module/worker graph; no backend requests"
+    ],
+    "errors": []
+  },
+  "exact": {
+    "mode": "complete",
+    "cardsMs": 84471.57759999999,
+    "exactWorkers": 8,
+    "scope": "Grouped ordinary M4A1 Detonation with Insight 3/7 locked",
+    "solver": {
+      "name": "Exact ordinary beta",
+      "elapsed_ms": 84430.5,
+      "proven": {
+        "maximum": true,
+        "minimum": true,
+        "balanced": true
+      },
+      "pending": 0,
+      "certificate": {
+        "upperGain": 73.55468986548121,
+        "lowerCost": 160,
+        "upperEfficiency": 7.315035712450062
+      },
+      "workers": 4,
+      "partitions": [
+        {
+          "layouts": 3208011,
+          "endpointNodes": 202202,
+          "endpointMs": 27878.69999998808,
+          "balancedNodes": 74398,
+          "balancedMs": 12539.300000011921
+        },
+        {
+          "layouts": 2540671,
+          "endpointNodes": 262217,
+          "endpointMs": 46537,
+          "balancedNodes": 89951,
+          "balancedMs": 14319.5
+        },
+        {
+          "layouts": 4258760,
+          "endpointNodes": 195649,
+          "endpointMs": 33048.19999998808,
+          "balancedNodes": 151171,
+          "balancedMs": 29464.100000023842
+        },
+        {
+          "layouts": 2261200,
+          "endpointNodes": 189055,
+          "endpointMs": 29192,
+          "balancedNodes": 74415,
+          "balancedMs": 13486
+        }
+      ],
+      "sharedBalancedSeed": {
+        "cost": 400,
+        "gain": 64.01777190931921
+      }
+    },
+    "outputs": [
+      {
+        "label": "Max",
+        "proof": "Proven optimal",
+        "gain": 73.55468986548121,
+        "cost": 760
+      },
+      {
+        "label": "Balanced",
+        "proof": "Proven optimal",
+        "gain": 65.92662168886626,
+        "cost": 440
+      },
+      {
+        "label": "Min",
+        "proof": "Proven optimal",
+        "gain": 45.53637007348432,
+        "cost": 160
+      }
+    ],
+    "applied": 440
+  }
+}

@@ -1,19 +1,20 @@
+import {screeningComparator} from '../tools/screening_rank.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {compileMounts} from '../tools/scip_mount_model.mjs';
 import {solveLinearModel} from '../tools/scip_runtime.mjs';
 import createRuntime from '../vendor/scip-7e68f9ca/scip.js';
 import {mountConfigurations,retainBest,exhaustiveAttachmentGate,configKey,tacticalChoice} from '../tools/exhaustive_attachment_gate.mjs';
-import {comparator,statIds,shortfall} from '../tools/optimizer_policy.mjs';
+import {statIds,shortfall} from '../tools/optimizer_policy.mjs';
 import {presets} from '../tools/optimizer_presets.mjs';
 import {emptyRisers} from '../tools/optimizer_mounts.mjs';
 import * as curves from '../.scratch/calibration-check/curves.mjs';
 import * as kernel from '../.scratch/calibration-check/kernel.mjs';
 import {t as calculate} from '../.scratch/calibration-check/attributes.mjs';
 const modules={curves,kernel,calculate};
-for(const n of [0,1,19,20,21,39,40,41,101,300]){
+for(const n of [0,1,19,20,21,199,200,201,399,400,401,1001]){
  const values=Array.from({length:n},(_,i)=>({score:(i*37)%101,id:i})).reverse(),compare=(a,b)=>a.score-b.score||a.id-b.id;
- assert.deepEqual(retainBest(values,BigInt(n),compare),[...values].sort(compare).slice(0,Math.ceil(n*.05)));
+ assert.deepEqual(retainBest(values,BigInt(n),compare),[...values].sort(compare).slice(0,Math.ceil(n*.005)));
 }
 // Independent raw-provider Cartesian enumeration: no mounting Boolean model,
 // no prefix rejection, and reverse path order. Final legality uses the source.
@@ -58,17 +59,19 @@ for(const mode of ['bd','sol','mp']){
  for(const locks of [[],fixed]){
   for(const presetName of ['recoil','agility']){
    const request={...input.request,fixed:locks},resolve=c=>curves.o(pack,c,mode),preset=presets[presetName].create({pack,request,mode,resolve,...modules});
-   const all=raw.filter(c=>locks.every(f=>resolve(c).mounted.some(n=>n.slotPath===f.slotPath&&n.itemId===f.itemId))),better=comparator({});
+   const all=raw.filter(c=>locks.every(f=>resolve(c).mounted.some(n=>n.slotPath===f.slotPath&&n.itemId===f.itemId))),better=(a,b)=>screeningComparator({})(a,b)<0;
    const score=config=>{const b=resolve(config),state=kernel.u(pack,b,{mode,tacticalEffective:true,tunes:{}}),components=preset.raw(b,{},state);return {config,stats:Object.fromEntries(Object.entries(statIds).map(([k,id])=>[k,state.numeric.mainAttr[id]])),objectives:preset.objectives(components),score:preset.score(components),cost:mode==='mp'?null:b.mounted.filter(n=>n.source==='equipped').reduce((n,m)=>n+(mode==='bd'?catalog.shop.partCosts:catalog.prices)[m.itemId],0),signature:configKey(config)};};
    const compare=(a,b)=>better(a,b)?-1:better(b,a)?1:a.signature.localeCompare(b.signature);
    const ordinary=all.filter(c=>c.every(n=>!tacticalChoice(pack,kernel,mode,n.slotPath,n.itemId)||locks.some(f=>f.slotPath===n.slotPath&&f.itemId===n.itemId))).map(score).sort(compare);
-   const bases=ordinary.slice(0,Math.ceil(.05*ordinary.length)),expected=[];
+   const bases=ordinary.slice(0,Math.ceil(.005*ordinary.length)),expected=[];
    for(const base of bases){
     const ordinaryKey=c=>configKey(c.filter(n=>!tacticalChoice(pack,kernel,mode,n.slotPath,n.itemId)));
     const tactical=all.filter(c=>ordinaryKey(c)===ordinaryKey(base.config)).map(score).sort(compare);
-    expected.push(...tactical.slice(0,Math.ceil(.05*tactical.length)));
+    expected.push(...tactical.slice(0,Math.ceil(.005*tactical.length)));
    }
    const result=exhaustiveAttachmentGate({...input,request},modules,preset);
+   assert.equal(result.diagnostics.fraction,.005);
+   assert.equal(result.diagnostics.ranking_contract,'exact-shortfall-objectives-cost-code-unit-signature-v1');
    assert(result.diagnostics.complete);assert.equal(result.diagnostics.attachments.screened,ordinary.length);
    assert.deepEqual(result.candidates.map(c=>c.signature).sort(),[...new Set(expected.map(c=>c.signature))].sort());
    // The calibration domain cannot recombine independently allowed slot items.
@@ -115,9 +118,9 @@ assert(!syntheticRows.some(c=>c.some(n=>['hidden','unpriced'].includes(n.itemId)
    if(config.filter(c=>kernel.l(pack,c.itemId)).length>Math.max(1,fixed.length))continue;
    const b=curves.o(pack,config),state=kernel.u(pack,b),components=preset.raw(b,{},state);raw.push({config,stats:{control:state.numeric.mainAttr[3]},score:preset.score(components),objectives:preset.objectives(components),cost:config.length,signature:configKey(config)});
   }
-  const better=comparator(request.minimum_stats),compare=(a,b)=>better(a,b)?-1:better(b,a)?1:a.signature.localeCompare(b.signature),isT=c=>tacticalChoice(pack,kernel,'bd',c.slotPath,c.itemId);
-  const bases=raw.filter(r=>r.config.every(c=>!isT(c)||fixed.some(f=>f.slotPath===c.slotPath&&f.itemId===c.itemId))).sort(compare),kept=bases.slice(0,Math.ceil(bases.length*.05)),expected=[];
-  for(const base of kept){const key=configKey(base.config.filter(c=>!isT(c))),possible=raw.filter(r=>configKey(r.config.filter(c=>!isT(c)))===key&&shortfall(r.stats,request.minimum_stats)<1e-8).sort(compare);expected.push(...possible.slice(0,Math.ceil(possible.length*.05)));}
+  const better=(a,b)=>screeningComparator(request.minimum_stats)(a,b)<0,compare=(a,b)=>better(a,b)?-1:better(b,a)?1:a.signature.localeCompare(b.signature),isT=c=>tacticalChoice(pack,kernel,'bd',c.slotPath,c.itemId);
+  const bases=raw.filter(r=>r.config.every(c=>!isT(c)||fixed.some(f=>f.slotPath===c.slotPath&&f.itemId===c.itemId))).sort(compare),kept=bases.slice(0,Math.ceil(bases.length*.005)),expected=[];
+  for(const base of kept){const key=configKey(base.config.filter(c=>!isT(c))),possible=raw.filter(r=>configKey(r.config.filter(c=>!isT(c)))===key&&shortfall(r.stats,request.minimum_stats)<1e-8).sort(compare);expected.push(...possible.slice(0,Math.ceil(possible.length*.005)));}
   assert.equal(result.diagnostics.attachments.screened,bases.length);
   assert.deepEqual(result.candidates.map(c=>c.signature).sort(),expected.map(c=>c.signature).sort());
   assert(result.candidates.every(c=>c.stats.control>=40));assert(result.diagnostics.tactical.some(t=>t.screened>20));
@@ -126,5 +129,5 @@ assert(!syntheticRows.some(c=>c.some(n=>['hidden','unpriced'].includes(n.itemId)
 const controller=new AbortController();controller.abort();
 const preset=presets.recoil.create({pack,request:{mode:'bd'},mode:'bd',resolve:c=>curves.o(pack,c,'bd'),...modules});
 assert.throws(()=>exhaustiveAttachmentGate({pack,shop:catalog.shop,prices:catalog.prices,request:{mode:'bd',budget:200},signal:controller.signal},modules,preset),{name:'AbortError'});
-fs.mkdirSync('.scratch/staged-exact-screen',{recursive:true});fs.writeFileSync('.scratch/staged-exact-screen/exact-gate-tests.json',JSON.stringify({passed:true,reports,checks:['independent reverse raw Cartesian enumeration','exact two-stage survivors and rounding','both presets/all modes/locks','no calibration cross-mixing','conditional bundled parents and child sockets','occupancy, hidden and missing-price exclusions','heap boundaries','abort']},null,2));
+fs.mkdirSync('.scratch/staged-exact-screen',{recursive:true});fs.writeFileSync(`.scratch/staged-exact-screen/exact-gate-tests${process.env.RANK_WORKER_ID===undefined?'':'-'+process.env.RANK_WORKER_ID}.json`,JSON.stringify({passed:true,reports,checks:['independent reverse raw Cartesian enumeration','exact two-stage survivors and rounding','both presets/all modes/locks','no calibration cross-mixing','conditional bundled parents and child sockets','occupancy, hidden and missing-price exclusions','heap boundaries','abort']},null,2));
 console.log('Exact gate: independent all-domain counts and both-stage survivor parity pass for G18, both presets, three modes and locks; conditional parents, policies, heap and cancellation pass.');

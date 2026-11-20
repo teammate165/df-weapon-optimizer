@@ -1,0 +1,234 @@
+{
+  "budget": 800,
+  "oracleTuples": 30603,
+  "oracleMs": 22538.8489,
+  "audited": 20401,
+  "maximum": {
+    "gain": 24.366400940830673,
+    "cost": 240
+  },
+  "minimum": {
+    "gain": 17.794900940830672,
+    "cost": 80
+  },
+  "balanced": {
+    "gain": 17.794900940830672,
+    "cost": 80
+  },
+  "samples": [
+    {
+      "strategy": "split",
+      "chartBounds": 51,
+      "exactScores": 2,
+      "nodes": 55,
+      "elapsedMs": 1.4413999999997031
+    },
+    {
+      "strategy": "union",
+      "chartBounds": 90846,
+      "exactScores": 2,
+      "nodes": 50448,
+      "elapsedMs": 328.3329999999987
+    },
+    {
+      "strategy": "paired",
+      "chartBounds": 78,
+      "exactScores": 2,
+      "nodes": 32,
+      "elapsedMs": 1.4575000000004366
+    },
+    {
+      "strategy": "paired",
+      "chartBounds": 78,
+      "exactScores": 2,
+      "nodes": 32,
+      "elapsedMs": 1.0728999999992084
+    },
+    {
+      "strategy": "union",
+      "chartBounds": 90846,
+      "exactScores": 2,
+      "nodes": 50448,
+      "elapsedMs": 347.08430000000226
+    },
+    {
+      "strategy": "split",
+      "chartBounds": 51,
+      "exactScores": 2,
+      "nodes": 55,
+      "elapsedMs": 1.7059000000008382
+    },
+    {
+      "strategy": "split",
+      "chartBounds": 51,
+      "exactScores": 2,
+      "nodes": 55,
+      "elapsedMs": 1.309000000001106
+    },
+    {
+      "strategy": "union",
+      "chartBounds": 90846,
+      "exactScores": 2,
+      "nodes": 50448,
+      "elapsedMs": 340.7451000000001
+    },
+    {
+      "strategy": "paired",
+      "chartBounds": 78,
+      "exactScores": 2,
+      "nodes": 32,
+      "elapsedMs": 1.373700000000099
+    },
+    {
+      "strategy": "paired",
+      "chartBounds": 78,
+      "exactScores": 2,
+      "nodes": 32,
+      "elapsedMs": 1.726200000000972
+    },
+    {
+      "strategy": "union",
+      "chartBounds": 90846,
+      "exactScores": 2,
+      "nodes": 50448,
+      "elapsedMs": 336.7474999999977
+    },
+    {
+      "strategy": "split",
+      "chartBounds": 51,
+      "exactScores": 2,
+      "nodes": 55,
+      "elapsedMs": 1.8602999999966414
+    },
+    {
+      "strategy": "split",
+      "chartBounds": 51,
+      "exactScores": 2,
+      "nodes": 55,
+      "elapsedMs": 1.356100000000879
+    },
+    {
+      "strategy": "union",
+      "chartBounds": 90846,
+      "exactScores": 2,
+      "nodes": 50448,
+      "elapsedMs": 333.84560000000056
+    },
+    {
+      "strategy": "paired",
+      "chartBounds": 78,
+      "exactScores": 2,
+      "nodes": 32,
+      "elapsedMs": 1.832300000001851
+    },
+    {
+      "strategy": "paired",
+      "chartBounds": 78,
+      "exactScores": 2,
+      "nodes": 32,
+      "elapsedMs": 1.4408000000003085
+    },
+    {
+      "strategy": "union",
+      "chartBounds": 90846,
+      "exactScores": 2,
+      "nodes": 50448,
+      "elapsedMs": 329.92089999999735
+    },
+    {
+      "strategy": "split",
+      "chartBounds": 51,
+      "exactScores": 2,
+      "nodes": 55,
+      "elapsedMs": 1.8646000000007916
+    },
+    {
+      "strategy": "split",
+      "chartBounds": 51,
+      "exactScores": 2,
+      "nodes": 55,
+      "elapsedMs": 1.4019000000007509
+    },
+    {
+      "strategy": "union",
+      "chartBounds": 90846,
+      "exactScores": 2,
+      "nodes": 50448,
+      "elapsedMs": 334.9867000000013
+    },
+    {
+      "strategy": "paired",
+      "chartBounds": 78,
+      "exactScores": 2,
+      "nodes": 32,
+      "elapsedMs": 2.0024999999986903
+    }
+  ],
+  "contexts": [
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000104"
+        }
+      ],
+      "cost": 80,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000104"
+        },
+        {
+          "slotPath": "2",
+          "itemId": "13020000173"
+        }
+      ],
+      "cost": 320,
+      "profile": "authoring:part:13020000173:bd:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000104"
+        },
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000169"
+        }
+      ],
+      "cost": 240,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1638.75,
+      "tiers": [
+        4,
+        1
+      ]
+    }
+  ]
+}

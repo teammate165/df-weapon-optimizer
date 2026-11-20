@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "workers": 8,
+  "spawned": 8,
+  "terminated": 8,
+  "paths": 20528,
+  "selected": 103,
+  "materialized_paths": 103,
+  "objective_evaluations": 9075,
+  "complete_score_identity_audit": true,
+  "exact_survivor_order": true,
+  "uncached_native_replays": 103,
+  "temporary_indexeddb_cleaned": true,
+  "cancellation": true,
+  "checks": [
+    "8 actual browser workers",
+    "same pure DAG/scorer modules as Node",
+    "all20528 score/identity manifests match",
+    "global weighted top0.5% identities and ties",
+    "native survivor replay",
+    "typed packed/BigInt IndexedDB roundtrip",
+    "scoped provenance cleanup after completion/cancel",
+    "static GET only; no backend solver",
+    "desktop/mobile layout"
+  ]
+}

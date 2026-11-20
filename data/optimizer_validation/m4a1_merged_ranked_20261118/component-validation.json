@@ -1,0 +1,125 @@
+{
+  "passed": true,
+  "workers": 16,
+  "uncached_native_survivor_replays": 8484,
+  "results": [
+    {
+      "passed": true,
+      "id": 0,
+      "rows": 4001,
+      "capacities": 7,
+      "uncached_native_survivor_replays": 531
+    },
+    {
+      "passed": true,
+      "id": 1,
+      "rows": 4001,
+      "capacities": 7,
+      "uncached_native_survivor_replays": 531
+    },
+    {
+      "passed": true,
+      "id": 2,
+      "rows": 4001,
+      "capacities": 7,
+      "uncached_native_survivor_replays": 531
+    },
+    {
+      "passed": true,
+      "id": 3,
+      "rows": 4001,
+      "capacities": 7,
+      "uncached_native_survivor_replays": 531
+    },
+    {
+      "passed": true,
+      "id": 4,
+      "rows": 4001,
+      "capacities": 7,
+      "uncached_native_survivor_replays": 530
+    },
+    {
+      "passed": true,
+      "id": 5,
+      "rows": 4001,
+      "capacities": 7,
+      "uncached_native_survivor_replays": 530
+    },
+    {
+      "passed": true,
+      "id": 6,
+      "rows": 4001,
+      "capacities": 7,
+      "uncached_native_survivor_replays": 530
+    },
+    {
+      "passed": true,
+      "id": 7,
+      "rows": 4001,
+      "capacities": 7,
+      "uncached_native_survivor_replays": 530
+    },
+    {
+      "passed": true,
+      "id": 8,
+      "rows": 4001,
+      "capacities": 7,
+      "uncached_native_survivor_replays": 530
+    },
+    {
+      "passed": true,
+      "id": 9,
+      "rows": 4001,
+      "capacities": 7,
+      "uncached_native_survivor_replays": 530
+    },
+    {
+      "passed": true,
+      "id": 10,
+      "rows": 4001,
+      "capacities": 7,
+      "uncached_native_survivor_replays": 530
+    },
+    {
+      "passed": true,
+      "id": 11,
+      "rows": 4001,
+      "capacities": 7,
+      "uncached_native_survivor_replays": 530
+    },
+    {
+      "passed": true,
+      "id": 12,
+      "rows": 4001,
+      "capacities": 7,
+      "uncached_native_survivor_replays": 530
+    },
+    {
+      "passed": true,
+      "id": 13,
+      "rows": 4001,
+      "capacities": 7,
+      "uncached_native_survivor_replays": 530
+    },
+    {
+      "passed": true,
+      "id": 14,
+      "rows": 4001,
+      "capacities": 7,
+      "uncached_native_survivor_replays": 530
+    },
+    {
+      "passed": true,
+      "id": 15,
+      "rows": 4001,
+      "capacities": 7,
+      "uncached_native_survivor_replays": 530
+    }
+  ],
+  "checks": [
+    "new heap versus independent full sort at seven capacities",
+    "exact global-K distributed selection",
+    "counterexample to independent local-percentile retention",
+    "fresh-worker uncached native replay of every survivor"
+  ]
+}

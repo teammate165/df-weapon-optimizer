@@ -1,0 +1,171 @@
+{
+  "version": "157.0.8103.79",
+  "workerReadyMs": 49.80000001192093,
+  "workerRunMs": 26654,
+  "matchesNodeReference": true,
+  "result": {
+    "name": "all-five-paths",
+    "batchSize": 64,
+    "fast": true,
+    "auditPreparation": false,
+    "budget": 800,
+    "budgetBound": true,
+    "budgetChecks": 12302,
+    "budgetPrunes": 0,
+    "gainBound": true,
+    "gainPrunes": 6581,
+    "gainAudit": null,
+    "gainStats": {
+      "supported": true,
+      "evaluations": 12302,
+      "cache_hits": 2,
+      "declined": 0,
+      "entries_peak": 1810,
+      "key_chars_peak": 262099,
+      "saturated": true
+    },
+    "envelopeCount": 134,
+    "cachePreparation": true,
+    "cacheEntries": {
+      "controls": 134,
+      "geometry": 3
+    },
+    "choiceCounts": [
+      9,
+      15,
+      22,
+      5,
+      16
+    ],
+    "domainSize": 302940,
+    "prepared": 109626,
+    "gridTuples": 71516007886,
+    "bounds": 112954,
+    "scores": 94,
+    "nodes": 114763,
+    "maxPreparedBatch": 64,
+    "mountNodes": 126997,
+    "mountStats": {
+      "constraint_evaluations": 4494865,
+      "boolean_evaluations": 20585858,
+      "pruned_branches": 6581
+    },
+    "compileMs": 21.69999998807907,
+    "contextMs": 19571.799997150898,
+    "mountIterationMs": 4513.000002503395,
+    "solveMs": 26625.099999964237,
+    "audited": null,
+    "profiles": 2,
+    "schedules": 2,
+    "grouping": {
+      "enabled": true,
+      "items_grouped": 36,
+      "option_sets": 28,
+      "options_before": 224,
+      "options_after": 154,
+      "matching_hits": 0,
+      "matching_misses": 0,
+      "matching_peak": 0,
+      "grouped_tactical_configs": 0,
+      "counts_interchangeable": true,
+      "families": 15
+    },
+    "outputs": {
+      "maximum": {
+        "cost": 720,
+        "gain": 70.7942290048951,
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000187"
+          },
+          {
+            "slotPath": "2",
+            "itemId": "13020000349"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000110"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000044"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000187:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000110:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000044:tune:weight:0": 20
+          }
+        }
+      },
+      "minimum": {
+        "cost": 200,
+        "gain": 44.86357492506914,
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000110"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000113"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000021"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000110:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000113:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000021:tune:position:1": 95
+          }
+        }
+      },
+      "balanced": {
+        "cost": 200,
+        "gain": 44.86357492506914,
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000110"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000113"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000021"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000110:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000113:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000021:tune:position:1": 95
+          }
+        }
+      }
+    }
+  }
+}

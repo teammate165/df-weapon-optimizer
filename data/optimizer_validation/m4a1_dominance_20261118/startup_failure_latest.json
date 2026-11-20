@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "kind": "exhaustive_ordinary_default_calibration",
+  "request": {
+    "weapon_id": "18010000001",
+    "mode": "bd",
+    "preset": "recoil",
+    "budget": 800,
+    "fixed": [
+      {
+        "slotPath": "11",
+        "itemId": "13110000091"
+      }
+    ],
+    "experimental_dominance": true
+  },
+  "status": "error",
+  "samples": [
+    {
+      "wall_seconds": 0.022699999988079072,
+      "scored": 0,
+      "nodes": 0,
+      "exact_total": null,
+      "fraction": null,
+      "rate": 0,
+      "projected_remaining_seconds": null,
+      "completed_partitions": 0,
+      "active_workers": 8,
+      "worker_progress": [
+        {
+          "worker": 0
+        },
+        {
+          "worker": 1
+        },
+        {
+          "worker": 2
+        },
+        {
+          "worker": 3
+        },
+        {
+          "worker": 4
+        },
+        {
+          "worker": 5
+        },
+        {
+          "worker": 6
+        },
+        {
+          "worker": 7
+        }
+      ],
+      "serialization_samples": 0,
+      "serialization_bytes": 0
+    }
+  ],
+  "partition_results": [],
+  "count": null,
+  "best": null,
+  "workers": 8,
+  "started_at": "2026-11-17T17:28:52.752Z",
+  "error": "Screening worker failed",
+  "latest": {
+    "wall_seconds": 0.022699999988079072,
+    "scored": 0,
+    "nodes": 0,
+    "exact_total": null,
+    "fraction": null,
+    "rate": 0,
+    "projected_remaining_seconds": null,
+    "completed_partitions": 0,
+    "active_workers": 8,
+    "worker_progress": [
+      {
+        "worker": 0
+      },
+      {
+        "worker": 1
+      },
+      {
+        "worker": 2
+      },
+      {
+        "worker": 3
+      },
+      {
+        "worker": 4
+      },
+      {
+        "worker": 5
+      },
+      {
+        "worker": 6
+      },
+      {
+        "worker": 7
+      }
+    ],
+    "serialization_samples": 0,
+    "serialization_bytes": 0
+  }
+}

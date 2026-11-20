@@ -1,0 +1,1369 @@
+{
+    "weapon_id":  "18010000038",
+    "mode":  "bd",
+    "preset":  "recoil",
+    "weights":  {
+                    "pattern":  0.4,
+                    "camera":  0.3,
+                    "kick":  0.3
+                },
+    "baseline":  {
+                     "pattern_model":  "ads-chart-speed-tier-v2",
+                     "horizontal_distance":  1.5696,
+                     "horizontal_span":  2.97,
+                     "vertical_excursion":  11.83665,
+                     "horizontal_speed":  4.425882352941177,
+                     "horizontal_multiplier":  6,
+                     "horizontal_speed_window_ms":  200,
+                     "horizontal_speed_start_ms":  565,
+                     "horizontal_speed_end_ms":  765,
+                     "pattern_shots":  20,
+                     "pattern":  21.25425,
+                     "camera":  1.4142135623730951,
+                     "kick":  1.4142135623730951,
+                     "ads_seconds":  0.29,
+                     "sprint_to_fire_seconds":  0.21
+                 },
+    "score_direction":  "higher",
+    "proof_scope":  "Ordinary attachment identities and all legal tuning positions under the modeled catalog rules",
+    "pattern_constraint":  {
+                               "reference":  4.09971,
+                               "maximum":  3.8947244999999997,
+                               "reduction_percent":  5,
+                               "pattern_model":  "ads-chart-speed-tier-v2"
+                           },
+    "results":  [
+                    {
+                        "cost":  940,
+                        "loss":  21.209271641768503,
+                        "handling":  165.2558532583857,
+                        "score":  78.79072835823149,
+                        "stats":  {
+                                      "control":  61,
+                                      "handling":  36,
+                                      "stability":  65,
+                                      "accuracy":  44
+                                  },
+                        "components":  {
+                                           "pattern_model":  "ads-chart-speed-tier-v2",
+                                           "horizontal_distance":  0.6437,
+                                           "horizontal_span":  1.21801,
+                                           "vertical_excursion":  2.26532,
+                                           "horizontal_speed":  1.72530294117647,
+                                           "horizontal_multiplier":  1,
+                                           "horizontal_speed_window_ms":  200,
+                                           "horizontal_speed_start_ms":  618.5500000000003,
+                                           "horizontal_speed_end_ms":  818.5500000000003,
+                                           "pattern_shots":  20,
+                                           "pattern":  2.90902,
+                                           "camera":  0.10749311358053779,
+                                           "kick":  0.6342413575039437,
+                                           "ads_seconds":  0.4775518176563971,
+                                           "sprint_to_fire_seconds":  0.34826119848576004
+                                       },
+                        "config":  [
+                                       {
+                                           "slotPath":  "2",
+                                           "itemId":  "13020000514"
+                                       },
+                                       {
+                                           "slotPath":  "1",
+                                           "itemId":  "13030000189"
+                                       },
+                                       {
+                                           "slotPath":  "11",
+                                           "itemId":  "13110000099"
+                                       },
+                                       {
+                                           "slotPath":  "3",
+                                           "itemId":  "13040000110"
+                                       },
+                                       {
+                                           "slotPath":  "2/47",
+                                           "itemId":  "13390000003"
+                                       },
+                                       {
+                                           "slotPath":  "2/6",
+                                           "itemId":  "13130000168"
+                                       },
+                                       {
+                                           "slotPath":  "4/8",
+                                           "itemId":  "13140000042"
+                                       },
+                                       {
+                                           "slotPath":  "5/44",
+                                           "itemId":  "13340000001"
+                                       }
+                                   ],
+                        "tunes":  {
+                                      "1":  {
+                                                "authoring:part:13030000189:tune:thickness:0":  -20,
+                                                "authoring:part:13030000189:tune:weight:1":  50
+                                            },
+                                      "2":  {
+                                                "authoring:part:13020000514:tune:length:0":  -10,
+                                                "authoring:part:13020000514:tune:weight:1":  50
+                                            },
+                                      "3":  {
+                                                "authoring:part:13040000110:tune:position:0":  98,
+                                                "authoring:part:13040000110:tune:weight:1":  50
+                                            },
+                                      "11":  {
+                                                 "authoring:part:13110000099:tune:eyeRelief:0":  0,
+                                                 "authoring:part:13110000099:tune:zoom:1":  0
+                                             },
+                                      "4/8":  {
+                                                  "authoring:part:13140000042:tune:weight:0":  20,
+                                                  "authoring:part:13140000042:tune:thickness:1":  0
+                                              }
+                                  },
+                        "mounted":  [
+                                        {
+                                            "slotPath":  "1",
+                                            "socketId":  1,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13030000189",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "2",
+                                            "socketId":  2,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13020000514",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "2/6",
+                                            "socketId":  6,
+                                            "hostItemId":  "13020000514",
+                                            "itemId":  "13130000168",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "2/47",
+                                            "socketId":  47,
+                                            "hostItemId":  "13020000514",
+                                            "itemId":  "13390000003",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "3",
+                                            "socketId":  3,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13040000110",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "4",
+                                            "socketId":  4,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13050000333",
+                                            "source":  "forced"
+                                        },
+                                        {
+                                            "slotPath":  "4/8",
+                                            "socketId":  8,
+                                            "hostItemId":  "13050000333",
+                                            "itemId":  "13140000042",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "5",
+                                            "socketId":  5,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13120000325",
+                                            "source":  "default"
+                                        },
+                                        {
+                                            "slotPath":  "5/44",
+                                            "socketId":  44,
+                                            "hostItemId":  "13120000325",
+                                            "itemId":  "13340000001",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "11",
+                                            "socketId":  11,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13110000099",
+                                            "source":  "equipped"
+                                        }
+                                    ],
+                        "label":  "Max",
+                        "budget":  2000,
+                        "status":  "best_found",
+                        "proof":  "Best found",
+                        "recoil_path":  {
+                                            "model_version":  "timed-source-chart-v1",
+                                            "units":  "model units; angular calibration unverified",
+                                            "input_assumption":  "No compensation or reaction; one fully reset uninterrupted firing string",
+                                            "requested_shots":  20,
+                                            "capacity":  30,
+                                            "fire_control":  {
+                                                                 "supportedModes":  [
+                                                                                        "Single",
+                                                                                        "Auto"
+                                                                                    ],
+                                                                 "selectedFireMode":  "Auto",
+                                                                 "fireScheduleRules":  [
+
+                                                                                       ],
+                                                                 "burstCount":  null,
+                                                                 "scheduleStatus":  "ordinary",
+                                                                 "displayFireRateRpm":  660,
+                                                                 "shotIntervalSeconds":  0.09095000000000002,
+                                                                 "triggerDelayMs":  0,
+                                                                 "timingSource":  "sdk"
+                                                             },
+                                            "recoil_profile_id":  "authoring:weapon:18010000038:adsRecoil",
+                                            "chart_point_semantics":  "Cumulative source post-shot recoil; not validated bullet impact positions",
+                                            "global_verified":  false,
+                                            "status":  "modeled",
+                                            "points":  [
+                                                           {
+                                                               "shot":  1,
+                                                               "time_ms":  0,
+                                                               "x":  0.11663,
+                                                               "y":  -0.11523,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0,
+                                                                                          "y":  0
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  2,
+                                                               "time_ms":  90.95000000000003,
+                                                               "x":  -0.05905,
+                                                               "y":  -0.2302,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.11663,
+                                                                                          "y":  -0.11523
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  3,
+                                                               "time_ms":  181.90000000000006,
+                                                               "x":  0.11663,
+                                                               "y":  -0.34543,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.05905,
+                                                                                          "y":  -0.2302
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  4,
+                                                               "time_ms":  272.8500000000001,
+                                                               "x":  0,
+                                                               "y":  -0.46041,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.11663,
+                                                                                          "y":  -0.34543
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  5,
+                                                               "time_ms":  363.8000000000001,
+                                                               "x":  -0.05905,
+                                                               "y":  -0.57564,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0,
+                                                                                          "y":  -0.46041
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  6,
+                                                               "time_ms":  454.75000000000017,
+                                                               "x":  -0.11663,
+                                                               "y":  -0.72911,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.05905,
+                                                                                          "y":  -0.57564
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  7,
+                                                               "time_ms":  545.7000000000002,
+                                                               "x":  -0.20522,
+                                                               "y":  -0.83891,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.11663,
+                                                                                          "y":  -0.72911
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  8,
+                                                               "time_ms":  636.6500000000002,
+                                                               "x":  -0.32185,
+                                                               "y":  -0.94639,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.20522,
+                                                                                          "y":  -0.83891
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  9,
+                                                               "time_ms":  727.6000000000003,
+                                                               "x":  -0.46801,
+                                                               "y":  -1.05387,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.32185,
+                                                                                          "y":  -0.94639
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  10,
+                                                               "time_ms":  818.5500000000003,
+                                                               "x":  -0.6437,
+                                                               "y":  -1.15877,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.46801,
+                                                                                          "y":  -1.05387
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  11,
+                                                               "time_ms":  909.5000000000003,
+                                                               "x":  -0.47146,
+                                                               "y":  -1.30862,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.6437,
+                                                                                          "y":  -1.15877
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  12,
+                                                               "time_ms":  1000.4500000000004,
+                                                               "x":  -0.4001,
+                                                               "y":  -1.42862,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.47146,
+                                                                                          "y":  -1.30862
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  13,
+                                                               "time_ms":  1091.4000000000003,
+                                                               "x":  -0.21473,
+                                                               "y":  -1.54345,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.4001,
+                                                                                          "y":  -1.42862
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  14,
+                                                               "time_ms":  1182.3500000000004,
+                                                               "x":  -0.1565,
+                                                               "y":  -1.65598,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.21473,
+                                                                                          "y":  -1.54345
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  15,
+                                                               "time_ms":  1273.3000000000004,
+                                                               "x":  0.03051,
+                                                               "y":  -1.77052,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.1565,
+                                                                                          "y":  -1.65598
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  16,
+                                                               "time_ms":  1364.2500000000005,
+                                                               "x":  0.08711,
+                                                               "y":  -1.88334,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.03051,
+                                                                                          "y":  -1.77052
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  17,
+                                                               "time_ms":  1455.2000000000005,
+                                                               "x":  0.25935,
+                                                               "y":  -2.03319,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.08711,
+                                                                                          "y":  -1.88334
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  18,
+                                                               "time_ms":  1546.1500000000005,
+                                                               "x":  0.33071,
+                                                               "y":  -2.15319,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.25935,
+                                                                                          "y":  -2.03319
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  19,
+                                                               "time_ms":  1637.1000000000006,
+                                                               "x":  0.51607,
+                                                               "y":  -2.26802,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.33071,
+                                                                                          "y":  -2.15319
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  20,
+                                                               "time_ms":  1728.0500000000006,
+                                                               "x":  0.57431,
+                                                               "y":  -2.38055,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.51607,
+                                                                                          "y":  -2.26802
+                                                                                      }
+                                                           }
+                                                       ],
+                                            "metrics":  {
+                                                            "duration_ms":  1728.0500000000006,
+                                                            "climb_model_units_per_second":  1.3109111426174007,
+                                                            "signed_climb_model_units_per_second":  1.3109111426174007,
+                                                            "horizontal_drift_model_units_per_second":  0.26485344752755985,
+                                                            "horizontal_span_model_units":  1.21801,
+                                                            "peak_upward_displacement_model_units":  2.38055,
+                                                            "maximum_distance_from_start_model_units":  2.4488467241948815,
+                                                            "first_shot_impulse_model_units":  {
+                                                                                                   "x":  0.11663,
+                                                                                                   "up":  0.11523
+                                                                                               },
+                                                            "window":  "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+                                                        },
+                                            "pre_shot_aim_proxy_note":  "Previous cumulative impulse before this shot, starting at zero. Consistent with lab hit-before-kick ordering; omits smoothing, spread, jitter and between-shot recovery. Not a measured impact simulation.",
+                                            "opening":  null
+                                        }
+                    },
+                    {
+                        "cost":  820,
+                        "loss":  25.225300820452993,
+                        "handling":  139.40565469040615,
+                        "score":  74.77469917954701,
+                        "stats":  {
+                                      "control":  52,
+                                      "handling":  43,
+                                      "stability":  61,
+                                      "accuracy":  56
+                                  },
+                        "components":  {
+                                           "pattern_model":  "ads-chart-speed-tier-v2",
+                                           "horizontal_distance":  0.74566,
+                                           "horizontal_span":  1.41094,
+                                           "vertical_excursion":  2.62414,
+                                           "horizontal_speed":  1.9985915063221542,
+                                           "horizontal_multiplier":  1,
+                                           "horizontal_speed_window_ms":  200,
+                                           "horizontal_speed_start_ms":  618.5500000000003,
+                                           "horizontal_speed_end_ms":  818.5500000000003,
+                                           "pattern_shots":  20,
+                                           "pattern":  3.3698,
+                                           "camera":  0.175383501105088,
+                                           "kick":  0.7147892780095653,
+                                           "ads_seconds":  0.4186563581076385,
+                                           "sprint_to_fire_seconds":  0.2823388007252089
+                                       },
+                        "config":  [
+                                       {
+                                           "slotPath":  "3",
+                                           "itemId":  "13040000110"
+                                       },
+                                       {
+                                           "slotPath":  "1",
+                                           "itemId":  "13030000189"
+                                       },
+                                       {
+                                           "slotPath":  "11",
+                                           "itemId":  "13110000099"
+                                       },
+                                       {
+                                           "slotPath":  "2/47",
+                                           "itemId":  "13390000003"
+                                       },
+                                       {
+                                           "slotPath":  "2/6",
+                                           "itemId":  "13130000168"
+                                       },
+                                       {
+                                           "slotPath":  "4/8",
+                                           "itemId":  "13140000042"
+                                       },
+                                       {
+                                           "slotPath":  "5/44",
+                                           "itemId":  "13340000001"
+                                       }
+                                   ],
+                        "tunes":  {
+                                      "1":  {
+                                                "authoring:part:13030000189:tune:thickness:0":  -20,
+                                                "authoring:part:13030000189:tune:weight:1":  50
+                                            },
+                                      "3":  {
+                                                "authoring:part:13040000110:tune:position:0":  98,
+                                                "authoring:part:13040000110:tune:weight:1":  50
+                                            },
+                                      "11":  {
+                                                 "authoring:part:13110000099:tune:eyeRelief:0":  0,
+                                                 "authoring:part:13110000099:tune:zoom:1":  0
+                                             },
+                                      "4/8":  {
+                                                  "authoring:part:13140000042:tune:weight:0":  20,
+                                                  "authoring:part:13140000042:tune:thickness:1":  0
+                                              }
+                                  },
+                        "mounted":  [
+                                        {
+                                            "slotPath":  "1",
+                                            "socketId":  1,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13030000189",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "2",
+                                            "socketId":  2,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13020000501",
+                                            "source":  "default"
+                                        },
+                                        {
+                                            "slotPath":  "2/6",
+                                            "socketId":  6,
+                                            "hostItemId":  "13020000501",
+                                            "itemId":  "13130000168",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "2/47",
+                                            "socketId":  47,
+                                            "hostItemId":  "13020000501",
+                                            "itemId":  "13390000003",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "3",
+                                            "socketId":  3,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13040000110",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "4",
+                                            "socketId":  4,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13050000324",
+                                            "source":  "forced"
+                                        },
+                                        {
+                                            "slotPath":  "4/8",
+                                            "socketId":  8,
+                                            "hostItemId":  "13050000324",
+                                            "itemId":  "13140000042",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "5",
+                                            "socketId":  5,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13120000325",
+                                            "source":  "default"
+                                        },
+                                        {
+                                            "slotPath":  "5/44",
+                                            "socketId":  44,
+                                            "hostItemId":  "13120000325",
+                                            "itemId":  "13340000001",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "11",
+                                            "socketId":  11,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13110000099",
+                                            "source":  "equipped"
+                                        }
+                                    ],
+                        "label":  "Balanced",
+                        "budget":  2000,
+                        "status":  "best_found",
+                        "proof":  "Best found",
+                        "recoil_path":  {
+                                            "model_version":  "timed-source-chart-v1",
+                                            "units":  "model units; angular calibration unverified",
+                                            "input_assumption":  "No compensation or reaction; one fully reset uninterrupted firing string",
+                                            "requested_shots":  20,
+                                            "capacity":  30,
+                                            "fire_control":  {
+                                                                 "supportedModes":  [
+                                                                                        "Single",
+                                                                                        "Auto"
+                                                                                    ],
+                                                                 "selectedFireMode":  "Auto",
+                                                                 "fireScheduleRules":  [
+
+                                                                                       ],
+                                                                 "burstCount":  null,
+                                                                 "scheduleStatus":  "ordinary",
+                                                                 "displayFireRateRpm":  660,
+                                                                 "shotIntervalSeconds":  0.09095000000000002,
+                                                                 "triggerDelayMs":  0,
+                                                                 "timingSource":  "sdk"
+                                                             },
+                                            "recoil_profile_id":  "authoring:weapon:18010000038:adsRecoil",
+                                            "chart_point_semantics":  "Cumulative source post-shot recoil; not validated bullet impact positions",
+                                            "global_verified":  false,
+                                            "status":  "modeled",
+                                            "points":  [
+                                                           {
+                                                               "shot":  1,
+                                                               "time_ms":  0,
+                                                               "x":  0.13511,
+                                                               "y":  -0.13348,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0,
+                                                                                          "y":  0
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  2,
+                                                               "time_ms":  90.95000000000003,
+                                                               "x":  -0.06841,
+                                                               "y":  -0.26667,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.13511,
+                                                                                          "y":  -0.13348
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  3,
+                                                               "time_ms":  181.90000000000006,
+                                                               "x":  0.13511,
+                                                               "y":  -0.40015,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.06841,
+                                                                                          "y":  -0.26667
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  4,
+                                                               "time_ms":  272.8500000000001,
+                                                               "x":  0,
+                                                               "y":  -0.53333,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.13511,
+                                                                                          "y":  -0.40015
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  5,
+                                                               "time_ms":  363.8000000000001,
+                                                               "x":  -0.06841,
+                                                               "y":  -0.66682,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0,
+                                                                                          "y":  -0.53333
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  6,
+                                                               "time_ms":  454.75000000000017,
+                                                               "x":  -0.13511,
+                                                               "y":  -0.84459,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.06841,
+                                                                                          "y":  -0.66682
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  7,
+                                                               "time_ms":  545.7000000000002,
+                                                               "x":  -0.23772,
+                                                               "y":  -0.97179,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.13511,
+                                                                                          "y":  -0.84459
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  8,
+                                                               "time_ms":  636.6500000000002,
+                                                               "x":  -0.37283,
+                                                               "y":  -1.0963,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.23772,
+                                                                                          "y":  -0.97179
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  9,
+                                                               "time_ms":  727.6000000000003,
+                                                               "x":  -0.54214,
+                                                               "y":  -1.2208,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.37283,
+                                                                                          "y":  -1.0963
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  10,
+                                                               "time_ms":  818.5500000000003,
+                                                               "x":  -0.74566,
+                                                               "y":  -1.34231,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.54214,
+                                                                                          "y":  -1.2208
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  11,
+                                                               "time_ms":  909.5000000000003,
+                                                               "x":  -0.54613,
+                                                               "y":  -1.5159,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.74566,
+                                                                                          "y":  -1.34231
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  12,
+                                                               "time_ms":  1000.4500000000004,
+                                                               "x":  -0.46347,
+                                                               "y":  -1.6549,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.54613,
+                                                                                          "y":  -1.5159
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  13,
+                                                               "time_ms":  1091.4000000000003,
+                                                               "x":  -0.24874,
+                                                               "y":  -1.78792,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.46347,
+                                                                                          "y":  -1.6549
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  14,
+                                                               "time_ms":  1182.3500000000004,
+                                                               "x":  -0.18128,
+                                                               "y":  -1.91828,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.24874,
+                                                                                          "y":  -1.78792
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  15,
+                                                               "time_ms":  1273.3000000000004,
+                                                               "x":  0.03534,
+                                                               "y":  -2.05096,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.18128,
+                                                                                          "y":  -1.91828
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  16,
+                                                               "time_ms":  1364.2500000000005,
+                                                               "x":  0.1009,
+                                                               "y":  -2.18165,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.03534,
+                                                                                          "y":  -2.05096
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  17,
+                                                               "time_ms":  1455.2000000000005,
+                                                               "x":  0.30043,
+                                                               "y":  -2.35524,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.1009,
+                                                                                          "y":  -2.18165
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  18,
+                                                               "time_ms":  1546.1500000000005,
+                                                               "x":  0.38309,
+                                                               "y":  -2.49424,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.30043,
+                                                                                          "y":  -2.35524
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  19,
+                                                               "time_ms":  1637.1000000000006,
+                                                               "x":  0.59782,
+                                                               "y":  -2.62726,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.38309,
+                                                                                          "y":  -2.49424
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  20,
+                                                               "time_ms":  1728.0500000000006,
+                                                               "x":  0.66528,
+                                                               "y":  -2.75762,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.59782,
+                                                                                          "y":  -2.62726
+                                                                                      }
+                                                           }
+                                                       ],
+                                            "metrics":  {
+                                                            "duration_ms":  1728.0500000000006,
+                                                            "climb_model_units_per_second":  1.5185555973496134,
+                                                            "signed_climb_model_units_per_second":  1.5185555973496134,
+                                                            "horizontal_drift_model_units_per_second":  0.3068024652064465,
+                                                            "horizontal_span_model_units":  1.41094,
+                                                            "peak_upward_displacement_model_units":  2.75762,
+                                                            "maximum_distance_from_start_model_units":  2.8367350145545847,
+                                                            "first_shot_impulse_model_units":  {
+                                                                                                   "x":  0.13511,
+                                                                                                   "up":  0.13348
+                                                                                               },
+                                                            "window":  "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+                                                        },
+                                            "pre_shot_aim_proxy_note":  "Previous cumulative impulse before this shot, starting at zero. Consistent with lab hit-before-kick ordering; omits smoothing, spread, jitter and between-shot recovery. Not a measured impact simulation.",
+                                            "opening":  null
+                                        }
+                    },
+                    {
+                        "cost":  740,
+                        "loss":  28.68630241094956,
+                        "handling":  126.90649273766029,
+                        "score":  71.31369758905043,
+                        "stats":  {
+                                      "control":  48,
+                                      "handling":  47,
+                                      "stability":  57,
+                                      "accuracy":  56
+                                  },
+                        "components":  {
+                                           "pattern_model":  "ads-chart-speed-tier-v2",
+                                           "horizontal_distance":  0.80219,
+                                           "horizontal_span":  1.51791,
+                                           "vertical_excursion":  2.8230999999999997,
+                                           "horizontal_speed":  2.150090791643759,
+                                           "horizontal_multiplier":  1,
+                                           "horizontal_speed_window_ms":  200,
+                                           "horizontal_speed_start_ms":  618.5500000000003,
+                                           "horizontal_speed_end_ms":  818.5500000000003,
+                                           "pattern_shots":  20,
+                                           "pattern":  3.6252899999999997,
+                                           "camera":  0.2923058351751467,
+                                           "kick":  0.7383537597021884,
+                                           "ads_seconds":  0.38563309883968006,
+                                           "sprint_to_fire_seconds":  0.2537557151659911
+                                       },
+                        "config":  [
+                                       {
+                                           "slotPath":  "3",
+                                           "itemId":  "13040000105"
+                                       },
+                                       {
+                                           "slotPath":  "1",
+                                           "itemId":  "13030000189"
+                                       },
+                                       {
+                                           "slotPath":  "11",
+                                           "itemId":  "13110000099"
+                                       },
+                                       {
+                                           "slotPath":  "2/47",
+                                           "itemId":  "13390000003"
+                                       },
+                                       {
+                                           "slotPath":  "2/6",
+                                           "itemId":  "13130000168"
+                                       },
+                                       {
+                                           "slotPath":  "4/8",
+                                           "itemId":  "13140000042"
+                                       },
+                                       {
+                                           "slotPath":  "5/44",
+                                           "itemId":  "13340000001"
+                                       }
+                                   ],
+                        "tunes":  {
+                                      "1":  {
+                                                "authoring:part:13030000189:tune:thickness:0":  -20,
+                                                "authoring:part:13030000189:tune:weight:1":  50
+                                            },
+                                      "3":  {
+                                                "authoring:part:13040000105:tune:position:0":  98,
+                                                "authoring:part:13040000105:tune:weight:1":  50
+                                            },
+                                      "11":  {
+                                                 "authoring:part:13110000099:tune:eyeRelief:0":  0,
+                                                 "authoring:part:13110000099:tune:zoom:1":  0
+                                             },
+                                      "4/8":  {
+                                                  "authoring:part:13140000042:tune:weight:0":  20,
+                                                  "authoring:part:13140000042:tune:thickness:1":  0
+                                              }
+                                  },
+                        "mounted":  [
+                                        {
+                                            "slotPath":  "1",
+                                            "socketId":  1,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13030000189",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "2",
+                                            "socketId":  2,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13020000501",
+                                            "source":  "default"
+                                        },
+                                        {
+                                            "slotPath":  "2/6",
+                                            "socketId":  6,
+                                            "hostItemId":  "13020000501",
+                                            "itemId":  "13130000168",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "2/47",
+                                            "socketId":  47,
+                                            "hostItemId":  "13020000501",
+                                            "itemId":  "13390000003",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "3",
+                                            "socketId":  3,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13040000105",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "4",
+                                            "socketId":  4,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13050000324",
+                                            "source":  "forced"
+                                        },
+                                        {
+                                            "slotPath":  "4/8",
+                                            "socketId":  8,
+                                            "hostItemId":  "13050000324",
+                                            "itemId":  "13140000042",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "5",
+                                            "socketId":  5,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13120000325",
+                                            "source":  "default"
+                                        },
+                                        {
+                                            "slotPath":  "5/44",
+                                            "socketId":  44,
+                                            "hostItemId":  "13120000325",
+                                            "itemId":  "13340000001",
+                                            "source":  "equipped"
+                                        },
+                                        {
+                                            "slotPath":  "11",
+                                            "socketId":  11,
+                                            "hostItemId":  "18010000038",
+                                            "itemId":  "13110000099",
+                                            "source":  "equipped"
+                                        }
+                                    ],
+                        "label":  "Min",
+                        "budget":  2000,
+                        "status":  "best_found",
+                        "proof":  "Best found",
+                        "recoil_path":  {
+                                            "model_version":  "timed-source-chart-v1",
+                                            "units":  "model units; angular calibration unverified",
+                                            "input_assumption":  "No compensation or reaction; one fully reset uninterrupted firing string",
+                                            "requested_shots":  20,
+                                            "capacity":  30,
+                                            "fire_control":  {
+                                                                 "supportedModes":  [
+                                                                                        "Single",
+                                                                                        "Auto"
+                                                                                    ],
+                                                                 "selectedFireMode":  "Auto",
+                                                                 "fireScheduleRules":  [
+
+                                                                                       ],
+                                                                 "burstCount":  null,
+                                                                 "scheduleStatus":  "ordinary",
+                                                                 "displayFireRateRpm":  660,
+                                                                 "shotIntervalSeconds":  0.09095000000000002,
+                                                                 "triggerDelayMs":  0,
+                                                                 "timingSource":  "sdk"
+                                                             },
+                                            "recoil_profile_id":  "authoring:weapon:18010000038:adsRecoil",
+                                            "chart_point_semantics":  "Cumulative source post-shot recoil; not validated bullet impact positions",
+                                            "global_verified":  false,
+                                            "status":  "modeled",
+                                            "points":  [
+                                                           {
+                                                               "shot":  1,
+                                                               "time_ms":  0,
+                                                               "x":  0.14535,
+                                                               "y":  -0.1436,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0,
+                                                                                          "y":  0
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  2,
+                                                               "time_ms":  90.95000000000003,
+                                                               "x":  -0.0736,
+                                                               "y":  -0.28688,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.14535,
+                                                                                          "y":  -0.1436
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  3,
+                                                               "time_ms":  181.90000000000006,
+                                                               "x":  0.14535,
+                                                               "y":  -0.43049,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.0736,
+                                                                                          "y":  -0.28688
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  4,
+                                                               "time_ms":  272.8500000000001,
+                                                               "x":  0,
+                                                               "y":  -0.57377,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.14535,
+                                                                                          "y":  -0.43049
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  5,
+                                                               "time_ms":  363.8000000000001,
+                                                               "x":  -0.0736,
+                                                               "y":  -0.71737,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0,
+                                                                                          "y":  -0.57377
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  6,
+                                                               "time_ms":  454.75000000000017,
+                                                               "x":  -0.14535,
+                                                               "y":  -0.90863,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.0736,
+                                                                                          "y":  -0.71737
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  7,
+                                                               "time_ms":  545.7000000000002,
+                                                               "x":  -0.25574,
+                                                               "y":  -1.04547,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.14535,
+                                                                                          "y":  -0.90863
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  8,
+                                                               "time_ms":  636.6500000000002,
+                                                               "x":  -0.4011,
+                                                               "y":  -1.17942,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.25574,
+                                                                                          "y":  -1.04547
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  9,
+                                                               "time_ms":  727.6000000000003,
+                                                               "x":  -0.58325,
+                                                               "y":  -1.31336,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.4011,
+                                                                                          "y":  -1.17942
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  10,
+                                                               "time_ms":  818.5500000000003,
+                                                               "x":  -0.80219,
+                                                               "y":  -1.44408,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.58325,
+                                                                                          "y":  -1.31336
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  11,
+                                                               "time_ms":  909.5000000000003,
+                                                               "x":  -0.58754,
+                                                               "y":  -1.63083,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.80219,
+                                                                                          "y":  -1.44408
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  12,
+                                                               "time_ms":  1000.4500000000004,
+                                                               "x":  -0.49861,
+                                                               "y":  -1.78037,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.58754,
+                                                                                          "y":  -1.63083
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  13,
+                                                               "time_ms":  1091.4000000000003,
+                                                               "x":  -0.2676,
+                                                               "y":  -1.92348,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.49861,
+                                                                                          "y":  -1.78037
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  14,
+                                                               "time_ms":  1182.3500000000004,
+                                                               "x":  -0.19503,
+                                                               "y":  -2.06372,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.2676,
+                                                                                          "y":  -1.92348
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  15,
+                                                               "time_ms":  1273.3000000000004,
+                                                               "x":  0.03802,
+                                                               "y":  -2.20646,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  -0.19503,
+                                                                                          "y":  -2.06372
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  16,
+                                                               "time_ms":  1364.2500000000005,
+                                                               "x":  0.10855,
+                                                               "y":  -2.34706,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.03802,
+                                                                                          "y":  -2.20646
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  17,
+                                                               "time_ms":  1455.2000000000005,
+                                                               "x":  0.32321,
+                                                               "y":  -2.53381,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.10855,
+                                                                                          "y":  -2.34706
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  18,
+                                                               "time_ms":  1546.1500000000005,
+                                                               "x":  0.41214,
+                                                               "y":  -2.68335,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.32321,
+                                                                                          "y":  -2.53381
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  19,
+                                                               "time_ms":  1637.1000000000006,
+                                                               "x":  0.64314,
+                                                               "y":  -2.82645,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.41214,
+                                                                                          "y":  -2.68335
+                                                                                      }
+                                                           },
+                                                           {
+                                                               "shot":  20,
+                                                               "time_ms":  1728.0500000000006,
+                                                               "x":  0.71572,
+                                                               "y":  -2.9667,
+                                                               "pre_shot_aim_proxy":  {
+                                                                                          "x":  0.64314,
+                                                                                          "y":  -2.82645
+                                                                                      }
+                                                           }
+                                                       ],
+                                            "metrics":  {
+                                                            "duration_ms":  1728.0500000000006,
+                                                            "climb_model_units_per_second":  1.6336911547698265,
+                                                            "signed_climb_model_units_per_second":  1.6336911547698265,
+                                                            "horizontal_drift_model_units_per_second":  0.33006568096987926,
+                                                            "horizontal_span_model_units":  1.51791,
+                                                            "peak_upward_displacement_model_units":  2.9667,
+                                                            "maximum_distance_from_start_model_units":  3.0518132328830347,
+                                                            "first_shot_impulse_model_units":  {
+                                                                                                   "x":  0.14535,
+                                                                                                   "up":  0.1436
+                                                                                               },
+                                                            "window":  "first post-shot chart point to last post-shot chart point; first impulse reported separately"
+                                                        },
+                                            "pre_shot_aim_proxy_note":  "Previous cumulative impulse before this shot, starting at zero. Consistent with lab hit-before-kick ordering; omits smoothing, spread, jitter and between-shot recovery. Not a measured impact simulation.",
+                                            "opening":  null
+                                        }
+                    }
+                ],
+    "solver":  {
+                   "name":  "Exact ordinary",
+                   "exhausted":  false,
+                   "workers":  4,
+                   "layouts":  88,
+                   "evaluated":  811648,
+                   "nodes":  3444852,
+                   "pruning":  {
+                                   "bounded_layouts":  92,
+                                   "fallback_layouts":  0,
+                                   "pattern_cuts":  469805,
+                                   "loss_cuts":  0,
+                                   "invariant_controls":  276
+                               },
+                   "elapsed_ms":  300094,
+                   "partitions":  [
+                                      {
+                                          "id":  0,
+                                          "path":  "2",
+                                          "choices":  [
+                                                          null
+                                                      ],
+                                          "secondary_path":  "3",
+                                          "secondary_choices":  [
+                                                                    null,
+                                                                    "13040000105",
+                                                                    "13040000107",
+                                                                    "13040000109",
+                                                                    "13040000112",
+                                                                    "13040000179",
+                                                                    "13040000185",
+                                                                    "13040000225"
+                                                                ],
+                                          "exhausted":  false,
+                                          "mount_pruning":  {
+                                                                "status":  "bounded",
+                                                                "cuts":  2616292,
+                                                                "envelopes":  32,
+                                                                "supported":  true,
+                                                                "evaluations":  2799473,
+                                                                "cache_hits":  2793986,
+                                                                "declined":  0,
+                                                                "entries_peak":  5487,
+                                                                "key_chars_peak":  691406,
+                                                                "saturated":  false,
+                                                                "evictions":  0
+                                                            }
+                                      },
+                                      {
+                                          "id":  1,
+                                          "path":  "2",
+                                          "choices":  [
+                                                          null
+                                                      ],
+                                          "secondary_path":  "3",
+                                          "secondary_choices":  [
+                                                                    "13040000104",
+                                                                    "13040000106",
+                                                                    "13040000108",
+                                                                    "13040000110",
+                                                                    "13040000113",
+                                                                    "13040000184",
+                                                                    "13040000224",
+                                                                    "13040000234"
+                                                                ],
+                                          "exhausted":  false,
+                                          "mount_pruning":  {
+                                                                "status":  "bounded",
+                                                                "cuts":  8860,
+                                                                "envelopes":  34,
+                                                                "supported":  true,
+                                                                "evaluations":  9530,
+                                                                "cache_hits":  9073,
+                                                                "declined":  0,
+                                                                "entries_peak":  457,
+                                                                "key_chars_peak":  55515,
+                                                                "saturated":  false,
+                                                                "evictions":  0
+                                                            }
+                                      },
+                                      {
+                                          "id":  2,
+                                          "path":  "2",
+                                          "choices":  [
+                                                          "13020000513"
+                                                      ],
+                                          "exhausted":  false,
+                                          "mount_pruning":  {
+                                                                "status":  "bounded",
+                                                                "cuts":  6024,
+                                                                "envelopes":  40,
+                                                                "supported":  true,
+                                                                "evaluations":  6615,
+                                                                "cache_hits":  6157,
+                                                                "declined":  0,
+                                                                "entries_peak":  458,
+                                                                "key_chars_peak":  58070,
+                                                                "saturated":  false,
+                                                                "evictions":  0
+                                                            }
+                                      },
+                                      {
+                                          "id":  3,
+                                          "path":  "2",
+                                          "choices":  [
+                                                          "13020000514"
+                                                      ],
+                                          "exhausted":  false,
+                                          "mount_pruning":  {
+                                                                "status":  "bounded",
+                                                                "cuts":  6002,
+                                                                "envelopes":  63,
+                                                                "supported":  true,
+                                                                "evaluations":  7181,
+                                                                "cache_hits":  6693,
+                                                                "declined":  0,
+                                                                "entries_peak":  488,
+                                                                "key_chars_peak":  63043,
+                                                                "saturated":  false,
+                                                                "evictions":  0
+                                                            }
+                                      }
+                                  ],
+                   "proven":  {
+                                  "maximum":  false,
+                                  "minimum":  false,
+                                  "balanced":  false
+                              },
+                   "infeasible":  false
+               }
+}

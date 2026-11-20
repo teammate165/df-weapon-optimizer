@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:8794/",
+  "checks": [
+    "both presets including untouched default",
+    "obsolete unversioned preset dependency bypassed",
+    "hover/focus/click/Escape and viewport bounds",
+    "four major stats share one row at desktop/mobile",
+    "versioned module/worker graph; no backend requests"
+  ],
+  "errors": []
+}

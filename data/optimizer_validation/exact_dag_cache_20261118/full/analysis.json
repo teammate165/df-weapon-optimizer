@@ -1,0 +1,100 @@
+{
+  "population": 12885654,
+  "selected": 64429,
+  "terminal_classes": 8865013,
+  "objective_evaluations": 2979656,
+  "objective_evaluations_per_path": 0.23123824370885637,
+  "under_one_million_objective_evaluations": false,
+  "selection_materialized_paths": 64429,
+  "audit_materialized_paths": 12885654,
+  "reference_phase_seconds": 2356.8049447999997,
+  "optimized_phase_seconds": 187.2224206,
+  "total_seconds": 200.4673529,
+  "peak_sampled_rss_gib": 3.2939910888671875,
+  "spill_gib": 1.2194233378395438,
+  "reference_paths_per_wall_second": 5467.424883179498,
+  "optimized_paths_per_wall_second": 68825.3787057382,
+  "optimized_objective_computations_per_wall_second": 15915.059694511823,
+  "optimized_transition_reuse_fraction": 0.004999745722776928,
+  "notes": [
+    "Reference timing is historical when reference_reused_from is set; descriptive observations, no confidence intervals.",
+    "Reference memoizes complete scorer inputs and native-witnesses each new input; it is not an uncached baseline.",
+    "Phase times include validation and coordination. Full identity audit reconstructs every path separately from selection.",
+    "Objective evaluations include repeated cache misses across all eight workers and after eviction.",
+    "Terminal classes are summed across batches; they are not globally unique states.",
+    "RSS is the sampled aggregate Node process including worker threads; estimated cache caps are not heap limits."
+  ],
+  "reference_reused_from": "C:\\Users\\USER\\Documents\\df_build_optimizer\\data\\optimizer_validation\\optimized_exact_dag_20261118\\full",
+  "input_diagnostics": {
+    "miss_records": 2979656,
+    "global_distinct_input_keys": 695267,
+    "sum_worker_distinct_input_keys": 2101849,
+    "confirmed_worker_recomputations_after_eviction": 877807,
+    "additional_first_computations_across_workers": 1406582,
+    "worker_distinct_input_keys": [
+      253319,
+      235863,
+      260330,
+      277151,
+      264604,
+      258988,
+      280491,
+      271103
+    ],
+    "method": "64 hash partitions; complete binary64 UTF16 keys compared exactly; logs contain every miss, including first occurrence"
+  },
+  "optimized_worker_seconds_sum": 1478.7092862000009,
+  "optimized_audit_worker_seconds_sum": 64.45942780000006,
+  "spill_read_gib": 0.6914604222401977,
+  "optimized_caches": {
+    "input": {
+      "hits": 5885357,
+      "misses": 2979656,
+      "evictions": 2397823,
+      "hit_fraction": 0.6638858848825151
+    },
+    "geometry": {
+      "hits": 2971800,
+      "misses": 7856,
+      "evictions": 0,
+      "hit_fraction": 0.9973634540363049
+    },
+    "timing": {
+      "hits": 2979640,
+      "misses": 16,
+      "evictions": 0,
+      "hit_fraction": 0.9999946302526198
+    },
+    "pattern": {
+      "hits": 2969608,
+      "misses": 10048,
+      "evictions": 0,
+      "hit_fraction": 0.9966277986452128
+    },
+    "objective": {
+      "hits": 0,
+      "misses": 0,
+      "evictions": 0,
+      "hit_fraction": 0.0
+    },
+    "references": {
+      "hits": 8864997,
+      "misses": 16,
+      "evictions": 0,
+      "hit_fraction": 0.9999981951521109
+    }
+  },
+  "source_sha256": {
+    "tools/optimized_exact_dag.mjs": "6cf5c4ae4319ed9877a13a489f0c82e32343aa6857ea2d3cfba66b1a90661995",
+    "tools/exact_recoil_scorer.mjs": "9775a22c9e03e4decc3f34065f8ec6a91b4788432f422b54ac00e3ae1ef4a79e",
+    "tools/exact_dag_storage.mjs": "cd811d7b90dc8d8e1ee9289f4ffe159605fa5b479abfc356b3034be36fb53cdd",
+    "tools/run_optimized_exact_dag.mjs": "0e3d0bbb94108ada0a263f087e5959acefced81c697399a0f932c538638fa3b1",
+    "tools/screening_rank.mjs": "52870b32e7fba20ac27e7858e5b2cf99b924c0ca3a5a9d7901288ae0a4bbe056",
+    "tools/optimizer_presets.mjs": "82f77803309e311ac3f2e70e233b1c2373785690fc90da912a3ec533255f3b48",
+    ".scratch/calibration-check/kernel.mjs": "a834dec1bcdf85bb155a7b4c2feabb1dc35d8486bdde85d581e84ef841ea2dfb",
+    ".scratch/calibration-check/curves.mjs": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1",
+    ".scratch/calibration-check/attributes.mjs": "7fd496bb66a3b9a31bf7b4d5b749a2258f8a14ab0f241c4c5fe2bd711c097cdc",
+    ".scratch/github-pages-site/data/catalog.json": "dfdca81af777648db031283cbe804df0a7d281dcb574d953579b639e537df052",
+    ".scratch/github-pages-site/data/weapons/18010000001.json": "7a2d29cc20497e71b17c5592a9273a0613e320eb95b36c8146755308e22d3a5c"
+  }
+}

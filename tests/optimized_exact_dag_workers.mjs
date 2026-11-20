@@ -1,0 +1,43 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {Worker,isMainThread,parentPort,workerData} from 'node:worker_threads';
+import {createOptimizedExactDag,exactDagWorkers} from '../tools/optimized_exact_dag.mjs';
+import {boundedCache,exactKey,packedNumberKey,createLocalityQueues,takeLocalityJob,createWeightedSelector,rankPrefix} from '../tools/exact_dag_storage.mjs';
+import {screeningComparator,survivorCount} from '../tools/screening_rank.mjs';
+import {createExactRecoilScorer} from '../tools/exact_recoil_scorer.mjs';
+import {presets} from '../tools/optimizer_presets.mjs';
+import {createChoiceGroups} from '../tools/choice_groups.mjs';
+import {createInputMissLog,analyzeInputMissLogs} from '../tools/exact_input_diagnostics.mjs';
+
+if(!isMainThread){
+ parentPort.postMessage({ready:true});parentPort.once('message',async()=>{try{
+  const kernel=await import('../.scratch/calibration-check/kernel.mjs'),curves=await import('../.scratch/calibration-check/curves.mjs'),{t:calculate}=await import('../.scratch/calibration-check/attributes.mjs');
+  const pack=JSON.parse(fs.readFileSync('.scratch/github-pages-site/data/weapons/18010000001.json','utf8')),catalog=JSON.parse(fs.readFileSync('.scratch/github-pages-site/data/catalog.json','utf8')),input={pack,shop:catalog.shop,prices:catalog.prices,request:{mode:'bd',preset:'recoil',budget:160,fixed:[{slotPath:'11',itemId:'13110000091'}],experimental_dominance:false}},engine=createOptimizedExactDag(input,{kernel,curves,calculate},{verifyRepresentatives:true}),plan=engine.plan(),reference=[],optimized=[];
+  assert.equal(exactDagWorkers,8);assert.equal(plan.total,'385');assert.equal(plan.dominance,false);assert(plan.certificate.targets.includes('FireInterval'));assert(plan.certificate.targets.includes('WeaponMainAttribute.MainAttrValues.3'));assert(!plan.certificate.targets.includes('WeaponMainAttribute.MainAttrValues.4'));
+  const ancestor=engine.describe(plan.jobs[0].configs[0]).state,ancestorBefore=exactKey([...ancestor.buckets]);
+  for(const job of plan.jobs){let count=0;engine.referenceJob(job,row=>{reference.push(row);count++;});const packet=engine.runJob(job,count);optimized.push(...engine.rows(packet));if(job.id<3){const repeated=engine.runJob(job,count);assert.deepEqual([...engine.rows(repeated)].sort(screeningComparator({})),[...engine.rows(packet)].sort(screeningComparator({})));assert.throws(()=>engine.runJob(job,count+1),/closure count mismatch/);}}
+  assert.equal(exactKey([...ancestor.buckets]),ancestorBefore);assert(engine.stats().transitions_reused>0);
+  const compare=screeningComparator({});reference.sort(compare);optimized.sort(compare);assert.deepEqual(optimized,reference);assert.equal(new Set(optimized.map(r=>r.signature)).size,385);
+  for(const row of optimized)assert.deepEqual(engine.nativeRow(JSON.parse(row.signature).map(([slotPath,itemId])=>({slotPath,itemId}))),row);
+  const preset=presets.recoil.create({...input,kernel,curves,calculate,mode:'bd',resolve:config=>curves.o(pack,config,'bd')}),tiny=createExactRecoilScorer({pack,request:input.request,modules:{kernel,curves,calculate},preset,cacheBytes:1024});
+  for(const row of optimized){const config=JSON.parse(row.signature).map(([slotPath,itemId])=>({slotPath,itemId})),build=curves.o(pack,config,'bd'),state=kernel.u(pack,build,{mode:'bd',tacticalEffective:true,tunes:{}}),actual=tiny.scoreMapped(state,()=>row);assert.deepEqual(actual.objectives,row.objectives);}
+  assert(tiny.stats().caches.input.evictions>0);
+  assert.equal(engine.stats().scorer.caches.objective.disabled,true);assert(engine.stats().certified_dead_operations>0);
+  assert.notEqual(packedNumberKey([0]),packedNumberKey([-0]));assert.notEqual(packedNumberKey([1,2]),packedNumberKey([2,1]));assert.throws(()=>packedNumberKey([NaN]),/Nonfinite/);assert.throws(()=>packedNumberKey([undefined]),/Nonfinite/);
+  const sample=[0,-0,1,-1,Number.MIN_VALUE,Number.MAX_VALUE,1+Number.EPSILON,Math.PI];assert.equal(new Set(sample.map(v=>packedNumberKey([v]))).size,sample.length);
+  const queues=createLocalityQueues(plan.jobs,8),taken=[];for(let i=0;i<8;i++)for(let job;(job=takeLocalityJob(queues,i));)taken.push(job.id);assert.equal(taken.length,plan.jobs.length);assert.equal(new Set(taken).size,plan.jobs.length);
+  const choice=createChoiceGroups({...input,kernel,curves,preset,mode:'bd'});assert.deepEqual(choice.options(['13170000004'],'10'),[]);assert.deepEqual(choice.options(['13170000005'],'5/36'),[]);
+  const lockedChoice=createChoiceGroups({...input,kernel,curves,preset,mode:'bd',fixed:[{slotPath:'10',itemId:'13170000004'}]});assert(lockedChoice.options(['13170000004'],'10').includes('13170000004'));
+  for(const [weaponId,bipod]of [['18010000015','13170000005'],['18010000018','13170000008']]){const other=JSON.parse(fs.readFileSync('.scratch/github-pages-site/data/weapons/'+weaponId+'.json')),policy=createChoiceGroups({...input,pack:other,kernel,curves,preset,mode:'bd'});assert.deepEqual(policy.options([bipod],'2/36'),[]);const locked=createChoiceGroups({...input,pack:other,kernel,curves,preset,mode:'bd',fixed:[{slotPath:'2/36',itemId:bipod}]});assert.deepEqual(locked.options([bipod],'2/36'),[bipod]);}
+  const diagnosticRoot='.scratch/exact-cache-component-'+Date.now()+'-'+workerData.id,dirs=[diagnosticRoot+'/a',diagnosticRoot+'/b'],logs=dirs.map(createInputMissLog),a=packedNumberKey([0]),b=packedNumberKey([-0]),d=packedNumberKey([Math.PI]);logs[0].record(a);logs[0].record(a);logs[0].record(b);logs[1].record(a);logs[1].record(d);logs.forEach(log=>log.flush());const diagnostics=analyzeInputMissLogs(dirs);assert.equal(diagnostics.global_distinct_input_keys,3);assert.equal(diagnostics.confirmed_worker_recomputations_after_eviction,1);assert.equal(diagnostics.additional_first_computations_across_workers,1);
+  assert.notEqual(exactKey(-0),exactKey(0));assert.notEqual(exactKey(undefined),exactKey(null));const cache=boundedCache(100);for(let i=0;i<20;i++)cache.set(String(i),i,80);assert(cache.stats().evictions>0);assert.equal(cache.get('19'),19);
+  let seed=workerData.id+1;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed;};
+  const classes=Array.from({length:120},(_,i)=>({score:random()%7,objectives:[random()%7,random()%3],cost:random()%4,mass:BigInt(1+random()%20),id:i})),all=classes.flatMap(cls=>Array.from({length:Number(cls.mass)},(_,i)=>({...cls,signature:String(cls.id).padStart(4,'0')+':'+String(i).padStart(3,'0')}))),k=31,selected=createWeightedSelector(k);
+  for(const cls of classes)selected.add(cls,cls.mass);const groups=selected.groups().sort(rankPrefix);let accumulated=0n,threshold;for(const group of groups){accumulated+=group.mass;if(accumulated>=BigInt(k)){threshold=group;break;}}
+  const deferred=all.filter(row=>rankPrefix(row,threshold)<=0).sort(compare).slice(0,k),flat=[...all].sort(compare).slice(0,k);assert.deepEqual(deferred,flat);assert.equal(survivorCount('12885654'),64429n);
+  const huge=createWeightedSelector(4);huge.add({score:1,objectives:[1,1],cost:0},2n**80n);huge.add({score:2,objectives:[2,2],cost:0},9n);assert.equal(huge.mass,2n**80n);
+  parentPort.postMessage({passed:true,worker:workerData.id,plan:{paths:plan.total,roots:plan.root_prefixes,interleaved:plan.interleaved_prefixes,fallback:plan.fallback_prefixes},stats:engine.stats(),checks:['all385 native/reference/optimized rows identical','exact live projection including timing','native event ordering and correlated packed paths','all native representatives and identities replayed','weighted boundary selection vs full sort','signed zero/undefined and byte-cap eviction']});
+ }catch(error){parentPort.postMessage({passed:false,worker:workerData.id,error:error.stack});}});
+}else{
+ const pool=[];try{const ready=[];for(let id=0;id<8;id++){const worker=new Worker(new URL(import.meta.url),{workerData:{id}});pool.push(worker);ready.push(new Promise((resolve,reject)=>{worker.once('message',resolve);worker.once('error',reject);}));}await Promise.all(ready);const results=await Promise.all(pool.map(worker=>new Promise((resolve,reject)=>{worker.once('message',resolve);worker.once('error',reject);worker.postMessage({run:true});}))),report={passed:results.every(r=>r.passed),workers:8,results};fs.mkdirSync(process.env.EXACT_DAG_VALIDATION_OUTPUT??'data/optimizer_validation/optimized_exact_dag_20261118',{recursive:true});fs.writeFileSync((process.env.EXACT_DAG_VALIDATION_OUTPUT??'data/optimizer_validation/optimized_exact_dag_20261118')+'/component-validation.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));if(!report.passed)process.exitCode=1;}finally{await Promise.all(pool.map(worker=>worker.terminate()));}
+}

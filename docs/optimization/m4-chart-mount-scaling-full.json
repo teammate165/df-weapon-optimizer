@@ -1,0 +1,709 @@
+{
+  "fullGrid": true,
+  "budget": 400,
+  "domains": [
+    [
+      "1",
+      [
+        "13030000109",
+        "13030000110",
+        "13030000113",
+        "13030000114"
+      ]
+    ],
+    [
+      "3",
+      [
+        "13040000104",
+        "13040000106",
+        "13040000108",
+        "13040000179"
+      ]
+    ],
+    [
+      "4/8",
+      [
+        "13140000024",
+        "13140000027",
+        "13140000028"
+      ]
+    ],
+    [
+      "2",
+      [
+        null,
+        "13020000173"
+      ]
+    ],
+    [
+      "2/6",
+      [
+        null,
+        "13130000169"
+      ]
+    ]
+  ],
+  "mountRequests": 192,
+  "legalLayouts": 94,
+  "mountNodes": 454,
+  "mountStats": {
+    "constraint_evaluations": 13606,
+    "boolean_evaluations": 78078
+  },
+  "mountMs": 54.65780000000001,
+  "setupMs": 98.14280000000002,
+  "tunedTuples": 96848294,
+  "samples": [
+    {
+      "bounds": 238,
+      "nativeScores": 4,
+      "nodes": 244,
+      "elapsedMs": 7.5482000000000085,
+      "maximum": {
+        "gain": 36.060018457870925,
+        "cost": 320,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000114:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000108:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000027:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000114"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000108"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000027"
+          }
+        ]
+      },
+      "minimum": {
+        "gain": 19.7204027461146,
+        "cost": 120,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000110:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000104:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000028:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000110"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000104"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000028"
+          }
+        ]
+      },
+      "balanced": {
+        "gain": 28.435754892203718,
+        "cost": 160,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000114:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000104:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000028:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000114"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000104"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000028"
+          }
+        ]
+      }
+    },
+    {
+      "bounds": 238,
+      "nativeScores": 4,
+      "nodes": 244,
+      "elapsedMs": 4.387299999999982,
+      "maximum": {
+        "gain": 36.060018457870925,
+        "cost": 320,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000114:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000108:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000027:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000114"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000108"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000027"
+          }
+        ]
+      },
+      "minimum": {
+        "gain": 19.7204027461146,
+        "cost": 120,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000110:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000104:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000028:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000110"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000104"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000028"
+          }
+        ]
+      },
+      "balanced": {
+        "gain": 28.435754892203718,
+        "cost": 160,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000114:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000104:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000028:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000114"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000104"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000028"
+          }
+        ]
+      }
+    },
+    {
+      "bounds": 238,
+      "nativeScores": 4,
+      "nodes": 244,
+      "elapsedMs": 4.351099999999974,
+      "maximum": {
+        "gain": 36.060018457870925,
+        "cost": 320,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000114:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000108:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000027:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000114"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000108"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000027"
+          }
+        ]
+      },
+      "minimum": {
+        "gain": 19.7204027461146,
+        "cost": 120,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000110:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000104:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000028:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000110"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000104"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000028"
+          }
+        ]
+      },
+      "balanced": {
+        "gain": 28.435754892203718,
+        "cost": 160,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000114:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000104:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000028:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000114"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000104"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000028"
+          }
+        ]
+      }
+    },
+    {
+      "bounds": 238,
+      "nativeScores": 4,
+      "nodes": 244,
+      "elapsedMs": 4.389700000000005,
+      "maximum": {
+        "gain": 36.060018457870925,
+        "cost": 320,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000114:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000108:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000027:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000114"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000108"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000027"
+          }
+        ]
+      },
+      "minimum": {
+        "gain": 19.7204027461146,
+        "cost": 120,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000110:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000104:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000028:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000110"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000104"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000028"
+          }
+        ]
+      },
+      "balanced": {
+        "gain": 28.435754892203718,
+        "cost": 160,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000114:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000104:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000028:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000114"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000104"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000028"
+          }
+        ]
+      }
+    },
+    {
+      "bounds": 238,
+      "nativeScores": 4,
+      "nodes": 244,
+      "elapsedMs": 4.467800000000011,
+      "maximum": {
+        "gain": 36.060018457870925,
+        "cost": 320,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000114:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000108:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000027:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000114"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000108"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000027"
+          }
+        ]
+      },
+      "minimum": {
+        "gain": 19.7204027461146,
+        "cost": 120,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000110:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000104:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000028:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000110"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000104"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000028"
+          }
+        ]
+      },
+      "balanced": {
+        "gain": 28.435754892203718,
+        "cost": 160,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000114:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000104:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000028:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000114"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000104"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000028"
+          }
+        ]
+      }
+    },
+    {
+      "bounds": 238,
+      "nativeScores": 4,
+      "nodes": 244,
+      "elapsedMs": 3.7764000000000237,
+      "maximum": {
+        "gain": 36.060018457870925,
+        "cost": 320,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000114:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000108:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000027:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000114"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000108"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000027"
+          }
+        ]
+      },
+      "minimum": {
+        "gain": 19.7204027461146,
+        "cost": 120,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000110:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000104:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000028:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000110"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000104"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000028"
+          }
+        ]
+      },
+      "balanced": {
+        "gain": 28.435754892203718,
+        "cost": 160,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000114:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000104:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000028:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000114"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000104"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000028"
+          }
+        ]
+      }
+    },
+    {
+      "bounds": 238,
+      "nativeScores": 4,
+      "nodes": 244,
+      "elapsedMs": 3.4862999999999715,
+      "maximum": {
+        "gain": 36.060018457870925,
+        "cost": 320,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000114:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000108:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000027:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000114"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000108"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000027"
+          }
+        ]
+      },
+      "minimum": {
+        "gain": 19.7204027461146,
+        "cost": 120,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000110:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000104:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000028:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000110"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000104"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000028"
+          }
+        ]
+      },
+      "balanced": {
+        "gain": 28.435754892203718,
+        "cost": 160,
+        "tunes": {
+          "1": {
+            "authoring:part:13030000114:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000104:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000028:tune:weight:0": 20
+          }
+        },
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000114"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000104"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000028"
+          }
+        ]
+      }
+    }
+  ]
+}

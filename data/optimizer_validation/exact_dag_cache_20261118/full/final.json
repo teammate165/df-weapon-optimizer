@@ -1,0 +1,115 @@
+{
+  "passed": true,
+  "workers": 8,
+  "population": "all original legal grouped ordinary layouts; dominance and score pruning disabled",
+  "request": {
+    "mode": "bd",
+    "preset": "recoil",
+    "budget": 800,
+    "fixed": [
+      {
+        "slotPath": "11",
+        "itemId": "13110000091"
+      }
+    ],
+    "experimental_dominance": false
+  },
+  "exact_total": "12885654",
+  "gate_fraction": 0.005,
+  "ranking_contract": "exact-shortfall-objectives-cost-code-unit-signature-v1",
+  "selected": 64429,
+  "reference": {
+    "phase": "reference",
+    "wall_ms": 2356804.9447999997,
+    "paths": "12885654",
+    "terminal_classes": 12885654,
+    "objective_evaluations": 3854265,
+    "native_witnesses": 3854265,
+    "geometry_evaluations": 8131,
+    "transitions_computed": 0,
+    "transitions_reused": 0,
+    "spill_bytes": 0,
+    "materialized_paths": 0,
+    "audit_ms_sum": 0,
+    "workers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "survivors": 64429,
+    "survivor_manifest": "a513a92efe125b4d6a5acd93e93c0653e66ebcfba7e7a38daab5a6cde4d8720a",
+    "guard_fallback_jobs": 0
+  },
+  "optimized": {
+    "phase": "optimized",
+    "wall_ms": 187222.42059999998,
+    "paths": "12885654",
+    "terminal_classes": 8865013,
+    "objective_evaluations": 2979656,
+    "native_witnesses": 0,
+    "geometry_evaluations": 7856,
+    "transitions_computed": 37643570,
+    "transitions_reused": 189154,
+    "spill_bytes": 1309345839,
+    "materialized_paths": 64429,
+    "audit_ms_sum": 64459.427800000056,
+    "workers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "survivors": 64429,
+    "survivor_manifest": "a513a92efe125b4d6a5acd93e93c0653e66ebcfba7e7a38daab5a6cde4d8720a",
+    "guard_fallback_jobs": 0
+  },
+  "all_score_identity_manifests_match": true,
+  "exact_survivor_order_matches": true,
+  "uncached_native_survivor_replays": 64429,
+  "peak_sampled_rss_bytes": 3536896000,
+  "total_wall_ms": 200467.3529,
+  "hardware": {
+    "logical_cpus": 14,
+    "memory_bytes": 16369115136,
+    "node": "v24.22.0"
+  },
+  "provenance_spill_directory": "C:\\Users\\USER\\Documents\\df_build_optimizer\\.scratch\\optimized-exact-dag-spill\\mwlxfdjr",
+  "notes": [
+    "Every represented path is scored directly or through exact equivalence.",
+    "Reference independently resolves every layout and native-witnesses every new complete read-input signature; it uses no DAG/live-key merging.",
+    "Identity audit reconstructs all paths separately from weighted survivor selection; audit overhead remains included in phase wall time.",
+    "Per-job SHA256 manifests use standard cryptographic collision assumptions.",
+    "Packed provenance is spilled to task-local files; cache caps evict/recompute, never trim paths.",
+    "No tactical screening or calibration in this run.",
+    "Reference manifests/survivors reused from a completed independently validated run after native/data hash and exact job-config checks; its timing is historical.",
+    "Optimized caches start fresh. Exact full-input miss logs add measurement overhead."
+  ],
+  "reference_reused_from": "C:\\Users\\USER\\Documents\\df_build_optimizer\\data\\optimizer_validation\\optimized_exact_dag_20261118\\full",
+  "input_diagnostics": {
+    "miss_records": 2979656,
+    "global_distinct_input_keys": 695267,
+    "sum_worker_distinct_input_keys": 2101849,
+    "confirmed_worker_recomputations_after_eviction": 877807,
+    "additional_first_computations_across_workers": 1406582,
+    "worker_distinct_input_keys": [
+      253319,
+      235863,
+      260330,
+      277151,
+      264604,
+      258988,
+      280491,
+      271103
+    ],
+    "method": "64 hash partitions; complete binary64 UTF16 keys compared exactly; logs contain every miss, including first occurrence"
+  }
+}

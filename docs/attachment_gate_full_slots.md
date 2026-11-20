@@ -13,7 +13,7 @@ The measurements below retain the scope of this earlier literal-enumeration tria
 
 ## Domain and methods
 
-Same draw as [the earlier trial](attachment_gate_five_weapons.md): P90, Vector,
+Same draw as [the earlier trial](archive/attachment_gate_five_weapons.md): P90, Vector,
 SR-25, M249 and G18. Current source calculator and Lowest Recoil preset; catalog
 and runtime provenance, input hashes and scorer hashes are in the reports.
 The new trial captures the current implementation, rather than assuming the

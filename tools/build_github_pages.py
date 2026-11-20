@@ -33,11 +33,63 @@ def version_browser_assets(destination):
     return version
 
 
-def build(destination):
+def export_exact_beta(destination):
+    """Package the audited M4A1 solver against its verified data and runtime."""
+    research = ROOT / 'docs/optimization'
+    target = destination / 'exact-beta'
+    target.mkdir(exist_ok=True)
+    pins = {
+        'data/catalog.json': 'dfdca81af777648db031283cbe804df0a7d281dcb574d953579b639e537df052',
+        'data/weapons/18010000001.json': '7a2d29cc20497e71b17c5592a9273a0613e320eb95b36c8146755308e22d3a5c',
+        'runtime/curves.mjs': '6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1',
+        'runtime/kernel.mjs': 'a834dec1bcdf85bb155a7b4c2feabb1dc35d8486bdde85d581e84ef841ea2dfb',
+        'runtime/attributes.mjs': '7fd496bb66a3b9a31bf7b4d5b749a2258f8a14ab0f241c4c5fe2bd711c097cdc',
+        'runtime/laser_effects.mjs': '1898c81a9ea892c3f4cac806595ab0884d67209e9286abb5fa6462b5e6d4692c',
+    }
+    enabled = all(hashlib.sha256((destination / path).read_bytes()).hexdigest() == digest
+                  for path, digest in pins.items())
+    modules = ('category-search', 'chart-fixture-runtime', 'deterministic-norm', 'm4-active-controls',
+               'm4-calibrated-mount-bound', 'm4-chart-axis-boxes', 'm4-chart-mount-stream',
+               'm4-full-ordinary-study', 'ordered-axis-intervals', 'v8-norm-floor')
+    for name in modules:
+        source = (research / f'{name}.mjs').read_text('utf-8')
+        source = source.replace('../../tools/', '../model/')
+        source = source.replace('../../.scratch/calibration-check/', '../runtime/')
+        source = source.replace('../../.scratch/github-pages-site/data/', '../data/')
+        (target / f'{name}.mjs').write_text(source, 'utf-8')
+    seeds = []
+    if enabled:
+        for name in ('m4-deterministic-norm-largest.json', 'm4-active-control-study.json'):
+            for run in json.loads((research / name).read_text('utf-8'))['runs']:
+                seeds.extend(run['bounded']['outputs'].values())
+    (target / 'inputs.json').write_text(json.dumps({'enabled': enabled, 'seedRows': seeds}), 'utf-8')
+
+
+def build(destination, public=False):
+    research_entries = {
+        'calibration-engine-study.html', 'calibration-engine-study.js', 'calibration-engine-worker.js',
+        'exact-dag-study.html', 'exact-dag-study.js', 'exact-dag-worker.js',
+        'screening-study.html', 'screening-study.js',
+        'solver-diagnostics.html', 'solver-diagnostics.js',
+    }
+    research_modules = {
+        'optimized_exact_dag', 'exact_recoil_scorer', 'exact_dag_storage',
+        'ranked_screening_heap', 'highs_runtime', 'calibration_engine_benchmark',
+        'dominance_reduction',
+    }
     destination = destination.resolve()
     destination.mkdir(parents=True, exist_ok=True)
+    if public:
+        for name in research_entries:
+            (destination / name).unlink(missing_ok=True)
+        for name in research_modules:
+            (destination / f'model/{name}.mjs').unlink(missing_ok=True)
+        if (destination / 'vendor/highs-1.15.4').exists():
+            raise ValueError('Build the public export in a clean checkout without the research vendor directory')
     # Copy only reviewed browser source types. Never copy local binary assets.
     for source in (ROOT / 'builder').rglob('*'):
+        if public and source.name in research_entries:
+            continue
         if source.is_file() and (source.suffix in ('.html', '.css', '.js') or
                                  source.suffix == '.json' and 'weapon-layers' in source.parts):
             target = destination / source.relative_to(ROOT / 'builder')
@@ -63,12 +115,19 @@ def build(destination):
     style += '\n.default-slot-icon,.slot-tile.active .default-slot-icon{background-color:transparent;opacity:.8}\n'
     css.write_text(style, 'utf-8')
     (destination / 'assets/slot-icons.js').write_text(icons.replace('"dfttk-slot-icons.webp"', json.dumps(atlas)), 'utf-8')
-    modules = ['builder_model', 'builder_stat_response', 'optimizer_engine', 'anytime_optimizer', 'choice_groups', 'optimizer_mounts', 'optimizer_policy', 'optimizer_presets', 'optimizer_selection', 'scip_optimizer', 'exhaustive_attachment_gate', 'mount_search', 'scoring_bounds', 'branch_score_bounds', 'shared_stats', 'scip_linear_model', 'scip_mount_model', 'scip_stat_model', 'scip_objective_model', 'scip_runtime', 'timed_recoil', 'horizontal_speed']
+    modules = ['optimized_exact_dag', 'exact_recoil_scorer', 'exact_dag_storage', 'ranked_screening_heap', 'highs_runtime', 'calibration_engine_benchmark', 'screening_rank', 'dominance_reduction', 'exhaustive_screening_study', 'builder_model', 'builder_stat_response', 'optimizer_engine', 'anytime_optimizer', 'choice_groups', 'optimizer_mounts', 'optimizer_policy', 'optimizer_presets', 'optimizer_selection', 'scip_optimizer', 'exhaustive_attachment_gate', 'mount_search', 'scoring_bounds', 'branch_score_bounds', 'branch_native_ranges', 'shared_stats', 'scip_linear_model', 'scip_mount_model', 'scip_stat_model', 'scip_objective_model', 'scip_runtime', 'timed_recoil', 'horizontal_speed']
     (destination / 'model').mkdir(exist_ok=True)
     for name in ('attachment_gate', 'optimizer_exploration'):
         (destination / f'model/{name}.mjs').unlink(missing_ok=True)
     for name in modules:
+        if public and name in research_modules:
+            continue
         shutil.copyfile(ROOT / f'tools/{name}.mjs', destination / f'model/{name}.mjs')
+    for name in ('exact_ordinary', 'exact_ordinary_bounds', 'exact_ordinary_mount_bounds',
+                 'exact_ordinary_partitions', 'exact_ordinary_phase'):
+        source = (ROOT / f'tools/{name}.mjs').read_text('utf-8')
+        source = source.replace('../docs/optimization/', '../exact-beta/')
+        (destination / f'model/{name}.mjs').write_text(source, 'utf-8')
     (destination / 'runtime').mkdir(exist_ok=True)
     for name in ('curves', 'kernel', 'attributes', 'laser_effects'):
         shutil.copyfile(REFERENCE / f'{name}.mjs', destination / f'runtime/{name}.mjs')
@@ -78,6 +137,13 @@ def build(destination):
         if hashlib.sha256((vendor / item['name']).read_bytes()).hexdigest() != item['sha256']:
             raise ValueError('Pinned SCIP runtime checksum mismatch: ' + item['name'])
     shutil.copytree(vendor, destination / 'vendor/scip-7e68f9ca', dirs_exist_ok=True)
+    if not public:
+        highs_vendor = ROOT / 'vendor/highs-1.15.4'
+        highs_pinned = json.loads((highs_vendor / 'provenance.json').read_text('utf-8'))
+        for item in highs_pinned['files']:
+            if hashlib.sha256((highs_vendor / item['name']).read_bytes()).hexdigest() != item['sha256']:
+                raise ValueError('Pinned HiGHS runtime checksum mismatch: ' + item['name'])
+        shutil.copytree(highs_vendor, destination / 'vendor/highs-1.15.4', dirs_exist_ok=True)
     data = catalog()
     data_dir = destination / 'data'
     (data_dir / 'weapons').mkdir(parents=True, exist_ok=True)
@@ -86,6 +152,7 @@ def build(destination):
     dump(data_dir / 'catalog.json', data)
     for weapon in data['weapons']:
         dump(data_dir / 'weapons' / f"{weapon['id']}.json", pack(weapon['id']))
+    export_exact_beta(destination)
     (data_dir / 'solver-starts').mkdir(parents=True, exist_ok=True)
     for source in (ROOT / 'data/solver_starts').glob('*.json'):
         shutil.copyfile(source, data_dir / 'solver-starts' / source.name)
@@ -94,7 +161,7 @@ def build(destination):
     (destination / 'README.md').write_text('''# Delta Weapon Workshop
 
 Static weapon builder and experimental recoil optimizer. Calculations run in a
-browser module Web Workers (one to four, sized to the device). No backend,
+browser module Web Workers (one to eight, sized to the device). No backend,
 credentials, game-server API, special response headers, or image files.
 
 Weapon/attachment portraits use the external URLs supplied by dfttk.com (including
@@ -150,4 +217,6 @@ jobs:
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(__doc__)
     parser.add_argument('--output', type=Path, default=ROOT / '.scratch/github-pages-site')
-    build(parser.parse_args().output)
+    parser.add_argument('--public', action='store_true', help='Exclude standalone research pages and their private runtime')
+    args = parser.parse_args()
+    build(args.output, public=args.public)

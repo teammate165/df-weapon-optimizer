@@ -1,0 +1,28 @@
+{
+  "status": "completed",
+  "experimental_units": 1,
+  "workers": 8,
+  "exact_total": 12885654,
+  "scored": 12885654,
+  "wall_seconds": 635.17,
+  "average_screened_per_second": 20286.937355353686,
+  "tree_nodes": 229910186,
+  "complete_count_reconciliation": true,
+  "completed_partitions": 102,
+  "total_partitions": 102,
+  "top_five_percent_rows": "644283",
+  "peak_sampled_browser_private_gib": 1.0996627807617188,
+  "median_logical_cpu_equivalents": 8.03225110941343,
+  "resource_samples": 35,
+  "count_wall_seconds": 0.9967999999523163,
+  "notes": [
+    "Only ordinary/default-calibration grouped layouts are covered.",
+    "The top-5% survivor set is not retained by this instrumented sweep.",
+    "Tactical completion search, all calibration positions, raw equivalent layouts, excluded accessories and other weapons are outside the domain.",
+    "Resource figures include the entire dedicated browser process tree; CPU deltas use only intervals with unchanged process sets.",
+    "No confidence interval from serial progress samples; this is one full-work invocation."
+  ],
+  "preview_row_prefix_sample_count": 10200,
+  "mean_preview_row_json_bytes": 330.2866666666667,
+  "top_five_percent_preview_json_gib_scenario": 0.19818365989252926
+}

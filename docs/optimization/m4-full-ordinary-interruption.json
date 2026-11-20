@@ -1,0 +1,179 @@
+{
+  "name": "full-ordinary",
+  "prepared": 389,
+  "pending": 6,
+  "nodes": 1864,
+  "mountNodes": 16836,
+  "gainPrunes": 11149,
+  "expectedMountCount": "12268642",
+  "solveMs": 1052.6592,
+  "elapsedMs": 1502.4106,
+  "bounds": 1797,
+  "scores": 54,
+  "outputs": {
+    "maximum": {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000187"
+        },
+        {
+          "slotPath": "2",
+          "itemId": "13020000349"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000110"
+        },
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000224"
+        },
+        {
+          "slotPath": "4/8",
+          "itemId": "13140000044"
+        },
+        {
+          "slotPath": "11",
+          "itemId": "13110000091"
+        }
+      ],
+      "tunes": {
+        "1": {
+          "authoring:part:13030000187:tune:weight:1": 50
+        },
+        "3": {
+          "authoring:part:13040000110:tune:weight:1": 50
+        },
+        "4/8": {
+          "authoring:part:13140000044:tune:weight:0": 20
+        }
+      },
+      "cost": 760,
+      "gain": 70.7942290048951
+    },
+    "minimum": {
+      "cost": 240,
+      "gain": 51.89150576302177,
+      "config": [
+        {
+          "slotPath": "11",
+          "itemId": "13110000091"
+        },
+        {
+          "slotPath": "38",
+          "itemId": "13030000115"
+        }
+      ],
+      "tunes": {
+        "38": {
+          "authoring:part:13030000115:tune:weight:1": 50
+        }
+      }
+    },
+    "balanced": {
+      "config": [
+        {
+          "slotPath": "3",
+          "itemId": "13040000104"
+        },
+        {
+          "slotPath": "11",
+          "itemId": "13110000091"
+        }
+      ],
+      "tunes": {
+        "3": {
+          "authoring:part:13040000104:tune:position:0": 98,
+          "authoring:part:13040000104:tune:weight:1": 50
+        }
+      },
+      "cost": 80,
+      "gain": 33.110984181083865
+    }
+  },
+  "provisionalMinimum": {
+    "cost": 120,
+    "gain": 40.47959595199797,
+    "config": [
+      {
+        "slotPath": "11",
+        "itemId": "13110000091"
+      },
+      {
+        "slotPath": "4/8",
+        "itemId": "13140000041"
+      }
+    ],
+    "tunes": {
+      "4/8": {
+        "authoring:part:13140000041:tune:weight:0": 20
+      }
+    }
+  },
+  "certificate": {
+    "upperGain": 100,
+    "lowerCost": 40,
+    "upperEfficiency": 2.5
+  },
+  "proven": {
+    "maximum": false,
+    "minimum": false,
+    "balanced": false
+  },
+  "nativeContextManifest": {
+    "profileIds": [
+      "authoring:weapon:18010000001:adsRecoil",
+      "authoring:part:13020000173:bd:adsRecoil"
+    ],
+    "timingItems": [
+      "13130000169"
+    ],
+    "timelines": [
+      [
+        0,
+        75,
+        150,
+        225,
+        300,
+        375,
+        450,
+        525,
+        600,
+        675,
+        750,
+        825,
+        900,
+        975,
+        1050,
+        1125,
+        1200,
+        1275,
+        1350,
+        1425
+      ],
+      [
+        0,
+        86.25,
+        172.5,
+        258.75,
+        345,
+        431.25,
+        517.5,
+        603.75,
+        690,
+        776.25,
+        862.5,
+        948.75,
+        1035,
+        1121.25,
+        1207.5,
+        1293.75,
+        1380,
+        1466.25,
+        1552.5,
+        1638.75
+      ]
+    ]
+  }
+}

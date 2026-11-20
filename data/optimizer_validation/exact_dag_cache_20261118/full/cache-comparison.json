@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "workers": 8,
+  "population": "12885654",
+  "before": {
+    "seconds": 382.28948370000023,
+    "objective_evaluations": 3884405,
+    "input_cache": {
+      "hits": 4980608,
+      "misses": 3884405,
+      "evictions": 3635166,
+      "max_bytes": 134217728,
+      "bytes": 134215166
+    },
+    "peak_rss_gib": 3.6148605346679688
+  },
+  "after": {
+    "seconds": 187.2224206,
+    "objective_evaluations": 2979656,
+    "input_cache": {
+      "hits": 5885357,
+      "misses": 2979656,
+      "evictions": 2397823,
+      "max_bytes": 201326592,
+      "bytes": 201325212
+    },
+    "peak_rss_gib": 3.2939910888671875
+  },
+  "objective_computations_reduction_fraction": 0.23291829765433836,
+  "observed_wall_time_ratio": 2.0419001232590634,
+  "input_diagnostics": {
+    "miss_records": 2979656,
+    "global_distinct_input_keys": 695267,
+    "sum_worker_distinct_input_keys": 2101849,
+    "confirmed_worker_recomputations_after_eviction": 877807,
+    "additional_first_computations_across_workers": 1406582,
+    "worker_distinct_input_keys": [
+      253319,
+      235863,
+      260330,
+      277151,
+      264604,
+      258988,
+      280491,
+      271103
+    ],
+    "method": "64 hash partitions; complete binary64 UTF16 keys compared exactly; logs contain every miss, including first occurrence"
+  },
+  "notes": [
+    "One historical before run and one after run; descriptive only, no inferential intervals or causal speedup estimate.",
+    "After run includes exact miss logging and analysis; its native reference manifests are reused after source/data and population checks.",
+    "Changes are bundled: packed keys, cache reallocation, locality and dead-write projection; contributions are not isolated.",
+    "All layouts and exact ordered survivors retained. Dedicated barrel bipod exclusion does not change M4A1 population."
+  ]
+}

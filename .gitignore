@@ -1,5 +1,6 @@
 # Local research/runtime state and generated deployment checkout
 .scratch/
+/.scratch-archive/
 __pycache__/
 *.py[cod]
 node_modules/
@@ -48,3 +49,9 @@ data/stat_curves/*.pdf
 *.zip
 *.tar
 *.gz
+
+# Bulky raw study outputs retained locally
+/data/optimizer_validation/exact_dag_cache_20261118/full/optimized-survivors.json
+/data/optimizer_validation/m4a1_partial_state_20261118/root-census.json
+/data/optimizer_validation/optimized_exact_dag_20261118/full/optimized-survivors.json
+/data/optimizer_validation/optimized_exact_dag_20261118/full/reference-survivors.json

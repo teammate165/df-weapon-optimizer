@@ -21,6 +21,19 @@ pinned source snapshots; they do not establish Global/Garena-client verification
 
 ## Source research and reproducible reports
 
+- [Optimized eight-worker exact screening DAG](optimized_exact_dag.md)
+- [Exact cache/locality follow-up and measured 695,267 distinct inputs](exact_dag_cache_followup.md)
+- [Further exact grouping and bipod policy audit](exact_dag_further_grouping.md)
+
+- [16-worker browser SCIP/HiGHS calibration benchmark](calibration_engine_benchmark.md)
+
+- [Browser solver-engine decision: custom screening, SCIP and alternatives](browser_solver_engine_decision.md)
+
+- [Dominance disabled: exhaustive-preserving improvements and restored-population validation](exhaustive_screening_improvements.md)
+
+- [Ranking semantics, multiplicities and top-0.5% screening](ranking_semantics_research.md)
+- [Implemented partial-state DAG and exact top-0.5% repeat run](m4a1_merged_ranked_screening.md)
+
 - [Upstream repository map](delta_gun_tierlist_repo_map.md): the single maintained map; the older root copy was removed after verifying it was a strict subset.
 - [Builder capabilities](dfttk_builder_capabilities.md)
 - [Main-stat effects](dfttk_stat_effects_source.md): mappings, independent detailed effects and points above 100
@@ -28,20 +41,17 @@ pinned source snapshots; they do not establish Global/Garena-client verification
 - [Hip accuracy and airborne ADS](hip_accuracy_source_research.md), [class spread ratios](spread_ratios_by_class.md)
 - [AN94 timing](an94_automatic_timing.md), [spatial recoil trace](an94_automatic_timing.md#an94-recoil-source), [reset-delay evidence](an94_automatic_timing.md#an94-reset-delay-research): separate timing, spatial and unresolved reset questions.
 - [Timed recoil diagnostics](timed_recoil_paths.md)
+- [Parallel browser search and continuous diagnostics](parallel_browser_search.md)
 - Horizontal recoil: [20-shot origin distance](horizontal_recoil.md), [10-shot comparison](horizontal_recoil_first_10.md), [total travel speed diagnostic](horizontal_recoil_speed.md), [selected fastest-200ms metric and earlier window trials](horizontal_window_speed_trial.md). The optimizer contract owns production scoring; these reports have different metrics and units.
 - Accessory names: [source transport/localization](official_wiki_accessory_matching.md#official-wiki-accessory-source), [generated ID-matching report](official_wiki_accessory_matching.md)
 - Firearm names: [preserved community-source snapshot](firearms_wiki_matching.md#firearms-wiki-source), [generated matching report](firearms_wiki_matching.md). Each report includes its preserved source evidence; refresh scripts retain that appendix.
 - [Garena data-fetching assessment](garena_data_fetching_assessment.md)
 
-## Proposals, experiments and withdrawn features
+## Working notes and historical research
 
-These retain evidence and reproduction instructions; their historical results do
-not override the maintained contracts above.
+[Research archive](archive/README.md) collects superseded experiments, earlier solver studies and withdrawn work.
 
 - [Perceived-recoil score proposal](perceived_recoil_score.md): unfinished measurement definition, separate from implemented optimizer loss.
-- [Attachment screening experiment](attachment_gate_trial.md), [five-weapon comparison](attachment_gate_five_weapons.md): bounded experiment results; current shared search is specified in the recoil contract.
-- [Browser MILP trial](milp_browser_trial.md), [SCIP/WASM feasibility](scip_wasm_feasibility.md): solver experiments.
-- [Native weapon-code research and withdrawn implementation](weapon_import_codes.md): retained evidence; cookie saved builds are documented in the builder guide.
 - [Manual calibration checklist](throwaway/calibration-game-checklist.md), [translation worksheet remainder](throwaway/untranslated-items.md): working evidence, with outstanding client checks tracked in TODO.
 
 Historical span-based scoring is retained only in the [horizontal report appendix](horizontal_recoil.md#historical-decisions-and-optimizer-trials-obsolete-span-metric).

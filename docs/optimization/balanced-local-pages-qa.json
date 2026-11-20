@@ -1,0 +1,25 @@
+{
+  "ui": {
+    "passed": true,
+    "url": "http://127.0.0.1:8793/",
+    "checks": [
+      "both presets including untouched default",
+      "obsolete unversioned preset dependency bypassed",
+      "hover/focus/click/Escape and viewport bounds",
+      "four major stats share one row at desktop/mobile",
+      "versioned module/worker graph; no backend requests"
+    ],
+    "errors": []
+  },
+  "existingWorkerChecksPassed": true,
+  "runs": [
+    {
+      "workerCount": 1,
+      "elapsed_ms": 5189.900000035763
+    },
+    {
+      "workerCount": 4,
+      "elapsed_ms": 5327.299999952316
+    }
+  ]
+}

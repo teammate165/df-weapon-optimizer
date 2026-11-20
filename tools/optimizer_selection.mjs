@@ -1,4 +1,4 @@
-export const cheapestGate=50;
+export const cheapestGate=60;
 
 // Selection is exact over the supplied candidates, not a global-search proof.
 export function selectCategories(frontier) {

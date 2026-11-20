@@ -58,3 +58,11 @@ node tests/scip_browser.cjs
 $env:LOCAL_SITE_URL='http://127.0.0.1:8766/'
 node tests/exhaustive_local_browser.cjs
 ```
+
+## Local unlimited diagnostic runs (2026-11-17)
+
+The local client defaults to **No time limit** (`time_limit_seconds:0`); timed options remain available. This removes ordinary/tactical/calibration wall-clock deadlines. Local seed-neighbor exploration makes at most 256 expansions per ordinary phase before broad mounting-tree traversal, preventing an unlimited neighborhood loop from starving that traversal. Large domains can run for a very long time before tactical search and calibration begin. Cancel disconnects the stream and kills the solver subprocess.
+
+Live diagnostics report elapsed time, scored builds and rate, tree nodes, pruned branches, rejected proposals, source errors, shortlist sizes, tactical bases, calibration evaluations, best retained loss and ordinary traversal exhaustion. Best loss uses the complete pool when available, otherwise the ordinary pool; it is not a global bound. Completion percentage is unknown. Unlimited traversal still retains bounded heuristic shortlists and coordinate calibration; it does not establish global optimality. Static publication retains its timed defaults.
+
+Validation: `node .scratch/local-unlimited-check.cjs` exercises actual local M4A1 UI search beyond five seconds, diagnostics, cancellation and five-second recovery/results. `node tests/anytime_optimizer.mjs` verifies timed behavior, both presets and exact source replay.

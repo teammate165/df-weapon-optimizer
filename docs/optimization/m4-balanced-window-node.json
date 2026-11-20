@@ -1,0 +1,454 @@
+{
+  "name": "full-ordinary",
+  "paths": [],
+  "fullOrdinary": true,
+  "expectedMountCount": "12268642",
+  "priorityPaths": [
+    "38",
+    "2",
+    "2/6",
+    "1",
+    "3",
+    "4",
+    "4/8"
+  ],
+  "guaranteedMinimumBound": true,
+  "seedCount": 9,
+  "elapsedMs": 77531.7996,
+  "proven": {
+    "maximum": true,
+    "minimum": true,
+    "balanced": true
+  },
+  "pending": 0,
+  "variableControls": true,
+  "controlCounts": {
+    "1": 46,
+    "2": 55,
+    "3": 369,
+    "4": 33,
+    "5": 818,
+    "6": 6,
+    "7": 2393
+  },
+  "kickNodes": 347590,
+  "batchSize": 64,
+  "fast": true,
+  "auditPreparation": false,
+  "budget": 800,
+  "budgetBound": true,
+  "budgetChecks": 307900,
+  "budgetPrunes": 0,
+  "gainBound": true,
+  "mountGainCuts": true,
+  "nativeChartIntervals": true,
+  "nativeStatIntervals": true,
+  "nativeContexts": true,
+  "portableScore": true,
+  "normRuntime": null,
+  "normVersion": "binary64-normalized-hypot-v1",
+  "deterministicFloor": true,
+  "nativeContextManifest": {
+    "profileIds": [
+      "authoring:weapon:18010000001:adsRecoil",
+      "authoring:part:13020000173:bd:adsRecoil"
+    ],
+    "timingItems": [
+      "13130000169"
+    ],
+    "timelines": [
+      [
+        0,
+        75,
+        150,
+        225,
+        300,
+        375,
+        450,
+        525,
+        600,
+        675,
+        750,
+        825,
+        900,
+        975,
+        1050,
+        1125,
+        1200,
+        1275,
+        1350,
+        1425
+      ],
+      [
+        0,
+        86.25,
+        172.5,
+        258.75,
+        345,
+        431.25,
+        517.5,
+        603.75,
+        690,
+        776.25,
+        862.5,
+        948.75,
+        1035,
+        1121.25,
+        1207.5,
+        1293.75,
+        1380,
+        1466.25,
+        1552.5,
+        1638.75
+      ]
+    ]
+  },
+  "gainPrunes": 265445,
+  "gainAudit": null,
+  "gainStats": {
+    "supported": true,
+    "evaluations": 307900,
+    "cache_hits": 110037,
+    "declined": 0,
+    "entries_peak": 32768,
+    "key_chars_peak": 3743266,
+    "saturated": false,
+    "evictions": 165095
+  },
+  "envelopeCount": 143,
+  "cachePreparation": true,
+  "cacheEntries": {
+    "controls": 0,
+    "geometry": 2
+  },
+  "choiceCounts": null,
+  "domainSize": null,
+  "prepared": 3720,
+  "gridTuples": "228205497207501846",
+  "bounds": 9146,
+  "scores": 54,
+  "nodes": 9270,
+  "maxPreparedBatch": 64,
+  "mountNodes": 356914,
+  "mountStats": {
+    "constraint_evaluations": 11413207,
+    "boolean_evaluations": 47173509,
+    "pruned_branches": 265445
+  },
+  "compileMs": 29.5501,
+  "contextMs": 6493.55929999988,
+  "mountIterationMs": 61416.845800000054,
+  "solveMs": 68229.0358,
+  "audited": null,
+  "certificate": {
+    "upperGain": 73.55468986548121,
+    "lowerCost": 120,
+    "upperEfficiency": 0.2952441222468181
+  },
+  "profiles": 1,
+  "schedules": 2,
+  "grouping": {
+    "enabled": true,
+    "items_grouped": 28,
+    "option_sets": 27,
+    "options_before": 192,
+    "options_after": 138,
+    "matching_hits": 0,
+    "matching_misses": 0,
+    "matching_peak": 0,
+    "grouped_tactical_configs": 0,
+    "counts_interchangeable": true,
+    "families": 11
+  },
+  "outputs": {
+    "maximum": {
+      "cost": 760,
+      "gain": 73.55468986548121,
+      "config": [
+        {
+          "slotPath": "2",
+          "itemId": "13020000349"
+        },
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000169"
+        },
+        {
+          "slotPath": "1",
+          "itemId": "13030000166"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000114"
+        },
+        {
+          "slotPath": "4/8",
+          "itemId": "13140000042"
+        },
+        {
+          "slotPath": "11",
+          "itemId": "13110000091"
+        },
+        {
+          "slotPath": "1/43",
+          "itemId": "13330000001"
+        },
+        {
+          "slotPath": "3/29",
+          "itemId": "13290000001"
+        }
+      ],
+      "tunes": {
+        "1": {
+          "authoring:part:13030000166:tune:weight:1": 50
+        },
+        "2": {
+          "authoring:part:13020000349:tune:weight:1": 50
+        },
+        "3": {
+          "authoring:part:13040000114:tune:thickness:0": 50,
+          "authoring:part:13040000114:tune:weight:1": 50
+        },
+        "3/29": {
+          "authoring:part:13290000001:tune:thickness:0": 50,
+          "authoring:part:13290000001:tune:weight:1": 50
+        },
+        "4/8": {
+          "authoring:part:13140000042:tune:weight:0": 20
+        }
+      }
+    },
+    "minimum": {
+      "cost": 120,
+      "gain": 41.334177114554535,
+      "config": [
+        {
+          "slotPath": "2",
+          "itemId": "13020000347"
+        },
+        {
+          "slotPath": "11",
+          "itemId": "13110000091"
+        }
+      ],
+      "tunes": {
+        "2": {
+          "authoring:part:13020000347:tune:weight:1": 50
+        }
+      }
+    },
+    "balanced": {
+      "cost": 140,
+      "gain": 41.334177114554535,
+      "config": [
+        {
+          "slotPath": "2",
+          "itemId": "13020000347"
+        },
+        {
+          "slotPath": "11",
+          "itemId": "13110000091"
+        },
+        {
+          "slotPath": "5/44",
+          "itemId": "13340000001"
+        }
+      ],
+      "tunes": {
+        "2": {
+          "authoring:part:13020000347:tune:weight:1": 50
+        }
+      }
+    }
+  },
+  "balancedWindow": {
+    "min": 120,
+    "max": 760
+  },
+  "middle": {
+    "name": "full-ordinary",
+    "paths": [],
+    "fullOrdinary": true,
+    "expectedMountCount": "12268642",
+    "priorityPaths": [
+      "38",
+      "2",
+      "2/6",
+      "1",
+      "3",
+      "4",
+      "4/8"
+    ],
+    "guaranteedMinimumBound": true,
+    "seedCount": 10,
+    "elapsedMs": 8799.335099999997,
+    "proven": {
+      "maximum": false,
+      "minimum": false,
+      "balanced": true
+    },
+    "pending": 0,
+    "variableControls": true,
+    "controlCounts": {
+      "1": 39,
+      "2": 13,
+      "3": 27
+    },
+    "kickNodes": 307,
+    "batchSize": 64,
+    "fast": true,
+    "auditPreparation": false,
+    "budget": 800,
+    "budgetBound": true,
+    "budgetChecks": 30442,
+    "budgetPrunes": 0,
+    "gainBound": true,
+    "mountGainCuts": true,
+    "nativeChartIntervals": true,
+    "nativeStatIntervals": true,
+    "nativeContexts": true,
+    "portableScore": true,
+    "normRuntime": null,
+    "normVersion": "binary64-normalized-hypot-v1",
+    "deterministicFloor": true,
+    "nativeContextManifest": {
+      "profileIds": [
+        "authoring:weapon:18010000001:adsRecoil",
+        "authoring:part:13020000173:bd:adsRecoil"
+      ],
+      "timingItems": [
+        "13130000169"
+      ],
+      "timelines": [
+        [
+          0,
+          75,
+          150,
+          225,
+          300,
+          375,
+          450,
+          525,
+          600,
+          675,
+          750,
+          825,
+          900,
+          975,
+          1050,
+          1125,
+          1200,
+          1275,
+          1350,
+          1425
+        ],
+        [
+          0,
+          86.25,
+          172.5,
+          258.75,
+          345,
+          431.25,
+          517.5,
+          603.75,
+          690,
+          776.25,
+          862.5,
+          948.75,
+          1035,
+          1121.25,
+          1207.5,
+          1293.75,
+          1380,
+          1466.25,
+          1552.5,
+          1638.75
+        ]
+      ]
+    },
+    "gainPrunes": 28211,
+    "gainAudit": null,
+    "gainStats": {
+      "supported": true,
+      "evaluations": 30442,
+      "cache_hits": 7959,
+      "declined": 0,
+      "entries_peak": 22483,
+      "key_chars_peak": 2643614,
+      "saturated": false,
+      "evictions": 0
+    },
+    "envelopeCount": 143,
+    "cachePreparation": true,
+    "cacheEntries": {
+      "controls": 0,
+      "geometry": 1
+    },
+    "choiceCounts": null,
+    "domainSize": null,
+    "prepared": 79,
+    "gridTuples": 1080739,
+    "bounds": 163,
+    "scores": 5,
+    "nodes": 182,
+    "maxPreparedBatch": 64,
+    "mountNodes": 31361,
+    "mountStats": {
+      "constraint_evaluations": 1008531,
+      "boolean_evaluations": 4049674,
+      "pruned_branches": 28211
+    },
+    "compileMs": 49.76690000000235,
+    "contextMs": 86.33879999996861,
+    "mountIterationMs": 7251.828799999974,
+    "solveMs": 7347.494600000005,
+    "audited": null,
+    "certificate": {
+      "upperGain": null,
+      "lowerCost": null,
+      "upperEfficiency": 0.2952441222468181
+    },
+    "profiles": 1,
+    "schedules": 1,
+    "grouping": {
+      "enabled": true,
+      "items_grouped": 28,
+      "option_sets": 27,
+      "options_before": 192,
+      "options_after": 138,
+      "matching_hits": 0,
+      "matching_misses": 0,
+      "matching_peak": 0,
+      "grouped_tactical_configs": 0,
+      "counts_interchangeable": true,
+      "families": 11
+    },
+    "outputs": {
+      "maximum": null,
+      "minimum": null,
+      "balanced": {
+        "cost": 140,
+        "gain": 41.334177114554535,
+        "config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000347"
+          },
+          {
+            "slotPath": "11",
+            "itemId": "13110000091"
+          },
+          {
+            "slotPath": "5/44",
+            "itemId": "13340000001"
+          }
+        ],
+        "tunes": {
+          "2": {
+            "authoring:part:13020000347:tune:weight:1": 50
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,389 @@
+{
+  "complete": {
+    "mode": "complete",
+    "cardsMs": 33201.5465,
+    "exactWorkers": 8,
+    "scope": "Grouped ordinary M4A1 Detonation with Insight 3/7 locked",
+    "solver": {
+      "name": "Exact ordinary beta",
+      "elapsed_ms": 33153.299999952316,
+      "proven": {
+        "maximum": true,
+        "minimum": true,
+        "balanced": true
+      },
+      "pending": 0,
+      "certificate": {
+        "upperGain": 73.55468986548121,
+        "lowerCost": 160,
+        "upperEfficiency": 7.315035712450062
+      },
+      "workers": 4,
+      "partitions": [
+        {
+          "layouts": 3208011,
+          "endpointNodes": 202202,
+          "endpointMs": 11963.299999952316,
+          "balancedNodes": 74398,
+          "balancedMs": 6292
+        },
+        {
+          "layouts": 2540671,
+          "endpointNodes": 262217,
+          "endpointMs": 18605.100000023842,
+          "balancedNodes": 89951,
+          "balancedMs": 7370.699999988079
+        },
+        {
+          "layouts": 4258760,
+          "endpointNodes": 195649,
+          "endpointMs": 14115.100000023842,
+          "balancedNodes": 151171,
+          "balancedMs": 11887.400000035763
+        },
+        {
+          "layouts": 2261200,
+          "endpointNodes": 189055,
+          "endpointMs": 12494.5,
+          "balancedNodes": 74415,
+          "balancedMs": 6726.800000011921
+        }
+      ],
+      "sharedBalancedSeed": {
+        "cost": 400,
+        "gain": 64.01777190931921
+      }
+    },
+    "outputs": [
+      {
+        "label": "Max",
+        "proof": "Proven optimal",
+        "gain": 73.55468986548121,
+        "cost": 760
+      },
+      {
+        "label": "Balanced",
+        "proof": "Proven optimal",
+        "gain": 65.92662168886626,
+        "cost": 440
+      },
+      {
+        "label": "Min",
+        "proof": "Proven optimal",
+        "gain": 45.53637007348432,
+        "cost": 160
+      }
+    ],
+    "applied": 440
+  },
+  "repeat": {
+    "mode": "complete",
+    "cardsMs": 32731.308599999997,
+    "exactWorkers": 8,
+    "scope": "Grouped ordinary M4A1 Detonation with Insight 3/7 locked",
+    "solver": {
+      "name": "Exact ordinary beta",
+      "elapsed_ms": 32683.599999964237,
+      "proven": {
+        "maximum": true,
+        "minimum": true,
+        "balanced": true
+      },
+      "pending": 0,
+      "certificate": {
+        "upperGain": 73.55468986548121,
+        "lowerCost": 160,
+        "upperEfficiency": 7.315035712450062
+      },
+      "workers": 4,
+      "partitions": [
+        {
+          "layouts": 3208011,
+          "endpointNodes": 202202,
+          "endpointMs": 12431.5,
+          "balancedNodes": 74398,
+          "balancedMs": 5262.399999976158
+        },
+        {
+          "layouts": 2540671,
+          "endpointNodes": 262217,
+          "endpointMs": 18887.399999976158,
+          "balancedNodes": 89951,
+          "balancedMs": 6388.399999976158
+        },
+        {
+          "layouts": 4258760,
+          "endpointNodes": 195649,
+          "endpointMs": 14576,
+          "balancedNodes": 151171,
+          "balancedMs": 10969.799999952316
+        },
+        {
+          "layouts": 2261200,
+          "endpointNodes": 189055,
+          "endpointMs": 12964.300000011921,
+          "balancedNodes": 74415,
+          "balancedMs": 5828.800000011921
+        }
+      ],
+      "sharedBalancedSeed": {
+        "cost": 400,
+        "gain": 64.01777190931921
+      }
+    },
+    "outputs": [
+      {
+        "label": "Max",
+        "proof": "Proven optimal",
+        "gain": 73.55468986548121,
+        "cost": 760
+      },
+      {
+        "label": "Balanced",
+        "proof": "Proven optimal",
+        "gain": 65.92662168886626,
+        "cost": 440
+      },
+      {
+        "label": "Min",
+        "proof": "Proven optimal",
+        "gain": 45.53637007348432,
+        "cost": 160
+      }
+    ],
+    "applied": 440
+  },
+  "shortTimeout": {
+    "mode": "timeout",
+    "cardsMs": 24506.392499999998,
+    "exactWorkers": 4,
+    "scope": "Grouped ordinary M4A1 Detonation with Insight 3/7 locked",
+    "solver": {
+      "name": "Exact ordinary beta",
+      "elapsed_ms": 24473.600000023842,
+      "proven": {
+        "maximum": true,
+        "minimum": true,
+        "balanced": false
+      },
+      "pending": 10,
+      "certificate": {
+        "upperGain": 73.55468986548121,
+        "lowerCost": 160,
+        "upperEfficiency": 54.41693272686235
+      },
+      "workers": 4,
+      "partitions": [
+        {
+          "layouts": 3208011,
+          "endpointNodes": 202202,
+          "endpointMs": 12119.900000035763,
+          "balancedNodes": 29696,
+          "balancedMs": 2545.5
+        },
+        {
+          "layouts": 2540671,
+          "endpointNodes": 262217,
+          "endpointMs": 19885.30000001192,
+          "balancedNodes": 32768,
+          "balancedMs": 2501.300000011921
+        },
+        {
+          "layouts": 4258760,
+          "endpointNodes": 195649,
+          "endpointMs": 14780,
+          "balancedNodes": 32256,
+          "balancedMs": 2542.300000011921
+        },
+        {
+          "layouts": 2261200,
+          "endpointNodes": 189055,
+          "endpointMs": 12826.300000011921,
+          "balancedNodes": 27136,
+          "balancedMs": 2502.600000023842
+        }
+      ],
+      "sharedBalancedSeed": {
+        "cost": 400,
+        "gain": 64.01777190931921
+      }
+    },
+    "outputs": [
+      {
+        "label": "Max",
+        "proof": "Proven optimal",
+        "gain": 73.55468986548121,
+        "cost": 760
+      },
+      {
+        "label": "Balanced",
+        "proof": "Best found",
+        "gain": 64.01777190931921,
+        "cost": 400
+      },
+      {
+        "label": "Min",
+        "proof": "Proven optimal",
+        "gain": 45.53637007348432,
+        "cost": 160
+      }
+    ],
+    "applied": 400
+  },
+  "workerFailure": {
+    "mode": "failure",
+    "cardsMs": 120068.5234,
+    "exactWorkers": 4,
+    "scope": "Best found within search budget / Global optimum unproven"
+  },
+  "unshared": {
+    "mode": "unshared",
+    "cardsMs": 34690.0756,
+    "exactWorkers": 4,
+    "scope": "Grouped ordinary M4A1 Detonation with Insight 3/7 locked",
+    "solver": {
+      "name": "Exact ordinary beta",
+      "elapsed_ms": 34648.5,
+      "proven": {
+        "maximum": true,
+        "minimum": true,
+        "balanced": true
+      },
+      "pending": 0,
+      "certificate": {
+        "upperGain": 73.55468986548121,
+        "lowerCost": 160,
+        "upperEfficiency": 7.315035712450062
+      },
+      "workers": 4,
+      "partitions": [
+        {
+          "layouts": 3208011,
+          "endpointNodes": 202202,
+          "endpointMs": 11597,
+          "balancedNodes": 116219,
+          "balancedMs": 7495.800000011921
+        },
+        {
+          "layouts": 2540671,
+          "endpointNodes": 262217,
+          "endpointMs": 19444.80000001192,
+          "balancedNodes": 134049,
+          "balancedMs": 8683.5
+        },
+        {
+          "layouts": 4258760,
+          "endpointNodes": 195649,
+          "endpointMs": 14077.899999976158,
+          "balancedNodes": 182241,
+          "balancedMs": 13322.199999988079
+        },
+        {
+          "layouts": 2261200,
+          "endpointNodes": 189055,
+          "endpointMs": 12229.199999988079,
+          "balancedNodes": 132254,
+          "balancedMs": 8891
+        }
+      ]
+    },
+    "outputs": [
+      {
+        "label": "Max",
+        "proof": "Proven optimal",
+        "gain": 73.55468986548121,
+        "cost": 760
+      },
+      {
+        "label": "Balanced",
+        "proof": "Proven optimal",
+        "gain": 65.92662168886626,
+        "cost": 440
+      },
+      {
+        "label": "Min",
+        "proof": "Proven optimal",
+        "gain": 45.53637007348432,
+        "cost": 160
+      }
+    ],
+    "applied": 440
+  },
+  "deadline": {
+    "mode": "deadline",
+    "cardsMs": 298340.952,
+    "exactWorkers": 4,
+    "scope": "Grouped ordinary M4A1 Detonation with Insight 3/7 locked",
+    "solver": {
+      "name": "Exact ordinary beta",
+      "elapsed_ms": 298300.8000000119,
+      "proven": {
+        "maximum": true,
+        "minimum": true,
+        "balanced": false
+      },
+      "pending": 1,
+      "certificate": {
+        "upperGain": 73.55468986548121,
+        "lowerCost": 160,
+        "upperEfficiency": 54.41693272686235
+      },
+      "workers": 4,
+      "partitions": [
+        {
+          "layouts": 3208011,
+          "endpointNodes": 202202,
+          "endpointMs": 11932.600000023842,
+          "balancedNodes": 74398,
+          "balancedMs": 6832.300000011921
+        },
+        {
+          "layouts": 2540671,
+          "endpointNodes": 262217,
+          "endpointMs": 20156.5,
+          "balancedNodes": 89951,
+          "balancedMs": 7703.300000011921
+        },
+        {
+          "layouts": 4258760,
+          "endpointNodes": 195649,
+          "endpointMs": 14572.400000035763,
+          "balancedNodes": 0,
+          "balancedMs": 362.60000002384186
+        },
+        {
+          "layouts": 2261200,
+          "endpointNodes": 189055,
+          "endpointMs": 12760.699999988079,
+          "balancedNodes": 74415,
+          "balancedMs": 7237.399999976158
+        }
+      ],
+      "sharedBalancedSeed": {
+        "cost": 400,
+        "gain": 64.01777190931921
+      }
+    },
+    "outputs": [
+      {
+        "label": "Max",
+        "proof": "Proven optimal",
+        "gain": 73.55468986548121,
+        "cost": 760
+      },
+      {
+        "label": "Balanced",
+        "proof": "Best found",
+        "gain": 64.01777190931921,
+        "cost": 400
+      },
+      {
+        "label": "Min",
+        "proof": "Proven optimal",
+        "gain": 45.53637007348432,
+        "cost": 160
+      }
+    ],
+    "applied": 400
+  }
+}

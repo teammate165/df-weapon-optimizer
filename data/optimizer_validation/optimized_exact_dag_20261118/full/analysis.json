@@ -1,0 +1,81 @@
+{
+  "population": 12885654,
+  "selected": 64429,
+  "terminal_classes": 8865013,
+  "objective_evaluations": 3884405,
+  "objective_evaluations_per_path": 0.30145190923177045,
+  "under_one_million_objective_evaluations": false,
+  "selection_materialized_paths": 64429,
+  "audit_materialized_paths": 12885654,
+  "reference_phase_seconds": 2356.8049447999997,
+  "optimized_phase_seconds": 382.28948370000023,
+  "total_seconds": 2755.2970636,
+  "peak_sampled_rss_gib": 3.6148605346679688,
+  "spill_gib": 1.2197556952014565,
+  "reference_paths_per_wall_second": 5467.424883179498,
+  "optimized_paths_per_wall_second": 33706.53535976405,
+  "optimized_objective_computations_per_wall_second": 10160.899437789054,
+  "optimized_transition_reuse_fraction": 0.0015788183795594523,
+  "notes": [
+    "One ordered pair of validation passes; descriptive observations, no confidence intervals.",
+    "Reference memoizes complete scorer inputs and native-witnesses each new input; it is not an uncached baseline.",
+    "Phase times include validation and coordination. Full identity audit reconstructs every path separately from selection.",
+    "Objective evaluations include repeated cache misses across all eight workers and after eviction.",
+    "Terminal classes are summed across batches; they are not globally unique states.",
+    "RSS is the sampled aggregate Node process including worker threads; estimated cache caps are not heap limits."
+  ],
+  "optimized_worker_seconds_sum": 3016.805931799996,
+  "optimized_audit_worker_seconds_sum": 133.79334489999897,
+  "spill_read_gib": 0.691733043640852,
+  "optimized_caches": {
+    "input": {
+      "hits": 4980608,
+      "misses": 3884405,
+      "evictions": 3635166,
+      "hit_fraction": 0.5618274897058808
+    },
+    "geometry": {
+      "hits": 3876122,
+      "misses": 8283,
+      "evictions": 0,
+      "hit_fraction": 0.9978676270883186
+    },
+    "timing": {
+      "hits": 3884389,
+      "misses": 16,
+      "evictions": 0,
+      "hit_fraction": 0.9999958809650384
+    },
+    "pattern": {
+      "hits": 3873830,
+      "misses": 10575,
+      "evictions": 0,
+      "hit_fraction": 0.9972775753300699
+    },
+    "objective": {
+      "hits": 0,
+      "misses": 3884405,
+      "evictions": 3731194,
+      "hit_fraction": 0.0
+    },
+    "references": {
+      "hits": 8864997,
+      "misses": 16,
+      "evictions": 0,
+      "hit_fraction": 0.9999981951521109
+    }
+  },
+  "source_sha256": {
+    "tools/optimized_exact_dag.mjs": "15525b817bf2ea17ba5aed0b20dbc6b3c0e75fac6eeff6f050bfd30e4b64c673",
+    "tools/exact_recoil_scorer.mjs": "aa6153eb4aef24ec2f69e9c888e75a360102a488123f29cb4298e05e687b82dd",
+    "tools/exact_dag_storage.mjs": "ec67f047e33be9768143d7b6f458714f630054ca6bbaa47afbd2b94416f93273",
+    "tools/run_optimized_exact_dag.mjs": "9bf1696ac5d5c6ad0d29aa9148ac8a6841589ca886868210591d4397125114d7",
+    "tools/screening_rank.mjs": "52870b32e7fba20ac27e7858e5b2cf99b924c0ca3a5a9d7901288ae0a4bbe056",
+    "tools/optimizer_presets.mjs": "82f77803309e311ac3f2e70e233b1c2373785690fc90da912a3ec533255f3b48",
+    ".scratch/calibration-check/kernel.mjs": "a834dec1bcdf85bb155a7b4c2feabb1dc35d8486bdde85d581e84ef841ea2dfb",
+    ".scratch/calibration-check/curves.mjs": "6b93bc42e7c3a6fbec755b1306a946f60260ffc7096ea6b5541e5a84b7e8e7a1",
+    ".scratch/calibration-check/attributes.mjs": "7fd496bb66a3b9a31bf7b4d5b749a2258f8a14ab0f241c4c5fe2bd711c097cdc",
+    ".scratch/github-pages-site/data/catalog.json": "dfdca81af777648db031283cbe804df0a7d281dcb574d953579b639e537df052",
+    ".scratch/github-pages-site/data/weapons/18010000001.json": "7a2d29cc20497e71b17c5592a9273a0613e320eb95b36c8146755308e22d3a5c"
+  }
+}

@@ -1,0 +1,2856 @@
+{
+  "phase": "reference",
+  "wall_ms": 2112.9595999999997,
+  "paths": "21556",
+  "terminal_classes": 21556,
+  "objective_evaluations": 9893,
+  "native_witnesses": 9893,
+  "geometry_evaluations": 575,
+  "transitions_computed": 0,
+  "transitions_reused": 0,
+  "spill_bytes": 0,
+  "materialized_paths": 0,
+  "audit_ms_sum": 0,
+  "workers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "survivors": 108,
+  "survivor_manifest": "c8cf297e606bd32cfb8a5b1abd4cf05ce6210ab7239ffa803707cd593d155349",
+  "guard_fallback_jobs": 0,
+  "results": [
+    {
+      "id": 0,
+      "paths": 1447,
+      "wall_ms": 1090.6552000000001,
+      "manifest": "af35189e9b56b187ec546b6ac110f595fc9ce5e0fc8218b3a4e89397ea6151d1",
+      "terminal_classes": 1447,
+      "worker": 0
+    },
+    {
+      "id": 1,
+      "paths": 194,
+      "wall_ms": 286.9509999999999,
+      "manifest": "72378cd24001e1c46f3ce06996574bc6aa927fd5a84edaba67086de382eaa927",
+      "terminal_classes": 194,
+      "worker": 1
+    },
+    {
+      "id": 2,
+      "paths": 1599,
+      "wall_ms": 1037.8069,
+      "manifest": "2164506d811db56a9448aaf6462c50d6f19db7fd03a260856481b4206efbfa48",
+      "terminal_classes": 1599,
+      "worker": 2
+    },
+    {
+      "id": 3,
+      "paths": 958,
+      "wall_ms": 885.4162,
+      "manifest": "f6ee4901ba83a5fe51761a201db0bb23aad25145ff84b38afce4964d7b5ce651",
+      "terminal_classes": 958,
+      "worker": 3
+    },
+    {
+      "id": 4,
+      "paths": 493,
+      "wall_ms": 567.2604000000001,
+      "manifest": "0a757e5fa9df7969998b04a471ee10bbd252cba2cfff957de05dd5d74db3ca8e",
+      "terminal_classes": 493,
+      "worker": 4
+    },
+    {
+      "id": 5,
+      "paths": 199,
+      "wall_ms": 361.1741999999999,
+      "manifest": "fffa0bc073e137853765758e9d0402cd88ecd1af2fb9d84169fc7a48cf186e75",
+      "terminal_classes": 199,
+      "worker": 5
+    },
+    {
+      "id": 6,
+      "paths": 8,
+      "wall_ms": 53.78620000000001,
+      "manifest": "735ec177ed361660ae306221f7b739db00a0dbfe58339e474281f9413bbea97b",
+      "terminal_classes": 8,
+      "worker": 6
+    },
+    {
+      "id": 7,
+      "paths": 15,
+      "wall_ms": 101.13689999999997,
+      "manifest": "41ea8a9cccbe3c4207cb1c4c4d072fac866f8dd7971328f5f69411d7f5eb0c50",
+      "terminal_classes": 15,
+      "worker": 7
+    },
+    {
+      "id": 8,
+      "paths": 958,
+      "wall_ms": 780.7848999999999,
+      "manifest": "07b4a993a164a47d1359ee6536807b36266747d2fac105448f7b5a654579b1c7",
+      "terminal_classes": 958,
+      "worker": 6
+    },
+    {
+      "id": 9,
+      "paths": 493,
+      "wall_ms": 457.39879999999994,
+      "manifest": "b41e49d6d05f08c29de9e8ed658908a62ee487db25f4067a6fef9e95b3cb614a",
+      "terminal_classes": 493,
+      "worker": 7
+    },
+    {
+      "id": 10,
+      "paths": 11,
+      "wall_ms": 12.270399999999881,
+      "manifest": "2bafd7680a0e88f1e88f0a6b7a97377a635dce78c40cf865f1b305df64106efd",
+      "terminal_classes": 11,
+      "worker": 1
+    },
+    {
+      "id": 11,
+      "paths": 2,
+      "wall_ms": 3.6059000000000196,
+      "manifest": "acdaded3c1a15d2d50c138467d98e4f8ee023ee6d99f520deabbfa80692fa19d",
+      "terminal_classes": 2,
+      "worker": 1
+    },
+    {
+      "id": 12,
+      "paths": 2,
+      "wall_ms": 3.3128999999998996,
+      "manifest": "333f44f620ff29ecabc73a7681db98333438a188eab7eb6d7d0a2941fb3aae24",
+      "terminal_classes": 2,
+      "worker": 1
+    },
+    {
+      "id": 13,
+      "paths": 11,
+      "wall_ms": 10.0625,
+      "manifest": "cffd4bf041459b783c116cad2da5e58b1b339966926ea8637d45405fa40b8966",
+      "terminal_classes": 11,
+      "worker": 1
+    },
+    {
+      "id": 14,
+      "paths": 2,
+      "wall_ms": 1.5824999999999818,
+      "manifest": "7a5ca7d551e318a064d6f84d91fc8ffe4c353589e54969ace4d497ab941e0be2",
+      "terminal_classes": 2,
+      "worker": 1
+    },
+    {
+      "id": 15,
+      "paths": 2,
+      "wall_ms": 3.1054999999998927,
+      "manifest": "5c4d179f69350db1f3a0c1c10eea89690caf4e50cb9728bbd429f8ba8ffe4f21",
+      "terminal_classes": 2,
+      "worker": 1
+    },
+    {
+      "id": 16,
+      "paths": 958,
+      "wall_ms": 696.1080999999999,
+      "manifest": "c05d1365bcbb93c2babd3b184efb74765b354c2645048c2d38ffa56ee85a51b8",
+      "terminal_classes": 958,
+      "worker": 1
+    },
+    {
+      "id": 17,
+      "paths": 493,
+      "wall_ms": 409.3052,
+      "manifest": "07e20ba29f6d3cb00eaedd08615c19db6b1573cb4008ad6aa762f683ed8eee08",
+      "terminal_classes": 493,
+      "worker": 5
+    },
+    {
+      "id": 18,
+      "paths": 568,
+      "wall_ms": 390.221,
+      "manifest": "a20013768a8168bc95bc39740fb60330d00e6d6d343d0ac9be75c2cab8568578",
+      "terminal_classes": 568,
+      "worker": 7
+    },
+    {
+      "id": 19,
+      "paths": 12,
+      "wall_ms": 14.309799999999996,
+      "manifest": "58809b9bf6e2f30ebbb3190a6e636045126a20caef25d321b5380830011c95a4",
+      "terminal_classes": 12,
+      "worker": 4
+    },
+    {
+      "id": 20,
+      "paths": 60,
+      "wall_ms": 56.03579999999988,
+      "manifest": "22645b16be2411bbbefb3c33789fb272946f703564069c933afaf269d440576c",
+      "terminal_classes": 60,
+      "worker": 4
+    },
+    {
+      "id": 21,
+      "paths": 1,
+      "wall_ms": 2.13779999999997,
+      "manifest": "1e014b558f7b991fe833e763c4477e6e89a16272ccde7aff2cc5c70dc36fb13d",
+      "terminal_classes": 1,
+      "worker": 4
+    },
+    {
+      "id": 22,
+      "paths": 2,
+      "wall_ms": 2.5961999999999534,
+      "manifest": "cf885a668492c12209384ee4eafa434e943ac059c5ff1f7a0bb1a5806242d187",
+      "terminal_classes": 2,
+      "worker": 4
+    },
+    {
+      "id": 23,
+      "paths": 568,
+      "wall_ms": 372.9896000000001,
+      "manifest": "da11420f8716728e43b2e4c1a64d3e6bfe9b97dc7a8d8c1b8a89be4f25caf78a",
+      "terminal_classes": 568,
+      "worker": 4
+    },
+    {
+      "id": 24,
+      "paths": 12,
+      "wall_ms": 23.615600000000086,
+      "manifest": "e4ba289af0846bcdf5fb16ab969da0160854a0b28b02e9a069e11760e2b76f88",
+      "terminal_classes": 12,
+      "worker": 5
+    },
+    {
+      "id": 25,
+      "paths": 568,
+      "wall_ms": 338.7053000000001,
+      "manifest": "876873b040c8870349379054333cf2bdd560624f6b468f1f25e6108086fb0737",
+      "terminal_classes": 568,
+      "worker": 5
+    },
+    {
+      "id": 26,
+      "paths": 12,
+      "wall_ms": 23.67489999999998,
+      "manifest": "336c8cb7a9f291f4dc2d8d3ec474767eaf40429bab2448eab8237cd71ec429e0",
+      "terminal_classes": 12,
+      "worker": 6
+    },
+    {
+      "id": 27,
+      "paths": 199,
+      "wall_ms": 135.6473000000001,
+      "manifest": "26c68e0fea4c1b15bff8fd285d802e8a67065e21426fd433449038013cf2e10f",
+      "terminal_classes": 199,
+      "worker": 6
+    },
+    {
+      "id": 28,
+      "paths": 15,
+      "wall_ms": 23.2795000000001,
+      "manifest": "4379f2173ae2718ca5bee1d12a11a18b63df481dbb31fd02e1af42c8b745ac6c",
+      "terminal_classes": 15,
+      "worker": 3
+    },
+    {
+      "id": 29,
+      "paths": 199,
+      "wall_ms": 142.08270000000016,
+      "manifest": "84c2d8fac3fac170a0c192408dfa1ef42514e2a626ac104db9daa8a404d59adf",
+      "terminal_classes": 199,
+      "worker": 3
+    },
+    {
+      "id": 30,
+      "paths": 958,
+      "wall_ms": 585.5029999999999,
+      "manifest": "b1fe1abdf90ef4df4d93a56812d241fc1868d6f44b78e0b50ac74c77f700e8c2",
+      "terminal_classes": 958,
+      "worker": 7
+    },
+    {
+      "id": 31,
+      "paths": 493,
+      "wall_ms": 308.2658999999999,
+      "manifest": "a30dfda331c40337428c21a963874d8e9e5187293d780462e09302b8f878e6dc",
+      "terminal_classes": 493,
+      "worker": 6
+    },
+    {
+      "id": 32,
+      "paths": 568,
+      "wall_ms": 366.7075,
+      "manifest": "656f532a11a96e50c8dda09d12776bbf32731d60e35d0e9eb8967c9e0aecd614",
+      "terminal_classes": 568,
+      "worker": 1
+    },
+    {
+      "id": 33,
+      "paths": 12,
+      "wall_ms": 8.859500000000025,
+      "manifest": "47997dacc60eae4a492e35460b988e70a69f9be1819950ce91f5e4a7eedefeac",
+      "terminal_classes": 12,
+      "worker": 4
+    },
+    {
+      "id": 34,
+      "paths": 60,
+      "wall_ms": 35.71550000000002,
+      "manifest": "9ad051941a5b680cd7347ceac05daa1261931cf1f0e89d0b2987bec237290c1c",
+      "terminal_classes": 60,
+      "worker": 4
+    },
+    {
+      "id": 35,
+      "paths": 1,
+      "wall_ms": 4.9336000000000695,
+      "manifest": "57f4e23c636e8e8cdb82e46bf8c8d21a892fb6417dc9f429a067c49666e3d75a",
+      "terminal_classes": 1,
+      "worker": 2
+    },
+    {
+      "id": 36,
+      "paths": 2,
+      "wall_ms": 2.934500000000071,
+      "manifest": "651e7dce02bfddc834b42563033ade7f977fd86e54ce1f0c1d5e29c07e36a0f0",
+      "terminal_classes": 2,
+      "worker": 2
+    },
+    {
+      "id": 37,
+      "paths": 568,
+      "wall_ms": 369.1319000000001,
+      "manifest": "fc674245f0872655a9a945f2f0cfd37518d2951b7343747e1607629ef7dac457",
+      "terminal_classes": 568,
+      "worker": 2
+    },
+    {
+      "id": 38,
+      "paths": 12,
+      "wall_ms": 16.189300000000003,
+      "manifest": "93c486f4fea7cd0e3a0dae538767926b6efa1abe755473466f1840996e4b6ff9",
+      "terminal_classes": 12,
+      "worker": 3
+    },
+    {
+      "id": 39,
+      "paths": 199,
+      "wall_ms": 120.37720000000013,
+      "manifest": "126e2c2242f7556603b385db0c270351523bfceb5c9c2c4c72ae3a6237c00b5b",
+      "terminal_classes": 199,
+      "worker": 3
+    },
+    {
+      "id": 40,
+      "paths": 60,
+      "wall_ms": 36.45489999999995,
+      "manifest": "ea723298e4f7e1501ca5e80a720cefbf4c970140ec1d2e3b0047a7f7cb48c83e",
+      "terminal_classes": 60,
+      "worker": 4
+    },
+    {
+      "id": 41,
+      "paths": 2,
+      "wall_ms": 3.9338000000000193,
+      "manifest": "6a4101ab6c7502df4d88bb0bd71857aed0091b09898fed1b03e6cdcd1cf09136",
+      "terminal_classes": 2,
+      "worker": 0
+    },
+    {
+      "id": 42,
+      "paths": 60,
+      "wall_ms": 50.63149999999996,
+      "manifest": "b876d651876075325aacea68cda87447068da12b1c95e55a698596fd50d006bd",
+      "terminal_classes": 60,
+      "worker": 0
+    },
+    {
+      "id": 43,
+      "paths": 199,
+      "wall_ms": 105.80340000000001,
+      "manifest": "15b329a296da8e7375911c667df2d6e209d226e7c1b9b07b025a15b761cabcc7",
+      "terminal_classes": 199,
+      "worker": 4
+    },
+    {
+      "id": 44,
+      "paths": 60,
+      "wall_ms": 33.093399999999974,
+      "manifest": "603e5f7ac4393501213a806fb1e510f5cd19e841b7af0801be2c3e63ad9c8f1c",
+      "terminal_classes": 60,
+      "worker": 5
+    },
+    {
+      "id": 45,
+      "paths": 2,
+      "wall_ms": 3.042900000000145,
+      "manifest": "841073915c3db07808554ff53e24236073b8825b23ebf035a389241b89918472",
+      "terminal_classes": 2,
+      "worker": 0
+    },
+    {
+      "id": 46,
+      "paths": 60,
+      "wall_ms": 40.8297,
+      "manifest": "1ebf1316fb2edab3faad4794af415fc4f17abe251afae03c228ba63ec2697cc0",
+      "terminal_classes": 60,
+      "worker": 0
+    },
+    {
+      "id": 47,
+      "paths": 199,
+      "wall_ms": 116.89480000000026,
+      "manifest": "bd11685f77610f13b61176a3655c008fbf60f0fb3228def7725b8ccd3172f454",
+      "terminal_classes": 199,
+      "worker": 5
+    },
+    {
+      "id": 48,
+      "paths": 60,
+      "wall_ms": 35.10349999999994,
+      "manifest": "867246151b41bd5dbc09c57e5cd53b950dc895556642f949b874033450b276e0",
+      "terminal_classes": 60,
+      "worker": 3
+    },
+    {
+      "id": 49,
+      "paths": 2,
+      "wall_ms": 3.217300000000023,
+      "manifest": "1e087675a3102ef17f28b4d292a5efc08c72f1345870ce15858bcf93e8d080eb",
+      "terminal_classes": 2,
+      "worker": 0
+    },
+    {
+      "id": 50,
+      "paths": 60,
+      "wall_ms": 42.02070000000003,
+      "manifest": "9b408938cec88ef0b6cac56d10cc5a46388b098277ec7a855f81e578371cf5ab",
+      "terminal_classes": 60,
+      "worker": 0
+    },
+    {
+      "id": 51,
+      "paths": 60,
+      "wall_ms": 47.628799999999956,
+      "manifest": "cb7ea25a07fc1bae4948d6fac460b7dca131377cd33f7238630433ffc56d7563",
+      "terminal_classes": 60,
+      "worker": 4
+    },
+    {
+      "id": 52,
+      "paths": 15,
+      "wall_ms": 7.788900000000012,
+      "manifest": "8d8bee479136f7dae4b99b6740eff5211dab5183597f295148011414209db55c",
+      "terminal_classes": 15,
+      "worker": 3
+    },
+    {
+      "id": 53,
+      "paths": 15,
+      "wall_ms": 13.008399999999938,
+      "manifest": "7b9743bcc010bca26d194ec45e359865b4cf0ae375af47516b55032b511adc84",
+      "terminal_classes": 15,
+      "worker": 3
+    },
+    {
+      "id": 54,
+      "paths": 199,
+      "wall_ms": 145.84660000000008,
+      "manifest": "35ff7c4508c21bfb5bb828ed3f3c8817c901e2ae938d0275391f24e76e5306f7",
+      "terminal_classes": 199,
+      "worker": 0
+    },
+    {
+      "id": 55,
+      "paths": 60,
+      "wall_ms": 36.66129999999998,
+      "manifest": "fe1cc17e438940789f7cc86e5ec17129b4ef7e8aa6a4d64b1087213d35b3c25f",
+      "terminal_classes": 60,
+      "worker": 3
+    },
+    {
+      "id": 56,
+      "paths": 2,
+      "wall_ms": 3.216699999999946,
+      "manifest": "1ee26a42de7d107f50a5680a9887a6d3555c1dcc56b8405e2ea81a54e9a3f664",
+      "terminal_classes": 2,
+      "worker": 4
+    },
+    {
+      "id": 57,
+      "paths": 60,
+      "wall_ms": 34.26229999999987,
+      "manifest": "050efd4dedbab5c7ff15ed2f78f1a65e826544c746532834f1b69358709b2d81",
+      "terminal_classes": 60,
+      "worker": 4
+    },
+    {
+      "id": 58,
+      "paths": 199,
+      "wall_ms": 124.72129999999993,
+      "manifest": "c2e06188a021e85c9dfba2e05c11974aed57012455372b6788bad4e707c2251a",
+      "terminal_classes": 199,
+      "worker": 3
+    },
+    {
+      "id": 59,
+      "paths": 60,
+      "wall_ms": 47.60329999999976,
+      "manifest": "f82a8c67fd29cab690f1ce44a88a8e4a7faa5330c0c58dd0c84ba415a16472fa",
+      "terminal_classes": 60,
+      "worker": 5
+    },
+    {
+      "id": 60,
+      "paths": 2,
+      "wall_ms": 2.298999999999978,
+      "manifest": "faf3bfede4856ef41653fbeee5af3ea11924a712463d103e7aac84c7fbf55f5b",
+      "terminal_classes": 2,
+      "worker": 4
+    },
+    {
+      "id": 61,
+      "paths": 60,
+      "wall_ms": 41.18150000000014,
+      "manifest": "0a3dac5b100e030a57f9603dda5107ff7349ab95897b1298c7a3999a04a334b7",
+      "terminal_classes": 60,
+      "worker": 6
+    },
+    {
+      "id": 62,
+      "paths": 628,
+      "wall_ms": 355.7622000000001,
+      "manifest": "eb0db103b0e8853daf96f23787b6529ce0a3f572165b3e0ae5d47ec8b9ecd2b9",
+      "terminal_classes": 628,
+      "worker": 4
+    },
+    {
+      "id": 63,
+      "paths": 12,
+      "wall_ms": 24.26279999999997,
+      "manifest": "959c6ddaffe642fb03159b80b0a0b4941c9ba051859dd0bbee62d06870c432c3",
+      "terminal_classes": 12,
+      "worker": 5
+    },
+    {
+      "id": 64,
+      "paths": 214,
+      "wall_ms": 139.08009999999967,
+      "manifest": "f13bc8c4012631ad39f05d958852f7e805b87c97e7263409c6978ef484bf774a",
+      "terminal_classes": 214,
+      "worker": 6
+    },
+    {
+      "id": 65,
+      "paths": 15,
+      "wall_ms": 13.685100000000148,
+      "manifest": "1abcb4f216fd31305aaa5acd85f811fc89784eaab6b5ab3925b2348c21edcb03",
+      "terminal_classes": 15,
+      "worker": 5
+    },
+    {
+      "id": 66,
+      "paths": 214,
+      "wall_ms": 147.50670000000036,
+      "manifest": "1d15b95f97efac505e74ea320c79904de81fd6c5ce60462f8cd2394e93661e94",
+      "terminal_classes": 214,
+      "worker": 5
+    },
+    {
+      "id": 67,
+      "paths": 958,
+      "wall_ms": 632.1983,
+      "manifest": "a71d584870acdc2c8b994f2a365c53718b3f60850bdb04d3c6fa04b9bc0133cb",
+      "terminal_classes": 958,
+      "worker": 1
+    },
+    {
+      "id": 68,
+      "paths": 493,
+      "wall_ms": 416.2488999999996,
+      "manifest": "2c0d4f6bbc2b1de867515d3c688f4ad5a22fcb383f15b2e4a24ef69500f22847",
+      "terminal_classes": 493,
+      "worker": 0
+    },
+    {
+      "id": 69,
+      "paths": 568,
+      "wall_ms": 395.5830000000001,
+      "manifest": "699fd685185f3fad38c6caaf8951f9a0f83b22b63eef784d00db50526512bb16",
+      "terminal_classes": 568,
+      "worker": 3
+    },
+    {
+      "id": 70,
+      "paths": 12,
+      "wall_ms": 17.717399999999998,
+      "manifest": "a75d921f6367095ac0b245c4a55d24f4ca7d8bd65a079c59a7cbb1acd9fd19a8",
+      "terminal_classes": 12,
+      "worker": 2
+    },
+    {
+      "id": 71,
+      "paths": 60,
+      "wall_ms": 45.5630000000001,
+      "manifest": "19e8a01fe763cec9a5e78f23774c9453408eea1d1fa88c825800a8bc2372242d",
+      "terminal_classes": 60,
+      "worker": 2
+    },
+    {
+      "id": 72,
+      "paths": 1,
+      "wall_ms": 1.4855000000002292,
+      "manifest": "2e55efd5302c6b02610dbaeebbf89ebad8c0127d0a7e06059042094c9d0aca3d",
+      "terminal_classes": 1,
+      "worker": 2
+    },
+    {
+      "id": 73,
+      "paths": 2,
+      "wall_ms": 2.4682999999999993,
+      "manifest": "c0ebcf578d7f8a2c397520aebd2fe59136145c5ff1948c594ee1749333ba5989",
+      "terminal_classes": 2,
+      "worker": 2
+    },
+    {
+      "id": 74,
+      "paths": 568,
+      "wall_ms": 369.42470000000003,
+      "manifest": "d2465f323b349c795cc48a5ede0976aa5b69f13aa0b923289463b17c52b66f93",
+      "terminal_classes": 568,
+      "worker": 6
+    },
+    {
+      "id": 75,
+      "paths": 12,
+      "wall_ms": 18.904599999999846,
+      "manifest": "07460911a30e5a26ba57df176088e85568757ae3c5d0ccc107918c3d785c2d9a",
+      "terminal_classes": 12,
+      "worker": 2
+    },
+    {
+      "id": 76,
+      "paths": 60,
+      "wall_ms": 56.305599999999686,
+      "manifest": "1f3059d99213aa51abcfad095221449359c9594985b798e4d569bf6fdffd2b56",
+      "terminal_classes": 60,
+      "worker": 2
+    },
+    {
+      "id": 77,
+      "paths": 15,
+      "wall_ms": 12.357800000000225,
+      "manifest": "f2e7f53c7a1391356e31212fa0e3e8891d3e0a34445faa336861232d0a36952f",
+      "terminal_classes": 15,
+      "worker": 5
+    },
+    {
+      "id": 78,
+      "paths": 15,
+      "wall_ms": 20.88130000000001,
+      "manifest": "13351d3c30e77c0f7fd6be88fbf06831123126142cfc473e9aa99a9ef9772d09",
+      "terminal_classes": 15,
+      "worker": 7
+    },
+    {
+      "id": 79,
+      "paths": 199,
+      "wall_ms": 154.54970000000003,
+      "manifest": "ec5d57129f415a885518041e94772007bf5b0fdf2b8c5c2b02b75ed8ff2ba61c",
+      "terminal_classes": 199,
+      "worker": 5
+    },
+    {
+      "id": 80,
+      "paths": 60,
+      "wall_ms": 46.795900000000074,
+      "manifest": "dd00d4a637df4b873f7fb3008fe6817c5cebdd5b53c91ce0af86f051e0e4805d",
+      "terminal_classes": 60,
+      "worker": 7
+    },
+    {
+      "id": 81,
+      "paths": 2,
+      "wall_ms": 2.7674999999999272,
+      "manifest": "5fe153ff57e0eda7edeee95e8a86a61ebd2959390925e2629d86cf8d32aef06f",
+      "terminal_classes": 2,
+      "worker": 2
+    },
+    {
+      "id": 82,
+      "paths": 60,
+      "wall_ms": 47.388600000000224,
+      "manifest": "72c11744dde5ebc8bf7262d5a8c701ccf2d78bc92c586fb203909eb5cf059d64",
+      "terminal_classes": 60,
+      "worker": 2
+    },
+    {
+      "id": 83,
+      "paths": 60,
+      "wall_ms": 37.998299999999745,
+      "manifest": "5cfcf93fe2c452b494d0c77e61f5555f7b483c512365ccaa33137a50c08aed61",
+      "terminal_classes": 60,
+      "worker": 7
+    },
+    {
+      "id": 84,
+      "paths": 15,
+      "wall_ms": 12.55560000000014,
+      "manifest": "d657159815132bbb64d3de92688e62e7a31c7a08bb4212cefd9adfbeb001bbc3",
+      "terminal_classes": 15,
+      "worker": 2
+    },
+    {
+      "id": 85,
+      "paths": 15,
+      "wall_ms": 15.144800000000032,
+      "manifest": "8cef0654aa9b294cc46474a135ea46f37d947b9352fcf74b99c28081836fd38f",
+      "terminal_classes": 15,
+      "worker": 2
+    },
+    {
+      "id": 86,
+      "paths": 60,
+      "wall_ms": 33.05179999999973,
+      "manifest": "9e294cf2a52f83b5803394f371d6621a542708eb587684ebb93bd45d5323e1c9",
+      "terminal_classes": 60,
+      "worker": 7
+    },
+    {
+      "id": 87,
+      "paths": 15,
+      "wall_ms": 11.755200000000059,
+      "manifest": "8d132aa1e7de94811969237ebfc23e5d3033528973a9cc15d803ed77faf353fd",
+      "terminal_classes": 15,
+      "worker": 2
+    },
+    {
+      "id": 88,
+      "paths": 15,
+      "wall_ms": 11.919499999999971,
+      "manifest": "b52b9dcc919f1322167700c1a948c530d59592d38496f08f9a22009753b657e5",
+      "terminal_classes": 15,
+      "worker": 2
+    },
+    {
+      "id": 89,
+      "paths": 60,
+      "wall_ms": 33.39940000000024,
+      "manifest": "1fe1b57de8f23891ab299548b3eb062988a7b650e1a3e8d6950540786199cf5d",
+      "terminal_classes": 60,
+      "worker": 4
+    },
+    {
+      "id": 90,
+      "paths": 15,
+      "wall_ms": 12.30029999999988,
+      "manifest": "67d52cc9449576dbdae46853d5ec0f34d9a0917d4c3d1f9e8d74437d172ec97b",
+      "terminal_classes": 15,
+      "worker": 2
+    },
+    {
+      "id": 91,
+      "paths": 15,
+      "wall_ms": 13.052900000000136,
+      "manifest": "6dfb49f7f7ac699a0be6d030c6f5d6a2decf9dac3a00e3e3a1efaaa7d65754ed",
+      "terminal_classes": 15,
+      "worker": 7
+    },
+    {
+      "id": 92,
+      "paths": 2,
+      "wall_ms": 2.8918000000003303,
+      "manifest": "6a4e8d71e77f6981b3010f699ce17224b7652e3c38974cef16e4f3d4377270e9",
+      "terminal_classes": 2,
+      "worker": 2
+    },
+    {
+      "id": 93,
+      "paths": 277,
+      "wall_ms": 177.56500000000005,
+      "manifest": "fea2bf1ab6deb8c3031071a828400c65ffe0bde2355ce3d522f002936cb179d7",
+      "terminal_classes": 277,
+      "worker": 2
+    },
+    {
+      "id": 94,
+      "paths": 110,
+      "wall_ms": 70.23109999999997,
+      "manifest": "1b2d511d07c4af05c9c3602ecb4b1e00c65ad976a385cdf64b38c43aa171586a",
+      "terminal_classes": 110,
+      "worker": 7
+    },
+    {
+      "id": 95,
+      "paths": 11,
+      "wall_ms": 14.484600000000228,
+      "manifest": "0c3636bfc3ca711b7f374f6d381df54a2060116941c17361984927c9e41749d4",
+      "terminal_classes": 11,
+      "worker": 5
+    },
+    {
+      "id": 96,
+      "paths": 110,
+      "wall_ms": 77.73919999999998,
+      "manifest": "db4490d08536cb56d18d1458eb48ee07f251018f4960cb4def37bd002713f9c6",
+      "terminal_classes": 110,
+      "worker": 4
+    },
+    {
+      "id": 97,
+      "paths": 110,
+      "wall_ms": 62.904399999999896,
+      "manifest": "c2e2d730709fee611873e223282b342d949077a11a0accaf5e7893d68ac5456c",
+      "terminal_classes": 110,
+      "worker": 5
+    },
+    {
+      "id": 98,
+      "paths": 36,
+      "wall_ms": 18.49980000000005,
+      "manifest": "f7801fdbb53dcee03bbe96937ddf787b687eb9086ed6255e9812e5d7541b5172",
+      "terminal_classes": 36,
+      "worker": 7
+    },
+    {
+      "id": 99,
+      "paths": 2,
+      "wall_ms": 1.9550999999996748,
+      "manifest": "934d6b13f23acde861553bf32a7666651cade9a31028f5300764e76d261dd1d4",
+      "terminal_classes": 2,
+      "worker": 5
+    },
+    {
+      "id": 100,
+      "paths": 36,
+      "wall_ms": 29.096700000000055,
+      "manifest": "f153008534c3a7005d87965ccf17cc1be78c6f5d5031f53622737c53553ff71d",
+      "terminal_classes": 36,
+      "worker": 5
+    },
+    {
+      "id": 101,
+      "paths": 36,
+      "wall_ms": 21.01379999999972,
+      "manifest": "55f2d1ca0a7421c336806ad3e218643b910b4b2e179c72e8e06304978e880270",
+      "terminal_classes": 36,
+      "worker": 7
+    },
+    {
+      "id": 102,
+      "paths": 11,
+      "wall_ms": 7.928899999999885,
+      "manifest": "623faf742ecfe4156ace5254523281e01bee05be7b5e2202d08300cdde682a96",
+      "terminal_classes": 11,
+      "worker": 4
+    },
+    {
+      "id": 103,
+      "paths": 11,
+      "wall_ms": 7.1664999999998145,
+      "manifest": "d329baeee2f86d9312223c1bf49720b2a78ff0c82f55ffca50731fa8c61bf191",
+      "terminal_classes": 11,
+      "worker": 4
+    },
+    {
+      "id": 104,
+      "paths": 110,
+      "wall_ms": 77.2213999999999,
+      "manifest": "5fb6344d3dbba71ebf652fc3981c5312a12a8029a0a83e0e99f300df91e0632f",
+      "terminal_classes": 110,
+      "worker": 4
+    },
+    {
+      "id": 105,
+      "paths": 36,
+      "wall_ms": 20.334800000000087,
+      "manifest": "eef2bffe335488a03bd8b51e7681f08b614f0ac4b309ca4d178356eeacab5bf6",
+      "terminal_classes": 36,
+      "worker": 7
+    },
+    {
+      "id": 106,
+      "paths": 2,
+      "wall_ms": 1.6347000000000662,
+      "manifest": "84cf101836aaffe282b45854c3d83566d88bac49fe7747458e2d257d76b9c1fc",
+      "terminal_classes": 2,
+      "worker": 5
+    },
+    {
+      "id": 107,
+      "paths": 36,
+      "wall_ms": 24.213700000000244,
+      "manifest": "78cbf24558adda3a5a769673ffa05558dd1109ee111f1ceace81781a6559f8a4",
+      "terminal_classes": 36,
+      "worker": 5
+    },
+    {
+      "id": 108,
+      "paths": 11,
+      "wall_ms": 16.467799999999897,
+      "manifest": "1bc5f446d2511295a48fa3e780a54fe1b8843e9891631bcbfccd1f4c6f44c73f",
+      "terminal_classes": 11,
+      "worker": 3
+    },
+    {
+      "id": 109,
+      "paths": 2,
+      "wall_ms": 3.2714999999998327,
+      "manifest": "ff78a730492624777e9a5909a294fbe920a900b27df887fd61160d3e7f841708",
+      "terminal_classes": 2,
+      "worker": 0
+    },
+    {
+      "id": 110,
+      "paths": 2,
+      "wall_ms": 2.968199999999797,
+      "manifest": "361d9ba1fa91cc9a039b4177ef176f2be41f319bea2190f08e15dfefe10c4bb5",
+      "terminal_classes": 2,
+      "worker": 0
+    },
+    {
+      "id": 111,
+      "paths": 11,
+      "wall_ms": 6.274899999999889,
+      "manifest": "fcdf22c2b4fc5c272638e615bf493027489ff2b2d71ed55628d6f049a0297f84",
+      "terminal_classes": 11,
+      "worker": 7
+    },
+    {
+      "id": 112,
+      "paths": 2,
+      "wall_ms": 1.983100000000377,
+      "manifest": "18e5dfdd9a71e74a7c5cb1036d975f9c7519c82ca76a7f0b7aa6c45634cb88f0",
+      "terminal_classes": 2,
+      "worker": 0
+    },
+    {
+      "id": 113,
+      "paths": 2,
+      "wall_ms": 2.550000000000182,
+      "manifest": "b1243637e30bf94d2b6f4a17d8e0e03e46eaaf125f1d451a8f94df6b7d73b42e",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 114,
+      "paths": 11,
+      "wall_ms": 8.91090000000031,
+      "manifest": "2a05bb723ca8d928a7b923774c2b3b9d7596e3296bf7276cc36f67b74f1c312d",
+      "terminal_classes": 11,
+      "worker": 0
+    },
+    {
+      "id": 115,
+      "paths": 2,
+      "wall_ms": 1.9611999999997352,
+      "manifest": "31a5d783ede6d10f0d38da87c26ee8d8eea1c1d7d4a9452c0d10083b040087d2",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 116,
+      "paths": 2,
+      "wall_ms": 1.9740999999999076,
+      "manifest": "9295e80c959e2230643d3f2038a8040c920a801ae7a453ebb393b4d922085509",
+      "terminal_classes": 2,
+      "worker": 5
+    },
+    {
+      "id": 117,
+      "paths": 2,
+      "wall_ms": 2.43119999999999,
+      "manifest": "9e7cb505235179dfcd3a51aec2df95f3095411820558f4bad889665ea803ba71",
+      "terminal_classes": 2,
+      "worker": 7
+    },
+    {
+      "id": 118,
+      "paths": 11,
+      "wall_ms": 10.377100000000155,
+      "manifest": "3f6ac0e37cab5b99a30d2fb616b3cd8a122a4d17e796f055483a0be2bc8dabb1",
+      "terminal_classes": 11,
+      "worker": 3
+    },
+    {
+      "id": 119,
+      "paths": 2,
+      "wall_ms": 2.92470000000003,
+      "manifest": "943ac8455484acc1a1714a5ce0ffa3a9977a46ca206fc21236f5ea7cd7b1ce62",
+      "terminal_classes": 2,
+      "worker": 5
+    },
+    {
+      "id": 120,
+      "paths": 2,
+      "wall_ms": 2.7462000000000444,
+      "manifest": "55ff45c4ac548993ff7652a5a33056e9786de5ca475fbdebcd948d58b0c24bbe",
+      "terminal_classes": 2,
+      "worker": 7
+    },
+    {
+      "id": 121,
+      "paths": 11,
+      "wall_ms": 10.712799999999788,
+      "manifest": "d4b6e9d1102257ad5f03bad0729f38e2325d73df074e697f0e345322c892c5be",
+      "terminal_classes": 11,
+      "worker": 5
+    },
+    {
+      "id": 122,
+      "paths": 2,
+      "wall_ms": 3.106699999999819,
+      "manifest": "406340f518c289c4136cb5561398d8cca78fb94bf29a2f34cb4d732dc3cac333",
+      "terminal_classes": 2,
+      "worker": 0
+    },
+    {
+      "id": 123,
+      "paths": 2,
+      "wall_ms": 2.4803000000001703,
+      "manifest": "b61999110cdb4a19dc2476ed721ff2c37e5b987dadadb357ad5914220e4452d4",
+      "terminal_classes": 2,
+      "worker": 7
+    },
+    {
+      "id": 124,
+      "paths": 38,
+      "wall_ms": 27.11299999999983,
+      "manifest": "a2841690280b6e205348d0c675e7dc262a191b0c331ab83be39192aa7ff2e84c",
+      "terminal_classes": 38,
+      "worker": 0
+    },
+    {
+      "id": 125,
+      "paths": 11,
+      "wall_ms": 5.835199999999986,
+      "manifest": "c511da03f31ea316d98341da97fed28a463ecc02e9e2841d9700ee0216d608f3",
+      "terminal_classes": 11,
+      "worker": 7
+    },
+    {
+      "id": 126,
+      "paths": 11,
+      "wall_ms": 6.211699999999837,
+      "manifest": "e6e7e9c748d5d0ef99d3355212f576e441c04a44faed8935be3d1e17a05db05c",
+      "terminal_classes": 11,
+      "worker": 3
+    },
+    {
+      "id": 127,
+      "paths": 110,
+      "wall_ms": 95.41559999999981,
+      "manifest": "c8771058ad4829b26566cb92feb4ca61df8bc6a049c3164b83baf2d26ae28614",
+      "terminal_classes": 110,
+      "worker": 5
+    },
+    {
+      "id": 128,
+      "paths": 36,
+      "wall_ms": 30.554000000000087,
+      "manifest": "cd0aec14cbc32cc019df02cc7071bdf6b6bf4002cdc5c860ff4b532b1f5580a5",
+      "terminal_classes": 36,
+      "worker": 7
+    },
+    {
+      "id": 129,
+      "paths": 2,
+      "wall_ms": 2.9962000000000444,
+      "manifest": "171e27cd3e8442be5fb8f12a6954424e555147d27b334a54fb2a80f22b5aa51b",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 130,
+      "paths": 36,
+      "wall_ms": 30.54780000000028,
+      "manifest": "22a30d3fb1582fe0fed21c9e84b42583f236d0211d012bfa2e99e63428f5783c",
+      "terminal_classes": 36,
+      "worker": 3
+    },
+    {
+      "id": 131,
+      "paths": 2,
+      "wall_ms": 2.58829999999989,
+      "manifest": "5057547657e667b0cc6d5cffbc002e362cc88e6cc542a4f2da56f1a6615a97a3",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 132,
+      "paths": 11,
+      "wall_ms": 10.545599999999922,
+      "manifest": "5d91b591e032aaf1f12d54548fbb4fd7e691c08f985845eee024123a0e4fb477",
+      "terminal_classes": 11,
+      "worker": 0
+    },
+    {
+      "id": 133,
+      "paths": 2,
+      "wall_ms": 2.892899999999827,
+      "manifest": "d7b61be20c6a5f1fddde2d1c8c9eaab0d435b721661ba2ce04be90a4fd0b07fb",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 134,
+      "paths": 2,
+      "wall_ms": 2.4881000000000313,
+      "manifest": "3677eec33bc39a3fe59eef5543583806146d46c73bbceb667109650f42fd220b",
+      "terminal_classes": 2,
+      "worker": 2
+    },
+    {
+      "id": 135,
+      "paths": 2,
+      "wall_ms": 2.4177999999997155,
+      "manifest": "f572e1aa9669b5da508b147ebee23e05d8560b56402fcabf999ba0f735099706",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 136,
+      "paths": 2,
+      "wall_ms": 1.9580000000000837,
+      "manifest": "fd6b830a91a185ddb6744a62d99d2df76f281e4e72d7bd2a601749c257ec9be6",
+      "terminal_classes": 2,
+      "worker": 2
+    },
+    {
+      "id": 137,
+      "paths": 2,
+      "wall_ms": 1.945799999999963,
+      "manifest": "c00b7a5a100b7a030ad5ab5de7612e4f804066dadf1090ed77dd1024326f25b5",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 138,
+      "paths": 36,
+      "wall_ms": 22.249500000000353,
+      "manifest": "3e37e7a2262e2babc618c27c48072aacc810bebc4bd0e6be86c98b0f2e5fb99c",
+      "terminal_classes": 36,
+      "worker": 2
+    },
+    {
+      "id": 139,
+      "paths": 11,
+      "wall_ms": 7.273299999999836,
+      "manifest": "7e2d4a7b79ba449183ced1f89ca35ec4b9fd698b03c929ee3e8fef9169482dad",
+      "terminal_classes": 11,
+      "worker": 6
+    },
+    {
+      "id": 140,
+      "paths": 11,
+      "wall_ms": 10.524600000000191,
+      "manifest": "66b12d08fb5056a2c37a08639411d10f23a0f931baba1ded4c1a9ea5e0ef5a3c",
+      "terminal_classes": 11,
+      "worker": 0
+    },
+    {
+      "id": 141,
+      "paths": 11,
+      "wall_ms": 6.959000000000287,
+      "manifest": "6c7264bf353634ec41acc5f6ddbb11685a00d574da25ac2d832dbe580633a569",
+      "terminal_classes": 11,
+      "worker": 7
+    },
+    {
+      "id": 142,
+      "paths": 2,
+      "wall_ms": 2.0000999999997475,
+      "manifest": "c2397c13cf8d79d1cbf6b72dd81bbdcf308b80d10b31d86ef171d0cb8ec7a306",
+      "terminal_classes": 2,
+      "worker": 4
+    },
+    {
+      "id": 143,
+      "paths": 2,
+      "wall_ms": 1.8328000000001339,
+      "manifest": "8f3c7be3625e6bb12e6f29306e7f921c9c1a62d27090b472563e459372adeb81",
+      "terminal_classes": 2,
+      "worker": 4
+    },
+    {
+      "id": 144,
+      "paths": 2,
+      "wall_ms": 1.7820999999999003,
+      "manifest": "a5c2339a6850b7fa6fc25b2ad90d4b49be993798669a63a76f8b9e0c5fd0e31e",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 145,
+      "paths": 11,
+      "wall_ms": 5.737499999999727,
+      "manifest": "d0ced0791dba7db77be09eee9ee6db497f3489336f5ddb0f991d72d16ab2ff03",
+      "terminal_classes": 11,
+      "worker": 4
+    },
+    {
+      "id": 146,
+      "paths": 2,
+      "wall_ms": 1.4391999999998006,
+      "manifest": "2e8019a8d9d89609b2156f6cef4067f4082356738b86ffc24dc64d1e1fbe3449",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 147,
+      "paths": 2,
+      "wall_ms": 1.8191999999999098,
+      "manifest": "6ed39319892fbf9e183b72b058be825dab3b0a2ea601669977ecdf86f0adb7af",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 148,
+      "paths": 2,
+      "wall_ms": 2.2478000000000975,
+      "manifest": "87bbdc7f17bb4aa608400db6fbdb13f071769038c0b1a1c6dcb433ff9b8b3737",
+      "terminal_classes": 2,
+      "worker": 7
+    },
+    {
+      "id": 149,
+      "paths": 11,
+      "wall_ms": 7.568299999999908,
+      "manifest": "12f14e78b3bceadeb3839c1e720c2443a13103a92b8b0190adfb979c801ee293",
+      "terminal_classes": 11,
+      "worker": 6
+    },
+    {
+      "id": 150,
+      "paths": 2,
+      "wall_ms": 2.873699999999644,
+      "manifest": "2cd8a26b67535169ca30ba23bdbaf9b787c7f317c6a9666f78ff9508b2639aca",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 151,
+      "paths": 2,
+      "wall_ms": 2.8085000000000946,
+      "manifest": "f803609d6c325788034d31d9d0c3cd1768518f7f9dd201763b0bab8def76fd39",
+      "terminal_classes": 2,
+      "worker": 7
+    },
+    {
+      "id": 152,
+      "paths": 11,
+      "wall_ms": 6.773899999999685,
+      "manifest": "52f9bafe144f4175fc89d2904414b54506db9c0e32c0cc460595c7f61f78f2a2",
+      "terminal_classes": 11,
+      "worker": 0
+    },
+    {
+      "id": 153,
+      "paths": 2,
+      "wall_ms": 1.3715000000001965,
+      "manifest": "7a0e5acd0f779d2cfe990bdb2f684cdfae558ad900d2d04a364efed6e7a9adcc",
+      "terminal_classes": 2,
+      "worker": 4
+    },
+    {
+      "id": 154,
+      "paths": 2,
+      "wall_ms": 2.7802999999998974,
+      "manifest": "e7c8518756f9d5753ee3a18ac8433e038519bdbd46a08baffd7cacab0ac59ec1",
+      "terminal_classes": 2,
+      "worker": 7
+    },
+    {
+      "id": 155,
+      "paths": 2,
+      "wall_ms": 2.417500000000018,
+      "manifest": "2017f8cd29df72a3073b8753b17709a21aa0abd3e2b8fcc7b2c9e0b230e52453",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 156,
+      "paths": 2,
+      "wall_ms": 1.48050000000012,
+      "manifest": "991b25913ab852df2272c3b52c852fcde0ca464c452078fba5d7148ec415c110",
+      "terminal_classes": 2,
+      "worker": 4
+    },
+    {
+      "id": 157,
+      "paths": 2,
+      "wall_ms": 1.8153999999999542,
+      "manifest": "0a0de2ec6c9ba4549ef6b6d2122656b810b4269d4f505cdb5ac6e3dbde984343",
+      "terminal_classes": 2,
+      "worker": 4
+    },
+    {
+      "id": 158,
+      "paths": 11,
+      "wall_ms": 8.366599999999835,
+      "manifest": "f4336dc7aa54178348511d3a30ec87cee8c6f4be7724c419ea4a50c289de9ea1",
+      "terminal_classes": 11,
+      "worker": 3
+    },
+    {
+      "id": 159,
+      "paths": 2,
+      "wall_ms": 1.3786000000000058,
+      "manifest": "0feba4c48335d5b267f5468e546d5fb420b11884ad4900885c78eb86963a5203",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 160,
+      "paths": 2,
+      "wall_ms": 1.6289000000001579,
+      "manifest": "be09c610265e5f14ba9f9a42972ccbb8a15f692424ff1499f801d1c66d394ca4",
+      "terminal_classes": 2,
+      "worker": 7
+    },
+    {
+      "id": 161,
+      "paths": 2,
+      "wall_ms": 1.3717000000001462,
+      "manifest": "beee5ba8349d094057fcf6832f3f75d62b0152b2183135145a406abe986a843d",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 162,
+      "paths": 2,
+      "wall_ms": 1.3402000000000953,
+      "manifest": "90e5894f82ae698a4494f1ce06530a6e09416c08862fcd3c7d950ce55242878d",
+      "terminal_classes": 2,
+      "worker": 4
+    },
+    {
+      "id": 163,
+      "paths": 2,
+      "wall_ms": 2.8918000000003303,
+      "manifest": "9bdc64e2d040ba348c7bc79af25f7aced62fbce7110439926fea04e457593381",
+      "terminal_classes": 2,
+      "worker": 7
+    },
+    {
+      "id": 164,
+      "paths": 11,
+      "wall_ms": 8.345000000000255,
+      "manifest": "4bb9751d4d530d08be175b58a256d107184c78445f0f17594b6337fd36f1647d",
+      "terminal_classes": 11,
+      "worker": 0
+    },
+    {
+      "id": 165,
+      "paths": 2,
+      "wall_ms": 2.2157999999999447,
+      "manifest": "84fca549c6da7a45ecc2497bb92f4e4bf18c9491fd94923a37e076f02052a5f0",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 166,
+      "paths": 2,
+      "wall_ms": 2.3413000000000466,
+      "manifest": "1da02e8a5e649d6af4b0ffa401cd25cfcec082a4a3f275a0bd9ecd50b29b4bf8",
+      "terminal_classes": 2,
+      "worker": 4
+    },
+    {
+      "id": 167,
+      "paths": 2,
+      "wall_ms": 3.4257000000002336,
+      "manifest": "caa33c057a06e484869c75631e12a003674f8d9d9f7f92e1905e38bb490ed709",
+      "terminal_classes": 2,
+      "worker": 2
+    },
+    {
+      "id": 168,
+      "paths": 2,
+      "wall_ms": 2.8773999999998523,
+      "manifest": "3519711b3e1045138e9d9bf724c0c52ad5b67c94b9732957730b5534cba823a9",
+      "terminal_classes": 2,
+      "worker": 7
+    },
+    {
+      "id": 169,
+      "paths": 2,
+      "wall_ms": 2.7283000000002176,
+      "manifest": "ce0dcec397c091d62683037a7d27156bdc1d2bc179eac029dfec2dbd444e7d5b",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 170,
+      "paths": 213,
+      "wall_ms": 96.56800000000021,
+      "manifest": "682039bd1fe0e22256e25c116f2baead039abf96c6f78fd6128fa16e3fe65bb7",
+      "terminal_classes": 213,
+      "worker": 4
+    },
+    {
+      "id": 171,
+      "paths": 88,
+      "wall_ms": 43.45320000000038,
+      "manifest": "908c6bd40dc24b91b9258f07d7c6f5e70412cdcb37f6e7b344f161278a856ff0",
+      "terminal_classes": 88,
+      "worker": 7
+    },
+    {
+      "id": 172,
+      "paths": 11,
+      "wall_ms": 10.537900000000263,
+      "manifest": "9c6af2a44e649986f6c2d001ef5b01deaab57a991847d76f708a855a8016d60a",
+      "terminal_classes": 11,
+      "worker": 6
+    },
+    {
+      "id": 173,
+      "paths": 88,
+      "wall_ms": 53.84529999999995,
+      "manifest": "a71e221f8d2703470c2c7400052e9d7719a9ea64d4b1faedd9b70392dfa6517a",
+      "terminal_classes": 88,
+      "worker": 3
+    },
+    {
+      "id": 174,
+      "paths": 88,
+      "wall_ms": 46.80600000000004,
+      "manifest": "f636c2ed752de03d381f2dbf5dff7571d28ab14c64c3c517cee514c30463e139",
+      "terminal_classes": 88,
+      "worker": 2
+    },
+    {
+      "id": 175,
+      "paths": 32,
+      "wall_ms": 19.52669999999989,
+      "manifest": "4a2a88c1d42a0f779e9caabbd7fc8412f7245ae6c760330af4db1dfaae15129b",
+      "terminal_classes": 32,
+      "worker": 0
+    },
+    {
+      "id": 176,
+      "paths": 2,
+      "wall_ms": 1.8535999999999149,
+      "manifest": "58991f7c582bf63b84a1f035d84c16974a075216ad65d2f2835e5613a5e41cb7",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 177,
+      "paths": 32,
+      "wall_ms": 16.147799999999734,
+      "manifest": "bce316e100ef279d796d9fa43c04f3036444f952c2c5677990710fd62404898e",
+      "terminal_classes": 32,
+      "worker": 6
+    },
+    {
+      "id": 178,
+      "paths": 32,
+      "wall_ms": 17.340100000000348,
+      "manifest": "d25b9ab2be3d8e242158fdeeb69fa663f1a9273c03ad91838d3b019e3d3903ca",
+      "terminal_classes": 32,
+      "worker": 0
+    },
+    {
+      "id": 179,
+      "paths": 11,
+      "wall_ms": 6.32529999999997,
+      "manifest": "099ea8d33e9f452c8d287e8f5f3e54c264fc170def8e759b251a77ee14afecaf",
+      "terminal_classes": 11,
+      "worker": 6
+    },
+    {
+      "id": 180,
+      "paths": 11,
+      "wall_ms": 6.1203999999997905,
+      "manifest": "c664a5544b8a4dcb0311c25cc5d1ef7a13d3134b047ce150ff85e006d39f158d",
+      "terminal_classes": 11,
+      "worker": 6
+    },
+    {
+      "id": 181,
+      "paths": 88,
+      "wall_ms": 51.48199999999997,
+      "manifest": "f024e9076bae9bbf6e569a77259c4a2ab8a35034f6e3a14208b9730237b46d0f",
+      "terminal_classes": 88,
+      "worker": 5
+    },
+    {
+      "id": 182,
+      "paths": 32,
+      "wall_ms": 18.56230000000005,
+      "manifest": "9766eb0ac3cd10ded150f8fa608e864dce8db5923a035d920bd4384743d02def",
+      "terminal_classes": 32,
+      "worker": 0
+    },
+    {
+      "id": 183,
+      "paths": 2,
+      "wall_ms": 1.8163000000004104,
+      "manifest": "250d1c06293a79cdc7731a2a1f0894c61f04ca05797db22dabe1f6532d283e56",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 184,
+      "paths": 32,
+      "wall_ms": 16.16780000000017,
+      "manifest": "059c97cb4bc68e5dfdfb09af470b374ec39bba2399bd3125ca653656f8961f64",
+      "terminal_classes": 32,
+      "worker": 7
+    },
+    {
+      "id": 185,
+      "paths": 11,
+      "wall_ms": 9.357299999999668,
+      "manifest": "ab41c135a7f8573d92cf0a63bc0c6683ddfe0839a1599eb27f0daaef97e06e77",
+      "terminal_classes": 11,
+      "worker": 6
+    },
+    {
+      "id": 186,
+      "paths": 2,
+      "wall_ms": 2.3997999999996864,
+      "manifest": "5d791ea6c72a035d9747d42f0eb6455fb9ec40ed0d6ffb20aa82ab075ee0cd34",
+      "terminal_classes": 2,
+      "worker": 2
+    },
+    {
+      "id": 187,
+      "paths": 2,
+      "wall_ms": 2.1408000000001266,
+      "manifest": "9db5b1408d79632dd9a1d039afb75ab8bfd33c761f3172f5fa11151b269a6801",
+      "terminal_classes": 2,
+      "worker": 2
+    },
+    {
+      "id": 188,
+      "paths": 11,
+      "wall_ms": 6.208700000000135,
+      "manifest": "e95f310dbf02235c0a49503c9d55ea12e83185cf03db69a19c0888741b16dc83",
+      "terminal_classes": 11,
+      "worker": 2
+    },
+    {
+      "id": 189,
+      "paths": 2,
+      "wall_ms": 1.703899999999976,
+      "manifest": "6521183ab82f8ff74c80219d70eefb4408ebe0d7872bf56131920c508155fb56",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 190,
+      "paths": 2,
+      "wall_ms": 2.1101000000003296,
+      "manifest": "a9ff124714983715c63c43ea62f5d32f4d1e34ad327ec14d1331e78b227f7988",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 191,
+      "paths": 11,
+      "wall_ms": 6.491499999999633,
+      "manifest": "1f40a280636c20efb9689d14bbf112732c4e8c3c331298deec0968fee7ff75aa",
+      "terminal_classes": 11,
+      "worker": 3
+    },
+    {
+      "id": 192,
+      "paths": 2,
+      "wall_ms": 1.9573999999997795,
+      "manifest": "665b5ccdf0c09859f04339b7ef355cedf34d43abaa5eda5e65f66c0edc68b8c1",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 193,
+      "paths": 2,
+      "wall_ms": 1.564600000000155,
+      "manifest": "932288c907dfc7fd56eb0247aa82ad3dd3f2e374cc4e249f81dc12c233994b71",
+      "terminal_classes": 2,
+      "worker": 2
+    },
+    {
+      "id": 194,
+      "paths": 2,
+      "wall_ms": 2.886199999999917,
+      "manifest": "2567aa18fffc720f646b35e0896c92af7e84becd82394183e69c9ff0dcbada56",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 195,
+      "paths": 11,
+      "wall_ms": 9.152199999999993,
+      "manifest": "34e0b5973f058effa33932cad3d6cc37306cedd0475dbfab4d923bec95208eba",
+      "terminal_classes": 11,
+      "worker": 7
+    },
+    {
+      "id": 196,
+      "paths": 2,
+      "wall_ms": 2.3070999999999913,
+      "manifest": "40b9ba11d6f395d6aa0843850ef450ae87712158a7d83857e52b57fd8525b7f8",
+      "terminal_classes": 2,
+      "worker": 2
+    },
+    {
+      "id": 197,
+      "paths": 2,
+      "wall_ms": 2.6095000000000255,
+      "manifest": "c3f269b66fe7974e0ff2fac98d276b585d52d65345a227f5b83a415b1c208e05",
+      "terminal_classes": 2,
+      "worker": 0
+    },
+    {
+      "id": 198,
+      "paths": 11,
+      "wall_ms": 8.301300000000083,
+      "manifest": "838f8a16915a132474b0cf28dccbb9b0004773ca926cdd064a05062294000dd2",
+      "terminal_classes": 11,
+      "worker": 2
+    },
+    {
+      "id": 199,
+      "paths": 2,
+      "wall_ms": 3.403400000000147,
+      "manifest": "fadc0300673f1e6a7d6340211cc2221206feab101406d1c176e0218b1a9659f5",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 200,
+      "paths": 2,
+      "wall_ms": 3.4070999999999003,
+      "manifest": "974dcc1eb64167fc668cebf0349522fbc27645297dc96a2331c8e6992f40f438",
+      "terminal_classes": 2,
+      "worker": 0
+    },
+    {
+      "id": 201,
+      "paths": 34,
+      "wall_ms": 24.033000000000357,
+      "manifest": "2cc04f18f2769353b68308dd189d07c55e95a25cfc88bc434ccb3849ad87b074",
+      "terminal_classes": 34,
+      "worker": 3
+    },
+    {
+      "id": 202,
+      "paths": 11,
+      "wall_ms": 6.02350000000024,
+      "manifest": "e7c4012248c7b33f93c5d3dc8ebf5cc25e848cefbb11093fb2e21bb7bdf27d86",
+      "terminal_classes": 11,
+      "worker": 6
+    },
+    {
+      "id": 203,
+      "paths": 11,
+      "wall_ms": 9.589300000000094,
+      "manifest": "2f387b7a008187d43e6c21f6e03f5a7abab7e1093d8b7ace764c72d66638b772",
+      "terminal_classes": 11,
+      "worker": 0
+    },
+    {
+      "id": 204,
+      "paths": 88,
+      "wall_ms": 66.51099999999997,
+      "manifest": "082ac44c62344eeafaba6b718f769fcb1277540b953693238d4c67519c91ec13",
+      "terminal_classes": 88,
+      "worker": 7
+    },
+    {
+      "id": 205,
+      "paths": 32,
+      "wall_ms": 23.659400000000005,
+      "manifest": "a299d90711d3a476b0338e97b8e4aadffa42ccaa84e9d0f491d853bcbc3782bc",
+      "terminal_classes": 32,
+      "worker": 2
+    },
+    {
+      "id": 206,
+      "paths": 2,
+      "wall_ms": 3.2489000000000487,
+      "manifest": "fd6e7ad9ae1b0043d624c7f3b1c4b497f22c096edebe26b59ec72547f2ac6b82",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 207,
+      "paths": 32,
+      "wall_ms": 23.108600000000024,
+      "manifest": "7551e2c021adf517cca9c3f6c6b388880dde53f65ecac6f191e6ad67bbf1d303",
+      "terminal_classes": 32,
+      "worker": 0
+    },
+    {
+      "id": 208,
+      "paths": 2,
+      "wall_ms": 2.3464999999996508,
+      "manifest": "6d799b3c6c33c0163c4e13793f7f51567c7d98761e80b6a55a8b44d1d0b7b9cc",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 209,
+      "paths": 11,
+      "wall_ms": 8.955699999999979,
+      "manifest": "01b55ea51cfd44e760bdc69cad366bb107184e92446de4bc6142c3ee55926bd5",
+      "terminal_classes": 11,
+      "worker": 6
+    },
+    {
+      "id": 210,
+      "paths": 2,
+      "wall_ms": 3.000799999999799,
+      "manifest": "8961f3dc85818348fb28c7bee267575e50205e379f2dd3b2c02c7fb43c3809c9",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 211,
+      "paths": 2,
+      "wall_ms": 2.8018999999999323,
+      "manifest": "817a51668793bf006edc7e04b4ec7ca77e0a0896f86cfd74393ef04589f423e9",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 212,
+      "paths": 2,
+      "wall_ms": 1.8848000000002685,
+      "manifest": "50c5d589d4dd1d5a7b3fc72ad7a6f04d519659f759bee5e697a3990a347288b3",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 213,
+      "paths": 2,
+      "wall_ms": 2.271600000000035,
+      "manifest": "0c4b05d55bc94945ad27208d9b66a75ba6df38d45dec69ccb678685f33a351ec",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 214,
+      "paths": 2,
+      "wall_ms": 1.9859000000001288,
+      "manifest": "b87a752de65e6f350831b2fa4f45368e222e70f820ec1ac6340ead5a72ad273d",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 215,
+      "paths": 32,
+      "wall_ms": 18.795300000000225,
+      "manifest": "d03518de5972d475fa1bc04d47d07145b84acab348ec53190af26af5365fd3b4",
+      "terminal_classes": 32,
+      "worker": 5
+    },
+    {
+      "id": 216,
+      "paths": 11,
+      "wall_ms": 7.365400000000136,
+      "manifest": "4cc73bbc4042ea7ba464f0997705141ac8ebe75337f820dc441f8eb92f3aa66b",
+      "terminal_classes": 11,
+      "worker": 4
+    },
+    {
+      "id": 217,
+      "paths": 11,
+      "wall_ms": 7.936899999999696,
+      "manifest": "09c1b67d0d3a6ab174678d4fa743f602ea43e8b788cf3741faa55eb4c795b3cf",
+      "terminal_classes": 11,
+      "worker": 2
+    },
+    {
+      "id": 218,
+      "paths": 11,
+      "wall_ms": 5.07340000000022,
+      "manifest": "3b887cf22949e22739661d8c235b2977b39e09e7a80c71264a1e66572c9753ab",
+      "terminal_classes": 11,
+      "worker": 6
+    },
+    {
+      "id": 219,
+      "paths": 2,
+      "wall_ms": 1.8222999999998137,
+      "manifest": "614229a72cc735c0c822f36a4085f4685871acf361da98bf52195e8c7b47a8ad",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 220,
+      "paths": 2,
+      "wall_ms": 1.8369000000002416,
+      "manifest": "1d32905153beffd16b177b88738990aeaf1d852e906f69d993904e20bdc3a854",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 221,
+      "paths": 2,
+      "wall_ms": 1.7573999999999614,
+      "manifest": "65b779364e04b5faced469e86a4bd7f92891fd025704f819fa8f764bfb01cf32",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 222,
+      "paths": 11,
+      "wall_ms": 5.667899999999918,
+      "manifest": "875421ae03577d7affbc6ed9711a0c6ab3a91554144eafb0a00a317984eb0b57",
+      "terminal_classes": 11,
+      "worker": 0
+    },
+    {
+      "id": 223,
+      "paths": 2,
+      "wall_ms": 1.8132999999997992,
+      "manifest": "b2cdcd50ab184b437e7b4b21f6e692b93f9ce0c0852b14dd95f48f460e652747",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 224,
+      "paths": 2,
+      "wall_ms": 1.8071999999997388,
+      "manifest": "32837469e604171ffd08a6cf1edfd3ae2444b589c1d691c05c83cfb172e40bfd",
+      "terminal_classes": 2,
+      "worker": 4
+    },
+    {
+      "id": 225,
+      "paths": 2,
+      "wall_ms": 2.8753999999998996,
+      "manifest": "015f03b500a4c333e5d2c8e2f1101dcf43941cd35fb072a64ca5971e72afb8c1",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 226,
+      "paths": 11,
+      "wall_ms": 8.66800000000012,
+      "manifest": "b07de743664c433e0832c173e62c77def1ff2b59f8cd68dbd7fca43f7f138878",
+      "terminal_classes": 11,
+      "worker": 6
+    },
+    {
+      "id": 227,
+      "paths": 2,
+      "wall_ms": 2.7966999999998734,
+      "manifest": "9410897005adf4e8f7d3e20cdbbfa56112445a0b3391580414a8f805e50a8a67",
+      "terminal_classes": 2,
+      "worker": 4
+    },
+    {
+      "id": 228,
+      "paths": 2,
+      "wall_ms": 2.3096999999997934,
+      "manifest": "16a45e40ee70ca47628cc19b897c565f6dcf760e59593edfdbce8f6a98a85029",
+      "terminal_classes": 2,
+      "worker": 2
+    },
+    {
+      "id": 229,
+      "paths": 11,
+      "wall_ms": 5.817399999999907,
+      "manifest": "576660fe1fcb90de497c7df6013a9621116cc9faffaae3028a2539b55b3b5772",
+      "terminal_classes": 11,
+      "worker": 3
+    },
+    {
+      "id": 230,
+      "paths": 2,
+      "wall_ms": 1.7733000000002903,
+      "manifest": "9862898cd72cbadcb9ef55748fde4ac13b96b64300722946093c6da8e136babc",
+      "terminal_classes": 2,
+      "worker": 0
+    },
+    {
+      "id": 231,
+      "paths": 2,
+      "wall_ms": 1.7492999999999483,
+      "manifest": "7cbf99d9b3f6f9653e889b12ed9897f2ac0a28d6d89e9af8aa5d9a1a064d1cbd",
+      "terminal_classes": 2,
+      "worker": 4
+    },
+    {
+      "id": 232,
+      "paths": 2,
+      "wall_ms": 2.173999999999978,
+      "manifest": "e4d4e911100066ab13463d8b9f2b60afe61c30305819c7b41b55816f28b457e2",
+      "terminal_classes": 2,
+      "worker": 2
+    },
+    {
+      "id": 233,
+      "paths": 2,
+      "wall_ms": 1.6965000000000146,
+      "manifest": "3c529c66628485d637679e736e02175b558a4199f8ef6d6ba50977004a306a23",
+      "terminal_classes": 2,
+      "worker": 0
+    },
+    {
+      "id": 234,
+      "paths": 2,
+      "wall_ms": 2.5245999999997366,
+      "manifest": "506c019552c36c48d0b720094d7e5d5d4ae6d2a4efdd34ad8d0643ce14535416",
+      "terminal_classes": 2,
+      "worker": 4
+    },
+    {
+      "id": 235,
+      "paths": 11,
+      "wall_ms": 5.209699999999884,
+      "manifest": "dd282cbee16e583a5382b0f99cd4cff1ca25a5ec6837677c915f37f2567081ca",
+      "terminal_classes": 11,
+      "worker": 2
+    },
+    {
+      "id": 236,
+      "paths": 2,
+      "wall_ms": 1.6439000000000306,
+      "manifest": "9969a44a91162fd20c5a7780ff72a3387d18dd8f809d210872e4e5b4335f696e",
+      "terminal_classes": 2,
+      "worker": 0
+    },
+    {
+      "id": 237,
+      "paths": 2,
+      "wall_ms": 1.5243999999997868,
+      "manifest": "1aa9a8f6edda4a53d5d3864106a30685b4cafbd325b3704594b0980f3000a24c",
+      "terminal_classes": 2,
+      "worker": 4
+    },
+    {
+      "id": 238,
+      "paths": 2,
+      "wall_ms": 1.5484000000001288,
+      "manifest": "2071ad663664f49801f22baca3592cd1ec7583fb3d172ea895021048538ce130",
+      "terminal_classes": 2,
+      "worker": 0
+    },
+    {
+      "id": 239,
+      "paths": 2,
+      "wall_ms": 1.5341999999996005,
+      "manifest": "7468aa55f18ffb2470c0e8f854ff760ae485be3a11682aa4c2bfc27cff422854",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 240,
+      "paths": 2,
+      "wall_ms": 1.9045999999998457,
+      "manifest": "0fff6b86edd60170b67bdc79d3205125e3714985fae26ef1a23451b229d73255",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 241,
+      "paths": 11,
+      "wall_ms": 7.314199999999801,
+      "manifest": "16b97e358357b27dd0bfa6430b759d1ecbee3fa33c30b8404b80d78514060007",
+      "terminal_classes": 11,
+      "worker": 5
+    },
+    {
+      "id": 242,
+      "paths": 2,
+      "wall_ms": 1.8776000000002568,
+      "manifest": "c567116a49871d087f30986ecbba86609c0aa619f10f6ead9a1631e2d0e3d2f4",
+      "terminal_classes": 2,
+      "worker": 4
+    },
+    {
+      "id": 243,
+      "paths": 2,
+      "wall_ms": 1.3640000000000327,
+      "manifest": "c8d018a79f32c08002e768b7d4e455e05f96b6e516112d0b316cdba7c595e05d",
+      "terminal_classes": 2,
+      "worker": 6
+    },
+    {
+      "id": 244,
+      "paths": 2,
+      "wall_ms": 1.74120000000039,
+      "manifest": "6c761e33677e4474257fbe42c6e6f4b797ae45d148aae78f7f17a5f08fe2ec30",
+      "terminal_classes": 2,
+      "worker": 3
+    },
+    {
+      "id": 245,
+      "paths": 2,
+      "wall_ms": 1.550000000000182,
+      "manifest": "fecdc36b1fcce32700490d04eb435aad77a321e0b3e4a3e8ce7e9f9ff1d22bb3",
+      "terminal_classes": 2,
+      "worker": 0
+    },
+    {
+      "id": 246,
+      "paths": 2,
+      "wall_ms": 2.378099999999904,
+      "manifest": "dd3fc72fb13712eafec1fb4a565f8d90931164f7937ea39da51e10de15d34c24",
+      "terminal_classes": 2,
+      "worker": 6
+    }
+  ],
+  "worker_stats": [
+    {
+      "worker": 0,
+      "stats": {
+        "transitions_computed": 0,
+        "transitions_reused": 0,
+        "folds": 0,
+        "buckets_copied": 0,
+        "reference_rows": 0,
+        "reference_paths": 2590,
+        "event_roots": 0,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 2590,
+          "objective_evaluations": 1348,
+          "native_witnesses": 1348,
+          "raw_finalizations": 0,
+          "geometry_evaluations": 89,
+          "timing_evaluations": 2,
+          "pattern_evaluations": 94,
+          "caches": {
+            "input": {
+              "hits": 1242,
+              "misses": 1348,
+              "evictions": 0,
+              "peak_bytes": 705674,
+              "entries": 1348,
+              "bytes": 705674,
+              "max_bytes": 16777216
+            },
+            "geometry": {
+              "hits": 1259,
+              "misses": 89,
+              "evictions": 0,
+              "peak_bytes": 71998,
+              "entries": 89,
+              "bytes": 71998,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 1346,
+              "misses": 2,
+              "evictions": 0,
+              "peak_bytes": 1268,
+              "entries": 2,
+              "bytes": 1268,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 1254,
+              "misses": 94,
+              "evictions": 0,
+              "peak_bytes": 74300,
+              "entries": 94,
+              "bytes": 74300,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 0,
+              "misses": 1348,
+              "evictions": 0,
+              "peak_bytes": 590104,
+              "entries": 1348,
+              "bytes": 590104,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 0,
+          "evictions": 0,
+          "peak_bytes": 0,
+          "entries": 0,
+          "bytes": 0,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0,
+          "peak_bytes": 1346,
+          "entries": 2,
+          "bytes": 1346,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0,
+          "peak_bytes": 156,
+          "entries": 1,
+          "bytes": 156,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 0
+    },
+    {
+      "worker": 1,
+      "stats": {
+        "transitions_computed": 0,
+        "transitions_reused": 0,
+        "folds": 0,
+        "buckets_copied": 0,
+        "reference_rows": 0,
+        "reference_paths": 2708,
+        "event_roots": 0,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 2708,
+          "objective_evaluations": 1311,
+          "native_witnesses": 1311,
+          "raw_finalizations": 0,
+          "geometry_evaluations": 86,
+          "timing_evaluations": 2,
+          "pattern_evaluations": 91,
+          "caches": {
+            "input": {
+              "hits": 1397,
+              "misses": 1311,
+              "evictions": 0,
+              "peak_bytes": 684862,
+              "entries": 1311,
+              "bytes": 684862,
+              "max_bytes": 16777216
+            },
+            "geometry": {
+              "hits": 1225,
+              "misses": 86,
+              "evictions": 0,
+              "peak_bytes": 69308,
+              "entries": 86,
+              "bytes": 69308,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 1309,
+              "misses": 2,
+              "evictions": 0,
+              "peak_bytes": 1268,
+              "entries": 2,
+              "bytes": 1268,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 1220,
+              "misses": 91,
+              "evictions": 0,
+              "peak_bytes": 71666,
+              "entries": 91,
+              "bytes": 71666,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 0,
+              "misses": 1311,
+              "evictions": 0,
+              "peak_bytes": 573890,
+              "entries": 1311,
+              "bytes": 573890,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 0,
+          "evictions": 0,
+          "peak_bytes": 0,
+          "entries": 0,
+          "bytes": 0,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0,
+          "peak_bytes": 1346,
+          "entries": 2,
+          "bytes": 1346,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0,
+          "peak_bytes": 156,
+          "entries": 1,
+          "bytes": 156,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 0
+    },
+    {
+      "worker": 2,
+      "stats": {
+        "transitions_computed": 0,
+        "transitions_reused": 0,
+        "folds": 0,
+        "buckets_copied": 0,
+        "reference_rows": 0,
+        "reference_paths": 2951,
+        "event_roots": 0,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 2951,
+          "objective_evaluations": 1330,
+          "native_witnesses": 1330,
+          "raw_finalizations": 0,
+          "geometry_evaluations": 73,
+          "timing_evaluations": 2,
+          "pattern_evaluations": 79,
+          "caches": {
+            "input": {
+              "hits": 1621,
+              "misses": 1330,
+              "evictions": 0,
+              "peak_bytes": 706864,
+              "entries": 1330,
+              "bytes": 706864,
+              "max_bytes": 16777216
+            },
+            "geometry": {
+              "hits": 1257,
+              "misses": 73,
+              "evictions": 0,
+              "peak_bytes": 58984,
+              "entries": 73,
+              "bytes": 58984,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 1328,
+              "misses": 2,
+              "evictions": 0,
+              "peak_bytes": 1268,
+              "entries": 2,
+              "bytes": 1268,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 1251,
+              "misses": 79,
+              "evictions": 0,
+              "peak_bytes": 62432,
+              "entries": 79,
+              "bytes": 62432,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 0,
+              "misses": 1330,
+              "evictions": 0,
+              "peak_bytes": 582686,
+              "entries": 1330,
+              "bytes": 582686,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 0,
+          "evictions": 0,
+          "peak_bytes": 0,
+          "entries": 0,
+          "bytes": 0,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0,
+          "peak_bytes": 1346,
+          "entries": 2,
+          "bytes": 1346,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0,
+          "peak_bytes": 156,
+          "entries": 1,
+          "bytes": 156,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 0
+    },
+    {
+      "worker": 3,
+      "stats": {
+        "transitions_computed": 0,
+        "transitions_reused": 0,
+        "folds": 0,
+        "buckets_copied": 0,
+        "reference_rows": 0,
+        "reference_paths": 2558,
+        "event_roots": 0,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 2558,
+          "objective_evaluations": 1198,
+          "native_witnesses": 1198,
+          "raw_finalizations": 0,
+          "geometry_evaluations": 64,
+          "timing_evaluations": 2,
+          "pattern_evaluations": 67,
+          "caches": {
+            "input": {
+              "hits": 1360,
+              "misses": 1198,
+              "evictions": 0,
+              "peak_bytes": 632032,
+              "entries": 1198,
+              "bytes": 632032,
+              "max_bytes": 16777216
+            },
+            "geometry": {
+              "hits": 1134,
+              "misses": 64,
+              "evictions": 0,
+              "peak_bytes": 51592,
+              "entries": 64,
+              "bytes": 51592,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 1196,
+              "misses": 2,
+              "evictions": 0,
+              "peak_bytes": 1268,
+              "entries": 2,
+              "bytes": 1268,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 1131,
+              "misses": 67,
+              "evictions": 0,
+              "peak_bytes": 52734,
+              "entries": 67,
+              "bytes": 52734,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 0,
+              "misses": 1198,
+              "evictions": 0,
+              "peak_bytes": 525500,
+              "entries": 1198,
+              "bytes": 525500,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 0,
+          "evictions": 0,
+          "peak_bytes": 0,
+          "entries": 0,
+          "bytes": 0,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0,
+          "peak_bytes": 1346,
+          "entries": 2,
+          "bytes": 1346,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0,
+          "peak_bytes": 156,
+          "entries": 1,
+          "bytes": 156,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 0
+    },
+    {
+      "worker": 4,
+      "stats": {
+        "transitions_computed": 0,
+        "transitions_reused": 0,
+        "folds": 0,
+        "buckets_copied": 0,
+        "reference_rows": 0,
+        "reference_paths": 2782,
+        "event_roots": 0,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 2782,
+          "objective_evaluations": 1126,
+          "native_witnesses": 1126,
+          "raw_finalizations": 0,
+          "geometry_evaluations": 63,
+          "timing_evaluations": 2,
+          "pattern_evaluations": 67,
+          "caches": {
+            "input": {
+              "hits": 1656,
+              "misses": 1126,
+              "evictions": 0,
+              "peak_bytes": 607658,
+              "entries": 1126,
+              "bytes": 607658,
+              "max_bytes": 16777216
+            },
+            "geometry": {
+              "hits": 1063,
+              "misses": 63,
+              "evictions": 0,
+              "peak_bytes": 50998,
+              "entries": 63,
+              "bytes": 50998,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 1124,
+              "misses": 2,
+              "evictions": 0,
+              "peak_bytes": 1268,
+              "entries": 2,
+              "bytes": 1268,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 1059,
+              "misses": 67,
+              "evictions": 0,
+              "peak_bytes": 52986,
+              "entries": 67,
+              "bytes": 52986,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 0,
+              "misses": 1126,
+              "evictions": 0,
+              "peak_bytes": 494192,
+              "entries": 1126,
+              "bytes": 494192,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 0,
+          "evictions": 0,
+          "peak_bytes": 0,
+          "entries": 0,
+          "bytes": 0,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0,
+          "peak_bytes": 1346,
+          "entries": 2,
+          "bytes": 1346,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0,
+          "peak_bytes": 156,
+          "entries": 1,
+          "bytes": 156,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 0
+    },
+    {
+      "worker": 5,
+      "stats": {
+        "transitions_computed": 0,
+        "transitions_reused": 0,
+        "folds": 0,
+        "buckets_copied": 0,
+        "reference_rows": 0,
+        "reference_paths": 2499,
+        "event_roots": 0,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 2499,
+          "objective_evaluations": 1062,
+          "native_witnesses": 1062,
+          "raw_finalizations": 0,
+          "geometry_evaluations": 70,
+          "timing_evaluations": 2,
+          "pattern_evaluations": 73,
+          "caches": {
+            "input": {
+              "hits": 1437,
+              "misses": 1062,
+              "evictions": 0,
+              "peak_bytes": 568186,
+              "entries": 1062,
+              "bytes": 568186,
+              "max_bytes": 16777216
+            },
+            "geometry": {
+              "hits": 992,
+              "misses": 70,
+              "evictions": 0,
+              "peak_bytes": 56532,
+              "entries": 70,
+              "bytes": 56532,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 1060,
+              "misses": 2,
+              "evictions": 0,
+              "peak_bytes": 1268,
+              "entries": 2,
+              "bytes": 1268,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 989,
+              "misses": 73,
+              "evictions": 0,
+              "peak_bytes": 57618,
+              "entries": 73,
+              "bytes": 57618,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 0,
+              "misses": 1062,
+              "evictions": 0,
+              "peak_bytes": 465382,
+              "entries": 1062,
+              "bytes": 465382,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 0,
+          "evictions": 0,
+          "peak_bytes": 0,
+          "entries": 0,
+          "bytes": 0,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0,
+          "peak_bytes": 1346,
+          "entries": 2,
+          "bytes": 1346,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0,
+          "peak_bytes": 156,
+          "entries": 1,
+          "bytes": 156,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 0
+    },
+    {
+      "worker": 6,
+      "stats": {
+        "transitions_computed": 0,
+        "transitions_reused": 0,
+        "folds": 0,
+        "buckets_copied": 0,
+        "reference_rows": 0,
+        "reference_paths": 2700,
+        "event_roots": 0,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 2700,
+          "objective_evaluations": 1333,
+          "native_witnesses": 1333,
+          "raw_finalizations": 0,
+          "geometry_evaluations": 70,
+          "timing_evaluations": 2,
+          "pattern_evaluations": 74,
+          "caches": {
+            "input": {
+              "hits": 1367,
+              "misses": 1333,
+              "evictions": 0,
+              "peak_bytes": 701932,
+              "entries": 1333,
+              "bytes": 701932,
+              "max_bytes": 16777216
+            },
+            "geometry": {
+              "hits": 1263,
+              "misses": 70,
+              "evictions": 0,
+              "peak_bytes": 56492,
+              "entries": 70,
+              "bytes": 56492,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 1331,
+              "misses": 2,
+              "evictions": 0,
+              "peak_bytes": 1268,
+              "entries": 2,
+              "bytes": 1268,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 1259,
+              "misses": 74,
+              "evictions": 0,
+              "peak_bytes": 58344,
+              "entries": 74,
+              "bytes": 58344,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 0,
+              "misses": 1333,
+              "evictions": 0,
+              "peak_bytes": 584782,
+              "entries": 1333,
+              "bytes": 584782,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 0,
+          "evictions": 0,
+          "peak_bytes": 0,
+          "entries": 0,
+          "bytes": 0,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0,
+          "peak_bytes": 1346,
+          "entries": 2,
+          "bytes": 1346,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0,
+          "peak_bytes": 156,
+          "entries": 1,
+          "bytes": 156,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 0
+    },
+    {
+      "worker": 7,
+      "stats": {
+        "transitions_computed": 0,
+        "transitions_reused": 0,
+        "folds": 0,
+        "buckets_copied": 0,
+        "reference_rows": 0,
+        "reference_paths": 2768,
+        "event_roots": 0,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 2768,
+          "objective_evaluations": 1185,
+          "native_witnesses": 1185,
+          "raw_finalizations": 0,
+          "geometry_evaluations": 60,
+          "timing_evaluations": 2,
+          "pattern_evaluations": 63,
+          "caches": {
+            "input": {
+              "hits": 1583,
+              "misses": 1185,
+              "evictions": 0,
+              "peak_bytes": 626510,
+              "entries": 1185,
+              "bytes": 626510,
+              "max_bytes": 16777216
+            },
+            "geometry": {
+              "hits": 1125,
+              "misses": 60,
+              "evictions": 0,
+              "peak_bytes": 48380,
+              "entries": 60,
+              "bytes": 48380,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 1183,
+              "misses": 2,
+              "evictions": 0,
+              "peak_bytes": 1268,
+              "entries": 2,
+              "bytes": 1268,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 1122,
+              "misses": 63,
+              "evictions": 0,
+              "peak_bytes": 49602,
+              "entries": 63,
+              "bytes": 49602,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 0,
+              "misses": 1185,
+              "evictions": 0,
+              "peak_bytes": 520036,
+              "entries": 1185,
+              "bytes": 520036,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 0,
+          "evictions": 0,
+          "peak_bytes": 0,
+          "entries": 0,
+          "bytes": 0,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0,
+          "peak_bytes": 1346,
+          "entries": 2,
+          "bytes": 1346,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0,
+          "peak_bytes": 156,
+          "entries": 1,
+          "bytes": 156,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 0
+    }
+  ],
+  "materialization": []
+}

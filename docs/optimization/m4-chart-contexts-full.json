@@ -1,0 +1,589 @@
+{
+  "wide": true,
+  "wideFull": true,
+  "budget": 800,
+  "positionsPerAxis": [
+    101,
+    101
+  ],
+  "oracleTuples": 244824,
+  "oracleMs": 204028.8585,
+  "audited": 20401,
+  "maximum": {
+    "gain": 33.56013099880805,
+    "cost": 200
+  },
+  "minimum": {
+    "gain": 17.794900940830672,
+    "cost": 80
+  },
+  "balanced": {
+    "gain": 17.794900940830672,
+    "cost": 80
+  },
+  "samples": [
+    {
+      "strategy": "split",
+      "chartBounds": 120,
+      "exactScores": 4,
+      "nodes": 126,
+      "elapsedMs": 3.6995000000169966
+    },
+    {
+      "strategy": "split",
+      "chartBounds": 120,
+      "exactScores": 4,
+      "nodes": 126,
+      "elapsedMs": 6.809700000012526
+    },
+    {
+      "strategy": "split",
+      "chartBounds": 120,
+      "exactScores": 4,
+      "nodes": 126,
+      "elapsedMs": 3.3655000000144355
+    },
+    {
+      "strategy": "split",
+      "chartBounds": 120,
+      "exactScores": 4,
+      "nodes": 126,
+      "elapsedMs": 2.938300000008894
+    },
+    {
+      "strategy": "split",
+      "chartBounds": 120,
+      "exactScores": 4,
+      "nodes": 126,
+      "elapsedMs": 2.963400000007823
+    },
+    {
+      "strategy": "split",
+      "chartBounds": 120,
+      "exactScores": 4,
+      "nodes": 126,
+      "elapsedMs": 3.052399999985937
+    },
+    {
+      "strategy": "split",
+      "chartBounds": 120,
+      "exactScores": 4,
+      "nodes": 126,
+      "elapsedMs": 2.8616000000038184
+    }
+  ],
+  "contexts": [
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000104"
+        }
+      ],
+      "cost": 80,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000104"
+        },
+        {
+          "slotPath": "2",
+          "itemId": "13020000173"
+        }
+      ],
+      "cost": 320,
+      "profile": "authoring:part:13020000173:bd:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000104"
+        },
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000169"
+        }
+      ],
+      "cost": 240,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1638.75,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000105"
+        }
+      ],
+      "cost": 120,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000105"
+        },
+        {
+          "slotPath": "2",
+          "itemId": "13020000173"
+        }
+      ],
+      "cost": 360,
+      "profile": "authoring:part:13020000173:bd:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000105"
+        },
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000169"
+        }
+      ],
+      "cost": 280,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1638.75,
+      "tiers": [
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000106"
+        }
+      ],
+      "cost": 80,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000106"
+        },
+        {
+          "slotPath": "2",
+          "itemId": "13020000173"
+        }
+      ],
+      "cost": 320,
+      "profile": "authoring:part:13020000173:bd:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000106"
+        },
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000169"
+        }
+      ],
+      "cost": 240,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1638.75,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000108"
+        }
+      ],
+      "cost": 160,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000108"
+        },
+        {
+          "slotPath": "2",
+          "itemId": "13020000173"
+        }
+      ],
+      "cost": 400,
+      "profile": "authoring:part:13020000173:bd:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000108"
+        },
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000169"
+        }
+      ],
+      "cost": 320,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1638.75,
+      "tiers": [
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000109"
+        }
+      ],
+      "cost": 160,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000109"
+        },
+        {
+          "slotPath": "2",
+          "itemId": "13020000173"
+        }
+      ],
+      "cost": 400,
+      "profile": "authoring:part:13020000173:bd:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000109"
+        },
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000169"
+        }
+      ],
+      "cost": 320,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1638.75,
+      "tiers": [
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000110"
+        }
+      ],
+      "cost": 200,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000110"
+        },
+        {
+          "slotPath": "2",
+          "itemId": "13020000173"
+        }
+      ],
+      "cost": 440,
+      "profile": "authoring:part:13020000173:bd:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000110"
+        },
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000169"
+        }
+      ],
+      "cost": 360,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1638.75,
+      "tiers": [
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000112"
+        }
+      ],
+      "cost": 160,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000112"
+        },
+        {
+          "slotPath": "2",
+          "itemId": "13020000173"
+        }
+      ],
+      "cost": 400,
+      "profile": "authoring:part:13020000173:bd:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000112"
+        },
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000169"
+        }
+      ],
+      "cost": 320,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1638.75,
+      "tiers": [
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000179"
+        }
+      ],
+      "cost": 80,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        6,
+        4
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000179"
+        },
+        {
+          "slotPath": "2",
+          "itemId": "13020000173"
+        }
+      ],
+      "cost": 320,
+      "profile": "authoring:part:13020000173:bd:adsRecoil",
+      "finalTimeMs": 1425,
+      "tiers": [
+        6,
+        4
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        },
+        {
+          "slotPath": "3",
+          "itemId": "13040000179"
+        },
+        {
+          "slotPath": "2/6",
+          "itemId": "13130000169"
+        }
+      ],
+      "cost": 240,
+      "profile": "authoring:weapon:18010000001:adsRecoil",
+      "finalTimeMs": 1638.75,
+      "tiers": [
+        6,
+        4
+      ]
+    }
+  ]
+}

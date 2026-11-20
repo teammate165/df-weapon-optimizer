@@ -205,7 +205,7 @@ The first public startup check exceeded its 30-second wait once. An isolated
 readiness check then found no page errors, failed requests or HTTP errors, and
 the complete public browser rerun passed.
 
-Evidence: `.scratch/top5-release/catalog-report.json`, `browser-local.json`,
+Evidence: `.scratch-archive/top5-release/catalog-report.json`, `browser-local.json`,
 `browser-live.json`, `static-live.json`, `live-artifacts.json`. Browser reproduction:
 `.scratch/browser-qa/top5-release.cjs`, `tests/github_pages.cjs` and
 `.scratch/browser-qa/static-check.cjs` with STATIC_SITE_URL set to the public URL.
@@ -238,7 +238,7 @@ search at 5,000,000 and 12 passes returns loss 32.660529010656475, cost 293,171,
 with exact replay in about 35.4 seconds. The public six-pass UI search takes
 about 24 seconds. These are individual desktop observations.
 
-Evidence: `.scratch/multistart-release/` contains `regression.json`,
+Evidence: `.scratch-archive/multistart-release/` contains `regression.json`,
 `catalog-report.json`, `browser-reviewed.json`, `static-reviewed.json`,
 `browser-live.json`, `static-live.json`, `operations-live.json` and
 `live-artifacts.json`. Persistent results are in
@@ -253,7 +253,7 @@ Both presets now use the [full-weapon linear SCIP model](scip_optimizer.md). Pas
 
 All 16 critical public artifacts match the generated commit, including the 6.4 MB WASM, all compiler modules and a solver-start file. Public real-worker checks pass for both presets, cancellation/recovery, exact stat/cost replay and P90 Operations at budget 5,000,000. Results remain best found when numerical model optimality is unproven. Existing uncommitted translations and research edits were excluded.
 
-Final public checks also pass: eight exact calculator comparisons, optimization/Apply/save/reload, obsolete-cache bypass, score tooltips and desktop/mobile layout, with no page errors or backend requests. The unversioned public release endpoint also reports the new token. Evidence: `.scratch/scip-release/live-artifacts.json`, `browser-live.json`, `static-live.json` and `pages-live.txt`.
+Final public checks also pass: eight exact calculator comparisons, optimization/Apply/save/reload, obsolete-cache bypass, score tooltips and desktop/mobile layout, with no page errors or backend requests. The unversioned public release endpoint also reports the new token. Evidence: `.scratch-archive/scip-release/live-artifacts.json`, `browser-live.json`, `static-live.json` and `pages-live.txt`.
 
 ## Anytime top-K release, 2026-11-17
 
@@ -263,7 +263,7 @@ Both presets use the [anytime top-K optimizer](anytime_top_k_optimizer.md). Ordi
 
 The reviewed export was built from the staged source tree with committed translations. Unrelated translation/research changes were preserved locally and excluded. All 22 critical live artifacts match committed Git blobs. Public full-cap M4A1 five-second Generate completes in about 5.2 seconds, and both presets replay exact source stats/costs. Cancellation/recovery, actual tactical/calibration work, Apply/save/reload, eight calculator comparisons, cache/versioned imports and desktop/mobile checks pass without page errors or backend dependency.
 
-[Persistent release evidence](../data/optimizer_validation/anytime_release_20261117.json); detailed local/public reports are retained under `.scratch/anytime-release/`. Existing tabs must reload to load the newly versioned browser graph.
+[Persistent release evidence](../data/optimizer_validation/anytime_release_20261117.json); detailed local/public reports are retained under `.scratch-archive/anytime-release/`. Existing tabs must reload to load the newly versioned browser graph.
 
 ## Equivalent attachment groups release, 2026-11-17
 
@@ -273,4 +273,76 @@ The [grouping layer](equivalent_attachment_groups.md) merges native-objective-eq
 
 The reviewed export preserves previously published translations and excludes unrelated working-copy edits. All 23 checked live artifacts match the generated commit. Public full-cap M4A1 completes a five-second UI search in about 5.1 seconds; both presets confirm active grouping and exact source stat/cost replay. Cancellation/recovery, Apply/save/reload, eight calculator comparisons, cache/versioned imports and desktop/mobile layout pass. Global top-K/optimality and actual client fidelity remain unproven.
 
-[Persistent release evidence](../data/optimizer_validation/choice_groups_release_20261117.json); raw reports are under `.scratch/choice-groups-release/`. Existing tabs must refresh to load the new browser graph.
+[Persistent release evidence](../data/optimizer_validation/choice_groups_release_20261117.json); raw reports are under `.scratch-archive/choice-groups-release/`. Existing tabs must refresh to load the new browser graph.
+
+## Exact M4A1 beta
+
+Append `?exact-beta=1` to the static builder URL to expose **300s / Exact ordinary M4A1 beta**. For that option the exact route accepts M4A1, Detonation, Lowest Recoil, 20 shots, and Insight 3/7 as the sole lock, with no minimum-stat floors or custom targets. The search uses the pinned 800-point ordinary domain and the 60% Minimum Acceptable threshold. Balanced uses gain above the endpoint line. The result cards show the proof status for each returned build. Generate uses four compute Workers for the exact route. The coordinator combines their endpoint candidates and shares one Balanced target and starting build.
+
+The static export packages the audited solver and verifies its catalog, weapon pack and native runtime against the validated inputs. Other requests use the existing anytime client. A beta Worker startup or evaluation error can also use the anytime client within the remaining budget. The beta reserves time for replays and rendering and terminates its Worker on cancel or deadline.
+
+```powershell
+python tools/build_github_pages.py --output .scratch/pages-exact-beta
+python -m http.server 8796 --bind 127.0.0.1 --directory .scratch
+```
+
+In another terminal run `node tests/exact_beta_browser.cjs complete`. The browser suite also accepts `unshared`, `timeout`, `deadline`, `failure` and `unsupported`. The timeout and deadline modes inject a limited Balanced phase or worker stalls to exercise partial results through the real static client. Set `STATIC_SITE_URL` for another exported subpath.
+
+For the public release, clone the current Pages `main` into a clean scratch
+checkout and run `python tools/build_github_pages.py --public --output <checkout>`.
+The public export omits the standalone calibration, exact DAG, screening and
+solver diagnostic pages, as well as the HiGHS vendor runtime used by the studies.
+The exact beta's audited solver and its required model modules ship with the
+builder. The older deployment checkout can retain its local research edits.
+
+Published the reviewed export as Pages commit
+`8c97e176c22cf132e32817d2000598aa10117bc5` with release token `fee7ceeff9061201`.
+The export preserves the AN-94 Detonation default-barrel compatibility fix
+from `9aacbb4`. The only catalog change is the provisional Guardian Stable
+Rear Grip translation. All 45 checked public files matched the release commit,
+and the four excluded HTML pages returned HTTP 404.
+[Successful Pages deployment](https://github.com/teammate165/df-weapon-optimizer/actions/runs/44467568097).
+
+On the public URL, ordinary Generate passed for both presets with the beta flag
+off. With `?exact-beta=1`, Chrome cancelled and restarted the scoped M4A1
+Detonation search with Insight 3/7 locked. The restarted run displayed
+**Proven optimal** for Min (160 points), Balanced (440), and Max (760) after
+84.47 s. Apply Build replayed Balanced at 440 points and matched its attachment
+configuration and tuning.
+[Live browser and artifact evidence](../data/optimizer_validation/exact_beta_pages_release_20261119.json).
+
+## Catalog exact ordinary preview
+
+Build an isolated local export with
+`python tools/build_github_pages.py --public --output .scratch/pages-catalog-exact`.
+Open the export with `?exact-ordinary=staged`, select **Lowest Recoil**, then
+enable **Exact ordinary search (preview)**. A separate checkbox enables the
+5% pattern cap. The earlier price-archive preview is available with
+`?exact-ordinary=1`. The staged flag also selects the staged solver in the
+local builder.
+
+The preview assigns disjoint explicit socket choices to up to four Workers
+under one deadline. The staged solver first proves Max, then proves Min using
+Max's exact score, and finally proves Balanced inside the certified price
+window. Warfare has one unpriced Max. A failed or incomplete partition leaves
+its phase open. Any completed earlier phase retains its certificate. Every
+returned build replays through the native builder before Apply Build becomes
+available. Run `node tests/exact_ordinary_browser.cjs --staged` using
+`STATIC_SITE_URL` to check proof, replay, failure, timeout and cancellation.
+
+The Node validation sweep runs one four-Worker search per weapon and mode,
+replays each witness with the native evaluator, and records phase and
+partition results. Use the release gate for a certification run.
+
+```powershell
+node tests/exact_ordinary_native_oracle.mjs .scratch/pages-catalog-exact/data --full-budget-catalog --staged --require-certificates > .scratch/catalog-certificates.json
+```
+
+Detonation uses each weapon's full cap, Operations uses the builder's default
+300,000 budget, and Warfare is unpriced. Each search gets five minutes by
+default. The gate exits with an error if any case fails replay or leaves a
+proof open. A complete sweep can take up to 17 hours if every case reaches
+its deadline. Filter with `--weapon=<id>` and `--mode=bd|sol|mp` for a
+targeted run. Set `--pattern-cap=5` for a stock-reference cap, or pass
+`--request-overrides=<json>` with both filters to supply an equipped
+configuration, tunes, locks, stat floors, or a cap for one case.

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M4A1 solver diagnostics</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#10151b;color:#e8eef5}body{max-width:1180px;margin:32px auto;padding:0 20px}h1{font-size:28px}p{line-height:1.6;color:#b7c6d5}button,input,select{font:inherit;padding:9px;background:#23303d;color:inherit;border:1px solid #526779;border-radius:5px}button{cursor:pointer}button:disabled{opacity:.45}nav,.controls{display:flex;gap:14px;flex-wrap:wrap;align-items:center}a{color:#72d5bf}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:24px 0}.card{padding:16px;background:#1b2530;border-radius:8px}.card strong{display:block;font-size:26px;margin-top:8px}canvas{background:#18212b;width:100%;height:280px;border-radius:8px;margin:10px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:18px;background:#18212b;max-height:400px;overflow:auto}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:10px;border-bottom:1px solid #344352}.scroll{overflow-x:auto}small{color:#aebdca}
+</style></head><body>
+<nav><a href="./">Weapon workshop</a><span>LOCAL PERFORMANCE STUDY</span></nav>
+<h1>M4A1 · Detonation · Lowest Recoil</h1>
+<p>Locked optic: <strong>Insight 3/7</strong> (13110000091, slot 11). Attachment cap: 800 points. Native source model; best found, global optimum unproven.</p>
+<div class="controls"><label>Workers <input id="workers" type="number" min="1" max="8" value="4" style="width:65px"></label><label>Solve mode <select id="round"><option value="0" selected>No time limit (single solve)</option><option value="30">30 seconds</option><option value="60">60 seconds</option><option value="120">120 seconds</option></select></label><button id="start">Start solver</button><button id="stop" disabled>Stop</button><button id="download">Download measurements &amp; best build</button></div>
+<p id="status" role="status">Ready. No time limit runs one solve with no phase deadlines or automatic restarts. Attachment enumeration may take a very long time before tactical search and calibration begin. Stop cancels the solve.</p>
+<div class="cards"><div class="card">Wall time<strong id="wall">0 s</strong></div><div class="card">Scored evaluations<strong id="scored">0</strong></div><div class="card">Gross throughput<strong id="rate">0 / s</strong></div><div class="card">Best saved loss ↓<strong id="loss">—</strong></div><div class="card">Solve status<strong id="rounds">Ready</strong></div></div>
+<p><small>Scores can repeat between workers/rounds. Counts are evaluations, not unique configurations. Retained-pool uniqueness measures only retained candidates. No completion percentage or remaining-time estimate is available.</small></p>
+<canvas id="quality" width="1120" height="280" aria-label="Best completed checkpoint loss versus wall time"></canvas>
+<canvas id="throughput" width="1120" height="280" aria-label="Cumulative scored evaluations versus wall time"></canvas>
+<div class="scroll"><table><thead><tr><th>Worker</th><th>Phase</th><th>Scored</th><th>Tree nodes</th><th>Pruned</th><th>Calibration</th><th>Complete loss</th></tr></thead><tbody id="worker-rows"></tbody></table></div>
+<p id="details"></p><pre id="best">No completed checkpoint yet.</pre>
+<script type="module" src="./solver-diagnostics.js"></script></body></html>

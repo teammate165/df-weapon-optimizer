@@ -1,0 +1,159 @@
+{
+  "generate": {
+    "firstSearchProgressMs": 78.2376999999999,
+    "cardsMs": 1414.7867,
+    "appliedMs": 1863.5787999999998,
+    "displayedCosts": {
+      "Max": 760,
+      "Balanced": 400,
+      "Min": 120
+    },
+    "applied": "Balanced",
+    "appliedBuildVerified": true,
+    "replayGenerate": true
+  },
+  "staticReplay": {
+    "release": "ed3ae5c204cf0a24",
+    "replays": [
+      {
+        "category": "maximum",
+        "cost": 760,
+        "missing": [],
+        "config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000349"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000169"
+          },
+          {
+            "slotPath": "1",
+            "itemId": "13030000166"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000114"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000042"
+          },
+          {
+            "slotPath": "11",
+            "itemId": "13110000091"
+          },
+          {
+            "slotPath": "1/43",
+            "itemId": "13330000001"
+          },
+          {
+            "slotPath": "3/29",
+            "itemId": "13290000001"
+          }
+        ],
+        "requestedTunes": [
+          {
+            "path": "1",
+            "id": "authoring:part:13030000166:tune:weight:1",
+            "value": 50
+          },
+          {
+            "path": "2",
+            "id": "authoring:part:13020000349:tune:weight:1",
+            "value": 50
+          },
+          {
+            "path": "3",
+            "id": "authoring:part:13040000114:tune:thickness:0",
+            "value": 50
+          },
+          {
+            "path": "3",
+            "id": "authoring:part:13040000114:tune:weight:1",
+            "value": 50
+          },
+          {
+            "path": "3/29",
+            "id": "authoring:part:13290000001:tune:thickness:0",
+            "value": 50
+          },
+          {
+            "path": "3/29",
+            "id": "authoring:part:13290000001:tune:weight:1",
+            "value": 50
+          },
+          {
+            "path": "4/8",
+            "id": "authoring:part:13140000042:tune:weight:0",
+            "value": 20
+          }
+        ]
+      },
+      {
+        "category": "minimum",
+        "cost": 120,
+        "missing": [],
+        "config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000347"
+          },
+          {
+            "slotPath": "11",
+            "itemId": "13110000091"
+          }
+        ],
+        "requestedTunes": [
+          {
+            "path": "2",
+            "id": "authoring:part:13020000347:tune:weight:1",
+            "value": 50
+          }
+        ]
+      },
+      {
+        "category": "balanced",
+        "cost": 400,
+        "missing": [],
+        "config": [
+          {
+            "slotPath": "38",
+            "itemId": "13030000115"
+          },
+          {
+            "slotPath": "2",
+            "itemId": "13020000347"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000041"
+          },
+          {
+            "slotPath": "11",
+            "itemId": "13110000091"
+          }
+        ],
+        "requestedTunes": [
+          {
+            "path": "2",
+            "id": "authoring:part:13020000347:tune:weight:1",
+            "value": 50
+          },
+          {
+            "path": "38",
+            "id": "authoring:part:13030000115:tune:weight:1",
+            "value": 50
+          },
+          {
+            "path": "4/8",
+            "id": "authoring:part:13140000041:tune:weight:0",
+            "value": 20
+          }
+        ]
+      }
+    ],
+    "optimizerTabSelected": "true"
+  }
+}

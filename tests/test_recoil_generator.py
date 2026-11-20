@@ -26,10 +26,10 @@ class GeneratorTests(unittest.TestCase):
         self.assertEqual(result['objective_names'], ['ads_recoil', 'handling'])
         self.assertEqual(len(result['results']), 3)
         self.assertEqual([r['label'] for r in result['results']], ['Max', 'Balanced', 'Min'])
-        self.assertEqual(result['cheapest_gate_percent'], 50)
+        self.assertEqual(result['cheapest_gate_percent'], 60)
         for row in result['results'][1:]:
             if row['status']=='best_found':
-                self.assertGreaterEqual(row['effectiveness_percent'] + 1e-7, 50)
+                self.assertGreaterEqual(row['effectiveness_percent'] + 1e-7, 60)
         self.assertEqual(result['results'][0]['budget'], 800)
         for row in result['results']:
             if row['status']=='unavailable':

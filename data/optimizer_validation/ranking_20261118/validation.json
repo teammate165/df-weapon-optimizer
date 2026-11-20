@@ -1,0 +1,113 @@
+{
+  "passed": true,
+  "workers_requested": 16,
+  "workers_ready": 16,
+  "participating_workers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "elapsed_ms": 13068.429699999999,
+  "checks": [
+    "ceil(N/200) boundaries and BigInt",
+    "strict near-tie transitivity",
+    "multiplicity boundary aliases",
+    "global-K shard merge parity",
+    "native two-stage exact gate reference suite in each worker"
+  ],
+  "results": [
+    {
+      "passed": true,
+      "id": 0,
+      "elapsed_ms": 11506.9955
+    },
+    {
+      "passed": true,
+      "id": 1,
+      "elapsed_ms": 12058.000600000001
+    },
+    {
+      "passed": true,
+      "id": 2,
+      "elapsed_ms": 12218.3842
+    },
+    {
+      "passed": true,
+      "id": 3,
+      "elapsed_ms": 12979.027
+    },
+    {
+      "passed": true,
+      "id": 4,
+      "elapsed_ms": 12024.6665
+    },
+    {
+      "passed": true,
+      "id": 5,
+      "elapsed_ms": 12154.4329
+    },
+    {
+      "passed": true,
+      "id": 6,
+      "elapsed_ms": 11863.4226
+    },
+    {
+      "passed": true,
+      "id": 7,
+      "elapsed_ms": 11503.6191
+    },
+    {
+      "passed": true,
+      "id": 8,
+      "elapsed_ms": 11551.176899999999
+    },
+    {
+      "passed": true,
+      "id": 9,
+      "elapsed_ms": 12825.8514
+    },
+    {
+      "passed": true,
+      "id": 10,
+      "elapsed_ms": 11468.3771
+    },
+    {
+      "passed": true,
+      "id": 11,
+      "elapsed_ms": 10294.6446
+    },
+    {
+      "passed": true,
+      "id": 12,
+      "elapsed_ms": 10288.8232
+    },
+    {
+      "passed": true,
+      "id": 13,
+      "elapsed_ms": 10296.440400000001
+    },
+    {
+      "passed": true,
+      "id": 14,
+      "elapsed_ms": 12054.0995
+    },
+    {
+      "passed": true,
+      "id": 15,
+      "elapsed_ms": 12522.7602
+    }
+  ]
+}

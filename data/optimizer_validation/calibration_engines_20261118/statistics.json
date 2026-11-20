@@ -1,0 +1,173 @@
+{
+  "workers": 16,
+  "solver_calls": 64,
+  "all_reported_optimal": true,
+  "all_final_native_vectors_equal": true,
+  "wall_seconds": 3.189400000035763,
+  "cohorts": 1,
+  "scip_version": "10.0.2",
+  "highs_package": "1.15.4",
+  "highs_native_version": {
+    "major": 1,
+    "minor": 15,
+    "patch": 1,
+    "string": "1.15.1",
+    "gitHash": "04024d7"
+  },
+  "fixtures": [
+    {
+      "fixture": "insight-only",
+      "phase": "primary",
+      "scip": {
+        "n": 4,
+        "median_ms": 213.05000001192093,
+        "min_ms": 191,
+        "max_ms": 240.69999998807907,
+        "optimal": 4
+      },
+      "highs": {
+        "n": 4,
+        "median_ms": 138.09999999403954,
+        "min_ms": 113.40000003576279,
+        "max_ms": 153.89999997615814,
+        "optimal": 4
+      }
+    },
+    {
+      "fixture": "barrel-muzzle",
+      "phase": "primary",
+      "scip": {
+        "n": 4,
+        "median_ms": 527.5500000119209,
+        "min_ms": 300.19999998807907,
+        "max_ms": 705.0999999642372,
+        "optimal": 4
+      },
+      "highs": {
+        "n": 4,
+        "median_ms": 176.55000001192093,
+        "min_ms": 141.39999997615814,
+        "max_ms": 211.0999999642372,
+        "optimal": 4
+      }
+    },
+    {
+      "fixture": "grip-magazine",
+      "phase": "primary",
+      "scip": {
+        "n": 4,
+        "median_ms": 520.7999999821186,
+        "min_ms": 414.30000001192093,
+        "max_ms": 653.9000000357628,
+        "optimal": 4
+      },
+      "highs": {
+        "n": 4,
+        "median_ms": 386.44999998807907,
+        "min_ms": 284.4000000357628,
+        "max_ms": 525.6000000238419,
+        "optimal": 4
+      }
+    },
+    {
+      "fixture": "recorded-ordinary-best",
+      "phase": "primary",
+      "scip": {
+        "n": 4,
+        "median_ms": 305.7500000298023,
+        "min_ms": 229.70000004768372,
+        "max_ms": 401.2000000476837,
+        "optimal": 4
+      },
+      "highs": {
+        "n": 4,
+        "median_ms": 649.7000000178814,
+        "min_ms": 530.1999999880791,
+        "max_ms": 804.6000000238419,
+        "optimal": 4
+      }
+    },
+    {
+      "fixture": "insight-only",
+      "phase": "handling",
+      "scip": {
+        "n": 4,
+        "median_ms": 524.9000000059605,
+        "min_ms": 119.39999997615814,
+        "max_ms": 574.6999999880791,
+        "optimal": 4
+      },
+      "highs": {
+        "n": 4,
+        "median_ms": 5.299999982118607,
+        "min_ms": 2.300000011920929,
+        "max_ms": 6.300000011920929,
+        "optimal": 4
+      }
+    },
+    {
+      "fixture": "barrel-muzzle",
+      "phase": "handling",
+      "scip": {
+        "n": 4,
+        "median_ms": 287.35000002384186,
+        "min_ms": 126.39999997615814,
+        "max_ms": 461.39999997615814,
+        "optimal": 4
+      },
+      "highs": {
+        "n": 4,
+        "median_ms": 21.200000017881393,
+        "min_ms": 15.300000011920929,
+        "max_ms": 26.19999998807907,
+        "optimal": 4
+      }
+    },
+    {
+      "fixture": "grip-magazine",
+      "phase": "handling",
+      "scip": {
+        "n": 4,
+        "median_ms": 151.30000001192093,
+        "min_ms": 108,
+        "max_ms": 189.39999997615814,
+        "optimal": 4
+      },
+      "highs": {
+        "n": 4,
+        "median_ms": 34.79999998211861,
+        "min_ms": 28.69999998807907,
+        "max_ms": 42.80000001192093,
+        "optimal": 4
+      }
+    },
+    {
+      "fixture": "recorded-ordinary-best",
+      "phase": "handling",
+      "scip": {
+        "n": 4,
+        "median_ms": 199.69999998807907,
+        "min_ms": 178.30000001192093,
+        "max_ms": 530.4000000357628,
+        "optimal": 4
+      },
+      "highs": {
+        "n": 4,
+        "median_ms": 76.19999998807907,
+        "min_ms": 37.60000002384186,
+        "max_ms": 140.5,
+        "optimal": 4
+      }
+    }
+  ],
+  "notes": [
+    "Four fixed-layout M4A1 examples; not a sampled or complete survivor cohort.",
+    "Four repeats per fixture in one concurrent 16-worker cohort; order counterbalanced within fixture.",
+    "SCIP fresh CLI runtime versus HiGHS persistent sparse-model adapter, not isolated core-solver performance.",
+    "Primary phase followed by Handling with a shared primary bound plus1e-8, as in the reference tolerance policy.",
+    "Two solver seconds per call, at most six refinement rounds per phase; no screening deadline changed.",
+    "Every incumbent source-replayed; paired model inputs have matching SHA256.",
+    "No supporting/rounding cuts were needed on these fixtures; only the primary-bound row was appended.",
+    "No confidence intervals: contended concurrent repeats are not independent whole-machine runs."
+  ]
+}

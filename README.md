@@ -21,6 +21,8 @@ Run the local builder with Python 3 and Node.js:
 python tools/builder_server.py
 ```
 
+For a fresh clone, see the [development handoff](docs/development_handoff.md).
+
 See [builder setup](builder/README.md), [project backlog](TODO.md) and
 [terminology](GLOSSARY.md). Start with the [documentation index](docs/README.md)
 for maintained contracts, source research and historical trials. The local SQLite dataset, `.scratch` model runtime,

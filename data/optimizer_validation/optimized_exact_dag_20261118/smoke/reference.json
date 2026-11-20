@@ -1,0 +1,1176 @@
+{
+  "phase": "reference",
+  "wall_ms": 255.45669999999996,
+  "paths": "395",
+  "terminal_classes": 395,
+  "objective_evaluations": 226,
+  "native_witnesses": 226,
+  "geometry_evaluations": 76,
+  "transitions_computed": 0,
+  "transitions_reused": 0,
+  "spill_bytes": 0,
+  "materialized_paths": 0,
+  "audit_ms_sum": 0,
+  "workers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "survivors": 2,
+  "survivor_manifest": "e3bf8c6017779de3839f74a56576d4743c33fe807c24c9bd3a2fe3cf971782ce",
+  "guard_fallback_jobs": 0,
+  "results": [
+    {
+      "id": 0,
+      "paths": 123,
+      "wall_ms": 169.77909999999997,
+      "manifest": "52ac53891ca982e23cfe2f99680c2b47df53d0a70fc046ba3f7c6b19bb20b98e",
+      "terminal_classes": 123,
+      "worker": 0
+    },
+    {
+      "id": 1,
+      "paths": 35,
+      "wall_ms": 109.24220000000003,
+      "manifest": "38b47fc016098d0487d324cd85207c08de1b1d47fac51fa5f78f28ea775d32ec",
+      "terminal_classes": 35,
+      "worker": 1
+    },
+    {
+      "id": 2,
+      "paths": 1,
+      "wall_ms": 35.68029999999999,
+      "manifest": "6cf5e21a45c98c2cd300e3f2ff12c8ba078c586ecf2fae47bdf46d483670e81c",
+      "terminal_classes": 1,
+      "worker": 2
+    },
+    {
+      "id": 3,
+      "paths": 35,
+      "wall_ms": 144.24569999999994,
+      "manifest": "5d2e3d27924d518ae75987165895f53973bb7cc44fbc0b60fef155143af75ba6",
+      "terminal_classes": 35,
+      "worker": 3
+    },
+    {
+      "id": 4,
+      "paths": 35,
+      "wall_ms": 104.36779999999999,
+      "manifest": "e0757b57e9519fa0459c073ab284edcbc7e0cbc6b4e1e2fba6241e5d3b893130",
+      "terminal_classes": 35,
+      "worker": 4
+    },
+    {
+      "id": 5,
+      "paths": 8,
+      "wall_ms": 43.72079999999994,
+      "manifest": "4e4c448cf27065f970f3348995e135e389b41a3ca42dcf5c9f8a8c97fc2af481",
+      "terminal_classes": 8,
+      "worker": 5
+    },
+    {
+      "id": 6,
+      "paths": 8,
+      "wall_ms": 66.11980000000005,
+      "manifest": "5d6d6dce2ef2cd225bbc9e79fd1df71e8c2b25898b081b36c293aa73aa0f8fdb",
+      "terminal_classes": 8,
+      "worker": 6
+    },
+    {
+      "id": 7,
+      "paths": 8,
+      "wall_ms": 65.64150000000006,
+      "manifest": "cf6ad69e563da23654389c80f8cddb0f22805a58a84260d15c17d3bb597f515a",
+      "terminal_classes": 8,
+      "worker": 7
+    },
+    {
+      "id": 8,
+      "paths": 1,
+      "wall_ms": 10.709499999999935,
+      "manifest": "c872cd6de0fd951b9b0d9a5ed0af6bc2416e901c34ed305f9d52f0da83edc5b0",
+      "terminal_classes": 1,
+      "worker": 2
+    },
+    {
+      "id": 9,
+      "paths": 1,
+      "wall_ms": 8.239400000000046,
+      "manifest": "f798a296b50098318721f81d3d931704b57d6717efdab007cb407d55a9d6b7ff",
+      "terminal_classes": 1,
+      "worker": 5
+    },
+    {
+      "id": 10,
+      "paths": 35,
+      "wall_ms": 93.64049999999997,
+      "manifest": "c8fbeb075c808ab6114f9bfa188d8263cd9dfe97e41f2cbb032e6cb18336c1c8",
+      "terminal_classes": 35,
+      "worker": 2
+    },
+    {
+      "id": 11,
+      "paths": 8,
+      "wall_ms": 40.160799999999995,
+      "manifest": "42a5aeef675e87d9bb7f8048865ab1026b517c2db3c740efb37d3f66945f9c4b",
+      "terminal_classes": 8,
+      "worker": 5
+    },
+    {
+      "id": 12,
+      "paths": 8,
+      "wall_ms": 36.09929999999997,
+      "manifest": "3e2dd6fda67674e49fcc973cecb446d2beb57714f05fc7e4e6b93558f0543078",
+      "terminal_classes": 8,
+      "worker": 7
+    },
+    {
+      "id": 13,
+      "paths": 1,
+      "wall_ms": 11.111400000000003,
+      "manifest": "82eeed4920a1cd21ae3e82ee7607f543dfad550d242372b630e087519e7953b5",
+      "terminal_classes": 1,
+      "worker": 6
+    },
+    {
+      "id": 14,
+      "paths": 1,
+      "wall_ms": 6.761799999999994,
+      "manifest": "b59716d7ae02668155971e691e2af7c98eb7ff3d2609c22f7b179f0bff61d86a",
+      "terminal_classes": 1,
+      "worker": 6
+    },
+    {
+      "id": 15,
+      "paths": 1,
+      "wall_ms": 5.175399999999968,
+      "manifest": "614f166a3d2882ba56af30820485e594c45f4afe89636ed132eb94a7bfe9fd2f",
+      "terminal_classes": 1,
+      "worker": 6
+    },
+    {
+      "id": 16,
+      "paths": 1,
+      "wall_ms": 3.669200000000046,
+      "manifest": "92bdad49673f6f1bcbfec549f107d4a854455dc982db42bf91e85b422ff44d69",
+      "terminal_classes": 1,
+      "worker": 6
+    },
+    {
+      "id": 17,
+      "paths": 1,
+      "wall_ms": 7.436699999999973,
+      "manifest": "bc177362efb17426a7f963417cc1a467d53c0d14954ac26df1f4debd4e420ada",
+      "terminal_classes": 1,
+      "worker": 5
+    },
+    {
+      "id": 18,
+      "paths": 8,
+      "wall_ms": 20.306500000000028,
+      "manifest": "cbbed1a946e09cb6fe2e9c030ef740419952e7654f189462efa3d590e3bdd467",
+      "terminal_classes": 8,
+      "worker": 6
+    },
+    {
+      "id": 19,
+      "paths": 1,
+      "wall_ms": 6.633799999999951,
+      "manifest": "bce1994ad210a7ab33304a9809a37a22f8309936bc619e641f38d41be6fbd805",
+      "terminal_classes": 1,
+      "worker": 7
+    },
+    {
+      "id": 20,
+      "paths": 1,
+      "wall_ms": 10.166400000000067,
+      "manifest": "f16470ae8a8160ff49b424d11e9dbed588de7b09b9617de40ab4a6e84c42abd6",
+      "terminal_classes": 1,
+      "worker": 5
+    },
+    {
+      "id": 21,
+      "paths": 35,
+      "wall_ms": 50.7962,
+      "manifest": "0619bdb3b831115d653fed5329e9ea894f1c50012c029c87ddd32ce9ebd87660",
+      "terminal_classes": 35,
+      "worker": 4
+    },
+    {
+      "id": 22,
+      "paths": 8,
+      "wall_ms": 20.560500000000047,
+      "manifest": "38a9326e3573edc81bb15f737b792287800b66f66b832d3c926ab11cdb72f00a",
+      "terminal_classes": 8,
+      "worker": 1
+    },
+    {
+      "id": 23,
+      "paths": 8,
+      "wall_ms": 18.163599999999974,
+      "manifest": "a19701dd4b01c5472edd2deb2a3def6b6fe3e8fc3fbba0ae51137c04e465b985",
+      "terminal_classes": 8,
+      "worker": 7
+    },
+    {
+      "id": 24,
+      "paths": 1,
+      "wall_ms": 9.013199999999983,
+      "manifest": "6f6b7e8eb69e65dbc99dc37c328fe68e3d9e636305afff51748dbac8472ef814",
+      "terminal_classes": 1,
+      "worker": 5
+    },
+    {
+      "id": 25,
+      "paths": 6,
+      "wall_ms": 8.383399999999938,
+      "manifest": "6cada2064cba7a1ac71319aca8f5f0b56eef9f0720b0a3626fb02c45695dc741",
+      "terminal_classes": 6,
+      "worker": 6
+    },
+    {
+      "id": 26,
+      "paths": 1,
+      "wall_ms": 8.213800000000106,
+      "manifest": "783832696f0f5b3a9a38d004844cd39e20927329a090aa3ac8bd26c716a136ee",
+      "terminal_classes": 1,
+      "worker": 5
+    },
+    {
+      "id": 27,
+      "paths": 1,
+      "wall_ms": 2.981300000000033,
+      "manifest": "3f4d3eaa9e2fc1871a63de77abc20b19619f579ca1e9a6d71eac872d08965d0e",
+      "terminal_classes": 1,
+      "worker": 7
+    },
+    {
+      "id": 28,
+      "paths": 1,
+      "wall_ms": 1.33949999999993,
+      "manifest": "ed62b44e0377460dae84622e2be175a29c408aaf53d593786a9024bd98c81ffd",
+      "terminal_classes": 1,
+      "worker": 6
+    },
+    {
+      "id": 29,
+      "paths": 1,
+      "wall_ms": 1.981899999999996,
+      "manifest": "4a5ca30dccd960e9379cf38a027cc6a9d01ee3d95b8c264c32ecccd7aa177413",
+      "terminal_classes": 1,
+      "worker": 6
+    },
+    {
+      "id": 30,
+      "paths": 1,
+      "wall_ms": 2.9142000000000507,
+      "manifest": "a40d3c73dec333cc6e14374984f2cb0bef6ee7123c75fdd90af247d6f68cd6f4",
+      "terminal_classes": 1,
+      "worker": 1
+    },
+    {
+      "id": 31,
+      "paths": 6,
+      "wall_ms": 8.980199999999968,
+      "manifest": "13a8b4a95d5c2c36f967b4fd98a5b90acba259c0f7e35f9cf1d8d4f7a83ff04f",
+      "terminal_classes": 6,
+      "worker": 7
+    },
+    {
+      "id": 32,
+      "paths": 1,
+      "wall_ms": 3.431600000000003,
+      "manifest": "c62e6c808df4bf13291f6b2b92d81d406659d9fd1f9f80ace0d9f4e8254157bb",
+      "terminal_classes": 1,
+      "worker": 6
+    },
+    {
+      "id": 33,
+      "paths": 1,
+      "wall_ms": 2.393799999999942,
+      "manifest": "e5fb366fad4e7e8899e4301c0be559058aaefc3fe2a723b224be9bc19e02b94c",
+      "terminal_classes": 1,
+      "worker": 1
+    },
+    {
+      "id": 34,
+      "paths": 1,
+      "wall_ms": 6.518399999999929,
+      "manifest": "0a8db9b3f687338803a9ddf74d33ab94983552537aa2f1fa29dbfe7283866c1d",
+      "terminal_classes": 1,
+      "worker": 5
+    },
+    {
+      "id": 35,
+      "paths": 1,
+      "wall_ms": 1.4343999999999824,
+      "manifest": "45b047a64a54b98c0bf44ac3f374b364e0da93b02bdfa2b9da2fcc75bcb83bbd",
+      "terminal_classes": 1,
+      "worker": 1
+    },
+    {
+      "id": 36,
+      "paths": 1,
+      "wall_ms": 2.325800000000072,
+      "manifest": "b79fc7328eed0a7156b4238cc5be12dc6e841aaedde6f1851bf11efd907e60d3",
+      "terminal_classes": 1,
+      "worker": 6
+    }
+  ],
+  "worker_stats": [
+    {
+      "worker": 0,
+      "stats": {
+        "transitions_computed": 0,
+        "transitions_reused": 0,
+        "folds": 0,
+        "buckets_copied": 0,
+        "reference_rows": 0,
+        "reference_paths": 123,
+        "event_roots": 0,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 123,
+          "objective_evaluations": 66,
+          "native_witnesses": 66,
+          "raw_finalizations": 0,
+          "geometry_evaluations": 15,
+          "timing_evaluations": 1,
+          "pattern_evaluations": 15,
+          "caches": {
+            "geometry": {
+              "hits": 108,
+              "misses": 15,
+              "evictions": 0,
+              "peak_bytes": 11974,
+              "entries": 15,
+              "bytes": 11974,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 122,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 618,
+              "entries": 1,
+              "bytes": 618,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 108,
+              "misses": 15,
+              "evictions": 0,
+              "peak_bytes": 11674,
+              "entries": 15,
+              "bytes": 11674,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 57,
+              "misses": 66,
+              "evictions": 0,
+              "peak_bytes": 28612,
+              "entries": 66,
+              "bytes": 28612,
+              "max_bytes": 8388608
+            },
+            "native_witness": {
+              "hits": 57,
+              "misses": 66,
+              "evictions": 0,
+              "peak_bytes": 132132,
+              "entries": 66,
+              "bytes": 132132,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 0,
+          "evictions": 0,
+          "peak_bytes": 0,
+          "entries": 0,
+          "bytes": 0,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0,
+          "peak_bytes": 1346,
+          "entries": 2,
+          "bytes": 1346,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0,
+          "peak_bytes": 156,
+          "entries": 1,
+          "bytes": 156,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 0
+    },
+    {
+      "worker": 1,
+      "stats": {
+        "transitions_computed": 0,
+        "transitions_reused": 0,
+        "folds": 0,
+        "buckets_copied": 0,
+        "reference_rows": 0,
+        "reference_paths": 46,
+        "event_roots": 0,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 46,
+          "objective_evaluations": 26,
+          "native_witnesses": 26,
+          "raw_finalizations": 0,
+          "geometry_evaluations": 10,
+          "timing_evaluations": 1,
+          "pattern_evaluations": 10,
+          "caches": {
+            "geometry": {
+              "hits": 36,
+              "misses": 10,
+              "evictions": 0,
+              "peak_bytes": 8048,
+              "entries": 10,
+              "bytes": 8048,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 45,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 618,
+              "entries": 1,
+              "bytes": 618,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 36,
+              "misses": 10,
+              "evictions": 0,
+              "peak_bytes": 7848,
+              "entries": 10,
+              "bytes": 7848,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 20,
+              "misses": 26,
+              "evictions": 0,
+              "peak_bytes": 11428,
+              "entries": 26,
+              "bytes": 11428,
+              "max_bytes": 8388608
+            },
+            "native_witness": {
+              "hits": 20,
+              "misses": 26,
+              "evictions": 0,
+              "peak_bytes": 51846,
+              "entries": 26,
+              "bytes": 51846,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 0,
+          "evictions": 0,
+          "peak_bytes": 0,
+          "entries": 0,
+          "bytes": 0,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0,
+          "peak_bytes": 1346,
+          "entries": 2,
+          "bytes": 1346,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0,
+          "peak_bytes": 156,
+          "entries": 1,
+          "bytes": 156,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 0
+    },
+    {
+      "worker": 2,
+      "stats": {
+        "transitions_computed": 0,
+        "transitions_reused": 0,
+        "folds": 0,
+        "buckets_copied": 0,
+        "reference_rows": 0,
+        "reference_paths": 37,
+        "event_roots": 0,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 37,
+          "objective_evaluations": 21,
+          "native_witnesses": 21,
+          "raw_finalizations": 0,
+          "geometry_evaluations": 6,
+          "timing_evaluations": 1,
+          "pattern_evaluations": 6,
+          "caches": {
+            "geometry": {
+              "hits": 31,
+              "misses": 6,
+              "evictions": 0,
+              "peak_bytes": 4836,
+              "entries": 6,
+              "bytes": 4836,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 36,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 618,
+              "entries": 1,
+              "bytes": 618,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 31,
+              "misses": 6,
+              "evictions": 0,
+              "peak_bytes": 4716,
+              "entries": 6,
+              "bytes": 4716,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 16,
+              "misses": 21,
+              "evictions": 0,
+              "peak_bytes": 9146,
+              "entries": 21,
+              "bytes": 9146,
+              "max_bytes": 8388608
+            },
+            "native_witness": {
+              "hits": 16,
+              "misses": 21,
+              "evictions": 0,
+              "peak_bytes": 41848,
+              "entries": 21,
+              "bytes": 41848,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 0,
+          "evictions": 0,
+          "peak_bytes": 0,
+          "entries": 0,
+          "bytes": 0,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0,
+          "peak_bytes": 1346,
+          "entries": 2,
+          "bytes": 1346,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0,
+          "peak_bytes": 156,
+          "entries": 1,
+          "bytes": 156,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 0
+    },
+    {
+      "worker": 3,
+      "stats": {
+        "transitions_computed": 0,
+        "transitions_reused": 0,
+        "folds": 0,
+        "buckets_copied": 0,
+        "reference_rows": 0,
+        "reference_paths": 35,
+        "event_roots": 0,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 35,
+          "objective_evaluations": 19,
+          "native_witnesses": 19,
+          "raw_finalizations": 0,
+          "geometry_evaluations": 6,
+          "timing_evaluations": 1,
+          "pattern_evaluations": 6,
+          "caches": {
+            "geometry": {
+              "hits": 29,
+              "misses": 6,
+              "evictions": 0,
+              "peak_bytes": 4836,
+              "entries": 6,
+              "bytes": 4836,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 34,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 618,
+              "entries": 1,
+              "bytes": 618,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 29,
+              "misses": 6,
+              "evictions": 0,
+              "peak_bytes": 4716,
+              "entries": 6,
+              "bytes": 4716,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 16,
+              "misses": 19,
+              "evictions": 0,
+              "peak_bytes": 8246,
+              "entries": 19,
+              "bytes": 8246,
+              "max_bytes": 8388608
+            },
+            "native_witness": {
+              "hits": 16,
+              "misses": 19,
+              "evictions": 0,
+              "peak_bytes": 37872,
+              "entries": 19,
+              "bytes": 37872,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 0,
+          "evictions": 0,
+          "peak_bytes": 0,
+          "entries": 0,
+          "bytes": 0,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0,
+          "peak_bytes": 1346,
+          "entries": 2,
+          "bytes": 1346,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0,
+          "peak_bytes": 156,
+          "entries": 1,
+          "bytes": 156,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 0
+    },
+    {
+      "worker": 4,
+      "stats": {
+        "transitions_computed": 0,
+        "transitions_reused": 0,
+        "folds": 0,
+        "buckets_copied": 0,
+        "reference_rows": 0,
+        "reference_paths": 70,
+        "event_roots": 0,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 70,
+          "objective_evaluations": 38,
+          "native_witnesses": 38,
+          "raw_finalizations": 0,
+          "geometry_evaluations": 12,
+          "timing_evaluations": 1,
+          "pattern_evaluations": 12,
+          "caches": {
+            "geometry": {
+              "hits": 58,
+              "misses": 12,
+              "evictions": 0,
+              "peak_bytes": 9692,
+              "entries": 12,
+              "bytes": 9692,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 69,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 618,
+              "entries": 1,
+              "bytes": 618,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 58,
+              "misses": 12,
+              "evictions": 0,
+              "peak_bytes": 9452,
+              "entries": 12,
+              "bytes": 9452,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 32,
+              "misses": 38,
+              "evictions": 0,
+              "peak_bytes": 16570,
+              "entries": 38,
+              "bytes": 16570,
+              "max_bytes": 8388608
+            },
+            "native_witness": {
+              "hits": 32,
+              "misses": 38,
+              "evictions": 0,
+              "peak_bytes": 76002,
+              "entries": 38,
+              "bytes": 76002,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 0,
+          "evictions": 0,
+          "peak_bytes": 0,
+          "entries": 0,
+          "bytes": 0,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0,
+          "peak_bytes": 1346,
+          "entries": 2,
+          "bytes": 1346,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0,
+          "peak_bytes": 156,
+          "entries": 1,
+          "bytes": 156,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 0
+    },
+    {
+      "worker": 5,
+      "stats": {
+        "transitions_computed": 0,
+        "transitions_reused": 0,
+        "folds": 0,
+        "buckets_copied": 0,
+        "reference_rows": 0,
+        "reference_paths": 22,
+        "event_roots": 0,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 22,
+          "objective_evaluations": 14,
+          "native_witnesses": 14,
+          "raw_finalizations": 0,
+          "geometry_evaluations": 7,
+          "timing_evaluations": 1,
+          "pattern_evaluations": 7,
+          "caches": {
+            "geometry": {
+              "hits": 15,
+              "misses": 7,
+              "evictions": 0,
+              "peak_bytes": 5650,
+              "entries": 7,
+              "bytes": 5650,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 21,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 618,
+              "entries": 1,
+              "bytes": 618,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 15,
+              "misses": 7,
+              "evictions": 0,
+              "peak_bytes": 5510,
+              "entries": 7,
+              "bytes": 5510,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 8,
+              "misses": 14,
+              "evictions": 0,
+              "peak_bytes": 6114,
+              "entries": 14,
+              "bytes": 6114,
+              "max_bytes": 8388608
+            },
+            "native_witness": {
+              "hits": 8,
+              "misses": 14,
+              "evictions": 0,
+              "peak_bytes": 28078,
+              "entries": 14,
+              "bytes": 28078,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 0,
+          "evictions": 0,
+          "peak_bytes": 0,
+          "entries": 0,
+          "bytes": 0,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0,
+          "peak_bytes": 1346,
+          "entries": 2,
+          "bytes": 1346,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0,
+          "peak_bytes": 156,
+          "entries": 1,
+          "bytes": 156,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 0
+    },
+    {
+      "worker": 6,
+      "stats": {
+        "transitions_computed": 0,
+        "transitions_reused": 0,
+        "folds": 0,
+        "buckets_copied": 0,
+        "reference_rows": 0,
+        "reference_paths": 30,
+        "event_roots": 0,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 30,
+          "objective_evaluations": 21,
+          "native_witnesses": 21,
+          "raw_finalizations": 0,
+          "geometry_evaluations": 9,
+          "timing_evaluations": 1,
+          "pattern_evaluations": 9,
+          "caches": {
+            "geometry": {
+              "hits": 21,
+              "misses": 9,
+              "evictions": 0,
+              "peak_bytes": 7286,
+              "entries": 9,
+              "bytes": 7286,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 29,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 618,
+              "entries": 1,
+              "bytes": 618,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 21,
+              "misses": 9,
+              "evictions": 0,
+              "peak_bytes": 7106,
+              "entries": 9,
+              "bytes": 7106,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 9,
+              "misses": 21,
+              "evictions": 0,
+              "peak_bytes": 9040,
+              "entries": 21,
+              "bytes": 9040,
+              "max_bytes": 8388608
+            },
+            "native_witness": {
+              "hits": 9,
+              "misses": 21,
+              "evictions": 0,
+              "peak_bytes": 42300,
+              "entries": 21,
+              "bytes": 42300,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 0,
+          "evictions": 0,
+          "peak_bytes": 0,
+          "entries": 0,
+          "bytes": 0,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0,
+          "peak_bytes": 1346,
+          "entries": 2,
+          "bytes": 1346,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0,
+          "peak_bytes": 156,
+          "entries": 1,
+          "bytes": 156,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 0
+    },
+    {
+      "worker": 7,
+      "stats": {
+        "transitions_computed": 0,
+        "transitions_reused": 0,
+        "folds": 0,
+        "buckets_copied": 0,
+        "reference_rows": 0,
+        "reference_paths": 32,
+        "event_roots": 0,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 32,
+          "objective_evaluations": 21,
+          "native_witnesses": 21,
+          "raw_finalizations": 0,
+          "geometry_evaluations": 11,
+          "timing_evaluations": 1,
+          "pattern_evaluations": 11,
+          "caches": {
+            "geometry": {
+              "hits": 21,
+              "misses": 11,
+              "evictions": 0,
+              "peak_bytes": 8922,
+              "entries": 11,
+              "bytes": 8922,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 31,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 618,
+              "entries": 1,
+              "bytes": 618,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 21,
+              "misses": 11,
+              "evictions": 0,
+              "peak_bytes": 8702,
+              "entries": 11,
+              "bytes": 8702,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 11,
+              "misses": 21,
+              "evictions": 0,
+              "peak_bytes": 9122,
+              "entries": 21,
+              "bytes": 9122,
+              "max_bytes": 8388608
+            },
+            "native_witness": {
+              "hits": 11,
+              "misses": 21,
+              "evictions": 0,
+              "peak_bytes": 42040,
+              "entries": 21,
+              "bytes": 42040,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 0,
+          "evictions": 0,
+          "peak_bytes": 0,
+          "entries": 0,
+          "bytes": 0,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0,
+          "peak_bytes": 1346,
+          "entries": 2,
+          "bytes": 1346,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0,
+          "peak_bytes": 156,
+          "entries": 1,
+          "bytes": 156,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 0
+    }
+  ],
+  "materialization": []
+}

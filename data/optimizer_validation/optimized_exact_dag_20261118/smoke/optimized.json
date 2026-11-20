@@ -1,0 +1,1529 @@
+{
+  "phase": "optimized",
+  "wall_ms": 95.45180000000005,
+  "paths": "395",
+  "terminal_classes": 243,
+  "objective_evaluations": 224,
+  "native_witnesses": 0,
+  "geometry_evaluations": 72,
+  "transitions_computed": 1892,
+  "transitions_reused": 0,
+  "spill_bytes": 75708,
+  "materialized_paths": 5,
+  "audit_ms_sum": 7.419799999999896,
+  "workers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "survivors": 2,
+  "survivor_manifest": "e3bf8c6017779de3839f74a56576d4743c33fe807c24c9bd3a2fe3cf971782ce",
+  "guard_fallback_jobs": 0,
+  "results": [
+    {
+      "id": 0,
+      "kind": "dag",
+      "paths": "123",
+      "terminal_classes": 72,
+      "merges": 25,
+      "guard_fallback": null,
+      "manifest": "52ac53891ca982e23cfe2f99680c2b47df53d0a70fc046ba3f7c6b19bb20b98e",
+      "compute_ms": 23.036399999999958,
+      "rank_class_ms": 0.6997000000000071,
+      "audit_ms": 1.7783999999999196,
+      "spill_ms": 4.119799999999941,
+      "spill_bytes": 16576,
+      "worker": 0,
+      "wall_ms": 30.11609999999996
+    },
+    {
+      "id": 1,
+      "kind": "dag",
+      "paths": "35",
+      "terminal_classes": 20,
+      "merges": 9,
+      "guard_fallback": null,
+      "manifest": "38b47fc016098d0487d324cd85207c08de1b1d47fac51fa5f78f28ea775d32ec",
+      "compute_ms": 12.735099999999989,
+      "rank_class_ms": 0.25940000000002783,
+      "audit_ms": 0.41030000000000655,
+      "spill_ms": 4.175799999999981,
+      "spill_bytes": 5543,
+      "worker": 1,
+      "wall_ms": 17.794199999999933
+    },
+    {
+      "id": 2,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "6cf5e21a45c98c2cd300e3f2ff12c8ba078c586ecf2fae47bdf46d483670e81c",
+      "compute_ms": 8.807000000000016,
+      "rank_class_ms": 0.07489999999995689,
+      "audit_ms": 0.18849999999997635,
+      "spill_ms": 5.195300000000088,
+      "spill_bytes": 551,
+      "worker": 2,
+      "wall_ms": 14.475099999999998
+    },
+    {
+      "id": 3,
+      "kind": "dag",
+      "paths": "35",
+      "terminal_classes": 20,
+      "merges": 9,
+      "guard_fallback": null,
+      "manifest": "5d2e3d27924d518ae75987165895f53973bb7cc44fbc0b60fef155143af75ba6",
+      "compute_ms": 14.768899999999917,
+      "rank_class_ms": 0.3368000000000393,
+      "audit_ms": 0.5944000000000642,
+      "spill_ms": 4.732900000000086,
+      "spill_bytes": 5543,
+      "worker": 3,
+      "wall_ms": 20.729900000000043
+    },
+    {
+      "id": 4,
+      "kind": "dag",
+      "paths": "35",
+      "terminal_classes": 20,
+      "merges": 9,
+      "guard_fallback": null,
+      "manifest": "e0757b57e9519fa0459c073ab284edcbc7e0cbc6b4e1e2fba6241e5d3b893130",
+      "compute_ms": 23.318700000000035,
+      "rank_class_ms": 0.27959999999995944,
+      "audit_ms": 0.5492999999999029,
+      "spill_ms": 4.566099999999892,
+      "spill_bytes": 5543,
+      "worker": 4,
+      "wall_ms": 28.960699999999974
+    },
+    {
+      "id": 5,
+      "kind": "dag",
+      "paths": "8",
+      "terminal_classes": 5,
+      "merges": 3,
+      "guard_fallback": null,
+      "manifest": "4e4c448cf27065f970f3348995e135e389b41a3ca42dcf5c9f8a8c97fc2af481",
+      "compute_ms": 8.888199999999983,
+      "rank_class_ms": 0.20720000000005712,
+      "audit_ms": 0.2982999999999265,
+      "spill_ms": 2.9478000000000293,
+      "spill_bytes": 2002,
+      "worker": 5,
+      "wall_ms": 12.54570000000001
+    },
+    {
+      "id": 6,
+      "kind": "dag",
+      "paths": "8",
+      "terminal_classes": 5,
+      "merges": 3,
+      "guard_fallback": null,
+      "manifest": "5d6d6dce2ef2cd225bbc9e79fd1df71e8c2b25898b081b36c293aa73aa0f8fdb",
+      "compute_ms": 10.717899999999986,
+      "rank_class_ms": 0.23210000000005948,
+      "audit_ms": 0.30309999999997217,
+      "spill_ms": 3.0960999999999785,
+      "spill_bytes": 2002,
+      "worker": 6,
+      "wall_ms": 14.587800000000016
+    },
+    {
+      "id": 7,
+      "kind": "dag",
+      "paths": "8",
+      "terminal_classes": 5,
+      "merges": 3,
+      "guard_fallback": null,
+      "manifest": "cf6ad69e563da23654389c80f8cddb0f22805a58a84260d15c17d3bb597f515a",
+      "compute_ms": 12.076199999999972,
+      "rank_class_ms": 0.26319999999998345,
+      "audit_ms": 0.45709999999996853,
+      "spill_ms": 3.5498000000000047,
+      "spill_bytes": 1885,
+      "worker": 7,
+      "wall_ms": 16.595300000000066
+    },
+    {
+      "id": 8,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "c872cd6de0fd951b9b0d9a5ed0af6bc2416e901c34ed305f9d52f0da83edc5b0",
+      "compute_ms": 1.630899999999997,
+      "rank_class_ms": 0.1127999999999929,
+      "audit_ms": 0.09949999999992087,
+      "spill_ms": 3.2443000000000666,
+      "spill_bytes": 590,
+      "worker": 2,
+      "wall_ms": 5.1988999999999805
+    },
+    {
+      "id": 9,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "f798a296b50098318721f81d3d931704b57d6717efdab007cb407d55a9d6b7ff",
+      "compute_ms": 1.1608000000001084,
+      "rank_class_ms": 0.014299999999934698,
+      "audit_ms": 0.07449999999994361,
+      "spill_ms": 3.866200000000049,
+      "spill_bytes": 590,
+      "worker": 5,
+      "wall_ms": 5.20780000000002
+    },
+    {
+      "id": 10,
+      "kind": "dag",
+      "paths": "35",
+      "terminal_classes": 20,
+      "merges": 9,
+      "guard_fallback": null,
+      "manifest": "c8fbeb075c808ab6114f9bfa188d8263cd9dfe97e41f2cbb032e6cb18336c1c8",
+      "compute_ms": 10.681300000000078,
+      "rank_class_ms": 0.08519999999998618,
+      "audit_ms": 0.2867999999999711,
+      "spill_ms": 3.78570000000002,
+      "spill_bytes": 5543,
+      "worker": 6,
+      "wall_ms": 14.966099999999983
+    },
+    {
+      "id": 11,
+      "kind": "dag",
+      "paths": "8",
+      "terminal_classes": 5,
+      "merges": 3,
+      "guard_fallback": null,
+      "manifest": "42a5aeef675e87d9bb7f8048865ab1026b517c2db3c740efb37d3f66945f9c4b",
+      "compute_ms": 3.157100000000014,
+      "rank_class_ms": 0.020800000000008367,
+      "audit_ms": 0.12570000000005166,
+      "spill_ms": 4.26279999999997,
+      "spill_bytes": 2002,
+      "worker": 7,
+      "wall_ms": 7.663599999999974
+    },
+    {
+      "id": 12,
+      "kind": "dag",
+      "paths": "8",
+      "terminal_classes": 5,
+      "merges": 3,
+      "guard_fallback": null,
+      "manifest": "3e2dd6fda67674e49fcc973cecb446d2beb57714f05fc7e4e6b93558f0543078",
+      "compute_ms": 2.9221000000000004,
+      "rank_class_ms": 0.014300000000048385,
+      "audit_ms": 0.11509999999998399,
+      "spill_ms": 3.6054999999998927,
+      "spill_bytes": 2002,
+      "worker": 1,
+      "wall_ms": 6.761100000000056
+    },
+    {
+      "id": 13,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "82eeed4920a1cd21ae3e82ee7607f543dfad550d242372b630e087519e7953b5",
+      "compute_ms": 1.8624999999999545,
+      "rank_class_ms": 0.09230000000002292,
+      "audit_ms": 0.05340000000001055,
+      "spill_ms": 2.756599999999935,
+      "spill_bytes": 551,
+      "worker": 2,
+      "wall_ms": 4.859899999999925
+    },
+    {
+      "id": 14,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "b59716d7ae02668155971e691e2af7c98eb7ff3d2609c22f7b179f0bff61d86a",
+      "compute_ms": 1.2842000000000553,
+      "rank_class_ms": 0.022699999999986176,
+      "audit_ms": 0.06060000000002219,
+      "spill_ms": 2.723899999999958,
+      "spill_bytes": 551,
+      "worker": 5,
+      "wall_ms": 4.177400000000034
+    },
+    {
+      "id": 15,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "614f166a3d2882ba56af30820485e594c45f4afe89636ed132eb94a7bfe9fd2f",
+      "compute_ms": 2.3776000000000295,
+      "rank_class_ms": 0.010600000000067666,
+      "audit_ms": 0.07500000000004547,
+      "spill_ms": 2.7047999999999774,
+      "spill_bytes": 551,
+      "worker": 3,
+      "wall_ms": 5.295100000000048
+    },
+    {
+      "id": 16,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "92bdad49673f6f1bcbfec549f107d4a854455dc982db42bf91e85b422ff44d69",
+      "compute_ms": 1.0606000000000222,
+      "rank_class_ms": 0.006799999999998363,
+      "audit_ms": 0.04689999999993688,
+      "spill_ms": 3.7182999999999993,
+      "spill_bytes": 551,
+      "worker": 1,
+      "wall_ms": 4.93509999999992
+    },
+    {
+      "id": 17,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "bc177362efb17426a7f963417cc1a467d53c0d14954ac26df1f4debd4e420ada",
+      "compute_ms": 1.161899999999946,
+      "rank_class_ms": 0.018699999999967076,
+      "audit_ms": 0.06800000000009732,
+      "spill_ms": 3.1632000000000744,
+      "spill_bytes": 551,
+      "worker": 7,
+      "wall_ms": 4.507799999999975
+    },
+    {
+      "id": 18,
+      "kind": "dag",
+      "paths": "8",
+      "terminal_classes": 5,
+      "merges": 3,
+      "guard_fallback": null,
+      "manifest": "cbbed1a946e09cb6fe2e9c030ef740419952e7654f189462efa3d590e3bdd467",
+      "compute_ms": 4.931699999999978,
+      "rank_class_ms": 0.04750000000001364,
+      "audit_ms": 0.10950000000002547,
+      "spill_ms": 3.594799999999964,
+      "spill_bytes": 1933,
+      "worker": 5,
+      "wall_ms": 8.77920000000006
+    },
+    {
+      "id": 19,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "bce1994ad210a7ab33304a9809a37a22f8309936bc619e641f38d41be6fbd805",
+      "compute_ms": 1.5357000000000198,
+      "rank_class_ms": 0.10829999999998563,
+      "audit_ms": 0.07200000000000273,
+      "spill_ms": 2.615000000000009,
+      "spill_bytes": 606,
+      "worker": 2,
+      "wall_ms": 4.427599999999984
+    },
+    {
+      "id": 20,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "f16470ae8a8160ff49b424d11e9dbed588de7b09b9617de40ab4a6e84c42abd6",
+      "compute_ms": 2.3906999999999243,
+      "rank_class_ms": 0.013199999999983447,
+      "audit_ms": 0.10609999999996944,
+      "spill_ms": 2.6591999999999416,
+      "spill_bytes": 606,
+      "worker": 3,
+      "wall_ms": 5.341199999999958
+    },
+    {
+      "id": 21,
+      "kind": "dag",
+      "paths": "35",
+      "terminal_classes": 20,
+      "merges": 9,
+      "guard_fallback": null,
+      "manifest": "0619bdb3b831115d653fed5329e9ea894f1c50012c029c87ddd32ce9ebd87660",
+      "compute_ms": 9.803499999999985,
+      "rank_class_ms": 0.10400000000004184,
+      "audit_ms": 0.24259999999992488,
+      "spill_ms": 3.4769999999999754,
+      "spill_bytes": 5543,
+      "worker": 4,
+      "wall_ms": 13.742700000000013
+    },
+    {
+      "id": 22,
+      "kind": "dag",
+      "paths": "8",
+      "terminal_classes": 5,
+      "merges": 3,
+      "guard_fallback": null,
+      "manifest": "38a9326e3573edc81bb15f737b792287800b66f66b832d3c926ab11cdb72f00a",
+      "compute_ms": 3.7170999999999594,
+      "rank_class_ms": 0.014599999999973079,
+      "audit_ms": 0.11330000000009477,
+      "spill_ms": 4.376099999999951,
+      "spill_bytes": 2002,
+      "worker": 2,
+      "wall_ms": 8.297900000000027
+    },
+    {
+      "id": 23,
+      "kind": "dag",
+      "paths": "8",
+      "terminal_classes": 5,
+      "merges": 3,
+      "guard_fallback": null,
+      "manifest": "a19701dd4b01c5472edd2deb2a3def6b6fe3e8fc3fbba0ae51137c04e465b985",
+      "compute_ms": 3.9166999999999916,
+      "rank_class_ms": 0.016899999999964166,
+      "audit_ms": 0.1430000000000291,
+      "spill_ms": 2.7737999999999374,
+      "spill_bytes": 2002,
+      "worker": 6,
+      "wall_ms": 6.962199999999939
+    },
+    {
+      "id": 24,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "6f6b7e8eb69e65dbc99dc37c328fe68e3d9e636305afff51748dbac8472ef814",
+      "compute_ms": 1.2912999999999784,
+      "rank_class_ms": 0.010600000000067666,
+      "audit_ms": 0.06549999999992906,
+      "spill_ms": 2.34579999999994,
+      "spill_bytes": 551,
+      "worker": 7,
+      "wall_ms": 3.7975999999999885
+    },
+    {
+      "id": 25,
+      "kind": "dag",
+      "paths": "6",
+      "terminal_classes": 5,
+      "merges": 1,
+      "guard_fallback": null,
+      "manifest": "6cada2064cba7a1ac71319aca8f5f0b56eef9f0720b0a3626fb02c45695dc741",
+      "compute_ms": 4.484100000000012,
+      "rank_class_ms": 0.01609999999993761,
+      "audit_ms": 0.1552000000000362,
+      "spill_ms": 4.676899999999932,
+      "spill_bytes": 1559,
+      "worker": 0,
+      "wall_ms": 9.438400000000001
+    },
+    {
+      "id": 26,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "783832696f0f5b3a9a38d004844cd39e20927329a090aa3ac8bd26c716a136ee",
+      "compute_ms": 1.7934999999999945,
+      "rank_class_ms": 0.007000000000061846,
+      "audit_ms": 0.05809999999996762,
+      "spill_ms": 4.19259999999997,
+      "spill_bytes": 622,
+      "worker": 1,
+      "wall_ms": 6.123100000000022
+    },
+    {
+      "id": 27,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "3f4d3eaa9e2fc1871a63de77abc20b19619f579ca1e9a6d71eac872d08965d0e",
+      "compute_ms": 1.0638000000000147,
+      "rank_class_ms": 0.006699999999909778,
+      "audit_ms": 0.059700000000020736,
+      "spill_ms": 4.03449999999998,
+      "spill_bytes": 622,
+      "worker": 3,
+      "wall_ms": 5.25139999999999
+    },
+    {
+      "id": 28,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "ed62b44e0377460dae84622e2be175a29c408aaf53d593786a9024bd98c81ffd",
+      "compute_ms": 1.7548000000000457,
+      "rank_class_ms": 0.015599999999949432,
+      "audit_ms": 0.07169999999996435,
+      "spill_ms": 2.8840999999999894,
+      "spill_bytes": 622,
+      "worker": 7,
+      "wall_ms": 4.84069999999997
+    },
+    {
+      "id": 29,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "4a5ca30dccd960e9379cf38a027cc6a9d01ee3d95b8c264c32ecccd7aa177413",
+      "compute_ms": 1.2223999999999933,
+      "rank_class_ms": 0.008900000000039654,
+      "audit_ms": 0.056400000000053296,
+      "spill_ms": 2.344799999999964,
+      "spill_bytes": 622,
+      "worker": 5,
+      "wall_ms": 3.734700000000089
+    },
+    {
+      "id": 30,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "a40d3c73dec333cc6e14374984f2cb0bef6ee7123c75fdd90af247d6f68cd6f4",
+      "compute_ms": 1.247600000000034,
+      "rank_class_ms": 0.008100000000013097,
+      "audit_ms": 0.07110000000000127,
+      "spill_ms": 3.7857999999999947,
+      "spill_bytes": 622,
+      "worker": 3,
+      "wall_ms": 5.270899999999983
+    },
+    {
+      "id": 31,
+      "kind": "dag",
+      "paths": "6",
+      "terminal_classes": 5,
+      "merges": 1,
+      "guard_fallback": null,
+      "manifest": "13a8b4a95d5c2c36f967b4fd98a5b90acba259c0f7e35f9cf1d8d4f7a83ff04f",
+      "compute_ms": 2.1286999999999807,
+      "rank_class_ms": 0.018400000000042382,
+      "audit_ms": 0.11980000000005475,
+      "spill_ms": 3.664800000000014,
+      "spill_bytes": 1559,
+      "worker": 1,
+      "wall_ms": 6.0575999999999794
+    },
+    {
+      "id": 32,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "c62e6c808df4bf13291f6b2b92d81d406659d9fd1f9f80ace0d9f4e8254157bb",
+      "compute_ms": 1.2631999999999834,
+      "rank_class_ms": 0.012899999999945067,
+      "audit_ms": 0.06320000000005166,
+      "spill_ms": 2.783800000000042,
+      "spill_bytes": 622,
+      "worker": 5,
+      "wall_ms": 4.211299999999937
+    },
+    {
+      "id": 33,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "e5fb366fad4e7e8899e4301c0be559058aaefc3fe2a723b224be9bc19e02b94c",
+      "compute_ms": 1.5774000000000115,
+      "rank_class_ms": 0.015799999999899228,
+      "audit_ms": 0.09370000000001255,
+      "spill_ms": 3.1096999999999753,
+      "spill_bytes": 622,
+      "worker": 2,
+      "wall_ms": 4.893500000000017
+    },
+    {
+      "id": 34,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "0a8db9b3f687338803a9ddf74d33ab94983552537aa2f1fa29dbfe7283866c1d",
+      "compute_ms": 1.5529000000000224,
+      "rank_class_ms": 0.008600000000001273,
+      "audit_ms": 0.06399999999996453,
+      "spill_ms": 3.38169999999991,
+      "spill_bytes": 622,
+      "worker": 6,
+      "wall_ms": 5.134799999999927
+    },
+    {
+      "id": 35,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "45b047a64a54b98c0bf44ac3f374b364e0da93b02bdfa2b9da2fcc75bcb83bbd",
+      "compute_ms": 1.5423999999999296,
+      "rank_class_ms": 0.018400000000042382,
+      "audit_ms": 0.07159999999998945,
+      "spill_ms": 4.502799999999979,
+      "spill_bytes": 622,
+      "worker": 7,
+      "wall_ms": 6.249699999999962
+    },
+    {
+      "id": 36,
+      "kind": "dag",
+      "paths": "1",
+      "terminal_classes": 1,
+      "merges": 0,
+      "guard_fallback": null,
+      "manifest": "b79fc7328eed0a7156b4238cc5be12dc6e841aaedde6f1851bf11efd907e60d3",
+      "compute_ms": 1.4308999999999514,
+      "rank_class_ms": 0.015000000000100044,
+      "audit_ms": 0.09840000000008331,
+      "spill_ms": 3.5230000000000246,
+      "spill_bytes": 622,
+      "worker": 0,
+      "wall_ms": 5.280300000000011
+    }
+  ],
+  "worker_stats": [
+    {
+      "worker": 0,
+      "stats": {
+        "transitions_computed": 549,
+        "transitions_reused": 0,
+        "folds": 242,
+        "buckets_copied": 2228,
+        "reference_rows": 0,
+        "reference_paths": 0,
+        "event_roots": 15,
+        "interleaved_roots": 1,
+        "scorer": {
+          "requests": 78,
+          "objective_evaluations": 71,
+          "native_witnesses": 0,
+          "raw_finalizations": 78,
+          "geometry_evaluations": 16,
+          "timing_evaluations": 1,
+          "pattern_evaluations": 16,
+          "caches": {
+            "geometry": {
+              "hits": 62,
+              "misses": 16,
+              "evictions": 0,
+              "peak_bytes": 12792,
+              "entries": 16,
+              "bytes": 12792,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 77,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 618,
+              "entries": 1,
+              "bytes": 618,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 62,
+              "misses": 16,
+              "evictions": 0,
+              "peak_bytes": 12472,
+              "entries": 16,
+              "bytes": 12472,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 7,
+              "misses": 71,
+              "evictions": 0,
+              "peak_bytes": 30806,
+              "entries": 71,
+              "bytes": 30806,
+              "max_bytes": 8388608
+            },
+            "native_witness": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 77,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 1214,
+              "entries": 1,
+              "bytes": 1214,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 460,
+          "evictions": 0,
+          "peak_bytes": 454242,
+          "entries": 460,
+          "bytes": 454242,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 98,
+          "misses": 68,
+          "evictions": 0,
+          "peak_bytes": 124924,
+          "entries": 68,
+          "bytes": 124924,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 2796,
+          "misses": 45,
+          "evictions": 0,
+          "peak_bytes": 6992,
+          "entries": 45,
+          "bytes": 6992,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 18757
+    },
+    {
+      "worker": 1,
+      "stats": {
+        "transitions_computed": 252,
+        "transitions_reused": 0,
+        "folds": 103,
+        "buckets_copied": 1148,
+        "reference_rows": 0,
+        "reference_paths": 0,
+        "event_roots": 12,
+        "interleaved_roots": 1,
+        "scorer": {
+          "requests": 32,
+          "objective_evaluations": 26,
+          "native_witnesses": 0,
+          "raw_finalizations": 32,
+          "geometry_evaluations": 6,
+          "timing_evaluations": 1,
+          "pattern_evaluations": 6,
+          "caches": {
+            "geometry": {
+              "hits": 26,
+              "misses": 6,
+              "evictions": 0,
+              "peak_bytes": 4836,
+              "entries": 6,
+              "bytes": 4836,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 31,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 618,
+              "entries": 1,
+              "bytes": 618,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 26,
+              "misses": 6,
+              "evictions": 0,
+              "peak_bytes": 4716,
+              "entries": 6,
+              "bytes": 4716,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 6,
+              "misses": 26,
+              "evictions": 0,
+              "peak_bytes": 11394,
+              "entries": 26,
+              "bytes": 11394,
+              "max_bytes": 8388608
+            },
+            "native_witness": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 31,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 1214,
+              "entries": 1,
+              "bytes": 1214,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 219,
+          "evictions": 0,
+          "peak_bytes": 204554,
+          "entries": 219,
+          "bytes": 204554,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 57,
+          "misses": 65,
+          "evictions": 0,
+          "peak_bytes": 133150,
+          "entries": 65,
+          "bytes": 133150,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 1471,
+          "misses": 29,
+          "evictions": 0,
+          "peak_bytes": 4478,
+          "entries": 29,
+          "bytes": 4478,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 10277
+    },
+    {
+      "worker": 2,
+      "stats": {
+        "transitions_computed": 95,
+        "transitions_reused": 0,
+        "folds": 33,
+        "buckets_copied": 354,
+        "reference_rows": 0,
+        "reference_paths": 0,
+        "event_roots": 8,
+        "interleaved_roots": 1,
+        "scorer": {
+          "requests": 10,
+          "objective_evaluations": 10,
+          "native_witnesses": 0,
+          "raw_finalizations": 10,
+          "geometry_evaluations": 7,
+          "timing_evaluations": 1,
+          "pattern_evaluations": 7,
+          "caches": {
+            "geometry": {
+              "hits": 3,
+              "misses": 7,
+              "evictions": 0,
+              "peak_bytes": 5650,
+              "entries": 7,
+              "bytes": 5650,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 9,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 618,
+              "entries": 1,
+              "bytes": 618,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 3,
+              "misses": 7,
+              "evictions": 0,
+              "peak_bytes": 5510,
+              "entries": 7,
+              "bytes": 5510,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 0,
+              "misses": 10,
+              "evictions": 0,
+              "peak_bytes": 4414,
+              "entries": 10,
+              "bytes": 4414,
+              "max_bytes": 8388608
+            },
+            "native_witness": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 9,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 1214,
+              "entries": 1,
+              "bytes": 1214,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 90,
+          "evictions": 0,
+          "peak_bytes": 74454,
+          "entries": 90,
+          "bytes": 74454,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 30,
+          "misses": 65,
+          "evictions": 0,
+          "peak_bytes": 139236,
+          "entries": 65,
+          "bytes": 139236,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 470,
+          "misses": 25,
+          "evictions": 0,
+          "peak_bytes": 3860,
+          "entries": 25,
+          "bytes": 3860,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 4922
+    },
+    {
+      "worker": 3,
+      "stats": {
+        "transitions_computed": 194,
+        "transitions_reused": 0,
+        "folds": 76,
+        "buckets_copied": 830,
+        "reference_rows": 0,
+        "reference_paths": 0,
+        "event_roots": 10,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 24,
+          "objective_evaluations": 23,
+          "native_witnesses": 0,
+          "raw_finalizations": 24,
+          "geometry_evaluations": 9,
+          "timing_evaluations": 1,
+          "pattern_evaluations": 9,
+          "caches": {
+            "geometry": {
+              "hits": 15,
+              "misses": 9,
+              "evictions": 0,
+              "peak_bytes": 7226,
+              "entries": 9,
+              "bytes": 7226,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 23,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 618,
+              "entries": 1,
+              "bytes": 618,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 15,
+              "misses": 9,
+              "evictions": 0,
+              "peak_bytes": 7046,
+              "entries": 9,
+              "bytes": 7046,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 1,
+              "misses": 23,
+              "evictions": 0,
+              "peak_bytes": 9962,
+              "entries": 23,
+              "bytes": 9962,
+              "max_bytes": 8388608
+            },
+            "native_witness": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 23,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 1214,
+              "entries": 1,
+              "bytes": 1214,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 171,
+          "evictions": 0,
+          "peak_bytes": 155810,
+          "entries": 171,
+          "bytes": 155810,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 47,
+          "misses": 63,
+          "evictions": 0,
+          "peak_bytes": 132982,
+          "entries": 63,
+          "bytes": 132982,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 1101,
+          "misses": 31,
+          "evictions": 0,
+          "peak_bytes": 4788,
+          "entries": 31,
+          "bytes": 4788,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 7944
+    },
+    {
+      "worker": 4,
+      "stats": {
+        "transitions_computed": 298,
+        "transitions_reused": 0,
+        "folds": 144,
+        "buckets_copied": 1486,
+        "reference_rows": 0,
+        "reference_paths": 0,
+        "event_roots": 12,
+        "interleaved_roots": 0,
+        "scorer": {
+          "requests": 40,
+          "objective_evaluations": 38,
+          "native_witnesses": 0,
+          "raw_finalizations": 40,
+          "geometry_evaluations": 12,
+          "timing_evaluations": 1,
+          "pattern_evaluations": 12,
+          "caches": {
+            "geometry": {
+              "hits": 28,
+              "misses": 12,
+              "evictions": 0,
+              "peak_bytes": 9692,
+              "entries": 12,
+              "bytes": 9692,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 39,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 618,
+              "entries": 1,
+              "bytes": 618,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 28,
+              "misses": 12,
+              "evictions": 0,
+              "peak_bytes": 9452,
+              "entries": 12,
+              "bytes": 9452,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 2,
+              "misses": 38,
+              "evictions": 0,
+              "peak_bytes": 16570,
+              "entries": 38,
+              "bytes": 16570,
+              "max_bytes": 8388608
+            },
+            "native_witness": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 39,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 1214,
+              "entries": 1,
+              "bytes": 1214,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 252,
+          "evictions": 0,
+          "peak_bytes": 245186,
+          "entries": 252,
+          "bytes": 245186,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 64,
+          "misses": 54,
+          "evictions": 0,
+          "peak_bytes": 103698,
+          "entries": 54,
+          "bytes": 103698,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 1706,
+          "misses": 37,
+          "evictions": 0,
+          "peak_bytes": 5710,
+          "entries": 37,
+          "bytes": 5710,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 11086
+    },
+    {
+      "worker": 5,
+      "stats": {
+        "transitions_computed": 131,
+        "transitions_reused": 0,
+        "folds": 51,
+        "buckets_copied": 507,
+        "reference_rows": 0,
+        "reference_paths": 0,
+        "event_roots": 10,
+        "interleaved_roots": 1,
+        "scorer": {
+          "requests": 14,
+          "objective_evaluations": 13,
+          "native_witnesses": 0,
+          "raw_finalizations": 14,
+          "geometry_evaluations": 6,
+          "timing_evaluations": 1,
+          "pattern_evaluations": 6,
+          "caches": {
+            "geometry": {
+              "hits": 8,
+              "misses": 6,
+              "evictions": 0,
+              "peak_bytes": 4900,
+              "entries": 6,
+              "bytes": 4900,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 13,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 618,
+              "entries": 1,
+              "bytes": 618,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 8,
+              "misses": 6,
+              "evictions": 0,
+              "peak_bytes": 4780,
+              "entries": 6,
+              "bytes": 4780,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 1,
+              "misses": 13,
+              "evictions": 0,
+              "peak_bytes": 5618,
+              "entries": 13,
+              "bytes": 5618,
+              "max_bytes": 8388608
+            },
+            "native_witness": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 13,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 1214,
+              "entries": 1,
+              "bytes": 1214,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 121,
+          "evictions": 0,
+          "peak_bytes": 106548,
+          "entries": 121,
+          "bytes": 106548,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 39,
+          "misses": 66,
+          "evictions": 0,
+          "peak_bytes": 140706,
+          "entries": 66,
+          "bytes": 140706,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 671,
+          "misses": 18,
+          "evictions": 0,
+          "peak_bytes": 2762,
+          "entries": 18,
+          "bytes": 2762,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 6320
+    },
+    {
+      "worker": 6,
+      "stats": {
+        "transitions_computed": 245,
+        "transitions_reused": 0,
+        "folds": 114,
+        "buckets_copied": 1233,
+        "reference_rows": 0,
+        "reference_paths": 0,
+        "event_roots": 13,
+        "interleaved_roots": 1,
+        "scorer": {
+          "requests": 31,
+          "objective_evaluations": 30,
+          "native_witnesses": 0,
+          "raw_finalizations": 31,
+          "geometry_evaluations": 9,
+          "timing_evaluations": 1,
+          "pattern_evaluations": 9,
+          "caches": {
+            "geometry": {
+              "hits": 22,
+              "misses": 9,
+              "evictions": 0,
+              "peak_bytes": 7290,
+              "entries": 9,
+              "bytes": 7290,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 30,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 618,
+              "entries": 1,
+              "bytes": 618,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 22,
+              "misses": 9,
+              "evictions": 0,
+              "peak_bytes": 7110,
+              "entries": 9,
+              "bytes": 7110,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 1,
+              "misses": 30,
+              "evictions": 0,
+              "peak_bytes": 13012,
+              "entries": 30,
+              "bytes": 13012,
+              "max_bytes": 8388608
+            },
+            "native_witness": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 30,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 1214,
+              "entries": 1,
+              "bytes": 1214,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 212,
+          "evictions": 0,
+          "peak_bytes": 205850,
+          "entries": 212,
+          "bytes": 205850,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 58,
+          "misses": 61,
+          "evictions": 0,
+          "peak_bytes": 121632,
+          "entries": 61,
+          "bytes": 121632,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 1471,
+          "misses": 34,
+          "evictions": 0,
+          "peak_bytes": 5246,
+          "entries": 34,
+          "bytes": 5246,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 10169
+    },
+    {
+      "worker": 7,
+      "stats": {
+        "transitions_computed": 128,
+        "transitions_reused": 0,
+        "folds": 52,
+        "buckets_copied": 492,
+        "reference_rows": 0,
+        "reference_paths": 0,
+        "event_roots": 10,
+        "interleaved_roots": 1,
+        "scorer": {
+          "requests": 14,
+          "objective_evaluations": 13,
+          "native_witnesses": 0,
+          "raw_finalizations": 14,
+          "geometry_evaluations": 7,
+          "timing_evaluations": 1,
+          "pattern_evaluations": 7,
+          "caches": {
+            "geometry": {
+              "hits": 7,
+              "misses": 7,
+              "evictions": 0,
+              "peak_bytes": 5654,
+              "entries": 7,
+              "bytes": 5654,
+              "max_bytes": 8388608
+            },
+            "timing": {
+              "hits": 13,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 618,
+              "entries": 1,
+              "bytes": 618,
+              "max_bytes": 2097152
+            },
+            "pattern": {
+              "hits": 7,
+              "misses": 7,
+              "evictions": 0,
+              "peak_bytes": 5514,
+              "entries": 7,
+              "bytes": 5514,
+              "max_bytes": 8388608
+            },
+            "objective": {
+              "hits": 1,
+              "misses": 13,
+              "evictions": 0,
+              "peak_bytes": 5656,
+              "entries": 13,
+              "bytes": 5656,
+              "max_bytes": 8388608
+            },
+            "native_witness": {
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "peak_bytes": 0,
+              "entries": 0,
+              "bytes": 0,
+              "max_bytes": 8388608
+            },
+            "references": {
+              "hits": 13,
+              "misses": 1,
+              "evictions": 0,
+              "peak_bytes": 1214,
+              "entries": 1,
+              "bytes": 1214,
+              "max_bytes": 1048576
+            }
+          }
+        },
+        "transition_cache": {
+          "hits": 0,
+          "misses": 118,
+          "evictions": 0,
+          "peak_bytes": 105596,
+          "entries": 118,
+          "bytes": 105596,
+          "max_bytes": 16777216
+        },
+        "interner": {
+          "hits": 38,
+          "misses": 64,
+          "evictions": 0,
+          "peak_bytes": 136970,
+          "entries": 64,
+          "bytes": 136970,
+          "max_bytes": 16777216
+        },
+        "bucket_interner": {
+          "hits": 653,
+          "misses": 24,
+          "evictions": 0,
+          "peak_bytes": 3690,
+          "entries": 24,
+          "bytes": 3690,
+          "max_bytes": 16777216
+        }
+      },
+      "spill_bytes": 6233
+    }
+  ],
+  "materialization": [
+    {
+      "worker": 0,
+      "materialized_paths": 4,
+      "read_bytes": 16576,
+      "read_files": 1,
+      "wall_ms": 0.6292999999999438
+    },
+    {
+      "worker": 1,
+      "materialized_paths": 0,
+      "read_bytes": 0,
+      "read_files": 0,
+      "wall_ms": 0.0524000000000342
+    },
+    {
+      "worker": 2,
+      "materialized_paths": 0,
+      "read_bytes": 0,
+      "read_files": 0,
+      "wall_ms": 0.03199999999992542
+    },
+    {
+      "worker": 3,
+      "materialized_paths": 0,
+      "read_bytes": 0,
+      "read_files": 0,
+      "wall_ms": 0.0684999999999718
+    },
+    {
+      "worker": 4,
+      "materialized_paths": 1,
+      "read_bytes": 5543,
+      "read_files": 1,
+      "wall_ms": 0.5851000000000113
+    },
+    {
+      "worker": 5,
+      "materialized_paths": 0,
+      "read_bytes": 0,
+      "read_files": 0,
+      "wall_ms": 0.0301000000000613
+    },
+    {
+      "worker": 6,
+      "materialized_paths": 0,
+      "read_bytes": 0,
+      "read_files": 0,
+      "wall_ms": 0.03319999999996526
+    },
+    {
+      "worker": 7,
+      "materialized_paths": 0,
+      "read_bytes": 0,
+      "read_files": 0,
+      "wall_ms": 0.04070000000001528
+    }
+  ]
+}

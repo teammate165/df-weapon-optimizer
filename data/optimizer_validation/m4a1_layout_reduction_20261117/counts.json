@@ -1,0 +1,509 @@
+{
+  "weapon": "18010000001",
+  "mode": "bd",
+  "budget": 800,
+  "fixed": [
+    {
+      "slotPath": "11",
+      "itemId": "13110000091"
+    }
+  ],
+  "baseline": "12885654",
+  "target": 999999,
+  "required_reduction_percent": 92.2394393020331,
+  "summary": [
+    {
+      "path": "1",
+      "options": 9,
+      "eligible": 0,
+      "strict_families": 9,
+      "objective_families": 9,
+      "tuning": 9
+    },
+    {
+      "path": "2",
+      "options": 5,
+      "eligible": 0,
+      "strict_families": 5,
+      "objective_families": 5,
+      "tuning": 5
+    },
+    {
+      "path": "3",
+      "options": 16,
+      "eligible": 0,
+      "strict_families": 16,
+      "objective_families": 16,
+      "tuning": 16
+    },
+    {
+      "path": "5",
+      "options": 5,
+      "eligible": 1,
+      "strict_families": 5,
+      "objective_families": 5,
+      "tuning": 0
+    },
+    {
+      "path": "11",
+      "options": 32,
+      "eligible": 22,
+      "strict_families": 16,
+      "objective_families": 16,
+      "tuning": 29
+    },
+    {
+      "path": "31",
+      "options": 5,
+      "eligible": 5,
+      "strict_families": 1,
+      "objective_families": 1,
+      "tuning": 5
+    },
+    {
+      "path": "38",
+      "options": 2,
+      "eligible": 0,
+      "strict_families": 2,
+      "objective_families": 2,
+      "tuning": 2
+    },
+    {
+      "path": "1/43",
+      "options": 2,
+      "eligible": 2,
+      "strict_families": 2,
+      "objective_families": 2,
+      "tuning": 0
+    },
+    {
+      "path": "2/6",
+      "options": 16,
+      "eligible": 16,
+      "strict_families": 16,
+      "objective_families": 16,
+      "tuning": 0
+    },
+    {
+      "path": "3/29",
+      "options": 1,
+      "eligible": 0,
+      "strict_families": 1,
+      "objective_families": 1,
+      "tuning": 1
+    },
+    {
+      "path": "4/8",
+      "options": 23,
+      "eligible": 0,
+      "strict_families": 23,
+      "objective_families": 23,
+      "tuning": 23
+    },
+    {
+      "path": "4/10",
+      "options": 1,
+      "eligible": 0,
+      "strict_families": 1,
+      "objective_families": 1,
+      "tuning": 0
+    },
+    {
+      "path": "4/17",
+      "options": 2,
+      "eligible": 2,
+      "strict_families": 2,
+      "objective_families": 2,
+      "tuning": 0
+    },
+    {
+      "path": "4/19",
+      "options": 3,
+      "eligible": 3,
+      "strict_families": 1,
+      "objective_families": 1,
+      "tuning": 0
+    },
+    {
+      "path": "4/20",
+      "options": 4,
+      "eligible": 4,
+      "strict_families": 2,
+      "objective_families": 2,
+      "tuning": 0
+    },
+    {
+      "path": "5/44",
+      "options": 3,
+      "eligible": 3,
+      "strict_families": 1,
+      "objective_families": 1,
+      "tuning": 0
+    },
+    {
+      "path": "11/45",
+      "options": 1,
+      "eligible": 1,
+      "strict_families": 1,
+      "objective_families": 1,
+      "tuning": 0
+    },
+    {
+      "path": "11/40",
+      "options": 6,
+      "eligible": 6,
+      "strict_families": 1,
+      "objective_families": 1,
+      "tuning": 6
+    },
+    {
+      "path": "11/41",
+      "options": 6,
+      "eligible": 6,
+      "strict_families": 1,
+      "objective_families": 1,
+      "tuning": 6
+    },
+    {
+      "path": "11/50",
+      "options": 16,
+      "eligible": 14,
+      "strict_families": 4,
+      "objective_families": 4,
+      "tuning": 14
+    },
+    {
+      "path": "11/11",
+      "options": 6,
+      "eligible": 6,
+      "strict_families": 1,
+      "objective_families": 1,
+      "tuning": 6
+    },
+    {
+      "path": "11/50/41",
+      "options": 6,
+      "eligible": 6,
+      "strict_families": 1,
+      "objective_families": 1,
+      "tuning": 6
+    },
+    {
+      "path": "11/50/11",
+      "options": 6,
+      "eligible": 6,
+      "strict_families": 1,
+      "objective_families": 1,
+      "tuning": 6
+    }
+  ],
+  "equivalence_experiments": [
+    {
+      "strategy": "full_operations_leaf_equivalence",
+      "count": "12880006",
+      "removed": 133,
+      "elapsed_ms": 666.9159000000001
+    },
+    {
+      "strategy": "objective_leaf_equivalence_hypothesis",
+      "count": "12878568",
+      "removed": 141,
+      "elapsed_ms": 819.4126
+    },
+    {
+      "strategy": "disable_socket_sensitivity_only",
+      "path": "5",
+      "count": "3201963"
+    },
+    {
+      "strategy": "disable_socket_sensitivity_only",
+      "path": "1",
+      "count": "1544851"
+    },
+    {
+      "strategy": "disable_socket_sensitivity_only",
+      "path": "3",
+      "count": "1098021"
+    },
+    {
+      "strategy": "disable_socket_sensitivity_only",
+      "path": "2",
+      "count": "3358522"
+    }
+  ],
+  "shortlist_experiments": [
+    {
+      "strategy": "heuristic_shortlist_based_on_observed_default_best",
+      "limits": [
+        [
+          "3",
+          3
+        ]
+      ],
+      "count": "2347126",
+      "choices": [
+        {
+          "path": "3",
+          "ids": [
+            null,
+            "13040000110",
+            "13040000108"
+          ]
+        }
+      ],
+      "retains_known_default_best": true
+    },
+    {
+      "strategy": "heuristic_shortlist_based_on_observed_default_best",
+      "limits": [
+        [
+          "4/8",
+          3
+        ]
+      ],
+      "count": "1590249",
+      "choices": [
+        {
+          "path": "4/8",
+          "ids": [
+            "13140000041",
+            "13140000042",
+            "13140000044"
+          ]
+        }
+      ],
+      "retains_known_default_best": true
+    },
+    {
+      "strategy": "heuristic_shortlist_based_on_observed_default_best",
+      "limits": [
+        [
+          "3",
+          3
+        ],
+        [
+          "4/8",
+          3
+        ]
+      ],
+      "count": "289989",
+      "choices": [
+        {
+          "path": "3",
+          "ids": [
+            null,
+            "13040000110",
+            "13040000108"
+          ]
+        },
+        {
+          "path": "4/8",
+          "ids": [
+            "13140000041",
+            "13140000042",
+            "13140000044"
+          ]
+        }
+      ],
+      "retains_known_default_best": true
+    },
+    {
+      "strategy": "heuristic_shortlist_based_on_observed_default_best",
+      "limits": [
+        [
+          "3",
+          4
+        ],
+        [
+          "4/8",
+          3
+        ]
+      ],
+      "count": "374659",
+      "choices": [
+        {
+          "path": "3",
+          "ids": [
+            null,
+            "13040000110",
+            "13040000108",
+            "13040000112"
+          ]
+        },
+        {
+          "path": "4/8",
+          "ids": [
+            "13140000041",
+            "13140000042",
+            "13140000044"
+          ]
+        }
+      ],
+      "retains_known_default_best": true
+    },
+    {
+      "strategy": "heuristic_shortlist_based_on_observed_default_best",
+      "limits": [
+        [
+          "3",
+          3
+        ],
+        [
+          "4/8",
+          4
+        ]
+      ],
+      "count": "371976",
+      "choices": [
+        {
+          "path": "3",
+          "ids": [
+            null,
+            "13040000110",
+            "13040000108"
+          ]
+        },
+        {
+          "path": "4/8",
+          "ids": [
+            "13140000041",
+            "13140000042",
+            "13140000044",
+            "13140000030"
+          ]
+        }
+      ],
+      "retains_known_default_best": true
+    },
+    {
+      "strategy": "heuristic_shortlist_based_on_observed_default_best",
+      "limits": [
+        [
+          "3",
+          3
+        ],
+        [
+          "1",
+          3
+        ]
+      ],
+      "count": "701793",
+      "choices": [
+        {
+          "path": "3",
+          "ids": [
+            null,
+            "13040000110",
+            "13040000108"
+          ]
+        },
+        {
+          "path": "1",
+          "ids": [
+            null,
+            "13030000112",
+            "13030000187"
+          ]
+        }
+      ],
+      "retains_known_default_best": true
+    },
+    {
+      "strategy": "heuristic_shortlist_based_on_observed_default_best",
+      "limits": [
+        [
+          "3",
+          4
+        ],
+        [
+          "1",
+          3
+        ]
+      ],
+      "count": "881849",
+      "choices": [
+        {
+          "path": "3",
+          "ids": [
+            null,
+            "13040000110",
+            "13040000108",
+            "13040000112"
+          ]
+        },
+        {
+          "path": "1",
+          "ids": [
+            null,
+            "13030000112",
+            "13030000187"
+          ]
+        }
+      ],
+      "retains_known_default_best": true
+    },
+    {
+      "strategy": "heuristic_shortlist_with_empty_preserved",
+      "limits": [
+        [
+          "3",
+          3
+        ],
+        [
+          "4/8",
+          3
+        ]
+      ],
+      "count": "422055",
+      "retains_known_default_best": true
+    },
+    {
+      "strategy": "heuristic_shortlist_with_empty_preserved",
+      "limits": [
+        [
+          "3",
+          4
+        ],
+        [
+          "4/8",
+          3
+        ]
+      ],
+      "count": "547502",
+      "retains_known_default_best": true
+    },
+    {
+      "strategy": "heuristic_shortlist_with_empty_preserved",
+      "limits": [
+        [
+          "3",
+          4
+        ],
+        [
+          "1",
+          3
+        ]
+      ],
+      "count": "881849",
+      "retains_known_default_best": true
+    },
+    {
+      "strategy": "full_operations_leaf_equivalence_default_only",
+      "removed": 133,
+      "count": "12880006"
+    },
+    {
+      "strategy": "objective_leaf_equivalence_default_only_hypothesis",
+      "removed": 141,
+      "count": "12878568"
+    }
+  ],
+  "notes": [
+    "Read-only counting experiment; production selection rules unchanged.",
+    "Shortlists are ranked by best observed default-screening primary loss, with ties in deterministic source order; they are illustrative and not proven dominance frontiers.",
+    "Identity and calibration equivalence experiments are candidate rules requiring source/context replay before production use.",
+    "All counts are for grouped ordinary layouts at default calibration, not full tactical/calibration combinations.",
+    "Stock and rear-grip choice limits include the no-explicit-purchase option when it is present; empty-preserved foregrip experiments add empty to the listed paid choices.",
+    "Preserving the known best ordinary build is not proof of preserving the calibrated optimum or the original top-5% survivors."
+  ]
+}

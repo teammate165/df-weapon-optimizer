@@ -17,15 +17,53 @@ export function summarizePath(points) {
     window:'first post-shot chart point to last post-shot chart point; first impulse reported separately'};
 }
 
+// Read the same three fields from the pinned native source without computing
+// the stock comparison and unrelated display statistics for every layout.
+function projectedCurrent(pack, state, count, kernel, calculate) {
+  const chart = calculate.screeningChartContract;
+  if (chart?.version !== 1 || chart.calculate !== calculate ||
+      !['s','r','n','t','d','u'].every(key => chart.kernel?.[key] === kernel[key])) return null;
+  const {references, appliedParts, value} = state;
+  const weapon = pack.weapon;
+  const h = pack.handling;
+  const profile = h?.recoilProfiles?.[references.adsRecoilProfileId];
+  if (!pack.combat?.bulletProfiles?.[references.bulletProfileId] ||
+      !h?.movementProfiles?.[references.movementProfileId] ||
+      !h?.aimingProfiles?.[references.aimingProfileId] ||
+      !h?.spreadProfiles?.[references.waistSpreadProfileId] ||
+      !h?.recoilProfiles?.[references.waistRecoilProfileId] ||
+      !h?.spreadProfiles?.[references.adsSpreadProfileId] || !profile) return null;
+  const interval = weapon.fireControl.fireIntervalSeconds;
+  const baseRpm = interval > 0 ? 60 / interval : 0;
+  const legacy = kernel.s(pack, appliedParts).reduce(
+    (rate, row) => rate * (1 + (Number(row.override.baseStatModifiers?.fireRate) || 0)), 1);
+  const rpm = kernel.r({baseFireIntervalSeconds: interval, value, legacyFireRateMultiplier: legacy});
+  // The calculator chooses trajectory geometry before passing SDK timing to
+  // the timeline below. Preserve both calls and their distinct inputs.
+  const modes = kernel.n(pack, appliedParts, baseRpm > 0 ? rpm / baseRpm : 1).supportedModes;
+  const single = modes.length === 1 && modes[0] === 'Single';
+  return {
+    references,
+    weaponStats: {
+      fireRateRpm: rpm,
+      magazineCapacity: Math.floor(value('GMagCapacity', weapon.ammunition.clipCapacity)),
+    },
+    recoil: {adsTrajectory: chart.trajectory(profile, value('GRecoil_H', 1), value('GRecoil_V', 1), single, count)},
+  };
+}
+
 // Internal scoring can compare an abstract 20-point profile for a candidate
 // magazine below 20. Normal diagnostic callers always enforce capacity.
-export function timedRecoil(pack, build, tunes, request, modules, {abstractProfile=false}={}) {
+export function timedRecoil(pack, build, tunes, request, modules, {
+  abstractProfile=false, state:knownState, pointsOnly=false,
+}={}) {
   const {calculate,curves,kernel}=modules;
   const count=request.shot_count??20;
   if(!Number.isInteger(count)||count<2||count>200) throw Error('shot_count must be an integer from 2 to 200');
   const options={tacticalEffective:true,mode:request.mode,resolvedLoadout:build,tunes,preservePrecision:true,trajectoryShotCount:count};
-  const current=calculate(pack,options).current;
-  const state=kernel.u(pack,build,{tacticalEffective:true,mode:request.mode,tunes});
+  const projected=pointsOnly&&knownState&&projectedCurrent(pack,knownState,count,kernel,calculate);
+  const current=projected||calculate(pack,options).current;
+  const state=knownState??kernel.u(pack,build,{tacticalEffective:true,mode:request.mode,tunes});
   const rpm=current.weaponStats.fireRateRpm;
   const baseRpm=60/pack.weapon.fireControl.fireIntervalSeconds;
   // Include SDK interval/burst changes as well as explicit special schedules.
@@ -50,11 +88,13 @@ export function timedRecoil(pack, build, tunes, request, modules, {abstractProfi
       if(!(Number.isFinite(interval)&&interval>0)) throw Error('Invalid source firing interval');
       elapsed+=interval;
     }
+    if(pointsOnly)return {time_ms:elapsed,x:p.x,y:p.y};
     const previous=index?current.recoil.adsTrajectory[index-1]:{x:0,y:0};
     return {shot:index+1,time_ms:elapsed,x:p.x,y:p.y,
       pre_shot_aim_proxy:{x:previous.x,y:previous.y}};
   });
   if(points.length!==count) throw Error('Source trajectory count mismatch');
+  if(pointsOnly)return {status:'modeled',points};
   const opening=rules.find(r=>r.mode==='firstShotsRpm');
   return {...common,status:'modeled',points,metrics:summarizePath(points),
     pre_shot_aim_proxy_note:'Previous cumulative impulse before this shot, starting at zero. Consistent with lab hit-before-kick ordering; omits smoothing, spread, jitter and between-shot recovery. Not a measured impact simulation.',

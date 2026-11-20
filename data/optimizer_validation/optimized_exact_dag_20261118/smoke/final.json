@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "workers": 8,
+  "population": "all original legal grouped ordinary layouts; dominance and score pruning disabled",
+  "request": {
+    "mode": "bd",
+    "preset": "recoil",
+    "budget": 160,
+    "fixed": [
+      {
+        "slotPath": "11",
+        "itemId": "13110000091"
+      }
+    ],
+    "experimental_dominance": false
+  },
+  "exact_total": "395",
+  "gate_fraction": 0.005,
+  "ranking_contract": "exact-shortfall-objectives-cost-code-unit-signature-v1",
+  "selected": 2,
+  "reference": {
+    "phase": "reference",
+    "wall_ms": 255.45669999999996,
+    "paths": "395",
+    "terminal_classes": 395,
+    "objective_evaluations": 226,
+    "native_witnesses": 226,
+    "geometry_evaluations": 76,
+    "transitions_computed": 0,
+    "transitions_reused": 0,
+    "spill_bytes": 0,
+    "materialized_paths": 0,
+    "audit_ms_sum": 0,
+    "workers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "survivors": 2,
+    "survivor_manifest": "e3bf8c6017779de3839f74a56576d4743c33fe807c24c9bd3a2fe3cf971782ce",
+    "guard_fallback_jobs": 0
+  },
+  "optimized": {
+    "phase": "optimized",
+    "wall_ms": 95.45180000000005,
+    "paths": "395",
+    "terminal_classes": 243,
+    "objective_evaluations": 224,
+    "native_witnesses": 0,
+    "geometry_evaluations": 72,
+    "transitions_computed": 1892,
+    "transitions_reused": 0,
+    "spill_bytes": 75708,
+    "materialized_paths": 5,
+    "audit_ms_sum": 7.419799999999896,
+    "workers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "survivors": 2,
+    "survivor_manifest": "e3bf8c6017779de3839f74a56576d4743c33fe807c24c9bd3a2fe3cf971782ce",
+    "guard_fallback_jobs": 0
+  },
+  "all_score_identity_manifests_match": true,
+  "exact_survivor_order_matches": true,
+  "uncached_native_survivor_replays": 2,
+  "peak_sampled_rss_bytes": 553713664,
+  "total_wall_ms": 760.9511,
+  "hardware": {
+    "logical_cpus": 14,
+    "memory_bytes": 16369115136,
+    "node": "v24.22.0"
+  },
+  "provenance_spill_directory": "C:\\Users\\USER\\Documents\\df_build_optimizer\\.scratch\\optimized-exact-dag-spill\\mwlrcbdv",
+  "notes": [
+    "Every represented path is scored directly or through exact equivalence.",
+    "Reference independently resolves every layout and native-witnesses every new complete read-input signature; it uses no DAG/live-key merging.",
+    "Reference and optimized score caches start fresh in each phase.",
+    "Identity audit reconstructs all paths separately from weighted survivor selection; audit overhead remains included in phase wall time.",
+    "Per-job SHA256 manifests use standard cryptographic collision assumptions.",
+    "Packed provenance is spilled to task-local files; cache caps evict/recompute, never trim paths.",
+    "Single ordered reference/optimized execution pair; descriptive times only.",
+    "No tactical screening or calibration in this run."
+  ]
+}

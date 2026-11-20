@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "workers": 16,
+  "participating_workers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "paired_models_match": true,
+  "native_incumbent_replay": true,
+  "adapter_signed_products_and_row_append": true,
+  "static_get_requests_only": true,
+  "served_without_cross_origin_isolation": true,
+  "cancellation": true,
+  "checks": [
+    "16 actual browser compute workers",
+    "same paired model hashes",
+    "native replay of every reported incumbent",
+    "single-thread WASM assets served locally",
+    "no backend solve request",
+    "signed products and appended contradictory row",
+    "cancellation terminates pool"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "passed": true,
+  "request": {
+    "mode": "bd",
+    "preset": "recoil",
+    "budget": 800,
+    "fixed": [
+      {
+        "slotPath": "11",
+        "itemId": "13110000091"
+      }
+    ],
+    "experimental_dominance": true
+  },
+  "population": "dominance-reduced grouped ordinary population before partial-state merging",
+  "workers_requested": 16,
+  "workers_ready": 16,
+  "ranking_contract": "exact-shortfall-objectives-cost-code-unit-signature-v1",
+  "gate_fraction": 0.005,
+  "exact_total": "1696710",
+  "selected": 8484,
+  "total_wall_ms": 799414.7459999999,
+  "peak_sampled_process_rss_bytes": 6293630976,
+  "hardware": {
+    "logical_cpus": 14,
+    "total_memory": 16369115136,
+    "platform": "win32",
+    "node": "v24.22.0"
+  },
+  "control": {
+    "phase": "control",
+    "wall_ms": 425796.4876,
+    "paths": 1696710,
+    "classes": 1696710,
+    "transitions": 30382476,
+    "root_merges": 0,
+    "layer_merges": 0,
+    "workers_participating": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "survivor_count": 8484,
+    "survivor_manifest": "81ac711e0d544123fc61aab0a180b41e6437834bb4374193a502ba29f451a32e",
+    "guard_fallback_jobs": 0
+  },
+  "merged": {
+    "phase": "merged",
+    "wall_ms": 368569.22540000005,
+    "paths": 1696710,
+    "classes": 1483796,
+    "transitions": 4670072,
+    "root_merges": 248,
+    "layer_merges": 33126,
+    "workers_participating": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "survivor_count": 8484,
+    "survivor_manifest": "81ac711e0d544123fc61aab0a180b41e6437834bb4374193a502ba29f451a32e",
+    "guard_fallback_jobs": 0
+  },
+  "native_survivor_replays": 8484,
+  "per_job_score_identity_manifests_match": true,
+  "survivor_identities_and_order_match": true,
+  "notes": [
+    "No search deadlines or automatic restarts.",
+    "Ordinary/default calibration only; every selected concrete grouped identity is reconstructed.",
+    "No tactical completion or calibration search run.",
+    "A single control-then-merged pair: descriptive times, no confidence interval or causal speedup claim.",
+    "SHA-256 manifests compare every per-job signature/objective/cost row, including all aliases; standard cryptographic collision assumption.",
+    "Process RSS includes all Node worker threads; sampled every 500 ms, not browser memory.",
+    "Dominance and original grouped populations are distinct."
+  ]
+}

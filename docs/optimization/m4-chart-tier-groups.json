@@ -1,0 +1,99 @@
+{
+  "budget": 200,
+  "oracleCalls": 20402,
+  "oracleMs": 3639.8232000000003,
+  "max": {
+    "cost": 160,
+    "gain": 20.175004455348173
+  },
+  "min": {
+    "cost": 160,
+    "gain": 20.175004455348173
+  },
+  "balanced": {
+    "cost": 160,
+    "gain": 20.175004455348173
+  },
+  "samples": [
+    {
+      "states": 202,
+      "scores": 2,
+      "nodes": 208,
+      "elapsedMs": 21.091100000000097
+    },
+    {
+      "states": 202,
+      "scores": 2,
+      "nodes": 208,
+      "elapsedMs": 21.98160000000007
+    },
+    {
+      "states": 202,
+      "scores": 2,
+      "nodes": 208,
+      "elapsedMs": 21.076100000000224
+    },
+    {
+      "states": 202,
+      "scores": 2,
+      "nodes": 208,
+      "elapsedMs": 22.05009999999993
+    },
+    {
+      "states": 202,
+      "scores": 2,
+      "nodes": 208,
+      "elapsedMs": 19.415300000000116
+    },
+    {
+      "states": 202,
+      "scores": 2,
+      "nodes": 208,
+      "elapsedMs": 20.30659999999989
+    },
+    {
+      "states": 202,
+      "scores": 2,
+      "nodes": 208,
+      "elapsedMs": 19.554000000000087
+    }
+  ],
+  "layouts": [
+    {
+      "config": [
+        {
+          "slotPath": "2",
+          "itemId": "13020000350"
+        },
+        {
+          "slotPath": "1",
+          "itemId": "13030000109"
+        }
+      ],
+      "cost": 160,
+      "bestBarrel": 50,
+      "tiers": [
+        4,
+        1
+      ]
+    },
+    {
+      "config": [
+        {
+          "slotPath": "2",
+          "itemId": "13020000351"
+        },
+        {
+          "slotPath": "1",
+          "itemId": "13030000113"
+        }
+      ],
+      "cost": 200,
+      "bestBarrel": 50,
+      "tiers": [
+        4,
+        1
+      ]
+    }
+  ]
+}

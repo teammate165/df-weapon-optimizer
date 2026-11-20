@@ -1,0 +1,4847 @@
+{
+  "study": {
+    "status": "completed",
+    "workers": 16,
+    "results": [
+      {
+        "passed": true,
+        "worker": 0,
+        "fixture": "insight-only",
+        "fixture_cost": 40,
+        "baseline": [
+          84.25,
+          112.11613240632468
+        ],
+        "controls": 0,
+        "variables": 150,
+        "constraints": 657,
+        "best": {
+          "scip": [
+            84.25,
+            112.11613240632468
+          ],
+          "highs": [
+            84.25,
+            112.11613240632468
+          ]
+        },
+        "records": [
+          {
+            "worker": 0,
+            "fixture": "insight-only",
+            "phase": "primary",
+            "round": 0,
+            "engine": "scip",
+            "order": 0,
+            "model_sha256": "1db5d809f7b94e724b7a75a2fca396edab52482816f1100835e2aad2f66d3696",
+            "variables": 150,
+            "constraints": 656,
+            "elapsed_ms": 210.10000002384186,
+            "adapter_ms": 210,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 84.249999999997,
+            "dual_bound": 84.249999999997,
+            "gap_percent": 0,
+            "native_objectives": [
+              84.25,
+              112.11613240632468
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 0,
+            "fixture": "insight-only",
+            "phase": "primary",
+            "round": 0,
+            "engine": "highs",
+            "order": 1,
+            "model_sha256": "1db5d809f7b94e724b7a75a2fca396edab52482816f1100835e2aad2f66d3696",
+            "variables": 150,
+            "constraints": 656,
+            "elapsed_ms": 135.39999997615814,
+            "adapter_ms": 133.10000002384186,
+            "prepare_ms": 65.69999998807907,
+            "solve_ms": 67.40000003576279,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 84.24999999999699,
+            "dual_bound": 84.24999999999699,
+            "gap_percent": 0,
+            "native_objectives": [
+              84.25,
+              112.11613240632468
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 0
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 0,
+            "fixture": "insight-only",
+            "phase": "handling",
+            "round": 0,
+            "engine": "highs",
+            "order": 0,
+            "model_sha256": "aebb13ef41767788998c177f37035e83db42b35a6cb9c1173993124a4c0dc6d6",
+            "variables": 150,
+            "constraints": 657,
+            "elapsed_ms": 6.300000011920929,
+            "adapter_ms": 5.900000035762787,
+            "prepare_ms": 1.800000011920929,
+            "solve_ms": 4.100000023841858,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 112.1161324063247,
+            "dual_bound": 112.1161324063247,
+            "gap_percent": 0,
+            "native_objectives": [
+              84.25,
+              112.11613240632468
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 1
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 0,
+            "fixture": "insight-only",
+            "phase": "handling",
+            "round": 0,
+            "engine": "scip",
+            "order": 1,
+            "model_sha256": "aebb13ef41767788998c177f37035e83db42b35a6cb9c1173993124a4c0dc6d6",
+            "variables": 150,
+            "constraints": 657,
+            "elapsed_ms": 526,
+            "adapter_ms": 526,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 112.116132406325,
+            "dual_bound": 112.116132406325,
+            "gap_percent": 0,
+            "native_objectives": [
+              84.25,
+              112.11613240632468
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          }
+        ],
+        "shared_norm_cuts": 0,
+        "shared_rounding_cuts": 0,
+        "rounds_matched": true,
+        "converged": true,
+        "phases": [
+          {
+            "phase": "primary",
+            "closed": true
+          },
+          {
+            "phase": "handling",
+            "closed": true
+          }
+        ],
+        "wall_ms": 1039.0999999642372,
+        "scope": "fixed-layout primary and conditional Handling calibration; shared native-refinement cuts; bounded solves; not whole screening or category calibration",
+        "adapter_validation": true
+      },
+      {
+        "passed": true,
+        "worker": 1,
+        "fixture": "recorded-ordinary-best",
+        "fixture_cost": 660,
+        "baseline": [
+          28.126674227257475,
+          183.10392706384434
+        ],
+        "controls": 10,
+        "variables": 1526,
+        "constraints": 1919,
+        "best": {
+          "scip": [
+            26.604009118998295,
+            180.42925682842323
+          ],
+          "highs": [
+            26.604009118998295,
+            180.42925682842323
+          ]
+        },
+        "records": [
+          {
+            "worker": 1,
+            "fixture": "recorded-ordinary-best",
+            "phase": "primary",
+            "round": 0,
+            "engine": "scip",
+            "order": 0,
+            "model_sha256": "e965cbd3de8f2081b002e04d86d70245023c19e55704225b4d69cf3226e6df69",
+            "variables": 1526,
+            "constraints": 1918,
+            "elapsed_ms": 308.30000001192093,
+            "adapter_ms": 308.30000001192093,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 26.6040091189953,
+            "dual_bound": 26.6040091189953,
+            "gap_percent": 0,
+            "native_objectives": [
+              26.604009118998295,
+              185.99257091809912
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 1,
+            "fixture": "recorded-ordinary-best",
+            "phase": "primary",
+            "round": 0,
+            "engine": "highs",
+            "order": 1,
+            "model_sha256": "e965cbd3de8f2081b002e04d86d70245023c19e55704225b4d69cf3226e6df69",
+            "variables": 1526,
+            "constraints": 1918,
+            "elapsed_ms": 530.1999999880791,
+            "adapter_ms": 525,
+            "prepare_ms": 104.60000002384186,
+            "solve_ms": 420.39999997615814,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 26.604009118992174,
+            "dual_bound": 26.604009118992174,
+            "gap_percent": 0,
+            "native_objectives": [
+              26.604009118998295,
+              180.69672385196534
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 0
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 1,
+            "fixture": "recorded-ordinary-best",
+            "phase": "handling",
+            "round": 0,
+            "engine": "highs",
+            "order": 0,
+            "model_sha256": "90384ee47068093c81f2c83939dc80d6de59ef3e4ad787a877fa1246178e29a1",
+            "variables": 1526,
+            "constraints": 1919,
+            "elapsed_ms": 140.5,
+            "adapter_ms": 136.80000001192093,
+            "prepare_ms": 1,
+            "solve_ms": 135.80000001192093,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 180.42925682842323,
+            "dual_bound": 180.42925682842323,
+            "gap_percent": 0,
+            "native_objectives": [
+              26.604009118998295,
+              180.42925682842323
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 1
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 1,
+            "fixture": "recorded-ordinary-best",
+            "phase": "handling",
+            "round": 0,
+            "engine": "scip",
+            "order": 1,
+            "model_sha256": "90384ee47068093c81f2c83939dc80d6de59ef3e4ad787a877fa1246178e29a1",
+            "variables": 1526,
+            "constraints": 1919,
+            "elapsed_ms": 202.19999998807907,
+            "adapter_ms": 202.19999998807907,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 180.429256828423,
+            "dual_bound": 180.429256828423,
+            "gap_percent": 0,
+            "native_objectives": [
+              26.604009118998295,
+              180.42925682842323
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          }
+        ],
+        "shared_norm_cuts": 0,
+        "shared_rounding_cuts": 0,
+        "rounds_matched": true,
+        "converged": true,
+        "phases": [
+          {
+            "phase": "primary",
+            "closed": true
+          },
+          {
+            "phase": "handling",
+            "closed": true
+          }
+        ],
+        "wall_ms": 1302.0999999642372,
+        "scope": "fixed-layout primary and conditional Handling calibration; shared native-refinement cuts; bounded solves; not whole screening or category calibration",
+        "adapter_validation": true
+      },
+      {
+        "passed": true,
+        "worker": 2,
+        "fixture": "barrel-muzzle",
+        "fixture_cost": 320,
+        "baseline": [
+          46.5671752224781,
+          139.87961559734913
+        ],
+        "controls": 2,
+        "variables": 530,
+        "constraints": 1267,
+        "best": {
+          "scip": [
+            45.6506752224781,
+            137.75849111058065
+          ],
+          "highs": [
+            45.6506752224781,
+            137.75849111058065
+          ]
+        },
+        "records": [
+          {
+            "worker": 2,
+            "fixture": "barrel-muzzle",
+            "phase": "primary",
+            "round": 0,
+            "engine": "scip",
+            "order": 0,
+            "model_sha256": "0447621ae24047da4de55c6acf77aa36338bd890c32fba546bc9a1b6082728a1",
+            "variables": 530,
+            "constraints": 1266,
+            "elapsed_ms": 300.19999998807907,
+            "adapter_ms": 300.19999998807907,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 45.6506752224751,
+            "dual_bound": 45.6506752224751,
+            "gap_percent": 0,
+            "native_objectives": [
+              45.6506752224781,
+              139.87961559734913
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 2,
+            "fixture": "barrel-muzzle",
+            "phase": "primary",
+            "round": 0,
+            "engine": "highs",
+            "order": 1,
+            "model_sha256": "0447621ae24047da4de55c6acf77aa36338bd890c32fba546bc9a1b6082728a1",
+            "variables": 530,
+            "constraints": 1266,
+            "elapsed_ms": 141.39999997615814,
+            "adapter_ms": 140,
+            "prepare_ms": 118.39999997615814,
+            "solve_ms": 21.600000023841858,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 45.650675222471975,
+            "dual_bound": 45.650675222471975,
+            "gap_percent": 0,
+            "native_objectives": [
+              45.6506752224781,
+              137.88575857978677
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 0
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 2,
+            "fixture": "barrel-muzzle",
+            "phase": "handling",
+            "round": 0,
+            "engine": "highs",
+            "order": 0,
+            "model_sha256": "9a9494fb8849dd74d2fda9bb35c7a3af9f6a863a9c67408d77454423715a717c",
+            "variables": 530,
+            "constraints": 1267,
+            "elapsed_ms": 26.19999998807907,
+            "adapter_ms": 25,
+            "prepare_ms": 3.399999976158142,
+            "solve_ms": 21.600000023841858,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 137.75849111058065,
+            "dual_bound": 137.75849111058065,
+            "gap_percent": 0,
+            "native_objectives": [
+              45.6506752224781,
+              137.75849111058065
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 1
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 2,
+            "fixture": "barrel-muzzle",
+            "phase": "handling",
+            "round": 0,
+            "engine": "scip",
+            "order": 1,
+            "model_sha256": "9a9494fb8849dd74d2fda9bb35c7a3af9f6a863a9c67408d77454423715a717c",
+            "variables": 530,
+            "constraints": 1267,
+            "elapsed_ms": 461.39999997615814,
+            "adapter_ms": 461.30000001192093,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 137.758491110581,
+            "dual_bound": 137.758491110581,
+            "gap_percent": 0,
+            "native_objectives": [
+              45.6506752224781,
+              137.75849111058065
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          }
+        ],
+        "shared_norm_cuts": 0,
+        "shared_rounding_cuts": 0,
+        "rounds_matched": true,
+        "converged": true,
+        "phases": [
+          {
+            "phase": "primary",
+            "closed": true
+          },
+          {
+            "phase": "handling",
+            "closed": true
+          }
+        ],
+        "wall_ms": 1079.300000011921,
+        "scope": "fixed-layout primary and conditional Handling calibration; shared native-refinement cuts; bounded solves; not whole screening or category calibration",
+        "adapter_validation": true
+      },
+      {
+        "passed": true,
+        "worker": 3,
+        "fixture": "grip-magazine",
+        "fixture_cost": 300,
+        "baseline": [
+          49.228418322474624,
+          118.48079540784946
+        ],
+        "controls": 2,
+        "variables": 484,
+        "constraints": 1112,
+        "best": {
+          "scip": [
+            48.10849423697823,
+            116.04675695627384
+          ],
+          "highs": [
+            48.10849423697823,
+            116.04675695627384
+          ]
+        },
+        "records": [
+          {
+            "worker": 3,
+            "fixture": "grip-magazine",
+            "phase": "primary",
+            "round": 0,
+            "engine": "scip",
+            "order": 0,
+            "model_sha256": "f4155476d9f2043046f364e58fcd70595868dee798178c40cbec7043fb8f3b0b",
+            "variables": 484,
+            "constraints": 1111,
+            "elapsed_ms": 414.30000001192093,
+            "adapter_ms": 414.19999998807907,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 48.1084942369722,
+            "dual_bound": 48.1084942369722,
+            "gap_percent": 0,
+            "native_objectives": [
+              48.10849423697823,
+              118.48079540784946
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 3,
+            "fixture": "grip-magazine",
+            "phase": "primary",
+            "round": 0,
+            "engine": "highs",
+            "order": 1,
+            "model_sha256": "f4155476d9f2043046f364e58fcd70595868dee798178c40cbec7043fb8f3b0b",
+            "variables": 484,
+            "constraints": 1111,
+            "elapsed_ms": 289.19999998807907,
+            "adapter_ms": 287.89999997615814,
+            "prepare_ms": 70.30000001192093,
+            "solve_ms": 217.5999999642372,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 48.108494236972234,
+            "dual_bound": 48.108494236972234,
+            "gap_percent": 0,
+            "native_objectives": [
+              48.10849423697823,
+              116.63092618465201
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 0
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 3,
+            "fixture": "grip-magazine",
+            "phase": "handling",
+            "round": 0,
+            "engine": "highs",
+            "order": 0,
+            "model_sha256": "6aef4460992ca2ad1c095d5faac239510441ac353a141f36702e126335490972",
+            "variables": 484,
+            "constraints": 1112,
+            "elapsed_ms": 42.80000001192093,
+            "adapter_ms": 40.5,
+            "prepare_ms": 0.699999988079071,
+            "solve_ms": 39.80000001192093,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 116.04675695627387,
+            "dual_bound": 116.04675695627387,
+            "gap_percent": 0,
+            "native_objectives": [
+              48.10849423697823,
+              116.04675695627384
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 1
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 3,
+            "fixture": "grip-magazine",
+            "phase": "handling",
+            "round": 0,
+            "engine": "scip",
+            "order": 1,
+            "model_sha256": "6aef4460992ca2ad1c095d5faac239510441ac353a141f36702e126335490972",
+            "variables": 484,
+            "constraints": 1112,
+            "elapsed_ms": 185,
+            "adapter_ms": 185,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 116.046756956274,
+            "dual_bound": 116.046756956274,
+            "gap_percent": 0,
+            "native_objectives": [
+              48.10849423697823,
+              116.04675695627384
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          }
+        ],
+        "shared_norm_cuts": 0,
+        "shared_rounding_cuts": 0,
+        "rounds_matched": true,
+        "converged": true,
+        "phases": [
+          {
+            "phase": "primary",
+            "closed": true
+          },
+          {
+            "phase": "handling",
+            "closed": true
+          }
+        ],
+        "wall_ms": 1085.1000000238419,
+        "scope": "fixed-layout primary and conditional Handling calibration; shared native-refinement cuts; bounded solves; not whole screening or category calibration",
+        "adapter_validation": true
+      },
+      {
+        "passed": true,
+        "worker": 4,
+        "fixture": "insight-only",
+        "fixture_cost": 40,
+        "baseline": [
+          84.25,
+          112.11613240632468
+        ],
+        "controls": 0,
+        "variables": 150,
+        "constraints": 657,
+        "best": {
+          "scip": [
+            84.25,
+            112.11613240632468
+          ],
+          "highs": [
+            84.25,
+            112.11613240632468
+          ]
+        },
+        "records": [
+          {
+            "worker": 4,
+            "fixture": "insight-only",
+            "phase": "primary",
+            "round": 0,
+            "engine": "highs",
+            "order": 0,
+            "model_sha256": "1db5d809f7b94e724b7a75a2fca396edab52482816f1100835e2aad2f66d3696",
+            "variables": 150,
+            "constraints": 656,
+            "elapsed_ms": 140.80000001192093,
+            "adapter_ms": 140.39999997615814,
+            "prepare_ms": 114.39999997615814,
+            "solve_ms": 26,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 84.24999999999699,
+            "dual_bound": 84.24999999999699,
+            "gap_percent": 0,
+            "native_objectives": [
+              84.25,
+              112.11613240632468
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 0
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 4,
+            "fixture": "insight-only",
+            "phase": "primary",
+            "round": 0,
+            "engine": "scip",
+            "order": 1,
+            "model_sha256": "1db5d809f7b94e724b7a75a2fca396edab52482816f1100835e2aad2f66d3696",
+            "variables": 150,
+            "constraints": 656,
+            "elapsed_ms": 216,
+            "adapter_ms": 216,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 84.249999999997,
+            "dual_bound": 84.249999999997,
+            "gap_percent": 0,
+            "native_objectives": [
+              84.25,
+              112.11613240632468
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 4,
+            "fixture": "insight-only",
+            "phase": "handling",
+            "round": 0,
+            "engine": "scip",
+            "order": 0,
+            "model_sha256": "aebb13ef41767788998c177f37035e83db42b35a6cb9c1173993124a4c0dc6d6",
+            "variables": 150,
+            "constraints": 657,
+            "elapsed_ms": 574.6999999880791,
+            "adapter_ms": 574.6999999880791,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 112.116132406325,
+            "dual_bound": 112.116132406325,
+            "gap_percent": 0,
+            "native_objectives": [
+              84.25,
+              112.11613240632468
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 4,
+            "fixture": "insight-only",
+            "phase": "handling",
+            "round": 0,
+            "engine": "highs",
+            "order": 1,
+            "model_sha256": "aebb13ef41767788998c177f37035e83db42b35a6cb9c1173993124a4c0dc6d6",
+            "variables": 150,
+            "constraints": 657,
+            "elapsed_ms": 4.299999952316284,
+            "adapter_ms": 4,
+            "prepare_ms": 2.199999988079071,
+            "solve_ms": 1.800000011920929,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 112.1161324063247,
+            "dual_bound": 112.1161324063247,
+            "gap_percent": 0,
+            "native_objectives": [
+              84.25,
+              112.11613240632468
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 1
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          }
+        ],
+        "shared_norm_cuts": 0,
+        "shared_rounding_cuts": 0,
+        "rounds_matched": true,
+        "converged": true,
+        "phases": [
+          {
+            "phase": "primary",
+            "closed": true
+          },
+          {
+            "phase": "handling",
+            "closed": true
+          }
+        ],
+        "wall_ms": 1079.4000000357628,
+        "scope": "fixed-layout primary and conditional Handling calibration; shared native-refinement cuts; bounded solves; not whole screening or category calibration",
+        "adapter_validation": true
+      },
+      {
+        "passed": true,
+        "worker": 5,
+        "fixture": "recorded-ordinary-best",
+        "fixture_cost": 660,
+        "baseline": [
+          28.126674227257475,
+          183.10392706384434
+        ],
+        "controls": 10,
+        "variables": 1526,
+        "constraints": 1919,
+        "best": {
+          "scip": [
+            26.604009118998295,
+            180.42925682842323
+          ],
+          "highs": [
+            26.604009118998295,
+            180.42925682842323
+          ]
+        },
+        "records": [
+          {
+            "worker": 5,
+            "fixture": "recorded-ordinary-best",
+            "phase": "primary",
+            "round": 0,
+            "engine": "highs",
+            "order": 0,
+            "model_sha256": "e965cbd3de8f2081b002e04d86d70245023c19e55704225b4d69cf3226e6df69",
+            "variables": 1526,
+            "constraints": 1918,
+            "elapsed_ms": 804.6000000238419,
+            "adapter_ms": 800.5,
+            "prepare_ms": 125,
+            "solve_ms": 675.5,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 26.604009118992174,
+            "dual_bound": 26.604009118992174,
+            "gap_percent": 0,
+            "native_objectives": [
+              26.604009118998295,
+              180.69672385196534
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 0
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 5,
+            "fixture": "recorded-ordinary-best",
+            "phase": "primary",
+            "round": 0,
+            "engine": "scip",
+            "order": 1,
+            "model_sha256": "e965cbd3de8f2081b002e04d86d70245023c19e55704225b4d69cf3226e6df69",
+            "variables": 1526,
+            "constraints": 1918,
+            "elapsed_ms": 303.2000000476837,
+            "adapter_ms": 303.2000000476837,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 26.6040091189953,
+            "dual_bound": 26.6040091189953,
+            "gap_percent": 0,
+            "native_objectives": [
+              26.604009118998295,
+              185.99257091809912
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 5,
+            "fixture": "recorded-ordinary-best",
+            "phase": "handling",
+            "round": 0,
+            "engine": "scip",
+            "order": 0,
+            "model_sha256": "90384ee47068093c81f2c83939dc80d6de59ef3e4ad787a877fa1246178e29a1",
+            "variables": 1526,
+            "constraints": 1919,
+            "elapsed_ms": 530.4000000357628,
+            "adapter_ms": 530.3000000119209,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 180.429256828423,
+            "dual_bound": 180.429256828423,
+            "gap_percent": 0,
+            "native_objectives": [
+              26.604009118998295,
+              180.42925682842323
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 5,
+            "fixture": "recorded-ordinary-best",
+            "phase": "handling",
+            "round": 0,
+            "engine": "highs",
+            "order": 1,
+            "model_sha256": "90384ee47068093c81f2c83939dc80d6de59ef3e4ad787a877fa1246178e29a1",
+            "variables": 1526,
+            "constraints": 1919,
+            "elapsed_ms": 75.29999995231628,
+            "adapter_ms": 69.39999997615814,
+            "prepare_ms": 2.199999988079071,
+            "solve_ms": 67.19999998807907,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 180.42925682842323,
+            "dual_bound": 180.42925682842323,
+            "gap_percent": 0,
+            "native_objectives": [
+              26.604009118998295,
+              180.42925682842323
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 1
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          }
+        ],
+        "shared_norm_cuts": 0,
+        "shared_rounding_cuts": 0,
+        "rounds_matched": true,
+        "converged": true,
+        "phases": [
+          {
+            "phase": "primary",
+            "closed": true
+          },
+          {
+            "phase": "handling",
+            "closed": true
+          }
+        ],
+        "wall_ms": 1904,
+        "scope": "fixed-layout primary and conditional Handling calibration; shared native-refinement cuts; bounded solves; not whole screening or category calibration",
+        "adapter_validation": true
+      },
+      {
+        "passed": true,
+        "worker": 6,
+        "fixture": "barrel-muzzle",
+        "fixture_cost": 320,
+        "baseline": [
+          46.5671752224781,
+          139.87961559734913
+        ],
+        "controls": 2,
+        "variables": 530,
+        "constraints": 1267,
+        "best": {
+          "scip": [
+            45.6506752224781,
+            137.75849111058065
+          ],
+          "highs": [
+            45.6506752224781,
+            137.75849111058065
+          ]
+        },
+        "records": [
+          {
+            "worker": 6,
+            "fixture": "barrel-muzzle",
+            "phase": "primary",
+            "round": 0,
+            "engine": "highs",
+            "order": 0,
+            "model_sha256": "0447621ae24047da4de55c6acf77aa36338bd890c32fba546bc9a1b6082728a1",
+            "variables": 530,
+            "constraints": 1266,
+            "elapsed_ms": 198.19999998807907,
+            "adapter_ms": 197.10000002384186,
+            "prepare_ms": 118.19999998807907,
+            "solve_ms": 78.90000003576279,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 45.650675222471975,
+            "dual_bound": 45.650675222471975,
+            "gap_percent": 0,
+            "native_objectives": [
+              45.6506752224781,
+              137.88575857978677
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 0
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 6,
+            "fixture": "barrel-muzzle",
+            "phase": "primary",
+            "round": 0,
+            "engine": "scip",
+            "order": 1,
+            "model_sha256": "0447621ae24047da4de55c6acf77aa36338bd890c32fba546bc9a1b6082728a1",
+            "variables": 530,
+            "constraints": 1266,
+            "elapsed_ms": 705.0999999642372,
+            "adapter_ms": 705.0999999642372,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 45.6506752224751,
+            "dual_bound": 45.6506752224751,
+            "gap_percent": 0,
+            "native_objectives": [
+              45.6506752224781,
+              139.87961559734913
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 6,
+            "fixture": "barrel-muzzle",
+            "phase": "handling",
+            "round": 0,
+            "engine": "scip",
+            "order": 0,
+            "model_sha256": "9a9494fb8849dd74d2fda9bb35c7a3af9f6a863a9c67408d77454423715a717c",
+            "variables": 530,
+            "constraints": 1267,
+            "elapsed_ms": 191,
+            "adapter_ms": 190.89999997615814,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 137.758491110581,
+            "dual_bound": 137.758491110581,
+            "gap_percent": 0,
+            "native_objectives": [
+              45.6506752224781,
+              137.75849111058065
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 6,
+            "fixture": "barrel-muzzle",
+            "phase": "handling",
+            "round": 0,
+            "engine": "highs",
+            "order": 1,
+            "model_sha256": "9a9494fb8849dd74d2fda9bb35c7a3af9f6a863a9c67408d77454423715a717c",
+            "variables": 530,
+            "constraints": 1267,
+            "elapsed_ms": 18.700000047683716,
+            "adapter_ms": 17.400000035762787,
+            "prepare_ms": 1,
+            "solve_ms": 16.400000035762787,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 137.75849111058065,
+            "dual_bound": 137.75849111058065,
+            "gap_percent": 0,
+            "native_objectives": [
+              45.6506752224781,
+              137.75849111058065
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 1
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          }
+        ],
+        "shared_norm_cuts": 0,
+        "shared_rounding_cuts": 0,
+        "rounds_matched": true,
+        "converged": true,
+        "phases": [
+          {
+            "phase": "primary",
+            "closed": true
+          },
+          {
+            "phase": "handling",
+            "closed": true
+          }
+        ],
+        "wall_ms": 1250.699999988079,
+        "scope": "fixed-layout primary and conditional Handling calibration; shared native-refinement cuts; bounded solves; not whole screening or category calibration",
+        "adapter_validation": true
+      },
+      {
+        "passed": true,
+        "worker": 7,
+        "fixture": "grip-magazine",
+        "fixture_cost": 300,
+        "baseline": [
+          49.228418322474624,
+          118.48079540784946
+        ],
+        "controls": 2,
+        "variables": 484,
+        "constraints": 1112,
+        "best": {
+          "scip": [
+            48.10849423697823,
+            116.04675695627384
+          ],
+          "highs": [
+            48.10849423697823,
+            116.04675695627384
+          ]
+        },
+        "records": [
+          {
+            "worker": 7,
+            "fixture": "grip-magazine",
+            "phase": "primary",
+            "round": 0,
+            "engine": "highs",
+            "order": 0,
+            "model_sha256": "f4155476d9f2043046f364e58fcd70595868dee798178c40cbec7043fb8f3b0b",
+            "variables": 484,
+            "constraints": 1111,
+            "elapsed_ms": 525.6000000238419,
+            "adapter_ms": 524.5,
+            "prepare_ms": 77.20000004768372,
+            "solve_ms": 447.2999999523163,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 48.108494236972234,
+            "dual_bound": 48.108494236972234,
+            "gap_percent": 0,
+            "native_objectives": [
+              48.10849423697823,
+              116.63092618465201
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 0
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 7,
+            "fixture": "grip-magazine",
+            "phase": "primary",
+            "round": 0,
+            "engine": "scip",
+            "order": 1,
+            "model_sha256": "f4155476d9f2043046f364e58fcd70595868dee798178c40cbec7043fb8f3b0b",
+            "variables": 484,
+            "constraints": 1111,
+            "elapsed_ms": 595.5,
+            "adapter_ms": 595.5,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 48.1084942369722,
+            "dual_bound": 48.1084942369722,
+            "gap_percent": 0,
+            "native_objectives": [
+              48.10849423697823,
+              118.48079540784946
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 7,
+            "fixture": "grip-magazine",
+            "phase": "handling",
+            "round": 0,
+            "engine": "scip",
+            "order": 0,
+            "model_sha256": "6aef4460992ca2ad1c095d5faac239510441ac353a141f36702e126335490972",
+            "variables": 484,
+            "constraints": 1112,
+            "elapsed_ms": 108,
+            "adapter_ms": 108,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 116.046756956274,
+            "dual_bound": 116.046756956274,
+            "gap_percent": 0,
+            "native_objectives": [
+              48.10849423697823,
+              116.04675695627384
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 7,
+            "fixture": "grip-magazine",
+            "phase": "handling",
+            "round": 0,
+            "engine": "highs",
+            "order": 1,
+            "model_sha256": "6aef4460992ca2ad1c095d5faac239510441ac353a141f36702e126335490972",
+            "variables": 484,
+            "constraints": 1112,
+            "elapsed_ms": 39.299999952316284,
+            "adapter_ms": 38.5,
+            "prepare_ms": 0.5999999642372131,
+            "solve_ms": 37.90000003576279,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 116.04675695627387,
+            "dual_bound": 116.04675695627387,
+            "gap_percent": 0,
+            "native_objectives": [
+              48.10849423697823,
+              116.04675695627384
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 1
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          }
+        ],
+        "shared_norm_cuts": 0,
+        "shared_rounding_cuts": 0,
+        "rounds_matched": true,
+        "converged": true,
+        "phases": [
+          {
+            "phase": "primary",
+            "closed": true
+          },
+          {
+            "phase": "handling",
+            "closed": true
+          }
+        ],
+        "wall_ms": 1369.800000011921,
+        "scope": "fixed-layout primary and conditional Handling calibration; shared native-refinement cuts; bounded solves; not whole screening or category calibration",
+        "adapter_validation": true
+      },
+      {
+        "passed": true,
+        "worker": 8,
+        "fixture": "insight-only",
+        "fixture_cost": 40,
+        "baseline": [
+          84.25,
+          112.11613240632468
+        ],
+        "controls": 0,
+        "variables": 150,
+        "constraints": 657,
+        "best": {
+          "scip": [
+            84.25,
+            112.11613240632468
+          ],
+          "highs": [
+            84.25,
+            112.11613240632468
+          ]
+        },
+        "records": [
+          {
+            "worker": 8,
+            "fixture": "insight-only",
+            "phase": "primary",
+            "round": 0,
+            "engine": "scip",
+            "order": 0,
+            "model_sha256": "1db5d809f7b94e724b7a75a2fca396edab52482816f1100835e2aad2f66d3696",
+            "variables": 150,
+            "constraints": 656,
+            "elapsed_ms": 240.69999998807907,
+            "adapter_ms": 240.69999998807907,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 84.249999999997,
+            "dual_bound": 84.249999999997,
+            "gap_percent": 0,
+            "native_objectives": [
+              84.25,
+              112.11613240632468
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 8,
+            "fixture": "insight-only",
+            "phase": "primary",
+            "round": 0,
+            "engine": "highs",
+            "order": 1,
+            "model_sha256": "1db5d809f7b94e724b7a75a2fca396edab52482816f1100835e2aad2f66d3696",
+            "variables": 150,
+            "constraints": 656,
+            "elapsed_ms": 113.40000003576279,
+            "adapter_ms": 113,
+            "prepare_ms": 91,
+            "solve_ms": 22,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 84.24999999999699,
+            "dual_bound": 84.24999999999699,
+            "gap_percent": 0,
+            "native_objectives": [
+              84.25,
+              112.11613240632468
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 0
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 8,
+            "fixture": "insight-only",
+            "phase": "handling",
+            "round": 0,
+            "engine": "highs",
+            "order": 0,
+            "model_sha256": "aebb13ef41767788998c177f37035e83db42b35a6cb9c1173993124a4c0dc6d6",
+            "variables": 150,
+            "constraints": 657,
+            "elapsed_ms": 6.300000011920929,
+            "adapter_ms": 4.5,
+            "prepare_ms": 0.5,
+            "solve_ms": 4,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 112.1161324063247,
+            "dual_bound": 112.1161324063247,
+            "gap_percent": 0,
+            "native_objectives": [
+              84.25,
+              112.11613240632468
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 1
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 8,
+            "fixture": "insight-only",
+            "phase": "handling",
+            "round": 0,
+            "engine": "scip",
+            "order": 1,
+            "model_sha256": "aebb13ef41767788998c177f37035e83db42b35a6cb9c1173993124a4c0dc6d6",
+            "variables": 150,
+            "constraints": 657,
+            "elapsed_ms": 523.8000000119209,
+            "adapter_ms": 523.8000000119209,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 112.116132406325,
+            "dual_bound": 112.116132406325,
+            "gap_percent": 0,
+            "native_objectives": [
+              84.25,
+              112.11613240632468
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          }
+        ],
+        "shared_norm_cuts": 0,
+        "shared_rounding_cuts": 0,
+        "rounds_matched": true,
+        "converged": true,
+        "phases": [
+          {
+            "phase": "primary",
+            "closed": true
+          },
+          {
+            "phase": "handling",
+            "closed": true
+          }
+        ],
+        "wall_ms": 1031.300000011921,
+        "scope": "fixed-layout primary and conditional Handling calibration; shared native-refinement cuts; bounded solves; not whole screening or category calibration",
+        "adapter_validation": true
+      },
+      {
+        "passed": true,
+        "worker": 9,
+        "fixture": "recorded-ordinary-best",
+        "fixture_cost": 660,
+        "baseline": [
+          28.126674227257475,
+          183.10392706384434
+        ],
+        "controls": 10,
+        "variables": 1526,
+        "constraints": 1919,
+        "best": {
+          "scip": [
+            26.604009118998295,
+            180.42925682842323
+          ],
+          "highs": [
+            26.604009118998295,
+            180.42925682842323
+          ]
+        },
+        "records": [
+          {
+            "worker": 9,
+            "fixture": "recorded-ordinary-best",
+            "phase": "primary",
+            "round": 0,
+            "engine": "scip",
+            "order": 0,
+            "model_sha256": "e965cbd3de8f2081b002e04d86d70245023c19e55704225b4d69cf3226e6df69",
+            "variables": 1526,
+            "constraints": 1918,
+            "elapsed_ms": 401.2000000476837,
+            "adapter_ms": 401.2000000476837,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 26.6040091189953,
+            "dual_bound": 26.6040091189953,
+            "gap_percent": 0,
+            "native_objectives": [
+              26.604009118998295,
+              185.99257091809912
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 9,
+            "fixture": "recorded-ordinary-best",
+            "phase": "primary",
+            "round": 0,
+            "engine": "highs",
+            "order": 1,
+            "model_sha256": "e965cbd3de8f2081b002e04d86d70245023c19e55704225b4d69cf3226e6df69",
+            "variables": 1526,
+            "constraints": 1918,
+            "elapsed_ms": 534.3000000119209,
+            "adapter_ms": 524.3999999761581,
+            "prepare_ms": 174.89999997615814,
+            "solve_ms": 349.5,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 26.604009118992174,
+            "dual_bound": 26.604009118992174,
+            "gap_percent": 0,
+            "native_objectives": [
+              26.604009118998295,
+              180.69672385196534
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 0
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 9,
+            "fixture": "recorded-ordinary-best",
+            "phase": "handling",
+            "round": 0,
+            "engine": "highs",
+            "order": 0,
+            "model_sha256": "90384ee47068093c81f2c83939dc80d6de59ef3e4ad787a877fa1246178e29a1",
+            "variables": 1526,
+            "constraints": 1919,
+            "elapsed_ms": 77.10000002384186,
+            "adapter_ms": 69.30000001192093,
+            "prepare_ms": 0.8999999761581421,
+            "solve_ms": 68.40000003576279,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 180.42925682842323,
+            "dual_bound": 180.42925682842323,
+            "gap_percent": 0,
+            "native_objectives": [
+              26.604009118998295,
+              180.42925682842323
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 1
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 9,
+            "fixture": "recorded-ordinary-best",
+            "phase": "handling",
+            "round": 0,
+            "engine": "scip",
+            "order": 1,
+            "model_sha256": "90384ee47068093c81f2c83939dc80d6de59ef3e4ad787a877fa1246178e29a1",
+            "variables": 1526,
+            "constraints": 1919,
+            "elapsed_ms": 178.30000001192093,
+            "adapter_ms": 178.30000001192093,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 180.429256828423,
+            "dual_bound": 180.429256828423,
+            "gap_percent": 0,
+            "native_objectives": [
+              26.604009118998295,
+              180.42925682842323
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          }
+        ],
+        "shared_norm_cuts": 0,
+        "shared_rounding_cuts": 0,
+        "rounds_matched": true,
+        "converged": true,
+        "phases": [
+          {
+            "phase": "primary",
+            "closed": true
+          },
+          {
+            "phase": "handling",
+            "closed": true
+          }
+        ],
+        "wall_ms": 1366.2999999523163,
+        "scope": "fixed-layout primary and conditional Handling calibration; shared native-refinement cuts; bounded solves; not whole screening or category calibration",
+        "adapter_validation": true
+      },
+      {
+        "passed": true,
+        "worker": 10,
+        "fixture": "barrel-muzzle",
+        "fixture_cost": 320,
+        "baseline": [
+          46.5671752224781,
+          139.87961559734913
+        ],
+        "controls": 2,
+        "variables": 530,
+        "constraints": 1267,
+        "best": {
+          "scip": [
+            45.6506752224781,
+            137.75849111058065
+          ],
+          "highs": [
+            45.6506752224781,
+            137.75849111058065
+          ]
+        },
+        "records": [
+          {
+            "worker": 10,
+            "fixture": "barrel-muzzle",
+            "phase": "primary",
+            "round": 0,
+            "engine": "scip",
+            "order": 0,
+            "model_sha256": "0447621ae24047da4de55c6acf77aa36338bd890c32fba546bc9a1b6082728a1",
+            "variables": 530,
+            "constraints": 1266,
+            "elapsed_ms": 357.89999997615814,
+            "adapter_ms": 357.89999997615814,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 45.6506752224751,
+            "dual_bound": 45.6506752224751,
+            "gap_percent": 0,
+            "native_objectives": [
+              45.6506752224781,
+              139.87961559734913
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 10,
+            "fixture": "barrel-muzzle",
+            "phase": "primary",
+            "round": 0,
+            "engine": "highs",
+            "order": 1,
+            "model_sha256": "0447621ae24047da4de55c6acf77aa36338bd890c32fba546bc9a1b6082728a1",
+            "variables": 530,
+            "constraints": 1266,
+            "elapsed_ms": 211.0999999642372,
+            "adapter_ms": 206.30000001192093,
+            "prepare_ms": 181.19999998807907,
+            "solve_ms": 25.100000023841858,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 45.650675222471975,
+            "dual_bound": 45.650675222471975,
+            "gap_percent": 0,
+            "native_objectives": [
+              45.6506752224781,
+              137.88575857978677
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 0
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 10,
+            "fixture": "barrel-muzzle",
+            "phase": "handling",
+            "round": 0,
+            "engine": "highs",
+            "order": 0,
+            "model_sha256": "9a9494fb8849dd74d2fda9bb35c7a3af9f6a863a9c67408d77454423715a717c",
+            "variables": 530,
+            "constraints": 1267,
+            "elapsed_ms": 15.300000011920929,
+            "adapter_ms": 13.300000011920929,
+            "prepare_ms": 0.5999999642372131,
+            "solve_ms": 12.700000047683716,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 137.75849111058065,
+            "dual_bound": 137.75849111058065,
+            "gap_percent": 0,
+            "native_objectives": [
+              45.6506752224781,
+              137.75849111058065
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 1
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 10,
+            "fixture": "barrel-muzzle",
+            "phase": "handling",
+            "round": 0,
+            "engine": "scip",
+            "order": 1,
+            "model_sha256": "9a9494fb8849dd74d2fda9bb35c7a3af9f6a863a9c67408d77454423715a717c",
+            "variables": 530,
+            "constraints": 1267,
+            "elapsed_ms": 383.7000000476837,
+            "adapter_ms": 383.7000000476837,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 137.758491110581,
+            "dual_bound": 137.758491110581,
+            "gap_percent": 0,
+            "native_objectives": [
+              45.6506752224781,
+              137.75849111058065
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          }
+        ],
+        "shared_norm_cuts": 0,
+        "shared_rounding_cuts": 0,
+        "rounds_matched": true,
+        "converged": true,
+        "phases": [
+          {
+            "phase": "primary",
+            "closed": true
+          },
+          {
+            "phase": "handling",
+            "closed": true
+          }
+        ],
+        "wall_ms": 1087.800000011921,
+        "scope": "fixed-layout primary and conditional Handling calibration; shared native-refinement cuts; bounded solves; not whole screening or category calibration",
+        "adapter_validation": true
+      },
+      {
+        "passed": true,
+        "worker": 11,
+        "fixture": "grip-magazine",
+        "fixture_cost": 300,
+        "baseline": [
+          49.228418322474624,
+          118.48079540784946
+        ],
+        "controls": 2,
+        "variables": 484,
+        "constraints": 1112,
+        "best": {
+          "scip": [
+            48.10849423697823,
+            116.04675695627384
+          ],
+          "highs": [
+            48.10849423697823,
+            116.04675695627384
+          ]
+        },
+        "records": [
+          {
+            "worker": 11,
+            "fixture": "grip-magazine",
+            "phase": "primary",
+            "round": 0,
+            "engine": "scip",
+            "order": 0,
+            "model_sha256": "f4155476d9f2043046f364e58fcd70595868dee798178c40cbec7043fb8f3b0b",
+            "variables": 484,
+            "constraints": 1111,
+            "elapsed_ms": 446.0999999642372,
+            "adapter_ms": 446.0999999642372,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 48.1084942369722,
+            "dual_bound": 48.1084942369722,
+            "gap_percent": 0,
+            "native_objectives": [
+              48.10849423697823,
+              118.48079540784946
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 11,
+            "fixture": "grip-magazine",
+            "phase": "primary",
+            "round": 0,
+            "engine": "highs",
+            "order": 1,
+            "model_sha256": "f4155476d9f2043046f364e58fcd70595868dee798178c40cbec7043fb8f3b0b",
+            "variables": 484,
+            "constraints": 1111,
+            "elapsed_ms": 284.4000000357628,
+            "adapter_ms": 283.4000000357628,
+            "prepare_ms": 94.20000004768372,
+            "solve_ms": 189.19999998807907,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 48.108494236972234,
+            "dual_bound": 48.108494236972234,
+            "gap_percent": 0,
+            "native_objectives": [
+              48.10849423697823,
+              116.63092618465201
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 0
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 11,
+            "fixture": "grip-magazine",
+            "phase": "handling",
+            "round": 0,
+            "engine": "highs",
+            "order": 0,
+            "model_sha256": "6aef4460992ca2ad1c095d5faac239510441ac353a141f36702e126335490972",
+            "variables": 484,
+            "constraints": 1112,
+            "elapsed_ms": 28.69999998807907,
+            "adapter_ms": 27.69999998807907,
+            "prepare_ms": 0.6000000238418579,
+            "solve_ms": 27.099999964237213,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 116.04675695627387,
+            "dual_bound": 116.04675695627387,
+            "gap_percent": 0,
+            "native_objectives": [
+              48.10849423697823,
+              116.04675695627384
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 1
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 11,
+            "fixture": "grip-magazine",
+            "phase": "handling",
+            "round": 0,
+            "engine": "scip",
+            "order": 1,
+            "model_sha256": "6aef4460992ca2ad1c095d5faac239510441ac353a141f36702e126335490972",
+            "variables": 484,
+            "constraints": 1112,
+            "elapsed_ms": 189.39999997615814,
+            "adapter_ms": 189.39999997615814,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 116.046756956274,
+            "dual_bound": 116.046756956274,
+            "gap_percent": 0,
+            "native_objectives": [
+              48.10849423697823,
+              116.04675695627384
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          }
+        ],
+        "shared_norm_cuts": 0,
+        "shared_rounding_cuts": 0,
+        "rounds_matched": true,
+        "converged": true,
+        "phases": [
+          {
+            "phase": "primary",
+            "closed": true
+          },
+          {
+            "phase": "handling",
+            "closed": true
+          }
+        ],
+        "wall_ms": 1064,
+        "scope": "fixed-layout primary and conditional Handling calibration; shared native-refinement cuts; bounded solves; not whole screening or category calibration",
+        "adapter_validation": true
+      },
+      {
+        "passed": true,
+        "worker": 12,
+        "fixture": "insight-only",
+        "fixture_cost": 40,
+        "baseline": [
+          84.25,
+          112.11613240632468
+        ],
+        "controls": 0,
+        "variables": 150,
+        "constraints": 657,
+        "best": {
+          "scip": [
+            84.25,
+            112.11613240632468
+          ],
+          "highs": [
+            84.25,
+            112.11613240632468
+          ]
+        },
+        "records": [
+          {
+            "worker": 12,
+            "fixture": "insight-only",
+            "phase": "primary",
+            "round": 0,
+            "engine": "highs",
+            "order": 0,
+            "model_sha256": "1db5d809f7b94e724b7a75a2fca396edab52482816f1100835e2aad2f66d3696",
+            "variables": 150,
+            "constraints": 656,
+            "elapsed_ms": 153.89999997615814,
+            "adapter_ms": 153.5,
+            "prepare_ms": 72.60000002384186,
+            "solve_ms": 80.89999997615814,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 84.24999999999699,
+            "dual_bound": 84.24999999999699,
+            "gap_percent": 0,
+            "native_objectives": [
+              84.25,
+              112.11613240632468
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 0
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 12,
+            "fixture": "insight-only",
+            "phase": "primary",
+            "round": 0,
+            "engine": "scip",
+            "order": 1,
+            "model_sha256": "1db5d809f7b94e724b7a75a2fca396edab52482816f1100835e2aad2f66d3696",
+            "variables": 150,
+            "constraints": 656,
+            "elapsed_ms": 191,
+            "adapter_ms": 191,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 84.249999999997,
+            "dual_bound": 84.249999999997,
+            "gap_percent": 0,
+            "native_objectives": [
+              84.25,
+              112.11613240632468
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 12,
+            "fixture": "insight-only",
+            "phase": "handling",
+            "round": 0,
+            "engine": "scip",
+            "order": 0,
+            "model_sha256": "aebb13ef41767788998c177f37035e83db42b35a6cb9c1173993124a4c0dc6d6",
+            "variables": 150,
+            "constraints": 657,
+            "elapsed_ms": 119.39999997615814,
+            "adapter_ms": 119.39999997615814,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 112.116132406325,
+            "dual_bound": 112.116132406325,
+            "gap_percent": 0,
+            "native_objectives": [
+              84.25,
+              112.11613240632468
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 12,
+            "fixture": "insight-only",
+            "phase": "handling",
+            "round": 0,
+            "engine": "highs",
+            "order": 1,
+            "model_sha256": "aebb13ef41767788998c177f37035e83db42b35a6cb9c1173993124a4c0dc6d6",
+            "variables": 150,
+            "constraints": 657,
+            "elapsed_ms": 2.300000011920929,
+            "adapter_ms": 2,
+            "prepare_ms": 0.40000003576278687,
+            "solve_ms": 1.5999999642372131,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 112.1161324063247,
+            "dual_bound": 112.1161324063247,
+            "gap_percent": 0,
+            "native_objectives": [
+              84.25,
+              112.11613240632468
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 1
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          }
+        ],
+        "shared_norm_cuts": 0,
+        "shared_rounding_cuts": 0,
+        "rounds_matched": true,
+        "converged": true,
+        "phases": [
+          {
+            "phase": "primary",
+            "closed": true
+          },
+          {
+            "phase": "handling",
+            "closed": true
+          }
+        ],
+        "wall_ms": 541.6999999880791,
+        "scope": "fixed-layout primary and conditional Handling calibration; shared native-refinement cuts; bounded solves; not whole screening or category calibration",
+        "adapter_validation": true
+      },
+      {
+        "passed": true,
+        "worker": 13,
+        "fixture": "recorded-ordinary-best",
+        "fixture_cost": 660,
+        "baseline": [
+          28.126674227257475,
+          183.10392706384434
+        ],
+        "controls": 10,
+        "variables": 1526,
+        "constraints": 1919,
+        "best": {
+          "scip": [
+            26.604009118998295,
+            180.42925682842323
+          ],
+          "highs": [
+            26.604009118998295,
+            180.42925682842323
+          ]
+        },
+        "records": [
+          {
+            "worker": 13,
+            "fixture": "recorded-ordinary-best",
+            "phase": "primary",
+            "round": 0,
+            "engine": "highs",
+            "order": 0,
+            "model_sha256": "e965cbd3de8f2081b002e04d86d70245023c19e55704225b4d69cf3226e6df69",
+            "variables": 1526,
+            "constraints": 1918,
+            "elapsed_ms": 765.1000000238419,
+            "adapter_ms": 760.7000000476837,
+            "prepare_ms": 114,
+            "solve_ms": 646.7000000476837,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 26.604009118992174,
+            "dual_bound": 26.604009118992174,
+            "gap_percent": 0,
+            "native_objectives": [
+              26.604009118998295,
+              180.69672385196534
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 0
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 13,
+            "fixture": "recorded-ordinary-best",
+            "phase": "primary",
+            "round": 0,
+            "engine": "scip",
+            "order": 1,
+            "model_sha256": "e965cbd3de8f2081b002e04d86d70245023c19e55704225b4d69cf3226e6df69",
+            "variables": 1526,
+            "constraints": 1918,
+            "elapsed_ms": 229.70000004768372,
+            "adapter_ms": 229.70000004768372,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 26.6040091189953,
+            "dual_bound": 26.6040091189953,
+            "gap_percent": 0,
+            "native_objectives": [
+              26.604009118998295,
+              185.99257091809912
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 13,
+            "fixture": "recorded-ordinary-best",
+            "phase": "handling",
+            "round": 0,
+            "engine": "scip",
+            "order": 0,
+            "model_sha256": "90384ee47068093c81f2c83939dc80d6de59ef3e4ad787a877fa1246178e29a1",
+            "variables": 1526,
+            "constraints": 1919,
+            "elapsed_ms": 197.19999998807907,
+            "adapter_ms": 197.0999999642372,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 180.429256828423,
+            "dual_bound": 180.429256828423,
+            "gap_percent": 0,
+            "native_objectives": [
+              26.604009118998295,
+              180.42925682842323
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 13,
+            "fixture": "recorded-ordinary-best",
+            "phase": "handling",
+            "round": 0,
+            "engine": "highs",
+            "order": 1,
+            "model_sha256": "90384ee47068093c81f2c83939dc80d6de59ef3e4ad787a877fa1246178e29a1",
+            "variables": 1526,
+            "constraints": 1919,
+            "elapsed_ms": 37.60000002384186,
+            "adapter_ms": 34.39999997615814,
+            "prepare_ms": 1,
+            "solve_ms": 33.39999997615814,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 180.42925682842323,
+            "dual_bound": 180.42925682842323,
+            "gap_percent": 0,
+            "native_objectives": [
+              26.604009118998295,
+              180.42925682842323
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 1
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          }
+        ],
+        "shared_norm_cuts": 0,
+        "shared_rounding_cuts": 0,
+        "rounds_matched": true,
+        "converged": true,
+        "phases": [
+          {
+            "phase": "primary",
+            "closed": true
+          },
+          {
+            "phase": "handling",
+            "closed": true
+          }
+        ],
+        "wall_ms": 1390,
+        "scope": "fixed-layout primary and conditional Handling calibration; shared native-refinement cuts; bounded solves; not whole screening or category calibration",
+        "adapter_validation": true
+      },
+      {
+        "passed": true,
+        "worker": 14,
+        "fixture": "barrel-muzzle",
+        "fixture_cost": 320,
+        "baseline": [
+          46.5671752224781,
+          139.87961559734913
+        ],
+        "controls": 2,
+        "variables": 530,
+        "constraints": 1267,
+        "best": {
+          "scip": [
+            45.6506752224781,
+            137.75849111058065
+          ],
+          "highs": [
+            45.6506752224781,
+            137.75849111058065
+          ]
+        },
+        "records": [
+          {
+            "worker": 14,
+            "fixture": "barrel-muzzle",
+            "phase": "primary",
+            "round": 0,
+            "engine": "highs",
+            "order": 0,
+            "model_sha256": "0447621ae24047da4de55c6acf77aa36338bd890c32fba546bc9a1b6082728a1",
+            "variables": 530,
+            "constraints": 1266,
+            "elapsed_ms": 154.9000000357628,
+            "adapter_ms": 153.80000001192093,
+            "prepare_ms": 103.20000004768372,
+            "solve_ms": 50.59999996423721,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 45.650675222471975,
+            "dual_bound": 45.650675222471975,
+            "gap_percent": 0,
+            "native_objectives": [
+              45.6506752224781,
+              137.88575857978677
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 0
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 14,
+            "fixture": "barrel-muzzle",
+            "phase": "primary",
+            "round": 0,
+            "engine": "scip",
+            "order": 1,
+            "model_sha256": "0447621ae24047da4de55c6acf77aa36338bd890c32fba546bc9a1b6082728a1",
+            "variables": 530,
+            "constraints": 1266,
+            "elapsed_ms": 697.2000000476837,
+            "adapter_ms": 697.1000000238419,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 45.6506752224751,
+            "dual_bound": 45.6506752224751,
+            "gap_percent": 0,
+            "native_objectives": [
+              45.6506752224781,
+              139.87961559734913
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 14,
+            "fixture": "barrel-muzzle",
+            "phase": "handling",
+            "round": 0,
+            "engine": "scip",
+            "order": 0,
+            "model_sha256": "9a9494fb8849dd74d2fda9bb35c7a3af9f6a863a9c67408d77454423715a717c",
+            "variables": 530,
+            "constraints": 1267,
+            "elapsed_ms": 126.39999997615814,
+            "adapter_ms": 126.30000001192093,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 137.758491110581,
+            "dual_bound": 137.758491110581,
+            "gap_percent": 0,
+            "native_objectives": [
+              45.6506752224781,
+              137.75849111058065
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 14,
+            "fixture": "barrel-muzzle",
+            "phase": "handling",
+            "round": 0,
+            "engine": "highs",
+            "order": 1,
+            "model_sha256": "9a9494fb8849dd74d2fda9bb35c7a3af9f6a863a9c67408d77454423715a717c",
+            "variables": 530,
+            "constraints": 1267,
+            "elapsed_ms": 23.69999998807907,
+            "adapter_ms": 22.099999964237213,
+            "prepare_ms": 0.699999988079071,
+            "solve_ms": 21.399999976158142,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 137.75849111058065,
+            "dual_bound": 137.75849111058065,
+            "gap_percent": 0,
+            "native_objectives": [
+              45.6506752224781,
+              137.75849111058065
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 1
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          }
+        ],
+        "shared_norm_cuts": 0,
+        "shared_rounding_cuts": 0,
+        "rounds_matched": true,
+        "converged": true,
+        "phases": [
+          {
+            "phase": "primary",
+            "closed": true
+          },
+          {
+            "phase": "handling",
+            "closed": true
+          }
+        ],
+        "wall_ms": 1229.4000000357628,
+        "scope": "fixed-layout primary and conditional Handling calibration; shared native-refinement cuts; bounded solves; not whole screening or category calibration",
+        "adapter_validation": true
+      },
+      {
+        "passed": true,
+        "worker": 15,
+        "fixture": "grip-magazine",
+        "fixture_cost": 300,
+        "baseline": [
+          49.228418322474624,
+          118.48079540784946
+        ],
+        "controls": 2,
+        "variables": 484,
+        "constraints": 1112,
+        "best": {
+          "scip": [
+            48.10849423697823,
+            116.04675695627384
+          ],
+          "highs": [
+            48.10849423697823,
+            116.04675695627384
+          ]
+        },
+        "records": [
+          {
+            "worker": 15,
+            "fixture": "grip-magazine",
+            "phase": "primary",
+            "round": 0,
+            "engine": "highs",
+            "order": 0,
+            "model_sha256": "f4155476d9f2043046f364e58fcd70595868dee798178c40cbec7043fb8f3b0b",
+            "variables": 484,
+            "constraints": 1111,
+            "elapsed_ms": 483.69999998807907,
+            "adapter_ms": 482.69999998807907,
+            "prepare_ms": 102.69999998807907,
+            "solve_ms": 380,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 48.108494236972234,
+            "dual_bound": 48.108494236972234,
+            "gap_percent": 0,
+            "native_objectives": [
+              48.10849423697823,
+              116.63092618465201
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 0
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          },
+          {
+            "worker": 15,
+            "fixture": "grip-magazine",
+            "phase": "primary",
+            "round": 0,
+            "engine": "scip",
+            "order": 1,
+            "model_sha256": "f4155476d9f2043046f364e58fcd70595868dee798178c40cbec7043fb8f3b0b",
+            "variables": 484,
+            "constraints": 1111,
+            "elapsed_ms": 653.9000000357628,
+            "adapter_ms": 653.9000000357628,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 48.1084942369722,
+            "dual_bound": 48.1084942369722,
+            "gap_percent": 0,
+            "native_objectives": [
+              48.10849423697823,
+              118.48079540784946
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 15,
+            "fixture": "grip-magazine",
+            "phase": "handling",
+            "round": 0,
+            "engine": "scip",
+            "order": 0,
+            "model_sha256": "6aef4460992ca2ad1c095d5faac239510441ac353a141f36702e126335490972",
+            "variables": 484,
+            "constraints": 1112,
+            "elapsed_ms": 117.60000002384186,
+            "adapter_ms": 117.60000002384186,
+            "prepare_ms": null,
+            "solve_ms": null,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 116.046756956274,
+            "dual_bound": 116.046756956274,
+            "gap_percent": 0,
+            "native_objectives": [
+              48.10849423697823,
+              116.04675695627384
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": null,
+            "version": "SCIP10.0.2"
+          },
+          {
+            "worker": 15,
+            "fixture": "grip-magazine",
+            "phase": "handling",
+            "round": 0,
+            "engine": "highs",
+            "order": 1,
+            "model_sha256": "6aef4460992ca2ad1c095d5faac239510441ac353a141f36702e126335490972",
+            "variables": 484,
+            "constraints": 1112,
+            "elapsed_ms": 30.30000001192093,
+            "adapter_ms": 29,
+            "prepare_ms": 0.5999999642372131,
+            "solve_ms": 28.400000035762787,
+            "status": "optimal",
+            "has_incumbent": true,
+            "primal_bound": 116.04675695627387,
+            "dual_bound": 116.04675695627387,
+            "gap_percent": 0,
+            "native_objectives": [
+              48.10849423697823,
+              116.04675695627384
+            ],
+            "pending_norm_cuts": 0,
+            "pending_rounding_cuts": 0,
+            "adapter": {
+              "builds": 1,
+              "appended_rows": 1
+            },
+            "version": {
+              "major": 1,
+              "minor": 15,
+              "patch": 1,
+              "string": "1.15.1",
+              "gitHash": "04024d7"
+            }
+          }
+        ],
+        "shared_norm_cuts": 0,
+        "shared_rounding_cuts": 0,
+        "rounds_matched": true,
+        "converged": true,
+        "phases": [
+          {
+            "phase": "primary",
+            "closed": true
+          },
+          {
+            "phase": "handling",
+            "closed": true
+          }
+        ],
+        "wall_ms": 1382.0999999642372,
+        "scope": "fixed-layout primary and conditional Handling calibration; shared native-refinement cuts; bounded solves; not whole screening or category calibration",
+        "adapter_validation": true
+      }
+    ],
+    "progress": [
+      {
+        "worker": 12,
+        "fixture": "insight-only",
+        "phase": "primary",
+        "round": 0,
+        "engine": "highs",
+        "order": 0,
+        "model_sha256": "1db5d809f7b94e724b7a75a2fca396edab52482816f1100835e2aad2f66d3696",
+        "variables": 150,
+        "constraints": 656,
+        "elapsed_ms": 153.89999997615814,
+        "adapter_ms": 153.5,
+        "prepare_ms": 72.60000002384186,
+        "solve_ms": 80.89999997615814,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 84.24999999999699,
+        "dual_bound": 84.24999999999699,
+        "gap_percent": 0,
+        "native_objectives": [
+          84.25,
+          112.11613240632468
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 0
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 4,
+        "fixture": "insight-only",
+        "phase": "primary",
+        "round": 0,
+        "engine": "highs",
+        "order": 0,
+        "model_sha256": "1db5d809f7b94e724b7a75a2fca396edab52482816f1100835e2aad2f66d3696",
+        "variables": 150,
+        "constraints": 656,
+        "elapsed_ms": 140.80000001192093,
+        "adapter_ms": 140.39999997615814,
+        "prepare_ms": 114.39999997615814,
+        "solve_ms": 26,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 84.24999999999699,
+        "dual_bound": 84.24999999999699,
+        "gap_percent": 0,
+        "native_objectives": [
+          84.25,
+          112.11613240632468
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 0
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 6,
+        "fixture": "barrel-muzzle",
+        "phase": "primary",
+        "round": 0,
+        "engine": "highs",
+        "order": 0,
+        "model_sha256": "0447621ae24047da4de55c6acf77aa36338bd890c32fba546bc9a1b6082728a1",
+        "variables": 530,
+        "constraints": 1266,
+        "elapsed_ms": 198.19999998807907,
+        "adapter_ms": 197.10000002384186,
+        "prepare_ms": 118.19999998807907,
+        "solve_ms": 78.90000003576279,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 45.650675222471975,
+        "dual_bound": 45.650675222471975,
+        "gap_percent": 0,
+        "native_objectives": [
+          45.6506752224781,
+          137.88575857978677
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 0
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 14,
+        "fixture": "barrel-muzzle",
+        "phase": "primary",
+        "round": 0,
+        "engine": "highs",
+        "order": 0,
+        "model_sha256": "0447621ae24047da4de55c6acf77aa36338bd890c32fba546bc9a1b6082728a1",
+        "variables": 530,
+        "constraints": 1266,
+        "elapsed_ms": 154.9000000357628,
+        "adapter_ms": 153.80000001192093,
+        "prepare_ms": 103.20000004768372,
+        "solve_ms": 50.59999996423721,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 45.650675222471975,
+        "dual_bound": 45.650675222471975,
+        "gap_percent": 0,
+        "native_objectives": [
+          45.6506752224781,
+          137.88575857978677
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 0
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 0,
+        "fixture": "insight-only",
+        "phase": "primary",
+        "round": 0,
+        "engine": "scip",
+        "order": 0,
+        "model_sha256": "1db5d809f7b94e724b7a75a2fca396edab52482816f1100835e2aad2f66d3696",
+        "variables": 150,
+        "constraints": 656,
+        "elapsed_ms": 210.10000002384186,
+        "adapter_ms": 210,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 84.249999999997,
+        "dual_bound": 84.249999999997,
+        "gap_percent": 0,
+        "native_objectives": [
+          84.25,
+          112.11613240632468
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 8,
+        "fixture": "insight-only",
+        "phase": "primary",
+        "round": 0,
+        "engine": "scip",
+        "order": 0,
+        "model_sha256": "1db5d809f7b94e724b7a75a2fca396edab52482816f1100835e2aad2f66d3696",
+        "variables": 150,
+        "constraints": 656,
+        "elapsed_ms": 240.69999998807907,
+        "adapter_ms": 240.69999998807907,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 84.249999999997,
+        "dual_bound": 84.249999999997,
+        "gap_percent": 0,
+        "native_objectives": [
+          84.25,
+          112.11613240632468
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 12,
+        "fixture": "insight-only",
+        "phase": "primary",
+        "round": 0,
+        "engine": "scip",
+        "order": 1,
+        "model_sha256": "1db5d809f7b94e724b7a75a2fca396edab52482816f1100835e2aad2f66d3696",
+        "variables": 150,
+        "constraints": 656,
+        "elapsed_ms": 191,
+        "adapter_ms": 191,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 84.249999999997,
+        "dual_bound": 84.249999999997,
+        "gap_percent": 0,
+        "native_objectives": [
+          84.25,
+          112.11613240632468
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 1,
+        "fixture": "recorded-ordinary-best",
+        "phase": "primary",
+        "round": 0,
+        "engine": "scip",
+        "order": 0,
+        "model_sha256": "e965cbd3de8f2081b002e04d86d70245023c19e55704225b4d69cf3226e6df69",
+        "variables": 1526,
+        "constraints": 1918,
+        "elapsed_ms": 308.30000001192093,
+        "adapter_ms": 308.30000001192093,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 26.6040091189953,
+        "dual_bound": 26.6040091189953,
+        "gap_percent": 0,
+        "native_objectives": [
+          26.604009118998295,
+          185.99257091809912
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 2,
+        "fixture": "barrel-muzzle",
+        "phase": "primary",
+        "round": 0,
+        "engine": "scip",
+        "order": 0,
+        "model_sha256": "0447621ae24047da4de55c6acf77aa36338bd890c32fba546bc9a1b6082728a1",
+        "variables": 530,
+        "constraints": 1266,
+        "elapsed_ms": 300.19999998807907,
+        "adapter_ms": 300.19999998807907,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 45.6506752224751,
+        "dual_bound": 45.6506752224751,
+        "gap_percent": 0,
+        "native_objectives": [
+          45.6506752224781,
+          139.87961559734913
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 10,
+        "fixture": "barrel-muzzle",
+        "phase": "primary",
+        "round": 0,
+        "engine": "scip",
+        "order": 0,
+        "model_sha256": "0447621ae24047da4de55c6acf77aa36338bd890c32fba546bc9a1b6082728a1",
+        "variables": 530,
+        "constraints": 1266,
+        "elapsed_ms": 357.89999997615814,
+        "adapter_ms": 357.89999997615814,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 45.6506752224751,
+        "dual_bound": 45.6506752224751,
+        "gap_percent": 0,
+        "native_objectives": [
+          45.6506752224781,
+          139.87961559734913
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 0,
+        "fixture": "insight-only",
+        "phase": "primary",
+        "round": 0,
+        "engine": "highs",
+        "order": 1,
+        "model_sha256": "1db5d809f7b94e724b7a75a2fca396edab52482816f1100835e2aad2f66d3696",
+        "variables": 150,
+        "constraints": 656,
+        "elapsed_ms": 135.39999997615814,
+        "adapter_ms": 133.10000002384186,
+        "prepare_ms": 65.69999998807907,
+        "solve_ms": 67.40000003576279,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 84.24999999999699,
+        "dual_bound": 84.24999999999699,
+        "gap_percent": 0,
+        "native_objectives": [
+          84.25,
+          112.11613240632468
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 0
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 8,
+        "fixture": "insight-only",
+        "phase": "primary",
+        "round": 0,
+        "engine": "highs",
+        "order": 1,
+        "model_sha256": "1db5d809f7b94e724b7a75a2fca396edab52482816f1100835e2aad2f66d3696",
+        "variables": 150,
+        "constraints": 656,
+        "elapsed_ms": 113.40000003576279,
+        "adapter_ms": 113,
+        "prepare_ms": 91,
+        "solve_ms": 22,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 84.24999999999699,
+        "dual_bound": 84.24999999999699,
+        "gap_percent": 0,
+        "native_objectives": [
+          84.25,
+          112.11613240632468
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 0
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 4,
+        "fixture": "insight-only",
+        "phase": "primary",
+        "round": 0,
+        "engine": "scip",
+        "order": 1,
+        "model_sha256": "1db5d809f7b94e724b7a75a2fca396edab52482816f1100835e2aad2f66d3696",
+        "variables": 150,
+        "constraints": 656,
+        "elapsed_ms": 216,
+        "adapter_ms": 216,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 84.249999999997,
+        "dual_bound": 84.249999999997,
+        "gap_percent": 0,
+        "native_objectives": [
+          84.25,
+          112.11613240632468
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 8,
+        "fixture": "insight-only",
+        "phase": "handling",
+        "round": 0,
+        "engine": "highs",
+        "order": 0,
+        "model_sha256": "aebb13ef41767788998c177f37035e83db42b35a6cb9c1173993124a4c0dc6d6",
+        "variables": 150,
+        "constraints": 657,
+        "elapsed_ms": 6.300000011920929,
+        "adapter_ms": 4.5,
+        "prepare_ms": 0.5,
+        "solve_ms": 4,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 112.1161324063247,
+        "dual_bound": 112.1161324063247,
+        "gap_percent": 0,
+        "native_objectives": [
+          84.25,
+          112.11613240632468
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 1
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 0,
+        "fixture": "insight-only",
+        "phase": "handling",
+        "round": 0,
+        "engine": "highs",
+        "order": 0,
+        "model_sha256": "aebb13ef41767788998c177f37035e83db42b35a6cb9c1173993124a4c0dc6d6",
+        "variables": 150,
+        "constraints": 657,
+        "elapsed_ms": 6.300000011920929,
+        "adapter_ms": 5.900000035762787,
+        "prepare_ms": 1.800000011920929,
+        "solve_ms": 4.100000023841858,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 112.1161324063247,
+        "dual_bound": 112.1161324063247,
+        "gap_percent": 0,
+        "native_objectives": [
+          84.25,
+          112.11613240632468
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 1
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 15,
+        "fixture": "grip-magazine",
+        "phase": "primary",
+        "round": 0,
+        "engine": "highs",
+        "order": 0,
+        "model_sha256": "f4155476d9f2043046f364e58fcd70595868dee798178c40cbec7043fb8f3b0b",
+        "variables": 484,
+        "constraints": 1111,
+        "elapsed_ms": 483.69999998807907,
+        "adapter_ms": 482.69999998807907,
+        "prepare_ms": 102.69999998807907,
+        "solve_ms": 380,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 48.108494236972234,
+        "dual_bound": 48.108494236972234,
+        "gap_percent": 0,
+        "native_objectives": [
+          48.10849423697823,
+          116.63092618465201
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 0
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 12,
+        "fixture": "insight-only",
+        "phase": "handling",
+        "round": 0,
+        "engine": "scip",
+        "order": 0,
+        "model_sha256": "aebb13ef41767788998c177f37035e83db42b35a6cb9c1173993124a4c0dc6d6",
+        "variables": 150,
+        "constraints": 657,
+        "elapsed_ms": 119.39999997615814,
+        "adapter_ms": 119.39999997615814,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 112.116132406325,
+        "dual_bound": 112.116132406325,
+        "gap_percent": 0,
+        "native_objectives": [
+          84.25,
+          112.11613240632468
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 12,
+        "fixture": "insight-only",
+        "phase": "handling",
+        "round": 0,
+        "engine": "highs",
+        "order": 1,
+        "model_sha256": "aebb13ef41767788998c177f37035e83db42b35a6cb9c1173993124a4c0dc6d6",
+        "variables": 150,
+        "constraints": 657,
+        "elapsed_ms": 2.300000011920929,
+        "adapter_ms": 2,
+        "prepare_ms": 0.40000003576278687,
+        "solve_ms": 1.5999999642372131,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 112.1161324063247,
+        "dual_bound": 112.1161324063247,
+        "gap_percent": 0,
+        "native_objectives": [
+          84.25,
+          112.11613240632468
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 1
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 11,
+        "fixture": "grip-magazine",
+        "phase": "primary",
+        "round": 0,
+        "engine": "scip",
+        "order": 0,
+        "model_sha256": "f4155476d9f2043046f364e58fcd70595868dee798178c40cbec7043fb8f3b0b",
+        "variables": 484,
+        "constraints": 1111,
+        "elapsed_ms": 446.0999999642372,
+        "adapter_ms": 446.0999999642372,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 48.1084942369722,
+        "dual_bound": 48.1084942369722,
+        "gap_percent": 0,
+        "native_objectives": [
+          48.10849423697823,
+          118.48079540784946
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 3,
+        "fixture": "grip-magazine",
+        "phase": "primary",
+        "round": 0,
+        "engine": "scip",
+        "order": 0,
+        "model_sha256": "f4155476d9f2043046f364e58fcd70595868dee798178c40cbec7043fb8f3b0b",
+        "variables": 484,
+        "constraints": 1111,
+        "elapsed_ms": 414.30000001192093,
+        "adapter_ms": 414.19999998807907,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 48.1084942369722,
+        "dual_bound": 48.1084942369722,
+        "gap_percent": 0,
+        "native_objectives": [
+          48.10849423697823,
+          118.48079540784946
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 9,
+        "fixture": "recorded-ordinary-best",
+        "phase": "primary",
+        "round": 0,
+        "engine": "scip",
+        "order": 0,
+        "model_sha256": "e965cbd3de8f2081b002e04d86d70245023c19e55704225b4d69cf3226e6df69",
+        "variables": 1526,
+        "constraints": 1918,
+        "elapsed_ms": 401.2000000476837,
+        "adapter_ms": 401.2000000476837,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 26.6040091189953,
+        "dual_bound": 26.6040091189953,
+        "gap_percent": 0,
+        "native_objectives": [
+          26.604009118998295,
+          185.99257091809912
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 7,
+        "fixture": "grip-magazine",
+        "phase": "primary",
+        "round": 0,
+        "engine": "highs",
+        "order": 0,
+        "model_sha256": "f4155476d9f2043046f364e58fcd70595868dee798178c40cbec7043fb8f3b0b",
+        "variables": 484,
+        "constraints": 1111,
+        "elapsed_ms": 525.6000000238419,
+        "adapter_ms": 524.5,
+        "prepare_ms": 77.20000004768372,
+        "solve_ms": 447.2999999523163,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 48.108494236972234,
+        "dual_bound": 48.108494236972234,
+        "gap_percent": 0,
+        "native_objectives": [
+          48.10849423697823,
+          116.63092618465201
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 0
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 2,
+        "fixture": "barrel-muzzle",
+        "phase": "primary",
+        "round": 0,
+        "engine": "highs",
+        "order": 1,
+        "model_sha256": "0447621ae24047da4de55c6acf77aa36338bd890c32fba546bc9a1b6082728a1",
+        "variables": 530,
+        "constraints": 1266,
+        "elapsed_ms": 141.39999997615814,
+        "adapter_ms": 140,
+        "prepare_ms": 118.39999997615814,
+        "solve_ms": 21.600000023841858,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 45.650675222471975,
+        "dual_bound": 45.650675222471975,
+        "gap_percent": 0,
+        "native_objectives": [
+          45.6506752224781,
+          137.88575857978677
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 0
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 2,
+        "fixture": "barrel-muzzle",
+        "phase": "handling",
+        "round": 0,
+        "engine": "highs",
+        "order": 0,
+        "model_sha256": "9a9494fb8849dd74d2fda9bb35c7a3af9f6a863a9c67408d77454423715a717c",
+        "variables": 530,
+        "constraints": 1267,
+        "elapsed_ms": 26.19999998807907,
+        "adapter_ms": 25,
+        "prepare_ms": 3.399999976158142,
+        "solve_ms": 21.600000023841858,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 137.75849111058065,
+        "dual_bound": 137.75849111058065,
+        "gap_percent": 0,
+        "native_objectives": [
+          45.6506752224781,
+          137.75849111058065
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 1
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 10,
+        "fixture": "barrel-muzzle",
+        "phase": "primary",
+        "round": 0,
+        "engine": "highs",
+        "order": 1,
+        "model_sha256": "0447621ae24047da4de55c6acf77aa36338bd890c32fba546bc9a1b6082728a1",
+        "variables": 530,
+        "constraints": 1266,
+        "elapsed_ms": 211.0999999642372,
+        "adapter_ms": 206.30000001192093,
+        "prepare_ms": 181.19999998807907,
+        "solve_ms": 25.100000023841858,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 45.650675222471975,
+        "dual_bound": 45.650675222471975,
+        "gap_percent": 0,
+        "native_objectives": [
+          45.6506752224781,
+          137.88575857978677
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 0
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 10,
+        "fixture": "barrel-muzzle",
+        "phase": "handling",
+        "round": 0,
+        "engine": "highs",
+        "order": 0,
+        "model_sha256": "9a9494fb8849dd74d2fda9bb35c7a3af9f6a863a9c67408d77454423715a717c",
+        "variables": 530,
+        "constraints": 1267,
+        "elapsed_ms": 15.300000011920929,
+        "adapter_ms": 13.300000011920929,
+        "prepare_ms": 0.5999999642372131,
+        "solve_ms": 12.700000047683716,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 137.75849111058065,
+        "dual_bound": 137.75849111058065,
+        "gap_percent": 0,
+        "native_objectives": [
+          45.6506752224781,
+          137.75849111058065
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 1
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 11,
+        "fixture": "grip-magazine",
+        "phase": "primary",
+        "round": 0,
+        "engine": "highs",
+        "order": 1,
+        "model_sha256": "f4155476d9f2043046f364e58fcd70595868dee798178c40cbec7043fb8f3b0b",
+        "variables": 484,
+        "constraints": 1111,
+        "elapsed_ms": 284.4000000357628,
+        "adapter_ms": 283.4000000357628,
+        "prepare_ms": 94.20000004768372,
+        "solve_ms": 189.19999998807907,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 48.108494236972234,
+        "dual_bound": 48.108494236972234,
+        "gap_percent": 0,
+        "native_objectives": [
+          48.10849423697823,
+          116.63092618465201
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 0
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 3,
+        "fixture": "grip-magazine",
+        "phase": "primary",
+        "round": 0,
+        "engine": "highs",
+        "order": 1,
+        "model_sha256": "f4155476d9f2043046f364e58fcd70595868dee798178c40cbec7043fb8f3b0b",
+        "variables": 484,
+        "constraints": 1111,
+        "elapsed_ms": 289.19999998807907,
+        "adapter_ms": 287.89999997615814,
+        "prepare_ms": 70.30000001192093,
+        "solve_ms": 217.5999999642372,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 48.108494236972234,
+        "dual_bound": 48.108494236972234,
+        "gap_percent": 0,
+        "native_objectives": [
+          48.10849423697823,
+          116.63092618465201
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 0
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 11,
+        "fixture": "grip-magazine",
+        "phase": "handling",
+        "round": 0,
+        "engine": "highs",
+        "order": 0,
+        "model_sha256": "6aef4460992ca2ad1c095d5faac239510441ac353a141f36702e126335490972",
+        "variables": 484,
+        "constraints": 1112,
+        "elapsed_ms": 28.69999998807907,
+        "adapter_ms": 27.69999998807907,
+        "prepare_ms": 0.6000000238418579,
+        "solve_ms": 27.099999964237213,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 116.04675695627387,
+        "dual_bound": 116.04675695627387,
+        "gap_percent": 0,
+        "native_objectives": [
+          48.10849423697823,
+          116.04675695627384
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 1
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 3,
+        "fixture": "grip-magazine",
+        "phase": "handling",
+        "round": 0,
+        "engine": "highs",
+        "order": 0,
+        "model_sha256": "6aef4460992ca2ad1c095d5faac239510441ac353a141f36702e126335490972",
+        "variables": 484,
+        "constraints": 1112,
+        "elapsed_ms": 42.80000001192093,
+        "adapter_ms": 40.5,
+        "prepare_ms": 0.699999988079071,
+        "solve_ms": 39.80000001192093,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 116.04675695627387,
+        "dual_bound": 116.04675695627387,
+        "gap_percent": 0,
+        "native_objectives": [
+          48.10849423697823,
+          116.04675695627384
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 1
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 13,
+        "fixture": "recorded-ordinary-best",
+        "phase": "primary",
+        "round": 0,
+        "engine": "highs",
+        "order": 0,
+        "model_sha256": "e965cbd3de8f2081b002e04d86d70245023c19e55704225b4d69cf3226e6df69",
+        "variables": 1526,
+        "constraints": 1918,
+        "elapsed_ms": 765.1000000238419,
+        "adapter_ms": 760.7000000476837,
+        "prepare_ms": 114,
+        "solve_ms": 646.7000000476837,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 26.604009118992174,
+        "dual_bound": 26.604009118992174,
+        "gap_percent": 0,
+        "native_objectives": [
+          26.604009118998295,
+          180.69672385196534
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 0
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 1,
+        "fixture": "recorded-ordinary-best",
+        "phase": "primary",
+        "round": 0,
+        "engine": "highs",
+        "order": 1,
+        "model_sha256": "e965cbd3de8f2081b002e04d86d70245023c19e55704225b4d69cf3226e6df69",
+        "variables": 1526,
+        "constraints": 1918,
+        "elapsed_ms": 530.1999999880791,
+        "adapter_ms": 525,
+        "prepare_ms": 104.60000002384186,
+        "solve_ms": 420.39999997615814,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 26.604009118992174,
+        "dual_bound": 26.604009118992174,
+        "gap_percent": 0,
+        "native_objectives": [
+          26.604009118998295,
+          180.69672385196534
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 0
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 5,
+        "fixture": "recorded-ordinary-best",
+        "phase": "primary",
+        "round": 0,
+        "engine": "highs",
+        "order": 0,
+        "model_sha256": "e965cbd3de8f2081b002e04d86d70245023c19e55704225b4d69cf3226e6df69",
+        "variables": 1526,
+        "constraints": 1918,
+        "elapsed_ms": 804.6000000238419,
+        "adapter_ms": 800.5,
+        "prepare_ms": 125,
+        "solve_ms": 675.5,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 26.604009118992174,
+        "dual_bound": 26.604009118992174,
+        "gap_percent": 0,
+        "native_objectives": [
+          26.604009118998295,
+          180.69672385196534
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 0
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 6,
+        "fixture": "barrel-muzzle",
+        "phase": "primary",
+        "round": 0,
+        "engine": "scip",
+        "order": 1,
+        "model_sha256": "0447621ae24047da4de55c6acf77aa36338bd890c32fba546bc9a1b6082728a1",
+        "variables": 530,
+        "constraints": 1266,
+        "elapsed_ms": 705.0999999642372,
+        "adapter_ms": 705.0999999642372,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 45.6506752224751,
+        "dual_bound": 45.6506752224751,
+        "gap_percent": 0,
+        "native_objectives": [
+          45.6506752224781,
+          139.87961559734913
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 8,
+        "fixture": "insight-only",
+        "phase": "handling",
+        "round": 0,
+        "engine": "scip",
+        "order": 1,
+        "model_sha256": "aebb13ef41767788998c177f37035e83db42b35a6cb9c1173993124a4c0dc6d6",
+        "variables": 150,
+        "constraints": 657,
+        "elapsed_ms": 523.8000000119209,
+        "adapter_ms": 523.8000000119209,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 112.116132406325,
+        "dual_bound": 112.116132406325,
+        "gap_percent": 0,
+        "native_objectives": [
+          84.25,
+          112.11613240632468
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 14,
+        "fixture": "barrel-muzzle",
+        "phase": "primary",
+        "round": 0,
+        "engine": "scip",
+        "order": 1,
+        "model_sha256": "0447621ae24047da4de55c6acf77aa36338bd890c32fba546bc9a1b6082728a1",
+        "variables": 530,
+        "constraints": 1266,
+        "elapsed_ms": 697.2000000476837,
+        "adapter_ms": 697.1000000238419,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 45.6506752224751,
+        "dual_bound": 45.6506752224751,
+        "gap_percent": 0,
+        "native_objectives": [
+          45.6506752224781,
+          139.87961559734913
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 0,
+        "fixture": "insight-only",
+        "phase": "handling",
+        "round": 0,
+        "engine": "scip",
+        "order": 1,
+        "model_sha256": "aebb13ef41767788998c177f37035e83db42b35a6cb9c1173993124a4c0dc6d6",
+        "variables": 150,
+        "constraints": 657,
+        "elapsed_ms": 526,
+        "adapter_ms": 526,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 112.116132406325,
+        "dual_bound": 112.116132406325,
+        "gap_percent": 0,
+        "native_objectives": [
+          84.25,
+          112.11613240632468
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 11,
+        "fixture": "grip-magazine",
+        "phase": "handling",
+        "round": 0,
+        "engine": "scip",
+        "order": 1,
+        "model_sha256": "6aef4460992ca2ad1c095d5faac239510441ac353a141f36702e126335490972",
+        "variables": 484,
+        "constraints": 1112,
+        "elapsed_ms": 189.39999997615814,
+        "adapter_ms": 189.39999997615814,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 116.046756956274,
+        "dual_bound": 116.046756956274,
+        "gap_percent": 0,
+        "native_objectives": [
+          48.10849423697823,
+          116.04675695627384
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 3,
+        "fixture": "grip-magazine",
+        "phase": "handling",
+        "round": 0,
+        "engine": "scip",
+        "order": 1,
+        "model_sha256": "6aef4460992ca2ad1c095d5faac239510441ac353a141f36702e126335490972",
+        "variables": 484,
+        "constraints": 1112,
+        "elapsed_ms": 185,
+        "adapter_ms": 185,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 116.046756956274,
+        "dual_bound": 116.046756956274,
+        "gap_percent": 0,
+        "native_objectives": [
+          48.10849423697823,
+          116.04675695627384
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 10,
+        "fixture": "barrel-muzzle",
+        "phase": "handling",
+        "round": 0,
+        "engine": "scip",
+        "order": 1,
+        "model_sha256": "9a9494fb8849dd74d2fda9bb35c7a3af9f6a863a9c67408d77454423715a717c",
+        "variables": 530,
+        "constraints": 1267,
+        "elapsed_ms": 383.7000000476837,
+        "adapter_ms": 383.7000000476837,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 137.758491110581,
+        "dual_bound": 137.758491110581,
+        "gap_percent": 0,
+        "native_objectives": [
+          45.6506752224781,
+          137.75849111058065
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 1,
+        "fixture": "recorded-ordinary-best",
+        "phase": "handling",
+        "round": 0,
+        "engine": "highs",
+        "order": 0,
+        "model_sha256": "90384ee47068093c81f2c83939dc80d6de59ef3e4ad787a877fa1246178e29a1",
+        "variables": 1526,
+        "constraints": 1919,
+        "elapsed_ms": 140.5,
+        "adapter_ms": 136.80000001192093,
+        "prepare_ms": 1,
+        "solve_ms": 135.80000001192093,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 180.42925682842323,
+        "dual_bound": 180.42925682842323,
+        "gap_percent": 0,
+        "native_objectives": [
+          26.604009118998295,
+          180.42925682842323
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 1
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 2,
+        "fixture": "barrel-muzzle",
+        "phase": "handling",
+        "round": 0,
+        "engine": "scip",
+        "order": 1,
+        "model_sha256": "9a9494fb8849dd74d2fda9bb35c7a3af9f6a863a9c67408d77454423715a717c",
+        "variables": 530,
+        "constraints": 1267,
+        "elapsed_ms": 461.39999997615814,
+        "adapter_ms": 461.30000001192093,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 137.758491110581,
+        "dual_bound": 137.758491110581,
+        "gap_percent": 0,
+        "native_objectives": [
+          45.6506752224781,
+          137.75849111058065
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 4,
+        "fixture": "insight-only",
+        "phase": "handling",
+        "round": 0,
+        "engine": "scip",
+        "order": 0,
+        "model_sha256": "aebb13ef41767788998c177f37035e83db42b35a6cb9c1173993124a4c0dc6d6",
+        "variables": 150,
+        "constraints": 657,
+        "elapsed_ms": 574.6999999880791,
+        "adapter_ms": 574.6999999880791,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 112.116132406325,
+        "dual_bound": 112.116132406325,
+        "gap_percent": 0,
+        "native_objectives": [
+          84.25,
+          112.11613240632468
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 4,
+        "fixture": "insight-only",
+        "phase": "handling",
+        "round": 0,
+        "engine": "highs",
+        "order": 1,
+        "model_sha256": "aebb13ef41767788998c177f37035e83db42b35a6cb9c1173993124a4c0dc6d6",
+        "variables": 150,
+        "constraints": 657,
+        "elapsed_ms": 4.299999952316284,
+        "adapter_ms": 4,
+        "prepare_ms": 2.199999988079071,
+        "solve_ms": 1.800000011920929,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 112.1161324063247,
+        "dual_bound": 112.1161324063247,
+        "gap_percent": 0,
+        "native_objectives": [
+          84.25,
+          112.11613240632468
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 1
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 9,
+        "fixture": "recorded-ordinary-best",
+        "phase": "primary",
+        "round": 0,
+        "engine": "highs",
+        "order": 1,
+        "model_sha256": "e965cbd3de8f2081b002e04d86d70245023c19e55704225b4d69cf3226e6df69",
+        "variables": 1526,
+        "constraints": 1918,
+        "elapsed_ms": 534.3000000119209,
+        "adapter_ms": 524.3999999761581,
+        "prepare_ms": 174.89999997615814,
+        "solve_ms": 349.5,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 26.604009118992174,
+        "dual_bound": 26.604009118992174,
+        "gap_percent": 0,
+        "native_objectives": [
+          26.604009118998295,
+          180.69672385196534
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 0
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 13,
+        "fixture": "recorded-ordinary-best",
+        "phase": "primary",
+        "round": 0,
+        "engine": "scip",
+        "order": 1,
+        "model_sha256": "e965cbd3de8f2081b002e04d86d70245023c19e55704225b4d69cf3226e6df69",
+        "variables": 1526,
+        "constraints": 1918,
+        "elapsed_ms": 229.70000004768372,
+        "adapter_ms": 229.70000004768372,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 26.6040091189953,
+        "dual_bound": 26.6040091189953,
+        "gap_percent": 0,
+        "native_objectives": [
+          26.604009118998295,
+          185.99257091809912
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 14,
+        "fixture": "barrel-muzzle",
+        "phase": "handling",
+        "round": 0,
+        "engine": "scip",
+        "order": 0,
+        "model_sha256": "9a9494fb8849dd74d2fda9bb35c7a3af9f6a863a9c67408d77454423715a717c",
+        "variables": 530,
+        "constraints": 1267,
+        "elapsed_ms": 126.39999997615814,
+        "adapter_ms": 126.30000001192093,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 137.758491110581,
+        "dual_bound": 137.758491110581,
+        "gap_percent": 0,
+        "native_objectives": [
+          45.6506752224781,
+          137.75849111058065
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 7,
+        "fixture": "grip-magazine",
+        "phase": "primary",
+        "round": 0,
+        "engine": "scip",
+        "order": 1,
+        "model_sha256": "f4155476d9f2043046f364e58fcd70595868dee798178c40cbec7043fb8f3b0b",
+        "variables": 484,
+        "constraints": 1111,
+        "elapsed_ms": 595.5,
+        "adapter_ms": 595.5,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 48.1084942369722,
+        "dual_bound": 48.1084942369722,
+        "gap_percent": 0,
+        "native_objectives": [
+          48.10849423697823,
+          118.48079540784946
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 15,
+        "fixture": "grip-magazine",
+        "phase": "primary",
+        "round": 0,
+        "engine": "scip",
+        "order": 1,
+        "model_sha256": "f4155476d9f2043046f364e58fcd70595868dee798178c40cbec7043fb8f3b0b",
+        "variables": 484,
+        "constraints": 1111,
+        "elapsed_ms": 653.9000000357628,
+        "adapter_ms": 653.9000000357628,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 48.1084942369722,
+        "dual_bound": 48.1084942369722,
+        "gap_percent": 0,
+        "native_objectives": [
+          48.10849423697823,
+          118.48079540784946
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 14,
+        "fixture": "barrel-muzzle",
+        "phase": "handling",
+        "round": 0,
+        "engine": "highs",
+        "order": 1,
+        "model_sha256": "9a9494fb8849dd74d2fda9bb35c7a3af9f6a863a9c67408d77454423715a717c",
+        "variables": 530,
+        "constraints": 1267,
+        "elapsed_ms": 23.69999998807907,
+        "adapter_ms": 22.099999964237213,
+        "prepare_ms": 0.699999988079071,
+        "solve_ms": 21.399999976158142,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 137.75849111058065,
+        "dual_bound": 137.75849111058065,
+        "gap_percent": 0,
+        "native_objectives": [
+          45.6506752224781,
+          137.75849111058065
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 1
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 9,
+        "fixture": "recorded-ordinary-best",
+        "phase": "handling",
+        "round": 0,
+        "engine": "highs",
+        "order": 0,
+        "model_sha256": "90384ee47068093c81f2c83939dc80d6de59ef3e4ad787a877fa1246178e29a1",
+        "variables": 1526,
+        "constraints": 1919,
+        "elapsed_ms": 77.10000002384186,
+        "adapter_ms": 69.30000001192093,
+        "prepare_ms": 0.8999999761581421,
+        "solve_ms": 68.40000003576279,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 180.42925682842323,
+        "dual_bound": 180.42925682842323,
+        "gap_percent": 0,
+        "native_objectives": [
+          26.604009118998295,
+          180.42925682842323
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 1
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 6,
+        "fixture": "barrel-muzzle",
+        "phase": "handling",
+        "round": 0,
+        "engine": "scip",
+        "order": 0,
+        "model_sha256": "9a9494fb8849dd74d2fda9bb35c7a3af9f6a863a9c67408d77454423715a717c",
+        "variables": 530,
+        "constraints": 1267,
+        "elapsed_ms": 191,
+        "adapter_ms": 190.89999997615814,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 137.758491110581,
+        "dual_bound": 137.758491110581,
+        "gap_percent": 0,
+        "native_objectives": [
+          45.6506752224781,
+          137.75849111058065
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 6,
+        "fixture": "barrel-muzzle",
+        "phase": "handling",
+        "round": 0,
+        "engine": "highs",
+        "order": 1,
+        "model_sha256": "9a9494fb8849dd74d2fda9bb35c7a3af9f6a863a9c67408d77454423715a717c",
+        "variables": 530,
+        "constraints": 1267,
+        "elapsed_ms": 18.700000047683716,
+        "adapter_ms": 17.400000035762787,
+        "prepare_ms": 1,
+        "solve_ms": 16.400000035762787,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 137.75849111058065,
+        "dual_bound": 137.75849111058065,
+        "gap_percent": 0,
+        "native_objectives": [
+          45.6506752224781,
+          137.75849111058065
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 1
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 5,
+        "fixture": "recorded-ordinary-best",
+        "phase": "primary",
+        "round": 0,
+        "engine": "scip",
+        "order": 1,
+        "model_sha256": "e965cbd3de8f2081b002e04d86d70245023c19e55704225b4d69cf3226e6df69",
+        "variables": 1526,
+        "constraints": 1918,
+        "elapsed_ms": 303.2000000476837,
+        "adapter_ms": 303.2000000476837,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 26.6040091189953,
+        "dual_bound": 26.6040091189953,
+        "gap_percent": 0,
+        "native_objectives": [
+          26.604009118998295,
+          185.99257091809912
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 7,
+        "fixture": "grip-magazine",
+        "phase": "handling",
+        "round": 0,
+        "engine": "scip",
+        "order": 0,
+        "model_sha256": "6aef4460992ca2ad1c095d5faac239510441ac353a141f36702e126335490972",
+        "variables": 484,
+        "constraints": 1112,
+        "elapsed_ms": 108,
+        "adapter_ms": 108,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 116.046756956274,
+        "dual_bound": 116.046756956274,
+        "gap_percent": 0,
+        "native_objectives": [
+          48.10849423697823,
+          116.04675695627384
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 1,
+        "fixture": "recorded-ordinary-best",
+        "phase": "handling",
+        "round": 0,
+        "engine": "scip",
+        "order": 1,
+        "model_sha256": "90384ee47068093c81f2c83939dc80d6de59ef3e4ad787a877fa1246178e29a1",
+        "variables": 1526,
+        "constraints": 1919,
+        "elapsed_ms": 202.19999998807907,
+        "adapter_ms": 202.19999998807907,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 180.429256828423,
+        "dual_bound": 180.429256828423,
+        "gap_percent": 0,
+        "native_objectives": [
+          26.604009118998295,
+          180.42925682842323
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 15,
+        "fixture": "grip-magazine",
+        "phase": "handling",
+        "round": 0,
+        "engine": "scip",
+        "order": 0,
+        "model_sha256": "6aef4460992ca2ad1c095d5faac239510441ac353a141f36702e126335490972",
+        "variables": 484,
+        "constraints": 1112,
+        "elapsed_ms": 117.60000002384186,
+        "adapter_ms": 117.60000002384186,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 116.046756956274,
+        "dual_bound": 116.046756956274,
+        "gap_percent": 0,
+        "native_objectives": [
+          48.10849423697823,
+          116.04675695627384
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 7,
+        "fixture": "grip-magazine",
+        "phase": "handling",
+        "round": 0,
+        "engine": "highs",
+        "order": 1,
+        "model_sha256": "6aef4460992ca2ad1c095d5faac239510441ac353a141f36702e126335490972",
+        "variables": 484,
+        "constraints": 1112,
+        "elapsed_ms": 39.299999952316284,
+        "adapter_ms": 38.5,
+        "prepare_ms": 0.5999999642372131,
+        "solve_ms": 37.90000003576279,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 116.04675695627387,
+        "dual_bound": 116.04675695627387,
+        "gap_percent": 0,
+        "native_objectives": [
+          48.10849423697823,
+          116.04675695627384
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 1
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 13,
+        "fixture": "recorded-ordinary-best",
+        "phase": "handling",
+        "round": 0,
+        "engine": "scip",
+        "order": 0,
+        "model_sha256": "90384ee47068093c81f2c83939dc80d6de59ef3e4ad787a877fa1246178e29a1",
+        "variables": 1526,
+        "constraints": 1919,
+        "elapsed_ms": 197.19999998807907,
+        "adapter_ms": 197.0999999642372,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 180.429256828423,
+        "dual_bound": 180.429256828423,
+        "gap_percent": 0,
+        "native_objectives": [
+          26.604009118998295,
+          180.42925682842323
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 15,
+        "fixture": "grip-magazine",
+        "phase": "handling",
+        "round": 0,
+        "engine": "highs",
+        "order": 1,
+        "model_sha256": "6aef4460992ca2ad1c095d5faac239510441ac353a141f36702e126335490972",
+        "variables": 484,
+        "constraints": 1112,
+        "elapsed_ms": 30.30000001192093,
+        "adapter_ms": 29,
+        "prepare_ms": 0.5999999642372131,
+        "solve_ms": 28.400000035762787,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 116.04675695627387,
+        "dual_bound": 116.04675695627387,
+        "gap_percent": 0,
+        "native_objectives": [
+          48.10849423697823,
+          116.04675695627384
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 1
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 13,
+        "fixture": "recorded-ordinary-best",
+        "phase": "handling",
+        "round": 0,
+        "engine": "highs",
+        "order": 1,
+        "model_sha256": "90384ee47068093c81f2c83939dc80d6de59ef3e4ad787a877fa1246178e29a1",
+        "variables": 1526,
+        "constraints": 1919,
+        "elapsed_ms": 37.60000002384186,
+        "adapter_ms": 34.39999997615814,
+        "prepare_ms": 1,
+        "solve_ms": 33.39999997615814,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 180.42925682842323,
+        "dual_bound": 180.42925682842323,
+        "gap_percent": 0,
+        "native_objectives": [
+          26.604009118998295,
+          180.42925682842323
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 1
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      },
+      {
+        "worker": 9,
+        "fixture": "recorded-ordinary-best",
+        "phase": "handling",
+        "round": 0,
+        "engine": "scip",
+        "order": 1,
+        "model_sha256": "90384ee47068093c81f2c83939dc80d6de59ef3e4ad787a877fa1246178e29a1",
+        "variables": 1526,
+        "constraints": 1919,
+        "elapsed_ms": 178.30000001192093,
+        "adapter_ms": 178.30000001192093,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 180.429256828423,
+        "dual_bound": 180.429256828423,
+        "gap_percent": 0,
+        "native_objectives": [
+          26.604009118998295,
+          180.42925682842323
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 5,
+        "fixture": "recorded-ordinary-best",
+        "phase": "handling",
+        "round": 0,
+        "engine": "scip",
+        "order": 0,
+        "model_sha256": "90384ee47068093c81f2c83939dc80d6de59ef3e4ad787a877fa1246178e29a1",
+        "variables": 1526,
+        "constraints": 1919,
+        "elapsed_ms": 530.4000000357628,
+        "adapter_ms": 530.3000000119209,
+        "prepare_ms": null,
+        "solve_ms": null,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 180.429256828423,
+        "dual_bound": 180.429256828423,
+        "gap_percent": 0,
+        "native_objectives": [
+          26.604009118998295,
+          180.42925682842323
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": null,
+        "version": "SCIP10.0.2"
+      },
+      {
+        "worker": 5,
+        "fixture": "recorded-ordinary-best",
+        "phase": "handling",
+        "round": 0,
+        "engine": "highs",
+        "order": 1,
+        "model_sha256": "90384ee47068093c81f2c83939dc80d6de59ef3e4ad787a877fa1246178e29a1",
+        "variables": 1526,
+        "constraints": 1919,
+        "elapsed_ms": 75.29999995231628,
+        "adapter_ms": 69.39999997615814,
+        "prepare_ms": 2.199999988079071,
+        "solve_ms": 67.19999998807907,
+        "status": "optimal",
+        "has_incumbent": true,
+        "primal_bound": 180.42925682842323,
+        "dual_bound": 180.42925682842323,
+        "gap_percent": 0,
+        "native_objectives": [
+          26.604009118998295,
+          180.42925682842323
+        ],
+        "pending_norm_cuts": 0,
+        "pending_rounding_cuts": 0,
+        "adapter": {
+          "builds": 1,
+          "appended_rows": 1
+        },
+        "version": {
+          "major": 1,
+          "minor": 15,
+          "patch": 1,
+          "string": "1.15.1",
+          "gitHash": "04024d7"
+        }
+      }
+    ],
+    "rounds": 6,
+    "seconds": 2,
+    "wall_ms": 3189.400000035763
+  },
+  "spawned": 16,
+  "terminated": 16
+}

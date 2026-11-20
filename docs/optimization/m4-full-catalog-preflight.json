@@ -1,0 +1,376 @@
+{
+  "weapon": "18010000001",
+  "mode": "bd",
+  "budget": 800,
+  "fixed": [
+    {
+      "slotPath": "11",
+      "itemId": "13110000091"
+    }
+  ],
+  "ordinaryLayouts": "12268642",
+  "mountCountMs": 628.8071,
+  "mountStats": {
+    "nodes": 14928,
+    "cache_hits": 3899,
+    "analytical_subtrees": 7,
+    "fixed_layers_skipped": 3168,
+    "memo_entries_peak": 2090,
+    "memo_key_chars_peak": 2597195,
+    "intern_entries_peak": 440,
+    "intern_key_chars_peak": 6146,
+    "cache_saturated": false,
+    "intern_saturated": false,
+    "numeric_fallback": false,
+    "constraint_evaluations": 258250,
+    "boolean_evaluations": 904739
+  },
+  "inspectedProviderContexts": 304,
+  "paths": [
+    "1",
+    "1/30",
+    "1/43",
+    "11",
+    "11/11",
+    "11/40",
+    "11/41",
+    "11/50",
+    "11/50/11",
+    "11/50/41",
+    "2",
+    "2/6",
+    "3",
+    "3/29",
+    "38",
+    "4",
+    "4/17",
+    "4/19",
+    "4/20",
+    "4/8",
+    "5",
+    "5/44"
+  ],
+  "activeControls": 304,
+  "projectedControls": 145,
+  "projectedPositions": 13675,
+  "controlClasses": {
+    "non-objective targets only": {
+      "contexts": 145,
+      "examples": [
+        {
+          "path": "1",
+          "item": "13030000109",
+          "host": "18010000001",
+          "id": "authoring:part:13030000109:tune:thickness:0",
+          "positions": 101
+        },
+        {
+          "path": "1",
+          "item": "13030000110",
+          "host": "18010000001",
+          "id": "authoring:part:13030000110:tune:thickness:0",
+          "positions": 101
+        },
+        {
+          "path": "1",
+          "item": "13030000111",
+          "host": "18010000001",
+          "id": "authoring:part:13030000111:tune:thickness:0",
+          "positions": 101
+        }
+      ]
+    },
+    "shared-axis control": {
+      "contexts": 137,
+      "examples": [
+        {
+          "path": "1",
+          "item": "13030000109",
+          "host": "18010000001",
+          "id": "authoring:part:13030000109:tune:weight:1",
+          "positions": 101
+        },
+        {
+          "path": "1",
+          "item": "13030000110",
+          "host": "18010000001",
+          "id": "authoring:part:13030000110:tune:weight:1",
+          "positions": 101
+        },
+        {
+          "path": "1",
+          "item": "13030000111",
+          "host": "18010000001",
+          "id": "authoring:part:13030000111:tune:weight:1",
+          "positions": 101
+        }
+      ]
+    },
+    "gun-kick control": {
+      "contexts": 22,
+      "examples": [
+        {
+          "path": "2",
+          "item": "13020000173",
+          "host": "18010000001",
+          "id": "authoring:part:13020000173:tune:weight:1",
+          "positions": 101
+        },
+        {
+          "path": "2",
+          "item": "13020000347",
+          "host": "18010000001",
+          "id": "authoring:part:13020000347:tune:weight:1",
+          "positions": 101
+        },
+        {
+          "path": "2",
+          "item": "13020000349",
+          "host": "18010000001",
+          "id": "authoring:part:13020000349:tune:weight:1",
+          "positions": 101
+        }
+      ]
+    }
+  },
+  "timingWriters": {
+    "13130000169": {
+      "contexts": 5,
+      "examples": [
+        {
+          "path": "2/6",
+          "item": "13130000169",
+          "host": "13020000347",
+          "target": "GRateOfFire"
+        },
+        {
+          "path": "2/6",
+          "item": "13130000169",
+          "host": "13020000349",
+          "target": "GRateOfFire"
+        },
+        {
+          "path": "2/6",
+          "item": "13130000169",
+          "host": "13020000350",
+          "target": "GRateOfFire"
+        }
+      ]
+    }
+  },
+  "profileWriters": {
+    "authoring:part:13020000173:bd:adsRecoil": {
+      "contexts": 1,
+      "examples": [
+        {
+          "path": "2",
+          "item": "13020000173",
+          "host": "18010000001"
+        }
+      ]
+    }
+  },
+  "effectsOutsideGuard": {
+    "GAiming_ADSTime/Mult_A": {
+      "contexts": 32,
+      "examples": [
+        {
+          "path": "1",
+          "item": "13030000109",
+          "host": "18010000001",
+          "id": "authoring:part:13030000109:tune:thickness:0"
+        },
+        {
+          "path": "1",
+          "item": "13030000110",
+          "host": "18010000001",
+          "id": "authoring:part:13030000110:tune:thickness:0"
+        },
+        {
+          "path": "1",
+          "item": "13030000111",
+          "host": "18010000001",
+          "id": "authoring:part:13030000111:tune:thickness:0"
+        }
+      ]
+    },
+    "AimMoveGunSway/Mult_A": {
+      "contexts": 120,
+      "examples": [
+        {
+          "path": "1",
+          "item": "13030000109",
+          "host": "18010000001",
+          "id": "authoring:part:13030000109:tune:thickness:0"
+        },
+        {
+          "path": "1",
+          "item": "13030000110",
+          "host": "18010000001",
+          "id": "authoring:part:13030000110:tune:thickness:0"
+        },
+        {
+          "path": "1",
+          "item": "13030000111",
+          "host": "18010000001",
+          "id": "authoring:part:13030000111:tune:thickness:0"
+        }
+      ]
+    },
+    "GBullet_Velocity/Mult_A": {
+      "contexts": 5,
+      "examples": [
+        {
+          "path": "2",
+          "item": "13020000173",
+          "host": "18010000001",
+          "id": "authoring:part:13020000173:tune:length:0"
+        },
+        {
+          "path": "2",
+          "item": "13020000347",
+          "host": "18010000001",
+          "id": "authoring:part:13020000347:tune:length:0"
+        },
+        {
+          "path": "2",
+          "item": "13020000349",
+          "host": "18010000001",
+          "id": "authoring:part:13020000349:tune:length:0"
+        }
+      ]
+    },
+    "GGunkickRandom/Mult_A": {
+      "contexts": 22,
+      "examples": [
+        {
+          "path": "2",
+          "item": "13020000173",
+          "host": "18010000001",
+          "id": "authoring:part:13020000173:tune:weight:1"
+        },
+        {
+          "path": "2",
+          "item": "13020000347",
+          "host": "18010000001",
+          "id": "authoring:part:13020000347:tune:weight:1"
+        },
+        {
+          "path": "2",
+          "item": "13020000349",
+          "host": "18010000001",
+          "id": "authoring:part:13020000349:tune:weight:1"
+        }
+      ]
+    },
+    "GMovement_ADSSpeed/Addend": {
+      "contexts": 117,
+      "examples": [
+        {
+          "path": "2",
+          "item": "13020000173",
+          "host": "18010000001",
+          "id": "authoring:part:13020000173:tune:weight:1"
+        },
+        {
+          "path": "2",
+          "item": "13020000347",
+          "host": "18010000001",
+          "id": "authoring:part:13020000347:tune:weight:1"
+        },
+        {
+          "path": "2",
+          "item": "13020000349",
+          "host": "18010000001",
+          "id": "authoring:part:13020000349:tune:weight:1"
+        }
+      ]
+    },
+    "GGunkickSpring/Mult_A": {
+      "contexts": 22,
+      "examples": [
+        {
+          "path": "2",
+          "item": "13020000173",
+          "host": "18010000001",
+          "id": "authoring:part:13020000173:tune:weight:1"
+        },
+        {
+          "path": "2",
+          "item": "13020000347",
+          "host": "18010000001",
+          "id": "authoring:part:13020000347:tune:weight:1"
+        },
+        {
+          "path": "2",
+          "item": "13020000349",
+          "host": "18010000001",
+          "id": "authoring:part:13020000349:tune:weight:1"
+        }
+      ]
+    },
+    "GBreathScale/Mult_A": {
+      "contexts": 2,
+      "examples": [
+        {
+          "path": "3",
+          "item": "13040000107",
+          "host": "18010000001",
+          "id": "authoring:part:13040000107:tune:cheekRestPosition:0"
+        },
+        {
+          "path": "3",
+          "item": "13040000185",
+          "host": "18010000001",
+          "id": "authoring:part:13040000185:tune:cheekRestPosition:0"
+        }
+      ]
+    },
+    "ScopeCameraTuneDistance/Addend": {
+      "contexts": 9,
+      "examples": [
+        {
+          "path": "11",
+          "item": "13110000091",
+          "host": "18010000001",
+          "id": "authoring:part:13110000091:tune:eyeRelief:0"
+        },
+        {
+          "path": "11/40",
+          "item": "13110000043",
+          "host": "13110000057",
+          "id": "authoring:part:13110000043:tune:eyeRelief:0"
+        },
+        {
+          "path": "11/40",
+          "item": "13110000043",
+          "host": "13110000105",
+          "id": "authoring:part:13110000043:tune:eyeRelief:0"
+        }
+      ]
+    },
+    "ScopeZoomTuneRate/Addend": {
+      "contexts": 9,
+      "examples": [
+        {
+          "path": "11",
+          "item": "13110000091",
+          "host": "18010000001",
+          "id": "authoring:part:13110000091:tune:zoom:1"
+        },
+        {
+          "path": "11/40",
+          "item": "13110000043",
+          "host": "13110000057",
+          "id": "authoring:part:13110000043:tune:zoom:1"
+        },
+        {
+          "path": "11/40",
+          "item": "13110000043",
+          "host": "13110000105",
+          "id": "authoring:part:13110000043:tune:zoom:1"
+        }
+      ]
+    }
+  }
+}

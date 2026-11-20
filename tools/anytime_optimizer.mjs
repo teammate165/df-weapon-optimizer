@@ -1,5 +1,5 @@
 import {presets} from './optimizer_presets.mjs';
-import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs';
+import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs';
 import {selectCategories,cheapestGate} from './optimizer_selection.mjs';
 import {completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs';
 import {configKey,tacticalChoice} from './exhaustive_attachment_gate.mjs';
@@ -54,7 +54,7 @@ export async function generateAnytime(input,runtime){
  if(!Array.isArray(fixed)||fixed.some(f=>typeof f.slotPath!=='string'||typeof f.itemId!=='string')||new Set(fixed.map(f=>f.slotPath)).size!==fixed.length)throw Error('Invalid fixed attachments');
  if(r.firing&&!['auto','spam'].includes(r.firing))throw Error('Unknown firing protocol');
  if(r.passes!==undefined&&(!Number.isInteger(r.passes)||r.passes<1||r.passes>20))throw Error('Legacy passes must be 1..20');
- const limit=r.time_limit_seconds??(r.passes===undefined?30:Math.max(1,2*r.passes));if(!Number.isFinite(limit)||limit<1||limit>600)throw Error('Search time limit must be 1..600 seconds');
+ const limit=r.time_limit_seconds??(r.passes===undefined?30:Math.max(1,2*r.passes));const unlimited=limit===0;if(!unlimited&&(!Number.isFinite(limit)||limit<1||limit>600))throw Error('Search time limit must be 0 (unlimited) or 1..600 seconds');
  const tier=mode==='bd'?shop.weapons[pack.weaponId]:null,budgets=mode==='mp'?[null]:r.budgets??[mode==='bd'?tier?.gunsmithLimit:r.budget];
  if(mode!=='mp'&&(![1,3].includes(budgets.length)||budgets.some((b,i)=>!Number.isFinite(b)||b<0||i&&b<budgets[i-1]||mode==='bd'&&b>tier?.gunsmithLimit)))throw Error('Invalid budget or weapon cap');
  const resolve=config=>curves.o(pack,config,mode),retains=build=>fixed.every(f=>build.mounted.some(n=>n.slotPath===f.slotPath&&n.itemId===f.itemId)),initial=resolve(fixed);
@@ -63,12 +63,15 @@ export async function generateAnytime(input,runtime){
  if(initial.mounted.some(n=>hidden.has(n.itemId)))throw Error('Fixed setup contains a hidden Detonation item');
  const preset=presets[settings.preset].create({pack,request:r,...modules,mode,resolve});
  if(preset.objectives&&!preset.allowTargets&&r.effectiveness_targets!==undefined)throw Error('This preset does not support custom effectiveness targets');
- const better=comparator(settings.minimums),compare=(a,b)=>better(a,b)?-1:better(b,a)?1:a.key.localeCompare(b.key);
+ const patternConstraint=createPatternConstraint(preset,resolve,r,settings.patternReduction);
+ const patternCap=patternConstraint?.maximum??null;
+ const eligible=row=>shortfall(row.stats,settings.minimums)<=1e-8&&(patternCap===null||row.components.pattern<=patternCap);
+ const better=comparator(settings.minimums,null,patternCap),compare=(a,b)=>better(a,b)?-1:better(b,a)?1:a.key.localeCompare(b.key);
  let starts=input.solver_starts;
  if(!starts&&typeof process!=='undefined'&&process.versions?.node){try{const fs=await import('node:fs/promises');starts=JSON.parse(await fs.readFile(new URL('../data/solver_starts/'+pack.weaponId+'.json',import.meta.url),'utf8'));}catch{}}
  const variant=Number.isInteger(input.search_variant)&&input.search_variant>0?input.search_variant:0;
- const deadline=Math.min(started+limit*1000,input.search_deadline===undefined?Infinity:started+Math.max(0,input.search_deadline-Date.now())),results=[],reports=[],candidatePools=[],stop=Symbol('phase deadline');
- const solver={name:'Anytime',formulation:'bounded diverse top-K attachment search and source-calculator coordinate calibration',time_limit_seconds:limit,time_limit_scope:'total_search',global_optimality:false,elapsed_ms:0,screening_elapsed_ms:0,calibration_elapsed_ms:0,phases:[]};
+ const deadline=Math.min((unlimited?Infinity:started+limit*1000),input.search_deadline===undefined?Infinity:started+Math.max(0,input.search_deadline-Date.now())),results=[],reports=[],candidatePools=[],stop=Symbol('phase deadline');
+ const solver={name:'Anytime',formulation:'bounded diverse top-K attachment search and source-calculator coordinate calibration',time_limit_seconds:limit,time_limit_scope:unlimited?'unlimited':'total_search',global_optimality:false,elapsed_ms:0,screening_elapsed_ms:0,calibration_elapsed_ms:0,phases:[]};
  const check=until=>{input.signal?.throwIfAborted();if(performance.now()>=Math.min(until,deadline))throw stop;};
  let lastProgress=-Infinity;
  for(const [budgetIndex,budget] of budgets.entries()){
@@ -76,17 +79,17 @@ export async function generateAnytime(input,runtime){
   const ordinary=new Shortlist(256,compare,64),complete=new Shortlist(512,compare,128),cache=new Map(),controlCache=new Map(),expanded=new Set(),tacticalVisited=new Set(),hints=new Map();
   const shared=preset.stateReuse?.raw===preset.raw?createSharedStatEvaluator(pack,kernel,{mode}):null;
   const groups=createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,fixed}),tactical=(path,id)=>groups.enabled?groups.isTactical(path,id):tacticalChoice(pack,kernel,mode,path,id);
-  const d={budget,screening:'anytime_top_k',complete:false,limits:{...shortlistLimits},evaluated:0,invalid:0,source_errors:0,calibration_evaluations:0,ordinary_evaluated:0,tactical_evaluated:0,tree_nodes:0,pruned_branches:0,ordinary_retained:0,candidate_count:0,cache_peak:0,ordinary_storage_peak:0,complete_storage_peak:0,phases:[]};
+  const d={budget,screening:'anytime_top_k',complete:false,limits:{...shortlistLimits},evaluation_attempts:0,cache_hits:0,evaluated:0,invalid:0,source_errors:0,calibration_evaluations:0,ordinary_evaluated:0,tactical_evaluated:0,tree_nodes:0,pruned_branches:0,ordinary_retained:0,candidate_count:0,cache_peak:0,ordinary_storage_peak:0,complete_storage_peak:0,phases:[]};
   let phase='search_attachments',phaseDeadline=sliceEnd,currentBase=0;
   const progress=(force=false)=>{
    input.signal?.throwIfAborted();const now=performance.now();if(!force&&now-lastProgress<150)return;lastProgress=now;
-   input.onProgress?.({phase,budget,evaluated:d.evaluated,ordinary_retained:ordinary.rows().length,candidates:complete.rows().length,base_index:currentBase,elapsed_ms:now-started,time_limit_seconds:limit,best_loss:complete.best()?.score??null,complete:false});
+   input.onProgress?.({phase,budget,evaluated:d.evaluated,ordinary_retained:ordinary.rows().length,candidates:complete.rows().length,base_index:currentBase,elapsed_ms:now-started,time_limit_seconds:limit,best_loss:(complete.best()??ordinary.best())?.score??null,best_complete_loss:complete.best()?.score??null,best_ordinary_loss:ordinary.best()?.score??null,evaluation_attempts:d.evaluation_attempts,cache_hits:d.cache_hits,tree_nodes:d.tree_nodes,pruned_branches:d.pruned_branches,invalid:d.invalid,source_errors:d.source_errors,calibration_evaluations:d.calibration_evaluations,ordinary_tree_exhausted:d.ordinary_tree_exhausted??false,scored_per_second:d.evaluated/Math.max(.001,(now-started)/1000),complete:false});
   };
   const cleanTunes=(build,tunes)=>{
    const out={};for(const n of build.mounted)for(const id of pack.parts[n.itemId]?.tuneIds??[]){const c=curves.c(pack,n,id),v=tunes?.[n.slotPath]?.[id];if(c&&c.enabled!==false&&Number.isFinite(v)&&Math.abs(v-c.range.defaultValue)>1e-6&&curves.n(c).some(p=>Math.abs(p-v)<1e-6))(out[n.slotPath]??={})[id]=v;}return out;
   };
   const evaluate=(config,tunes={})=>{
-   check(phaseDeadline);progress();
+   check(phaseDeadline);progress();d.evaluation_attempts++;
    try{
     let build=resolve(config);
     if(config.some(c=>!build.config.some(n=>n.slotPath===c.slotPath&&n.itemId===c.itemId))){d.invalid++;return null;}
@@ -95,7 +98,7 @@ export async function generateAnytime(input,runtime){
     if(!retains(build)||config.some(c=>!build.config.some(n=>n.slotPath===c.slotPath&&n.itemId===c.itemId))||build.mounted.some(n=>hidden.has(n.itemId))||build.mounted.filter(n=>kernel.l(pack,n.itemId,mode)).length>laserLimit||build.mounted.filter(n=>pack.parts[n.itemId]?.boundAmmoByMode?.[mode]).length>1||emptyRisers(pack,build).length){d.invalid++;return null;}
     let cost=mode==='mp'?null:0;if(mode!=='mp')for(const n of build.mounted.filter(n=>n.source==='equipped')){const price=costs[n.itemId];if(!Number.isFinite(price)||price<0){d.invalid++;return null;}cost+=price;}
     if(budget!==null&&cost>budget+1e-8){d.invalid++;return null;}
-    const clean=cleanTunes(build,tunes),cacheKey=JSON.stringify([key,clean]);if(cache.has(cacheKey))return cache.get(cacheKey);
+    const clean=cleanTunes(build,tunes),cacheKey=JSON.stringify([key,clean]);if(cache.has(cacheKey)){d.cache_hits++;return cache.get(cacheKey);}
     const tuned=Object.keys(clean).length>0,state=!tuned&&shared?shared.evaluate(build):kernel.u(pack,build,{mode,tacticalEffective:true,tunes:clean}),components=preset.raw(build,clean,state),score=preset.score(components),stats=Object.fromEntries(Object.entries(statIds).map(([name,id])=>[name,state.numeric.mainAttr[id]]));
     if(!Number.isFinite(score))return null;
     d.evaluated++;if(phase==='calibration')d.calibration_evaluations++;if(phase==='search_tactical')d.tactical_evaluated++;
@@ -103,7 +106,7 @@ export async function generateAnytime(input,runtime){
     if(cache.size>=2048)cache.delete(cache.keys().next().value);cache.set(cacheKey,row);d.cache_peak=Math.max(d.cache_peak,cache.size);return row;
    }catch(error){if(error===stop||error.name==='AbortError')throw error;d.source_errors++;return null;}
   };
-  const keepComplete=row=>{if(row&&shortfall(row.stats,settings.minimums)<=1e-8)complete.add(row);};
+  const keepComplete=row=>{if(row&&eligible(row))complete.add(row);};
   const locked=path=>fixed.some(f=>f.slotPath===path||f.slotPath.startsWith(path+'/'));
   const strip=config=>config.filter(c=>!tactical(c.slotPath,c.itemId)||fixed.some(f=>f.slotPath===c.slotPath&&f.itemId===c.itemId));
   const keepOrdinary=config=>{const row=evaluate(strip(config));if(row){ordinary.add(row);d.ordinary_evaluated++;for(const c of row.config){const key=c.slotPath+'|'+c.itemId;hints.set(key,Math.min(hints.get(key)??Infinity,row.score));}}return row;};
@@ -131,7 +134,8 @@ export async function generateAnytime(input,runtime){
   const searchOrdinary=()=>{
    // Improve native-scored seeds across live sockets before the broad tree walk.
    const localEnd=performance.now()+Math.max(0,phaseDeadline-performance.now())*.6;
-   while(performance.now()<localEnd){
+   let localExpansions=0;
+   while(performance.now()<localEnd&&(!unlimited||localExpansions++<256)){
     const rows=ordinary.rows(),seed=searchOrder(rows.slice(0,variant?32:rows.length),variant,row=>row.key).find(row=>!expanded.has(row.key))??rows.find(row=>!expanded.has(row.key));if(!seed)break;
     expanded.add(seed.key);if(expanded.size>2048)expanded.delete(expanded.values().next().value);
     for(const build of neighbors(seed,false)){keepOrdinary(build.config);if(performance.now()>=localEnd)break;}
@@ -143,7 +147,7 @@ export async function generateAnytime(input,runtime){
     groups.constrain(compiled);
     branch=createBranchScoreBound({pack,request,compiled,...modules,preset});const search=createMountSearch(compiled);
     tree=search.enumerate(restrictions,()=>{d.tree_nodes++;if(d.tree_nodes%32===0){check(phaseDeadline);progress();}},{priority:(path,item)=>variant?searchHash(variant+':'+path+':'+item):item===null?ordinary.best()?.score??100:hints.get(path+'|'+item)??1000,prune:context=>{
-     const cutoff=ordinary.cutoff();if(!branch||!cutoff||context.remaining<2||context.remaining>4||shortfall(cutoff.stats,settings.minimums)>1e-8||branchTime>.05*(performance.now()-sliceStart))return false;
+     const cutoff=ordinary.cutoff();if(!branch||!cutoff||context.remaining<2||context.remaining>4||!eligible(cutoff)||branchTime>.05*(performance.now()-sliceStart))return false;
      const begin=performance.now(),lower=branch.lower(context);branchTime+=performance.now()-begin;
      const prune=lower!==null&&boundCannotBeat(lower,cutoff.stats,cutoff,settings.minimums);if(prune)d.pruned_branches++;return prune;
     }});
@@ -211,7 +215,12 @@ export async function generateAnytime(input,runtime){
    return [{path:node.slotPath,...controlCache.get(key)}];
   }));
   const calibrate=()=>{
-   const queue=complete.rows();let round=0;
+   const queue=complete.rows();
+   if(patternCap!==null){
+    const keys=new Set(queue.map(row=>row.key));
+    queue.push(...ordinary.rows().filter(row=>!keys.has(row.key)).slice(0,32));
+   }
+   let round=0;
    do{
     let improved=false;
     for(const seed of queue){
@@ -252,14 +261,14 @@ export async function generateAnytime(input,runtime){
  }
  deduplicateResults(results,settings);
  const baseline=kernel.u(pack,resolve([]),{mode,tacticalEffective:true,tunes:{}});solver.elapsed_ms=performance.now()-started;
- const output={weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:settings.automatic?(preset.objectiveNames?.length>1?'lexicographic':'weighted'):'custom_targets',objective_names:preset.objectiveNames,minimum_stats:settings.minimums,baseline:preset.baseline,baseline_stats:Object.fromEntries(Object.entries(statIds).map(([name,id])=>[name,baseline.numeric.mainAttr[id]])),baseline_recoil_path:timedRecoil(pack,resolve([]),{},r,modules),baseline_score:0,baseline_loss:100,score_direction:'higher',weights:preset.weights,tier,cheapest_gate_percent:mode==='mp'?null:cheapestGate,experimental:true,method:'Anytime bounded top-K ordinary and tactical search, source-calculator calibration with feedback',score_model:presets[settings.preset].description,limitations:[...preset.limitations,'Time-limited best-found search. Legal combinations can remain unexplored; shortlists are not proven global top-K. The time budget covers attachment search, tactical search and calibration. Calibration uses legal-position source-scored coordinate refinement, not a global calibration proof.'],attachment_gate:{fraction:null,complete:false,screening:'anytime_top_k',limits:{...shortlistLimits},budgets:reports,global_optimality:false},solver,provenance:input.provenance,results};
+ const output={...(patternConstraint?{pattern_constraint:patternConstraint}:{}),weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:settings.automatic?(preset.objectiveNames?.length>1?'lexicographic':'weighted'):'custom_targets',objective_names:preset.objectiveNames,minimum_stats:settings.minimums,baseline:preset.baseline,baseline_stats:Object.fromEntries(Object.entries(statIds).map(([name,id])=>[name,baseline.numeric.mainAttr[id]])),baseline_recoil_path:timedRecoil(pack,resolve([]),{},r,modules),baseline_score:0,baseline_loss:100,score_direction:'higher',weights:preset.weights,tier,cheapest_gate_percent:mode==='mp'?null:cheapestGate,experimental:true,method:'Anytime bounded top-K ordinary and tactical search, source-calculator calibration with feedback',score_model:presets[settings.preset].description,limitations:[...preset.limitations,'Time-limited best-found search. Legal combinations can remain unexplored; shortlists are not proven global top-K. The time budget covers attachment search, tactical search and calibration. Calibration uses legal-position source-scored coordinate refinement, not a global calibration proof.'],attachment_gate:{fraction:null,complete:false,screening:'anytime_top_k',limits:{...shortlistLimits},budgets:reports,global_optimality:false},solver,provenance:input.provenance,results};
  if(input.collect_candidates)output.search_candidates=candidatePools;
  return output;
 }
 
 function publishAnytimeRows(rows,{pack,r,modules,mode,settings,budget,budgetIndex,budgetCount,resolve}){
  const results=[],strongest=rows[0],publish=(row,label,target=null)=>{
-   if(!row){results.push({label,budget,status:'not_found',reason:'No feasible build found within the search budget. Infeasibility has not been proven.'});return;}
+   if(!row){results.push({label,budget,status:'not_found',reason:settings.patternReduction===undefined?'No feasible build found within the search budget. Infeasibility has not been proven.':'No build meeting the pattern reduction was found within the search budget.'});return;}
    const {build:storedBuild,key,...rest}=row,build=storedBuild??resolve(row.config),path=timedRecoil(pack,build,row.tunes,r,modules);
    results.push({...rest,label,budget,status:'best_found',loss:row.score,score:100-row.score,improvement_percent:100-row.score,effectiveness_percent:strongest&&100-strongest.score>1e-8?100*(100-row.score)/(100-strongest.score):100,target_effectiveness_percent:target,category_note:null,mounted:build.mounted,recoil_path:path,converged:false});
   };

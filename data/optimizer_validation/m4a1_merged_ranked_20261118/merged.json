@@ -1,0 +1,5642 @@
+{
+  "phase": "merged",
+  "wall_ms": 368569.22540000005,
+  "paths": 1696710,
+  "classes": 1483796,
+  "transitions": 4670072,
+  "root_merges": 248,
+  "layer_merges": 33126,
+  "workers_participating": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "survivor_count": 8484,
+  "survivor_manifest": "81ac711e0d544123fc61aab0a180b41e6437834bb4374193a502ba29f451a32e",
+  "guard_fallback_jobs": 0,
+  "results": [
+    {
+      "id": 0,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9207,
+      "transitions": 14252,
+      "root_merges": 1,
+      "layer_merges": 190,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 239,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4616,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9207,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 28399.515000000014,
+      "worker": 0,
+      "manifest": "9007af8f927a503205b00b0a845ebb1958683d7bdb81352bd686b9f6716bd23e",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 28498.627299999993,
+      "heap_used": 98321672
+    },
+    {
+      "id": 1,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9239,
+      "transitions": 14284,
+      "root_merges": 1,
+      "layer_merges": 174,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 239,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4632,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9239,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 28071.507500000007,
+      "worker": 1,
+      "manifest": "38ac79d1efab2ee3bea871a8d462e5a602241ee1fdec89fd95b544d8df836978",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 28148.10680000001,
+      "heap_used": 148319592
+    },
+    {
+      "id": 2,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 8464,
+      "transitions": 13168,
+      "root_merges": 2,
+      "layer_merges": 248,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 224,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4232,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8464,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 35912.93809999997,
+      "worker": 2,
+      "manifest": "29735f519089116290de4465993d0bbd599a7244ddf56d913634f5400c096dd6",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 36024.82780000003,
+      "heap_used": 91922288
+    },
+    {
+      "id": 3,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 8464,
+      "transitions": 13168,
+      "root_merges": 2,
+      "layer_merges": 248,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 224,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4232,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8464,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 34873.62440000003,
+      "worker": 3,
+      "manifest": "3cdfaef8a84b3ac03f0af519f7a2ee26e90db00374b7a10e4b809c34be66dc00",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 34981.02139999997,
+      "heap_used": 150339688
+    },
+    {
+      "id": 4,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9193,
+      "transitions": 14218,
+      "root_merges": 1,
+      "layer_merges": 178,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 238,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4609,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9193,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 39064.7377,
+      "worker": 4,
+      "manifest": "3feedcb8475b0b23b54b082cf8fbcf97000541f60f16e55650ccf5ff76d54f8e",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 39161.78289999999,
+      "heap_used": 163374640
+    },
+    {
+      "id": 5,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 6750,
+      "transitions": 10446,
+      "root_merges": 5,
+      "layer_merges": 145,
+      "layers": [
+        {
+          "classes": 11,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 176,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3375,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 6750,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 27089.391799999983,
+      "worker": 5,
+      "manifest": "5a9bb5016635ccbfd2477a07db90acbe45ede3536ea36b3f216fe07963e7882a",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 27192.460100000026,
+      "heap_used": 150993920
+    },
+    {
+      "id": 6,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 8032,
+      "transitions": 12400,
+      "root_merges": 3,
+      "layer_merges": 144,
+      "layers": [
+        {
+          "classes": 13,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 208,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4016,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8032,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 32555.098699999973,
+      "worker": 6,
+      "manifest": "9526e680a1e2c2fdf130885ce9b2d55773edf731946adea718c7513db3a9fc63",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 32682.967900000047,
+      "heap_used": 187374824
+    },
+    {
+      "id": 7,
+      "kind": "dag",
+      "paths": 10168,
+      "classes": 8492,
+      "transitions": 13242,
+      "root_merges": 2,
+      "layer_merges": 203,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 222,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4325,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8492,
+          "paths": "10168"
+        }
+      ],
+      "elapsed_ms": 35117.32329999999,
+      "worker": 7,
+      "manifest": "e48a40a7d545d55e1623d85122f1aa88bc20ccf87104cb3b8af6c9a0ac9b1f75",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 35230.47770000005,
+      "heap_used": 105602640
+    },
+    {
+      "id": 8,
+      "kind": "dag",
+      "paths": 9667,
+      "classes": 8613,
+      "transitions": 13607,
+      "root_merges": 1,
+      "layer_merges": 247,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 239,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4508,
+          "paths": "5048"
+        },
+        {
+          "path": "5/44",
+          "classes": 8613,
+          "paths": "9667"
+        }
+      ],
+      "elapsed_ms": 35081.82770000002,
+      "worker": 8,
+      "manifest": "a401d05c432b26b2fb18f5d3a08c622ceed7b78ca5e763e2d51605c73fe35902",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 35201.82490000001,
+      "heap_used": 105891496
+    },
+    {
+      "id": 9,
+      "kind": "dag",
+      "paths": 9955,
+      "classes": 9722,
+      "transitions": 15027,
+      "root_merges": 0,
+      "layer_merges": 117,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 256,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4932,
+          "paths": "5048"
+        },
+        {
+          "path": "5/44",
+          "classes": 9722,
+          "paths": "9955"
+        }
+      ],
+      "elapsed_ms": 40992.00280000002,
+      "worker": 9,
+      "manifest": "32b75da4e1d8601fea6cba45d1d504c3234d9df4959b75186c6cc8bcd5884722",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 41087.3076,
+      "heap_used": 149676080
+    },
+    {
+      "id": 10,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9268,
+      "transitions": 14308,
+      "root_merges": 1,
+      "layer_merges": 166,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 240,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4634,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9268,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 37945.02839999995,
+      "worker": 10,
+      "manifest": "bd1c7943116db8aa809c2b17a7863c71056f0bcaba2209c7a624f537aaff2371",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 38040.44339999999,
+      "heap_used": 182888200
+    },
+    {
+      "id": 11,
+      "kind": "dag",
+      "paths": 9952,
+      "classes": 9139,
+      "transitions": 14182,
+      "root_merges": 1,
+      "layer_merges": 79,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 239,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4725,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9139,
+          "paths": "9952"
+        }
+      ],
+      "elapsed_ms": 38351.86950000003,
+      "worker": 11,
+      "manifest": "9310c381ca37a75c6bdf04a853513dc73a7bd8664a71b0e8395a29f149de423e",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 38468.78840000002,
+      "heap_used": 124370080
+    },
+    {
+      "id": 12,
+      "kind": "dag",
+      "paths": 10096,
+      "classes": 8987,
+      "transitions": 14066,
+      "root_merges": 1,
+      "layer_merges": 236,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 238,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4605,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8987,
+          "paths": "10096"
+        }
+      ],
+      "elapsed_ms": 36877.55550000002,
+      "worker": 12,
+      "manifest": "0859f5a04c046f115f7b6304ac2b52b94d3994cb49ae7c630a3912e61c4a5231",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 36982.22690000001,
+      "heap_used": 117993224
+    },
+    {
+      "id": 13,
+      "kind": "dag",
+      "paths": 9667,
+      "classes": 9182,
+      "transitions": 14483,
+      "root_merges": 0,
+      "layer_merges": 214,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 253,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4834,
+          "paths": "5048"
+        },
+        {
+          "path": "5/44",
+          "classes": 9182,
+          "paths": "9667"
+        }
+      ],
+      "elapsed_ms": 26458.989500000025,
+      "worker": 13,
+      "manifest": "54c5dea8dd0cf17d907cfce900bde2e73db2dce1dac26c8d97e27deab21439fa",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 26533.347099999955,
+      "heap_used": 167246368
+    },
+    {
+      "id": 14,
+      "kind": "dag",
+      "paths": 10027,
+      "classes": 8251,
+      "transitions": 12883,
+      "root_merges": 2,
+      "layer_merges": 248,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 224,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4160,
+          "paths": "5048"
+        },
+        {
+          "path": "5/44",
+          "classes": 8251,
+          "paths": "10027"
+        }
+      ],
+      "elapsed_ms": 25103.84759999998,
+      "worker": 14,
+      "manifest": "c9cc9d8fe2fa07b28151642d617b8cbc29d142d63fc05483c6d45c956f39b8c9",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 25189.383899999957,
+      "heap_used": 106364576
+    },
+    {
+      "id": 15,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 8496,
+      "transitions": 13200,
+      "root_merges": 2,
+      "layer_merges": 232,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 224,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4248,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8496,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 26105.881399999955,
+      "worker": 15,
+      "manifest": "de8bc86290fdc454a10755538b813e82f4e19062c9a4f7afbf0ef33f31ea9725",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 26193.951900000044,
+      "heap_used": 115882408
+    },
+    {
+      "id": 16,
+      "kind": "dag",
+      "paths": 10096,
+      "classes": 8457,
+      "transitions": 13166,
+      "root_merges": 2,
+      "layer_merges": 173,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 223,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4313,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8457,
+          "paths": "10096"
+        }
+      ],
+      "elapsed_ms": 25936.100399999996,
+      "worker": 14,
+      "manifest": "d1768ae90f2093a4779f5ac2ca5d522e9e0da92d80bd896e8cbb38f66f960db6",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 26045.354300000006,
+      "heap_used": 157697816
+    },
+    {
+      "id": 17,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9877,
+      "transitions": 15258,
+      "root_merges": 0,
+      "layer_merges": 175,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 255,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4951,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9877,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 30278.339299999992,
+      "worker": 15,
+      "manifest": "ac3c476b2bb83fa18a6f8349baf1ef6ce460939183b75dbd6ed03c4c63e69100",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 30389.228999999992,
+      "heap_used": 176875872
+    },
+    {
+      "id": 18,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 7422,
+      "transitions": 11454,
+      "root_merges": 4,
+      "layer_merges": 129,
+      "layers": [
+        {
+          "classes": 12,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 192,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3711,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 7422,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 22498.980099999986,
+      "worker": 13,
+      "manifest": "68ebcefb9d771f4b994b754b63b0667dd2933f8aea3823b002636e2c5997c22f",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 22589.62890000001,
+      "heap_used": 94628320
+    },
+    {
+      "id": 19,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 7962,
+      "transitions": 12330,
+      "root_merges": 3,
+      "layer_merges": 179,
+      "layers": [
+        {
+          "classes": 13,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 208,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3981,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 7962,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 34583.68599999999,
+      "worker": 5,
+      "manifest": "791efd9482dbed8f3b6a47ae4ba30e6b759dc62ae708db4c1c6643e36793f7fb",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 34771.13650000002,
+      "heap_used": 140887392
+    },
+    {
+      "id": 20,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 5544,
+      "transitions": 8568,
+      "root_merges": 7,
+      "layer_merges": 108,
+      "layers": [
+        {
+          "classes": 9,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 144,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 2772,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 5544,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 17332.064000000013,
+      "worker": 1,
+      "manifest": "2ab28a4639e740c1c58ba0f8b8b4409a0728248f39f4a6d28e813a3e82049bfa",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 17452.340399999986,
+      "heap_used": 106356376
+    },
+    {
+      "id": 21,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9748,
+      "transitions": 15132,
+      "root_merges": 0,
+      "layer_merges": 232,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 254,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4898,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9748,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 30281.121400000004,
+      "worker": 0,
+      "manifest": "0ca20daab749c2dfe84aa2e1115c90018f8922dd20cd2ed9586899eb582f8165",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 30397.22529999999,
+      "heap_used": 107524048
+    },
+    {
+      "id": 22,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9811,
+      "transitions": 15192,
+      "root_merges": 0,
+      "layer_merges": 208,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 255,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4918,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9811,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 42433.84229999996,
+      "worker": 6,
+      "manifest": "fac72bc5fa1633e79df3341cdc9737169f7b20f954376328851bd19aa8ac958f",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 42550.20409999997,
+      "heap_used": 191920640
+    },
+    {
+      "id": 23,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 7190,
+      "transitions": 11222,
+      "root_merges": 4,
+      "layer_merges": 245,
+      "layers": [
+        {
+          "classes": 12,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 192,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3595,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 7190,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 29903.989,
+      "worker": 3,
+      "manifest": "88daf642b83a2e8dbe32d98a53ad5724a1b2ffa2c474707f20a807cc9bee11ae",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 30092.22610000003,
+      "heap_used": 119013616
+    },
+    {
+      "id": 24,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 8092,
+      "transitions": 12460,
+      "root_merges": 3,
+      "layer_merges": 114,
+      "layers": [
+        {
+          "classes": 13,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 208,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4046,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8092,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 35193.87200000003,
+      "worker": 8,
+      "manifest": "588e72383323b8ae73c52908b05c9c85926903a9dfc71dac27c4fcbdfe57d874",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 35312.674699999974,
+      "heap_used": 121573320
+    },
+    {
+      "id": 25,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 7316,
+      "transitions": 11348,
+      "root_merges": 4,
+      "layer_merges": 182,
+      "layers": [
+        {
+          "classes": 12,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 192,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3658,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 7316,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 32633.959900000016,
+      "worker": 7,
+      "manifest": "c98deca35b65c40cd08fda18f7f08951fbe2174c41f5676f3ee1ab0005d518f6",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 32762.025599999994,
+      "heap_used": 136082344
+    },
+    {
+      "id": 26,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 6886,
+      "transitions": 10582,
+      "root_merges": 5,
+      "layer_merges": 77,
+      "layers": [
+        {
+          "classes": 11,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 176,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3443,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 6886,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 29673.804400000023,
+      "worker": 2,
+      "manifest": "201e5e0b1884265bbb4643f64081f204bb21f8b1486cfbffd565783bbccf0104",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 29857.79859999998,
+      "heap_used": 59480904
+    },
+    {
+      "id": 27,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 8668,
+      "transitions": 13372,
+      "root_merges": 2,
+      "layer_merges": 146,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 224,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4334,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8668,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 36447.577099999995,
+      "worker": 12,
+      "manifest": "b8aa3f54a3669cf76c86fad79d1acc14b7cfaf2c13051edd3f4afdcad74dfc09",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 36578.33679999999,
+      "heap_used": 160729352
+    },
+    {
+      "id": 28,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9708,
+      "transitions": 15134,
+      "root_merges": 0,
+      "layer_merges": 264,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 253,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4909,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9708,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 40427.1434,
+      "worker": 10,
+      "manifest": "e8afdc63fad32f8b831e4846f5b26c20ceaf99c070544e6384d11160d8aac872",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 40597.32490000001,
+      "heap_used": 182748880
+    },
+    {
+      "id": 29,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9025,
+      "transitions": 14142,
+      "root_merges": 1,
+      "layer_merges": 308,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 238,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4571,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9025,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 40315.2916,
+      "worker": 11,
+      "manifest": "118fb8786035bac09424481df73c51d622e7f4b95a44a787b4e3e8f547ef655c",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 40493.13140000001,
+      "heap_used": 176688608
+    },
+    {
+      "id": 30,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 7322,
+      "transitions": 11354,
+      "root_merges": 4,
+      "layer_merges": 179,
+      "layers": [
+        {
+          "classes": 12,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 192,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3661,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 7322,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 30888.813000000024,
+      "worker": 4,
+      "manifest": "2c709d345527dced5c60335e4b1b0982f1ea165c2290e9fe9cd7076d4bb2f66b",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 31065.887300000002,
+      "heap_used": 146381032
+    },
+    {
+      "id": 31,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 7388,
+      "transitions": 11420,
+      "root_merges": 4,
+      "layer_merges": 146,
+      "layers": [
+        {
+          "classes": 12,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 192,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3694,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 7388,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 30953.54349999997,
+      "worker": 9,
+      "manifest": "93046e4794d12f57084d4d6dca6114e71e7a6bc1309fdf88e4d920c203c0bea7",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 31056.482000000018,
+      "heap_used": 107195576
+    },
+    {
+      "id": 32,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 6248,
+      "transitions": 9608,
+      "root_merges": 6,
+      "layer_merges": 76,
+      "layers": [
+        {
+          "classes": 10,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 160,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3124,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 6248,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 18441.537499999977,
+      "worker": 1,
+      "manifest": "de03ee678aa166ae16c5f75d6e8d2288963c5f287cdf016ab4055bf21ef3a52d",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 18551.598200000008,
+      "heap_used": 158727944
+    },
+    {
+      "id": 33,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9332,
+      "transitions": 14372,
+      "root_merges": 1,
+      "layer_merges": 134,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 240,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4666,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9332,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 29972.171700000006,
+      "worker": 13,
+      "manifest": "95b0a5d4a62ca862de2f53a224a366506b5e2106dbba46e963cc6fe97548345f",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 30048.012099999993,
+      "heap_used": 135499688
+    },
+    {
+      "id": 34,
+      "kind": "dag",
+      "paths": 9454,
+      "classes": 9028,
+      "transitions": 14268,
+      "root_merges": 0,
+      "layer_merges": 199,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 254,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4787,
+          "paths": "4976"
+        },
+        {
+          "path": "5/44",
+          "classes": 9028,
+          "paths": "9454"
+        }
+      ],
+      "elapsed_ms": 27211.80469999998,
+      "worker": 14,
+      "manifest": "d82834a083ad44c2f65305d5a7fb459862d7b24843dc3d9b39313a539ed6d1e7",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 27268.08879999997,
+      "heap_used": 156423200
+    },
+    {
+      "id": 35,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9877,
+      "transitions": 15268,
+      "root_merges": 0,
+      "layer_merges": 162,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 253,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4976,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9877,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 31514.968600000022,
+      "worker": 15,
+      "manifest": "8bdb791402e8caa860ef04771995e4ecbac0e702f6c748895e304b32934f4a10",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 31603.826899999985,
+      "heap_used": 172079576
+    },
+    {
+      "id": 36,
+      "kind": "dag",
+      "paths": 9670,
+      "classes": 8732,
+      "transitions": 13628,
+      "root_merges": 1,
+      "layer_merges": 149,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 240,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4507,
+          "paths": "4976"
+        },
+        {
+          "path": "5/44",
+          "classes": 8732,
+          "paths": "9670"
+        }
+      ],
+      "elapsed_ms": 27173.62220000004,
+      "worker": 0,
+      "manifest": "4ef165a869e378960e49222ea4a706e71fa7cab4be614705eed2dcf552988c65",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 27237.18000000005,
+      "heap_used": 149799744
+    },
+    {
+      "id": 37,
+      "kind": "dag",
+      "paths": 10024,
+      "classes": 8386,
+      "transitions": 13094,
+      "root_merges": 2,
+      "layer_merges": 172,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 223,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4313,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8386,
+          "paths": "10024"
+        }
+      ],
+      "elapsed_ms": 34864.75409999996,
+      "worker": 5,
+      "manifest": "43323df52f6d397114c6dd62b6b93d5c0697a3d12542eeec5afdf6a3c244a380",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 34940.74040000007,
+      "heap_used": 128359312
+    },
+    {
+      "id": 38,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 8530,
+      "transitions": 13234,
+      "root_merges": 2,
+      "layer_merges": 215,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 224,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4265,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8530,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 25481.2439,
+      "worker": 1,
+      "manifest": "8e3077c308332052b8c0ab7cf6fd87307fe12b5ee599d7ccd5e76975c0fae324",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 25531.99720000004,
+      "heap_used": 213786016
+    },
+    {
+      "id": 39,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9810,
+      "transitions": 15192,
+      "root_merges": 0,
+      "layer_merges": 209,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 255,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4918,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9810,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 41417.073399999994,
+      "worker": 3,
+      "manifest": "269dd7ae833cae35ca0c0f6ac8449b30676834e3f08862aae50d08a6fd0fddb6",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 41572.79230000003,
+      "heap_used": 95110800
+    },
+    {
+      "id": 40,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 8970,
+      "transitions": 13950,
+      "root_merges": 1,
+      "layer_merges": 258,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 237,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4485,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8970,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 37431.21880000003,
+      "worker": 2,
+      "manifest": "1b8642888a68029af31abc05a81d7daa196d23825fcff93b90fe20d912691545",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 37531.14910000004,
+      "heap_used": 172507080
+    },
+    {
+      "id": 41,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 7826,
+      "transitions": 12194,
+      "root_merges": 3,
+      "layer_merges": 247,
+      "layers": [
+        {
+          "classes": 13,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 208,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3913,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 7826,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 33136.197399999946,
+      "worker": 7,
+      "manifest": "85b39559f76ebbd834fdcc45f5301891d8f93bf78df8218c1fee968e43cbf62f",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 33196.39279999997,
+      "heap_used": 121259712
+    },
+    {
+      "id": 42,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 7892,
+      "transitions": 12260,
+      "root_merges": 3,
+      "layer_merges": 214,
+      "layers": [
+        {
+          "classes": 13,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 208,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3946,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 7892,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 33502.005000000005,
+      "worker": 4,
+      "manifest": "7e9577ad6d36c4254063fc8d00d6f1107d2095cbc31d67a6a26b0775f7e45703",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 33630.76209999999,
+      "heap_used": 181230760
+    },
+    {
+      "id": 43,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 5544,
+      "transitions": 8568,
+      "root_merges": 7,
+      "layer_merges": 108,
+      "layers": [
+        {
+          "classes": 9,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 144,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 2772,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 5544,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 23389.165500000003,
+      "worker": 8,
+      "manifest": "c6ffde414261609ccc2e70b3ce605acf3759fed53bb48dca242809a8105f8c07",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 23520.662299999967,
+      "heap_used": 188709992
+    },
+    {
+      "id": 44,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 7256,
+      "transitions": 11288,
+      "root_merges": 4,
+      "layer_merges": 212,
+      "layers": [
+        {
+          "classes": 12,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 192,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3628,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 7256,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 30303.833799999964,
+      "worker": 9,
+      "manifest": "65bdd4e5352d3bce64f0b19583ff1dcce674cd5059cf580ca5bd8fa875a57444",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 30470.124300000025,
+      "heap_used": 146740688
+    },
+    {
+      "id": 45,
+      "kind": "dag",
+      "paths": 9241,
+      "classes": 8240,
+      "transitions": 13069,
+      "root_merges": 1,
+      "layer_merges": 174,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 239,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4416,
+          "paths": "4904"
+        },
+        {
+          "path": "5/44",
+          "classes": 8240,
+          "paths": "9241"
+        }
+      ],
+      "elapsed_ms": 35251.0282,
+      "worker": 12,
+      "manifest": "2817dd00fe3d28f6f4024c281b2804f51f3c6096739370ce320fd5b9787d0905",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 35426.068099999975,
+      "heap_used": 172552040
+    },
+    {
+      "id": 46,
+      "kind": "dag",
+      "paths": 9667,
+      "classes": 9171,
+      "transitions": 14485,
+      "root_merges": 0,
+      "layer_merges": 235,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 254,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4825,
+          "paths": "5048"
+        },
+        {
+          "path": "5/44",
+          "classes": 9171,
+          "paths": "9667"
+        }
+      ],
+      "elapsed_ms": 39106.49160000007,
+      "worker": 6,
+      "manifest": "8209714ac229ec141efb76fe46489ce3fc9ed42d3cd6a2e842eb4839c3e04449",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 39225.517700000026,
+      "heap_used": 187722392
+    },
+    {
+      "id": 47,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9746,
+      "transitions": 15132,
+      "root_merges": 0,
+      "layer_merges": 234,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 254,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4898,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9746,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 29989.015400000033,
+      "worker": 14,
+      "manifest": "f1f866afd778e3acfa8c4594e46aec2efe640f213906600c028e1f9feaaa1f34",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 30104.032799999986,
+      "heap_used": 192760648
+    },
+    {
+      "id": 48,
+      "kind": "dag",
+      "paths": 9952,
+      "classes": 9457,
+      "transitions": 14838,
+      "root_merges": 0,
+      "layer_merges": 241,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 255,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4885,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9457,
+          "paths": "9952"
+        }
+      ],
+      "elapsed_ms": 39857.51600000006,
+      "worker": 10,
+      "manifest": "73147857155253637b9136798686d64e1b4941224459d2e5f56079b1fe7fa1b3",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 39973.15729999996,
+      "heap_used": 222571496
+    },
+    {
+      "id": 49,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 8088,
+      "transitions": 12456,
+      "root_merges": 3,
+      "layer_merges": 116,
+      "layers": [
+        {
+          "classes": 13,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 208,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4044,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8088,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 34593.82350000006,
+      "worker": 11,
+      "manifest": "50f82044c99c5519660c633a6eb9b880b2dabf416d0a4b480642ab4e35dd9a20",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 34714.64870000002,
+      "heap_used": 129856608
+    },
+    {
+      "id": 50,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 7388,
+      "transitions": 11420,
+      "root_merges": 4,
+      "layer_merges": 146,
+      "layers": [
+        {
+          "classes": 12,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 192,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3694,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 7388,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 23067.665600000008,
+      "worker": 13,
+      "manifest": "d398998c4fae45dbb20113a2add330f24425ebe0636c6e32ec99e5fb036cfaf1",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 23159.14519999997,
+      "heap_used": 114236136
+    },
+    {
+      "id": 51,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 8094,
+      "transitions": 12462,
+      "root_merges": 3,
+      "layer_merges": 113,
+      "layers": [
+        {
+          "classes": 13,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 208,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4047,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8094,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 25153.718799999973,
+      "worker": 0,
+      "manifest": "06ee224749a95f3e45a6f50116719f710a621d446d6347d7f4f084b95e1ea95e",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 25262.764599999995,
+      "heap_used": 198251992
+    },
+    {
+      "id": 52,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 6884,
+      "transitions": 10580,
+      "root_merges": 5,
+      "layer_merges": 78,
+      "layers": [
+        {
+          "classes": 11,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 176,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3442,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 6884,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 21034.661499999987,
+      "worker": 15,
+      "manifest": "c762dd2e8d0ef649b6a9f4c7071636d527d00ac589e59c1e6336fd342c5b7e1b",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 21165.744400000083,
+      "heap_used": 118398240
+    },
+    {
+      "id": 53,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 7894,
+      "transitions": 12262,
+      "root_merges": 3,
+      "layer_merges": 213,
+      "layers": [
+        {
+          "classes": 13,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 208,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3947,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 7894,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 24495.601600000053,
+      "worker": 1,
+      "manifest": "4ea826b41f247dafc4d1d4fc5ac37b4194ad50c58a5d7b361cc393affbfa20d7",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 24582.429500000027,
+      "heap_used": 145698248
+    },
+    {
+      "id": 54,
+      "kind": "dag",
+      "paths": 9883,
+      "classes": 8274,
+      "transitions": 12951,
+      "root_merges": 2,
+      "layer_merges": 169,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 222,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4286,
+          "paths": "5048"
+        },
+        {
+          "path": "5/44",
+          "classes": 8274,
+          "paths": "9883"
+        }
+      ],
+      "elapsed_ms": 34675.34360000002,
+      "worker": 8,
+      "manifest": "47438d59d46bd3f2fbb06279310a9dcf3c9f5a82e221c5cd66fdf2f5bee8568e",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 34773.46350000001,
+      "heap_used": 138782200
+    },
+    {
+      "id": 55,
+      "kind": "dag",
+      "paths": 9880,
+      "classes": 8739,
+      "transitions": 13856,
+      "root_merges": 1,
+      "layer_merges": 307,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 238,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4572,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8739,
+          "paths": "9880"
+        }
+      ],
+      "elapsed_ms": 36545.0503,
+      "worker": 5,
+      "manifest": "f1c173fa9c82ed89e21635b6a31fcf9cfdc23d739bab7985fd80ffb32e56fa18",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 36718.70880000002,
+      "heap_used": 150329864
+    },
+    {
+      "id": 56,
+      "kind": "dag",
+      "paths": 10027,
+      "classes": 8885,
+      "transitions": 13927,
+      "root_merges": 1,
+      "layer_merges": 270,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 238,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4534,
+          "paths": "5048"
+        },
+        {
+          "path": "5/44",
+          "classes": 8885,
+          "paths": "10027"
+        }
+      ],
+      "elapsed_ms": 37327.12770000007,
+      "worker": 7,
+      "manifest": "539fdbbfac42c499a0d6e50f2aa1790bd0ad4103f11c3ce9283fa20addc59cb6",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 37480.0638,
+      "heap_used": 209785352
+    },
+    {
+      "id": 57,
+      "kind": "dag",
+      "paths": 10096,
+      "classes": 9561,
+      "transitions": 14982,
+      "root_merges": 0,
+      "layer_merges": 272,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 254,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4895,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9561,
+          "paths": "10096"
+        }
+      ],
+      "elapsed_ms": 28364.340899999952,
+      "worker": 13,
+      "manifest": "d41f103045b0888bec24ec238d2015dffc2b80794887ab238288ee029b3551d9",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 28462.236000000034,
+      "heap_used": 194492512
+    },
+    {
+      "id": 58,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9232,
+      "transitions": 14272,
+      "root_merges": 1,
+      "layer_merges": 184,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 240,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4616,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9232,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 38127.915400000056,
+      "worker": 9,
+      "manifest": "3ab68202221f68ea9ecd2037bab502362fe596229c7f34d5e804fe3cb1f40856",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 38308.01359999995,
+      "heap_used": 179595168
+    },
+    {
+      "id": 59,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9436,
+      "transitions": 14476,
+      "root_merges": 1,
+      "layer_merges": 82,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 240,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4718,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9436,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 39193.00909999991,
+      "worker": 2,
+      "manifest": "b836db5e20336f6d4d8a612d08dfffcea458d1412cbd454017c24feaed9687ee",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 39375.74090000009,
+      "heap_used": 189068848
+    },
+    {
+      "id": 60,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9241,
+      "transitions": 14284,
+      "root_merges": 1,
+      "layer_merges": 172,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 239,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4632,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9241,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 38886.66769999999,
+      "worker": 4,
+      "manifest": "548215c3c24c79c4b0a5b70ac70181a6889b3265ae4568f477280476a88360d2",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 39050.362199999974,
+      "heap_used": 174899400
+    },
+    {
+      "id": 61,
+      "kind": "dag",
+      "paths": 10096,
+      "classes": 9100,
+      "transitions": 14148,
+      "root_merges": 1,
+      "layer_merges": 164,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 238,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4646,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9100,
+          "paths": "10096"
+        }
+      ],
+      "elapsed_ms": 38533.2178000001,
+      "worker": 3,
+      "manifest": "14ef7acd90f4c60563131872dc026c66f9d804a8f91b6fa58772c2c0892af88c",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 38702.319099999964,
+      "heap_used": 165365160
+    },
+    {
+      "id": 62,
+      "kind": "dag",
+      "paths": 9952,
+      "classes": 9581,
+      "transitions": 14968,
+      "root_merges": 0,
+      "layer_merges": 173,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 254,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4960,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9581,
+          "paths": "9952"
+        }
+      ],
+      "elapsed_ms": 28677.68590000004,
+      "worker": 14,
+      "manifest": "52255c47b41f294e913357dca2e876c8ee0fee4e3ce61a28cccb873141ab92aa",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 28764.648600000073,
+      "heap_used": 181469240
+    },
+    {
+      "id": 63,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9104,
+      "transitions": 14180,
+      "root_merges": 1,
+      "layer_merges": 248,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 238,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4590,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9104,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 38898.49230000004,
+      "worker": 12,
+      "manifest": "54ea80e1ed2b4e4f034afa62be29f981e4191812d7f93867b2224bff159c6f44",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 39059.51919999998,
+      "heap_used": 175265648
+    },
+    {
+      "id": 64,
+      "kind": "dag",
+      "paths": 9811,
+      "classes": 9409,
+      "transitions": 14693,
+      "root_merges": 0,
+      "layer_merges": 182,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 255,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4847,
+          "paths": "5048"
+        },
+        {
+          "path": "5/44",
+          "classes": 9409,
+          "paths": "9811"
+        }
+      ],
+      "elapsed_ms": 27616.668199999956,
+      "worker": 15,
+      "manifest": "e0a76e8426febee58831bd54c0c89cb66df712c2ba4a4fd1dc280e139bbf1f54",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 27721.264599999995,
+      "heap_used": 174112184
+    },
+    {
+      "id": 65,
+      "kind": "dag",
+      "paths": 9739,
+      "classes": 9310,
+      "transitions": 14619,
+      "root_merges": 0,
+      "layer_merges": 208,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 255,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4846,
+          "paths": "5048"
+        },
+        {
+          "path": "5/44",
+          "classes": 9310,
+          "paths": "9739"
+        }
+      ],
+      "elapsed_ms": 27027.339299999992,
+      "worker": 0,
+      "manifest": "affecfb83a221fe0120c391adbe26cbbabbb4e78df764a740e9fad324971b056",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 27150.918900000048,
+      "heap_used": 161616560
+    },
+    {
+      "id": 66,
+      "kind": "dag",
+      "paths": 10168,
+      "classes": 8392,
+      "transitions": 13096,
+      "root_merges": 2,
+      "layer_merges": 248,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 224,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4232,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8392,
+          "paths": "10168"
+        }
+      ],
+      "elapsed_ms": 36179.29920000001,
+      "worker": 11,
+      "manifest": "62941cd3462023e7c5bd3f17375946ba95d3d72e38d91fd4e4828b15c27edaaa",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 36273.678199999966,
+      "heap_used": 180370424
+    },
+    {
+      "id": 67,
+      "kind": "dag",
+      "paths": 10168,
+      "classes": 9659,
+      "transitions": 15004,
+      "root_merges": 0,
+      "layer_merges": 203,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 252,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4890,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9659,
+          "paths": "10168"
+        }
+      ],
+      "elapsed_ms": 28920.649099999922,
+      "worker": 1,
+      "manifest": "5804f6455506dd49fc675da62804416a85ab3bd549bbc5be8d47a7e7183a6207",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 28991.978899999987,
+      "heap_used": 196879672
+    },
+    {
+      "id": 68,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 8462,
+      "transitions": 13166,
+      "root_merges": 2,
+      "layer_merges": 249,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 224,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4231,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8462,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 35062.82109999994,
+      "worker": 6,
+      "manifest": "c7863a0a84f364e90aab5419ba4202da671c5fbec4a12d7f8ce8b4495e52dabe",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 35179.69960000005,
+      "heap_used": 135557888
+    },
+    {
+      "id": 69,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 8530,
+      "transitions": 13234,
+      "root_merges": 2,
+      "layer_merges": 215,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 224,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4265,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8530,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 34709.173100000015,
+      "worker": 10,
+      "manifest": "2454a662d9ec2147049d7796969240f23d093eaa3e14b5ae7022e26876553249",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 34754.78350000002,
+      "heap_used": 119290432
+    },
+    {
+      "id": 70,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 8498,
+      "transitions": 13202,
+      "root_merges": 2,
+      "layer_merges": 231,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 224,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4249,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8498,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 34925.78979999991,
+      "worker": 8,
+      "manifest": "e6c5aec32a0816f575bb267adae66c41e7de0a664035498fe18623a925bf190f",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 34999.12849999999,
+      "heap_used": 187570064
+    },
+    {
+      "id": 71,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 6616,
+      "transitions": 10312,
+      "root_merges": 5,
+      "layer_merges": 212,
+      "layers": [
+        {
+          "classes": 11,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 176,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3308,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 6616,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 19859.77899999998,
+      "worker": 13,
+      "manifest": "bb95182a3c131e0dfbb21ef1e42e8c06dc6a044eecf1cefbb73f68c1a233fc82",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 19924.062999999966,
+      "heap_used": 110574312
+    },
+    {
+      "id": 72,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 6616,
+      "transitions": 10312,
+      "root_merges": 5,
+      "layer_merges": 212,
+      "layers": [
+        {
+          "classes": 11,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 176,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3308,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 6616,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 27543.39890000003,
+      "worker": 5,
+      "manifest": "fb3ccc6c1d0ed007a28caa77e2eddb335373fc38c6ad066120769ee822c56ea5",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 27658.568500000052,
+      "heap_used": 133156360
+    },
+    {
+      "id": 73,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 8466,
+      "transitions": 13170,
+      "root_merges": 2,
+      "layer_merges": 247,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 224,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4233,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8466,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 25913.520900000003,
+      "worker": 15,
+      "manifest": "03cf9826587923bd73550c8a74eaa982c570c83ddbe30ca0783eada49a14b139",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 25981.925300000003,
+      "heap_used": 133625536
+    },
+    {
+      "id": 74,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 9812,
+      "transitions": 15196,
+      "root_merges": 0,
+      "layer_merges": 200,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 254,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4930,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 9812,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 29685.47629999998,
+      "worker": 14,
+      "manifest": "dc31814708f39e27f9f043b727b77771e27b5a56c784c0e05b4306e91e96158f",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 29739.42089999991,
+      "heap_used": 163000304
+    },
+    {
+      "id": 75,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 8159,
+      "transitions": 12528,
+      "root_merges": 3,
+      "layer_merges": 81,
+      "layers": [
+        {
+          "classes": 13,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 208,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4080,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 8159,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 24843.65850000002,
+      "worker": 0,
+      "manifest": "f3665c5fb0f29c0aa19cb674fbbdc0d60e4e3341890c383bdb8731d6504af80b",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 24916.81409999996,
+      "heap_used": 147514840
+    },
+    {
+      "id": 76,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 7962,
+      "transitions": 12330,
+      "root_merges": 3,
+      "layer_merges": 179,
+      "layers": [
+        {
+          "classes": 13,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 208,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3981,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 7962,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 33581.372700000065,
+      "worker": 7,
+      "manifest": "57ba8bf5d189a459cb81a33c9696f5732a67c091347a80fa9331baeeb830a3f4",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 33688.14289999998,
+      "heap_used": 145213904
+    },
+    {
+      "id": 77,
+      "kind": "dag",
+      "paths": 10240,
+      "classes": 5544,
+      "transitions": 8568,
+      "root_merges": 7,
+      "layer_merges": 108,
+      "layers": [
+        {
+          "classes": 9,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 144,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 2772,
+          "paths": "5120"
+        },
+        {
+          "path": "5/44",
+          "classes": 5544,
+          "paths": "10240"
+        }
+      ],
+      "elapsed_ms": 22435.39379999996,
+      "worker": 9,
+      "manifest": "80cbc90be679b5332d9ea2f0b17202c31190ce7118999612e422d9cad6e99ad3",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 22519.765400000033,
+      "heap_used": 154165384
+    },
+    {
+      "id": 78,
+      "kind": "dag",
+      "paths": 19694,
+      "classes": 15422,
+      "transitions": 24506,
+      "root_merges": 1,
+      "layer_merges": 437,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 237,
+          "paths": "256"
+        },
+        {
+          "path": "3/29",
+          "classes": 423,
+          "paths": "512"
+        },
+        {
+          "path": "4/8",
+          "classes": 7987,
+          "paths": "10096"
+        },
+        {
+          "path": "5/44",
+          "classes": 15422,
+          "paths": "19694"
+        }
+      ],
+      "elapsed_ms": 65289.74300000002,
+      "worker": 2,
+      "manifest": "08ed7a92b43f8f360b9294ad88abf8b4e74f5a9fdad88cc76ac02105ef112489",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 65489.80760000006,
+      "heap_used": 126335720
+    },
+    {
+      "id": 79,
+      "kind": "dag",
+      "paths": 20480,
+      "classes": 16089,
+      "transitions": 25492,
+      "root_merges": 1,
+      "layer_merges": 656,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 235,
+          "paths": "256"
+        },
+        {
+          "path": "3/29",
+          "classes": 431,
+          "paths": "512"
+        },
+        {
+          "path": "4/8",
+          "classes": 8081,
+          "paths": "10240"
+        },
+        {
+          "path": "5/44",
+          "classes": 16089,
+          "paths": "20480"
+        }
+      ],
+      "elapsed_ms": 71923.87159999995,
+      "worker": 4,
+      "manifest": "642525917320be97024a0e4e1419e12f4215ada0eec4644a4967dd1d9034a2d3",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 72109.76939999999,
+      "heap_used": 137351384
+    },
+    {
+      "id": 80,
+      "kind": "dag",
+      "paths": 20480,
+      "classes": 16648,
+      "transitions": 26140,
+      "root_merges": 2,
+      "layer_merges": 503,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 224,
+          "paths": "256"
+        },
+        {
+          "path": "3/29",
+          "classes": 441,
+          "paths": "512"
+        },
+        {
+          "path": "4/8",
+          "classes": 8324,
+          "paths": "10240"
+        },
+        {
+          "path": "5/44",
+          "classes": 16648,
+          "paths": "20480"
+        }
+      ],
+      "elapsed_ms": 51373.345100000035,
+      "worker": 1,
+      "manifest": "9b7a075d944dbfd281f6dda155e74a692a0bc37b35bfe43906809679f2478259",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 51497.64010000008,
+      "heap_used": 169781040
+    },
+    {
+      "id": 81,
+      "kind": "dag",
+      "paths": 20480,
+      "classes": 15462,
+      "transitions": 24246,
+      "root_merges": 3,
+      "layer_merges": 437,
+      "layers": [
+        {
+          "classes": 13,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 208,
+          "paths": "256"
+        },
+        {
+          "path": "3/29",
+          "classes": 408,
+          "paths": "512"
+        },
+        {
+          "path": "4/8",
+          "classes": 7731,
+          "paths": "10240"
+        },
+        {
+          "path": "5/44",
+          "classes": 15462,
+          "paths": "20480"
+        }
+      ],
+      "elapsed_ms": 67314.3763,
+      "worker": 3,
+      "manifest": "ee124cfb88b47f2d6fdfb171b55e0be52167be3e12aa6a5279e2a45c3bbf5a62",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 67565.63910000003,
+      "heap_used": 221501328
+    },
+    {
+      "id": 82,
+      "kind": "dag",
+      "paths": 20408,
+      "classes": 17552,
+      "transitions": 27632,
+      "root_merges": 1,
+      "layer_merges": 560,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 237,
+          "paths": "256"
+        },
+        {
+          "path": "3/29",
+          "classes": 468,
+          "paths": "512"
+        },
+        {
+          "path": "4/8",
+          "classes": 8815,
+          "paths": "10240"
+        },
+        {
+          "path": "5/44",
+          "classes": 17552,
+          "paths": "20408"
+        }
+      ],
+      "elapsed_ms": 77050.78809999989,
+      "worker": 12,
+      "manifest": "033b87717ec763cc28d743024c12afb94c1449716cf0309850cc5f2493fac297",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 77281.30480000004,
+      "heap_used": 216454016
+    },
+    {
+      "id": 83,
+      "kind": "dag",
+      "paths": 19622,
+      "classes": 18394,
+      "transitions": 29150,
+      "root_merges": 0,
+      "layer_merges": 470,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 254,
+          "paths": "256"
+        },
+        {
+          "path": "3/29",
+          "classes": 502,
+          "paths": "512"
+        },
+        {
+          "path": "4/8",
+          "classes": 9530,
+          "paths": "10096"
+        },
+        {
+          "path": "5/44",
+          "classes": 18394,
+          "paths": "19622"
+        }
+      ],
+      "elapsed_ms": 81832.19739999995,
+      "worker": 6,
+      "manifest": "17cefcc4e547e98d1d2b08fce395d7e08c6f5d17e6423e8d19ff2087b08a58db",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 82121.11869999999,
+      "heap_used": 148733400
+    },
+    {
+      "id": 84,
+      "kind": "dag",
+      "paths": 640,
+      "classes": 516,
+      "transitions": 796,
+      "root_merges": 2,
+      "layer_merges": 22,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 258,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 516,
+          "paths": "640"
+        }
+      ],
+      "elapsed_ms": 2249.45000000007,
+      "worker": 11,
+      "manifest": "f135bdb4203b722703cbc8d6c4e7806ccc721a941a7b590953cae07aace1c5f7",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 2255.734300000011,
+      "heap_used": 80823728
+    },
+    {
+      "id": 85,
+      "kind": "dag",
+      "paths": 640,
+      "classes": 540,
+      "transitions": 820,
+      "root_merges": 2,
+      "layer_merges": 10,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 270,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 540,
+          "paths": "640"
+        }
+      ],
+      "elapsed_ms": 1509.3233000000473,
+      "worker": 13,
+      "manifest": "3bc76613030fb66aa39f2009d3edf756f11fcfd3edfd99a72bdd51e44a728715",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 1514.2295000000158,
+      "heap_used": 103455056
+    },
+    {
+      "id": 86,
+      "kind": "dag",
+      "paths": 640,
+      "classes": 536,
+      "transitions": 816,
+      "root_merges": 2,
+      "layer_merges": 12,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 268,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 536,
+          "paths": "640"
+        }
+      ],
+      "elapsed_ms": 1494.7200000000885,
+      "worker": 11,
+      "manifest": "1c146eb78b1b5ad02fadfc7087df5449c5c493e94c6100ae36eb17852b713f83",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 1495.812099999981,
+      "heap_used": 73887384
+    },
+    {
+      "id": 87,
+      "kind": "dag",
+      "paths": 640,
+      "classes": 534,
+      "transitions": 814,
+      "root_merges": 2,
+      "layer_merges": 13,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 267,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 534,
+          "paths": "640"
+        }
+      ],
+      "elapsed_ms": 1596.374899999937,
+      "worker": 13,
+      "manifest": "fccffc74885ce967f0af0a68920cde083e3037665f21d42dc0bbf36d577a6686",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 1598.3088999999454,
+      "heap_used": 163803816
+    },
+    {
+      "id": 88,
+      "kind": "dag",
+      "paths": 640,
+      "classes": 546,
+      "transitions": 826,
+      "root_merges": 2,
+      "layer_merges": 7,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 273,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 546,
+          "paths": "640"
+        }
+      ],
+      "elapsed_ms": 2003.9577000000281,
+      "worker": 10,
+      "manifest": "de73e5842cb1ebb1734008d7d3ec41465228a0bd18074fa48aa28a46472884f3",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 2008.6453999999212,
+      "heap_used": 88495520
+    },
+    {
+      "id": 89,
+      "kind": "dag",
+      "paths": 640,
+      "classes": 464,
+      "transitions": 704,
+      "root_merges": 4,
+      "layer_merges": 8,
+      "layers": [
+        {
+          "classes": 12,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 232,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 464,
+          "paths": "640"
+        }
+      ],
+      "elapsed_ms": 1913.3228000000818,
+      "worker": 11,
+      "manifest": "f534ef15ae7fd413307e1605d840e80039cd0d5609a1e618d4f3cb8ce0fe39b1",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 1918.326100000064,
+      "heap_used": 105564736
+    },
+    {
+      "id": 90,
+      "kind": "dag",
+      "paths": 640,
+      "classes": 388,
+      "transitions": 588,
+      "root_merges": 6,
+      "layer_merges": 6,
+      "layers": [
+        {
+          "classes": 10,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 194,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 388,
+          "paths": "640"
+        }
+      ],
+      "elapsed_ms": 1257.3458999999566,
+      "worker": 13,
+      "manifest": "554ef54c3557d61a05e752abc7730dbd987961ef50edcf9bcd676e06aa170620",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 1261.4749000000302,
+      "heap_used": 107709504
+    },
+    {
+      "id": 91,
+      "kind": "dag",
+      "paths": 640,
+      "classes": 536,
+      "transitions": 816,
+      "root_merges": 2,
+      "layer_merges": 12,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 268,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 536,
+          "paths": "640"
+        }
+      ],
+      "elapsed_ms": 1566.484300000011,
+      "worker": 13,
+      "manifest": "67133bbc171675218c60ea3a7071d2d2c1c847da0dfc2b03ce197864e229eb6d",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 1572.3318000000436,
+      "heap_used": 106180904
+    },
+    {
+      "id": 92,
+      "kind": "dag",
+      "paths": 608,
+      "classes": 592,
+      "transitions": 912,
+      "root_merges": 0,
+      "layer_merges": 8,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 312,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 592,
+          "paths": "608"
+        }
+      ],
+      "elapsed_ms": 2388.6067999999505,
+      "worker": 10,
+      "manifest": "43a832c8159e45dd4f259e4c3feb416215666b5ecb449ace75c1de289aba9b8e",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 2393.3948999999557,
+      "heap_used": 64046008
+    },
+    {
+      "id": 93,
+      "kind": "dag",
+      "paths": 640,
+      "classes": 548,
+      "transitions": 828,
+      "root_merges": 2,
+      "layer_merges": 6,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 274,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 548,
+          "paths": "640"
+        }
+      ],
+      "elapsed_ms": 2244.8194999999832,
+      "worker": 11,
+      "manifest": "9dad067abf5c08f8517094def2d7e36deae7f5f252ac0c61ec22128787ee91e0",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 2250.793500000029,
+      "heap_used": 121926608
+    },
+    {
+      "id": 94,
+      "kind": "dag",
+      "paths": 640,
+      "classes": 392,
+      "transitions": 592,
+      "root_merges": 6,
+      "layer_merges": 4,
+      "layers": [
+        {
+          "classes": 10,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 196,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 392,
+          "paths": "640"
+        }
+      ],
+      "elapsed_ms": 1522.2005000000354,
+      "worker": 13,
+      "manifest": "78bf826cf59bfafd12ed9a5a115493137e171104d8d80b973e6b2c1d41094719",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 1524.096900000004,
+      "heap_used": 51645576
+    },
+    {
+      "id": 95,
+      "kind": "dag",
+      "paths": 640,
+      "classes": 528,
+      "transitions": 808,
+      "root_merges": 2,
+      "layer_merges": 16,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 264,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 528,
+          "paths": "640"
+        }
+      ],
+      "elapsed_ms": 2258.7094000000507,
+      "worker": 10,
+      "manifest": "5ddde5488709357a9a42975b12dbb727ec9ecfb38713dd6345de1c32b3895b97",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 2263.7778999999864,
+      "heap_used": 85593712
+    },
+    {
+      "id": 96,
+      "kind": "dag",
+      "paths": 640,
+      "classes": 548,
+      "transitions": 828,
+      "root_merges": 2,
+      "layer_merges": 6,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 274,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 548,
+          "paths": "640"
+        }
+      ],
+      "elapsed_ms": 2278.280700000003,
+      "worker": 11,
+      "manifest": "d8d2f56eaa2b337f4bf46399b1b127c9fbb5f10d6863e287604a9ae953e8035b",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 2283.8778000000166,
+      "heap_used": 100396472
+    },
+    {
+      "id": 97,
+      "kind": "dag",
+      "paths": 624,
+      "classes": 596,
+      "transitions": 916,
+      "root_merges": 0,
+      "layer_merges": 14,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 306,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 596,
+          "paths": "624"
+        }
+      ],
+      "elapsed_ms": 1696.8472000000766,
+      "worker": 13,
+      "manifest": "0ece6846a721b5ca02a6a55b73dc4e6258d9afa31e5bdd63fa3c7f90592c5c0a",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 1700.6625000000931,
+      "heap_used": 88379312
+    },
+    {
+      "id": 98,
+      "kind": "dag",
+      "paths": 640,
+      "classes": 540,
+      "transitions": 820,
+      "root_merges": 2,
+      "layer_merges": 10,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 270,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 540,
+          "paths": "640"
+        }
+      ],
+      "elapsed_ms": 1654.6933999999892,
+      "worker": 13,
+      "manifest": "6b32371b8ea8c8c8b864461765aeae3eb366cb9eb0741960efc2424253149803",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 1658.7911000000313,
+      "heap_used": 98897792
+    },
+    {
+      "id": 99,
+      "kind": "dag",
+      "paths": 640,
+      "classes": 628,
+      "transitions": 948,
+      "root_merges": 0,
+      "layer_merges": 6,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 314,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 628,
+          "paths": "640"
+        }
+      ],
+      "elapsed_ms": 2478.6694000000134,
+      "worker": 10,
+      "manifest": "89f2123d61cbd07a07ef384668a3c860e919c237a63ec3bb503d81cb41062b53",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 2485.59440000006,
+      "heap_used": 81561360
+    },
+    {
+      "id": 100,
+      "kind": "dag",
+      "paths": 640,
+      "classes": 580,
+      "transitions": 880,
+      "root_merges": 1,
+      "layer_merges": 10,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 290,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 580,
+          "paths": "640"
+        }
+      ],
+      "elapsed_ms": 2450.922900000005,
+      "worker": 11,
+      "manifest": "0b628edd9e347320d5d566f85c0a7499825cc3570b09f0cc9f0c7f549541d349",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 2455.7330000000075,
+      "heap_used": 64193264
+    },
+    {
+      "id": 101,
+      "kind": "dag",
+      "paths": 624,
+      "classes": 604,
+      "transitions": 924,
+      "root_merges": 0,
+      "layer_merges": 10,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 310,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 604,
+          "paths": "624"
+        }
+      ],
+      "elapsed_ms": 2505.7749000000767,
+      "worker": 5,
+      "manifest": "7f73e886815062be812a7b8328fb8198c3113694e2c369667e91a5e6a78015ee",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 2510.819600000046,
+      "heap_used": 114452656
+    },
+    {
+      "id": 102,
+      "kind": "dag",
+      "paths": 640,
+      "classes": 516,
+      "transitions": 796,
+      "root_merges": 2,
+      "layer_merges": 22,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "4/8",
+          "classes": 258,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 516,
+          "paths": "640"
+        }
+      ],
+      "elapsed_ms": 1418.611499999999,
+      "worker": 13,
+      "manifest": "6f8583a5ef245ba8a0336a5965e6a44aef5af03ef819501a4a7a8c95a7a76647",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 1422.3515999999363,
+      "heap_used": 84046912
+    },
+    {
+      "id": 103,
+      "kind": "dag",
+      "paths": 320,
+      "classes": 312,
+      "transitions": 472,
+      "root_merges": 0,
+      "layer_merges": 4,
+      "layers": [
+        {
+          "classes": 8,
+          "paths": 8
+        },
+        {
+          "path": "4/8",
+          "classes": 156,
+          "paths": "160"
+        },
+        {
+          "path": "5/44",
+          "classes": 312,
+          "paths": "320"
+        }
+      ],
+      "elapsed_ms": 1424.4257999999681,
+      "worker": 10,
+      "manifest": "7a5f13b81055ebf66d8e37e7b474214d42d32d0e66d3aed764a5db969697140b",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 1428.9625000000233,
+      "heap_used": 58591480
+    },
+    {
+      "id": 104,
+      "kind": "dag",
+      "paths": 1280,
+      "classes": 1032,
+      "transitions": 1620,
+      "root_merges": 2,
+      "layer_merges": 44,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "3/29",
+          "classes": 28,
+          "paths": "32"
+        },
+        {
+          "path": "4/8",
+          "classes": 516,
+          "paths": "640"
+        },
+        {
+          "path": "5/44",
+          "classes": 1032,
+          "paths": "1280"
+        }
+      ],
+      "elapsed_ms": 4201.752299999935,
+      "worker": 11,
+      "manifest": "3ae1f192fdc36db48fe25235e4bbf97df2a2bc9a1a6b0267e884ab0458971e60",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 4214.204000000027,
+      "heap_used": 80152336
+    },
+    {
+      "id": 105,
+      "kind": "dag",
+      "paths": 624,
+      "classes": 600,
+      "transitions": 936,
+      "root_merges": 0,
+      "layer_merges": 12,
+      "layers": [
+        {
+          "classes": 8,
+          "paths": 8
+        },
+        {
+          "path": "3/29",
+          "classes": 16,
+          "paths": "16"
+        },
+        {
+          "path": "4/8",
+          "classes": 308,
+          "paths": "320"
+        },
+        {
+          "path": "5/44",
+          "classes": 600,
+          "paths": "624"
+        }
+      ],
+      "elapsed_ms": 1862.7365999999456,
+      "worker": 13,
+      "manifest": "9ffa82d8749184597cf46eff6b91b336ea814ee100cb8a679191fca8f6c808b7",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 1866.8870999999344,
+      "heap_used": 79807784
+    },
+    {
+      "id": 106,
+      "kind": "dag",
+      "paths": 9728,
+      "classes": 7674,
+      "transitions": 12097,
+      "root_merges": 2,
+      "layer_merges": 365,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 221,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3837,
+          "paths": "4864"
+        },
+        {
+          "path": "5/44",
+          "classes": 7674,
+          "paths": "9728"
+        }
+      ],
+      "elapsed_ms": 23149.255500000087,
+      "worker": 15,
+      "manifest": "ba773c0551ab45aaf81b4654a2f6c30311566e92bbd2db1fd2aa7a2d998e3a2f",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 23201.81070000003,
+      "heap_used": 104622696
+    },
+    {
+      "id": 107,
+      "kind": "dag",
+      "paths": 9728,
+      "classes": 6804,
+      "transitions": 10644,
+      "root_merges": 4,
+      "layer_merges": 246,
+      "layers": [
+        {
+          "classes": 12,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 192,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3402,
+          "paths": "4864"
+        },
+        {
+          "path": "5/44",
+          "classes": 6804,
+          "paths": "9728"
+        }
+      ],
+      "elapsed_ms": 29489.299699999974,
+      "worker": 9,
+      "manifest": "2e59f49d49d099ed5352e59cfca969e1b3dca43c89e75111b66da3a7e2c1446e",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 29581.58779999998,
+      "heap_used": 112452872
+    },
+    {
+      "id": 108,
+      "kind": "dag",
+      "paths": 9728,
+      "classes": 8622,
+      "transitions": 13422,
+      "root_merges": 1,
+      "layer_merges": 249,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 240,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4311,
+          "paths": "4864"
+        },
+        {
+          "path": "5/44",
+          "classes": 8622,
+          "paths": "9728"
+        }
+      ],
+      "elapsed_ms": 26097.846499999985,
+      "worker": 0,
+      "manifest": "75e545fcc29c7428be47a4131f3123588f0205333a992f9e76973aa14e927f5f",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 26200.970200000098,
+      "heap_used": 196997824
+    },
+    {
+      "id": 109,
+      "kind": "dag",
+      "paths": 9728,
+      "classes": 8742,
+      "transitions": 13509,
+      "root_merges": 1,
+      "layer_merges": 147,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 237,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4383,
+          "paths": "4864"
+        },
+        {
+          "path": "5/44",
+          "classes": 8742,
+          "paths": "9728"
+        }
+      ],
+      "elapsed_ms": 36750.40220000001,
+      "worker": 5,
+      "manifest": "da85efe3cbb28ea9f30e5b7cebbb1c886eab5371459d3b32a6669ccfdf1ef6f5",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 36859.0209,
+      "heap_used": 152778720
+    },
+    {
+      "id": 110,
+      "kind": "dag",
+      "paths": 9728,
+      "classes": 5190,
+      "transitions": 8070,
+      "root_merges": 7,
+      "layer_merges": 141,
+      "layers": [
+        {
+          "classes": 9,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 144,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 2595,
+          "paths": "4864"
+        },
+        {
+          "path": "5/44",
+          "classes": 5190,
+          "paths": "9728"
+        }
+      ],
+      "elapsed_ms": 22119.581400000025,
+      "worker": 8,
+      "manifest": "6a94c5b68d53d60739a68c32666f586849ec4034dd4e85e1b829a2d2b407826c",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 22267.46370000008,
+      "heap_used": 154166208
+    },
+    {
+      "id": 111,
+      "kind": "dag",
+      "paths": 9728,
+      "classes": 6200,
+      "transitions": 9720,
+      "root_merges": 5,
+      "layer_merges": 244,
+      "layers": [
+        {
+          "classes": 11,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 176,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3100,
+          "paths": "4864"
+        },
+        {
+          "path": "5/44",
+          "classes": 6200,
+          "paths": "9728"
+        }
+      ],
+      "elapsed_ms": 27051.38419999997,
+      "worker": 10,
+      "manifest": "ec18bcc96641980387b69434a30efeec9866dd35586d21769dda9e6247c7d18b",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 27196.110799999908,
+      "heap_used": 127973976
+    },
+    {
+      "id": 112,
+      "kind": "dag",
+      "paths": 9656,
+      "classes": 9284,
+      "transitions": 14409,
+      "root_merges": 0,
+      "layer_merges": 180,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 255,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4690,
+          "paths": "4864"
+        },
+        {
+          "path": "5/44",
+          "classes": 9284,
+          "paths": "9656"
+        }
+      ],
+      "elapsed_ms": 28307.31150000007,
+      "worker": 13,
+      "manifest": "6d257f64b0633f32a63af8db0a190ba0f208c8b2571898af078e89c17ec5fc7b",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 28385.361799999955,
+      "heap_used": 188326224
+    },
+    {
+      "id": 113,
+      "kind": "dag",
+      "paths": 8300,
+      "classes": 7882,
+      "transitions": 12722,
+      "root_merges": 0,
+      "layer_merges": 196,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 254,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4390,
+          "paths": "4576"
+        },
+        {
+          "path": "5/44",
+          "classes": 7882,
+          "paths": "8300"
+        }
+      ],
+      "elapsed_ms": 35077.336499999976,
+      "worker": 11,
+      "manifest": "a1429a63c1a14c72fd19666358da5eeb3f116cbe89ac112ab0ed6e94a00339f5",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 35182.846900000004,
+      "heap_used": 144718112
+    },
+    {
+      "id": 114,
+      "kind": "dag",
+      "paths": 9656,
+      "classes": 6326,
+      "transitions": 9846,
+      "root_merges": 5,
+      "layer_merges": 145,
+      "layers": [
+        {
+          "classes": 11,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 176,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3199,
+          "paths": "4864"
+        },
+        {
+          "path": "5/44",
+          "classes": 6326,
+          "paths": "9656"
+        }
+      ],
+      "elapsed_ms": 19424.214999999967,
+      "worker": 14,
+      "manifest": "d7abd153799ecf3000589764d49eefb79c33c672288fd0ad11395f7ce31df90a",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 19510.06939999992,
+      "heap_used": 136626176
+    },
+    {
+      "id": 115,
+      "kind": "dag",
+      "paths": 9728,
+      "classes": 7676,
+      "transitions": 11836,
+      "root_merges": 3,
+      "layer_merges": 114,
+      "layers": [
+        {
+          "classes": 13,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 208,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3838,
+          "paths": "4864"
+        },
+        {
+          "path": "5/44",
+          "classes": 7676,
+          "paths": "9728"
+        }
+      ],
+      "elapsed_ms": 32677.52259999991,
+      "worker": 7,
+      "manifest": "182c374c35cca77492691919248c48fc4da38dbcbcc52986fa25c0f15ba11105",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 32812.7117000001,
+      "heap_used": 108884120
+    },
+    {
+      "id": 116,
+      "kind": "dag",
+      "paths": 9656,
+      "classes": 7398,
+      "transitions": 11558,
+      "root_merges": 3,
+      "layer_merges": 217,
+      "layers": [
+        {
+          "classes": 13,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 208,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3735,
+          "paths": "4864"
+        },
+        {
+          "path": "5/44",
+          "classes": 7398,
+          "paths": "9656"
+        }
+      ],
+      "elapsed_ms": 32083.631900000037,
+      "worker": 8,
+      "manifest": "444f0af85edb150fdfd9cd63d0d313fe25b215c3828b4c23d92f03dfec715b51",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 32175.619599999976,
+      "heap_used": 125681064
+    },
+    {
+      "id": 117,
+      "kind": "dag",
+      "paths": 9368,
+      "classes": 8112,
+      "transitions": 13028,
+      "root_merges": 1,
+      "layer_merges": 384,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 236,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4296,
+          "paths": "4864"
+        },
+        {
+          "path": "5/44",
+          "classes": 8112,
+          "paths": "9368"
+        }
+      ],
+      "elapsed_ms": 25102.19259999995,
+      "worker": 15,
+      "manifest": "d52483fecb19d5a3aeb224079e4d19f994175712f3ecdf4d575c41e1eb4a471a",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 25202.789800000028,
+      "heap_used": 163404952
+    },
+    {
+      "id": 118,
+      "kind": "dag",
+      "paths": 9230,
+      "classes": 8864,
+      "transitions": 13840,
+      "root_merges": 0,
+      "layer_merges": 183,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 256,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4537,
+          "paths": "4720"
+        },
+        {
+          "path": "5/44",
+          "classes": 8864,
+          "paths": "9230"
+        }
+      ],
+      "elapsed_ms": 26993.57520000008,
+      "worker": 14,
+      "manifest": "95c4230be1d9ad088aed8e0c09c2980b8103eab4d9330d5e9e4f7fd2ca40e48e",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 27069.304000000004,
+      "heap_used": 173950120
+    },
+    {
+      "id": 119,
+      "kind": "dag",
+      "paths": 9728,
+      "classes": 8080,
+      "transitions": 12560,
+      "root_merges": 2,
+      "layer_merges": 216,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 224,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4040,
+          "paths": "4864"
+        },
+        {
+          "path": "5/44",
+          "classes": 8080,
+          "paths": "9728"
+        }
+      ],
+      "elapsed_ms": 24642.168999999994,
+      "worker": 0,
+      "manifest": "56a1360507016ba480e8655d6c7cbf5b9e282c4f2f439f4c0481ac27b97ba887",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 24752.92430000007,
+      "heap_used": 179750128
+    },
+    {
+      "id": 120,
+      "kind": "dag",
+      "paths": 9584,
+      "classes": 9122,
+      "transitions": 14254,
+      "root_merges": 0,
+      "layer_merges": 220,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 254,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4658,
+          "paths": "4864"
+        },
+        {
+          "path": "5/44",
+          "classes": 9122,
+          "paths": "9584"
+        }
+      ],
+      "elapsed_ms": 39415.87910000002,
+      "worker": 10,
+      "manifest": "2d30c42bad0a9e60c5e5e84ced29ce1c8c65610bbe9d0fd4a42025e7529a0270",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 39560.43539999996,
+      "heap_used": 149284000
+    },
+    {
+      "id": 121,
+      "kind": "dag",
+      "paths": 9440,
+      "classes": 8478,
+      "transitions": 13307,
+      "root_merges": 1,
+      "layer_merges": 183,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 239,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4407,
+          "paths": "4864"
+        },
+        {
+          "path": "5/44",
+          "classes": 8478,
+          "paths": "9440"
+        }
+      ],
+      "elapsed_ms": 36260.04920000001,
+      "worker": 9,
+      "manifest": "d79fb03cfa5d85967b6a84e405bce2fed6bf59800fb095d5896feeabdacc32c3",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 36367.259100000025,
+      "heap_used": 134663456
+    },
+    {
+      "id": 122,
+      "kind": "dag",
+      "paths": 9227,
+      "classes": 8857,
+      "transitions": 13914,
+      "root_merges": 0,
+      "layer_merges": 181,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 255,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4621,
+          "paths": "4792"
+        },
+        {
+          "path": "5/44",
+          "classes": 8857,
+          "paths": "9227"
+        }
+      ],
+      "elapsed_ms": 26518.99239999999,
+      "worker": 13,
+      "manifest": "f4b5dbd676b84f5b13cacbedad1808a07635907d39e8db007ba5ce933ed0ac31",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 26590.91599999997,
+      "heap_used": 150841480
+    },
+    {
+      "id": 123,
+      "kind": "dag",
+      "paths": 9443,
+      "classes": 7797,
+      "transitions": 12205,
+      "root_merges": 2,
+      "layer_merges": 215,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 224,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 3969,
+          "paths": "4792"
+        },
+        {
+          "path": "5/44",
+          "classes": 7797,
+          "paths": "9443"
+        }
+      ],
+      "elapsed_ms": 23581.580199999968,
+      "worker": 1,
+      "manifest": "4c12067af2558d9393559c6ed15a09274018834df6c72743e3ee4ebdb8961da8",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 23660.027299999958,
+      "heap_used": 146798808
+    },
+    {
+      "id": 124,
+      "kind": "dag",
+      "paths": 9584,
+      "classes": 8474,
+      "transitions": 13241,
+      "root_merges": 1,
+      "layer_merges": 209,
+      "layers": [
+        {
+          "classes": 15,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 237,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4321,
+          "paths": "4864"
+        },
+        {
+          "path": "5/44",
+          "classes": 8474,
+          "paths": "9584"
+        }
+      ],
+      "elapsed_ms": 36200.148999999976,
+      "worker": 5,
+      "manifest": "cddc9bc5b3ac55721eb098563d45fe63cf2e5da90f66e4799273e0a2124f7a4a",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 36333.66379999998,
+      "heap_used": 148409384
+    },
+    {
+      "id": 125,
+      "kind": "dag",
+      "paths": 4864,
+      "classes": 4616,
+      "transitions": 7176,
+      "root_merges": 0,
+      "layer_merges": 124,
+      "layers": [
+        {
+          "classes": 8,
+          "paths": 8
+        },
+        {
+          "path": "2/6",
+          "classes": 128,
+          "paths": "128"
+        },
+        {
+          "path": "4/8",
+          "classes": 2308,
+          "paths": "2432"
+        },
+        {
+          "path": "5/44",
+          "classes": 4616,
+          "paths": "4864"
+        }
+      ],
+      "elapsed_ms": 19482.37520000001,
+      "worker": 11,
+      "manifest": "7ca3ca5c3159c3b3081b7bd883cd5fea941b0341e7da6850bfbf61a79491154d",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 19547.682199999923,
+      "heap_used": 107485776
+    },
+    {
+      "id": 126,
+      "kind": "dag",
+      "paths": 19384,
+      "classes": 14970,
+      "transitions": 23913,
+      "root_merges": 2,
+      "layer_merges": 760,
+      "layers": [
+        {
+          "classes": 14,
+          "paths": 16
+        },
+        {
+          "path": "2/6",
+          "classes": 221,
+          "paths": "256"
+        },
+        {
+          "path": "3/29",
+          "classes": 435,
+          "paths": "512"
+        },
+        {
+          "path": "4/8",
+          "classes": 7527,
+          "paths": "9728"
+        },
+        {
+          "path": "5/44",
+          "classes": 14970,
+          "paths": "19384"
+        }
+      ],
+      "elapsed_ms": 66408.53890000004,
+      "worker": 7,
+      "manifest": "a8e935b4ec1ab635559500ebdc49ef856546051689f19456dbab52f6cd3ef92f",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 66653.30070000002,
+      "heap_used": 140706424
+    },
+    {
+      "id": 127,
+      "kind": "dag",
+      "paths": 9014,
+      "classes": 8442,
+      "transitions": 13476,
+      "root_merges": 0,
+      "layer_merges": 200,
+      "layers": [
+        {
+          "classes": 8,
+          "paths": 8
+        },
+        {
+          "path": "2/6",
+          "classes": 127,
+          "paths": "128"
+        },
+        {
+          "path": "3/29",
+          "classes": 250,
+          "paths": "256"
+        },
+        {
+          "path": "4/8",
+          "classes": 4457,
+          "paths": "4720"
+        },
+        {
+          "path": "5/44",
+          "classes": 8442,
+          "paths": "9014"
+        }
+      ],
+      "elapsed_ms": 37484.51000000001,
+      "worker": 2,
+      "manifest": "443758e98565a41f7e2e426c7a94e9afe83a6e78c8e80e534a197af5a3ee8de8",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 37643.22500000009,
+      "heap_used": 136221824
+    },
+    {
+      "id": 128,
+      "kind": "dag",
+      "paths": 30432,
+      "classes": 29346,
+      "transitions": 45522,
+      "root_merges": 0,
+      "layer_merges": 543,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "1/43",
+          "classes": 48,
+          "paths": "48"
+        },
+        {
+          "path": "2/6",
+          "classes": 768,
+          "paths": "768"
+        },
+        {
+          "path": "4/8",
+          "classes": 14817,
+          "paths": "15360"
+        },
+        {
+          "path": "5/44",
+          "classes": 29346,
+          "paths": "30432"
+        }
+      ],
+      "elapsed_ms": 93093.72440000006,
+      "worker": 15,
+      "manifest": "5f6c6e1328537b200eff6870326864a73ac061ab4ff7c7b1c0bcba5571abf7b3",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 93252.8269000001,
+      "heap_used": 216988656
+    },
+    {
+      "id": 129,
+      "kind": "dag",
+      "paths": 28860,
+      "classes": 27773,
+      "transitions": 43774,
+      "root_merges": 0,
+      "layer_merges": 591,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "1/43",
+          "classes": 48,
+          "paths": "48"
+        },
+        {
+          "path": "2/6",
+          "classes": 767,
+          "paths": "768"
+        },
+        {
+          "path": "4/8",
+          "classes": 14595,
+          "paths": "15072"
+        },
+        {
+          "path": "5/44",
+          "classes": 27773,
+          "paths": "28860"
+        }
+      ],
+      "elapsed_ms": 122613.85400000005,
+      "worker": 3,
+      "manifest": "d7ee560133a61d7bd3a79dfadb6c9346c308abbcdefb37088f98688bff8ff566",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 122858.7426,
+      "heap_used": 326759008
+    },
+    {
+      "id": 130,
+      "kind": "dag",
+      "paths": 30720,
+      "classes": 28351,
+      "transitions": 44424,
+      "root_merges": 0,
+      "layer_merges": 1007,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "1/43",
+          "classes": 48,
+          "paths": "48"
+        },
+        {
+          "path": "2/6",
+          "classes": 754,
+          "paths": "768"
+        },
+        {
+          "path": "4/8",
+          "classes": 14264,
+          "paths": "15360"
+        },
+        {
+          "path": "5/44",
+          "classes": 28351,
+          "paths": "30720"
+        }
+      ],
+      "elapsed_ms": 91853.73629999999,
+      "worker": 14,
+      "manifest": "a4867a90141b9ce6756ef35ea7eda0fd83940b5cd560a19f908757fedd74d8b4",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 92055.0418,
+      "heap_used": 283002928
+    },
+    {
+      "id": 131,
+      "kind": "dag",
+      "paths": 29580,
+      "classes": 28285,
+      "transitions": 44260,
+      "root_merges": 0,
+      "layer_merges": 691,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "1/43",
+          "classes": 48,
+          "paths": "48"
+        },
+        {
+          "path": "2/6",
+          "classes": 768,
+          "paths": "768"
+        },
+        {
+          "path": "4/8",
+          "classes": 14468,
+          "paths": "15072"
+        },
+        {
+          "path": "5/44",
+          "classes": 28285,
+          "paths": "29580"
+        }
+      ],
+      "elapsed_ms": 90724.95380000002,
+      "worker": 0,
+      "manifest": "84992e77fdd243b7545b355952b09f64c02ba4bcd150fb82bec823b3b3fa67ac",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 90896.57479999994,
+      "heap_used": 191939528
+    },
+    {
+      "id": 132,
+      "kind": "dag",
+      "paths": 28584,
+      "classes": 27188,
+      "transitions": 42872,
+      "root_merges": 0,
+      "layer_merges": 740,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "1/43",
+          "classes": 48,
+          "paths": "48"
+        },
+        {
+          "path": "2/6",
+          "classes": 768,
+          "paths": "768"
+        },
+        {
+          "path": "4/8",
+          "classes": 14128,
+          "paths": "14784"
+        },
+        {
+          "path": "5/44",
+          "classes": 27188,
+          "paths": "28584"
+        }
+      ],
+      "elapsed_ms": 118638.92259999993,
+      "worker": 4,
+      "manifest": "02f21a17eb28d127db7510fb862ea2ce18c99842f5d4932738cd06fcdd2458e8",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 118883.32759999996,
+      "heap_used": 291506856
+    },
+    {
+      "id": 133,
+      "kind": "dag",
+      "paths": 29436,
+      "classes": 28040,
+      "transitions": 44012,
+      "root_merges": 0,
+      "layer_merges": 740,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "1/43",
+          "classes": 48,
+          "paths": "48"
+        },
+        {
+          "path": "2/6",
+          "classes": 768,
+          "paths": "768"
+        },
+        {
+          "path": "4/8",
+          "classes": 14416,
+          "paths": "15072"
+        },
+        {
+          "path": "5/44",
+          "classes": 28040,
+          "paths": "29436"
+        }
+      ],
+      "elapsed_ms": 121244.7145,
+      "worker": 8,
+      "manifest": "939af4fa4b8d984d678649b683acf0267fa17fa58a6b9395c0670c7b1df7c8a4",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 121512.21470000001,
+      "heap_used": 211679168
+    },
+    {
+      "id": 134,
+      "kind": "dag",
+      "paths": 29568,
+      "classes": 28059,
+      "transitions": 44330,
+      "root_merges": 0,
+      "layer_merges": 802,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "1/43",
+          "classes": 48,
+          "paths": "48"
+        },
+        {
+          "path": "2/6",
+          "classes": 768,
+          "paths": "768"
+        },
+        {
+          "path": "4/8",
+          "classes": 14653,
+          "paths": "15360"
+        },
+        {
+          "path": "5/44",
+          "classes": 28059,
+          "paths": "29568"
+        }
+      ],
+      "elapsed_ms": 90174.58860000002,
+      "worker": 1,
+      "manifest": "543cda5e5d97d62238638b417d7980ecff0dd50ad3b6577fe63f759a37e0d4f7",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 90395.35310000007,
+      "heap_used": 269022472
+    },
+    {
+      "id": 135,
+      "kind": "dag",
+      "paths": 29292,
+      "classes": 28107,
+      "transitions": 44108,
+      "root_merges": 0,
+      "layer_merges": 640,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "1/43",
+          "classes": 48,
+          "paths": "48"
+        },
+        {
+          "path": "2/6",
+          "classes": 767,
+          "paths": "768"
+        },
+        {
+          "path": "4/8",
+          "classes": 14546,
+          "paths": "15072"
+        },
+        {
+          "path": "5/44",
+          "classes": 28107,
+          "paths": "29292"
+        }
+      ],
+      "elapsed_ms": 90531.55570000003,
+      "worker": 13,
+      "manifest": "beddc0d1a2cee52ef77bbf1564ec15a197ab105abaae6aaab0e483954c66fc7c",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 90720.42449999996,
+      "heap_used": 269501384
+    },
+    {
+      "id": 136,
+      "kind": "dag",
+      "paths": 28584,
+      "classes": 27494,
+      "transitions": 43094,
+      "root_merges": 0,
+      "layer_merges": 545,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "1/43",
+          "classes": 48,
+          "paths": "48"
+        },
+        {
+          "path": "2/6",
+          "classes": 768,
+          "paths": "768"
+        },
+        {
+          "path": "4/8",
+          "classes": 14239,
+          "paths": "14784"
+        },
+        {
+          "path": "5/44",
+          "classes": 27494,
+          "paths": "28584"
+        }
+      ],
+      "elapsed_ms": 118606.18550000002,
+      "worker": 11,
+      "manifest": "ba5d7865f8dbdd4ae4ef55a3ea13f001d4a8f06c7458168303d9ae9de134253c",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 118823.91929999995,
+      "heap_used": 310272328
+    },
+    {
+      "id": 137,
+      "kind": "dag",
+      "paths": 22464,
+      "classes": 21596,
+      "transitions": 33728,
+      "root_merges": 0,
+      "layer_merges": 434,
+      "layers": [
+        {
+          "classes": 12,
+          "paths": 12
+        },
+        {
+          "path": "1/43",
+          "classes": 36,
+          "paths": "36"
+        },
+        {
+          "path": "2/6",
+          "classes": 576,
+          "paths": "576"
+        },
+        {
+          "path": "4/8",
+          "classes": 11086,
+          "paths": "11520"
+        },
+        {
+          "path": "5/44",
+          "classes": 21596,
+          "paths": "22464"
+        }
+      ],
+      "elapsed_ms": 96866.76760000002,
+      "worker": 12,
+      "manifest": "88079564c23af8ea64aaacb35da6c5267ec1f3150a6da85ba9cfb54b7232f731",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 97062.35620000004,
+      "heap_used": 291971912
+    },
+    {
+      "id": 138,
+      "kind": "dag",
+      "paths": 43800,
+      "classes": 41592,
+      "transitions": 65580,
+      "root_merges": 0,
+      "layer_merges": 876,
+      "layers": [
+        {
+          "classes": 12,
+          "paths": 12
+        },
+        {
+          "path": "1/43",
+          "classes": 36,
+          "paths": "36"
+        },
+        {
+          "path": "2/6",
+          "classes": 576,
+          "paths": "576"
+        },
+        {
+          "path": "3/29",
+          "classes": 1140,
+          "paths": "1152"
+        },
+        {
+          "path": "4/8",
+          "classes": 21360,
+          "paths": "22464"
+        },
+        {
+          "path": "5/44",
+          "classes": 41592,
+          "paths": "43800"
+        }
+      ],
+      "elapsed_ms": 138613.97730000003,
+      "worker": 9,
+      "manifest": "f7fde14821d7835f465c328b1e6a8c07784c47572bd8efb6089acaa4fa6c8512",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 138763.19559999998,
+      "heap_used": 356841704
+    },
+    {
+      "id": 139,
+      "kind": "dag",
+      "paths": 1856,
+      "classes": 1754,
+      "transitions": 2762,
+      "root_merges": 0,
+      "layer_merges": 51,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "1/43",
+          "classes": 48,
+          "paths": "48"
+        },
+        {
+          "path": "4/8",
+          "classes": 909,
+          "paths": "960"
+        },
+        {
+          "path": "5/44",
+          "classes": 1754,
+          "paths": "1856"
+        }
+      ],
+      "elapsed_ms": 7662.912699999986,
+      "worker": 10,
+      "manifest": "ada67aa15db1277d79f718151a568a605e0cc5a2b5bacb5b6a4682af655d9ba9",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 7678.766100000008,
+      "heap_used": 133353760
+    },
+    {
+      "id": 140,
+      "kind": "dag",
+      "paths": 1888,
+      "classes": 1804,
+      "transitions": 2812,
+      "root_merges": 0,
+      "layer_merges": 42,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "1/43",
+          "classes": 48,
+          "paths": "48"
+        },
+        {
+          "path": "4/8",
+          "classes": 918,
+          "paths": "960"
+        },
+        {
+          "path": "5/44",
+          "classes": 1804,
+          "paths": "1888"
+        }
+      ],
+      "elapsed_ms": 8064.9070000000065,
+      "worker": 6,
+      "manifest": "61f3443e64abc0099b183d5e56feb367d440c885b06ac6d39b1c31a8fd2a4ab1",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 8083.67790000001,
+      "heap_used": 247606072
+    },
+    {
+      "id": 141,
+      "kind": "dag",
+      "paths": 808,
+      "classes": 784,
+      "transitions": 1225,
+      "root_merges": 0,
+      "layer_merges": 12,
+      "layers": [
+        {
+          "classes": 7,
+          "paths": 7
+        },
+        {
+          "path": "1/43",
+          "classes": 21,
+          "paths": "21"
+        },
+        {
+          "path": "4/8",
+          "classes": 408,
+          "paths": "420"
+        },
+        {
+          "path": "5/44",
+          "classes": 784,
+          "paths": "808"
+        }
+      ],
+      "elapsed_ms": 3312.0311999999685,
+      "worker": 5,
+      "manifest": "f6d2c5a1971f9b9ff5e82a4bc95eebe5bcf719935aa8c31a225d5f5f76dff6a3",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 3317.489399999962,
+      "heap_used": 104360704
+    },
+    {
+      "id": 142,
+      "kind": "dag",
+      "paths": 688,
+      "classes": 664,
+      "transitions": 1051,
+      "root_merges": 0,
+      "layer_merges": 12,
+      "layers": [
+        {
+          "classes": 3,
+          "paths": 3
+        },
+        {
+          "path": "1/43",
+          "classes": 9,
+          "paths": "9"
+        },
+        {
+          "path": "3/29",
+          "classes": 18,
+          "paths": "18"
+        },
+        {
+          "path": "4/8",
+          "classes": 348,
+          "paths": "360"
+        },
+        {
+          "path": "5/44",
+          "classes": 664,
+          "paths": "688"
+        }
+      ],
+      "elapsed_ms": 3011.5183999999426,
+      "worker": 10,
+      "manifest": "e8c565664c85cd75757346986008b490789b0b0bbe8fe4f5dc352614440166b0",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 3017.1361000000034,
+      "heap_used": 107005928
+    },
+    {
+      "id": 143,
+      "kind": "dag",
+      "paths": 26766,
+      "classes": 24137,
+      "transitions": 38494,
+      "root_merges": 0,
+      "layer_merges": 996,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "1/43",
+          "classes": 48,
+          "paths": "48"
+        },
+        {
+          "path": "2/6",
+          "classes": 750,
+          "paths": "768"
+        },
+        {
+          "path": "4/8",
+          "classes": 12563,
+          "paths": "13872"
+        },
+        {
+          "path": "5/44",
+          "classes": 24137,
+          "paths": "26766"
+        }
+      ],
+      "elapsed_ms": 105710.37930000003,
+      "worker": 6,
+      "manifest": "9bf73478f22104df8665f77d48bb4e787c1290049bdb5fb2ee721470887e703c",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 105876.7428,
+      "heap_used": 188479952
+    },
+    {
+      "id": 144,
+      "kind": "dag",
+      "paths": 26892,
+      "classes": 25295,
+      "transitions": 40552,
+      "root_merges": 0,
+      "layer_merges": 867,
+      "layers": [
+        {
+          "classes": 16,
+          "paths": 16
+        },
+        {
+          "path": "1/43",
+          "classes": 48,
+          "paths": "48"
+        },
+        {
+          "path": "2/6",
+          "classes": 768,
+          "paths": "768"
+        },
+        {
+          "path": "4/8",
+          "classes": 13574,
+          "paths": "14304"
+        },
+        {
+          "path": "5/44",
+          "classes": 25295,
+          "paths": "26892"
+        }
+      ],
+      "elapsed_ms": 106314.47829999996,
+      "worker": 5,
+      "manifest": "df451d55bf7767a79dd188e573cb24a576c6ef284c5ab3ef855ff610784386da",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 106482.06680000003,
+      "heap_used": 253085376
+    },
+    {
+      "id": 145,
+      "kind": "dag",
+      "paths": 12054,
+      "classes": 11616,
+      "transitions": 18213,
+      "root_merges": 0,
+      "layer_merges": 219,
+      "layers": [
+        {
+          "classes": 7,
+          "paths": 7
+        },
+        {
+          "path": "1/43",
+          "classes": 21,
+          "paths": "21"
+        },
+        {
+          "path": "2/6",
+          "classes": 336,
+          "paths": "336"
+        },
+        {
+          "path": "4/8",
+          "classes": 6021,
+          "paths": "6240"
+        },
+        {
+          "path": "5/44",
+          "classes": 11616,
+          "paths": "12054"
+        }
+      ],
+      "elapsed_ms": 51495.54090000002,
+      "worker": 10,
+      "manifest": "88f607e0e415abc014976e95e3179bd4714ef6b4c34b3c817dce1cfd5637c4d2",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 51608.94889999996,
+      "heap_used": 161999568
+    },
+    {
+      "id": 146,
+      "kind": "dag",
+      "paths": 9948,
+      "classes": 9402,
+      "transitions": 14970,
+      "root_merges": 0,
+      "layer_merges": 219,
+      "layers": [
+        {
+          "classes": 3,
+          "paths": 3
+        },
+        {
+          "path": "1/43",
+          "classes": 9,
+          "paths": "9"
+        },
+        {
+          "path": "2/6",
+          "classes": 144,
+          "paths": "144"
+        },
+        {
+          "path": "3/29",
+          "classes": 285,
+          "paths": "288"
+        },
+        {
+          "path": "4/8",
+          "classes": 4911,
+          "paths": "5184"
+        },
+        {
+          "path": "5/44",
+          "classes": 9402,
+          "paths": "9948"
+        }
+      ],
+      "elapsed_ms": 42596.223800000036,
+      "worker": 2,
+      "manifest": "028f4c27a0d4b818ad326abc0ccb90a0d29b0495f545b793b38dc475f15e5844",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 42737.56480000005,
+      "heap_used": 142520576
+    },
+    {
+      "id": 147,
+      "kind": "fallback",
+      "paths": 10240,
+      "classes": 10240,
+      "transitions": 184272,
+      "root_merges": 0,
+      "layer_merges": 0,
+      "elapsed_ms": 46672.76610000001,
+      "reasons": [
+        "interleaved native order"
+      ],
+      "worker": 7,
+      "manifest": "49ee497fc6ce4f75416056aa94882a8d98f38d46e6fd184cbfbe3a08af257b7b",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 46741.09450000001,
+      "heap_used": 118196208
+    },
+    {
+      "id": 148,
+      "kind": "fallback",
+      "paths": 12160,
+      "classes": 12160,
+      "transitions": 218544,
+      "root_merges": 0,
+      "layer_merges": 0,
+      "elapsed_ms": 55041.38130000001,
+      "reasons": [
+        "interleaved native order"
+      ],
+      "worker": 2,
+      "manifest": "07e6d66310111a5b7c63a195bebcfe79bbcd3d2cbe03c2ebfadc385a08c6b0e6",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 55098.81189999997,
+      "heap_used": 130337736
+    },
+    {
+      "id": 149,
+      "kind": "fallback",
+      "paths": 6640,
+      "classes": 6640,
+      "transitions": 119832,
+      "root_merges": 0,
+      "layer_merges": 0,
+      "elapsed_ms": 26346.449000000022,
+      "reasons": [
+        "interleaved native order"
+      ],
+      "worker": 10,
+      "manifest": "dd541c7482ad41449686e3d657ef9e99e2780626c33f15cea30a936978275b69",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 26400.6544,
+      "heap_used": 160829520
+    },
+    {
+      "id": 150,
+      "kind": "fallback",
+      "paths": 640,
+      "classes": 640,
+      "transitions": 12432,
+      "root_merges": 0,
+      "layer_merges": 0,
+      "elapsed_ms": 2163.4824999999255,
+      "reasons": [
+        "interleaved native order"
+      ],
+      "worker": 15,
+      "manifest": "8107b947970b442f0215322de267341a1c1748a58f3dea26cb8869e880003ea8",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 2167.3059999999823,
+      "heap_used": 243194232
+    },
+    {
+      "id": 151,
+      "kind": "fallback",
+      "paths": 760,
+      "classes": 760,
+      "transitions": 14574,
+      "root_merges": 0,
+      "layer_merges": 0,
+      "elapsed_ms": 2547.9338999999454,
+      "reasons": [
+        "interleaved native order"
+      ],
+      "worker": 0,
+      "manifest": "8508e5f28e9ade2b647727674d556734eab880cc1007a6cf9e719bd7d76e103e",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 2552.6010999999708,
+      "heap_used": 245513136
+    },
+    {
+      "id": 152,
+      "kind": "fallback",
+      "paths": 7840,
+      "classes": 7840,
+      "transitions": 141312,
+      "root_merges": 0,
+      "layer_merges": 0,
+      "elapsed_ms": 24113.690900000045,
+      "reasons": [
+        "interleaved native order"
+      ],
+      "worker": 14,
+      "manifest": "507d0297cf9dcd938ddfa71a513ff8d4cfffb4fff3956d0f143893527958dd75",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 24154.291399999987,
+      "heap_used": 95805808
+    },
+    {
+      "id": 153,
+      "kind": "fallback",
+      "paths": 12160,
+      "classes": 12160,
+      "transitions": 218544,
+      "root_merges": 0,
+      "layer_merges": 0,
+      "elapsed_ms": 35174.137800000026,
+      "reasons": [
+        "interleaved native order"
+      ],
+      "worker": 15,
+      "manifest": "ea235fc2c32df30afd7266cd0774da5ef66c4a3bac1228f723b0498dd6a660a3",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 35232.13510000007,
+      "heap_used": 132967048
+    },
+    {
+      "id": 154,
+      "kind": "fallback",
+      "paths": 10176,
+      "classes": 10176,
+      "transitions": 183248,
+      "root_merges": 0,
+      "layer_merges": 0,
+      "elapsed_ms": 31283.024199999985,
+      "reasons": [
+        "interleaved native order"
+      ],
+      "worker": 0,
+      "manifest": "46090e8dc19e4dca1c3011ed58721a98bf07cd2bbf326538bd1b7111ef401491",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 31340.927799999947,
+      "heap_used": 118391928
+    },
+    {
+      "id": 155,
+      "kind": "fallback",
+      "paths": 9728,
+      "classes": 9728,
+      "transitions": 176080,
+      "root_merges": 0,
+      "layer_merges": 0,
+      "elapsed_ms": 29529.88710000005,
+      "reasons": [
+        "interleaved native order"
+      ],
+      "worker": 1,
+      "manifest": "11d852e7d60c8db16a748de388117ef1921e96bfc602ab264b4ace65758a81d7",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 29600.91339999996,
+      "heap_used": 73475568
+    },
+    {
+      "id": 156,
+      "kind": "fallback",
+      "paths": 11552,
+      "classes": 11552,
+      "transitions": 208816,
+      "root_merges": 0,
+      "layer_merges": 0,
+      "elapsed_ms": 32577.453099999926,
+      "reasons": [
+        "interleaved native order"
+      ],
+      "worker": 13,
+      "manifest": "f31a0fcf6b42efba7c72a7af4d8fc3cebb54aef4aa6b21ba8e424760ec6e026f",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 32618.048700000043,
+      "heap_used": 164997040
+    },
+    {
+      "id": 157,
+      "kind": "fallback",
+      "paths": 9984,
+      "classes": 9984,
+      "transitions": 180176,
+      "root_merges": 0,
+      "layer_merges": 0,
+      "elapsed_ms": 32199.151100000017,
+      "reasons": [
+        "interleaved native order"
+      ],
+      "worker": 7,
+      "manifest": "bf45e07061c92cf8ff506da44dda3a9767a83f3aee07721ecd089659a744a6f4",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 32231.878200000036,
+      "heap_used": 95293992
+    },
+    {
+      "id": 158,
+      "kind": "fallback",
+      "paths": 10240,
+      "classes": 10240,
+      "transitions": 184272,
+      "root_merges": 0,
+      "layer_merges": 0,
+      "elapsed_ms": 32001.30720000004,
+      "reasons": [
+        "interleaved native order"
+      ],
+      "worker": 10,
+      "manifest": "f17f1930a9004f497149e605c9e227bb85f3fddd69658cf3d8cf439684506f9f",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 32029.738199999905,
+      "heap_used": 75426752
+    },
+    {
+      "id": 159,
+      "kind": "fallback",
+      "paths": 12160,
+      "classes": 12160,
+      "transitions": 218544,
+      "root_merges": 0,
+      "layer_merges": 0,
+      "elapsed_ms": 32890.17509999999,
+      "reasons": [
+        "interleaved native order"
+      ],
+      "worker": 12,
+      "manifest": "1c71298b66ef34d0d0ca1ffe58bddcf8ea99c9fca092f02e1477e131785ccae1",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 32921.89599999995,
+      "heap_used": 122985376
+    },
+    {
+      "id": 160,
+      "kind": "fallback",
+      "paths": 10240,
+      "classes": 10240,
+      "transitions": 176208,
+      "root_merges": 0,
+      "layer_merges": 0,
+      "elapsed_ms": 19469.498700000113,
+      "reasons": [
+        "interleaved native order"
+      ],
+      "worker": 14,
+      "manifest": "67b9641549ecc80634572524706ed0702695843b171d09530f2071d356d1418f",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 19496.82250000001,
+      "heap_used": 180127168
+    },
+    {
+      "id": 161,
+      "kind": "fallback",
+      "paths": 12160,
+      "classes": 12160,
+      "transitions": 207600,
+      "root_merges": 0,
+      "layer_merges": 0,
+      "elapsed_ms": 23831.549299999955,
+      "reasons": [
+        "interleaved native order"
+      ],
+      "worker": 4,
+      "manifest": "55e1235b86ced2767965ce807505a1fcad2fb24adb32189c70c9e79ea12841da",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 23882.300000000047,
+      "heap_used": 44125696
+    },
+    {
+      "id": 162,
+      "kind": "fallback",
+      "paths": 7680,
+      "classes": 7680,
+      "transitions": 131292,
+      "root_merges": 0,
+      "layer_merges": 0,
+      "elapsed_ms": 16884.20530000003,
+      "reasons": [
+        "interleaved native order"
+      ],
+      "worker": 3,
+      "manifest": "3227e5a63e08a389f0b83ea4e17a197e811e5528eb3be0b6558461f38eab0b28",
+      "guard_fallback": null,
+      "measured_elapsed_ms": 16907.175000000047,
+      "heap_used": 81087840
+    }
+  ]
+}

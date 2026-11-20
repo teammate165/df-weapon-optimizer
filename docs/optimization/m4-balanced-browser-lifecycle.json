@@ -1,0 +1,200 @@
+{
+  "version": "157.0.8103.79",
+  "workerReadyMs": 65.10000002384186,
+  "workerRunMs": 1021,
+  "progress": [],
+  "cancellation": {
+    "timerMs": 104.39999997615814,
+    "viewportWidth": 390
+  },
+  "result": {
+    "name": "full-ordinary",
+    "prepared": 332,
+    "pending": 13,
+    "nodes": 1430,
+    "mountNodes": 8192,
+    "gainPrunes": 2776,
+    "expectedMountCount": "12268642",
+    "priorityPaths": [
+      "38",
+      "2",
+      "2/6",
+      "1",
+      "3",
+      "4",
+      "4/8"
+    ],
+    "guaranteedMinimumBound": true,
+    "solveMs": 594.6999999880791,
+    "elapsedMs": 1018.1000000238419,
+    "bounds": 1402,
+    "scores": 23,
+    "outputs": {
+      "maximum": {
+        "config": [
+          {
+            "slotPath": "1",
+            "itemId": "13030000187"
+          },
+          {
+            "slotPath": "2",
+            "itemId": "13020000349"
+          },
+          {
+            "slotPath": "3",
+            "itemId": "13040000110"
+          },
+          {
+            "slotPath": "2/6",
+            "itemId": "13130000224"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000044"
+          },
+          {
+            "slotPath": "11",
+            "itemId": "13110000091"
+          }
+        ],
+        "tunes": {
+          "1": {
+            "authoring:part:13030000187:tune:weight:1": 50
+          },
+          "3": {
+            "authoring:part:13040000110:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000044:tune:weight:0": 20
+          }
+        },
+        "cost": 760,
+        "gain": 70.7942290048951
+      },
+      "minimum": {
+        "cost": 240,
+        "gain": 51.7099247358615,
+        "config": [
+          {
+            "slotPath": "3",
+            "itemId": "13040000113"
+          },
+          {
+            "slotPath": "4/8",
+            "itemId": "13140000041"
+          },
+          {
+            "slotPath": "11",
+            "itemId": "13110000091"
+          }
+        ],
+        "tunes": {
+          "3": {
+            "authoring:part:13040000113:tune:position:0": 98,
+            "authoring:part:13040000113:tune:weight:1": 50
+          },
+          "4/8": {
+            "authoring:part:13140000041:tune:weight:0": 20
+          }
+        }
+      },
+      "balanced": null
+    },
+    "provisionalMinimum": {
+      "cost": 120,
+      "gain": 40.47959595199797,
+      "config": [
+        {
+          "slotPath": "4/8",
+          "itemId": "13140000041"
+        },
+        {
+          "slotPath": "11",
+          "itemId": "13110000091"
+        }
+      ],
+      "tunes": {
+        "4/8": {
+          "authoring:part:13140000041:tune:weight:0": 20
+        }
+      }
+    },
+    "certificate": {
+      "upperGain": 100,
+      "lowerCost": 40,
+      "upperEfficiency": null
+    },
+    "proven": {
+      "maximum": false,
+      "minimum": false,
+      "balanced": false
+    },
+    "gainStats": {
+      "supported": true,
+      "evaluations": 5147,
+      "cache_hits": 2357,
+      "declined": 0,
+      "entries_peak": 2790,
+      "key_chars_peak": 245834,
+      "saturated": false,
+      "evictions": 0
+    },
+    "nativeContextManifest": {
+      "profileIds": [
+        "authoring:weapon:18010000001:adsRecoil",
+        "authoring:part:13020000173:bd:adsRecoil"
+      ],
+      "timingItems": [
+        "13130000169"
+      ],
+      "timelines": [
+        [
+          0,
+          75,
+          150,
+          225,
+          300,
+          375,
+          450,
+          525,
+          600,
+          675,
+          750,
+          825,
+          900,
+          975,
+          1050,
+          1125,
+          1200,
+          1275,
+          1350,
+          1425
+        ],
+        [
+          0,
+          86.25,
+          172.5,
+          258.75,
+          345,
+          431.25,
+          517.5,
+          603.75,
+          690,
+          776.25,
+          862.5,
+          948.75,
+          1035,
+          1121.25,
+          1207.5,
+          1293.75,
+          1380,
+          1466.25,
+          1552.5,
+          1638.75
+        ]
+      ]
+    },
+    "balancedWindow": null,
+    "middle": null
+  }
+}

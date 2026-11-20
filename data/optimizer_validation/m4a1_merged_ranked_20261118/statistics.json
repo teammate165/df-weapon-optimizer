@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "experimental_units": 1,
+  "design": "one control-then-merged pair; same input, population, 16-worker pool and global K",
+  "represented_layouts": 1696710,
+  "retained_layouts": 8484,
+  "control_scored_states": 1696710,
+  "merged_scored_states": 1483796,
+  "state_reduction_percent": 12.548638246960298,
+  "below_one_million_scored_states": false,
+  "control_seconds": 425.7964876,
+  "merged_seconds": 368.56922540000005,
+  "observed_time_ratio_control_over_merged": 1.1552686937925771,
+  "peak_sampled_process_rss_gib": 5.861400604248047,
+  "ranked_population_manifests_equal": true,
+  "exact_survivor_identities_and_order_equal": true,
+  "native_survivor_replays": 8484,
+  "dag_layout_paths": 1552350,
+  "exhaustive_fallback_layout_paths": 144360,
+  "native_state_guard_fallback_jobs": 0,
+  "notes": [
+    "Complete census of the declared ordinary population, not a sampled estimate.",
+    "Single execution pair: no inferential confidence interval or causal speedup claim.",
+    "Control runs first; warm caches, contention and memory pressure can affect timings.",
+    "Resource points are correlated time-series samples, not independent replicates.",
+    "Ranks count layout paths; represented/scored states do not replace the denominator.",
+    "Node worker threads; browser runtime and tactical/calibration costs remain unmeasured."
+  ],
+  "partial_cpu_monitor": {
+    "sample_count": 111,
+    "wall_seconds": 551.1064276695251,
+    "cpu_seconds": 3908.718749999999,
+    "average_logical_cpu_equivalents": 7.09249348901423,
+    "minimum_available_system_memory_gib": 0.6557426452636719,
+    "scope": "monitor started partway through control; partial window only, not whole-phase CPU efficiency"
+  }
+}

@@ -1,0 +1,468 @@
+{
+  "version": "157.0.8103.79",
+  "normRuntime": null,
+  "workerReadyMs": 53.89999997615814,
+  "workerRunMs": 138640.80000001192,
+  "matchesNodeReference": true,
+  "jitless": false,
+  "result": {
+    "runs": [
+      {
+        "name": "all-five-paths",
+        "baseline": {
+          "name": "all-five-paths",
+          "batchSize": 64,
+          "fast": true,
+          "auditPreparation": false,
+          "budget": 800,
+          "budgetBound": true,
+          "budgetChecks": 12484,
+          "budgetPrunes": 0,
+          "gainBound": true,
+          "nativeChartIntervals": true,
+          "nativeStatIntervals": true,
+          "nativeContexts": true,
+          "portableScore": true,
+          "normRuntime": null,
+          "normVersion": "binary64-normalized-hypot-v1",
+          "deterministicFloor": false,
+          "nativeContextManifest": {
+            "profileIds": [
+              "authoring:weapon:18010000001:adsRecoil",
+              "authoring:part:13020000173:bd:adsRecoil"
+            ],
+            "timingItems": [
+              "13130000169"
+            ],
+            "timelines": [
+              [
+                0,
+                75,
+                150,
+                225,
+                300,
+                375,
+                450,
+                525,
+                600,
+                675,
+                750,
+                825,
+                900,
+                975,
+                1050,
+                1125,
+                1200,
+                1275,
+                1350,
+                1425
+              ],
+              [
+                0,
+                86.25,
+                172.5,
+                258.75,
+                345,
+                431.25,
+                517.5,
+                603.75,
+                690,
+                776.25,
+                862.5,
+                948.75,
+                1035,
+                1121.25,
+                1207.5,
+                1293.75,
+                1380,
+                1466.25,
+                1552.5,
+                1638.75
+              ]
+            ]
+          },
+          "gainPrunes": 0,
+          "gainAudit": null,
+          "gainStats": {
+            "supported": true,
+            "evaluations": 12484,
+            "cache_hits": 2817,
+            "declined": 0,
+            "entries_peak": 2044,
+            "key_chars_peak": 262137,
+            "saturated": true
+          },
+          "envelopeCount": 134,
+          "cachePreparation": true,
+          "cacheEntries": {
+            "controls": 134,
+            "geometry": 3
+          },
+          "choiceCounts": [
+            9,
+            15,
+            22,
+            5,
+            16
+          ],
+          "domainSize": 302940,
+          "prepared": 255420,
+          "gridTuples": 164171017620,
+          "bounds": 259704,
+          "scores": 93,
+          "nodes": 263790,
+          "maxPreparedBatch": 64,
+          "mountNodes": 281729,
+          "mountStats": {
+            "constraint_evaluations": 10154602,
+            "boolean_evaluations": 46126916
+          },
+          "compileMs": 22.899999976158142,
+          "contextMs": 60392.700001358986,
+          "mountIterationMs": 9509.800012469292,
+          "solveMs": 77358.89999997616,
+          "audited": null,
+          "profiles": 2,
+          "schedules": 2,
+          "grouping": {
+            "enabled": true,
+            "items_grouped": 36,
+            "option_sets": 28,
+            "options_before": 224,
+            "options_after": 154,
+            "matching_hits": 0,
+            "matching_misses": 0,
+            "matching_peak": 0,
+            "grouped_tactical_configs": 0,
+            "counts_interchangeable": true,
+            "families": 15
+          },
+          "outputs": {
+            "maximum": {
+              "cost": 720,
+              "gain": 70.7942290048951,
+              "config": [
+                {
+                  "slotPath": "1",
+                  "itemId": "13030000187"
+                },
+                {
+                  "slotPath": "2",
+                  "itemId": "13020000349"
+                },
+                {
+                  "slotPath": "3",
+                  "itemId": "13040000110"
+                },
+                {
+                  "slotPath": "2/6",
+                  "itemId": "13130000224"
+                },
+                {
+                  "slotPath": "4/8",
+                  "itemId": "13140000044"
+                }
+              ],
+              "tunes": {
+                "1": {
+                  "authoring:part:13030000187:tune:weight:1": 50
+                },
+                "3": {
+                  "authoring:part:13040000110:tune:weight:1": 50
+                },
+                "4/8": {
+                  "authoring:part:13140000044:tune:weight:0": 20
+                }
+              }
+            },
+            "minimum": {
+              "cost": 200,
+              "gain": 44.86357492506914,
+              "config": [
+                {
+                  "slotPath": "1",
+                  "itemId": "13030000110"
+                },
+                {
+                  "slotPath": "3",
+                  "itemId": "13040000113"
+                },
+                {
+                  "slotPath": "4/8",
+                  "itemId": "13140000021"
+                }
+              ],
+              "tunes": {
+                "1": {
+                  "authoring:part:13030000110:tune:weight:1": 50
+                },
+                "3": {
+                  "authoring:part:13040000113:tune:weight:1": 50
+                },
+                "4/8": {
+                  "authoring:part:13140000021:tune:position:1": 95
+                }
+              }
+            },
+            "balanced": {
+              "cost": 200,
+              "gain": 44.86357492506914,
+              "config": [
+                {
+                  "slotPath": "1",
+                  "itemId": "13030000110"
+                },
+                {
+                  "slotPath": "3",
+                  "itemId": "13040000113"
+                },
+                {
+                  "slotPath": "4/8",
+                  "itemId": "13140000021"
+                }
+              ],
+              "tunes": {
+                "1": {
+                  "authoring:part:13030000110:tune:weight:1": 50
+                },
+                "3": {
+                  "authoring:part:13040000113:tune:weight:1": 50
+                },
+                "4/8": {
+                  "authoring:part:13140000021:tune:position:1": 95
+                }
+              }
+            }
+          }
+        },
+        "bounded": {
+          "name": "all-five-paths",
+          "batchSize": 64,
+          "fast": true,
+          "auditPreparation": false,
+          "budget": 800,
+          "budgetBound": true,
+          "budgetChecks": 12365,
+          "budgetPrunes": 0,
+          "gainBound": true,
+          "nativeChartIntervals": true,
+          "nativeStatIntervals": true,
+          "nativeContexts": true,
+          "portableScore": true,
+          "normRuntime": null,
+          "normVersion": "binary64-normalized-hypot-v1",
+          "deterministicFloor": true,
+          "nativeContextManifest": {
+            "profileIds": [
+              "authoring:weapon:18010000001:adsRecoil",
+              "authoring:part:13020000173:bd:adsRecoil"
+            ],
+            "timingItems": [
+              "13130000169"
+            ],
+            "timelines": [
+              [
+                0,
+                75,
+                150,
+                225,
+                300,
+                375,
+                450,
+                525,
+                600,
+                675,
+                750,
+                825,
+                900,
+                975,
+                1050,
+                1125,
+                1200,
+                1275,
+                1350,
+                1425
+              ],
+              [
+                0,
+                86.25,
+                172.5,
+                258.75,
+                345,
+                431.25,
+                517.5,
+                603.75,
+                690,
+                776.25,
+                862.5,
+                948.75,
+                1035,
+                1121.25,
+                1207.5,
+                1293.75,
+                1380,
+                1466.25,
+                1552.5,
+                1638.75
+              ]
+            ]
+          },
+          "gainPrunes": 3631,
+          "gainAudit": null,
+          "gainStats": {
+            "supported": true,
+            "evaluations": 12365,
+            "cache_hits": 2761,
+            "declined": 0,
+            "entries_peak": 2044,
+            "key_chars_peak": 262137,
+            "saturated": true
+          },
+          "envelopeCount": 134,
+          "cachePreparation": true,
+          "cacheEntries": {
+            "controls": 134,
+            "geometry": 3
+          },
+          "choiceCounts": [
+            9,
+            15,
+            22,
+            5,
+            16
+          ],
+          "domainSize": 302940,
+          "prepared": 175538,
+          "gridTuples": 114048179698,
+          "bounds": 179824,
+          "scores": 93,
+          "nodes": 182662,
+          "maxPreparedBatch": 64,
+          "mountNodes": 196193,
+          "mountStats": {
+            "constraint_evaluations": 7051572,
+            "boolean_evaluations": 32118480,
+            "pruned_branches": 3631
+          },
+          "compileMs": 28.80000001192093,
+          "contextMs": 45087.4000043273,
+          "mountIterationMs": 10443.70000642538,
+          "solveMs": 61210.30000001192,
+          "audited": null,
+          "profiles": 2,
+          "schedules": 2,
+          "grouping": {
+            "enabled": true,
+            "items_grouped": 36,
+            "option_sets": 28,
+            "options_before": 224,
+            "options_after": 154,
+            "matching_hits": 0,
+            "matching_misses": 0,
+            "matching_peak": 0,
+            "grouped_tactical_configs": 0,
+            "counts_interchangeable": true,
+            "families": 15
+          },
+          "outputs": {
+            "maximum": {
+              "cost": 720,
+              "gain": 70.7942290048951,
+              "config": [
+                {
+                  "slotPath": "1",
+                  "itemId": "13030000187"
+                },
+                {
+                  "slotPath": "2",
+                  "itemId": "13020000349"
+                },
+                {
+                  "slotPath": "3",
+                  "itemId": "13040000110"
+                },
+                {
+                  "slotPath": "2/6",
+                  "itemId": "13130000224"
+                },
+                {
+                  "slotPath": "4/8",
+                  "itemId": "13140000044"
+                }
+              ],
+              "tunes": {
+                "1": {
+                  "authoring:part:13030000187:tune:weight:1": 50
+                },
+                "3": {
+                  "authoring:part:13040000110:tune:weight:1": 50
+                },
+                "4/8": {
+                  "authoring:part:13140000044:tune:weight:0": 20
+                }
+              }
+            },
+            "minimum": {
+              "cost": 200,
+              "gain": 44.86357492506914,
+              "config": [
+                {
+                  "slotPath": "1",
+                  "itemId": "13030000110"
+                },
+                {
+                  "slotPath": "3",
+                  "itemId": "13040000113"
+                },
+                {
+                  "slotPath": "4/8",
+                  "itemId": "13140000021"
+                }
+              ],
+              "tunes": {
+                "1": {
+                  "authoring:part:13030000110:tune:weight:1": 50
+                },
+                "3": {
+                  "authoring:part:13040000113:tune:weight:1": 50
+                },
+                "4/8": {
+                  "authoring:part:13140000021:tune:position:1": 95
+                }
+              }
+            },
+            "balanced": {
+              "cost": 200,
+              "gain": 44.86357492506914,
+              "config": [
+                {
+                  "slotPath": "1",
+                  "itemId": "13030000110"
+                },
+                {
+                  "slotPath": "3",
+                  "itemId": "13040000113"
+                },
+                {
+                  "slotPath": "4/8",
+                  "itemId": "13140000021"
+                }
+              ],
+              "tunes": {
+                "1": {
+                  "authoring:part:13030000110:tune:weight:1": 50
+                },
+                "3": {
+                  "authoring:part:13040000113:tune:weight:1": 50
+                },
+                "4/8": {
+                  "authoring:part:13140000021:tune:position:1": 95
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

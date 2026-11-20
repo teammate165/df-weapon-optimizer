@@ -1,0 +1,123 @@
+{
+  "passed": true,
+  "reports": [
+    {
+      "mode": "bd",
+      "preset": "recoil",
+      "locks": 0,
+      "all": 582,
+      "bases": 458,
+      "retained_bases": 3,
+      "candidates": 3
+    },
+    {
+      "mode": "bd",
+      "preset": "agility",
+      "locks": 0,
+      "all": 582,
+      "bases": 458,
+      "retained_bases": 3,
+      "candidates": 3
+    },
+    {
+      "mode": "bd",
+      "preset": "recoil",
+      "locks": 1,
+      "all": 582,
+      "bases": 39,
+      "retained_bases": 1,
+      "candidates": 1
+    },
+    {
+      "mode": "bd",
+      "preset": "agility",
+      "locks": 1,
+      "all": 582,
+      "bases": 39,
+      "retained_bases": 1,
+      "candidates": 1
+    },
+    {
+      "mode": "sol",
+      "preset": "recoil",
+      "locks": 0,
+      "all": 3360,
+      "bases": 1680,
+      "retained_bases": 9,
+      "candidates": 9
+    },
+    {
+      "mode": "sol",
+      "preset": "agility",
+      "locks": 0,
+      "all": 3360,
+      "bases": 1680,
+      "retained_bases": 9,
+      "candidates": 9
+    },
+    {
+      "mode": "sol",
+      "preset": "recoil",
+      "locks": 1,
+      "all": 3360,
+      "bases": 420,
+      "retained_bases": 3,
+      "candidates": 3
+    },
+    {
+      "mode": "sol",
+      "preset": "agility",
+      "locks": 1,
+      "all": 3360,
+      "bases": 420,
+      "retained_bases": 3,
+      "candidates": 3
+    },
+    {
+      "mode": "mp",
+      "preset": "recoil",
+      "locks": 0,
+      "all": 3360,
+      "bases": 1680,
+      "retained_bases": 9,
+      "candidates": 9
+    },
+    {
+      "mode": "mp",
+      "preset": "agility",
+      "locks": 0,
+      "all": 3360,
+      "bases": 1680,
+      "retained_bases": 9,
+      "candidates": 9
+    },
+    {
+      "mode": "mp",
+      "preset": "recoil",
+      "locks": 1,
+      "all": 3360,
+      "bases": 420,
+      "retained_bases": 3,
+      "candidates": 3
+    },
+    {
+      "mode": "mp",
+      "preset": "agility",
+      "locks": 1,
+      "all": 3360,
+      "bases": 420,
+      "retained_bases": 3,
+      "candidates": 3
+    }
+  ],
+  "checks": [
+    "independent reverse raw Cartesian enumeration",
+    "exact two-stage survivors and rounding",
+    "both presets/all modes/locks",
+    "no calibration cross-mixing",
+    "conditional bundled parents and child sockets",
+    "occupancy, hidden and missing-price exclusions",
+    "heap boundaries",
+    "abort"
+  ]
+}

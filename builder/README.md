@@ -1,8 +1,12 @@
 # Weapon workshop
 
+Automatic attachment selection excludes dedicated bipods and Collapsible Bipod Grip `13140000038`. Explicit user locks and manual mounting remain supported. This eligibility policy is shared by the local exact study and automatic choice generation.
+
 For server-free GitHub Pages hosting, run `python tools/build_github_pages.py`.
 The export uses browser Web Workers and external images, with no hosted backend.
 See [deployment and validation](../docs/github_pages.md).
+
+For the separate no-deadline M4A1 exhaustive-screening experiment, open `exact-dag-study.html` in the static export. It uses **8 workers**, the optimized custom DAG, exact global top-0.5% selection, temporary IndexedDB provenance and uncached native replay. See the [implementation and validation report](../docs/optimized_exact_dag.md). Production Generate retains its own search contract below.
 
 Generate uses [time-limited top-K search](../docs/anytime_top_k_optimizer.md) for both presets. The total search budget includes ordinary attachments, patches/lasers and calibration; shortlists are capped at 256 ordinary and 512 complete builds. Results are best found, with no exhaustive/global-optimum claim.
 
@@ -13,6 +17,18 @@ python tools/builder_server.py
 ```
 
 Open http://127.0.0.1:8766. Stop with Ctrl+C. No Python or frontend packages need installing. The model modules in `.scratch/calibration-check/` must exist; prepare them with `python tools/verify_calibration_reference.py` if missing.
+
+For **Lowest Recoil**, select **Exact ordinary search (local)** to enumerate
+concrete ordinary attachment configurations and their legal calibration tuples.
+The optional 5% pattern reduction is measured against the equipped configuration
+and tuning when Generate starts. Weapons that lack a supported continuous
+20-shot chart use the existing recoil pattern proxy for the cap. Exact ordinary
+preserves explicit locks and excludes unlocked tactical choices. It uses the
+shared mount constraints, guarded calibration bounds, and direct native scoring
+for contexts outside the guard. A completed traversal certifies the modeled results.
+At the deadline, the builder labels qualifying results **Best found** or
+reports that the search is incomplete. Full-budget completion can take much
+longer than the default 30-second local run.
 
 Builder provides mode/weapon selection, compatible contextual sockets, attachment locks, source calibration positions, live four-panel stats and details, default/current ADS and hip paths, shot count, and JSON export. Optimizer searches the real existing model and opens a result in Builder with tuning retained. Explicitly equipped parts may be locked; required selected parents are included automatically. Locked parts still allow calibration changes. Mode and weapon changes reset the build and locks. The last optimizer run remains available through same-context build edits, calibration and applying outputs; weapon/mode changes and resets invalidate it. Applying a saved result restores its original weapon/mode and tuning. The selected result category is preserved.
 
@@ -48,7 +64,7 @@ Saved builds: **Saved builds** in the toolbar opens the cookie library. Name and
 
 Builds persist in this browser's first-party cookies for up to one year. Clearing cookies removes the library; it does not sync between browsers. The local app stores versioned compact data in chunks below individual cookie limits, with a 32,000-character / 40-cookie total application budget and up to four chunks per build. Replacement writes and checks the new copy before releasing old chunks, and blocked/failed writes show an error. The UI reports storage use and offers **Download current build & model JSON** as a separate backup. Names support Unicode. Cookie data is never treated as trusted catalog input.
 
-The game-code lookup, published-code import and workshop-code features were removed at the user's request. Native code lookup/publication is outside project scope; the [research](../docs/weapon_import_codes.md) is retained only as an archive. There are no gun-code API routes or game-code sync tools.
+The game-code lookup, published-code import and workshop-code features were removed at the user's request. Native code lookup/publication is outside project scope; the [research](../docs/archive/weapon_import_codes.md) is retained only as an archive. There are no gun-code API routes or game-code sync tools.
 
 Validation: `node tests/saved_builds.mjs` covers reload, Unicode, multi-cookie saves, overwrite cleanup, blocked/partial writes, storage capacity, corrupted data and deletion. `node .scratch/browser-qa/saved-builds.cjs` uses actual source-model builds to check persistence across reloads, exact tuning/lock/mode/shot-count restoration, optimizer output saves, replacement/deletion, preserved results and desktop/mobile controls. [Browser report](../.scratch/browser-qa/saved-builds-report.json).
 
@@ -56,6 +72,6 @@ Header controls: mode and weapon selection are centered in the top header. Tier/
 
 Preset objectives are defined in the [recoil contract](../docs/recoil_generator.md) and [agility contract](../docs/agility_optimizer.md). All presets must follow the [shared solution presentation and context lifecycle](../docs/solution_preview.md). The page is named **DF / Weapon Workshop**; main attribute 3 is labeled **Control** throughout the interface.
 
-All presets use shared **exhaustive two-stage top-5% screening**: ordinary attachments first, then patch/laser completions per surviving base, all scored at default calibration. SCIP calibrates only the complete survivors. Generate waits until both exhaustive screens finish before the selected calibration budget starts; Cancel stops either stage. Static Worker progress and local streamed progress show counts and stage changes. Future presets inherit the same search. Screening can discard the best calibrated build, so results remain best found. See the [contract](../docs/exhaustive_staged_screening.md).
+The reference exact solver uses **exhaustive two-stage top-0.5% screening**: ordinary attachments first, then patch/laser completions per surviving base, all scored at default calibration. SCIP calibrates only the complete survivors. In this reference path, both exhaustive screens finish before the selected calibration budget starts; Cancel stops either stage. Static Worker progress and local streamed progress show counts and stage changes. The production Generate path uses bounded anytime shortlists and has no exact percentile gate. Screening can discard the best calibrated build, so results remain best found. See the [contract](../docs/exhaustive_staged_screening.md).
 
 UI controls (2026-11-15): equipped parts sort first, then ascending rarity and price. The optimizer's Lock selected attachments toggle captures all explicit equipped attachments, with tuning adjustable; clicking again unlocks them. Empty sockets are not locked. Quick/Standard/Thorough use 5/30/120 second calibration budgets after exhaustive screening. Detonation totals include shop weapon price; Operations totals use dated weapon quotes and report unavailable when absent. Preset display metadata lives in `presetTemplates`, and all presets share constraints and solution rendering. Source and model caveats are in the expandable footer. Response curves use rounded uniform ticks and pointer/keyboard inspection directly on axes.
