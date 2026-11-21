@@ -1,20 +1,20 @@
-import {rankingContract} from './screening_rank.mjs?v=bd5393207c0bd66b';
-import {compileMounts} from './scip_mount_model.mjs?v=bd5393207c0bd66b';
-import {compileStats} from './scip_stat_model.mjs?v=bd5393207c0bd66b';
-import {compileObjective} from './scip_objective_model.mjs?v=bd5393207c0bd66b';
-import {solveLinearModel} from './scip_runtime.mjs?v=bd5393207c0bd66b';
-import {presets} from './optimizer_presets.mjs?v=bd5393207c0bd66b';
-import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=bd5393207c0bd66b';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=bd5393207c0bd66b';
-import {completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=bd5393207c0bd66b';
-import {timedRecoil} from './timed_recoil.mjs?v=bd5393207c0bd66b';
-import {exhaustiveAttachmentGate,configKey,gateFraction} from './exhaustive_attachment_gate.mjs?v=bd5393207c0bd66b';
+import {rankingContract} from './screening_rank.mjs?v=0b4a96d6446ec67a';
+import {compileMounts} from './scip_mount_model.mjs?v=0b4a96d6446ec67a';
+import {compileStats} from './scip_stat_model.mjs?v=0b4a96d6446ec67a';
+import {compileObjective} from './scip_objective_model.mjs?v=0b4a96d6446ec67a';
+import {solveLinearModel} from './scip_runtime.mjs?v=0b4a96d6446ec67a';
+import {presets} from './optimizer_presets.mjs?v=0b4a96d6446ec67a';
+import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=0b4a96d6446ec67a';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=0b4a96d6446ec67a';
+import {completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=0b4a96d6446ec67a';
+import {timedRecoil} from './timed_recoil.mjs?v=0b4a96d6446ec67a';
+import {exhaustiveAttachmentGate,configKey,gateFraction} from './exhaustive_attachment_gate.mjs?v=0b4a96d6446ec67a';
 
 let factoryPromise;
 async function runtimeModules(runtime){
  if(typeof runtime==='object')return runtime;
  const {pathToFileURL}=await import('node:url'),path=await import('node:path');
- const curves=await import(pathToFileURL(path.join(runtime,'curves.mjs?v=bd5393207c0bd66b'))),kernel=await import(pathToFileURL(path.join(runtime,'kernel.mjs?v=bd5393207c0bd66b'))),{t:calculate}=await import(pathToFileURL(path.join(runtime,'attributes.mjs?v=bd5393207c0bd66b')));
+ const curves=await import(pathToFileURL(path.join(runtime,'curves.mjs?v=0b4a96d6446ec67a'))),kernel=await import(pathToFileURL(path.join(runtime,'kernel.mjs?v=0b4a96d6446ec67a'))),{t:calculate}=await import(pathToFileURL(path.join(runtime,'attributes.mjs?v=0b4a96d6446ec67a')));
  return {curves,kernel,calculate};
 }
 export async function generateSCIP(input,runtime){
@@ -35,7 +35,7 @@ export async function generateSCIP(input,runtime){
  const preset=presets[settings.preset].create({pack,request:r,kernel,curves,calculate,mode,resolve});
  if(!preset.solverPlan)throw Error('Preset does not declare a full SCIP objective');
  if(preset.objectives&&!preset.allowTargets&&r.effectiveness_targets!==undefined)throw Error('This preset does not support custom effectiveness targets');
- factoryPromise??=import('../vendor/scip-7e68f9ca/scip.js?v=bd5393207c0bd66b').then(m=>m.default);
+ factoryPromise??=import('../vendor/scip-7e68f9ca/scip.js?v=0b4a96d6446ec67a').then(m=>m.default);
  const createRuntime=await factoryPromise,started=performance.now();
  let starts=input.solver_starts;
  if(!starts&&typeof process!=='undefined'&&process.versions?.node){try{const fs=await import('node:fs/promises');starts=JSON.parse(await fs.readFile(new URL('../data/solver_starts/'+pack.weaponId+'.json',import.meta.url),'utf8'));}catch{}}

@@ -1,7 +1,7 @@
-import {generate} from './optimizer_engine.mjs?v=bd5393207c0bd66b';
-import {statResponse} from './builder_stat_response.mjs?v=bd5393207c0bd66b';
-import {statIds} from './optimizer_policy.mjs?v=bd5393207c0bd66b';
-import {presets} from './optimizer_presets.mjs?v=bd5393207c0bd66b';
+import {generate} from './optimizer_engine.mjs?v=0b4a96d6446ec67a';
+import {statResponse} from './builder_stat_response.mjs?v=0b4a96d6446ec67a';
+import {statIds} from './optimizer_policy.mjs?v=0b4a96d6446ec67a';
+import {presets} from './optimizer_presets.mjs?v=0b4a96d6446ec67a';
 
 export async function executeModel(input,modules) {
   if(input.action==='optimize')return generate(input,modules);

@@ -1,9 +1,9 @@
-import {executeModel} from './model/builder_model.mjs?v=bd5393207c0bd66b';
-import * as curves from './runtime/curves.mjs?v=bd5393207c0bd66b';
-import * as kernel from './runtime/kernel.mjs?v=bd5393207c0bd66b';
-import {t as calculate} from './runtime/attributes.mjs?v=bd5393207c0bd66b';
-import {mergeAnytimeResults} from './model/anytime_optimizer.mjs?v=bd5393207c0bd66b';
-import {screeningPlan,studyCount,screenPartition} from './model/exhaustive_screening_study.mjs?v=bd5393207c0bd66b';
+import {executeModel} from './model/builder_model.mjs?v=0b4a96d6446ec67a';
+import * as curves from './runtime/curves.mjs?v=0b4a96d6446ec67a';
+import * as kernel from './runtime/kernel.mjs?v=0b4a96d6446ec67a';
+import {t as calculate} from './runtime/attributes.mjs?v=0b4a96d6446ec67a';
+import {mergeAnytimeResults} from './model/anytime_optimizer.mjs?v=0b4a96d6446ec67a';
+import {screeningPlan,studyCount,screenPartition} from './model/exhaustive_screening_study.mjs?v=0b4a96d6446ec67a';
 const modules={curves,kernel,calculate};
 async function loadJSON(path) {
   const response=await fetch(new URL(path,import.meta.url));
@@ -18,23 +18,23 @@ let queue=Promise.resolve();
 self.onmessage=({data})=>{queue=queue.then(async()=>{
   const {id,action,request}=data;
   try {
-    catalog??=await loadJSON('./data/catalog.json?v=bd5393207c0bd66b');
+    catalog??=await loadJSON('./data/catalog.json?v=0b4a96d6446ec67a');
     if(action==='catalog'){self.postMessage({id,result:catalog});return;}
     if(!catalog.weapons.some(w=>w.id===request.weapon_id))throw Error('Unknown weapon');
     if(!['bd','mp','sol'].includes(request.mode))throw Error('Unknown mode');
     if(!Number.isInteger(request.shot_count??20)||(request.shot_count??20)<2||(request.shot_count??20)>200)throw Error('Shot count must be 2–200');
-    if(!packs.has(request.weapon_id))packs.set(request.weapon_id,await loadJSON(`./data/weapons/${request.weapon_id}.json?v=bd5393207c0bd66b`));
+    if(!packs.has(request.weapon_id))packs.set(request.weapon_id,await loadJSON(`./data/weapons/${request.weapon_id}.json?v=0b4a96d6446ec67a`));
     const ordinarySearch=['exact-ordinary-plan','exact-ordinary-shard','exact-ordinary-merge','exact-ordinary-advance'].includes(action);
     if(ordinarySearch&&request.mode==='bd')request.budgets=[catalog.shop.weapons[request.weapon_id].gunsmithLimit];
     const searching=['optimize','prepare-search','merge-search'].includes(action);
     if(searching&&request.mode==='bd')request.budgets=[catalog.shop.weapons[request.weapon_id].gunsmithLimit];
     const ordinaryStarts=ordinarySearch&&request.search_method==='exact_ordinary_staged'&&request.weapon_id==='18010000038'&&request.mode==='bd';
-    if((searching||ordinaryStarts)&&!starts.has(request.weapon_id)){try{starts.set(request.weapon_id,await loadJSON(`./data/solver-starts/${request.weapon_id}.json?v=bd5393207c0bd66b`));}catch{starts.set(request.weapon_id,{starts:[]});}}
+    if((searching||ordinaryStarts)&&!starts.has(request.weapon_id)){try{starts.set(request.weapon_id,await loadJSON(`./data/solver-starts/${request.weapon_id}.json?v=0b4a96d6446ec67a`));}catch{starts.set(request.weapon_id,{starts:[]});}}
     if(action==='prepare-search'){self.postMessage({id,result:{ready:true}});return;}
     const input={action,request,pack:packs.get(request.weapon_id),solver_starts:starts.get(request.weapon_id),shop:catalog.shop,prices:catalog.prices,provenance:catalog.provenance,onProgress:progress=>self.postMessage({id,progress}),search_variant:data.search?.variant,search_deadline:data.search?.deadline,collect_candidates:data.search?.collect};
     let result;
     if(ordinarySearch){
-      const exact=await import('./model/exact_ordinary.mjs?v=bd5393207c0bd66b');
+      const exact=await import('./model/exact_ordinary.mjs?v=0b4a96d6446ec67a');
       if(action==='exact-ordinary-plan')result=exact.planExactOrdinaryPartitions(input,modules,{
         workers:data.workerCount,staged:request.search_method==='exact_ordinary_staged'});
       else if(action==='exact-ordinary-shard')result=exact.solveExactOrdinary(input,modules,{
