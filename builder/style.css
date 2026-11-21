@@ -126,9 +126,10 @@ main{height:calc(100dvh - 58px);grid-template-rows:43px minmax(0,1fr) 22px}
 #optimizer-panel[data-preset=agility] .objective p{display:block;line-height:1.5}
 .optimizer-weights{min-inline-size:0;margin:12px 0;padding:10px 12px;border:1px solid #34414b}
 #optimizer-weight-sliders{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr));gap:8px 12px;margin-bottom:8px}
-#optimizer-weight-sliders label{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:4px 8px}
-#optimizer-weight-sliders output{font-variant-numeric:tabular-nums}
-#optimizer-weight-sliders input{grid-column:1/-1;min-width:0;width:100%;margin:0;accent-color:#b7ed72}
+.optimizer-weight{display:grid;grid-template-columns:minmax(0,1fr) 4.5rem;align-items:center;gap:4px 8px}
+.optimizer-weight input[type=number]{width:100%;min-width:0;text-align:right;font-variant-numeric:tabular-nums}
+.optimizer-weight input[type=range]{grid-column:1/-1;min-width:0;width:100%;margin:0;accent-color:#b7ed72}
+.optimizer-weights .helper{margin:0 0 8px}
 #optimizer-weight-error{margin:8px 0 0;color:#ffad99}
 #result-details.agility-details{display:block}
 

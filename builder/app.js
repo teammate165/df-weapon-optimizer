@@ -191,7 +191,7 @@ function cancelPreview(){clearPreview();renderParts();renderStats();drawGraph();
 function equipPreview(){cancelLiveCalibration();if(!state.preview||state.previewLoading)return;const model=state.preview.model;clearPreview();adopt(model);$('parts-list').scrollTop=0;status('Attachment equipped · Stats and calibration updated.');}
 function updateActions(){
  const part=mounted(state.slot),allLocked=state.config.length>0&&state.config.every(x=>state.locks.has(x.slotPath));$('lock').disabled=state.busy||!state.config.length;$('lock').setAttribute('aria-pressed',String(allLocked));$('lock').textContent=allLocked?'Unlock selected attachments':'Lock selected attachments';
- $('generate').disabled=state.busy||!hasPositiveWeight();
+ $('generate').disabled=state.busy||!validWeightSelection();
  $('equip').disabled=state.busy||state.previewLoading||!state.preview;$('equip').textContent=state.previewLoading?'Comparing…':state.preview?'Equip attachment':'Equipped';$('cancel-preview').hidden=!state.preview&&!state.previewLoading;
  $('selection-info').textContent=state.preview?(state.preview.id?name(state.preview.id):'Restore default')+' · '+costText(state.preview.id):part?.source==='equipped'?name(part.itemId):'Default / empty slot. Select a part to compare.';
  $('locks').textContent=state.locks.size?`${state.locks.size} attachments locked. Tuning adjustable.`:'No attachments locked.';
@@ -283,6 +283,8 @@ const presetTemplates={
 const weightSelections=Object.fromEntries(Object.entries(presetTemplates).map(([key,preset])=>[key,{...preset.defaults}]));
 const selectedPreset=()=>$('optimizer-preset').value;
 const hasPositiveWeight=()=>Object.values(weightSelections[selectedPreset()]).some(value=>value>0);
+const hasInvalidWeightInput=()=>Boolean($('optimizer-weight-sliders').querySelector('input[type="number"]:invalid'));
+const validWeightSelection=()=>hasPositiveWeight()&&!hasInvalidWeightInput();
 function objectiveRequest(r){
  const preset=r.preset??'recoil',template=presetTemplates[preset];
  return {preset,[template.field]:{...(r[template.field]??template.defaults)},
@@ -291,24 +293,30 @@ function objectiveRequest(r){
   ...(r.search_method==='coordinate_passes'?{search_method:r.search_method,passes:r.passes}:{})};
 }
 const currentObjective=()=>objectiveRequest({preset:selectedPreset(),[presetTemplates[selectedPreset()].field]:weightSelections[selectedPreset()]});
-function updateWeightControls(){
+function updateWeightControls(editedInput){
  const key=selectedPreset(),preset=presetTemplates[key],weights=weightSelections[key],sliders=$('optimizer-weight-sliders');
  if(sliders.dataset.preset!==key){
   sliders.dataset.preset=key;
-  sliders.innerHTML=Object.entries(preset.labels).map(([metric,label])=>`<label for="optimizer-weight-${metric}"><span>${label}</span><output id="optimizer-value-${metric}" for="optimizer-weight-${metric}"></output><input id="optimizer-weight-${metric}" data-weight="${metric}" type="range" min="0" max="100" step="1"></label>`).join('');
-  for(const slider of sliders.querySelectorAll('input'))slider.oninput=()=>{
-   weights[slider.dataset.weight]=Number(slider.value)/100;
-   updateWeightControls();clearResults();renderStats();drawGraph();
+  sliders.innerHTML=Object.entries(preset.labels).map(([metric,label])=>`<div class="optimizer-weight"><label for="optimizer-value-${metric}" id="optimizer-label-${metric}">${label}</label><input id="optimizer-value-${metric}" data-metric="${metric}" type="number" min="0" max="100" step="1" required inputmode="numeric"><input id="optimizer-weight-${metric}" data-weight="${metric}" aria-labelledby="optimizer-label-${metric}" type="range" min="0" max="100" step="1"></div>`).join('');
+  for(const input of sliders.querySelectorAll('input'))input.oninput=()=>{
+   if(input.validity.valid){
+    weights[input.dataset.metric??input.dataset.weight]=input.valueAsNumber/100;
+    clearResults();renderStats();drawGraph();
+   }
+   updateWeightControls(input);
   };
  }
  for(const [metric,value] of Object.entries(weights)){
-  const slider=$(`optimizer-weight-${metric}`),points=value*100;
+  const slider=$(`optimizer-weight-${metric}`),number=$(`optimizer-value-${metric}`),points=Math.round(value*100);
   slider.value=points;slider.disabled=state.busy;
   slider.setAttribute('aria-valuetext',`${Number(points.toFixed(2))} relative weight`);
-  $(`optimizer-value-${metric}`).value=Number(points.toFixed(2));
+  if(number!==editedInput&&(!editedInput||editedInput.dataset.weight===metric))number.value=points;
+  number.disabled=state.busy;
  }
- $('optimizer-weight-error').hidden=hasPositiveWeight();
- $('generate').disabled=state.busy||!hasPositiveWeight();
+ const error=$('optimizer-weight-error');
+ error.textContent=hasInvalidWeightInput()?'Enter a whole number from 0 to 100 for each weight.':'Set at least one weight above zero.';
+ error.hidden=validWeightSelection();
+ $('generate').disabled=state.busy||!validWeightSelection();
 }
 $('reset-optimizer-weights').onclick=()=>{
  Object.assign(weightSelections[selectedPreset()],presetTemplates[selectedPreset()].defaults);
@@ -334,7 +342,7 @@ $('pattern-reduction').onchange=clearResults;
 const coordinatePasses=()=>$('optimizer-search-method').value==='coordinate_passes';
 function updateSearchNote(){
  $('optimizer-search-note').textContent=coordinatePasses()
-  ?'Searches attachment slots and calibration in passes. Each direction can converge early. Results are best found.'
+  ?'Each search direction stops when a pass finds no improvement or reaches the pass limit. Builds appear after all directions finish.'
   :'Time-limited attachment search and calibration / Best found';
 }
 function syncSearchMethod(){
