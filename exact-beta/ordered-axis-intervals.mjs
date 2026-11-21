@@ -1,13 +1,32 @@
-import {assert} from './chart-fixture-runtime.mjs?v=fee7ceeff9061201';
+import {assert} from './chart-fixture-runtime.mjs?v=bd5393207c0bd66b';
 
 const point = value => [value, value];
-function add(a, b) { return [a[0] + b[0], a[1] + b[1]]; }
-function multiply(a, b) {
-  const products = [a[0] * b[0], a[0] * b[1], a[1] * b[0], a[1] * b[1]];
-  return [Math.min(...products), Math.max(...products)];
-}
 const staticTypes = new Set(['StaticAttributeModify', 'StaticAttributeReplace']);
 const ignoredTuneTargets = new Set(['GBreathScale', 'GAiming_ADSTime']);
+const cachedRanges = new WeakMap();
+const tableIds = new WeakMap();
+let nextTableId = 0;
+
+function tableRange(table, axis, lo, hi, memoize) {
+  let lower = table[lo][axis], upper = lower;
+  if (lo === hi) return point(lower);
+  let ranges, key;
+  if (memoize) {
+    ranges = cachedRanges.get(table);
+    if (!ranges) cachedRanges.set(table, ranges = new Map());
+    key = (axis * table.length + lo) * table.length + hi;
+    const known = ranges.get(key);
+    if (known) return known;
+  }
+  for (let index = lo + 1; index <= hi; index++) {
+    const value = table[index][axis];
+    lower = Math.min(lower, value);
+    upper = Math.max(upper, value);
+  }
+  const result = [lower, upper];
+  if (ranges && ranges.size < 512) ranges.set(key, result);
+  return result;
+}
 
 export function createOrderedAxisIntervals({pack, build, mode, controls, fixed, axes, kernel, cache = null, ignoredTargets = ignoredTuneTargets, fallback = axis => fixed.baseTargets[axis]}) {
   const collector = kernel.u.screeningStateContract;
@@ -54,6 +73,7 @@ export function createOrderedAxisIntervals({pack, build, mode, controls, fixed, 
   }
 
   const operations = collect(build.mounted, tunes);
+  const initialValues = axes.map(axis => Number(fallback(axis)) || 0);
   const plans = axes.map((axis, index) => {
     const program = [];
     const markers = new Set();
@@ -81,35 +101,65 @@ export function createOrderedAxisIntervals({pack, build, mode, controls, fixed, 
     // Consequently the already-computed native mapping is constant here.
     assert(mappings.length <= 1);
     if (mappings.length) {
-      assert.equal(mappings[0].mappingType, 'DeltaMappingThenScale');
+      const type = mappings[0].mappingType;
+      assert(type === 'DeltaMappingThenScale' || type === 'AbsoluteMapping');
       const value = fixed.mappedValues.get(axis);
       assert(Number.isFinite(value));
-      program.push({modifier: 'Mult_C', value});
+      program.push({modifier: type === 'AbsoluteMapping' ? 'Initial' : 'Mult_C', value});
     }
     return program;
   });
 
-  return function orderedAxisRange(box, axis) {
-    let initial = point(Number(fallback(axes[axis])) || 0);
-    let addend = point(0), multA = point(0), multC = point(1);
-    for (const op of plans[axis]) {
-      let range;
-      if (op.control !== undefined) {
-        const [lo, hi] = box[op.control];
-        const values = tables[op.control].slice(lo, hi + 1).map(row => row[axis]);
-        range = [Math.min(...values), Math.max(...values)];
-      } else {
-        range = point(op.value);
-      }
+  // Only Mult_A has variable writers. Fold the other buckets once without
+  // changing the source order of additions in the Mult_A bucket.
+  const folds = plans.map((program, axis) => {
+    let initial = initialValues[axis], addend = 0, multC = 1, prefix = 0;
+    const terms = [];
+    for (const op of program) {
       switch (op.modifier) {
-        case 'Initial': case 'final': initial = range; break;
-        case 'Addend': addend = add(addend, range); break;
-        case 'Mult_A': multA = add(multA, range); break;
-        case 'Mult_C': multC = multiply(multC, range); break;
+        case 'Initial': case 'final': initial = op.value; break;
+        case 'Addend': addend += op.value; break;
+        case 'Mult_A':
+          if (!terms.length && op.control === undefined) prefix += op.value;
+          else terms.push(op);
+          break;
+        case 'Mult_C': multC *= op.value; break;
       }
     }
-    const range = multiply(multiply(add(initial, addend), add(point(1), multA)), multC);
-    assert(range.every(Number.isFinite));
-    return range;
+    return {base: initial + addend, multC, prefix, terms};
+  });
+  function orderedAxisRange(box, axis) {
+    const {base, multC, prefix, terms} = folds[axis];
+    let lower = prefix, upper = prefix;
+    for (const {control, value} of terms) {
+      if (control === undefined) {
+        lower += value;
+        upper += value;
+      } else {
+        const [lo, hi] = box[control];
+        const range = tableRange(tables[control], axis, lo, hi, cache !== null);
+        lower += range[0];
+        upper += range[1];
+      }
+    }
+    const a = (base * (1 + lower)) * multC;
+    const b = (base * (1 + upper)) * multC;
+    assert(Number.isFinite(a) && Number.isFinite(b));
+    return [Math.min(a, b), Math.max(a, b)];
+  }
+  orderedAxisRange.minimizingPositions = (box, axis) => {
+    const {base, multC} = folds[axis];
+    if (base < 0 || multC < 0 || !orderedAxisRange(box, axis).every(Number.isFinite)) return null;
+    return tables.map(rows => rows.reduce((best, row, index) =>
+      row[axis] < rows[best][axis] ? index : best, 0));
   };
+  // Encode the entire immutable ordered program, including the native
+  // position tables and the sign of zero in the program's operands.
+  orderedAxisRange.inputKey = () => JSON.stringify([initialValues, plans, tables],
+    (_, value) => Object.is(value, -0) ? '-0' : value);
+  orderedAxisRange.programKey = () => JSON.stringify([initialValues, plans, tables.map(table => {
+    if (!tableIds.has(table)) tableIds.set(table, nextTableId++);
+    return tableIds.get(table);
+  })], (_, value) => Object.is(value, -0) ? '-0' : value);
+  return orderedAxisRange;
 }

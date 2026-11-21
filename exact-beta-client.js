@@ -1,4 +1,5 @@
-import {balancedWindow, combineBalanced, combineEndpoints, sharedBalancedSeed} from './exact-beta-pool.js?v=fee7ceeff9061201';
+import {balancedWindow, combineBalanced, combineEndpoints, sharedBalancedSeed} from './exact-beta-pool.js?v=bd5393207c0bd66b';
+import {defaultRecoilWeights} from './optimizer_weights.mjs?v=bd5393207c0bd66b';
 
 const scope = 'Grouped ordinary M4A1 Detonation with Insight 3/7 locked';
 
@@ -8,7 +9,10 @@ export function exactBetaEligible(request) {
     request.preset === 'recoil' && request.shot_count === 20 && request.time_limit_seconds === 300 &&
     fixed?.length === 1 && fixed[0].slotPath === '11' && fixed[0].itemId === '13110000091' &&
     !Object.keys(floors ?? {}).length && request.budget === undefined &&
-    request.budgets === undefined && request.effectiveness_targets === undefined;
+    request.budgets === undefined && request.effectiveness_targets === undefined &&
+    (request.weights===undefined||(request.weights&&Object.keys(request.weights).length===3&&
+      Object.entries(defaultRecoilWeights).every(([key,value])=>request.weights[key]===value))) &&
+    request.pattern_reduction_percent === undefined;
 }
 
 export async function runExactBeta(evaluate, request, {signal, onProgress} = {}) {
@@ -24,7 +28,7 @@ export async function runExactBeta(evaluate, request, {signal, onProgress} = {})
     const progress = new Map();
     const workers = [];
     function spawn(index) {
-      const worker = new Worker(new URL('./exact-beta-worker.js?v=fee7ceeff9061201', import.meta.url), {type: 'module'});
+      const worker = new Worker(new URL('./exact-beta-worker.js?v=bd5393207c0bd66b', import.meta.url), {type: 'module'});
       let pending;
       let failure;
       let stopped = false;
@@ -126,7 +130,7 @@ export async function runExactBeta(evaluate, request, {signal, onProgress} = {})
       results.push({...row, label, status: 'best_found', proof: proven ? 'Proven optimal' : 'Best found',
         score: row.gain, stats: replay.effective_stats});
     }
-    return {weapon_id: request.weapon_id, mode: request.mode, score_direction: 'higher',
+    return {weapon_id: request.weapon_id, mode: request.mode, preset:'recoil',weights:defaultRecoilWeights,score_direction: 'higher',
       proof_scope: scope, cheapest_gate_percent: result.minimumShare * 100, results,
       solver: {name: 'Exact ordinary beta', elapsed_ms: 300000 - (deadline - performance.now()),
         proven: result.proven, pending: result.pending, certificate: result.certificate,

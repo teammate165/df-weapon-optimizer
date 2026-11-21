@@ -1,4 +1,4 @@
-import {isOptic} from './optimizer_mounts.mjs?v=fee7ceeff9061201';
+import {isOptic} from './optimizer_mounts.mjs?v=bd5393207c0bd66b';
 
 const patchSockets=new Set([30,32,33,34,35]);
 const viewOnlyTargets=new Set(['ScopeCameraTuneDistance','ScopeZoomTuneRate']);
@@ -66,15 +66,79 @@ export function createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,f
   result.push(...representatives.values());stats.option_sets++;stats.options_before+=ids.length;stats.options_after+=result.length;
   if(optionCache.size>=2048)optionCache.delete(optionCache.keys().next().value);optionCache.set(cacheKey,result);return result;
  }
- function constrain(compiled){
+ function constrain(compiled,{preserveIdentities=false,preserveBundled=false}={}){
   for(const group of compiled.groups)for(const slot of group.slots){
    if(locked(slot.path))continue;
-   if(excluded(slot.path)){for(const node of slot.nodes)compiled.model.constrain(node.active,'==',0,'excluded_accessory');continue;}
-   for(const node of slot.nodes)if(bipodGripIds.has(node.item))compiled.model.constrain(node.active,'==',0,'excluded_bipod_grip');
-   if(!enabled)continue;
+   if(excluded(slot.path)){for(const node of slot.nodes)compiled.model.constrain(preserveBundled?node.equipped:node.active,'==',0,'excluded_accessory');continue;}
+   for(const node of slot.nodes)if(bipodGripIds.has(node.item))compiled.model.constrain(preserveBundled?node.equipped:node.active,'==',0,'excluded_bipod_grip');
+   if(!enabled||preserveIdentities)continue;
    const allowed=new Set(options(slot.options,slot.path));
    for(const node of slot.nodes)if(slot.options.includes(node.item)&&item(node.item).family&&!allowed.has(node.item))compiled.model.constrain(node.active,'==',0,'equivalent_choice');
   }
+ }
+ // Exact category searches can quotient concrete choices at the same price
+ // without changing any category's price window, score or handling tie-break.
+ function exactPriceRestrictions(compiled,preferredConfig=[]){
+  const restrictions=new Map();
+  if(!enabled||preset.solverPlan?.kind!=='recoil')return restrictions;
+  const preferred=new Map(preferredConfig.map(({slotPath,itemId})=>[slotPath,itemId]));
+  const contexts=new Map();
+  for(const group of compiled.groups)for(const slot of group.slots){
+   if(locked(slot.path)||excluded(slot.path))continue;
+   for(const node of slot.nodes){
+    if(!slot.options.includes(node.item))continue;
+    const player=compiled.players.get(slot.path+'|'+node.item);
+    if(typeof player?.value!=='string')continue;
+    if(!contexts.has(player))contexts.set(player,[]);
+    contexts.get(player).push(node);
+   }
+  }
+  function nativeProgram({item: itemId,path:slotPath,socketId,host:hostItemId}){
+   const mounted={itemId,slotPath,socketId:Number(socketId),hostItemId,source:'equipped'};
+   for(const id of pack.parts[itemId]?.tuneIds??[]){
+    const control=curves.c(pack,mounted,id);
+    // Native collection emits tune writes only for enabled controls. View
+    // writes cannot affect the recoil scorer, timing, or main-stat floors.
+    if(control&&control.enabled!==false&&(control.functions??[]).some(({target})=>!viewOnlyTargets.has(target)))return null;
+   }
+   const {operations}=c.collect(pack,{mounted:[mounted]},{mode,tacticalEffective:true,tunes:{},includeAmmo:false,ammoItemId:null});
+   const program=[];
+   for(const op of operations){
+    if(op.sourceKind!=='part')continue;
+    const {operation,target,modifier,value,scope}=op;
+    if(Object.keys(op).length!==7||op.sourceItemId!==itemId||operation!=='StaticAttributeModify'||scope!=='NONE'||
+       !/^(?:WeaponMainAttribute\.MainAttrValues|DisplayAttrValues)\.[2-6]$/.test(target)||
+       !['Addend','Mult_A','Mult_C'].includes(modifier)||!Number.isFinite(value))return null;
+    program.push([target,modifier,Object.is(value,-0)?'-0':value]);
+   }
+   return program;
+  }
+  const equivalents=new Map();
+  for(const [player,nodes] of contexts){
+   const {path,item:id,value,cost}=player;
+   const kind=magwellIds.has(id)?'magwell':isOptic(pack,id)?'sight':null;
+   if(!kind||sensitive.has(id)||isTactical(path,id)||bipodGripIds.has(id)||
+      pack.assembly.socketProviders[id]?.sockets?.length||pack.parts[id]?.boundAmmoByMode?.[mode])continue;
+   // Match every legal host occurrence, so a representative is available in
+   // all the same builds. Both are leaf attachments and the same slot keeps
+   // their operation programs at the same position in the native fold.
+   let programs;
+   try {
+    programs=nodes.map(node=>[node.host,node.socketId,nativeProgram(node)]);
+   } catch {
+    continue;
+   }
+   if(programs.some(row=>row[2]===null))continue;
+   programs.sort(([a],[b])=>a.localeCompare(b));
+   const key=JSON.stringify([path,kind,cost,programs]);
+   const existing=equivalents.get(key);
+   const preferredId=preferred.get(path);
+   if(!existing||id===preferredId||(existing.item!==preferredId&&id<existing.item)){
+    if(existing)restrictions.set(existing.value,0);
+    equivalents.set(key,player);
+   }else restrictions.set(value,0);
+  }
+  return restrictions;
  }
  function normalizeSights(build){
   const config=build.config.filter(row=>!excluded(row.slotPath)&&(!bipodGripIds.has(row.itemId)||locked(row.slotPath)));
@@ -158,5 +222,5 @@ export function createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,f
   }
  }
  const scoredControl=control=>!enabled||(control.functions??[]).some(f=>!viewOnlyTargets.has(f.target));
- return {enabled,item,options,constrain,normalize,normalizeSights,isPatch,isTactical,tacticalConfigs,scoredControl,getStats:()=>({...stats,families:families.size})};
+ return {enabled,item,options,constrain,exactPriceRestrictions,normalize,normalizeSights,isPatch,isTactical,tacticalConfigs,scoredControl,getStats:()=>({...stats,families:families.size})};
 }

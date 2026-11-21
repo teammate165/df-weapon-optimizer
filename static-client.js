@@ -1,4 +1,4 @@
-import {exactBetaEligible, runExactBeta} from './exact-beta-client.js?v=fee7ceeff9061201';
+import {exactBetaEligible, runExactBeta} from './exact-beta-client.js?v=bd5393207c0bd66b';
 
 ﻿// Dedicated module workers require only ordinary static hosting and messages.
 export function searchWorkerCount({hardwareConcurrency=globalThis.navigator?.hardwareConcurrency,deviceMemory=globalThis.navigator?.deviceMemory}={}){
@@ -6,12 +6,17 @@ export function searchWorkerCount({hardwareConcurrency=globalThis.navigator?.har
  return Math.max(1,Math.min(Number.isFinite(deviceMemory)&&deviceMemory<=4?2:8,cores-1));
 }
 export function createStaticClient({workerCount=searchWorkerCount(),
- exactBeta=new URLSearchParams(globalThis.location?.search).get('exact-beta')==='1'}={}) {
+ exactBeta=new URLSearchParams(globalThis.location?.search).get('exact-beta')==='1',
+ exactOrdinary=['1','staged'].includes(new URLSearchParams(globalThis.location?.search).get('exact-ordinary'))}={}) {
  const count=Math.max(1,Math.min(8,Math.floor(workerCount)||1)),pending=new Map(),workers=new Set();
  let serial=0,primary,optimizing=false,exactSearch;
  const abortError=()=>new DOMException('Search cancelled.','AbortError');
+ const retire=(worker,error)=>{
+  for(const [id,task]of pending)if(task.worker===worker){pending.delete(id);task.reject(error);}
+  worker.terminate();workers.delete(worker);if(primary===worker)primary=null;
+ };
  const spawn=()=>{
-  const worker=new Worker(new URL('./static-worker.js?v=fee7ceeff9061201',import.meta.url),{type:'module'});workers.add(worker);
+  const worker=new Worker(new URL('./static-worker.js?v=bd5393207c0bd66b',import.meta.url),{type:'module'});workers.add(worker);
   worker.onmessage=({data})=>{
    const task=pending.get(data.id);if(!task||task.worker!==worker)return;
    if(data.progress){task.onProgress?.(data.progress);return;}
@@ -19,8 +24,7 @@ export function createStaticClient({workerCount=searchWorkerCount(),
   };
   const fail=event=>{
    const error=new Error(event.message||'Calculation worker failed. Try again.');
-   for(const [id,task]of pending)if(task.worker===worker){pending.delete(id);task.reject(error);}
-   worker.terminate();workers.delete(worker);if(primary===worker)primary=null;
+   retire(worker,error);
   };
   worker.onerror=fail;worker.onmessageerror=fail;return worker;
  };
@@ -35,6 +39,11 @@ export function createStaticClient({workerCount=searchWorkerCount(),
  };
  const optimize=async(request,{signal,onProgress})=>{
   if(optimizing)throw Error('A search is already running.');
+  if(request.search_method==='coordinate_passes'){
+   optimizing=true;
+   try{return await send(main(),'optimize',request,{onProgress});}
+   finally{optimizing=false;}
+  }
   optimizing=true;const pool=[],started=performance.now();
   try{
    pool.push(main());for(let i=1;i<count;i++){try{pool.push(spawn());}catch{break;}}
@@ -62,11 +71,73 @@ export function createStaticClient({workerCount=searchWorkerCount(),
    optimizing=false;
   }
  };
+ const optimizeOrdinary=async(request,{signal,onProgress})=>{
+  if(optimizing)throw Error('A search is already running.');
+  optimizing=true;
+  const pool=[],started=performance.now();
+  const duration=(request.time_limit_seconds??30)*1000,end=Date.now()+duration;
+  const deadline=end-Math.min(1500,Math.floor(duration/10));
+  let timer;
+  try{
+   const workerCount=Math.min(4,count);
+   const plan=await send(main(),'exact-ordinary-plan',request,{workerCount});
+   signal?.throwIfAborted();
+   const staged=request.search_method==='exact_ordinary_staged';
+   const byPartition=new Map();
+   const runPass=async phase=>{
+   if(phase&&Date.now()>=deadline)return [];
+   const latest=new Map(),outputs=[];
+   const jobs=plan.map(partition=>Promise.resolve().then(()=>{
+    let worker=byPartition.get(partition.id);
+    if(!workers.has(worker)){
+     worker=spawn();
+     pool.push(worker);
+     byPartition.set(partition.id,worker);
+    }
+    return send(worker,'exact-ordinary-shard',request,{partition,deadline,phase,onProgress:p=>{
+     latest.set(partition.id,p);
+     const events=[...latest.values()];
+     const totals=Object.fromEntries(['evaluated','tree_nodes','pruned_branches','calibration_evaluations'].map(key=>
+      [key,events.reduce((sum,event)=>sum+(event[key]??0),0)]));
+     onProgress?.({...p,...totals,workers:pool.length,elapsed_ms:performance.now()-started});
+    }});
+   }).then(result=>outputs.push(result)));
+   const settled=await Promise.race([Promise.allSettled(jobs),new Promise(resolve=>{
+    timer=setTimeout(()=>resolve(null),Math.max(0,end-Date.now()));
+   })]);
+   clearTimeout(timer);
+   signal?.throwIfAborted();
+   if(settled&&!outputs.length&&(!phase||phase.kind==='maximum'))throw settled[0]?.reason??Error('Exact ordinary search had no partitions.');
+   if(!settled)for(const worker of pool)if(workers.has(worker))retire(worker,Error('Exact ordinary worker reached its deadline.'));
+   return outputs;
+   };
+   let result;
+   if(staged){
+    const reports=[];
+    let next=await send(main(),'exact-ordinary-advance',request,{plan,reports});
+    while(next.phase){
+     reports.push(await runPass(next.phase));
+     next=await send(main(),'exact-ordinary-advance',request,{plan,reports});
+    }
+    result=next.result;
+   }else{
+    const outputs=await runPass();
+    result=await send(main(),'exact-ordinary-merge',request,{plan,outputs});
+   }
+   result.solver.elapsed_ms=performance.now()-started;
+   return result;
+  }finally{
+   clearTimeout(timer);
+   for(const worker of pool)if(workers.has(worker))retire(worker,abortError());
+   optimizing=false;
+  }
+ };
  const client=async(action,request,{signal,onProgress}={})=>{
   let fallbackDeadline;
   if(action==='dispose'){exactSearch?.abort();abort();return;}
   if(action==='optimize'&&exactSearch)throw Error('A search is already running.');
-  if(action==='optimize'&&exactBeta&&request.time_limit_seconds===300){
+  const sharedExact=action==='optimize'&&exactOrdinary&&['exact_ordinary','exact_ordinary_staged'].includes(request.search_method);
+  if(action==='optimize'&&!sharedExact&&request.search_method!=='coordinate_passes'&&exactBeta&&request.time_limit_seconds===300){
    fallbackDeadline=performance.now()+300000;
    if(exactBetaEligible(request)){
     if(optimizing)throw Error('A search is already running.');
@@ -105,9 +176,11 @@ export function createStaticClient({workerCount=searchWorkerCount(),
    signal=signal?AbortSignal.any([signal,deadlineSignal]):deadlineSignal;
   }
   signal?.throwIfAborted();signal?.addEventListener('abort',abort,{once:true});
-  try{return action==='optimize'?await optimize(request,{signal,onProgress}):await send(main(),action,request,{onProgress});}
+  try{return sharedExact?await optimizeOrdinary(request,{signal,onProgress}):
+   action==='optimize'?await optimize(request,{signal,onProgress}):await send(main(),action,request,{onProgress});}
   finally{signal?.removeEventListener('abort',abort);}
  };
  client.exactBeta=exactBeta;
+ client.exactOrdinary=exactOrdinary;
  return client;
 }

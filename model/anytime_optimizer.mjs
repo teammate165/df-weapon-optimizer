@@ -1,15 +1,15 @@
-import {presets} from './optimizer_presets.mjs?v=fee7ceeff9061201';
-import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=fee7ceeff9061201';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=fee7ceeff9061201';
-import {completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=fee7ceeff9061201';
-import {configKey,tacticalChoice} from './exhaustive_attachment_gate.mjs?v=fee7ceeff9061201';
-import {compileMounts} from './scip_mount_model.mjs?v=fee7ceeff9061201';
-import {createMountSearch} from './mount_search.mjs?v=fee7ceeff9061201';
-import {createSharedStatEvaluator} from './shared_stats.mjs?v=fee7ceeff9061201';
-import {createBranchScoreBound} from './branch_score_bounds.mjs?v=fee7ceeff9061201';
-import {boundCannotBeat} from './scoring_bounds.mjs?v=fee7ceeff9061201';
-import {timedRecoil} from './timed_recoil.mjs?v=fee7ceeff9061201';
-import {createChoiceGroups} from './choice_groups.mjs?v=fee7ceeff9061201';
+import {presets} from './optimizer_presets.mjs?v=bd5393207c0bd66b';
+import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=bd5393207c0bd66b';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=bd5393207c0bd66b';
+import {completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=bd5393207c0bd66b';
+import {configKey,tacticalChoice} from './exhaustive_attachment_gate.mjs?v=bd5393207c0bd66b';
+import {compileMounts} from './scip_mount_model.mjs?v=bd5393207c0bd66b';
+import {createMountSearch} from './mount_search.mjs?v=bd5393207c0bd66b';
+import {createSharedStatEvaluator} from './shared_stats.mjs?v=bd5393207c0bd66b';
+import {createBranchScoreBound} from './branch_score_bounds.mjs?v=bd5393207c0bd66b';
+import {boundCannotBeat} from './scoring_bounds.mjs?v=bd5393207c0bd66b';
+import {timedRecoil} from './timed_recoil.mjs?v=bd5393207c0bd66b';
+import {createChoiceGroups} from './choice_groups.mjs?v=bd5393207c0bd66b';
 
 export const shortlistLimits=Object.freeze({ordinary:256,tactical_per_base:16,complete:512});
 
@@ -44,7 +44,7 @@ export class Shortlist {
 
 async function loadRuntime(directory){
  const [{pathToFileURL},path]=await Promise.all([import('node:url'),import('node:path')]);
- const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=fee7ceeff9061201'))),kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=fee7ceeff9061201'))),{t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=fee7ceeff9061201')));
+ const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=bd5393207c0bd66b'))),kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=bd5393207c0bd66b'))),{t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=bd5393207c0bd66b')));
  return {curves,kernel,calculate};
 }
 
@@ -63,7 +63,10 @@ export async function generateAnytime(input,runtime){
  if(initial.mounted.some(n=>hidden.has(n.itemId)))throw Error('Fixed setup contains a hidden Detonation item');
  const preset=presets[settings.preset].create({pack,request:r,...modules,mode,resolve});
  if(preset.objectives&&!preset.allowTargets&&r.effectiveness_targets!==undefined)throw Error('This preset does not support custom effectiveness targets');
- const better=comparator(settings.minimums),compare=(a,b)=>better(a,b)?-1:better(b,a)?1:a.key.localeCompare(b.key);
+ const patternConstraint=createPatternConstraint(preset,resolve,r,settings.patternReduction);
+ const patternCap=patternConstraint?.maximum??null;
+ const eligible=row=>shortfall(row.stats,settings.minimums)<=1e-8&&(patternCap===null||row.components.pattern<=patternCap);
+ const better=comparator(settings.minimums,null,patternCap),compare=(a,b)=>better(a,b)?-1:better(b,a)?1:a.key.localeCompare(b.key);
  let starts=input.solver_starts;
  if(!starts&&typeof process!=='undefined'&&process.versions?.node){try{const fs=await import('node:fs/promises');starts=JSON.parse(await fs.readFile(new URL('../data/solver_starts/'+pack.weaponId+'.json',import.meta.url),'utf8'));}catch{}}
  const variant=Number.isInteger(input.search_variant)&&input.search_variant>0?input.search_variant:0;
@@ -103,7 +106,7 @@ export async function generateAnytime(input,runtime){
     if(cache.size>=2048)cache.delete(cache.keys().next().value);cache.set(cacheKey,row);d.cache_peak=Math.max(d.cache_peak,cache.size);return row;
    }catch(error){if(error===stop||error.name==='AbortError')throw error;d.source_errors++;return null;}
   };
-  const keepComplete=row=>{if(row&&shortfall(row.stats,settings.minimums)<=1e-8)complete.add(row);};
+  const keepComplete=row=>{if(row&&eligible(row))complete.add(row);};
   const locked=path=>fixed.some(f=>f.slotPath===path||f.slotPath.startsWith(path+'/'));
   const strip=config=>config.filter(c=>!tactical(c.slotPath,c.itemId)||fixed.some(f=>f.slotPath===c.slotPath&&f.itemId===c.itemId));
   const keepOrdinary=config=>{const row=evaluate(strip(config));if(row){ordinary.add(row);d.ordinary_evaluated++;for(const c of row.config){const key=c.slotPath+'|'+c.itemId;hints.set(key,Math.min(hints.get(key)??Infinity,row.score));}}return row;};
@@ -144,7 +147,7 @@ export async function generateAnytime(input,runtime){
     groups.constrain(compiled);
     branch=createBranchScoreBound({pack,request,compiled,...modules,preset});const search=createMountSearch(compiled);
     tree=search.enumerate(restrictions,()=>{d.tree_nodes++;if(d.tree_nodes%32===0){check(phaseDeadline);progress();}},{priority:(path,item)=>variant?searchHash(variant+':'+path+':'+item):item===null?ordinary.best()?.score??100:hints.get(path+'|'+item)??1000,prune:context=>{
-     const cutoff=ordinary.cutoff();if(!branch||!cutoff||context.remaining<2||context.remaining>4||shortfall(cutoff.stats,settings.minimums)>1e-8||branchTime>.05*(performance.now()-sliceStart))return false;
+     const cutoff=ordinary.cutoff();if(!branch||!cutoff||context.remaining<2||context.remaining>4||!eligible(cutoff)||branchTime>.05*(performance.now()-sliceStart))return false;
      const begin=performance.now(),lower=branch.lower(context);branchTime+=performance.now()-begin;
      const prune=lower!==null&&boundCannotBeat(lower,cutoff.stats,cutoff,settings.minimums);if(prune)d.pruned_branches++;return prune;
     }});
@@ -212,7 +215,12 @@ export async function generateAnytime(input,runtime){
    return [{path:node.slotPath,...controlCache.get(key)}];
   }));
   const calibrate=()=>{
-   const queue=complete.rows();let round=0;
+   const queue=complete.rows();
+   if(patternCap!==null){
+    const keys=new Set(queue.map(row=>row.key));
+    queue.push(...ordinary.rows().filter(row=>!keys.has(row.key)).slice(0,32));
+   }
+   let round=0;
    do{
     let improved=false;
     for(const seed of queue){
@@ -253,14 +261,14 @@ export async function generateAnytime(input,runtime){
  }
  deduplicateResults(results,settings);
  const baseline=kernel.u(pack,resolve([]),{mode,tacticalEffective:true,tunes:{}});solver.elapsed_ms=performance.now()-started;
- const output={weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:settings.automatic?(preset.objectiveNames?.length>1?'lexicographic':'weighted'):'custom_targets',objective_names:preset.objectiveNames,minimum_stats:settings.minimums,baseline:preset.baseline,baseline_stats:Object.fromEntries(Object.entries(statIds).map(([name,id])=>[name,baseline.numeric.mainAttr[id]])),baseline_recoil_path:timedRecoil(pack,resolve([]),{},r,modules),baseline_score:0,baseline_loss:100,score_direction:'higher',weights:preset.weights,tier,cheapest_gate_percent:mode==='mp'?null:cheapestGate,experimental:true,method:'Anytime bounded top-K ordinary and tactical search, source-calculator calibration with feedback',score_model:presets[settings.preset].description,limitations:[...preset.limitations,'Time-limited best-found search. Legal combinations can remain unexplored; shortlists are not proven global top-K. The time budget covers attachment search, tactical search and calibration. Calibration uses legal-position source-scored coordinate refinement, not a global calibration proof.'],attachment_gate:{fraction:null,complete:false,screening:'anytime_top_k',limits:{...shortlistLimits},budgets:reports,global_optimality:false},solver,provenance:input.provenance,results};
+ const output={...(patternConstraint?{pattern_constraint:patternConstraint}:{}),weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:settings.automatic?(preset.objectiveNames?.length>1?'lexicographic':'weighted'):'custom_targets',objective_names:preset.objectiveNames,minimum_stats:settings.minimums,baseline:preset.baseline,baseline_stats:Object.fromEntries(Object.entries(statIds).map(([name,id])=>[name,baseline.numeric.mainAttr[id]])),baseline_recoil_path:timedRecoil(pack,resolve([]),{},r,modules),baseline_score:0,baseline_loss:100,score_direction:'higher',weights:preset.weights,tier,cheapest_gate_percent:mode==='mp'?null:cheapestGate,experimental:true,method:'Anytime bounded top-K ordinary and tactical search, source-calculator calibration with feedback',score_model:presets[settings.preset].description,limitations:[...preset.limitations,'Time-limited best-found search. Legal combinations can remain unexplored; shortlists are not proven global top-K. The time budget covers attachment search, tactical search and calibration. Calibration uses legal-position source-scored coordinate refinement, not a global calibration proof.'],attachment_gate:{fraction:null,complete:false,screening:'anytime_top_k',limits:{...shortlistLimits},budgets:reports,global_optimality:false},solver,provenance:input.provenance,results};
  if(input.collect_candidates)output.search_candidates=candidatePools;
  return output;
 }
 
 function publishAnytimeRows(rows,{pack,r,modules,mode,settings,budget,budgetIndex,budgetCount,resolve}){
  const results=[],strongest=rows[0],publish=(row,label,target=null)=>{
-   if(!row){results.push({label,budget,status:'not_found',reason:'No feasible build found within the search budget. Infeasibility has not been proven.'});return;}
+   if(!row){results.push({label,budget,status:'not_found',reason:settings.patternReduction===undefined?'No feasible build found within the search budget. Infeasibility has not been proven.':'No build meeting the pattern reduction was found within the search budget.'});return;}
    const {build:storedBuild,key,...rest}=row,build=storedBuild??resolve(row.config),path=timedRecoil(pack,build,row.tunes,r,modules);
    results.push({...rest,label,budget,status:'best_found',loss:row.score,score:100-row.score,improvement_percent:100-row.score,effectiveness_percent:strongest&&100-strongest.score>1e-8?100*(100-row.score)/(100-strongest.score):100,target_effectiveness_percent:target,category_note:null,mounted:build.mounted,recoil_path:path,converged:false});
   };

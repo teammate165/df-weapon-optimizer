@@ -1,5 +1,5 @@
 // Presets own objective semantics; the search owns mounting, tuning and costs.
-import {presets} from './optimizer_presets.mjs?v=fee7ceeff9061201';
+import {presets} from './optimizer_presets.mjs?v=bd5393207c0bd66b';
 export const statIds = {control:'3', handling:'5', stability:'6', accuracy:'4'};
 export function policy(request) {
   const preset=request.preset??'recoil';
@@ -9,9 +9,18 @@ export function policy(request) {
   const automatic=request.effectiveness_targets===undefined;
   const targets=request.effectiveness_targets??[50,60,70,80,90];
   if(!Array.isArray(targets)||targets.length>8||targets.some(v=>!Number.isFinite(v)||v<=0||v>100))throw Error('effectiveness_targets must contain up to eight percentages in (0,100]');
-  return {preset,minimums,automatic,targets:[...new Set(targets)].sort((a,b)=>a-b)};
+  const patternReduction=request.pattern_reduction_percent;
+  if(patternReduction!==undefined&&(preset!=='recoil'||!Number.isFinite(patternReduction)||patternReduction<=0||patternReduction>=100))throw Error('pattern_reduction_percent requires Lowest Recoil and a percentage between 0 and 100');
+  return {preset,minimums,patternReduction,automatic,targets:[...new Set(targets)].sort((a,b)=>a-b)};
 }
 export const shortfall=(stats,minimums)=>Object.entries(minimums).reduce((sum,[key,min])=>sum+Math.max(0,min-stats[key]),0);
+export function createPatternConstraint(preset, resolve, request, reductionPercent) {
+  if (reductionPercent === undefined) return null;
+  const raw = preset.raw(resolve(request.config ?? []), request.tunes ?? {});
+  const reference = raw.pattern;
+  return {reference, maximum: reference * (1 - reductionPercent / 100),
+    reduction_percent: reductionPercent, pattern_model: raw.pattern_model};
+}
 // Floating-point equality only: no gameplay trade-off tolerance.
 export function compareObjectives(a,b) {
   const av=a.objectives??[a.score],bv=b.objectives??[b.score];
@@ -21,9 +30,13 @@ export function compareObjectives(a,b) {
   }
   return 0;
 }
-export function comparator(minimums, targetScore=null) {
+export function comparator(minimums, targetScore=null, patternCap=null) {
   const violation=c=>shortfall(c.stats,minimums)+(targetScore===null?0:Math.max(0,c.score-targetScore));
   return (a,b)=>{
+    if(patternCap!==null){
+      const ap=Math.max(0,a.components.pattern-patternCap),bp=Math.max(0,b.components.pattern-patternCap);
+      if(ap!==bp)return ap<bp;
+    }
     const av=violation(a),bv=violation(b);
     if(Math.abs(av-bv)>1e-8)return av<bv;
     if(targetScore!==null && av<1e-8 && a.cost!==b.cost)return a.cost<b.cost;

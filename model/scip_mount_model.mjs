@@ -1,5 +1,5 @@
-import {LinearModel} from './scip_linear_model.mjs?v=fee7ceeff9061201';
-import {riserIds,isOptic} from './optimizer_mounts.mjs?v=fee7ceeff9061201';
+import {LinearModel} from './scip_linear_model.mjs?v=bd5393207c0bd66b';
+import {riserIds,isOptic} from './optimizer_mounts.mjs?v=bd5393207c0bd66b';
 
 // Symbolically unrolls the source resolver's mounted-item fixed point, rather
 // than assuming a static list of independent sockets.

@@ -126,4 +126,3 @@ export function searchCategories(root, {budget, expand, clock = () => performanc
         affordable.every(node => efficiencyBound(node) < upperEfficiency || node.upperGain <= balanced.gain)),
     }};
 }
-

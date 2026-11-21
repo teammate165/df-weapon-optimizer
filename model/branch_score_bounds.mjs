@@ -1,6 +1,6 @@
-import {timedRecoil} from './timed_recoil.mjs?v=fee7ceeff9061201';
-import {foldedAddGroups,foldedProductGroups,nativeCurveRange} from './branch_native_ranges.mjs?v=fee7ceeff9061201';
-import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=fee7ceeff9061201';
+import {timedRecoil} from './timed_recoil.mjs?v=bd5393207c0bd66b';
+import {createFiniteKickMinimum,foldedAddGroups,foldedProductGroups,nativeCurveRange,sharedKickFactors} from './branch_native_ranges.mjs?v=bd5393207c0bd66b';
+import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=bd5393207c0bd66b';
 
 // Outward-enclosed real arithmetic, including an allowance for native fold
 // regrouping. Unknown/nonfinite source inputs decline pruning altogether.
@@ -40,6 +40,20 @@ function curveRange(curve,input,curves){
  return widen([Math.min(...values),Math.max(...values)]);
 }
 
+function nativeTimingVariantOrders(paths) {
+ const variants=[];
+ function visit(order,occupied,mask){
+  if(variants.length>=64)throw Error('Too many native timing orders');
+  variants.push({order,mask});
+  for(const [index,path] of paths.entries()){
+   if(occupied.has(path))continue;
+   visit([...order,index],new Set([...occupied,path]),mask|1<<index);
+  }
+ }
+ visit([],new Set(),0);
+ return variants;
+}
+
 // Bounds the native binary64 execution, rather than its real-arithmetic
 // approximation. Endpoints use the same ordered operations as the source.
 export function createNativeChartInterval(profile, times) {
@@ -68,17 +82,19 @@ export function createNativeChartInterval(profile, times) {
  }
  const xCoefficients=coefficients('horizontal'),yCoefficients=coefficients('vertical');
  const round=value=>Math.round((value+2**-52)*1e5)/1e5;
- function positions(coefficients,range,vertical){
+ const xLower=new Float64Array(count),xUpper=new Float64Array(count);
+ const yLower=new Float64Array(count),yUpper=new Float64Array(count);
+ function positions(coefficients,range,vertical,low,high){
   let lo=0,hi=0;
-  return coefficients.map(coefficient=>{
+  for(let i=0;i<count;i++){
+   const coefficient=coefficients[i];
    const a=coefficient*range[0]/10,b=coefficient*range[1]/10;
    const lower=Math.min(a,b),upper=Math.max(a,b);
    lo=vertical?lo-upper:lo+lower;
    hi=vertical?hi-lower:hi+upper;
-   const result=[round(lo),round(hi)];
-   if(!Number.isFinite(lo)||!Number.isFinite(hi)||!result.every(Number.isFinite))throw Error('Nonfinite chart enclosure');
-   return result;
-  });
+   low[i]=round(lo);high[i]=round(hi);
+   if(!Number.isFinite(low[i])||!Number.isFinite(high[i]))throw Error('Nonfinite chart enclosure');
+  }
  }
  const first=times[0],last=times.at(-1)-windowMs,starts=new Set([first,last]);
  for(const time of times)for(const start of [time,time-windowMs])if(start>=first&&start<=last)starts.add(start);
@@ -87,48 +103,108 @@ export function createNativeChartInterval(profile, times) {
   return {i,offset:t-times[i],duration:times[i+1]-times[i]};
  }
  const windows=[...starts].map(time=>[locate(time),locate(time+windowMs)]);
- function interpolate(points,{i,offset,duration}){
-  const a=points[i],b=points[i+1];
-  return [a[0]+(b[0]-a[1])*offset/duration,a[1]+(b[1]-a[0])*offset/duration];
+ // Each unrounded point is linear in the same multiplier. Keep that
+ // multiplier shared through both interpolations and the subtraction.
+ let coefficientMass=0,cumulative=0;
+ const slopes=xCoefficients.map(coefficient=>{
+  coefficientMass+=Math.abs(coefficient);
+  cumulative+=coefficient;
+  return cumulative/10;
+ });
+ const windowSlope=({i,offset,duration})=>
+  slopes[i]+(slopes[i+1]-slopes[i])*offset/duration;
+ const peakSlope=Math.max(...windows.map(([start,end])=>
+  Math.abs(windowSlope(end)-windowSlope(start))));
+ const correlatedSpeedSupported=count<=64&&Number.isFinite(coefficientMass)&&Number.isFinite(peakSlope)&&
+  windows.every(window=>window.every(({offset,duration})=>
+   duration>=1&&duration<=1e12&&offset>=0&&offset<=duration));
+ let verticalMass=0,verticalSum=0;
+ const verticalSlopes=yCoefficients.map(coefficient=>{
+  verticalMass+=Math.abs(coefficient);
+  verticalSum-=coefficient;
+  return verticalSum/10;
+ });
+ const verticalSlopeSpan=Math.max(...verticalSlopes)-Math.min(...verticalSlopes);
+ function correlatedSpeed(horizontal){
+  const magnitude=Math.max(Math.abs(horizontal[0]),Math.abs(horizontal[1]));
+  const scale=Math.max(1,coefficientMass)*magnitude;
+  if(!correlatedSpeedSupported||!Number.isFinite(scale)||scale>1e12)return 0;
+  // Each endpoint contributes up to half a five-decimal unit. The
+  // remaining allowance covers both ordered sums (up to 64 terms),
+  // rounding arithmetic, both interpolations, subtraction and division.
+  const error=4096*Number.EPSILON*Math.max(1,scale);
+  return Math.max(0,(peakSlope*absoluteMin(horizontal)-1e-5-error)/(windowMs/1000));
  }
- return {lower(horizontal,vertical){
-  const xs=positions(xCoefficients,horizontal,false),ys=positions(yCoefficients,vertical,true);
-  const distance=Math.max(...xs.map(absoluteMin));
-  const excursion=Math.max(0,Math.max(...ys.map(p=>p[0]))-Math.min(...ys.map(p=>p[1])));
-  let speed=0;
-  for(const [start,end] of windows){
-   const a=interpolate(xs,start),b=interpolate(xs,end);
-   speed=Math.max(speed,absoluteMin([b[0]-a[1],b[1]-a[0]])/(windowMs/1000));
+ function interpolateLower({i,offset,duration}){
+  return xLower[i]+(xLower[i+1]-xUpper[i])*offset/duration;
+ }
+ function interpolateUpper({i,offset,duration}){
+  return xUpper[i]+(xUpper[i+1]-xLower[i])*offset/duration;
+ }
+ function verticalLower(vertical){
+  positions(yCoefficients,vertical,true,yLower,yUpper);
+  let verticalMax=-Infinity,verticalMin=Infinity;
+  for(let i=0;i<count;i++){
+   verticalMax=Math.max(verticalMax,yLower[i]);verticalMin=Math.min(verticalMin,yUpper[i]);
   }
-  return {speed,pattern:excursion+horizontalSpeedMultiplier(speed)*distance};
+  const independent=Math.max(0,verticalMax-verticalMin);
+  if(vertical[0]===vertical[1]||count>64)return independent;
+  const scale=Math.max(1,verticalMass)*Math.max(Math.abs(vertical[0]),Math.abs(vertical[1]));
+  if(!Number.isFinite(scale)||scale>1e12||!Number.isFinite(verticalSlopeSpan))return independent;
+  const error=1e-5+4096*Number.EPSILON*Math.max(1,scale);
+  return Math.max(independent,verticalSlopeSpan*absoluteMin(vertical)-error);
+ }
+ function horizontalLower(horizontal){
+  positions(xCoefficients,horizontal,false,xLower,xUpper);
+  let distance=0;
+  for(let i=0;i<count;i++)distance=Math.max(distance,absoluteMin([xLower[i],xUpper[i]]));
+  let speed=horizontal[0]===horizontal[1]?0:correlatedSpeed(horizontal);
+  for(const [start,end] of windows){
+   const lower=interpolateLower(end)-interpolateUpper(start);
+   const upper=interpolateUpper(end)-interpolateLower(start);
+   speed=Math.max(speed,absoluteMin([lower,upper])/(windowMs/1000));
+  }
+  return {speed,weightedDistance:horizontalSpeedMultiplier(speed)*distance};
+ }
+ return {horizontalLower,verticalLower,lower(horizontal,vertical){
+  const {speed,weightedDistance}=horizontalLower(horizontal);
+  return {speed,pattern:verticalLower(vertical)+weightedDistance};
  }};
 }
 
-export function createBranchScoreBound({pack,request,compiled,kernel,curves,calculate,preset,calibrationRanges=null,nativeChartIntervals=false,nativeStatIntervals=false,nativeContexts=false,portableScore=false,variableNormLower=null,maxEntries=2048,maxKeyChars=256*1024,refreshCache=false}){
+export function createBranchScoreBound({pack,request,compiled,kernel,curves,calculate,preset,calibrationRanges=null,kickCalibrationTable=null,nativeChartIntervals=false,nativeStatIntervals=false,discreteStatCurves=false,nativeContexts=false,portableScore=false,variableNormLower=null,patternOnly=false,nativeTimingOrders=false,maxEntries=2048,maxKeyChars=256*1024,refreshCache=false,onUnsupported=null}){
  const certificate=preset.branchScoring,c=kernel.u?.screeningStateContract,chart=calculate?.screeningChartContract,plan=preset.solverPlan,mode=request.mode;
  if(c?.version!==1||c.evaluate!==kernel.u||certificate?.raw!==preset.raw||certificate?.score!==preset.score||certificate?.objectives!==preset.objectives||request.firing==='spam'||!['agility','recoil'].includes(plan?.kind))return null;
  if(preset.normVersion&&preset.normVersion!=='native-math-hypot'&&!portableScore)return null;
  if(plan.kind==='recoil'&&plan.chartPattern&&(chart?.calculate!==calculate||chart.version!==1||!['s','r','n','t','d','u'].every(k=>chart.kernel?.[k]===kernel[k])))return null;
+ if(patternOnly&&(!plan.chartPattern||!nativeChartIntervals||!nativeStatIntervals||!nativeContexts))return null;
  const stats={supported:true,evaluations:0,cache_hits:0,declined:0,entries_peak:0,key_chars_peak:0,saturated:false};
+ if(discreteStatCurves)stats.discrete_norms=0;
  for(const n of [maxEntries,maxKeyChars])if(!Number.isSafeInteger(n)||n<0)throw Error('Branch cache limits must be nonnegative safe integers');
  const cache=new Map();let chars=0;
  if(refreshCache)stats.evictions=0;
  try{
   const opts={mode,tacticalEffective:true,tunes:{},includeAmmo:false,ammoItemId:null},base=c.collect(pack,{mounted:[]},opts),baseNumeric=c.numeric(pack,base.operations),baseRefs=c.references(pack,mode,base.operations,null),baseTargets=c.targets(pack,baseRefs);
-  if(portableScore&&(!nativeContexts||!nativeStatIntervals||plan.kind!=='recoil'))
+  if(portableScore&&(!nativeStatIntervals||plan.kind!=='recoil'||plan.chartPattern&&!nativeContexts))
    throw Error('Portable score requires guarded native recoil enclosures');
   if(nativeContexts&&(!nativeChartIntervals||!pack.weapon.fireControl.sdkTiming||request.ammoItemId))
    throw Error('Unsupported native timing contract');
   if(base.operations.some(op=>op.scope==='TacticalEffective'))throw Error('Conditional weapon operations');
-  const scoreTargets=plan.kind==='recoil'?targets.slice(0,6):targets,wanted=new Set(scoreTargets),items=new Map(),paths=new Map(),profiles=new Set([baseRefs.adsRecoilProfileId]),spreads=new Set([baseRefs.waistSpreadProfileId]);
-  const mappings=[];
+  const scoreTargets=patternOnly?targets.slice(0,2):plan.kind==='recoil'?targets.slice(0,6):targets,wanted=new Set(scoreTargets),items=new Map(),paths=new Map(),profiles=new Set([baseRefs.adsRecoilProfileId]),spreads=new Set([baseRefs.waistSpreadProfileId]);
+  const mappings=[],mappingCounts=new Map();
   const aliasFanout=Math.max(3,...main.map(id=>((pack.attributeRules?.weaponOverrides?.[id]||pack.attributeRules?.defaults?.[id])?.directRuleTargets?.length??0)+3));
   if(aliasFanout>64)throw Error('Excessive numeric alias fanout');
   for(const id of main)for(const map of (pack.attributeRules?.weaponOverrides?.[id]||pack.attributeRules?.defaults?.[id])?.curveMappings??[]){
    if(fireTarget.test(map.target)||(nativeContexts&&nativeTimingTargets.has(map.target)))throw Error('Stat-dependent firing schedule');
    if(scoreTargets.includes(map.target)&&pack.curves?.[map.curveIds?.[mode]]){
     if(nativeStatIntervals&&!['DeltaMapping','DeltaMappingThenScale'].includes(map.mappingType))throw Error('Unproved native mapping');
-    mappings.push({id,map,curve:pack.curves[map.curveIds[mode]]});wanted.add(stat(id));
+    const curve=pack.curves[map.curveIds[mode]];
+    const delta=map.mappingType.startsWith('Delta'),neutral=map.mappingType==='DeltaMapping'?0:1;
+    const reference=delta&&!pack.weapon.attributes.independentCurve?[...curve.points??[]]
+     .filter(p=>Math.abs(p.outputValue-neutral)<1e-9)
+     .sort((a,b)=>Math.abs(a.inputValue)-Math.abs(b.inputValue))[0]?.inputValue||0:0;
+    mappings.push({id,map,curve,delta,reference,values:new Map()});wanted.add(stat(id));
+    mappingCounts.set(map.target,(mappingCounts.get(map.target)??0)+1);
    }
   }
   function rawBuckets(operations){
@@ -155,6 +231,22 @@ export function createBranchScoreBound({pack,request,compiled,kernel,curves,calc
    return buckets;
   }
   const baseAtoms=nativeStatIntervals?rawBuckets(base.operations):null;
+  const kickAxes=targets.slice(4,6);
+  const kickMappings=mappings.filter(({map})=>kickAxes.includes(map.target));
+  const [kickMap, pairedKickMap]=kickMappings;
+  const behavior=pack.handling.weaponBehaviorProfiles?.[pack.weapon.references.weaponBehaviorProfileId];
+  const fixedKickBase=kickCalibrationTable&&portableScore&&discreteStatCurves&&sharedKickFactors(baseAtoms);
+  const hasKickAlias=fixedKickBase&&['defaults','weaponOverrides'].some(group=>
+   Object.values(pack.attributeRules?.[group]??{}).some(rule=>
+    rule?.directRuleTargets?.some(target=>kickAxes.includes(target))));
+  const finiteKick=fixedKickBase&&fixedKickBase.length===0&&c.policy==='strongest_per_stat_v1'&&
+   kickMappings.length===2&&kickMap.id===pairedKickMap.id&&kickMap.curve===pairedKickMap.curve&&
+   kickMap.reference===pairedKickMap.reference&&kickMap.map.mappingType==='DeltaMappingThenScale'&&
+   pairedKickMap.map.mappingType==='DeltaMappingThenScale'&&
+   kickAxes.every(axis=>mappingCounts.get(axis)===1)&&!hasKickAlias
+   ?createFiniteKickMinimum(preset.norm??Math.hypot,behavior?.kickScales?.randomKickScale??1,
+     behavior?.kickScales?.springKickScale??1):null;
+  if(finiteKick)stats.finite_kick_bounds=0;
   // With the pinned SDK scorer, mounts can affect timing through these
   // numeric targets or source special-fire overrides. Test aliases through
   // the native one-operation fold rather than inspecting raw names alone.
@@ -186,7 +278,8 @@ export function createBranchScoreBound({pack,request,compiled,kernel,curves,calc
     const atoms=nativeStatIntervals?rawBuckets(operations):null;
     const identity=JSON.stringify(nativeStatIntervals?[...atoms]:[...buckets]);
     if(!semantics.has(identity))semantics.set(identity,semantics.size+1);
-    data={operations,buckets,atoms,semantic:semantics.get(identity)};items.set(node.item,data);
+    data={operations,buckets,atoms,semantic:semantics.get(identity),
+     kickFactors:finiteKick?sharedKickFactors(atoms):undefined};items.set(node.item,data);
     if(nativeContexts){
      if(pack.combat?.specialFire?.itemOverrides?.[node.item])throw Error('Special-fire override requires separate coverage');
      if(operations.some(writesTiming))featureItems.add(node.item);
@@ -195,6 +288,7 @@ export function createBranchScoreBound({pack,request,compiled,kernel,curves,calc
     }else if(operations.some(o=>fireTarget.test(o.target)))featureItems.add(node.item);
    }
    const ranges=calibrationRanges?.(node);
+   const kickTable=finiteKick?kickCalibrationTable(node):undefined;
    if(ranges?.size){
     const buckets=new Map(data.buckets);
     for(const [target,range] of ranges){
@@ -207,9 +301,10 @@ export function createBranchScoreBound({pack,request,compiled,kernel,curves,calc
      const old=atoms.get(target)??{addend:[],multA:[],multC:[],initial:[]};
      atoms.set(target,{...old,multA:[...old.multA,range]});
     }
-    const identity=JSON.stringify(nativeStatIntervals?[...atoms]:[...buckets]);
+    const identity=JSON.stringify([nativeStatIntervals?[...atoms]:[...buckets],
+     kickTable===null?'unsupported':kickTable?.id??null, data.kickFactors??null]);
     if(!semantics.has(identity))semantics.set(identity,semantics.size+1);
-    data={...data,buckets,atoms,semantic:semantics.get(identity)};
+    data={...data,buckets,atoms,semantic:semantics.get(identity),kickTable};
    }
    for(const op of data.operations){
     if(op.sourceTuneId)throw Error('Unexpected tuning in branch bounds');
@@ -222,23 +317,29 @@ export function createBranchScoreBound({pack,request,compiled,kernel,curves,calc
    featureItems.add(item);for(const id of o.requiresItemIds??[])if(items.has(id))featureItems.add(id);
   }
   if(Object.keys(pack.combat?.specialFire?.explicitlyUnmodeled?.items??{}).some(id=>items.has(id)))throw Error('Unmodeled firing state');
-  const features=[...featureItems];if(nativeContexts&&features.length>1)throw Error('Multiple timing writers need an ordering proof');
+  const features=[...featureItems];
+  const featurePaths=features.map(id=>new Set(compiled.nodes.filter(n=>n.item===id&&n.active!==0).map(n=>n.path)));
+  if(featurePaths.some(paths=>paths.size!==1))throw Error('Repeated firing-feature occurrences');
+  if(nativeContexts&&features.length>1&&!nativeTimingOrders&&!patternOnly)throw Error('Multiple timing writers need an ordering proof');
   if(features.length>6)throw Error('Too many firing states');
-  if(features.some(id=>new Set(compiled.nodes.filter(n=>n.item===id&&n.active!==0).map(n=>n.path)).size>1))throw Error('Repeated firing-feature occurrences');
+  // All native event orders are included for co-mountable timing writers.
+  // Choices at a single compiled socket path cannot be active together.
+  const timingVariants=patternOnly||nativeTimingOrders?nativeTimingVariantOrders(featurePaths.map(paths=>[...paths][0])):
+   Array.from({length:2**features.length},(_,mask)=>({mask,order:features.flatMap((_,index)=>mask&(1<<index)?[index]:[])}));
   const timelines=[];
-  if(plan.kind==='recoil'&&plan.chartPattern)for(let mask=0;mask<2**features.length;mask++){
+  if(plan.kind==='recoil'&&plan.chartPattern)for(const {order} of timingVariants){
    if(nativeContexts){
-    const mounted=features.flatMap((itemId,i)=>{
-     if(!(mask&(1<<i)))return [];
+    const mounted=order.map(index=>{
+     const itemId=features[index];
      const node=compiled.nodes.find(node=>node.item===itemId&&node.active!==0);
-     return [{itemId,slotPath:node.path,socketId:Number(node.socketId),hostItemId:node.host,source:'equipped'}];
+     return {itemId,slotPath:node.path,socketId:Number(node.socketId),hostItemId:node.host,source:'equipped'};
     });
     const path=timedRecoil(pack,{mounted},{},{mode,shot_count:20},{kernel,curves,calculate},{abstractProfile:true});
     if(path.status!=='modeled'||path.points.at(-1).time_ms<200)throw Error('Unsupported native schedule');
     timelines.push(path.points.map(point=>point.time_ms));
     continue;
    }
-   const mounted=features.flatMap((itemId,i)=>mask&(1<<i)?[{itemId,slotPath:'branch/'+i}]:[]),state=kernel.u(pack,{mounted},opts);
+   const mounted=order.map(index=>({itemId:features[index],slotPath:'branch/'+index})),state=kernel.u(pack,{mounted},opts);
    const legacy=kernel.s(pack,state.appliedParts).reduce((v,row)=>v*(1+(Number(row.override.baseStatModifiers?.fireRate)||0)),1);
    const rpm=kernel.r({baseFireIntervalSeconds:pack.weapon.fireControl.fireIntervalSeconds,value:state.value,legacyFireRateMultiplier:legacy});
    const fc=kernel.n(pack,state.appliedParts,rpm/(60/pack.weapon.fireControl.fireIntervalSeconds),null,kernel.t(pack,state.value));
@@ -256,6 +357,8 @@ export function createBranchScoreBound({pack,request,compiled,kernel,curves,calc
   }
   const bucketData=data=>nativeStatIntervals?data.atoms:data.buckets;
   const groups=[...paths.values()].filter(rows=>rows.some(row=>bucketData(row.data).size));
+  const kickGroups=finiteKick?groups.map(rows=>rows.filter(({data})=>
+   data.kickFactors===null||data.kickFactors.length||data.kickTable!==undefined)).filter(rows=>rows.length):[];
   const bucketPlans=new Map([...wanted].map(target=>[target,groups.map(rows=>rows.filter(row=>bucketData(row.data).has(target))).filter(rows=>rows.length)]));
   const refRows=compiled.nodes.filter(n=>n.active!==0).flatMap(n=>items.get(n.item).operations.filter(op=>op.operation==='StaticAttributeReplace'&&['AimingId.RecoilId','WaistShootSpreadId'].includes(op.target)).map(op=>({active:n.active,target:op.target,id:String(op.value)})));
   const featureRows=features.map(id=>compiled.nodes.filter(n=>n.item===id&&n.active!==0).map(n=>n.active));
@@ -264,7 +367,7 @@ export function createBranchScoreBound({pack,request,compiled,kernel,curves,calc
   const nativeContextManifest=nativeContexts?{
    profileIds:[...profiles], timingItems:features, timelines,
   }:null;
-  return {nativeContextManifest,getStats:()=>({...stats}),lower({interval}){
+  function lowerComponents({interval}){
    stats.evaluations++;
    try{
     const bounds=relevant.map(interval),codes=[];
@@ -288,8 +391,15 @@ export function createBranchScoreBound({pack,request,compiled,kernel,curves,calc
     }
     const spreadRefs=refRows.filter(row=>row.target==='WaistShootSpreadId'&&bounds[indices.get(row.active)][1]),requiredSpread=spreadRefs.some(row=>bounds[indices.get(row.active)][0]);
     const spreadIds=[...(requiredSpread?[]:[baseRefs.waistSpreadProfileId]),...spreadRefs.map(row=>row.id)];
-    const fallback=target=>target==='GSpread_Hip'?widen([Math.min(...spreadIds.map(id=>pack.handling.spreadProfiles[id]?.baseSpreadDegrees?.horizontal)),Math.max(...spreadIds.map(id=>pack.handling.spreadProfiles[id]?.baseSpreadDegrees?.horizontal))]):point(baseTargets[target]??0);
-    const numeric=new Map();
+    const fallback=target=>{
+     if(target==='GSpread_Hip')return widen([Math.min(...spreadIds.map(id=>pack.handling.spreadProfiles[id]?.baseSpreadDegrees?.horizontal)),Math.max(...spreadIds.map(id=>pack.handling.spreadProfiles[id]?.baseSpreadDegrees?.horizontal))]);
+     if(discreteStatCurves){
+      if(target==='GGunkickRandom')return point(behavior?.kickScales?.randomKickScale??1);
+      if(target==='GGunkickSpring')return point(behavior?.kickScales?.springKickScale??1);
+     }
+     return point(baseTargets[target]??0);
+    };
+    const numeric=new Map(),integerMains=discreteStatCurves?new Set():null;
     for(const target of wanted){
      const original=baseNumeric.buckets.get(target),bucket={addend:point(original?.addend??0),multA:point(original?.multA??0),multC:point(original?.multC??1),initial:point(original?.initial??(target.startsWith('WeaponMainAttribute.')?pack.weapon.attributes.mainAttrValues[target.split('.').at(-1)]:0)),hasInitial:original?.initial!==undefined};
      if(nativeStatIntervals){
@@ -304,10 +414,18 @@ export function createBranchScoreBound({pack,request,compiled,kernel,curves,calc
         [undefined,...active.map(row=>row.data.atoms.get(target))]);
       }
       const byField=field=>alternatives.map(group=>group.map(data=>fieldsOf(data,field)));
-      bucket.addend=foldedAddGroups(byField('addend'));
+      const addends=byField('addend');
+      bucket.addend=foldedAddGroups(addends);
       bucket.multA=foldedAddGroups(byField('multA'));
       bucket.multC=foldedProductGroups(byField('multC'));
       const initials=byField('initial').flat(2);
+      if(discreteStatCurves&&target.startsWith('WeaponMainAttribute.')&&!initials.length&&
+       Number.isSafeInteger(pack.weapon.attributes.mainAttrValues[target.split('.').at(-1)])&&
+       bucket.addend.every(Number.isSafeInteger)&&bucket.multA[0]===0&&bucket.multA[1]===0&&
+       bucket.multC[0]===1&&bucket.multC[1]===1&&addends.every(group=>
+        group.every(atoms=>atoms.every(atom=>atom.every(Number.isSafeInteger))))){
+       integerMains.add(target);
+      }
       for(const value of initials){
        bucket.initial=hull(bucket.initial,point(value));bucket.hasInitial=true;
       }
@@ -338,15 +456,43 @@ export function createBranchScoreBound({pack,request,compiled,kernel,curves,calc
      const b=numeric.get(target);return binaryMul(binaryMul(binaryAdd(b.hasInitial?hull(b.initial,baseValue):baseValue,b.addend),binaryAdd(point(1),b.multA)),b.multC);
     };
     const mains=Object.fromEntries([...new Set(mappings.map(m=>m.id))].map(id=>[id,value(stat(id),point(pack.weapon.attributes.mainAttrValues[id]))]));
-    for(const {id,map,curve} of mappings){
+    const finiteScales=discreteStatCurves&&portableScore?new Map():null;
+    const singleton=range=>Object.is(range[0],range[1]);
+    for(const {id,map,curve,delta,reference,values:curveValues} of mappings){
      let input=mains[id];
-     if(map.mappingType.startsWith('Delta')){
-      const neutral=map.mappingType==='DeltaMapping'?0:1,reference=pack.weapon.attributes.independentCurve?0:[...curve.points??[]].filter(p=>Math.abs(p.outputValue-neutral)<1e-9).sort((a,b)=>Math.abs(a.inputValue)-Math.abs(b.inputValue))[0]?.inputValue||0;
-      input=nativeStatIntervals?
-       [input[0]-pack.weapon.attributes.mainAttrValues[id]+reference,input[1]-pack.weapon.attributes.mainAttrValues[id]+reference]:
-       add(input,point(reference-pack.weapon.attributes.mainAttrValues[id]));
+     const b=numeric.get(map.target);
+     let range;
+     if(integerMains?.has(stat(id))&&input.every(Number.isSafeInteger)&&input[1]-input[0]<=256){
+      // Main stats with only exact integer addends can visit this finite grid.
+      // Evaluate the original delta expression at each integer in the hull.
+      let lo=Infinity,hi=-Infinity;
+      const keepValues=finiteScales&&(plan.chartPattern?targets.slice(2,6):targets.slice(0,6)).includes(map.target)&&
+       map.mappingType==='DeltaMappingThenScale'&&mappingCounts.get(map.target)===1&&
+       !b.hasInitial&&[b.addend,b.multA,b.multC].every(singleton);
+      const exactValues=keepValues?[]:null;
+      const scaleBase=keepValues?(fallback(map.target)[0]+b.addend[0])*(1+b.multA[0]):0;
+      for(let offset=0;offset<=input[1]-input[0];offset++){
+       const at=input[0]+offset;
+       let value=curveValues.get(at);
+       if(value===undefined){
+        value=curves.r(curve,delta?at-pack.weapon.attributes.mainAttrValues[id]+reference:at);
+        if(!Number.isFinite(value))throw Error('Nonfinite discrete stat mapping');
+        if(curveValues.size>=512)curveValues.clear();
+        curveValues.set(at,value);
+       }
+       lo=Math.min(lo,value);hi=Math.max(hi,value);
+       if(exactValues)exactValues.push(scaleBase*(b.multC[0]*value));
+      }
+      if(exactValues)finiteScales.set(map.target,{id,origin:input[0],values:exactValues});
+      range=[lo,hi];
+     }else{
+      if(delta){
+       input=nativeStatIntervals?
+        [input[0]-pack.weapon.attributes.mainAttrValues[id]+reference,input[1]-pack.weapon.attributes.mainAttrValues[id]+reference]:
+        add(input,point(reference-pack.weapon.attributes.mainAttrValues[id]));
+      }
+      range=nativeStatIntervals?nativeCurveRange(curve,input,curves.r):curveRange(curve,input,curves);
      }
-     let range=nativeStatIntervals?nativeCurveRange(curve,input,curves.r):curveRange(curve,input,curves);const b=numeric.get(map.target);
      if(map.mappingType==='DeltaMappingThenScale')b.multC=binaryMul(b.multC,range);
      else if(map.mappingType==='DeltaMapping')b.addend=binaryAdd(b.addend,range);
      else if(map.mappingType==='AbsoluteMapping'){b.initial=range;b.hasInitial=true;}
@@ -363,11 +509,9 @@ export function createBranchScoreBound({pack,request,compiled,kernel,curves,calc
      if(a[0]===a[1]&&b[0]===b[1])return (preset.norm??Math.hypot)(a[0],b[0]);
      return variableNormLower?variableNormLower(a,b):0;
     }
-    const camera=norm(values.GRecoil_HShake,values.GRecoil_VShake);
-    const kick=norm(values.GGunkickRandom,values.GGunkickSpring);
-    let pattern=Math.hypot(h,v);
+    let pattern;
     if(geometry.length){
-     const allowed=timelines.map((_,mask)=>featureRows.every((rows,i)=>{const b=rows.map(interval),lo=b.some(a=>a[0])?1:0,hi=b.some(a=>a[1])?1:0;return mask&(1<<i)?hi:!lo;}));
+     const allowed=timingVariants.map(({mask})=>featureRows.every((rows,i)=>{const b=rows.map(interval),lo=b.some(a=>a[0])?1:0,hi=b.some(a=>a[1])?1:0;return mask&(1<<i)?hi:!lo;}));
      const refs=refRows.filter(row=>row.target==='AimingId.RecoilId'&&bounds[indices.get(row.active)][1]),required=refs.some(row=>bounds[indices.get(row.active)][0]),ids=new Set([...(required?[]:[baseRefs.adsRecoilProfileId]),...refs.map(row=>row.id)]);
      pattern=Math.min(...geometry.filter(g=>ids.has(g.id)).map(g=>{
       if(g.intervals)return Math.min(...g.intervals.filter((_,i)=>allowed[i]).map(interval=>
@@ -376,26 +520,91 @@ export function createBranchScoreBound({pack,request,compiled,kernel,curves,calc
       const speed=Math.max(0,Math.min(...g.speeds.filter((_,i)=>allowed[i]))*h-10*error);
       return Math.max(0,g.v*v-2*error)+horizontalSpeedMultiplier(speed)*Math.max(0,g.h*h-error);
      }));
+    }else pattern=mappedNorm('GRecoil_H','GRecoil_V');
+    function mappedNorm(horizontal,vertical){
+     const x=finiteScales?.get(horizontal),y=finiteScales?.get(vertical);
+     if(x&&y&&x.id===y.id&&x.origin===y.origin&&x.values.length===y.values.length){
+      // Preserve the shared integer stat across the two native norm inputs.
+      const evaluate=preset.norm??Math.hypot;
+      let minimum=Infinity;
+      for(let i=0;i<x.values.length;i++)minimum=Math.min(minimum,evaluate(x.values[i],y.values[i]));
+      if(Number.isFinite(minimum)){stats.discrete_norms++;return minimum;}
+     }
+     return norm(values[horizontal],values[vertical]);
+    }
+    function fixedKickLower(){
+     if(!finiteKick||!integerMains?.has(stat(kickMap.id)))return null;
+     const [lo,hi]=mains[kickMap.id];
+     if(!Number.isSafeInteger(lo)||!Number.isSafeInteger(hi)||hi-lo>256)return null;
+     const factors=[],tables=[];
+     let optional, secondOptional;
+     for(const rows of kickGroups)for(const {active,data} of rows){
+      const [required,possible]=bounds[indices.get(active)];
+      if(!possible)continue;
+      if(data.kickFactors===null||data.kickTable===null)return null;
+      if(!required){
+       if(!optional)optional=data;
+       else if(!secondOptional&&pack.weaponId==='18010000001'&&mode==='bd')secondOptional=data;
+       else return null;
+       continue;
+      }
+      factors.push(...data.kickFactors);
+      if(data.kickTable)tables.push(data.kickTable);
+     }
+     const scales=[];
+     for(let i=lo;i<=hi;i++){
+      const scale=kickMap.values.get(i);
+      if(!Number.isFinite(scale))return null;
+      scales.push(scale);
+     }
+     const distinctScales=new Set(scales);
+     let floor=finiteKick(factors,tables,distinctScales);
+     if(optional&&floor!==null){
+      // Both presence and absence are possible in this relaxed branch.
+      const included=finiteKick([...factors,...optional.kickFactors],
+       optional.kickTable?[...tables,optional.kickTable]:tables,distinctScales);
+      if(included===null)return null;
+      floor=Math.min(floor,included);
+      if(secondOptional){
+       const secondTables=secondOptional.kickTable?[...tables,secondOptional.kickTable]:tables;
+       const second=finiteKick([...factors,...secondOptional.kickFactors],secondTables,distinctScales);
+       const both=finiteKick([...factors,...optional.kickFactors,...secondOptional.kickFactors],
+        optional.kickTable?[...secondTables,optional.kickTable]:secondTables,distinctScales);
+       if(second===null||both===null)return null;
+       floor=Math.min(floor,second,both);
+       stats.two_optional_kick_bounds=(stats.two_optional_kick_bounds??0)+1;
+      }
+      stats.optional_kick_bounds=(stats.optional_kick_bounds??0)+1;
+     }
+     if(floor!==null)stats.finite_kick_bounds++;
+     return floor;
     }
     let lower;
-    if(portableScore){
-     lower=preset.score({pattern,camera,kick});
-    }else{
-     const recoilPlan=plan.kind==='agility'?plan.recoil:plan;
-     const recoil=100*Object.entries(recoilPlan.weights).reduce((sum,[k,w])=>sum+(w===0?0:w*({pattern,camera,kick})[k]/recoilPlan.baseline[k]),0)/Object.values(recoilPlan.weights).reduce((a,b)=>a+b,0);
-     lower=plan.kind==='agility'?preset.score({recoil,accuracy:values.GSpread_Hip[0],ads_seconds:values.GAiming_ADSTime[0],sprint_to_fire_seconds:values.GSprintToFireTime[0]}):recoil;
-     lower-=1e-7*Math.max(1,Math.abs(lower));
+    if(patternOnly)lower=pattern;
+    else{
+     const camera=mappedNorm('GRecoil_HShake','GRecoil_VShake');
+     const kick=Math.max(mappedNorm('GGunkickRandom','GGunkickSpring'),fixedKickLower()??0);
+     if(portableScore)lower=preset.score({pattern,camera,kick});
+     else{
+      const recoilPlan=plan.kind==='agility'?plan.recoil:plan;
+      const recoil=100*Object.entries(recoilPlan.weights).reduce((sum,[k,w])=>sum+(w===0?0:w*({pattern,camera,kick})[k]/recoilPlan.baseline[k]),0)/Object.values(recoilPlan.weights).reduce((a,b)=>a+b,0);
+      lower=plan.kind==='agility'?preset.score({recoil,accuracy:values.GSpread_Hip[0],ads_seconds:values.GAiming_ADSTime[0],sprint_to_fire_seconds:values.GSprintToFireTime[0]}):recoil;
+      lower-=1e-7*Math.max(1,Math.abs(lower));
+     }
     }
-    if(!Number.isFinite(lower))throw Error('Nonfinite branch score');
+    if(!Number.isFinite(pattern)||!Number.isFinite(lower))throw Error('Nonfinite branch score');
     if(refreshCache&&maxEntries>0&&key.length<=maxKeyChars){
      while(cache.size>=maxEntries||chars+key.length>maxKeyChars){
       const oldest=cache.keys().next().value;
       cache.delete(oldest);chars-=oldest.length;stats.evictions++;
      }
     }
-    if(cache.size<maxEntries&&chars+key.length<=maxKeyChars){cache.set(key,lower);chars+=key.length;stats.entries_peak=Math.max(stats.entries_peak,cache.size);stats.key_chars_peak=Math.max(stats.key_chars_peak,chars);}else stats.saturated=true;
-    return lower;
+    const components={pattern,loss:lower};
+    if(cache.size<maxEntries&&chars+key.length<=maxKeyChars){cache.set(key,components);chars+=key.length;stats.entries_peak=Math.max(stats.entries_peak,cache.size);stats.key_chars_peak=Math.max(stats.key_chars_peak,chars);}else stats.saturated=true;
+    return components;
    }catch{stats.declined++;return null;}
-  }};
- }catch{return null;}
+  }
+  return {nativeContextManifest,getStats:()=>({...stats}),lowerComponents,
+   lower:branch=>lowerComponents(branch)?.loss??null};
+ }catch(error){onUnsupported?.(error.message);return null;}
 }

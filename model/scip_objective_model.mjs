@@ -86,7 +86,7 @@ export function compileObjective(compiled,numeric,{pack,request},runtime,plan){
  const recoil=m.add(...Object.entries({pattern,camera,kick}).map(([key,value])=>m.scale(value,recoilPlan.weights[key]===0?0:100*recoilPlan.weights[key]/(total*recoilPlan.baseline[key]))));
  const baseline=plan.baseline;
  const handling=m.add(m.scale(t.GAiming_ADSTime,baseline.ads_seconds>0?50/baseline.ads_seconds:50),m.scale(t.GSprintToFireTime,baseline.sprint_to_fire_seconds>0?50/baseline.sprint_to_fire_seconds:50));
- const primary=plan.kind==='agility'?m.add(m.scale(handling,.5),m.scale(t.GSpread_Hip,baseline.accuracy>0?30/baseline.accuracy:30),m.scale(recoil,.2)):recoil;
+ const primary=plan.kind==='agility'?m.add(m.scale(handling,plan.weights.handling),m.scale(t.GSpread_Hip,100*plan.weights.accuracy/(baseline.accuracy>0?baseline.accuracy:1)),m.scale(recoil,plan.weights.recoil)):recoil;
  const objectives=plan.kind==='agility'?[primary]:[primary,handling];
  return {primary,handling,objectives,norms,chart,addNormCut,addNorm:norm,evaluateExpression:(expression,solution)=>{const e=m.expression(expression);return e.constant+[...e.terms].reduce((v,[name,c])=>v+c*(solution[name]??0),0);}};
 }
