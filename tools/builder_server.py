@@ -129,6 +129,8 @@ def execute_stream(source, on_progress):
 
 
 class Handler(SimpleHTTPRequestHandler):
+    extensions_map = {**SimpleHTTPRequestHandler.extensions_map, '.mjs': 'text/javascript'}
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(ROOT / 'builder'), **kwargs)
 

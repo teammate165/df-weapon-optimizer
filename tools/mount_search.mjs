@@ -87,12 +87,21 @@ export function createMountSearch(compiled,{incremental=true,priorityPaths=[]}={
   return {assigned,domains,skipTo,bounds,low,high,possible,choose,restore,interval,get epoch(){return epoch;},tick};
  }
 
- function* enumerate(restrictions=new Map(),tick=()=>{},{prune,stats={},priority,priceBudget,pruneLeaves=false}={}){
+ function* enumerate(restrictions=new Map(),tick=()=>{},{prune,stats={},priority,priceBudget,priceCeiling,pruneLeaves=false}={}){
   const s=session(restrictions,tick,stats);
   if(priority)for(let i=0;i<groups.length;i++)s.domains[i].sort((a,b)=>priority(groups[i][0].path,a?.item??null)-priority(groups[i][0].path,b?.item??null));
   const suffixCosts=new Array(groups.length+1);
+  let minimumSuffixCost;
   // Ignore inter-slot compatibility here so the sums cover every legal price.
   if(Number.isSafeInteger(priceBudget)&&s.domains.every(domain=>domain.every(choice=>!choice||Number.isSafeInteger(choice.cost)&&choice.cost>=0))){
+   if(priceCeiling){
+    // This lower bound also covers depths where the exact suffix table exceeds its size cap.
+    minimumSuffixCost=new Float64Array(groups.length+1);
+    for(let depth=groups.length-1;depth>=0;depth--){
+     const cheapest=Math.min(...s.domains[depth].map(choice=>choice?.cost??0));
+     minimumSuffixCost[depth]=cheapest+minimumSuffixCost[depth+1];
+    }
+   }
    suffixCosts[groups.length]=[0];
    for(let depth=groups.length-1;depth>=0;depth--){
     const costs=new Set();
@@ -112,10 +121,26 @@ export function createMountSearch(compiled,{incremental=true,priorityPaths=[]}={
    const end=s.skipTo[depth],fixed=[];
    for(;depth<end;depth++){const chosen=s.domains[depth][0];if(chosen){fixed.push({slotPath:chosen.path,itemId:chosen.item});selectedCost+=chosen.cost;}}
    if(fixed.length)config=[...config,...fixed];
-   tick();if(!s.possible())return;
-   if((pruneLeaves||depth<groups.length)&&prune?.({depth,remaining:remaining[depth],interval:s.interval,selectedCost,suffixCosts:suffixCosts[depth]})){stats.pruned_branches=(stats.pruned_branches??0)+1;return;}
+   tick();
+   if(minimumSuffixCost&&selectedCost+minimumSuffixCost[depth]>priceCeiling()){
+    stats.price_ceiling_cuts=(stats.price_ceiling_cuts??0)+1;
+    return;
+   }
+   if(!s.possible())return;
+   if((pruneLeaves||depth<groups.length)&&prune?.({depth,remaining:remaining[depth],interval:s.interval,selectedCost,
+    suffixCosts:suffixCosts[depth],minimumCompletionCost:minimumSuffixCost&&selectedCost+minimumSuffixCost[depth]})){
+    stats.pruned_branches=(stats.pruned_branches??0)+1;return;
+   }
    if(depth===groups.length){yield config;return;}
-   for(const chosen of s.domains[depth]){s.choose(depth,chosen);yield* walk(depth+1,chosen?[...config,{slotPath:chosen.path,itemId:chosen.item}]:config,selectedCost+(chosen?.cost??0));}
+   for(const chosen of s.domains[depth]){
+    const childCost=selectedCost+(chosen?.cost??0);
+    if(minimumSuffixCost&&childCost+minimumSuffixCost[depth+1]>priceCeiling()){
+     stats.price_ceiling_cuts=(stats.price_ceiling_cuts??0)+1;
+     continue;
+    }
+    s.choose(depth,chosen);
+    yield* walk(depth+1,chosen?[...config,{slotPath:chosen.path,itemId:chosen.item}]:config,childCost);
+   }
    s.restore(depth);
   }
   yield* walk(0,[],0);

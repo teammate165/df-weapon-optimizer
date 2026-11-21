@@ -1,4 +1,5 @@
 import {balancedWindow, combineBalanced, combineEndpoints, sharedBalancedSeed} from './exact-beta-pool.js';
+import {defaultRecoilWeights} from './optimizer_weights.mjs';
 
 const scope = 'Grouped ordinary M4A1 Detonation with Insight 3/7 locked';
 
@@ -9,6 +10,8 @@ export function exactBetaEligible(request) {
     fixed?.length === 1 && fixed[0].slotPath === '11' && fixed[0].itemId === '13110000091' &&
     !Object.keys(floors ?? {}).length && request.budget === undefined &&
     request.budgets === undefined && request.effectiveness_targets === undefined &&
+    (request.weights===undefined||(request.weights&&Object.keys(request.weights).length===3&&
+      Object.entries(defaultRecoilWeights).every(([key,value])=>request.weights[key]===value))) &&
     request.pattern_reduction_percent === undefined;
 }
 
@@ -127,7 +130,7 @@ export async function runExactBeta(evaluate, request, {signal, onProgress} = {})
       results.push({...row, label, status: 'best_found', proof: proven ? 'Proven optimal' : 'Best found',
         score: row.gain, stats: replay.effective_stats});
     }
-    return {weapon_id: request.weapon_id, mode: request.mode, score_direction: 'higher',
+    return {weapon_id: request.weapon_id, mode: request.mode, preset:'recoil',weights:defaultRecoilWeights,score_direction: 'higher',
       proof_scope: scope, cheapest_gate_percent: result.minimumShare * 100, results,
       solver: {name: 'Exact ordinary beta', elapsed_ms: 300000 - (deadline - performance.now()),
         proven: result.proven, pending: result.pending, certificate: result.certificate,

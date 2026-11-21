@@ -8,7 +8,7 @@ See [deployment and validation](../docs/github_pages.md).
 
 For the separate no-deadline M4A1 exhaustive-screening experiment, open `exact-dag-study.html` in the static export. It uses **8 workers**, the optimized custom DAG, exact global top-0.5% selection, temporary IndexedDB provenance and uncached native replay. See the [implementation and validation report](../docs/optimized_exact_dag.md). Production Generate retains its own search contract below.
 
-Generate uses [time-limited top-K search](../docs/anytime_top_k_optimizer.md) for both presets. The total search budget includes ordinary attachments, patches/lasers and calibration; shortlists are capped at 256 ordinary and 512 complete builds. Results are best found, with no exhaustive/global-optimum claim.
+By default, Generate uses [time-limited top-K search](../docs/anytime_top_k_optimizer.md) for both presets. The total search budget includes ordinary attachments, patches/lasers and calibration; shortlists are capped at 256 ordinary and 512 complete builds. Results are best found, with no exhaustive/global-optimum claim. Choose **Coordinate passes** under **Search method** to use the [older slot-by-slot search](../docs/recoil_generator.md#coordinate-passes) with the same preset sliders and builder constraints.
 
 Run from the project root with Python 3 and Node.js:
 

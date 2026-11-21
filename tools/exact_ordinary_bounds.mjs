@@ -95,7 +95,54 @@ function kickTree(context, scorer) {
     for (const {positions} of writers) {
       tuples *= positions.length;
       nodes += tuples;
-      if (nodes > 16384) return null;
+    }
+    const indices = new Set(writers.map(({index}) => index));
+    const programKey = intervals.programKey;
+    if (nodes > 16384) {
+      // Avoid materializing a large tree. An exact terminal kick still lets
+      // the layout discard a tuple before running the full native scorer.
+      const offsets = new Map(writers.map(({index}, offset) => [index, offset]));
+      const last = writers.length - 1;
+      const prefixCount = writers.slice(0, last).reduce((count, writer) => count * writer.positions.length, 1);
+      const cacheKey = context.tableCache && 'large-kick-minimum:' + programKey();
+      const root = {minimum: context.tableCache?.get(cacheKey) ?? 0};
+      const terminal = {minimum: 0}, prefixes = new Map();
+      let prefixBest = Infinity;
+      const exactKick = () => scorer.norm(intervals(box, 0)[0], intervals(box, 1)[0]);
+      return {
+        root, indices, programKey,
+        select(index, position) {
+          const offset = offsets.get(index);
+          box[offset] = [position, position];
+          try {
+            if (offset === last) {
+              terminal.minimum = exactKick();
+              return Number.isFinite(terminal.minimum) ? terminal : undefined;
+            }
+            if (offset !== last - 1 || writers[last].positions.length > 256) return undefined;
+            const key = box.slice(0, last).map(range => range[0]).join(',');
+            const known = prefixes.get(key);
+            if (known) return known;
+            let minimum = Infinity;
+            for (let p = 0; p < writers[last].positions.length; p++) {
+              box[last] = [p, p];
+              minimum = Math.min(minimum, exactKick());
+            }
+            if (!Number.isFinite(minimum)) return undefined;
+            if (prefixes.size >= 16384) prefixes.clear();
+            const prefix = {minimum};
+            prefixes.set(key, prefix);
+            prefixBest = Math.min(prefixBest, minimum);
+            if (prefixes.size === prefixCount) {
+              root.minimum = prefixBest;
+              context.tableCache?.set(cacheKey, prefixBest);
+            }
+            return prefix;
+          } catch {
+            return undefined;
+          }
+        },
+      };
     }
     let memo = context.tableCache?.get('kick-trees');
     if (!memo && context.tableCache) {
@@ -129,7 +176,7 @@ function kickTree(context, scorer) {
         memo.nodes += nodes;
       }
     }
-    return {root, programKey: intervals.programKey, indices: new Set(writers.map(({index}) => index))};
+    return {root, programKey, indices};
   } catch {
     return null;
   }
@@ -157,14 +204,14 @@ function handlingDominance(context) {
 
 // The allowed writes leave the chart profile, timing, and main-stat mappings
 // fixed. Unknown writes and unproved native contexts use the direct scorer.
-export function prepareOrdinaryBound({pack, build, mode, controls, modules, scorer, tableCache, memoChart}) {
+export function prepareOrdinaryBound({pack, build, mode, controls, modules, scorer, tableCache, memoChart, firing}) {
   const {kernel, calculate} = modules;
   const stateContract = kernel.u?.screeningStateContract;
   const chartContract = calculate?.screeningChartContract;
-  if (!scorer.solverPlan.chartPattern || stateContract?.version !== 1 ||
-      stateContract.evaluate !== kernel.u || chartContract?.version !== 1 ||
-      chartContract.calculate !== calculate ||
-      !['s', 'r', 'n', 't', 'd', 'u'].every(key => chartContract.kernel?.[key] === kernel[key])) return null;
+  const chartPattern = scorer.solverPlan.chartPattern;
+  if (stateContract?.version !== 1 || stateContract.evaluate !== kernel.u || firing === 'spam') return null;
+  if (chartPattern && (chartContract?.version !== 1 || chartContract.calculate !== calculate ||
+      !['s', 'r', 'n', 't', 'd', 'u'].every(key => chartContract.kernel?.[key] === kernel[key]))) return null;
   const chartControls = [];
   let variableKick = false;
   for (const {path, id, positions, functions, index} of controls) {
@@ -176,31 +223,42 @@ export function prepareOrdinaryBound({pack, build, mode, controls, modules, scor
   }
   try {
     const fixed = kernel.u(pack, build, {mode, tacticalEffective: true, tunes: {}});
-    const profile = pack.handling.recoilProfiles[fixed.references.adsRecoilProfileId];
-    const request = {mode, shot_count: 20};
-    const path = timedRecoil(pack, build, {}, request, modules,
-      {abstractProfile: true, state: fixed, pointsOnly: true});
-    if (path.status !== 'modeled' || !profile) return null;
-    const times = path.points.map(point => point.time_ms);
-    // The profile and every native shot time determine this chart enclosure.
-    // Synchronous searches may reuse it across layouts in the same request.
-    const chartKey = 'chart:' + JSON.stringify([fixed.references.adsRecoilProfileId, times]);
-    let chart = tableCache?.get(chartKey);
-    if (!chart) {
-      const bounds = createNativeChartInterval(profile, times);
-      chart = memoChart ? memoChart(bounds) : (horizontal, vertical) => bounds.lower(horizontal, vertical).pattern;
-      tableCache?.set(chartKey, chart);
+    let patternKey = 'legacy', project, patternBound, raw;
+    if (chartPattern) {
+      const profile = pack.handling.recoilProfiles[fixed.references.adsRecoilProfileId];
+      const path = timedRecoil(pack, build, {}, {mode, shot_count: 20}, modules,
+        {abstractProfile: true, state: fixed, pointsOnly: true});
+      if (path.status !== 'modeled' || !profile) return null;
+      const times = path.points.map(point => point.time_ms);
+      // The native profile and shot times determine the chart enclosure.
+      patternKey = 'chart:' + JSON.stringify([fixed.references.adsRecoilProfileId, times]);
+      patternBound = tableCache?.get(patternKey);
+      if (!patternBound) {
+        const bounds = createNativeChartInterval(profile, times);
+        patternBound = memoChart ? memoChart(bounds) : (h, v) => bounds.lower(h, v).pattern;
+        tableCache?.set(patternKey, patternBound);
+      }
+      raw = scorer.raw(build, {}, fixed, () => path);
+      const values = axes.map(axis => fixed.value(axis, 1));
+      const points = chartContract.trajectory(profile, ...values, false, 20);
+      if (points.length !== path.points.length || points.some((point, index) =>
+        point.x !== path.points[index].x || point.y !== path.points[index].y)) return null;
+      if (patternBound(...values.map(value => [value, value])) > raw.pattern) return null;
+      project = state => {
+        if (state.references.adsRecoilProfileId !== fixed.references.adsRecoilProfileId) return null;
+        return {status: 'modeled', points: chartContract.trajectory(
+          profile, state.value(axes[0], 1), state.value(axes[1], 1), false, 20
+        ).map((point, index) => ({...point, time_ms: times[index]}))};
+      };
+    } else {
+      raw = scorer.raw(build, {}, fixed);
+      // Only call the native norm at an exact pair. Zero encloses a varying pair.
+      patternBound = (h, v) => h[0] === h[1] && v[0] === v[1] ? scorer.norm(h[0], v[0]) : 0;
     }
-    const raw = scorer.raw(build, {}, fixed, () => path);
     const intervals = createOrderedAxisIntervals({pack, build, mode, controls: chartControls,
       fixed, axes, kernel, ignoredTargets: otherTargets, cache: tableCache});
     const box = chartControls.map(({positions}) => [0, positions.length - 1]);
     const byIndex = new Map(chartControls.map(({index}, axisIndex) => [index, axisIndex]));
-    const values = axes.map(axis => fixed.value(axis, 1));
-    const points = chartContract.trajectory(profile, ...values, false, 20);
-    if (points.length !== path.points.length || points.some((point, index) =>
-      point.x !== path.points[index].x || point.y !== path.points[index].y)) return null;
-    if (chart(...values.map(value => [value, value])) > raw.pattern) return null;
     const context = {pack, build, mode, controls, fixed, kernel, tableCache};
     let kick;
     const getKick = () => {
@@ -210,23 +268,18 @@ export function prepareOrdinaryBound({pack, build, mode, controls, modules, scor
     let previousBox, previousPattern;
     const patternLower = () => {
       if (!previousBox || box.some(([lo, hi], index) => lo !== previousBox[index][0] || hi !== previousBox[index][1])) {
-        previousPattern = chart(intervals(box, 0), intervals(box, 1));
+        previousPattern = patternBound(intervals(box, 0), intervals(box, 1));
         previousBox = box.slice();
       }
       return previousPattern;
     };
-    const patternProgramKey = () => chartKey + ':' + intervals.programKey();
+    const patternProgramKey = () => patternKey + ':' + intervals.programKey();
     return {
       get kick() { return getKick(); },
       get handlingPositions() { return handlingDominance(context); },
       byIndex, box, inert: new Set(controls.filter(({functions}) =>
         functions.every(({target}) => inertTargets.has(target))).map(({index}) => index)),
-      project(state) {
-        if (state.references.adsRecoilProfileId !== fixed.references.adsRecoilProfileId) return null;
-        return {status: 'modeled', points: chartContract.trajectory(
-          profile, state.value(axes[0], 1), state.value(axes[1], 1), false, 20
-        ).map((point, index) => ({...point, time_ms: times[index]}))};
-      },
+      project,
       patternLower,
       patternProgramKey,
       lossProgramKey() {

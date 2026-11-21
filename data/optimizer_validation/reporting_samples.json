@@ -1,0 +1,66 @@
+[
+  {
+    "kind": "worker",
+    "title": "Worker scaling matrix",
+    "outcome": "15 staged cases finished",
+    "proof": "10 certified, 5 open (M4A1 Max)",
+    "timing": "300 s case limits, fastest CI-19 192.55 s and AUG 138.52 s",
+    "errors": "0",
+    "artifacts": {
+      "Matrix": ".scratch/solver-core-scaling/summary.json",
+      "Log": ".scratch/solver-core-scaling/progress.log"
+    },
+    "baseline": "- Node solver core scaling benchmark completed. The full-budget gate accepts worker and partition counts independently. Workers pull disjoint subtrees from a shared queue within each phase. Four workers remain the default. Partition coverage, queued proof parity and reduced staged catalog checks passed. The serial five-minute matrix recorded 10 certificates and five open proofs with zero errors. All five CI-19 Detonation configurations certified, with 8 workers / 32 partitions fastest at 192.55 s versus 288.99 s for 4 / 4. All five AUG Detonation configurations certified, with six actual workers and partitions fastest at 138.52 s versus 155.07 s for 4 / 4. All M4A1 Detonation configurations remained open in Max. The 8 / 32 run visited 22.81M Max nodes versus 12.98M for 4 / 4. [Progress log](.scratch/solver-core-scaling/progress.log), [aggregate report](.scratch/solver-core-scaling/summary.json).",
+    "context": {
+      "default_workers": 4,
+      "checks_passed": [
+        "partition coverage",
+        "queued proof parity",
+        "reduced staged catalog"
+      ]
+    }
+  },
+  {
+    "kind": "sweep",
+    "title": "Unlimited arsenal sweep",
+    "outcome": "Halted on request after 2/204 cases",
+    "proof": "M4A1 Detonation and Operations certified, Warfare interrupted in Max",
+    "timing": "692.57 s and 1,921.49 s, 1/3 overruns",
+    "errors": "0 in completed cases",
+    "artifacts": {
+      "Status": ".scratch/arsenal-unlimited/status.json",
+      "Log": ".scratch/arsenal-unlimited/progress.log"
+    },
+    "baseline": "- Unlimited arsenal sweep halted at user request after two of 204 planned weapon/mode pairs certified with zero errors. M4A1 Detonation took 692.57 s, and M4A1 Operations took 1,921.49 s and was the only case to pass 20 minutes. M4A1 Warfare was stopped during Max. The sweep excluded Compound Bow and ran serially with eight workers and 32 requested partitions per case. Its automatic stop rule, verified with a short process test, canceled the third solve to reach 20 minutes. [Status](.scratch/arsenal-unlimited/status.json), [progress](.scratch/arsenal-unlimited/progress.log).",
+    "context": {
+      "workers": 8,
+      "requested_partitions": 32,
+      "serial": true,
+      "excluded_ids": [
+        "18150000001"
+      ],
+      "overrun_threshold_seconds": 1200,
+      "cancel_on_overrun": 3,
+      "stop_rule_process_test": "passed"
+    }
+  },
+  {
+    "kind": "handoff",
+    "title": "M4A1 Detonation release check",
+    "outcome": "Fail-fast gate stopped, unlimited repeat finished",
+    "proof": "Max open across 4 partitions in the gate, all three builds certified in the repeat",
+    "timing": "300 s gate, 731.39 s repeat",
+    "errors": "0 both runs",
+    "artifacts": {
+      "Gate": "data/optimizer_validation/catalog_handoff_20261121/catalog-release-gate-final.json",
+      "Repeat": ".scratch/solver-core-scaling/m4a1-three-kick/full-unlimited.json"
+    },
+    "baseline": "- Unrestricted M4A1 Detonation at 800 points hit 300 seconds with all four Max partitions still open in the earlier fail-fast gate. With eight workers and 32 partitions, the updated solver found the eventual certified Max within five minutes and completed all proofs in the unlimited run. [Earlier gate report](../data/optimizer_validation/catalog_handoff_20261121/catalog-release-gate-final.json) · [Updated proof](../.scratch/solver-core-scaling/m4a1-three-kick/full-unlimited.json)",
+    "context": {
+      "budget": 800,
+      "repeat_workers": 8,
+      "repeat_partitions": 32,
+      "repeat_max_witness_within_seconds": 300
+    }
+  }
+]

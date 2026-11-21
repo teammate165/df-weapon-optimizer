@@ -8,6 +8,7 @@ pinned source snapshots; they do not establish Global/Garena-client verification
 
 - [Builder setup, interaction and validation](../builder/README.md)
 - [Deployment workflow and release evidence](github_pages.md)
+- [Compact progress reporting and token measurements](progress_reporting.md)
 - [Lowest Recoil objective, constraints and search](recoil_generator.md)
 - [Production SCIP model, runtime and validation](scip_optimizer.md)
 - [Highest Agility objective](agility_optimizer.md)

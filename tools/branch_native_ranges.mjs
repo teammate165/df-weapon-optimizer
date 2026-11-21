@@ -139,16 +139,33 @@ export function sharedKickFactors(atoms) {
 export function createFiniteKickMinimum(norm, randomBase, springBase) {
   const sumsCache = new Map(), minima = new Map();
   return (factors, tables, scales) => {
-    if (factors.length > 6 || tables.length > 2 ||
-        tables.reduce((size, table) => size * table.values.length, 1) > 16384) return null;
+    if (factors.length > 6 || tables.length > 3 ||
+        (tables.length === 3 && tables.some(table => table.values.length > 128)) ||
+        tables.reduce((size, table) => size * table.values.length, 1) > 2 ** 20) return null;
     const sumKey = tables.map(({id}) => id).sort((a, b) => a - b).join(',');
     let sums = sumsCache.get(sumKey);
-    if (!sums) {
-      const [a = [0], b = [0]] = tables.map(({values}) => values);
-      sums = [...new Set(a.flatMap(left => b.map(right => 1 + (left + right))))];
+    if (sums === undefined) {
+      const [a = [0], b = [0], c] = tables.map(({values}) => values);
+      if (c) {
+        // The first two addends commute. Each choice of the last addend
+        // covers both corresponding native binary64 fold orders.
+        const distinct = new Set();
+        orders: for (const [left, right, last] of [[a, b, c], [a, c, b], [b, c, a]]) {
+          const pairs = new Set(left.flatMap(x => right.map(y => x + y)));
+          for (const pair of pairs) for (const value of last) {
+            distinct.add(1 + (pair + value));
+            if (distinct.size > 16384) break orders;
+          }
+        }
+        sums = distinct.size <= 16384 ? [...distinct] : null;
+      } else {
+        if (a.length * b.length > 16384) return null;
+        sums = [...new Set(a.flatMap(left => b.map(right => 1 + (left + right))))];
+      }
       if (sumsCache.size >= 16) sumsCache.delete(sumsCache.keys().next().value);
       sumsCache.set(sumKey, sums);
     }
+    if (!sums) return null;
     const sorted = [...factors].sort((a, b) => a - b);
     const productKey = sorted.join(',');
     let minimaByScale = minima.get(sumKey + ':' + productKey);

@@ -337,6 +337,10 @@ if (options.includes('--full-budget-catalog')) {
   const weapon = optionValue('weapon');
   const mode = optionValue('mode');
   const time_limit_seconds = Number(optionValue('seconds', '300'));
+  const workers = Number(optionValue('workers', '4'));
+  const jobs = Number(optionValue('partitions', workers));
+  assert(Number.isSafeInteger(workers) && workers >= 1 && workers <= 16, 'Workers must be between 1 and 16');
+  assert(Number.isSafeInteger(jobs) && jobs >= workers && jobs <= 128, 'Partitions must be between workers and 128');
   const operationsBudget = Number(optionValue('operations-budget', '300000'));
   const overridesPath = optionValue('request-overrides');
   const subtreeReference = optionValue('max-subtree-reference');
@@ -396,15 +400,19 @@ if (options.includes('--full-budget-catalog')) {
           });
           for (const row of shard.price_archive) replay(row, model);
           const winner = shard.price_archive.sort(compare)[0];
-          assert(winner && compare(winner, incumbent) === 0, 'Subtree must replay the incumbent optimum');
+          if (shard.solver.exhausted) {
+            assert(winner && compare(winner, incumbent) === 0, 'Subtree must replay the incumbent optimum');
+          }
           report.push({max_subtree: {id, request, partition, solver: shard.solver,
-            winner: {config: winner.config, tunes: winner.tunes, cost: winner.cost, loss: winner.loss,
-              handling: winner.handling, pattern: winner.components.pattern}}});
+            winner: winner ? {config: winner.config, tunes: winner.tunes, cost: winner.cost, loss: winner.loss,
+              handling: winner.handling, pattern: winner.components.pattern} : null}});
           if (!shard.solver.exhausted) process.exitCode = 1;
           continue;
         }
+        const cpuStart = process.cpuUsage();
         const result = await runExactOrdinaryNodePool({ pack, request, shop, prices, onProgress }, modules, runtime,
-          { workers: 4, staged: options.includes('--staged') });
+          { workers, jobs, staged: options.includes('--staged') });
+        const cpu = process.cpuUsage(cpuStart);
         verifyCertificate(result);
         const model = native(pack, request);
         assert.equal(result.pattern_constraint?.reference, cap === undefined ? undefined : model.reference);
@@ -414,6 +422,7 @@ if (options.includes('--full-budget-catalog')) {
           if (mode === 'mp') assert.equal(row.label, 'Max', 'Warfare should return only unpriced Max');
         }
         cases.push({ id, request, wall_ms: performance.now() - start,
+          cpu_ms: (cpu.user + cpu.system) / 1000, peak_rss_kib: process.resourceUsage().maxRSS,
           solver: result.solver, pattern_constraint: result.pattern_constraint,
           witnesses: result.results.map(({ label, status, proof, cost, loss, handling, components, config, tunes }) =>
             ({ label, status, proof, cost, loss, handling, pattern: components?.pattern, config, tunes })) });

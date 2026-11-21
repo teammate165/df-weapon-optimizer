@@ -55,6 +55,20 @@ const threePositions = control => {
   return [...new Set([positions[0], positions.find(value => value === control.range.defaultValue), positions.at(-1)])]
     .filter(Number.isFinite);
 };
+const m16 = read('weapons/18010000014.json');
+const m16Parts = new Set(['13020000347', '13030000115', '13140000041', '13130000224']);
+for (const [id, display] of Object.entries(m16.display.objects)) {
+  if (!m16Parts.has(id)) display.playerSelectable = false;
+}
+for (const cap of [undefined, 5]) {
+  const legacy = compare({pack: m16, shop, prices,
+    request: {mode: 'bd', budget: shop.weapons[m16.weaponId].gunsmithLimit,
+      time_limit_seconds: 0, pattern_reduction_percent: cap}},
+    {...modules, curves: {...curves, n: threePositions}});
+  assert.equal(legacy.results[0].components.pattern_model, 'legacy-multiplier-v1');
+  assert(legacy.solver.pruning.bounded_layouts > 0);
+  assert.equal(legacy.solver.pruning.fallback_layouts, 0);
+}
 const result = compare({pack, shop, prices,
   request: {mode: 'bd', budget: 2000, time_limit_seconds: 0, pattern_reduction_percent: 5}},
 {...modules, curves: {...curves, n: threePositions}});
@@ -101,5 +115,48 @@ assert(reports.some(row => row.mountCuts > 0));
   assert.deepEqual(bound.kick.root.children.map(({minimum}) => minimum), prefixMinima);
   assert.equal(bound.kick.root.minimum, Math.min(...prefixMinima));
   reports.push({id: ci19.weaponId, mode, kickTuples: 10201, kickPrefixes: prefixMinima.length});
+}
+{
+  const aug = read('weapons/18010000015.json');
+  const mode = 'bd', request = {mode};
+  const resolve = config => curves.o(aug, config, mode);
+  const build = resolve([{slotPath: '2', itemId: '13020000364'}, {slotPath: '3', itemId: '13240000005'},
+    {slotPath: '29', itemId: '13290000001'}]);
+  const scorer = presets.recoil.create({pack: aug, mode, request, resolve, ...modules});
+  const controls = createOrdinaryControls(aug, request, curves)(build, false);
+  const bound = prepareOrdinaryBound({pack: aug, build, mode, controls, modules, scorer, tableCache: new Map()});
+  const kick = bound?.kick;
+  assert.equal(typeof kick?.select, 'function');
+  assert.equal(kick.root.minimum, 0);
+  const writers = controls.filter(({index}) => kick.indices.has(index));
+  assert.equal(writers.length, 3);
+  for (const a of [0, 1, 100]) for (const b of [0, 1, 100]) {
+    const tunes = {};
+    const select = (writer, offset) => {
+      (tunes[writer.path] ??= {})[writer.id] = writer.positions[offset];
+      return kick.select(writer.index, offset)?.minimum;
+    };
+    assert.equal(select(writers[0], a), undefined);
+    const prefix = select(writers[1], b);
+    let minimum = Infinity;
+    for (let c = 0; c < writers[2].positions.length; c++) {
+      const value = select(writers[2], c);
+      assert.equal(value, scorer.raw(build, tunes).kick);
+      minimum = Math.min(minimum, value);
+    }
+    assert.equal(prefix, minimum);
+  }
+  const shorter = controls.map(control => ({...control, positions: control.positions.slice(0, 26)}));
+  const cache = new Map();
+  const prepare = () => prepareOrdinaryBound({pack: aug, build, mode, controls: shorter, modules, scorer, tableCache: cache}).kick;
+  const large = prepare();
+  assert.equal(typeof large.select, 'function');
+  let minimum = Infinity;
+  for (let a = 0; a < 26; a++) for (let b = 0; b < 26; b++) {
+    large.select(writers[0].index, a);
+    minimum = Math.min(minimum, large.select(writers[1].index, b).minimum);
+  }
+  assert.equal(large.root.minimum, minimum);
+  assert.equal(prepare().root.minimum, minimum);
 }
 console.log(JSON.stringify(reports, null, 2));

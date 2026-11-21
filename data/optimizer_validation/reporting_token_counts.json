@@ -1,0 +1,26 @@
+{
+  "encoding": "o200k_base",
+  "tiktoken": "0.12.0",
+  "input_sha256": "3cf42999b8fd850515a92f75de9d9970e2b4412cb8b750cc10fe5873376cd822",
+  "samples": [
+    {
+      "kind": "worker",
+      "before": 212,
+      "after": 82
+    },
+    {
+      "kind": "sweep",
+      "before": 140,
+      "after": 88
+    },
+    {
+      "kind": "handoff",
+      "before": 108,
+      "after": 100
+    }
+  ],
+  "total": {
+    "before": 460,
+    "after": 270
+  }
+}

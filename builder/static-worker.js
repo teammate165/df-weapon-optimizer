@@ -28,7 +28,8 @@ self.onmessage=({data})=>{queue=queue.then(async()=>{
     if(ordinarySearch&&request.mode==='bd')request.budgets=[catalog.shop.weapons[request.weapon_id].gunsmithLimit];
     const searching=['optimize','prepare-search','merge-search'].includes(action);
     if(searching&&request.mode==='bd')request.budgets=[catalog.shop.weapons[request.weapon_id].gunsmithLimit];
-    if(searching&&!starts.has(request.weapon_id)){try{starts.set(request.weapon_id,await loadJSON(`./data/solver-starts/${request.weapon_id}.json`));}catch{starts.set(request.weapon_id,{starts:[]});}}
+    const ordinaryStarts=ordinarySearch&&request.search_method==='exact_ordinary_staged'&&request.weapon_id==='18010000038'&&request.mode==='bd';
+    if((searching||ordinaryStarts)&&!starts.has(request.weapon_id)){try{starts.set(request.weapon_id,await loadJSON(`./data/solver-starts/${request.weapon_id}.json`));}catch{starts.set(request.weapon_id,{starts:[]});}}
     if(action==='prepare-search'){self.postMessage({id,result:{ready:true}});return;}
     const input={action,request,pack:packs.get(request.weapon_id),solver_starts:starts.get(request.weapon_id),shop:catalog.shop,prices:catalog.prices,provenance:catalog.provenance,onProgress:progress=>self.postMessage({id,progress}),search_variant:data.search?.variant,search_deadline:data.search?.deadline,collect_candidates:data.search?.collect};
     let result;

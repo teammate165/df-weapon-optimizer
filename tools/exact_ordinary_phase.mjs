@@ -42,16 +42,45 @@ export function createExactOrdinaryPhase(phase, budget, globalMaximumLoss) {
     }
     return undefined;
   };
+  let priceCeilingIncumbent, priceCeilingValue;
+  function balancedPriceCeiling() {
+    if (priceCeilingValue !== undefined && priceCeilingIncumbent === incumbent) return priceCeilingValue;
+    priceCeilingIncumbent = incumbent;
+    let high = maximum.cost - 1;
+    if (incumbent) {
+      let low = minimum.cost;
+      const cutoff = merit(incumbent.score, incumbent.cost);
+      // The certified Max score is an upper bound at every completion price.
+      // Merit decreases with price, and equality must remain searchable.
+      while (low < high) {
+        const middle = low + Math.ceil((high - low) / 2);
+        if (merit(maximum.score, middle) >= cutoff) low = middle;
+        else high = middle - 1;
+      }
+    }
+    priceCeilingValue = high;
+    return high;
+  }
   return {
-    priceBudget: kind === 'maximum' ? undefined : budget,
+    priceBudget: kind === 'maximum' ? undefined : kind === 'balanced' ? Math.min(budget, maximum.cost) : budget,
+    priceCeiling: kind === 'minimum' ? () => incumbent?.cost ?? budget :
+      kind === 'balanced' && Number.isSafeInteger(maximum.cost) && Number.isSafeInteger(minimum.cost)
+        ? balancedPriceCeiling : undefined,
     eligibleCost,
     eligibleScore,
-    costCut: branch => Boolean(branch.suffixCosts && eligibleSuffix(branch) === undefined),
+    costCut: branch => {
+      if (!branch.suffixCosts) return false;
+      const cost = eligibleSuffix(branch);
+      return cost === undefined || (kind === 'balanced' && incumbent &&
+        merit(maximum.score, cost) < merit(incumbent.score, incumbent.cost));
+    },
     layoutCut: cut,
     mountCut: (lower, branch) => {
       // The cheapest eligible completion maximizes the upper bound on merit.
       // For Minimum, a cheaper completion prevents a same-price loss cut.
-      const cost = branch.suffixCosts ? eligibleSuffix(branch) : undefined;
+      const cost = branch.suffixCosts ? eligibleSuffix(branch)
+        : kind === 'balanced' && branch.minimumCompletionCost !== undefined
+          ? Math.max(minimum.cost + 1, branch.minimumCompletionCost) : undefined;
       return cut(lower, cost);
     },
     observe(row) {

@@ -1,7 +1,8 @@
 // Each explicit mount path has at most one selected item. A missing explicit
 // item (including a bundled/default mount at that path) is its own choice.
-export function partitionExactMounts(compiled, restrictions, workers) {
+export function partitionExactMounts(compiled, restrictions, workers, preferredPath, jobs = workers) {
   if (!Number.isSafeInteger(workers) || workers < 1 || workers > 16) throw Error('Invalid worker count');
+  if (!Number.isSafeInteger(jobs) || jobs < workers || jobs > 128) throw Error('Invalid partition count');
   const paths = new Map();
   for (const {path, item, value} of compiled.players.values()) {
     if (path.includes('/') || typeof value !== 'string' || restrictions.get(value) === 0) continue;
@@ -9,11 +10,23 @@ export function partitionExactMounts(compiled, restrictions, workers) {
     paths.get(path).push(item);
   }
   const roots = [...paths].sort(([a, av], [b, bv]) => bv.length - av.length || a.localeCompare(b));
-  const [path, items] = paths.get('2')?.length >= 2 ? ['2', paths.get('2')] : roots[0] ?? [];
-  if (!items || workers === 1) return [{id: 0, path: null, choices: []}];
+  const [path, items] = paths.get(preferredPath)?.length >= workers - 1 ? [preferredPath, paths.get(preferredPath)]
+    : paths.get('2')?.length >= 2 ? ['2', paths.get('2')] : roots[0] ?? [];
+  if (!items || jobs === 1) return [{id: 0, path: null, choices: []}];
   const choices = [null, ...items.sort()];
   const secondary = roots.find(([other]) => other === '3' && other !== path) ??
     roots.find(([other]) => other !== path);
+  if (jobs > workers && choices.length < jobs && secondary) {
+    const [secondaryPath, items] = secondary;
+    const secondaryChoices = [null, ...items.sort()];
+    const count = Math.min(jobs, choices.length * secondaryChoices.length);
+    return choices.flatMap((item, i) => {
+      const splits = Math.floor(count / choices.length) + Number(i < count % choices.length);
+      return Array.from({length: splits}, (_, j) => splits === 1 ? {path, choices: [item]}
+        : {path, choices: [item], secondary_path: secondaryPath,
+          secondary_choices: secondaryChoices.filter((_, index) => index % splits === j)});
+    }).map((part, id) => ({id, ...part}));
+  }
   if (choices.length < workers && secondary) {
     const [secondaryPath, secondaryItems] = secondary;
     const extra = Math.min(workers - choices.length + 1, secondaryItems.length + 1);
@@ -23,7 +36,7 @@ export function partitionExactMounts(compiled, restrictions, workers) {
     [null, ...secondaryItems.sort()].forEach((item, index) => subdivisions[index % extra].secondary_choices.push(item));
     return [...subdivisions, ...partitions].map((partition, id) => ({id, ...partition}));
   }
-  const partitions = Array.from({length: Math.min(workers, choices.length)},
+  const partitions = Array.from({length: Math.min(jobs, choices.length)},
     (_, id) => ({id, path, choices: []}));
   choices.forEach((item, index) => partitions[index % partitions.length].choices.push(item));
   return partitions;
@@ -47,11 +60,15 @@ export function validateExactMountPartitions(compiled, restrictions, partitions)
   if (subdivided.length) {
     const secondary = subdivided[0].secondary_path;
     if (secondary === path || secondary.includes('/') || subdivided.some(part =>
-      part.secondary_path !== secondary || part.choices.length !== 1 || part.choices[0] !== null) ||
-        !cover(options(secondary), subdivided.flatMap(part => part.secondary_choices))) {
+      part.secondary_path !== secondary || part.choices.length !== 1 || !part.secondary_choices?.length)) {
       throw Error('Incomplete exact ordinary subdivision coverage');
     }
-    listed.push(null);
+    const secondaryOptions = options(secondary);
+    for (const choice of new Set(subdivided.map(part => part.choices[0]))) {
+      if (!cover(secondaryOptions, subdivided.filter(part => part.choices[0] === choice)
+        .flatMap(part => part.secondary_choices))) throw Error('Incomplete exact ordinary subdivision coverage');
+      listed.push(choice);
+    }
   }
   if (!cover(options(path), listed)) throw Error('Incomplete exact ordinary partition coverage');
 }

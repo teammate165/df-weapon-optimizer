@@ -34,6 +34,12 @@ assert.equal(preset.score({...base,ads_seconds:0.15,sprint_to_fire_seconds:0.1})
 assert.equal(preset.score({...base,accuracy:1}),85);
 assert.equal(preset.score({...base,recoil:50}),90);
 assert.deepEqual(preset.weights.objectives,{handling:0.5,accuracy:0.3,recoil:0.2});
+const context={pack,kernel:{u:()=>state()},resolve:()=>({}),mode:'bd'};
+const custom=presets.agility.create({...context,request:{objective_weights:{handling:0,accuracy:2,recoil:0}}});
+assert.deepEqual(custom.weights.objectives,{handling:0,accuracy:1,recoil:0});
+assert.equal(custom.score(changed),50);
+assert.throws(()=>presets.agility.create({...context,request:{objective_weights:{handling:0,accuracy:0,recoil:0}}}),/positive total/);
+assert.throws(()=>presets.recoil.create({...context,request:{weights:{pattern:1,camera:-1,kick:0}}}),/Invalid weights/);
 assert(better(candidate(preset.objectives({...base,ads_seconds:0.15,sprint_to_fire_seconds:0.1,accuracy:2.2})),candidate(preset.objectives(base))));
 // Moving/max spread do not contribute to the objective; resolved idle/ADS do.
 pack.handling.spreadProfiles.hip.runtimeScaleFactor=2;

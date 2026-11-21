@@ -6,6 +6,7 @@ import {portraits} from './assets/portraits.js';
 import {statChanges,groupStatChanges,majorStatGroups,tacticalBenefits} from './part-comparisons.js?v=tactical-20261115';
 import {createStatResponseView} from './stat-response-view.js';
 import {createWeaponImage} from './weapon-layers.js';
+import {defaultRecoilWeights,defaultAgilityWeights} from './optimizer_weights.mjs';
 const $=id=>document.getElementById(id);
 const updateWeaponImage=createWeaponImage({canvas:$('gun-assembly'),fallback:$('gun-image'),caption:$('gun-image-caption')});
 const state={catalog:null,model:null,config:[],tunes:{},locks:new Set(),slot:null,preview:null,previewSerial:0,previewLoading:false,busy:false,tab:'builder',results:null,resultIndex:0,solutionPreview:null,solutionPreviewLoading:false};
@@ -20,6 +21,7 @@ const selectedSlot=()=>state.model?.build.slots.find(s=>s.slotPath===state.slot)
 const mounted=path=>state.model?.build.mounted.find(m=>m.slotPath===path);
 const equippedId=()=>mounted(state.slot)?.source==='equipped'?mounted(state.slot).itemId:'';
 const request=()=>({weapon_id:$('weapon').value,mode:$('mode').value,config:state.config,tunes:state.tunes,shot_count:Number($('shots').value)});
+const equippedRequest=()=>({...request(),...state.appliedObjective});
 const viewed=()=>state.preview?.model??(state.tab==='optimizer'?state.solutionPreview?.model:null)??state.model;
 const showStatResponse=createStatResponseView({load:r=>api('evaluate',r),getContext:()=>{const model=viewed();return{weapon_id:model.stats.weaponId,weapon_name:state.catalog.weapons.find(w=>w.id===model.stats.weaponId)?.name??model.stats.weaponId,mode:model.stats.mode,config:model.build.config,tunes:model.tunes};}});
 function status(message,error=false){$('status').textContent=message;$('status').title=message;$('status').classList.toggle('error',error);}
@@ -28,7 +30,7 @@ if(api.exactOrdinary)$('pattern-reduction-option').insertAdjacentHTML('beforeend
  '<div><label><input id="exact-ordinary" type="checkbox"> Exact ordinary search (preview)</label></div>');
 if(api.exactBeta)$('solver-time-limit').add(new Option('300s / Exact ordinary M4A1 beta','300'));
 function setBusy(value){state.busy=value;document.querySelectorAll('button,input,select').forEach(el=>el.disabled=value);$('cancel-generate').hidden=!state.searchController;$('cancel-generate').disabled=!state.searchController;document.body.setAttribute('aria-busy',String(value));if(!value)updateActions();}
-function clearResults(){$('optimizer-search-note').textContent='Time-limited attachment search and calibration / Best found';hideAccuracyInfo();solutionPreviewSerial++;solutionPreviewCache.clear();state.solutionPreview=null;state.solutionPreviewLoading=false;state.results=null;$('results').replaceChildren();}
+function clearResults(){updateSearchNote();hideAccuracyInfo();solutionPreviewSerial++;solutionPreviewCache.clear();state.solutionPreview=null;state.solutionPreviewLoading=false;state.results=null;$('results').replaceChildren();}
 function clearPreview(){state.previewSerial++;state.preview=null;state.previewLoading=false;$('preview-summary').hidden=true;}
 function pane(value){document.querySelector('.workspace').dataset.pane=value;document.querySelectorAll('[data-pane]').forEach(button=>{if(button.tagName==='BUTTON')button.setAttribute('aria-pressed',String(button.dataset.pane===value));});}
 function tab(value){clearPreview();state.tab=value;for(const id of ['builder','optimizer']){$(`${id}-panel`).hidden=id!==value;$(`${id}-tab`).setAttribute('aria-selected',String(id===value));$(`${id}-tab`).tabIndex=id===value?0:-1;}if(state.model){renderStats();drawGraph();updateActions();}if(value==='optimizer')pane('parts');}
@@ -45,9 +47,9 @@ function portrait(id,fallback='—',socketId,eager=true){
 document.addEventListener('error',event=>{if(event.target.tagName==='IMG')event.target.classList.add('failed');},true);
 async function evaluate({reset=false}={}){
  cancelLiveCalibration();
- clearPreview();if(reset){clearResults();state.config=[];state.tunes={};state.locks.clear();state.slot=null;}
+ clearPreview();if(reset){clearResults();state.appliedObjective=null;state.config=[];state.tunes={};state.locks.clear();state.slot=null;}
  setBusy(true);status('Resolving loadout…');
- try{const model=await api('evaluate',request());adopt(model);status('');}
+ try{const model=await api('evaluate',equippedRequest());adopt(model);status('');}
  catch(error){if(state.model){state.config=structuredClone(state.model.build.config);state.tunes=structuredClone(state.model.tunes);$('mode').value=state.model.stats.mode;$('weapon').value=state.model.stats.weaponId;$('shots').value=state.model.stats.current.recoil.adsTrajectory.length;render();}status(error.message,true);}
  finally{setBusy(false);}
 }
@@ -177,7 +179,7 @@ async function previewPart(id,equipAfter=false){
  cancelLiveCalibration();
  if(state.busy)return;if(id===equippedId()){cancelPreview();return;}
  const serial=++state.previewSerial;state.preview=null;state.previewLoading=true;updateActions();status('Comparing attachment…');
- const r=structuredClone(request()),path=state.slot;r.config=r.config.filter(x=>x.slotPath!==path&&!x.slotPath.startsWith(path+'/'));if(id)r.config.push({slotPath:path,itemId:id});
+ const r=structuredClone(equippedRequest()),path=state.slot;r.config=r.config.filter(x=>x.slotPath!==path&&!x.slotPath.startsWith(path+'/'));if(id)r.config.push({slotPath:path,itemId:id});
  for(const key of Object.keys(r.tunes))if(key===path||key.startsWith(path+'/'))delete r.tunes[key];
  try{const model=await api('evaluate',r);if(serial!==state.previewSerial)return;
   if(id&&!model.build.mounted.some(m=>m.slotPath===path&&m.itemId===id))throw Error('This attachment cannot mount with the current parent or coupled selections.');
@@ -189,6 +191,7 @@ function cancelPreview(){clearPreview();renderParts();renderStats();drawGraph();
 function equipPreview(){cancelLiveCalibration();if(!state.preview||state.previewLoading)return;const model=state.preview.model;clearPreview();adopt(model);$('parts-list').scrollTop=0;status('Attachment equipped · Stats and calibration updated.');}
 function updateActions(){
  const part=mounted(state.slot),allLocked=state.config.length>0&&state.config.every(x=>state.locks.has(x.slotPath));$('lock').disabled=state.busy||!state.config.length;$('lock').setAttribute('aria-pressed',String(allLocked));$('lock').textContent=allLocked?'Unlock selected attachments':'Lock selected attachments';
+ $('generate').disabled=state.busy||!hasPositiveWeight();
  $('equip').disabled=state.busy||state.previewLoading||!state.preview;$('equip').textContent=state.previewLoading?'Comparing…':state.preview?'Equip attachment':'Equipped';$('cancel-preview').hidden=!state.preview&&!state.previewLoading;
  $('selection-info').textContent=state.preview?(state.preview.id?name(state.preview.id):'Restore default')+' · '+costText(state.preview.id):part?.source==='equipped'?name(part.itemId):'Default / empty slot. Select a part to compare.';
  $('locks').textContent=state.locks.size?`${state.locks.size} attachments locked. Tuning adjustable.`:'No attachments locked.';
@@ -221,7 +224,7 @@ function renderTuning(){
  $('tuning').querySelectorAll('input').forEach(input=>{
   const t=controls.find(c=>c.id===input.dataset.tune&&c.slotPath===input.dataset.tuneSlot);
   input.oninput=()=>{const value=t.values[Number(input.value)];input.nextElementSibling.textContent=tuningDisplay(t,value);(state.tunes[t.slotPath]??={})[t.id]=value;clearPreview();
-   calibrationRevision++;calibrationPending={revision:calibrationRevision,request:structuredClone(request())};status('Updating calibration...');pumpCalibration();
+   calibrationRevision++;calibrationPending={revision:calibrationRevision,request:structuredClone(equippedRequest())};status('Updating calibration...');pumpCalibration();
   };
  });
  renderCalibrationSummary();
@@ -274,27 +277,78 @@ function drawGraph(){if(!state.model)return;const key=$('view').value,{base,curr
 }
 // Presets share controls, constraints and solution rendering; add display metadata here.
 const presetTemplates={
- recoil:{title:'Lowest Recoil',priorities:'1. ADS recoil / 2. Handling'},
- agility:{title:'Highest Agility',priorities:'1. Handling / 2. Hip-fire spread / 3. ADS recoil'}
+ recoil:{title:'Lowest Recoil',priorities:'ADS recoil, then Handling for ties',defaults:defaultRecoilWeights,labels:{pattern:'Pattern',camera:'Camera shake',kick:'Gun kick'},field:'weights'},
+ agility:{title:'Highest Agility',priorities:'Weighted Handling, hip-fire spread and ADS recoil',defaults:defaultAgilityWeights,labels:{handling:'Handling',accuracy:'Hip-fire accuracy',recoil:'ADS recoil'},field:'objective_weights'}
+};
+const weightSelections=Object.fromEntries(Object.entries(presetTemplates).map(([key,preset])=>[key,{...preset.defaults}]));
+const selectedPreset=()=>$('optimizer-preset').value;
+const hasPositiveWeight=()=>Object.values(weightSelections[selectedPreset()]).some(value=>value>0);
+function objectiveRequest(r){
+ const preset=r.preset??'recoil',template=presetTemplates[preset];
+ return {preset,[template.field]:{...(r[template.field]??template.defaults)},
+  ...(preset==='agility'&&r.weights?{weights:{...r.weights}}:{}),
+  ...(r.firing?{firing:r.firing}:{}),
+  ...(r.search_method==='coordinate_passes'?{search_method:r.search_method,passes:r.passes}:{})};
+}
+const currentObjective=()=>objectiveRequest({preset:selectedPreset(),[presetTemplates[selectedPreset()].field]:weightSelections[selectedPreset()]});
+function updateWeightControls(){
+ const key=selectedPreset(),preset=presetTemplates[key],weights=weightSelections[key],sliders=$('optimizer-weight-sliders');
+ if(sliders.dataset.preset!==key){
+  sliders.dataset.preset=key;
+  sliders.innerHTML=Object.entries(preset.labels).map(([metric,label])=>`<label for="optimizer-weight-${metric}"><span>${label}</span><output id="optimizer-value-${metric}" for="optimizer-weight-${metric}"></output><input id="optimizer-weight-${metric}" data-weight="${metric}" type="range" min="0" max="100" step="1"></label>`).join('');
+  for(const slider of sliders.querySelectorAll('input'))slider.oninput=()=>{
+   weights[slider.dataset.weight]=Number(slider.value)/100;
+   updateWeightControls();clearResults();renderStats();drawGraph();
+  };
+ }
+ for(const [metric,value] of Object.entries(weights)){
+  const slider=$(`optimizer-weight-${metric}`),points=value*100;
+  slider.value=points;slider.disabled=state.busy;
+  slider.setAttribute('aria-valuetext',`${Number(points.toFixed(2))} relative weight`);
+  $(`optimizer-value-${metric}`).value=Number(points.toFixed(2));
+ }
+ $('optimizer-weight-error').hidden=hasPositiveWeight();
+ $('generate').disabled=state.busy||!hasPositiveWeight();
+}
+$('reset-optimizer-weights').onclick=()=>{
+ Object.assign(weightSelections[selectedPreset()],presetTemplates[selectedPreset()].defaults);
+ updateWeightControls();clearResults();renderStats();drawGraph();
 };
 function updatePreset(){
  const preset=presetTemplates[$('optimizer-preset').value],agility=$('optimizer-preset').value==='agility',box=document.querySelector('.objective');
+ updateWeightControls();
  $('pattern-reduction-option').hidden=agility;
  syncExactTimeLimit();
  $('optimizer-panel').dataset.preset=$('optimizer-preset').value;
  box.querySelector('strong').textContent=preset.title;
 
- const info=$('optimizer-score-info'),explain=()=>showAccuracyInfo(info,{preset:$('optimizer-preset').value});
+ const info=$('optimizer-score-info'),explain=()=>showAccuracyInfo(info,currentObjective());
  info.onmouseenter=explain;info.onmouseleave=hideAccuracyInfo;info.onfocus=explain;info.onblur=hideAccuracyInfo;info.onclick=explain;info.onkeydown=e=>{if(e.key==='Escape')hideAccuracyInfo();};
  box.querySelector('p').textContent=preset.priorities;
- $('optimizer-search-note').textContent='Time-limited attachment search and calibration / Best found';
+ updateSearchNote();
  $('category-info').textContent='Max / Balanced / Min. Cheaper choices retain at least 60% of best improvement. No duplicate builds.';
- $('optimizer-model-note').textContent=agility?'Weighted loss: 50% Handling (equal normalized ADS/sprint-to-fire times), 30% idle hip-fire spread, 20% ADS-only recoil. Maximum spread is excluded. Airborne ADS uses shared scaling; range sufficiency is not modeled. Best found; no global guarantee.':'Strict ADS recoil then Handling (equal normalized ADS/sprint-to-fire times). Handling cannot compensate for worse recoil. Default = 0; higher is better. Automatic pattern uses horizontal distance from origin, weighted by candidate fastest 200 ms speed: 1x up to 3, 4x above 3, 6x above 4, 10x above 5 model units/s. Unsupported firing protocols retain the multiplier proxy. Best found; experimental proxy.';
+ $('optimizer-model-note').textContent=agility?'Handling averages normalized ADS and sprint-to-fire times. Hip-fire accuracy uses idle spread. Airborne ADS uses shared scaling. The search reports the best build found within its budget.':'The recoil score combines pattern, camera shake and gun kick. Handling breaks equal recoil scores. Automatic pattern weights horizontal distance by the fastest 200 ms horizontal speed. Unsupported firing protocols use the multiplier proxy.';
 }
 $('optimizer-preset').onchange=()=>{clearResults();updatePreset();renderStats();drawGraph();};
 $('pattern-reduction').onchange=clearResults;
+const coordinatePasses=()=>$('optimizer-search-method').value==='coordinate_passes';
+function updateSearchNote(){
+ $('optimizer-search-note').textContent=coordinatePasses()
+  ?'Searches attachment slots and calibration in passes. Each direction can converge early. Results are best found.'
+  :'Time-limited attachment search and calibration / Best found';
+}
+function syncSearchMethod(){
+ const coordinate=coordinatePasses();
+ $('optimizer-time-options').hidden=coordinate;
+ $('optimizer-pass-options').hidden=!coordinate;
+ const exact=$('exact-ordinary');
+ if(exact)exact.closest('div').hidden=coordinate;
+ syncExactTimeLimit();
+}
+$('optimizer-search-method').onchange=()=>{syncSearchMethod();clearResults();};
+$('optimizer-passes').onchange=clearResults;
 function syncExactTimeLimit(){
- const limit=$('solver-time-limit'),enabled=$('optimizer-preset').value==='recoil'&&$('exact-ordinary')?.checked;
+ const limit=$('solver-time-limit'),enabled=!coordinatePasses()&&$('optimizer-preset').value==='recoil'&&$('exact-ordinary')?.checked;
  if(enabled&&!Array.from(limit.options).some(option=>option.value==='300')){
   const option=new Option('300s / Exact ordinary','300');
   option.id='exact-ordinary-time-limit';limit.add(option);
@@ -312,6 +366,11 @@ $('generate').onclick=async()=>{
  const started=Date.now();let progress,searchProgress=null;
  const progressText=()=>{
   const p=searchProgress,elapsed=Math.floor((Date.now()-started)/1000);
+  if(coordinatePasses()){
+   if(!p)return `Starting coordinate search... ${elapsed}s elapsed.`;
+   const stage=p.pass?`pass ${p.pass} of ${p.passes}`:'starting';
+   return `${p.direction} / ${stage} / ${elapsed}s elapsed. ${p.evaluated.toLocaleString()} builds scored.`;
+  }
   const budget=Number($('solver-time-limit').value);
   const clock=budget===0?`${elapsed}s elapsed / no time limit`:`${elapsed}s of ${budget}s`;
   if(!p)return `Starting attachment search... ${clock}.`;
@@ -324,12 +383,13 @@ $('generate').onclick=async()=>{
  const feedback=(message,error=false)=>{$('results').innerHTML=`<p class="search-feedback ${error?'error':''}" role="status">${esc(message)}</p>`;};
  try{
   cancelLiveCalibration();clearPreview();clearResults();setBusy(true);renderStats();drawGraph();
-  const exactOrdinary=$('optimizer-preset').value==='recoil'&&$('exact-ordinary')?.checked;
-  status(exactOrdinary?'Enumerating ordinary layouts and tuning...':'Searching attachments and calibrating a bounded shortlist...');
+  const coordinate=coordinatePasses(),exactOrdinary=!coordinate&&$('optimizer-preset').value==='recoil'&&$('exact-ordinary')?.checked;
+  status(coordinate?'Searching attachment and calibration passes...':exactOrdinary?'Enumerating ordinary layouts and tuning...':'Searching attachments and calibrating a bounded shortlist...');
   feedback(progressText());
   $('generate').textContent='Searching...';
   progress=setInterval(()=>feedback(progressText()),1000);
-  const fixed=state.config.filter(x=>[...state.locks].some(path=>path===x.slotPath||path.startsWith(x.slotPath+'/'))),r={...request(),preset:$('optimizer-preset').value,fixed,time_limit_seconds:Number($('solver-time-limit').value)};
+  const fixed=state.config.filter(x=>[...state.locks].some(path=>path===x.slotPath||path.startsWith(x.slotPath+'/'))),r={...request(),...currentObjective(),fixed,
+   ...(coordinate?{search_method:'coordinate_passes',passes:Number($('optimizer-passes').value)}:{time_limit_seconds:Number($('solver-time-limit').value)})};
   if(exactOrdinary)r.search_method=new URLSearchParams(location.search).get('exact-ordinary')==='staged'?'exact_ordinary_staged':'exact_ordinary';
   if(r.preset==='recoil'&&$('pattern-reduction').checked)r.pattern_reduction_percent=5;
   r.minimum_stats=Object.fromEntries(['control','handling','stability','accuracy'].filter(k=>$(`minimum-${k}`).value!=='').map(k=>[k,Number($(`minimum-${k}`).value)]));
@@ -340,7 +400,7 @@ $('generate').onclick=async()=>{
   clearInterval(progress);renderResults();
   const incomplete=result.solver?.exhausted===false;
   $('optimizer-search-note').textContent=result.proof_scope
-   ?result.proof_scope+(incomplete?' / Search incomplete':''):'Best found within search budget / Global optimum unproven';
+   ?result.proof_scope+(incomplete?' / Search incomplete':''):coordinate?'Best found in coordinate passes':'Best found within search budget / Global optimum unproven';
   status(incomplete?'Search incomplete. See each build for its proof status.':
    result.proof_scope?'Search complete. See each build for its proof status.':'Search complete - Best builds found.');
  }catch(error){clearInterval(progress);const cancelled=error.name==='AbortError';feedback(cancelled?'Search cancelled. Your equipped build is unchanged.':error.message,!cancelled);status(cancelled?'Search cancelled.':error.message,!cancelled);}
@@ -352,7 +412,7 @@ let solutionPreviewSerial=0;
 const solutionPreviewCache=new Map();
 async function previewSolution(run,row){
  if(!row||row.status!=='best_found'){solutionPreviewSerial++;state.solutionPreview=null;state.solutionPreviewLoading=false;renderStats();drawGraph();return;}
- const payload={weapon_id:run.weapon_id,mode:run.mode,config:row.config,tunes:row.tunes,shot_count:run.request?.shot_count??20};
+ const payload={weapon_id:run.weapon_id,mode:run.mode,config:row.config,tunes:row.tunes,shot_count:run.request?.shot_count??20,...objectiveRequest(run.request??run)};
  const key=JSON.stringify(payload);
  if(state.solutionPreview?.key===key){state.solutionPreview.label=solutionName(row);renderStats();drawGraph();return;}
  const serial=++solutionPreviewSerial;
@@ -390,18 +450,22 @@ function renderResults(){
   $('weapon').value=run.weapon_id;$('mode').value=run.mode;
   if(changedContext){state.locks.clear();state.slot=null;}
   if(run.request?.shot_count)$('shots').value=run.request.shot_count;
+  state.appliedObjective=objectiveRequest(run.request??run);
   state.config=structuredClone(row.config);state.tunes=structuredClone(row.tunes);tab('builder');evaluate();pane('weapon');
  };
  if(state.tab==='optimizer')previewSolution(run,row);
- if($('save-result-build'))$('save-result-build').onclick=()=>showSavedBuilds({weapon_id:run.weapon_id,mode:run.mode,config:structuredClone(row.config),tunes:structuredClone(row.tunes),shot_count:run.request?.shot_count??20,locked_slots:(run.request?.fixed??[]).map(f=>f.slotPath)},solutionName(row));
+ if($('save-result-build'))$('save-result-build').onclick=()=>showSavedBuilds({weapon_id:run.weapon_id,mode:run.mode,config:structuredClone(row.config),tunes:structuredClone(row.tunes),shot_count:run.request?.shot_count??20,locked_slots:(run.request?.fixed??[]).map(f=>f.slotPath),...objectiveRequest(run.request??run)},solutionName(row));
 }
 
 let accuracyInfoCard=null,accuracyInfoButton=null;
 function hideAccuracyInfo(){if(accuracyInfoCard)accuracyInfoCard.hidden=true;if(accuracyInfoButton){accuracyInfoButton.setAttribute('aria-expanded','false');accuracyInfoButton.removeAttribute('aria-describedby');}accuracyInfoButton=null;}
-function showAccuracyInfo(button,run){
+function showAccuracyInfo(button,objective){
  hideAccuracyInfo();accuracyInfoButton=button;
  if(!accuracyInfoCard){accuracyInfoCard=document.createElement('div');accuracyInfoCard.id='optimizer-score-tooltip';accuracyInfoCard.className='solution-info-card';accuracyInfoCard.role='tooltip';document.body.append(accuracyInfoCard);}
- accuracyInfoCard.innerHTML=`<strong>Preset scoring</strong><p>Solution cells show raw effective stat points, including Accuracy. Higher points generally mean tighter hip-fire spread.</p>${run.preset==='agility'?'<p>Agility score measures weighted improvement over default: 50% Handling, 30% hip accuracy, 20% ADS recoil. Metrics are default-normalized; Handling averages ADS and sprint-to-fire times. Default is 0; higher is better. Balanced and Min retain at least 60% of Max weighted improvement.</p>':run.preset==='recoil'?'<p>The relative score measures the ADS recoil proxy, not Accuracy. Handling breaks equal-recoil ties, using ADS and sprint-to-fire times. It shows percentage improvement over default: default is 0; higher is better.</p>':`<p>${esc(run.score_model??'Relative score follows the selected preset objective; Accuracy points are a separate main stat.')}</p>`}<p>Moving spread scales with idle spread. Maximum spread and separate jumping penalties are excluded from agility scoring.</p>`;
+ const template=presetTemplates[objective.preset],weights=objective[template.field];
+ const total=Object.values(weights).reduce((sum,value)=>sum+value,0);
+ const mix=total>0?Object.entries(template.labels).map(([key,label])=>`${label} ${fmt(100*weights[key]/total)}%`).join(' / '):'Set at least one weight above zero.';
+ accuracyInfoCard.innerHTML=`<strong>Preset scoring</strong><p>${mix}</p><p>Relative score measures weighted improvement over the default build. Higher is better. ${objective.preset==='agility'?'Handling averages normalized ADS and sprint-to-fire times. Hip-fire accuracy uses idle spread.':'Handling breaks equal-recoil ties.'}</p>`;
  accuracyInfoCard.hidden=false;button.setAttribute('aria-expanded','true');button.setAttribute('aria-describedby',accuracyInfoCard.id);
  const rect=button.getBoundingClientRect(),width=Math.min(300,innerWidth-24);accuracyInfoCard.style.width=width+'px';
  accuracyInfoCard.style.left=Math.max(12,Math.min(rect.right-width,innerWidth-width-12))+'px';
@@ -417,7 +481,7 @@ $('mode').onchange=()=>evaluate({reset:true});$('reset').onclick=()=>evaluate({r
 
 const savedBuilds=createSavedBuildStore();
 let saveDraft=null;
-function showSavedBuilds(build={...request(),locked_slots:[...state.locks]},suffix=''){
+function showSavedBuilds(build={...equippedRequest(),locked_slots:[...state.locks]},suffix=''){
  saveDraft=structuredClone(build);
  $('save-build-name').value=[name(build.weapon_id),suffix].filter(Boolean).join(' - ');
  $('save-build-context').textContent=`Saving ${name(build.weapon_id)} / ${build.mode.toUpperCase()} / ${build.config.length} selected attachments`;
@@ -442,6 +506,16 @@ async function loadSavedBuild(id){
   if(build.config.some(c=>!model.build.mounted.some(m=>m.slotPath===c.slotPath&&m.itemId===c.itemId))||Object.entries(build.tunes).some(([slot,values])=>Object.entries(values).some(([key,value])=>model.tunes[slot]?.[key]!==value)))throw Error('This build no longer matches the catalog. The saved copy was kept.');
   $('weapon').value=build.weapon_id;$('mode').value=build.mode;$('shots').value=build.shot_count;
   clearPreview();state.locks.clear();state.slot=null;adopt(model);
+  state.appliedObjective=build.preset?objectiveRequest(build):null;
+  if(state.appliedObjective){
+   const {preset}=state.appliedObjective,field=presetTemplates[preset].field;
+   $('optimizer-preset').value=preset;
+   $('optimizer-search-method').value=build.search_method??'anytime';
+   if(build.search_method==='coordinate_passes'&&['6','12','20'].includes(String(build.passes)))$('optimizer-passes').value=String(build.passes);
+   syncSearchMethod();
+   Object.assign(weightSelections[preset],state.appliedObjective[field]);
+   clearResults();updatePreset();
+  }
   state.locks=new Set(build.locked_slots.filter(path=>model.build.mounted.some(m=>m.slotPath===path&&m.source==='equipped')));
   tab('builder');renderSlots();updateActions();pane('weapon');$('saved-builds-dialog').close();status(`Loaded ${saved.name}.`);
  }catch(error){$('saved-build-status').textContent=error.message;}finally{setBusy(false);}
@@ -452,7 +526,7 @@ $('save-build-form').onsubmit=event=>{
  event.preventDefault();
  try{const saved=savedBuilds.save(saveDraft,$('save-build-name').value);renderSavedBuilds();$('saved-build-status').textContent=`Saved ${saved.name}.`;}catch(error){$('saved-build-status').textContent=error.message;}
 };
-$('export').onclick=()=>{const blob=new Blob([JSON.stringify({request:request(),locked_slots:[...state.locks],model:state.model,optimization:state.results},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`delta-${$('weapon').value}-${$('mode').value}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+$('export').onclick=()=>{const blob=new Blob([JSON.stringify({request:equippedRequest(),locked_slots:[...state.locks],model:state.model,optimization:state.results},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`delta-${$('weapon').value}-${$('mode').value}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
 await prepareImageCache();
 try{setBusy(true);const response=await fetch('/api/catalog');if(!response.ok)throw Error('Catalog unavailable');state.catalog=await response.json();state.catalog.weapons.sort((a,b)=>a.name.localeCompare(b.name));$('weapon').value='18010000001';await evaluate();}catch(error){status(error.message,true);}
 

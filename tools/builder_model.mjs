@@ -1,6 +1,7 @@
 import {generate} from './optimizer_engine.mjs';
 import {statResponse} from './builder_stat_response.mjs';
 import {statIds} from './optimizer_policy.mjs';
+import {presets} from './optimizer_presets.mjs';
 
 export async function executeModel(input,modules) {
   if(input.action==='optimize')return generate(input,modules);
@@ -23,6 +24,14 @@ export async function executeModel(input,modules) {
   const stats=calculate(pack,{tacticalEffective:true,mode:r.mode,resolvedLoadout:build,tunes,preservePrecision:true,trajectoryShotCount:r.shot_count??20});
   const numeric=kernel.u(pack,build,{tacticalEffective:true,mode:r.mode,tunes}).numeric;
   const effective_stats=Object.fromEntries(Object.entries(statIds).map(([key,id])=>[key,numeric.mainAttr[id]]));
+  let optimization;
+  if(r.preset!==undefined||r.weights!==undefined||r.objective_weights!==undefined){
+    const preset=r.preset??'recoil';
+    if(!Object.hasOwn(presets,preset))throw Error('Unknown optimizer preset');
+    const scorer=presets[preset].create({pack,request:r,...modules,mode:r.mode,resolve:config=>curves.o(pack,config,r.mode)});
+    const components=scorer.raw(build,tunes),loss=scorer.score(components);
+    optimization={preset,weights:scorer.weights,components,loss,score:100-loss};
+  }
   let response_curve;
   if(r.response_stat!==undefined){
       response_curve=statResponse(pack,build,tunes,r.mode,r.response_stat,calculate,kernel);
@@ -63,5 +72,5 @@ export async function executeModel(input,modules) {
   for(const m of build.mounted.filter(m=>m.source==='equipped')) {
     if(!Number.isFinite(costs[m.itemId])) missing.push(m.itemId);else total+=costs[m.itemId];
   }
-  return {build,stats,effective_stats,controls,tunes,comparisons,response_curve,display:pack.display.objects,cost:r.mode==='mp'||missing.length?null:total,missing,tier:shop.weapons[pack.weaponId],provenance:input.provenance};
+  return {build,stats,effective_stats,controls,tunes,comparisons,response_curve,optimization,display:pack.display.objects,cost:r.mode==='mp'||missing.length?null:total,missing,tier:shop.weapons[pack.weaponId],provenance:input.provenance};
 }

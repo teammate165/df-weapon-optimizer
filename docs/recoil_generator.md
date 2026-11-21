@@ -104,3 +104,59 @@ Implementation: [exact speed helper](../tools/horizontal_speed.mjs), [preset](..
 ## ADS recoil weights (2026-11-16)
 
 Default pattern/camera/weapon-kick weights are **40/30/30**, superseding earlier 30/40/30 defaults in historical records. Loss is `100 * (0.4 * pattern/default_pattern + 0.3 * camera/default_camera + 0.3 * kick/default_kick)`. This shared default also applies to Highest Agility's recoil component. Explicit request weight overrides remain supported.
+
+
+## Coordinate passes
+
+The optional **Coordinate passes** search restores the coordinate engine from
+revision `e84a28bbb1a6fae70dfad0f7f5a27e9f21df2429` at
+`tools/optimizer_engine.mjs`, with its builder's Quick/Standard/Thorough
+limits of 6/12/20 passes. That revision predates the top-5% screen and
+multi-start refinement. The current implementation lives in
+[pass_optimizer.mjs](../tools/pass_optimizer.mjs).
+
+1. Start with locked attachments and calibrate the seed. Visit each accessible,
+   unlocked slot and compare removal and compatible replacements. Probe the
+   changed socket's tuning at the endpoints, quartiles and default. Sweep all
+   legal positions on the incumbent and repeat until a pass makes no
+   improvement or reaches the pass limit.
+2. For a priced, single-budget search with a feasible Max candidate, visit the
+   50%, 60%, 70%, 80% and 90% improvement targets in order. At each target,
+   search first from Max to reduce cost, then from the locked setup to add
+   affordable parts. Each direction has its own pass limit.
+3. Select Max, Balanced and Min from feasible candidates found across the
+   directions. The current category selector applies its improvement floor to
+   the strongest build found. Warfare returns Max and reports the price-based
+   alternatives as unavailable.
+
+Select the method explicitly in the local or static builder. API requests use
+`search_method: "coordinate_passes"` and an integer `passes` from 1 through
+20, defaulting to 12. The mode uses current preset weights, source calibration,
+attachment locks, mode and price limits, stat floors and the optional
+Lowest Recoil pattern cap. The result records the pass limit and completed
+passes by direction. Build downloads and saved builds carry the method, pass
+limit and preset weights. Replay evaluates the stored attachments and
+calibration with the current model. Searches can be canceled and all results
+are best found. The normal Anytime search remains the default.
+
+
+### Builder validation
+
+The local server and the public static export returned the same results for
+M4A1 Detonation (`18010000001`), with six passes per direction, grip
+`13030000109` locked in slot 1, a Handling floor of 25 and the 800-point weapon
+cap. Lowest Recoil also required a 5% pattern reduction.
+
+| Preset and edited weights | Max points / score | Balanced points / score | Min points / score |
+| --- | ---: | ---: | ---: |
+| Lowest Recoil, 0/75/0 | 660 / 92.3392 | 240 / 88.0000 | 100 / 61.2500 |
+| Highest Agility, 0/55/0 | 780 / 93.8595 | 540 / 93.2169 | 280 / 84.4195 |
+
+Every returned build replayed its mounts, tuning positions, effective stats,
+cost and objective loss. Both browser paths also passed Apply, JSON download,
+saved-build loading, restored method/pass limit/weights and desktop/mobile
+layout checks. The same browser regression verified that Anytime is selected
+on a fresh load, with the local unlimited and static 30-second defaults.
+Run [preset_weights_browser.cjs](../tests/preset_weights_browser.cjs) with
+`PRESET_WEIGHTS_COORDINATE=1` against the local or exported static builder,
+and repeat without that setting to exercise Anytime.

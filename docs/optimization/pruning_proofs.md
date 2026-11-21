@@ -139,6 +139,20 @@ binary64 operations. The chart enclosure gives a lower bound on
 the cap. It also skips a box when its lower loss strictly exceeds the incumbent
 at the same price. This preserves handling ties and all price categories.
 
+For the legacy multiplier score, the same ordered replay provides the two
+native recoil inputs. The solver calls the native norm when both ranges are
+singletons and uses zero for a varying pair. This leaves the existing camera,
+kick, and inert-control reductions available to eligible burst and single-fire
+layouts. The separate spam-axis fold keeps its direct evaluation path.
+
+When the finite kick tree exceeds its size limit, the solver evaluates the
+ordered native kick pair for an exact assignment before full scoring. For a
+prefix with one bounded grid remaining, it scans that final grid for the
+minimum and caches it by prefix. After it has covered every prefix, it can
+reuse the overall minimum for layouts with the same ordered program and
+native position tables. The cutoff is strict, so all ties in kick loss still
+reach the handling comparison if they can match the incumbent.
+
 For nonsingleton horizontal ranges, a second speed floor retains the same
 multiplier at every shot. Each unrounded position is the cumulative sum of the
 scaled source coefficients divided by ten, times the multiplier. Interpolating
@@ -224,17 +238,25 @@ need no extra zero unless a legal position emits it.
 
 Max cuts a layout or branch when its loss lower bound strictly exceeds the
 loss of a qualifying witness. Equal loss remains searchable for handling and
-price. The Max mount bound can reuse a finite native kick floor after every
-possible kick writer is fixed. The guard requires equal static multiplication
-factors and equal paired `Mult_A` tune values on the two kick axes, plus one
+price. The Max mount bound can reuse a finite native kick floor when all
+possible kick writers are fixed or one remains optional. The guard requires
+equal static multiplication factors and equal paired `Mult_A` tune values on the two kick axes, plus one
 shared `DeltaMappingThenScale` from a bounded integer main-stat range. The
-program enumerates every legal pair of tune values and every binary64 fold of
+program enumerates the legal combinations of up to three tune values and every binary64 fold of
 the fixed static factors across source orders. It then appends each possible
 native curve scale and calls the same native norm as the scorer. Taking the
 minimum covers the actual mount order and stat, even though some combinations
-in the enclosure may be infeasible. The two tune additions commute from
-zero. Unsupported writers, optional kick mounts, and domains that exceed the
-work limit keep the existing norm floor. [Native enumeration and mount parity](../../tests/exact_ordinary_mount_bounds.mjs).
+in the enclosure may be infeasible. The first two tune additions commute from
+zero. With three writers, each writer can be the final addend, so the bound
+covers all three possible final additions before taking the minimum.
+For one optional writer, the bound covers its absence and presence
+using the same stat range for each and takes the smaller native norm floor.
+M4A1 Detonation also allows two optional writers by taking the minimum over
+the four presence and absence combinations. Unsupported writers, optional
+sets above the limit, and domains that exceed the work cap keep the existing
+norm floor. Balanced can use the same
+native kick floor when there is no pattern cap.
+[Native enumeration and mount parity](../../tests/exact_ordinary_mount_bounds.mjs).
 
 Once all Max partitions close, Min uses the fixed threshold
 `0.6 * maximum.score`. For a lower bound `L` its optimistic score is
@@ -249,8 +271,25 @@ the endpoint scores has a nonnegative slope, using the smallest possible
 completion price and the optimistic score bounds the surplus above the line.
 The solver cuts only when the upper bound is strictly less than the
 incumbent surplus. It uses the original floating-point expression order.
+Before computing the recoil bound, Balanced can substitute the certified
+Max score into this expression at the cheapest possible eligible price.
+Even Max's score is insufficient when that optimistic merit is strictly below
+the Balanced incumbent. The search also skips integer-priced subtrees whose
+cheapest completion reaches or exceeds Max's price. When there is a Balanced
+incumbent, the largest competitive integer price gives a tighter ceiling.
+The solver finds it by binary search using the same merit expression. The
+ceiling intersects the cheapest possible suffix price before entering a child
+branch. Prices tied with the incumbent's merit remain searchable.
+When the exact suffix table exceeds its size cap, the cheapest completion
+estimate, rounded up to the first price above Min if needed, still bounds
+Balanced merit. This fallback applies only to integer price domains.
 Integer suffix prices are a superset of legal prices. Branches with
 fractional or unsupported suffix prices keep the resolved-layout cost test.
+For nonnegative integer prices, Min also adds the cheapest remaining choice
+at each slot to the selected cost. Ignoring cross-slot compatibility can only
+lower this estimate, so a branch above the incumbent price can be dropped
+even where the suffix price table exceeds its size cap. Equality stays in
+the search for the loss and handling tie-breaks.
 
 Every staged partition searches the same representatives throughout the
 proof. The same-price grouping is limited to ordinary sight and magwell
@@ -258,6 +297,15 @@ leaf choices with the same host availability, the same ordered native
 static operations, and only view calibration. The groups exclude locked
 paths and items with mount, occupancy, special-fire or ammo dependencies.
 The applied result uses a concrete legal attachment. [Grouping regression](../../tests/exact_ordinary_choice_groups.mjs).
+
+For stock, uncapped CI-19 Detonation, the staged solver replays catalog starts
+to initialize the archive. It verifies each mount selection against the
+compiled model and checks every supplied tuning value against the native grid
+before scoring. A start supplies a feasible witness. Proof still requires
+every partition in the corresponding phase to close. The earlier traversal
+of barrel and muzzle choices in CI-19 Max and Balanced and AKS-74 Detonation
+Max changes the order of visits only.
+[Start and partition regression](../../tests/exact_ordinary_workers.mjs).
 
 For admitted stat mappings, an integer-valued main stat with only integer
 addends can use the finite grid inside its interval. The bound evaluates

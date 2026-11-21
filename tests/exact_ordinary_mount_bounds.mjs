@@ -116,6 +116,7 @@ const results = [
   ...runFixture('18010000038', ['13030000189', '13040000110', '13140000042', '13110000099'], 'bd'),
   ...runFixture('18010000038', ['13030000189', '13040000110', '13140000042'], 'sol'),
   ...runFixture('18010000001', ['13030000109', '13020000173', '13130000169'], 'bd'),
+  ...runFixture('18010000001', ['13020000349', '13040000114', '13290000001'], 'bd'),
   ...runFixture('18010000038', ['13020000514', '13130000169', '13390000002', '13390000003',
     '13110000099'], 'bd'),
   ...runFixture('18010000038', ['13030000189', '13040000110', '13140000042'], 'mp'),
@@ -126,3 +127,31 @@ assert(results.some(row => row.cuts > 0 && row.hits > 0));
 assert(results.some(row => row.price_cuts > 0));
 assert(results.some(row => row.phase_cuts > 0 && row.price_bound?.discrete_norms > 0));
 assert(results.some(row => row.combined && row.price_bound?.finite_kick_bounds > 0));
+assert(results.some(row => row.combined && row.price_bound?.optional_kick_bounds > 0));
+assert(results.some(row => row.combined && row.price_bound?.two_optional_kick_bounds > 0));
+
+// The expensive first choice leaves 4,096 distinct suffix prices, beyond the table cap.
+const priceChoices = [4096, ...Array.from({length: 12}, (_, i) => 2 ** i)].map((cost, i) => ({
+  path: String(i).padStart(2, '0'), item: String(cost), value: `choice${i}`, cost,
+}));
+const priceSearch = createMountSearch({
+  model: {variables: new Map(priceChoices.map(({value}) => [value, {type: 'binary'}])),
+    booleanNodes: new Map(), constraints: []},
+  players: new Map(priceChoices.map(choice => [choice.value, choice])),
+});
+const maxPrice = 7;
+let uncappedDepthSeen = false;
+const expectedLayouts = [...priceSearch.enumerate(new Map(), undefined, {
+  priceBudget: 8191,
+  prune(branch) {
+    if (branch.selectedCost === 4096 && branch.suffixCosts === undefined) uncappedDepthSeen = true;
+    return false;
+  },
+})].filter(layout => layout.reduce((cost, {itemId}) => cost + Number(itemId), 0) <= maxPrice);
+const priceStats = {};
+const cheapLayouts = [...priceSearch.enumerate(new Map(), undefined, {
+  priceBudget: 8191, priceCeiling: () => maxPrice, stats: priceStats,
+})];
+assert(uncappedDepthSeen);
+assert(priceStats.price_ceiling_cuts > 0);
+assert.deepEqual(cheapLayouts, expectedLayouts);

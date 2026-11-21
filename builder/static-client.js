@@ -39,6 +39,11 @@ export function createStaticClient({workerCount=searchWorkerCount(),
  };
  const optimize=async(request,{signal,onProgress})=>{
   if(optimizing)throw Error('A search is already running.');
+  if(request.search_method==='coordinate_passes'){
+   optimizing=true;
+   try{return await send(main(),'optimize',request,{onProgress});}
+   finally{optimizing=false;}
+  }
   optimizing=true;const pool=[],started=performance.now();
   try{
    pool.push(main());for(let i=1;i<count;i++){try{pool.push(spawn());}catch{break;}}
@@ -132,7 +137,7 @@ export function createStaticClient({workerCount=searchWorkerCount(),
   if(action==='dispose'){exactSearch?.abort();abort();return;}
   if(action==='optimize'&&exactSearch)throw Error('A search is already running.');
   const sharedExact=action==='optimize'&&exactOrdinary&&['exact_ordinary','exact_ordinary_staged'].includes(request.search_method);
-  if(action==='optimize'&&!sharedExact&&exactBeta&&request.time_limit_seconds===300){
+  if(action==='optimize'&&!sharedExact&&request.search_method!=='coordinate_passes'&&exactBeta&&request.time_limit_seconds===300){
    fallbackDeadline=performance.now()+300000;
    if(exactBetaEligible(request)){
     if(optimizing)throw Error('A search is already running.');

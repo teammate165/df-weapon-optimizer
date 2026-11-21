@@ -72,7 +72,23 @@ for (const order of permutations(factors)) {
 }
 assert.equal(exactKickFloor(factors, tables, scales), expectedKick);
 assert.equal(exactKickFloor([...factors].reverse(), [...tables].reverse(), scales), expectedKick);
-assert.equal(exactKickFloor(factors, [...tables, tables[0]], scales), null);
+const threeTables = [...tables, {id: 2, values: [-.6, -.025, .15]}];
+let threeWriterMinimum = Infinity;
+for (const order of permutations(factors)) {
+  for (const scale of scales) {
+    const product = order.reduce((a, b) => a * b, 1) * scale;
+    for (const left of threeTables[0].values) for (const middle of threeTables[1].values) {
+      for (const right of threeTables[2].values) for (const addends of permutations([left, middle, right])) {
+        const multA = 1 + addends.reduce((a, b) => a + b, 0);
+        threeWriterMinimum = Math.min(threeWriterMinimum,
+          Math.hypot((1.1 * multA) * product, (.8 * multA) * product));
+      }
+    }
+  }
+}
+assert.equal(exactKickFloor(factors, threeTables, scales), threeWriterMinimum);
+assert.equal(exactKickFloor(factors, [...threeTables].reverse(), scales), threeWriterMinimum);
+assert.equal(exactKickFloor(factors, [...threeTables, tables[0]], scales), null);
 
 const profiles = [
   {points: [

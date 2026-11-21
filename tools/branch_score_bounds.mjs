@@ -537,10 +537,17 @@ export function createBranchScoreBound({pack,request,compiled,kernel,curves,calc
      const [lo,hi]=mains[kickMap.id];
      if(!Number.isSafeInteger(lo)||!Number.isSafeInteger(hi)||hi-lo>256)return null;
      const factors=[],tables=[];
+     let optional, secondOptional;
      for(const rows of kickGroups)for(const {active,data} of rows){
       const [required,possible]=bounds[indices.get(active)];
       if(!possible)continue;
-      if(!required||data.kickFactors===null||data.kickTable===null)return null;
+      if(data.kickFactors===null||data.kickTable===null)return null;
+      if(!required){
+       if(!optional)optional=data;
+       else if(!secondOptional&&pack.weaponId==='18010000001'&&mode==='bd')secondOptional=data;
+       else return null;
+       continue;
+      }
       factors.push(...data.kickFactors);
       if(data.kickTable)tables.push(data.kickTable);
      }
@@ -550,7 +557,25 @@ export function createBranchScoreBound({pack,request,compiled,kernel,curves,calc
       if(!Number.isFinite(scale))return null;
       scales.push(scale);
      }
-     const floor=finiteKick(factors,tables,new Set(scales));
+     const distinctScales=new Set(scales);
+     let floor=finiteKick(factors,tables,distinctScales);
+     if(optional&&floor!==null){
+      // Both presence and absence are possible in this relaxed branch.
+      const included=finiteKick([...factors,...optional.kickFactors],
+       optional.kickTable?[...tables,optional.kickTable]:tables,distinctScales);
+      if(included===null)return null;
+      floor=Math.min(floor,included);
+      if(secondOptional){
+       const secondTables=secondOptional.kickTable?[...tables,secondOptional.kickTable]:tables;
+       const second=finiteKick([...factors,...secondOptional.kickFactors],secondTables,distinctScales);
+       const both=finiteKick([...factors,...optional.kickFactors,...secondOptional.kickFactors],
+        optional.kickTable?[...secondTables,optional.kickTable]:secondTables,distinctScales);
+       if(second===null||both===null)return null;
+       floor=Math.min(floor,second,both);
+       stats.two_optional_kick_bounds=(stats.two_optional_kick_bounds??0)+1;
+      }
+      stats.optional_kick_bounds=(stats.optional_kick_bounds??0)+1;
+     }
      if(floor!==null)stats.finite_kick_bounds++;
      return floor;
     }

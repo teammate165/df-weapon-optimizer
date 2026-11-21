@@ -65,9 +65,12 @@ function prepareExactOrdinary(input, modules, groupEquivalentPrices = false) {
   return {settings, mode, fixed, limit, resolve, scorer, patternConstraint, compiled, restrictions, locked};
 }
 
-export function planExactOrdinaryPartitions(input, modules, {workers = 4, staged = false} = {}) {
-  const {compiled, restrictions} = prepareExactOrdinary(input, modules, staged);
-  return partitionExactMounts(compiled, restrictions, workers);
+export function planExactOrdinaryPartitions(input, modules, {workers = 4, jobs = workers, staged = false} = {}) {
+  const {compiled, restrictions, patternConstraint} = prepareExactOrdinary(input, modules, staged);
+  // Uncapped CI-19 has a disproportionately expensive barrel. Splitting by
+  // stock spreads that barrel's work across the existing worker pool.
+  const splitByStock = staged && !patternConstraint && input.pack.weaponId === '18010000038' && input.request.mode === 'bd';
+  return partitionExactMounts(compiled, restrictions, workers, splitByStock ? '3' : undefined, jobs);
 }
 
 function ordinaryResult({input, modules, archive, maximum, scorer, patternConstraint, budget, solver, certified}) {
@@ -137,6 +140,66 @@ export function combineExactOrdinaryShards(partitions, shards, input, modules) {
     scorer, patternConstraint, budget: compiled.budget});
 }
 
+function useCI19Starts(input) {
+  const {pack, request, solver_starts: starts} = input;
+  return pack.weaponId === '18010000038' && request.mode === 'bd' &&
+    starts?.weapon_id === pack.weaponId && Array.isArray(starts.ordinary_starts) &&
+    !request.config?.length && !request.fixed?.length && !request.ammoItemId &&
+    request.pattern_reduction_percent === undefined && !Object.keys(request.minimum_stats ?? {}).length;
+}
+
+function replayOrdinaryStarts(input, modules, compiled, restrictions, scorer) {
+  if (!useCI19Starts(input)) return [];
+  const {pack, request, shop, solver_starts} = input;
+  const {curves, kernel} = modules;
+  const {mode} = request;
+  const search = createMountSearch(compiled);
+  const decisions = [...compiled.players.values()].filter(player => typeof player.value === 'string');
+  const result = [];
+  for (const {config, tunes} of solver_starts.ordinary_starts) {
+    try {
+      const build = curves.o(pack, config, mode);
+      if (configKey(build.config) !== configKey(config)) continue;
+      const selected = new Set(config.map(row => row.slotPath + '|' + row.itemId));
+      if (decisions.filter(player => selected.has(player.path + '|' + player.item)).length !== selected.size) continue;
+      const candidate = new Map(restrictions);
+      let excluded = false;
+      for (const {path, item, value} of decisions) {
+        const chosen = Number(selected.has(path + '|' + item));
+        if (chosen && restrictions.get(value) === 0) {
+          excluded = true;
+          break;
+        }
+        candidate.set(value, chosen);
+      }
+      if (excluded || search.enumerate(candidate).next().done) continue;
+      for (const [path, values] of Object.entries(tunes)) {
+        const mounted = build.mounted.find(row => row.slotPath === path);
+        if (!mounted) throw Error('Start tuning requires its attachment');
+        for (const [id, value] of Object.entries(values)) {
+          const control = curves.c(pack, mounted, id);
+          if (!control || control.enabled === false || !curves.n(control).includes(value)) {
+            throw Error('Start tuning is outside the native grid');
+          }
+        }
+      }
+      const cost = build.mounted.filter(row => row.source === 'equipped')
+        .reduce((sum, row) => sum + shop.partCosts[row.itemId], 0);
+      if (!Number.isFinite(cost) || cost > compiled.budget) continue;
+      const state = kernel.u(pack, build, {mode, tacticalEffective: true, tunes});
+      const components = scorer.raw(build, tunes, state);
+      const [loss, handling] = scorer.objectives(components);
+      if (!Number.isFinite(loss) || !Number.isFinite(handling)) continue;
+      const stats = Object.fromEntries(Object.entries(statIds).map(([key, id]) => [key, state.numeric.mainAttr[id]]));
+      result.push({cost, loss, handling, score: 100 - loss, components, stats,
+        config: build.config, tunes, mounted: build.mounted});
+    } catch {
+      // A stale start can be skipped without affecting the search domain.
+    }
+  }
+  return result;
+}
+
 function* exactOrdinaryPhases(partitions, input, modules) {
   const {scorer, patternConstraint, compiled, restrictions} = prepareExactOrdinary(input, modules, true);
   validateExactMountPartitions(compiled, restrictions, partitions);
@@ -144,6 +207,10 @@ function* exactOrdinaryPhases(partitions, input, modules) {
   const certified = new Set();
   const phases = [];
   let maximum;
+  for (const row of replayOrdinaryStarts(input, modules, compiled, restrictions, scorer)) {
+    if (!archive.has(row.cost) || stronger(row, archive.get(row.cost))) archive.set(row.cost, row);
+    if (!maximum || stronger(row, maximum)) maximum = row;
+  }
   function* run(phase) {
     const merged = mergeShards(partitions, yield phase, phase.kind);
     phases.push({phase: phase.kind, ...merged.solver});
@@ -153,7 +220,7 @@ function* exactOrdinaryPhases(partitions, input, modules) {
     }
     return merged.solver.exhausted;
   }
-  let exhausted = yield* run({kind: 'maximum'});
+  let exhausted = yield* run({kind: 'maximum', incumbent: maximum});
   if (exhausted && maximum) {
     certified.add('Max');
     if (maximum.cost !== null && maximum.score > 0) {
@@ -212,6 +279,16 @@ export function solveExactOrdinary(input, modules, {
     prepareExactOrdinary(input, modules, Boolean(phase));
   const restrictions = restrictExactMountPartition(compiled, baseRestrictions, partition);
   const priorityPaths = [partition?.path, partition?.secondary_path].filter(Boolean);
+  if (mode === 'bd' && !patternConstraint) {
+    const ci19 = pack.weaponId === '18010000038';
+    const aks74 = pack.weaponId === '18010000010';
+    // Prioritize the high-impact recoil mounts before the optics choices.
+    if ((phase?.kind === 'maximum' && (ci19 || aks74)) || (phase?.kind === 'balanced' && ci19)) {
+      for (const path of ['2', '2/6', '1', '4/8', ci19 ? '2/47' : '1/43', '11']) {
+        if (!priorityPaths.includes(path)) priorityPaths.push(path);
+      }
+    }
+  }
   if (phase) {
     const affected = new Map();
     for (const {path, item, value} of compiled.players.values()) {
@@ -237,7 +314,12 @@ export function solveExactOrdinary(input, modules, {
     : performance.now() + (deadlineEpochMs - Date.now());
   const timeout = Symbol('exact ordinary deadline');
   const tableCache = new Map();
-  const controlsFor = createOrdinaryControls(pack, request, curves);
+  const orderingStart = phase?.kind === 'maximum' && useCI19Starts(input)
+    ? input.solver_starts.starts?.filter(row => row.preset === 'recoil' && row.source_mode === mode)
+      .reduce((best, row) => (!best || row.config.length > best.config.length) ? row : best, null)
+    : null;
+  const orderingRequest = orderingStart ? {...request, config: orderingStart.config, tunes: orderingStart.tunes} : request;
+  const controlsFor = createOrdinaryControls(pack, orderingRequest, curves);
   const pruning = {bounded_layouts: 0, fallback_layouts: 0, pattern_cuts: 0, loss_cuts: 0,
     root_pattern_cuts: 0, root_loss_cuts: 0,
     invariant_controls: 0, handling_controls: 0, chart_memo_hits: 0, chart_memo_misses: 0,
@@ -254,7 +336,7 @@ export function solveExactOrdinary(input, modules, {
   const stage = phase && createExactOrdinaryPhase(phase, compiled.budget, () => sharedIncumbents?.lossAt(null) ?? Infinity);
   const mountBound = pruneMounts ? createExactOrdinaryMountBound({pack, request, compiled, modules, scorer, patternConstraint,
     getIncumbentLoss: stage ? undefined : () => lossAt(null), getPriceLoss: stage ? undefined : lossAt,
-    phaseCut: stage?.mountCut, finiteKick: maximumPhase}) : null;
+    phaseCut: stage?.mountCut, finiteKick: maximumPhase || (phase?.kind === 'balanced' && !patternConstraint)}) : null;
   const checkpoint = () => {
     input.signal?.throwIfAborted();
     const now = performance.now();
@@ -264,7 +346,7 @@ export function solveExactOrdinary(input, modules, {
     input.onProgress?.({phase: 'exact_ordinary', category: phase?.kind, evaluated, tree_nodes: nodes, candidates: archive.size,
       calibration_evaluations: evaluated, best_loss: maximum?.loss, scored_per_second: evaluated * 1000 / (now - start)});
   };
-  const referenceConfig = new Map((request.config ?? []).map(row => [row.slotPath, row.itemId]));
+  const referenceConfig = new Map((orderingRequest.config ?? []).map(row => [row.slotPath, row.itemId]));
   const seed = new Map();
   for (const player of compiled.players.values()) {
     if (typeof player.value !== 'string') continue;
@@ -286,7 +368,8 @@ export function solveExactOrdinary(input, modules, {
     const controls = controlsFor(build, seedOnly);
     if (tableCache.size >= 2048) tableCache.clear();
     let bound = !seedOnly && controls.length && pruneCalibration
-      ? prepareOrdinaryBound({pack, build, mode, controls, modules, scorer, tableCache, memoChart}) : null;
+      ? prepareOrdinaryBound({pack, build, mode, controls, modules, scorer, tableCache, memoChart,
+        firing: request.firing}) : null;
     if (bound) pruning.bounded_layouts++;
     else if (!seedOnly && controls.length) pruning.fallback_layouts++;
     const cut = (kickNode, root = false) => {
@@ -372,9 +455,11 @@ export function solveExactOrdinary(input, modules, {
       const values = tunes[path] ??= {};
       const axisIndex = bound?.byIndex.get(index);
       if (axisIndex === undefined) {
-        const children = bound?.kick?.indices.has(index) ? kickNode?.children : undefined;
+        const kick = bound?.kick;
+        const kickControl = kick?.indices.has(index);
+        const children = kickControl ? kickNode?.children : undefined;
         for (let offset = 0; offset < positions.length; offset++) {
-          const child = children?.[offset];
+          const child = children?.[offset] ?? (kickControl ? kick.select?.(index, offset) : undefined);
           if (child && cut(child)) continue;
           values[id] = positions[offset];
           visit(depth + 1, child ?? kickNode);
@@ -426,6 +511,8 @@ export function solveExactOrdinary(input, modules, {
       priority: (path, item) => referenceConfig.get(path) === item ? -1 : item === null ? 0 : 1,
       prune: stage ? branch => stage.costCut(branch) || mountBound?.prune(branch) : mountBound?.prune,
       priceBudget: stage?.priceBudget ?? mountBound?.priceBudget,
+      priceCeiling: stage?.priceCeiling,
+      stats: stage?.priceCeiling ? pruning : undefined,
       pruneLeaves: Boolean(stage),
     })) {
       const layoutStart = performance.now();
