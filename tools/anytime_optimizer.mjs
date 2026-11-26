@@ -1,7 +1,7 @@
 import {presets} from './optimizer_presets.mjs';
 import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs';
 import {selectCategories,cheapestGate} from './optimizer_selection.mjs';
-import {completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs';
+import {fixedSlotSeed,retainsFixedSlots,completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs';
 import {configKey,tacticalChoice} from './exhaustive_attachment_gate.mjs';
 import {compileMounts} from './scip_mount_model.mjs';
 import {createMountSearch} from './mount_search.mjs';
@@ -57,7 +57,7 @@ export async function generateAnytime(input,runtime){
  const limit=r.time_limit_seconds??(r.passes===undefined?30:Math.max(1,2*r.passes));const unlimited=limit===0;if(!unlimited&&(!Number.isFinite(limit)||limit<1||limit>600))throw Error('Search time limit must be 0 (unlimited) or 1..600 seconds');
  const tier=mode==='bd'?shop.weapons[pack.weaponId]:null,budgets=mode==='mp'?[null]:r.budgets??[mode==='bd'?tier?.gunsmithLimit:r.budget];
  if(mode!=='mp'&&(![1,3].includes(budgets.length)||budgets.some((b,i)=>!Number.isFinite(b)||b<0||i&&b<budgets[i-1]||mode==='bd'&&b>tier?.gunsmithLimit)))throw Error('Invalid budget or weapon cap');
- const resolve=config=>curves.o(pack,config,mode),retains=build=>fixed.every(f=>build.mounted.some(n=>n.slotPath===f.slotPath&&n.itemId===f.itemId)),initial=resolve(fixed);
+ const resolve=config=>curves.o(pack,config,mode),retains=build=>retainsFixedSlots(build,fixed),initial=fixedSlotSeed(resolve,fixed,r.config);
  if(!retains(initial))throw Error('Fixed attachments conflict or cannot mount; include required parent selections');
  const hidden=new Set(mode==='bd'?shop.hiddenItemIds:[]),costs=mode==='bd'?shop.partCosts:prices,laserLimit=Math.max(1,fixed.filter(f=>kernel.l(pack,f.itemId,mode)).length);
  if(initial.mounted.some(n=>hidden.has(n.itemId)))throw Error('Fixed setup contains a hidden Detonation item');
@@ -237,9 +237,9 @@ export async function generateAnytime(input,runtime){
   };
   // Seeds are hints only: all mounting, prices, effects and tuning are replayed.
   runPhase('search_attachments',.35,()=>{
-   const seeds=[{config:fixed,tunes:{}},{config:r.config??fixed,tunes:r.tunes??{}},...(starts?.starts??[]).filter(s=>!s.preset||s.preset===settings.preset).sort((a,b)=>Number(b.source_mode===mode)-Number(a.source_mode===mode))];
+   const seeds=[{config:initial.config,tunes:{}},{config:r.config??initial.config,tunes:r.tunes??{}},...(starts?.starts??[]).filter(s=>!s.preset||s.preset===settings.preset).sort((a,b)=>Number(b.source_mode===mode)-Number(a.source_mode===mode))];
    for(const seed of searchOrder(seeds,variant,seed=>configKey(seed.config))){
-    check(phaseDeadline);const config=[...seed.config.filter(c=>!fixed.some(f=>f.slotPath===c.slotPath||f.slotPath.startsWith(c.slotPath+'/'))),...fixed];
+    check(phaseDeadline);const config=[...seed.config.filter(c=>!fixed.some(f=>f.slotPath===c.slotPath||f.slotPath.startsWith(c.slotPath+'/'))),...fixed.filter(f=>!f.keepDefault)];
     for(const build of completions(resolve(config))){keepComplete(evaluate(build.config,seed.tunes));keepOrdinary(build.config);}
    }
    searchOrdinary();

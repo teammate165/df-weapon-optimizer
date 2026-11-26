@@ -6,7 +6,7 @@ import {solveLinearModel} from './scip_runtime.mjs';
 import {presets} from './optimizer_presets.mjs';
 import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs';
 import {selectCategories,cheapestGate} from './optimizer_selection.mjs';
-import {completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs';
+import {fixedSlotSeed,retainsFixedSlots,completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs';
 import {timedRecoil} from './timed_recoil.mjs';
 import {exhaustiveAttachmentGate,configKey,gateFraction} from './exhaustive_attachment_gate.mjs';
 
@@ -28,7 +28,7 @@ export async function generateSCIP(input,runtime){
  const tier=mode==='bd'?shop.weapons[pack.weaponId]:null;
  let budgets=mode==='mp'?[null]:r.budgets??[mode==='bd'?tier?.gunsmithLimit:r.budget];
  if(mode!=='mp'&&(![1,3].includes(budgets.length)||budgets.some((b,i)=>!Number.isFinite(b)||b<0||i&&b<budgets[i-1]||mode==='bd'&&b>tier?.gunsmithLimit)))throw Error('Invalid budget or weapon cap');
- const resolve=config=>curves.o(pack,config,mode),initial=resolve(fixed),retains=build=>fixed.every(f=>build.mounted.some(m=>m.slotPath===f.slotPath&&m.itemId===f.itemId));
+ const resolve=config=>curves.o(pack,config,mode),initial=fixedSlotSeed(resolve,fixed,r.config),retains=build=>retainsFixedSlots(build,fixed);
  if(!retains(initial))throw Error('Fixed attachments conflict or cannot mount; include required parent selections');
  const hidden=new Set(mode==='bd'?shop.hiddenItemIds:[]),laserLimit=Math.max(1,fixed.filter(f=>kernel.l(pack,f.itemId,mode)).length),costs=mode==='bd'?shop.partCosts:prices;
  if(initial.mounted.some(n=>hidden.has(n.itemId)))throw Error('Fixed setup contains a hidden Detonation item');
@@ -74,7 +74,7 @@ export async function generateSCIP(input,runtime){
   for(const start of starts?.starts??[]){
    candidate(start.config,start.tunes);
    if(fixed.length){
-    const merged=[...start.config.filter(c=>!fixed.some(f=>c.slotPath===f.slotPath||c.slotPath.startsWith(f.slotPath+'/'))),...fixed],build=resolve(merged);
+    const merged=[...start.config.filter(c=>!fixed.some(f=>c.slotPath===f.slotPath||c.slotPath.startsWith(f.slotPath+'/'))),...fixed.filter(f=>!f.keepDefault)],build=resolve(merged);
     if(retains(build))for(const completed of completeRiserOptics(pack,build,resolve,fixed))candidate(completed.config,start.tunes);
    }
   }

@@ -16,13 +16,12 @@ const fs=require('node:fs/promises');
   const slider=metric=>page.locator(`#optimizer-weight-${metric}`);
   const number=metric=>page.locator(`#optimizer-value-${metric}`);
   const values=()=>page.locator('[data-weight]').evaluateAll(inputs=>inputs.map(input=>Number(input.value)));
-  const set=async(metric,value)=>slider(metric).fill(String(value));
   await page.goto(url,{waitUntil:'domcontentloaded'});
   await idle();
   await page.click('#optimizer-tab');
   assert.deepEqual(await values(),[40,30,30]);
   await slider('pattern').press('ArrowLeft');
-  assert.deepEqual(await values(),[39,30,30]);
+  assert.deepEqual(await values(),[39,31,30]);
   assert.equal(await number('pattern').inputValue(),'39');
   await number('pattern').fill('');
   assert(await page.locator('#generate').isDisabled());
@@ -34,29 +33,41 @@ const fs=require('node:fs/promises');
   await page.selectOption('#optimizer-preset','agility');
   assert.deepEqual(await values(),[50,30,20]);
   await page.selectOption('#optimizer-preset','recoil');
-  assert.deepEqual(await values(),[38,30,30]);
+  assert.deepEqual(await values(),[38,31,31]);
   await page.click('#reset-optimizer-weights');
   assert.deepEqual(await values(),[40,30,30]);
-  for(const metric of ['pattern','camera','kick'])await set(metric,0);
-  assert(await page.locator('#generate').isDisabled());
-  assert(await page.locator('#optimizer-weight-error').isVisible());
+  await number('pattern').fill('100');
+  assert.deepEqual(await values(),[100,0,0]);
+  await slider('pattern').press('ArrowLeft');
+  assert.deepEqual(await values(),[99,1,0]);
+  await number('pattern').fill('40');
+  assert.deepEqual(await values(),[40,30,30]);
+  await number('camera').fill('50');
+  assert.deepEqual(await values(),[29,50,21]);
   await page.click('#reset-optimizer-weights');
-  assert(await page.locator('#generate').isEnabled());
-  assert(await page.locator('#optimizer-weight-error').isHidden());
   const method=page.locator('#optimizer-search-method');
-  assert.equal(await method.inputValue(),'anytime');
+  assert.equal(await method.inputValue(),'coordinate_passes');
   assert.equal(await page.locator('#solver-time-limit').inputValue(),local?'0':'30');
-  if(coordinate){
-   assert(await page.locator('#optimizer-pass-options').isHidden());
-   await method.selectOption('coordinate_passes');
-   assert(await page.locator('#optimizer-time-options').isHidden());
-   assert.deepEqual(await page.locator('#optimizer-passes option').evaluateAll(options=>options.map(option=>option.value)),['6','12','20']);
-   assert.equal(await page.locator('#optimizer-passes').inputValue(),'12');
-  }
+  assert(await page.locator('#optimizer-pass-options').isVisible());
+  assert(await page.locator('#optimizer-time-options').isHidden());
+  assert.deepEqual(await page.locator('#optimizer-passes option').evaluateAll(options=>options.map(option=>option.value)),['6','12','20']);
+  assert.equal(await page.locator('#optimizer-passes').inputValue(),'12');
+  const generate=page.locator('#generate'),cancel=page.locator('#cancel-generate');
+  await generate.scrollIntoViewIfNeeded();
+  const generatePosition=await generate.evaluate(button=>[button.offsetTop,button.offsetWidth,button.offsetHeight]);
+  await generate.click();
+  assert(await generate.isHidden());
+  assert.deepEqual(await cancel.evaluate(button=>[button.offsetTop,button.offsetWidth,button.offsetHeight]),generatePosition);
+  assert.match(await cancel.evaluate(button=>getComputedStyle(button).backgroundColor),/^rgb\((185, 47, 56|162, 37, 46)\)$/);
+  await cancel.click();
+  await generate.waitFor();
+  assert(await cancel.isHidden());
+  assert.match(await page.locator('#results').innerText(),/Search cancelled/);
+  if(!coordinate)await method.selectOption('anytime');
   const checked=[];
   for(const [preset,settings,expectedWeights] of [
-   ['recoil',{pattern:0,camera:75,kick:0},{pattern:0,camera:0.75,kick:0}],
-   ['agility',{handling:0,accuracy:55,recoil:0},{handling:0,accuracy:1,recoil:0}]
+   ['recoil',{pattern:0,camera:100,kick:0},{pattern:0,camera:1,kick:0}],
+   ['agility',{handling:0,accuracy:100,recoil:0},{handling:0,accuracy:1,recoil:0}]
   ]){
    if(coordinate){
     await page.setViewportSize({width:1440,height:900});
@@ -66,12 +77,17 @@ const fs=require('node:fs/promises');
     await page.locator('[data-slot="1"]').click();
     await page.locator('[data-part="13030000109"]').click();
     await page.click('#equip');
+    await page.click('#keep-slot');
+    for(const path of ['2','38']){
+     await page.locator(`[data-slot="${path}"]`).click();
+     await page.click('#keep-slot');
+     assert.equal(await page.locator('#keep-slot').getAttribute('aria-pressed'),'true');
+    }
     await page.click('#optimizer-tab');
-    await page.click('#lock');
    }
    await page.setViewportSize(preset==='recoil'?{width:1440,height:900}:{width:390,height:844});
    await page.selectOption('#optimizer-preset',preset);
-   for(const [metric,value] of Object.entries(settings))await number(metric).fill(String(value));
+   await number(Object.keys(settings).find(metric=>settings[metric]===100)).fill('100');
    assert(await page.locator('fieldset.optimizer-weights').isVisible());
    assert(await page.locator('#optimizer-weight-sliders input').evaluateAll(inputs=>inputs.every(input=>{
     const {left,right,width}=input.getBoundingClientRect();
@@ -106,7 +122,11 @@ const fs=require('node:fs/promises');
     assert.equal(run.solver.global_optimality,false);
     assert(run.solver.runs.every(run=>run.completed_passes<=6));
     assert.deepEqual(run.solver.runs.map(run=>run.direction),['Max',...Array.from({length:5},()=>['Reduce cost','Build from locks']).flat()]);
-    assert.deepEqual(run.request.fixed,[{slotPath:'1',itemId:'13030000109'}]);
+    assert.deepEqual(run.request.fixed,[
+     {slotPath:'1',itemId:'13030000109'},
+     {slotPath:'2',itemId:'13020000344',keepDefault:true},
+     {slotPath:'38',itemId:'',keepDefault:true}
+    ]);
     const feasible=run.results.filter(row=>row.status==='best_found');
     for(const candidate of feasible){
      assert(candidate.stats.handling>=25&&candidate.cost<=candidate.budget);
@@ -123,6 +143,9 @@ const fs=require('node:fs/promises');
     for(const [i,replayed] of evaluations.entries()){
      const candidate=feasible[i];
      assert.deepEqual(replayed.build.config,candidate.config);
+     assert(replayed.build.mounted.some(m=>m.slotPath==='2'&&m.itemId==='13020000344'&&m.source==='default'));
+     assert(replayed.build.slots.some(s=>s.slotPath==='38'));
+     assert(!replayed.build.mounted.some(m=>m.slotPath==='38'));
      assert.deepEqual(replayed.effective_stats,candidate.stats);
      assert.equal(replayed.cost,candidate.cost);
      assert.equal(replayed.optimization.loss,candidate.loss);
@@ -156,6 +179,10 @@ const fs=require('node:fs/promises');
    await page.click('#open-saved-builds');
    await page.locator('[data-load-build]').first().click();
    await idle();
+   if(coordinate){
+    await page.locator('[data-slot="38"]').click();
+    assert.equal(await page.locator('#keep-slot').getAttribute('aria-pressed'),'true');
+   }
    await page.click('#optimizer-tab');
    assert.equal(await page.locator('#optimizer-preset').inputValue(),preset);
    assert.deepEqual(await values(),Object.values(settings));

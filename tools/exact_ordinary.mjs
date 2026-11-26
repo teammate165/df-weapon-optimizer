@@ -1,3 +1,4 @@
+import {retainsFixedSlots} from './optimizer_mounts.mjs';
 import {compileMounts} from './scip_mount_model.mjs';
 import {createMountSearch} from './mount_search.mjs';
 import {createChoiceGroups} from './choice_groups.mjs';
@@ -53,7 +54,7 @@ function prepareExactOrdinary(input, modules, groupEquivalentPrices = false) {
   const groups = createChoiceGroups({pack, mode, shop, prices, kernel, curves, preset: scorer, fixed});
   groups.constrain(compiled, {preserveIdentities: true, preserveBundled: true});
   const restrictions = new Map();
-  const locked = (path, item) => fixed.some(row => row.slotPath === path && row.itemId === item);
+  const locked = (path, item) => fixed.some(row => !row.keepDefault && row.slotPath === path && row.itemId === item);
   for (const player of compiled.players.values()) {
     if (typeof player.value === 'string' && groups.isTactical(player.path, player.item) && !locked(player.path, player.item)) {
       restrictions.set(player.value, 0);
@@ -159,7 +160,7 @@ function replayOrdinaryStarts(input, modules, compiled, restrictions, scorer) {
   for (const {config, tunes} of solver_starts.ordinary_starts) {
     try {
       const build = curves.o(pack, config, mode);
-      if (configKey(build.config) !== configKey(config)) continue;
+      if (configKey(build.config) !== configKey(config) || !retainsFixedSlots(build, fixed)) continue;
       const selected = new Set(config.map(row => row.slotPath + '|' + row.itemId));
       if (decisions.filter(player => selected.has(player.path + '|' + player.item)).length !== selected.size) continue;
       const candidate = new Map(restrictions);
@@ -355,8 +356,7 @@ export function solveExactOrdinary(input, modules, {
   }
   const scoreLayout = (config, seedOnly = false) => {
     const build = resolve(config);
-    if (configKey(config) !== configKey(build.config) || fixed.some(lock =>
-      !build.mounted.some(row => row.slotPath === lock.slotPath && row.itemId === lock.itemId))) {
+    if (configKey(config) !== configKey(build.config) || !retainsFixedSlots(build, fixed)) {
       throw Error('Ordinary mount model and native resolver disagree');
     }
     const cost = mode === 'mp' ? null : build.mounted.filter(row => row.source === 'equipped')

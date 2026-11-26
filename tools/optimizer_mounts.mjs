@@ -1,3 +1,18 @@
+export function retainsFixedSlots(build,fixed){
+  return fixed.every(({slotPath,itemId,keepDefault})=>{
+    const part=build.mounted.find(m=>m.slotPath===slotPath);
+    if(!keepDefault)return part?.itemId===itemId;
+    return itemId
+      ?part?.itemId===itemId&&part.source!=='equipped'
+      :!part&&build.slots.some(slot=>slot.slotPath===slotPath);
+  });
+}
+
+export function fixedSlotSeed(resolve,fixed,equippedConfig=[]){
+  const minimal=resolve(fixed.filter(row=>!row.keepDefault));
+  return retainsFixedSlots(minimal,fixed)?minimal:resolve(equippedConfig);
+}
+
 // Source IDs for the three sight risers. A scope-category label alone cannot
 // distinguish a riser from an actual optic in this catalog.
 export const riserIds=new Set(['13210000012','13210000013','13210000014']);
