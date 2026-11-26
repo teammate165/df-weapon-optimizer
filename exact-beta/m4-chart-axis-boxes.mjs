@@ -1,17 +1,17 @@
-import {assert, readFixture} from './chart-fixture-runtime.mjs?v=67f0054380987872';
-import {nonObjectiveTargets} from './m4-active-controls.mjs?v=67f0054380987872';
-import {createOrderedAxisIntervals} from './ordered-axis-intervals.mjs?v=67f0054380987872';
-import {createNativeChartInterval} from '../model/branch_score_bounds.mjs?v=67f0054380987872';
-import {searchCategories} from './category-search.mjs?v=67f0054380987872';
-import {presets} from '../model/optimizer_presets.mjs?v=67f0054380987872';
-import {timedRecoil} from '../model/timed_recoil.mjs?v=67f0054380987872';
-import {fastestHorizontalSpeed, horizontalSpeedMultiplier} from '../model/horizontal_speed.mjs?v=67f0054380987872';
-import * as curves from '../runtime/curves.mjs?v=67f0054380987872';
-import * as kernel from '../runtime/kernel.mjs?v=67f0054380987872';
-import {t as calculate} from '../runtime/attributes.mjs?v=67f0054380987872';
+import {assert, readFixture} from './chart-fixture-runtime.mjs?v=455db48980e86f19';
+import {nonObjectiveTargets} from './m4-active-controls.mjs?v=455db48980e86f19';
+import {createOrderedAxisIntervals} from './ordered-axis-intervals.mjs?v=455db48980e86f19';
+import {createNativeChartInterval} from '../model/branch_score_bounds.mjs?v=455db48980e86f19';
+import {searchCategories} from './category-search.mjs?v=455db48980e86f19';
+import {presets} from '../model/optimizer_presets.mjs?v=455db48980e86f19';
+import {timedRecoil} from '../model/timed_recoil.mjs?v=455db48980e86f19';
+import {fastestHorizontalSpeed, horizontalSpeedMultiplier} from '../model/horizontal_speed.mjs?v=455db48980e86f19';
+import * as curves from '../runtime/curves.mjs?v=455db48980e86f19';
+import * as kernel from '../runtime/kernel.mjs?v=455db48980e86f19';
+import {t as calculate} from '../runtime/attributes.mjs?v=455db48980e86f19';
 
-const [pack, {shop}] = await Promise.all([readFixture('weapons/18010000001.json?v=67f0054380987872'),
-  readFixture('catalog.json?v=67f0054380987872')]);
+const [pack, {shop}] = await Promise.all([readFixture('weapons/18010000001.json?v=455db48980e86f19'),
+  readFixture('catalog.json?v=455db48980e86f19')]);
 const mode = 'bd', budget = 200;
 const resolve = config => curves.o(pack, config, mode);
 const modules = {kernel, curves, calculate};

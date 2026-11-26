@@ -1,7 +1,7 @@
 // Production is a time-limited bounded-shortlist search. The exhaustive SCIP
 // implementation remains available separately for reference/proof experiments.
-import {generateAnytime} from './anytime_optimizer.mjs?v=67f0054380987872';
-import {generatePasses} from './pass_optimizer.mjs?v=67f0054380987872';
+import {generateAnytime} from './anytime_optimizer.mjs?v=455db48980e86f19';
+import {generatePasses} from './pass_optimizer.mjs?v=455db48980e86f19';
 
 export function generate(input,runtime){
   return input.request.search_method==='coordinate_passes'

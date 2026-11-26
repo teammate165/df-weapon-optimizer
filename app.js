@@ -1,12 +1,12 @@
-import {createStaticClient} from './static-client.js?v=67f0054380987872';
-import {imageLoaded,prepareImageCache} from './image-loading.js?v=67f0054380987872';
-import {createSavedBuildStore} from './saved-builds.js?v=67f0054380987872';
-import {slotIcons} from './assets/slot-icons.js?v=67f0054380987872';
-import {portraits} from './assets/portraits.js?v=67f0054380987872';
-import {statChanges,groupStatChanges,majorStatGroups,tacticalBenefits} from './part-comparisons.js?v=67f0054380987872';
-import {createStatResponseView} from './stat-response-view.js?v=67f0054380987872';
-import {createWeaponImage} from './weapon-layers.js?v=67f0054380987872';
-import {defaultRecoilWeights,defaultAgilityWeights,distributeWeightPoints} from './optimizer_weights.mjs?v=67f0054380987872';
+import {createStaticClient} from './static-client.js?v=455db48980e86f19';
+import {imageLoaded,prepareImageCache} from './image-loading.js?v=455db48980e86f19';
+import {createSavedBuildStore} from './saved-builds.js?v=455db48980e86f19';
+import {slotIcons} from './assets/slot-icons.js?v=455db48980e86f19';
+import {portraits} from './assets/portraits.js?v=455db48980e86f19';
+import {statChanges,groupStatChanges,majorStatGroups,tacticalBenefits} from './part-comparisons.js?v=455db48980e86f19';
+import {createStatResponseView} from './stat-response-view.js?v=455db48980e86f19';
+import {createWeaponImage} from './weapon-layers.js?v=455db48980e86f19';
+import {defaultRecoilWeights,defaultAgilityWeights,distributeWeightPoints} from './optimizer_weights.mjs?v=455db48980e86f19';
 const $=id=>document.getElementById(id);
 const updateWeaponImage=createWeaponImage({canvas:$('gun-assembly'),fallback:$('gun-image'),caption:$('gun-image-caption')});
 const state={catalog:null,model:null,config:[],tunes:{},locks:new Set(),slot:null,preview:null,previewSerial:0,previewLoading:false,busy:false,tab:'builder',results:null,resultIndex:0,solutionPreview:null,solutionPreviewLoading:false};
@@ -520,7 +520,20 @@ function showAccuracyInfo(button,objective){
 }
 document.addEventListener('pointerdown',e=>{if(!e.target.closest('.optimizer-score-info'))hideAccuracyInfo();});
 window.addEventListener('resize',hideAccuracyInfo);document.addEventListener('scroll',hideAccuracyInfo,true);
-function renderWeapons(){const query=$('weapon-search').value.toLowerCase().trim();$('weapon-list').innerHTML=state.catalog.weapons.filter(w=>(w.name+' '+w.id).toLowerCase().includes(query)).map(w=>`<button class="part-card ${w.id===$('weapon').value?'selected':''}" data-weapon="${esc(w.id)}">${portrait(w.id,'GUN',undefined,false)}<span><span class="part-name">${esc(w.name)}</span><small>${w.tier?'Tier '+esc(w.tier.tier)+' · '+fmt(w.tier.gunsmithLimit,0)+' cap':'Catalog weapon'}</small></span></button>`).join('')||'<p class="helper">No matching weapons.</p>';
+function weaponPriceLabel(weapon,mode){
+ if(mode==='mp')return '';
+ const price=mode==='bd'?weapon.tier?.price:weapon.price;
+ const priceText=Number.isFinite(price)?`Weapon price ${fmt(price,0)}`:'Weapon price unavailable';
+ if(mode!=='bd')return priceText;
+ const cap=weapon.tier?.gunsmithLimit;
+ return Number.isFinite(cap)?`${priceText} | Mod budget ${fmt(cap,0)}`:`${priceText} | Mod budget unavailable`;
+}
+function renderWeapons(){
+ const mode=$('mode').value,query=$('weapon-search').value.toLowerCase().trim();
+ $('weapon-list').innerHTML=state.catalog.weapons.filter(w=>(w.name+' '+w.id).toLowerCase().includes(query)).map(w=>{
+  const price=weaponPriceLabel(w,mode);
+  return `<button class="part-card ${w.id===$('weapon').value?'selected':''}" data-weapon="${esc(w.id)}">${portrait(w.id,'GUN',undefined,false)}<span><span class="part-name">${esc(w.name)}</span>${price?`<small>${esc(price)}</small>`:''}</span></button>`;
+ }).join('')||'<p class="helper">No matching weapons.</p>';
  document.querySelectorAll('[data-weapon]').forEach(button=>button.onclick=()=>{$('weapon').value=button.dataset.weapon;$('weapon-dialog').close();evaluate({reset:true});});
 }
 $('choose-weapon').onclick=()=>{$('weapon-search').value='';renderWeapons();$('weapon-dialog').showModal();$('weapon-search').focus();};$('close-weapons').onclick=()=>$('weapon-dialog').close();$('weapon-search').oninput=renderWeapons;

@@ -1,7 +1,7 @@
-import {generate} from './optimizer_engine.mjs?v=67f0054380987872';
-import {statResponse} from './builder_stat_response.mjs?v=67f0054380987872';
-import {statIds} from './optimizer_policy.mjs?v=67f0054380987872';
-import {presets} from './optimizer_presets.mjs?v=67f0054380987872';
+import {generate} from './optimizer_engine.mjs?v=455db48980e86f19';
+import {statResponse} from './builder_stat_response.mjs?v=455db48980e86f19';
+import {statIds} from './optimizer_policy.mjs?v=455db48980e86f19';
+import {presets} from './optimizer_presets.mjs?v=455db48980e86f19';
 
 function plotConvertedRecoil(pack, stats, chart, value) {
   const {base, current} = stats;
