@@ -1,4 +1,4 @@
-import {defaultAgilityWeights,defaultRecoilWeights,validateWeights} from './optimizer_weights.mjs?v=0b4a96d6446ec67a';
+import {defaultAgilityWeights,defaultRecoilWeights,validateWeights} from './optimizer_weights.mjs?v=67f0054380987872';
 const PREFIX='dfw_saved_v1_';
 const CHUNK_SIZE=3300,MAX_CHUNKS=4,MAX_STORAGE=32000;
 const YEAR=365*24*60*60;
@@ -17,7 +17,7 @@ function validate(build){
  if(Object.values(build.tunes).some(v=>!v||typeof v!=='object'||Array.isArray(v)||Object.values(v).some(x=>!Number.isFinite(x))))throw Error('Invalid saved calibration');
  if(!Number.isInteger(build.shot_count)||build.shot_count<2||build.shot_count>200||!Array.isArray(build.locked_slots)||build.locked_slots.some(x=>typeof x!=='string'))throw Error('Invalid saved build settings');
  if(build.preset!==undefined&&!['recoil','agility'].includes(build.preset))throw Error('Invalid saved preset');
- if(build.search_method!==undefined&&(build.search_method!=='coordinate_passes'||!Number.isInteger(build.passes)||build.passes<1||build.passes>20))throw Error('Invalid coordinate pass settings');
+ if(build.search_method!==undefined&&build.search_method!=='anytime'&&(build.search_method!=='coordinate_passes'||!Number.isInteger(build.passes)||build.passes<1||build.passes>20))throw Error('Invalid coordinate pass settings');
  if(build.weights!==undefined)validateWeights(build.weights,defaultRecoilWeights);
  if(build.objective_weights!==undefined)validateWeights(build.objective_weights,defaultAgilityWeights);
 }

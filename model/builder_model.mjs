@@ -1,7 +1,42 @@
-import {generate} from './optimizer_engine.mjs?v=0b4a96d6446ec67a';
-import {statResponse} from './builder_stat_response.mjs?v=0b4a96d6446ec67a';
-import {statIds} from './optimizer_policy.mjs?v=0b4a96d6446ec67a';
-import {presets} from './optimizer_presets.mjs?v=0b4a96d6446ec67a';
+import {generate} from './optimizer_engine.mjs?v=67f0054380987872';
+import {statResponse} from './builder_stat_response.mjs?v=67f0054380987872';
+import {statIds} from './optimizer_policy.mjs?v=67f0054380987872';
+import {presets} from './optimizer_presets.mjs?v=67f0054380987872';
+
+function plotConvertedRecoil(pack, stats, chart, value) {
+  const {base, current} = stats;
+  const stockModes = base.weaponStats.supportedFireModes;
+  if (!chart || stockModes.length !== 1 || stockModes[0] !== 'Single' ||
+      !current.weaponStats.supportedFireModes.includes('Auto')) return;
+  const {recoil, references} = current;
+  for (const [key, profileId] of [
+    ['trajectory', references.waistRecoilProfileId],
+    ['adsTrajectory', references.adsRecoilProfileId],
+  ]) {
+    const profile = pack.handling.recoilProfiles[profileId];
+    if (!profile) continue;
+    const {continuousFire, singleShot, loop} = profile;
+    const hasOpening = continuousFire?.horizontalValues?.length || continuousFire?.verticalValues?.length;
+    const useSingleOpening = !hasOpening &&
+      Math.max(singleShot?.horizontalValues?.length ?? 0, singleShot?.verticalValues?.length ?? 0) > 1;
+    const horizontalLoop = loop?.horizontalValues?.length ?? 0;
+    const verticalLoop = loop?.verticalValues?.length ?? 0;
+    const splitLoop = horizontalLoop && verticalLoop && horizontalLoop !== verticalLoop;
+    if (!useSingleOpening && !splitLoop) continue;
+
+    const count = recoil[key].length;
+    const horizontal = value('GRecoil_H', 1);
+    const vertical = value('GRecoil_V', 1);
+    const points = chart.trajectory(profile, horizontal, vertical, useSingleOpening, count);
+    if (splitLoop) {
+      // The native chart uses the vertical loop length for both axes.
+      const horizontalProfile = {...profile, loop: {...loop, verticalValues: []}};
+      const horizontalPoints = chart.trajectory(horizontalProfile, horizontal, vertical, useSingleOpening, count);
+      for (const [index, point] of points.entries()) point.x = horizontalPoints[index].x;
+    }
+    recoil[key] = points;
+  }
+}
 
 export async function executeModel(input,modules) {
   if(input.action==='optimize')return generate(input,modules);
@@ -22,7 +57,8 @@ export async function executeModel(input,modules) {
     controls.push({slotPath:mounted.slotPath,itemId:mounted.itemId,id,control,values,value});
   }
   const stats=calculate(pack,{tacticalEffective:true,mode:r.mode,resolvedLoadout:build,tunes,preservePrecision:true,trajectoryShotCount:r.shot_count??20});
-  const numeric=kernel.u(pack,build,{tacticalEffective:true,mode:r.mode,tunes}).numeric;
+  const {numeric,value}=kernel.u(pack,build,{tacticalEffective:true,mode:r.mode,tunes});
+  plotConvertedRecoil(pack, stats, calculate.screeningChartContract, value);
   const effective_stats=Object.fromEntries(Object.entries(statIds).map(([key,id])=>[key,numeric.mainAttr[id]]));
   let optimization;
   if(r.preset!==undefined||r.weights!==undefined||r.objective_weights!==undefined){

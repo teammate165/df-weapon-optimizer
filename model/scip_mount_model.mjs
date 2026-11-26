@@ -1,5 +1,5 @@
-import {LinearModel} from './scip_linear_model.mjs?v=0b4a96d6446ec67a';
-import {riserIds,isOptic} from './optimizer_mounts.mjs?v=0b4a96d6446ec67a';
+import {LinearModel} from './scip_linear_model.mjs?v=67f0054380987872';
+import {riserIds,isOptic} from './optimizer_mounts.mjs?v=67f0054380987872';
 
 // Symbolically unrolls the source resolver's mounted-item fixed point, rather
 // than assuming a static list of independent sockets.
@@ -9,6 +9,7 @@ export function compileMounts({pack,shop,prices,request,candidateConfigs},kernel
  const hidden=new Set(mode==='bd'?shop.hiddenItemIds:[]),costs=mode==='bd'?shop.partCosts:prices;
  const fixed=request.fixed??[],budget=mode==='mp'?null:request.budget??request.budgets?.[0]??shop.weapons[pack.weaponId]?.gunsmithLimit;
  if(mode!=='mp'&&(!Number.isFinite(budget)||budget<0))throw Error('A finite attachment budget is required');
+ const emptyLocks=new Set(fixed.filter(f=>f.keepDefault&&!f.itemId).map(f=>f.slotPath));
  const groups=new Map(),players=new Map(),paths=new Map(),incoming=new Map(),nodes=[];
  const permitted=candidateConfigs===undefined?null:new Set(candidateConfigs.flatMap(config=>config.map(c=>c.slotPath+'|'+c.itemId)));
  const rootKey='|'+pack.weaponId,queue=[{path:'',host:pack.weaponId}];
@@ -27,10 +28,11 @@ export function compileMounts({pack,shop,prices,request,candidateConfigs},kernel
   for(const socket of pack.assembly.socketProviders[context.host]?.sockets??[]){
    if(socket.modes&&!socket.modes.includes(mode))continue;
    const path=context.path?context.path+'/'+socket.socketId:String(socket.socketId);
-   const options=(socket.optionItemIds??[]).map(String).filter(id=>pack.display.objects[id]?.playerSelectable===true&&!pack.display.objects[id]?.selectionDisabledReason&&(!permitted||permitted.has(path+'|'+id)));
+   const selectable=(socket.optionItemIds??[]).map(String).filter(id=>pack.display.objects[id]?.playerSelectable===true&&!pack.display.objects[id]?.selectionDisabledReason);
+   const options=permitted?selectable.filter(id=>permitted.has(path+'|'+id)):selectable;
    const rules=group.rules.filter(r=>String(r.targetSocketId)===String(socket.socketId));
    const items=[...new Set([...options,...rules.map(r=>String(r.mountedItemId))])];
-   const slot={path,socket,options,rules,nodes:[]};group.slots.push(slot);
+   const slot={path,socket,options,rules,nodes:[],selectable:selectable.length>0};group.slots.push(slot);
    for(const item of options)player(path,item);
    for(const item of items){
     const node={path,item,host:context.host,socketId:socket.socketId,key:key+'|'+socket.socketId+'|'+item};slot.nodes.push(node);nodes.push(node);
@@ -64,6 +66,7 @@ export function compileMounts({pack,shop,prices,request,candidateConfigs},kernel
    }
    for(const slot of group.slots){
     const occupies=m.or(...group.slots.flatMap(other=>other.nodes.filter(n=>(pack.assembly.extraOccupancy?.[n.item]?.occupiedSocketIds??[]).map(String).includes(String(slot.socket.socketId))).map(n=>m.or(n.preUser,n.preDefault))));
+    if(emptyLocks.has(slot.path)&&slot.selectable)slot.available=m.and(group.activeParent,m.not(occupies));
     for(const node of slot.nodes){node.equipped=m.and(node.preUser,m.not(occupies));node.defaultMounted=m.and(node.preDefault,m.not(occupies));node.active=m.or(node.equipped,node.defaultMounted);mounted.set(node.key,node.active);}
    }
   }
@@ -77,7 +80,16 @@ export function compileMounts({pack,shop,prices,request,candidateConfigs},kernel
  for(const path of new Set(nodes.map(n=>n.path)))m.constrain(m.add(...nodes.filter(n=>n.path===path).map(n=>n.active)),'<=',1,'one_mount');
  const cost=m.add(...[...players.values()].filter(p=>p.value!==0).map(p=>m.scale(p.value,p.cost)));
  if(budget!==null)m.constrain(cost,'<=',budget,'attachment_budget');
- for(const f of fixed)m.constrain(m.or(...nodes.filter(n=>n.path===f.slotPath&&n.item===f.itemId).map(n=>n.active)),'==',1,'fixed');
+ for(const f of fixed){
+  const atSlot=nodes.filter(n=>n.path===f.slotPath);
+  if(f.keepDefault&&!f.itemId){
+   const available=ordered.flatMap(g=>g.slots.filter(s=>s.path===f.slotPath).map(s=>s.available??0));
+   m.constrain(m.or(...available),'==',1,'fixed_empty_slot');
+   m.constrain(m.or(...atSlot.map(n=>n.active)),'==',0,'fixed_empty_mount');
+  }else{
+   m.constrain(m.or(...atSlot.filter(n=>n.item===f.itemId).map(n=>f.keepDefault?n.defaultMounted:n.active)),'==',1,'fixed');
+  }
+ }
  const laserLimit=Math.max(1,fixed.filter(f=>kernel.l(pack,f.itemId,mode)).length);
  m.constrain(m.add(...nodes.filter(n=>kernel.l(pack,n.item,mode)).map(n=>n.active)),'<=',laserLimit,'laser_limit');
  m.constrain(m.add(...nodes.filter(n=>pack.parts[n.item]?.boundAmmoByMode?.[mode]).map(n=>n.active)),'<=',1,'bound_ammo');

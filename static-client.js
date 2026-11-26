@@ -1,4 +1,4 @@
-import {exactBetaEligible, runExactBeta} from './exact-beta-client.js?v=0b4a96d6446ec67a';
+import {exactBetaEligible, runExactBeta} from './exact-beta-client.js?v=67f0054380987872';
 
 ﻿// Dedicated module workers require only ordinary static hosting and messages.
 export function searchWorkerCount({hardwareConcurrency=globalThis.navigator?.hardwareConcurrency,deviceMemory=globalThis.navigator?.deviceMemory}={}){
@@ -16,7 +16,7 @@ export function createStaticClient({workerCount=searchWorkerCount(),
   worker.terminate();workers.delete(worker);if(primary===worker)primary=null;
  };
  const spawn=()=>{
-  const worker=new Worker(new URL('./static-worker.js?v=0b4a96d6446ec67a',import.meta.url),{type:'module'});workers.add(worker);
+  const worker=new Worker(new URL('./static-worker.js?v=67f0054380987872',import.meta.url),{type:'module'});workers.add(worker);
   worker.onmessage=({data})=>{
    const task=pending.get(data.id);if(!task||task.worker!==worker)return;
    if(data.progress){task.onProgress?.(data.progress);return;}

@@ -1,15 +1,15 @@
-import {completeRiserOptics} from './optimizer_mounts.mjs?v=0b4a96d6446ec67a';
-import {timedRecoil} from './timed_recoil.mjs?v=0b4a96d6446ec67a';
-import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=0b4a96d6446ec67a';
-import {presets} from './optimizer_presets.mjs?v=0b4a96d6446ec67a';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=0b4a96d6446ec67a';
+import {completeRiserOptics,fixedSlotSeed,retainsFixedSlots} from './optimizer_mounts.mjs?v=67f0054380987872';
+import {timedRecoil} from './timed_recoil.mjs?v=67f0054380987872';
+import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=67f0054380987872';
+import {presets} from './optimizer_presets.mjs?v=67f0054380987872';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=67f0054380987872';
 
 async function loadRuntime(directory) {
   const {pathToFileURL}=await import('node:url');
   const path=await import('node:path');
-  const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=0b4a96d6446ec67a')));
-  const kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=0b4a96d6446ec67a')));
-  const {t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=0b4a96d6446ec67a')));
+  const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=67f0054380987872')));
+  const kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=67f0054380987872')));
+  const {t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=67f0054380987872')));
   return {curves,kernel,calculate};
 }
 
@@ -33,7 +33,7 @@ export async function generatePasses(input, runtime) {
     }
     return buildCache.get(key);
   };
-  const retains = build => fixed.every(f=>build.mounted.some(m=>m.slotPath===f.slotPath && m.itemId===f.itemId));
+  const retains = build => retainsFixedSlots(build,fixed);
   if (r.firing && !['auto','spam'].includes(r.firing)) throw Error('firing must be auto or spam');
   const {raw,score,baseline,weights,objectives,objectiveNames,limitations,allowTargets=false}=presets[settings.preset].create({pack,request:r,kernel,resolve,mode,calculate,curves});
   if(objectives && !allowTargets && r.effectiveness_targets!==undefined)throw Error('This preset does not support custom effectiveness targets');
@@ -56,7 +56,7 @@ export async function generatePasses(input, runtime) {
     }
     return {total:missing.length?null:total,missing};
   };
-  const initial=resolve(fixed);
+  const initial=fixedSlotSeed(resolve,fixed,r.config);
   if (mode==='bd' && initial.mounted.some(m=>shop.hiddenItemIds.includes(m.itemId))) throw Error('Fixed setup contains a hidden Detonation item');
   if (!retains(initial)) throw Error('Fixed attachments conflict or cannot mount; include required parent selections');
   const tier=mode==='bd'?shop.weapons[pack.weaponId]:null;
@@ -167,7 +167,7 @@ export async function generatePasses(input, runtime) {
       }
       return best;
     };
-    let best=tune(evaluate(seed?.config??fixed,seed?.tunes??{}));
+    let best=tune(evaluate(seed?.config??initial.config,seed?.tunes??{}));
     if(!best){
       runs.push({direction,target_effectiveness_percent:target,budget,completed_passes:0,converged:false});
       return null;

@@ -1,20 +1,20 @@
-import {rankingContract} from './screening_rank.mjs?v=0b4a96d6446ec67a';
-import {compileMounts} from './scip_mount_model.mjs?v=0b4a96d6446ec67a';
-import {compileStats} from './scip_stat_model.mjs?v=0b4a96d6446ec67a';
-import {compileObjective} from './scip_objective_model.mjs?v=0b4a96d6446ec67a';
-import {solveLinearModel} from './scip_runtime.mjs?v=0b4a96d6446ec67a';
-import {presets} from './optimizer_presets.mjs?v=0b4a96d6446ec67a';
-import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=0b4a96d6446ec67a';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=0b4a96d6446ec67a';
-import {completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=0b4a96d6446ec67a';
-import {timedRecoil} from './timed_recoil.mjs?v=0b4a96d6446ec67a';
-import {exhaustiveAttachmentGate,configKey,gateFraction} from './exhaustive_attachment_gate.mjs?v=0b4a96d6446ec67a';
+import {rankingContract} from './screening_rank.mjs?v=67f0054380987872';
+import {compileMounts} from './scip_mount_model.mjs?v=67f0054380987872';
+import {compileStats} from './scip_stat_model.mjs?v=67f0054380987872';
+import {compileObjective} from './scip_objective_model.mjs?v=67f0054380987872';
+import {solveLinearModel} from './scip_runtime.mjs?v=67f0054380987872';
+import {presets} from './optimizer_presets.mjs?v=67f0054380987872';
+import {policy,statIds,shortfall,comparator,compareObjectives} from './optimizer_policy.mjs?v=67f0054380987872';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=67f0054380987872';
+import {fixedSlotSeed,retainsFixedSlots,completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=67f0054380987872';
+import {timedRecoil} from './timed_recoil.mjs?v=67f0054380987872';
+import {exhaustiveAttachmentGate,configKey,gateFraction} from './exhaustive_attachment_gate.mjs?v=67f0054380987872';
 
 let factoryPromise;
 async function runtimeModules(runtime){
  if(typeof runtime==='object')return runtime;
  const {pathToFileURL}=await import('node:url'),path=await import('node:path');
- const curves=await import(pathToFileURL(path.join(runtime,'curves.mjs?v=0b4a96d6446ec67a'))),kernel=await import(pathToFileURL(path.join(runtime,'kernel.mjs?v=0b4a96d6446ec67a'))),{t:calculate}=await import(pathToFileURL(path.join(runtime,'attributes.mjs?v=0b4a96d6446ec67a')));
+ const curves=await import(pathToFileURL(path.join(runtime,'curves.mjs?v=67f0054380987872'))),kernel=await import(pathToFileURL(path.join(runtime,'kernel.mjs?v=67f0054380987872'))),{t:calculate}=await import(pathToFileURL(path.join(runtime,'attributes.mjs?v=67f0054380987872')));
  return {curves,kernel,calculate};
 }
 export async function generateSCIP(input,runtime){
@@ -28,14 +28,14 @@ export async function generateSCIP(input,runtime){
  const tier=mode==='bd'?shop.weapons[pack.weaponId]:null;
  let budgets=mode==='mp'?[null]:r.budgets??[mode==='bd'?tier?.gunsmithLimit:r.budget];
  if(mode!=='mp'&&(![1,3].includes(budgets.length)||budgets.some((b,i)=>!Number.isFinite(b)||b<0||i&&b<budgets[i-1]||mode==='bd'&&b>tier?.gunsmithLimit)))throw Error('Invalid budget or weapon cap');
- const resolve=config=>curves.o(pack,config,mode),initial=resolve(fixed),retains=build=>fixed.every(f=>build.mounted.some(m=>m.slotPath===f.slotPath&&m.itemId===f.itemId));
+ const resolve=config=>curves.o(pack,config,mode),initial=fixedSlotSeed(resolve,fixed,r.config),retains=build=>retainsFixedSlots(build,fixed);
  if(!retains(initial))throw Error('Fixed attachments conflict or cannot mount; include required parent selections');
  const hidden=new Set(mode==='bd'?shop.hiddenItemIds:[]),laserLimit=Math.max(1,fixed.filter(f=>kernel.l(pack,f.itemId,mode)).length),costs=mode==='bd'?shop.partCosts:prices;
  if(initial.mounted.some(n=>hidden.has(n.itemId)))throw Error('Fixed setup contains a hidden Detonation item');
  const preset=presets[settings.preset].create({pack,request:r,kernel,curves,calculate,mode,resolve});
  if(!preset.solverPlan)throw Error('Preset does not declare a full SCIP objective');
  if(preset.objectives&&!preset.allowTargets&&r.effectiveness_targets!==undefined)throw Error('This preset does not support custom effectiveness targets');
- factoryPromise??=import('../vendor/scip-7e68f9ca/scip.js?v=0b4a96d6446ec67a').then(m=>m.default);
+ factoryPromise??=import('../vendor/scip-7e68f9ca/scip.js?v=67f0054380987872').then(m=>m.default);
  const createRuntime=await factoryPromise,started=performance.now();
  let starts=input.solver_starts;
  if(!starts&&typeof process!=='undefined'&&process.versions?.node){try{const fs=await import('node:fs/promises');starts=JSON.parse(await fs.readFile(new URL('../data/solver_starts/'+pack.weaponId+'.json',import.meta.url),'utf8'));}catch{}}
@@ -74,7 +74,7 @@ export async function generateSCIP(input,runtime){
   for(const start of starts?.starts??[]){
    candidate(start.config,start.tunes);
    if(fixed.length){
-    const merged=[...start.config.filter(c=>!fixed.some(f=>c.slotPath===f.slotPath||c.slotPath.startsWith(f.slotPath+'/'))),...fixed],build=resolve(merged);
+    const merged=[...start.config.filter(c=>!fixed.some(f=>c.slotPath===f.slotPath||c.slotPath.startsWith(f.slotPath+'/'))),...fixed.filter(f=>!f.keepDefault)],build=resolve(merged);
     if(retains(build))for(const completed of completeRiserOptics(pack,build,resolve,fixed))candidate(completed.config,start.tunes);
    }
   }
