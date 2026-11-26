@@ -479,3 +479,5 @@ This is the persistent project backlog carried forward from the migration conver
 - [x] Fixed the M700 and SVCH full-auto builder recoil graphs. Checked ADS and hip-fire plots across all three modes against the source data. Client comparison remains open. [Builder model](tools/builder_model.mjs).
 
 - [x] Made optimizer weights a shared 100-point total, defaulted to coordinate passes, and added red in-place cancellation and per-slot locks for equipped, default, and empty slots. [Builder browser checks](tests/preset_weights_browser.cjs).
+
+- [x] Verified weapon-selector pricing in all modes. Operations shows the market quote, Warfare shows no price, and Detonation shows the shop price and mod budget. [Builder](builder/app.js).

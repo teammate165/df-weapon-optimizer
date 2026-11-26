@@ -520,7 +520,20 @@ function showAccuracyInfo(button,objective){
 }
 document.addEventListener('pointerdown',e=>{if(!e.target.closest('.optimizer-score-info'))hideAccuracyInfo();});
 window.addEventListener('resize',hideAccuracyInfo);document.addEventListener('scroll',hideAccuracyInfo,true);
-function renderWeapons(){const query=$('weapon-search').value.toLowerCase().trim();$('weapon-list').innerHTML=state.catalog.weapons.filter(w=>(w.name+' '+w.id).toLowerCase().includes(query)).map(w=>`<button class="part-card ${w.id===$('weapon').value?'selected':''}" data-weapon="${esc(w.id)}">${portrait(w.id,'GUN',undefined,false)}<span><span class="part-name">${esc(w.name)}</span><small>${w.tier?'Tier '+esc(w.tier.tier)+' · '+fmt(w.tier.gunsmithLimit,0)+' cap':'Catalog weapon'}</small></span></button>`).join('')||'<p class="helper">No matching weapons.</p>';
+function weaponPriceLabel(weapon,mode){
+ if(mode==='mp')return '';
+ const price=mode==='bd'?weapon.tier?.price:weapon.price;
+ const priceText=Number.isFinite(price)?`Weapon price ${fmt(price,0)}`:'Weapon price unavailable';
+ if(mode!=='bd')return priceText;
+ const cap=weapon.tier?.gunsmithLimit;
+ return Number.isFinite(cap)?`${priceText} | Mod budget ${fmt(cap,0)}`:`${priceText} | Mod budget unavailable`;
+}
+function renderWeapons(){
+ const mode=$('mode').value,query=$('weapon-search').value.toLowerCase().trim();
+ $('weapon-list').innerHTML=state.catalog.weapons.filter(w=>(w.name+' '+w.id).toLowerCase().includes(query)).map(w=>{
+  const price=weaponPriceLabel(w,mode);
+  return `<button class="part-card ${w.id===$('weapon').value?'selected':''}" data-weapon="${esc(w.id)}">${portrait(w.id,'GUN',undefined,false)}<span><span class="part-name">${esc(w.name)}</span>${price?`<small>${esc(price)}</small>`:''}</span></button>`;
+ }).join('')||'<p class="helper">No matching weapons.</p>';
  document.querySelectorAll('[data-weapon]').forEach(button=>button.onclick=()=>{$('weapon').value=button.dataset.weapon;$('weapon-dialog').close();evaluate({reset:true});});
 }
 $('choose-weapon').onclick=()=>{$('weapon-search').value='';renderWeapons();$('weapon-dialog').showModal();$('weapon-search').focus();};$('close-weapons').onclick=()=>$('weapon-dialog').close();$('weapon-search').oninput=renderWeapons;
