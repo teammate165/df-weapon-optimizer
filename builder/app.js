@@ -7,7 +7,13 @@ import {statChanges,groupStatChanges,majorStatGroups,tacticalBenefits} from './p
 import {createStatResponseView} from './stat-response-view.js';
 import {createWeaponImage} from './weapon-layers.js';
 import {defaultRecoilWeights,defaultAgilityWeights,distributeWeightPoints} from './optimizer_weights.mjs';
+import {detailedStats} from './detailed-stats.mjs';
+import {createDetailedLimits,formatDetailed} from './detailed-limits.js';
 const $=id=>document.getElementById(id);
+const detailedLimits=createDetailedLimits($('detailed-limits'),()=>{
+ $('detailed-limit-status').hidden=!detailedLimits.active();
+ syncSearchMethod();clearResults();updateActions();
+});
 const updateWeaponImage=createWeaponImage({canvas:$('gun-assembly'),fallback:$('gun-image'),caption:$('gun-image-caption')});
 const state={catalog:null,model:null,config:[],tunes:{},locks:new Set(),slot:null,preview:null,previewSerial:0,previewLoading:false,busy:false,tab:'builder',results:null,resultIndex:0,solutionPreview:null,solutionPreviewLoading:false};
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -26,11 +32,15 @@ const viewed=()=>state.preview?.model??(state.tab==='optimizer'?state.solutionPr
 const showStatResponse=createStatResponseView({load:r=>api('evaluate',r),getContext:()=>{const model=viewed();return{weapon_id:model.stats.weaponId,weapon_name:state.catalog.weapons.find(w=>w.id===model.stats.weaponId)?.name??model.stats.weaponId,mode:model.stats.mode,config:model.build.config,tunes:model.tunes};}});
 function status(message,error=false){$('status').textContent=message;$('status').title=message;$('status').classList.toggle('error',error);}
 const api=createLocalClient();
-if(api.exactOrdinary)$('pattern-reduction-option').insertAdjacentHTML('beforeend',
+if(api.exactOrdinary)$('exact-ordinary-option').insertAdjacentHTML('beforeend',
  '<div><label><input id="exact-ordinary" type="checkbox"> Exact ordinary search (preview)</label></div>');
 if(api.exactBeta)$('solver-time-limit').add(new Option('300s / Exact ordinary M4A1 beta','300'));
-function setBusy(value){state.busy=value;document.querySelectorAll('button,input,select').forEach(el=>el.disabled=value);$('generate').hidden=Boolean(state.searchController);$('cancel-generate').hidden=!state.searchController;$('cancel-generate').disabled=!state.searchController||state.searchController.signal.aborted;document.body.setAttribute('aria-busy',String(value));if(!value)updateActions();}
-function clearResults(){updateSearchNote();hideAccuracyInfo();solutionPreviewSerial++;solutionPreviewCache.clear();state.solutionPreview=null;state.solutionPreviewLoading=false;state.results=null;$('results').replaceChildren();}
+function setBusy(value){state.busy=value;document.querySelectorAll('button,input,select').forEach(el=>el.disabled=value);$('generate').hidden=Boolean(state.searchController);$('cancel-generate').hidden=!state.searchController;$('cancel-generate').disabled=!state.searchController||state.searchController.signal.aborted;document.body.setAttribute('aria-busy',String(value));if(!value){detailedLimits.refreshPicker();updateActions();}}
+function updateLimitFeedback(message){
+ $('detailed-limit-status').textContent=message??(detailedLimits.valid()
+  ?'Limits will be checked when you generate.':'Enter a nonnegative value for each detailed limit.');
+}
+function clearResults(){updateLimitFeedback();updateSearchNote();hideAccuracyInfo();solutionPreviewSerial++;solutionPreviewCache.clear();state.solutionPreview=null;state.solutionPreviewLoading=false;state.results=null;$('results').replaceChildren();}
 function clearPreview(){state.previewSerial++;state.preview=null;state.previewLoading=false;$('preview-summary').hidden=true;}
 function pane(value){document.querySelector('.workspace').dataset.pane=value;document.querySelectorAll('[data-pane]').forEach(button=>{if(button.tagName==='BUTTON')button.setAttribute('aria-pressed',String(button.dataset.pane===value));});}
 function tab(value){clearPreview();state.tab=value;for(const id of ['builder','optimizer']){$(`${id}-panel`).hidden=id!==value;$(`${id}-tab`).setAttribute('aria-selected',String(id===value));$(`${id}-tab`).tabIndex=id===value?0:-1;}if(state.model){renderStats();drawGraph();updateActions();}if(value==='optimizer')pane('parts');}
@@ -65,6 +75,7 @@ function adopt(model){
  render();
 }
 function render(){
+ detailedLimits.update(state.model.stats.current);
  const mode=$('mode').value,w=state.catalog.weapons.find(w=>w.id===$('weapon').value),m=state.model;
  $('weapon-name').textContent=w.name;$('stage-title').textContent=w.name;
  $('cap').innerHTML=mode==='bd'?`TIER ${esc(w.tier?.tier)} · MODS <strong class="${m.cost>w.tier?.gunsmithLimit?'negative':''}">${fmt(m.cost,0)} / ${fmt(w.tier?.gunsmithLimit,0)}</strong> · TOTAL <strong>${fmt(m.cost+w.tier.price,0)}</strong>`:mode==='mp'?'WARFARE <strong>No budget</strong>':`MOD COST <strong>${fmt(m.cost,0)}</strong> · TOTAL <strong>${Number.isFinite(w.price)?fmt(m.cost+w.price,0):'Unavailable'}</strong>`;
@@ -200,7 +211,7 @@ function updateActions(){
  keep.setAttribute('aria-pressed',String(locked));
  keep.textContent=locked?'Allow optimizer to change this slot':'Keep this slot as-is';
  const part=mounted(state.slot),allLocked=state.config.length>0&&state.config.every(x=>state.locks.has(x.slotPath));$('lock').disabled=state.busy||!state.config.length;$('lock').setAttribute('aria-pressed',String(allLocked));$('lock').textContent=allLocked?'Unlock selected attachments':'Lock selected attachments';
- $('generate').disabled=state.busy||!validWeightSelection();
+ $('generate').disabled=state.busy||!validWeightSelection()||!detailedLimits.valid();
  $('equip').disabled=state.busy||state.previewLoading||!state.preview;$('equip').textContent=state.previewLoading?'Comparing…':state.preview?'Equip attachment':'Equipped';$('cancel-preview').hidden=!state.preview&&!state.previewLoading;
  $('selection-info').textContent=state.preview?(state.preview.id?name(state.preview.id):'Restore default')+' · '+costText(state.preview.id):part?.source==='equipped'?name(part.itemId):'Default / empty slot. Select a part to compare.';
  $('locks').textContent=state.locks.size?`${state.locks.size} slots locked. Tuning adjustable.`:'No slots locked.';
@@ -352,7 +363,7 @@ function updateWeightControls(editedInput){
  }
  const error=$('optimizer-weight-error');
  error.hidden=validWeightSelection();
- $('generate').disabled=state.busy||!validWeightSelection();
+ $('generate').disabled=state.busy||!validWeightSelection()||!detailedLimits.valid();
 }
 $('reset-optimizer-weights').onclick=()=>{
  redistribution=undefined;
@@ -362,7 +373,7 @@ $('reset-optimizer-weights').onclick=()=>{
 function updatePreset(){
  const preset=presetTemplates[$('optimizer-preset').value],agility=$('optimizer-preset').value==='agility',box=document.querySelector('.objective');
  updateWeightControls();
- $('pattern-reduction-option').hidden=agility;
+ $('exact-ordinary-option').hidden=agility;
  syncSearchMethod();
  $('optimizer-panel').dataset.preset=$('optimizer-preset').value;
  box.querySelector('strong').textContent=preset.title;
@@ -375,7 +386,6 @@ function updatePreset(){
  $('optimizer-model-note').textContent=agility?'Handling averages normalized ADS and sprint-to-fire times. Hip-fire accuracy uses idle spread. Airborne ADS uses shared scaling. The search reports the best build found within its budget.':'The recoil score combines pattern, camera shake and gun kick. Handling breaks equal recoil scores. Automatic pattern weights horizontal distance by the fastest 200 ms horizontal speed. Unsupported firing protocols use the multiplier proxy.';
 }
 $('optimizer-preset').onchange=()=>{redistribution=undefined;clearResults();updatePreset();renderStats();drawGraph();};
-$('pattern-reduction').onchange=clearResults;
 const coordinatePasses=()=>$('optimizer-search-method').value==='coordinate_passes';
 function updateSearchNote(){
  $('optimizer-search-note').textContent=coordinatePasses()
@@ -387,13 +397,13 @@ function syncSearchMethod(){
  $('optimizer-time-options').hidden=coordinate;
  $('optimizer-pass-options').hidden=!coordinate;
  const exact=$('exact-ordinary');
- if(exact)exact.closest('div').hidden=coordinate;
+ if(exact)exact.closest('div').hidden=coordinate||detailedLimits.active();
  syncExactTimeLimit();
 }
 $('optimizer-search-method').onchange=()=>{syncSearchMethod();clearResults();};
 $('optimizer-passes').onchange=clearResults;
 function syncExactTimeLimit(){
- const limit=$('solver-time-limit'),enabled=!coordinatePasses()&&$('optimizer-preset').value==='recoil'&&$('exact-ordinary')?.checked;
+ const limit=$('solver-time-limit'),enabled=!detailedLimits.active()&&!coordinatePasses()&&$('optimizer-preset').value==='recoil'&&$('exact-ordinary')?.checked;
  if(enabled&&!Array.from(limit.options).some(option=>option.value==='300')){
   const option=new Option('300s / Exact ordinary','300');
   option.id='exact-ordinary-time-limit';limit.add(option);
@@ -407,8 +417,10 @@ if($('exact-ordinary'))$('exact-ordinary').onchange=()=>{
  syncExactTimeLimit();
  clearResults();
 };
+for(const input of document.querySelectorAll('.stat-minimums input, #budget-0'))input.oninput=clearResults;
 $('generate').onclick=async()=>{
- const started=Date.now();let progress,searchProgress=null;
+ if(state.busy||!state.model)return;
+ let started=Date.now(),progress,searchProgress=null,checkingLimits=false;
  const progressText=()=>{
   const p=searchProgress,elapsed=Math.floor((Date.now()-started)/1000);
   if(coordinatePasses()){
@@ -428,29 +440,47 @@ $('generate').onclick=async()=>{
  const feedback=(message,error=false)=>{$('results').innerHTML=`<p class="search-feedback ${error?'error':''}" role="status">${esc(message)}</p>`;};
  try{
   cancelLiveCalibration();clearPreview();clearResults();setBusy(true);renderStats();drawGraph();
-  const coordinate=coordinatePasses(),exactOrdinary=!coordinate&&$('optimizer-preset').value==='recoil'&&$('exact-ordinary')?.checked;
-  status(coordinate?'Searching attachment and calibration passes...':exactOrdinary?'Enumerating ordinary layouts and tuning...':'Searching attachments and calibrating a bounded shortlist...');
-  feedback(progressText());
+  const coordinate=coordinatePasses(),exactOrdinary=!detailedLimits.active()&&!coordinate&&$('optimizer-preset').value==='recoil'&&$('exact-ordinary')?.checked;
   $('cancel-generate').focus();
-  progress=setInterval(()=>feedback(progressText()),1000);
   const fixed=state.config.filter(x=>[...state.locks].some(path=>path===x.slotPath||path.startsWith(x.slotPath+'/')));
   for(const path of state.locks)if(!fixed.some(row=>row.slotPath===path))fixed.push(slotState(state.model.build,path));
   const r={...request(),...currentObjective(),fixed,locked_slots:[...state.locks],
    ...(coordinate?{search_method:'coordinate_passes',passes:Number($('optimizer-passes').value)}:{search_method:'anytime',time_limit_seconds:Number($('solver-time-limit').value)})};
   if(exactOrdinary)r.search_method=new URLSearchParams(location.search).get('exact-ordinary')==='staged'?'exact_ordinary_staged':'exact_ordinary';
-  if(r.preset==='recoil'&&$('pattern-reduction').checked)r.pattern_reduction_percent=5;
   r.minimum_stats=Object.fromEntries(['control','handling','stability','accuracy'].filter(k=>$(`minimum-${k}`).value!=='').map(k=>[k,Number($(`minimum-${k}`).value)]));
+  if(detailedLimits.active())r.stat_limits=detailedLimits.values();
   if(r.mode==='sol')r.budget=Number($('budget-0').value);
-  const result=await api('optimize',r,{signal:state.searchController.signal,onProgress:p=>{searchProgress=p;feedback(progressText());}});
+  const {signal}=state.searchController;
+  if(r.stat_limits){
+   checkingLimits=true;
+   updateLimitFeedback('Checking the active limits together...');
+   status('Checking detailed stat limits...');
+   feedback('Checking limits before generation...');
+   const check=await api('optimize',{...r,search_method:'anytime',time_limit_seconds:3},{signal});
+   signal.throwIfAborted();
+   const match=check.results?.find(row=>row.status==='best_found');
+   if(match)r.feasibility_seed={config:match.config,tunes:match.tunes};
+   updateLimitFeedback(match?'A build meets all active limits.':'Quick check found no match. Continuing the search.');
+   checkingLimits=false;
+  }
+  started=Date.now();
+  status(coordinate?'Searching attachment and calibration passes...':exactOrdinary?'Enumerating ordinary layouts and tuning...':'Searching attachments and calibrating a bounded shortlist...');
+  feedback(progressText());
+  progress=setInterval(()=>feedback(progressText()),1000);
+  const result=await api('optimize',r,{signal,onProgress:p=>{searchProgress=p;feedback(progressText());}});
   if(!Array.isArray(result.results)||!result.results.length)throw Error('Search returned no builds. Try different constraints or another weapon.');
+  const match=result.results.find(row=>row.status==='best_found');
+  if(r.stat_limits){
+   updateLimitFeedback(match?'A build meets all active limits.':'No matching build found within the search budget.');
+  }
   state.results=result;state.results.request=structuredClone(r);state.resultIndex=0;
   clearInterval(progress);renderResults();
   const incomplete=result.solver?.exhausted===false;
   $('optimizer-search-note').textContent=result.proof_scope
    ?result.proof_scope+(incomplete?' / Search incomplete':''):coordinate?'Best found in coordinate passes':'Best found within search budget / Global optimum unproven';
-  status(incomplete?'Search incomplete. See each build for its proof status.':
+  status(r.stat_limits&&!result.results.some(row=>row.status==='best_found')?'No matching build found within the search budget.':incomplete?'Search incomplete. See each build for its proof status.':
    result.proof_scope?'Search complete. See each build for its proof status.':'Search complete - Best builds found.');
- }catch(error){clearInterval(progress);const cancelled=error.name==='AbortError';feedback(cancelled?'Search cancelled. Your equipped build is unchanged.':error.message,!cancelled);status(cancelled?'Search cancelled.':error.message,!cancelled);}
+ }catch(error){clearInterval(progress);const cancelled=error.name==='AbortError';feedback(cancelled?'Search cancelled. Your equipped build is unchanged.':error.message,!cancelled);if(checkingLimits)updateLimitFeedback(cancelled?'Limit check cancelled.':'Limit check failed.');status(cancelled?'Search cancelled.':error.message,!cancelled);}
  finally{clearInterval(progress);const restoreFocus=document.activeElement===$('cancel-generate');state.searchController=null;$('cancel-generate').textContent='Cancel generation';$('cancel-generate').removeAttribute('aria-disabled');setBusy(false);if(restoreFocus)$('generate').focus();}
 };
 $('cancel-generate').onclick=()=>{const cancel=$('cancel-generate');if(state.searchController?.signal.aborted)return;cancel.textContent='Cancelling?';cancel.setAttribute('aria-disabled','true');state.searchController?.abort();};
@@ -479,6 +509,14 @@ async function previewSolution(run,row){
 }
 const solutionScore=(run,row)=>run.score_direction==='higher'?row.score:100-row.score;
 const solutionName=row=>({'No compromise':'Max','Best price/performance':'Balanced','Cheapest':'Min','best performance':'Max',cheap:'Min',mid:'Balanced',expensive:'Max'}[row.label]??row.label);
+function renderedDetailedLimits(row,limits){
+ if(!limits||!row.detailedValues)return '';
+ const items=Object.entries(limits).map(([id,target])=>{
+  const stat=detailedStats[id],actual=formatDetailed(id,row.detailedValues[id]);
+  return `<li>${esc(stat.label)} <strong>${esc(actual)}</strong> (${stat.direction==='max'?'&le;':'&ge;'} ${esc(formatDetailed(id,target))})</li>`;
+ });
+ return `<ul class="detailed-limit-results" aria-label="Detailed limits met">${items.join('')}</ul>`;
+}
 function renderResults(){
  hideAccuracyInfo();
  const run=state.results,rows=run.results,row=rows[state.resultIndex];
@@ -489,7 +527,7 @@ function renderResults(){
  const context=`<p class="solution-context">${esc(name(run.weapon_id))} &middot; ${esc(run.mode.toUpperCase())} &middot; ${esc(solutionName(row))}${row.proof?' &middot; '+esc(row.proof):''}</p>`;
  const cap=run.pattern_constraint;
  const pattern=cap?`<p class="helper" id="pattern-constraint-result">${cap.pattern_model==='legacy-multiplier-v1'?'Pattern proxy':'Pattern loss'} ${row.status==='best_found'?`${fmt(row.components.pattern)} / `:''}cap ${fmt(cap.maximum)} &middot; reference ${fmt(cap.reference)}</p>`:'';
- $('results').innerHTML=context+picker+pattern+(row.status!=='best_found'?`<article class="result"><h3>${row.status==='unavailable'?'No distinct alternative':row.status==='unresolved'?'Search incomplete':'No feasible build'}</h3><p class="helper">${esc(row.reason)}</p></article>`:`<article class="result compact-solution"><div class="solution-grid solution-preview"><section class="solution-panel solution-preview-top" aria-label="Relative score"><span>Relative score</span><strong title="Improvement over default; default 0; higher is better">${fmt(solutionScore(run,row))}</strong></section><section class="solution-panel solution-preview-top" aria-label="Build cost"><span>Cost</span><strong>${row.cost===null?'Unpriced':fmt(row.cost,0)}</strong></section><div class="solution-stat-row">${stat('control','Control')}${stat('handling','Handling')}${stat('stability','Stability')}${stat('accuracy','Accuracy')}</div></div><div class="solution-actions"><button class="primary" data-apply="${state.resultIndex}">Apply build</button><button class="solution-save" id="save-result-build">Save build</button></div></article>`);
+ $('results').innerHTML=context+picker+pattern+(row.status!=='best_found'?`<article class="result"><h3>${row.status==='unavailable'?'No distinct alternative':row.status==='unresolved'?'Search incomplete':run.stat_limits?'No matching build found':'No feasible build'}</h3><p class="helper">${esc(row.reason)}</p></article>`:`<article class="result compact-solution"><div class="solution-grid solution-preview"><section class="solution-panel solution-preview-top" aria-label="Relative score"><span>Relative score</span><strong title="Improvement over default; default 0; higher is better">${fmt(solutionScore(run,row))}</strong></section><section class="solution-panel solution-preview-top" aria-label="Build cost"><span>Cost</span><strong>${row.cost===null?'Unpriced':fmt(row.cost,0)}</strong></section><div class="solution-stat-row">${stat('control','Control')}${stat('handling','Handling')}${stat('stability','Stability')}${stat('accuracy','Accuracy')}</div></div>${renderedDetailedLimits(row,run.stat_limits)}<div class="solution-actions"><button class="primary" data-apply="${state.resultIndex}">Apply build</button><button class="solution-save" id="save-result-build">Save build</button></div></article>`);
  document.querySelectorAll('[data-result]').forEach(button=>button.onclick=()=>{state.resultIndex=Number(button.dataset.result);renderResults();});
  const apply=$('results').querySelector('[data-apply]');
  if(apply)apply.onclick=()=>{
@@ -594,3 +632,5 @@ try{setBusy(true);const response=await fetch('/api/catalog');if(!response.ok)thr
 
 $('open-source-notes').onclick=()=>$('source-notes-dialog').showModal();
 $('close-source-notes').onclick=()=>$('source-notes-dialog').close();
+
+if(new URLSearchParams(location.search).has('stat-limits-draft'))$('optimizer-tab').click();

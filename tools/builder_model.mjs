@@ -1,3 +1,4 @@
+import {addKickDetails} from './detailed_stat_values.mjs';
 import {generate} from './optimizer_engine.mjs';
 import {statResponse} from './builder_stat_response.mjs';
 import {statIds} from './optimizer_policy.mjs';
@@ -58,6 +59,7 @@ export async function executeModel(input,modules) {
   }
   const stats=calculate(pack,{tacticalEffective:true,mode:r.mode,resolvedLoadout:build,tunes,preservePrecision:true,trajectoryShotCount:r.shot_count??20});
   const {numeric,value}=kernel.u(pack,build,{tacticalEffective:true,mode:r.mode,tunes});
+  addKickDetails(stats.current,pack,build,{mode:r.mode,tacticalEffective:true,tunes},kernel);
   plotConvertedRecoil(pack, stats, calculate.screeningChartContract, value);
   const effective_stats=Object.fromEntries(Object.entries(statIds).map(([key,id])=>[key,numeric.mainAttr[id]]));
   let optimization;

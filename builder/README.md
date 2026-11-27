@@ -10,6 +10,8 @@ For the separate no-deadline M4A1 exhaustive-screening experiment, open `exact-d
 
 Generate defaults to [Coordinate passes](../docs/recoil_generator.md#coordinate-passes) for both presets. Choose **Anytime** under **Search method** for [time-limited top-K search](../docs/anytime_top_k_optimizer.md). Its budget covers ordinary attachments, patches, lasers and calibration. Each preset shares 100 weight points across its sliders. Editing one weight redistributes the remaining points proportionally.
 
+Detailed stat limits are optional and work with or without the four effective-stat minimums. Add one or more limits in Optimize, then generate. Detailed limits work with Anytime and Coordinate passes. Generate automatically starts with a three-second Anytime check for a build that meets the active limits, budget, and locks. A matching build seeds the full search, which also runs when the quick check finds no match. Results show the resolved value for each limit met.
+
 Run from the project root with Python 3 and Node.js:
 
 ```powershell

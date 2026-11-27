@@ -115,7 +115,7 @@ def build(destination, public=False):
     style += '\n.default-slot-icon,.slot-tile.active .default-slot-icon{background-color:transparent;opacity:.8}\n'
     css.write_text(style, 'utf-8')
     (destination / 'assets/slot-icons.js').write_text(icons.replace('"dfttk-slot-icons.webp"', json.dumps(atlas)), 'utf-8')
-    modules = ['optimized_exact_dag', 'exact_recoil_scorer', 'exact_dag_storage', 'ranked_screening_heap', 'highs_runtime', 'calibration_engine_benchmark', 'screening_rank', 'dominance_reduction', 'exhaustive_screening_study', 'builder_model', 'builder_stat_response', 'optimizer_engine', 'pass_optimizer', 'anytime_optimizer', 'choice_groups', 'optimizer_mounts', 'optimizer_policy', 'optimizer_presets', 'optimizer_selection', 'scip_optimizer', 'exhaustive_attachment_gate', 'mount_search', 'scoring_bounds', 'branch_score_bounds', 'branch_native_ranges', 'shared_stats', 'scip_linear_model', 'scip_mount_model', 'scip_stat_model', 'scip_objective_model', 'scip_runtime', 'timed_recoil', 'horizontal_speed']
+    modules = ['optimized_exact_dag', 'exact_recoil_scorer', 'exact_dag_storage', 'ranked_screening_heap', 'highs_runtime', 'calibration_engine_benchmark', 'screening_rank', 'dominance_reduction', 'exhaustive_screening_study', 'builder_model', 'builder_stat_response', 'optimizer_engine', 'pass_optimizer', 'anytime_optimizer', 'choice_groups', 'optimizer_mounts', 'optimizer_policy', 'detailed_stat_values', 'optimizer_presets', 'optimizer_selection', 'scip_optimizer', 'exhaustive_attachment_gate', 'mount_search', 'scoring_bounds', 'branch_score_bounds', 'branch_native_ranges', 'shared_stats', 'scip_linear_model', 'scip_mount_model', 'scip_stat_model', 'scip_objective_model', 'scip_runtime', 'timed_recoil', 'horizontal_speed']
     (destination / 'model').mkdir(exist_ok=True)
     for name in ('attachment_gate', 'optimizer_exploration'):
         (destination / f'model/{name}.mjs').unlink(missing_ok=True)
@@ -126,6 +126,9 @@ def build(destination, public=False):
         if name == 'optimizer_presets':
             source = (ROOT / f'tools/{name}.mjs').read_text('utf-8')
             target.write_text(source.replace('../builder/optimizer_weights.mjs', '../optimizer_weights.mjs'), 'utf-8')
+        elif name in ('detailed_stat_values', 'optimizer_policy'):
+            source = (ROOT / f'tools/{name}.mjs').read_text('utf-8')
+            target.write_text(source.replace('../builder/detailed-stats.mjs', '../detailed-stats.mjs'), 'utf-8')
         else:
             shutil.copyfile(ROOT / f'tools/{name}.mjs', target)
     for name in ('exact_ordinary', 'exact_ordinary_bounds', 'exact_ordinary_mount_bounds',

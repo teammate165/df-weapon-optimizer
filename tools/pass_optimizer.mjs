@@ -1,6 +1,7 @@
 import {completeRiserOptics,fixedSlotSeed,retainsFixedSlots} from './optimizer_mounts.mjs';
 import {timedRecoil} from './timed_recoil.mjs';
 import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs';
+import {createDetailedStatEvaluator} from './detailed_stat_values.mjs';
 import {presets} from './optimizer_presets.mjs';
 import {selectCategories,cheapestGate} from './optimizer_selection.mjs';
 
@@ -39,7 +40,8 @@ export async function generatePasses(input, runtime) {
   if(objectives && !allowTargets && r.effectiveness_targets!==undefined)throw Error('This preset does not support custom effectiveness targets');
   const patternConstraint=createPatternConstraint({raw},resolve,r,settings.patternReduction);
   const patternCap=patternConstraint?.maximum??null;
-  const eligible=c=>shortfall(c.stats,settings.minimums)<=1e-8 &&
+  const detailedStatsFor=createDetailedStatEvaluator(pack,mode,settings.detailedLimits,{calculate,kernel});
+  const eligible=c=>(!detailedStatsFor||c.detailedViolation===0)&&shortfall(c.stats,settings.minimums)<=1e-8 &&
     (patternCap===null||c.components.pattern<=patternCap);
   const hidden=new Set(mode==='bd'?shop.hiddenItemIds:[]);
   const laserLimit=Math.max(1,fixed.filter(f=>kernel.l(pack,f.itemId,mode)).length);
@@ -97,7 +99,9 @@ export async function generatePasses(input, runtime) {
   const search=(budget,seed,target=null,anchor=null)=>{
     const direction=target===null?'Max':seed?'Reduce cost':'Build from locks';
     const targetScore=target===null?null:targetLoss(anchor,target);
-    const better=comparator(settings.minimums,targetScore,patternCap);
+    const compareObjective=comparator(settings.minimums,targetScore,patternCap);
+    const better=(a,b)=>a.detailedViolation!==b.detailedViolation
+      ?a.detailedViolation<b.detailedViolation:compareObjective(a,b);
     let completed=0,incumbent;
     report(direction,0,budget,null,true);
     const evaluateSingle=(config,tunes={})=>{
@@ -117,7 +121,7 @@ export async function generatePasses(input, runtime) {
         const state=kernel.u(pack,build,{tacticalEffective:true,mode,tunes});
         const components=raw(build,tunes,state);
         const numeric=state.numeric;
-        metrics={components,score:score(components),stats:Object.fromEntries(Object.entries(statIds).map(([k,id])=>[k,numeric.mainAttr[id]]))};
+        metrics={...detailedStatsFor?.(build,tunes),components,score:score(components),stats:Object.fromEntries(Object.entries(statIds).map(([k,id])=>[k,numeric.mainAttr[id]]))};
         if(objectives)metrics.objectives=objectives(components);
         if(!Number.isFinite(metrics.score)||metrics.objectives?.some(v=>!Number.isFinite(v)))throw Error('Non-finite optimizer objective');
         evaluated++;
@@ -167,7 +171,15 @@ export async function generatePasses(input, runtime) {
       }
       return best;
     };
-    let best=tune(evaluate(seed?.config??initial.config,seed?.tunes??{}));
+    let start=evaluate(seed?.config??initial.config,seed?.tunes??{});
+    if(detailedStatsFor&&target===null){
+      for(const candidate of [r.feasibility_seed,{config:r.config,tunes:r.tunes}]){
+        if(!Array.isArray(candidate?.config))continue;
+        const next=evaluate(candidate.config,candidate.tunes);
+        if(next&&(!start||better(next,start)))start=next;
+      }
+    }
+    let best=tune(start);
     if(!best){
       runs.push({direction,target_effectiveness_percent:target,budget,completed_passes:0,converged:false});
       return null;
@@ -203,7 +215,7 @@ export async function generatePasses(input, runtime) {
     if(!eligible(best) || (target!==null&&best.score>targetLoss(anchor,target)+1e-8)){
       results.push({label,budget,status:'not_found',reason:'No build meeting the constraints was found in the requested passes.',minimum_stats:settings.minimums});return;
     }
-    const {build,converged,...output}=best;
+    const {build,converged,detailedViolation,...output}=best;
     const recoilPath=timedRecoil(pack,build,output.tunes,r,timedModules);
     const baseClimb=baselinePath.metrics?.climb_model_units_per_second;
     recoilPath.climb_improvement_percent=recoilPath.status==='modeled'&&baseClimb>0
@@ -261,5 +273,5 @@ export async function generatePasses(input, runtime) {
       else seen.add(row.signature);
     }
   }
-  return {...(patternConstraint?{pattern_constraint:patternConstraint}:{}),search_method:'coordinate_passes',solver:{name:'Coordinate passes',passes,runs,evaluated,elapsed_ms:performance.now()-started,global_optimality:false},weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:!settings.automatic?'custom_targets':objectiveNames?.length>1?'lexicographic':'weighted',objective_names:objectiveNames,limitations,cheapest_gate_percent:mode==='mp'?null:cheapestGate,minimum_stats:settings.minimums,effectiveness_definition:settings.preset==='agility'?'Weighted Handling, hip-fire accuracy and ADS recoil improvement over default':'ADS recoil improvement over default; Handling breaks recoil ties',experimental:true,method:'Coordinate search; no global optimality guarantee',score_model:presets[settings.preset].description,weights,baseline,baseline_stats,baseline_score:0,baseline_loss:100,score_direction:'higher',score_definition:'Percent reduction of primary loss from the default build; default = 0; higher is better',baseline_recoil_path:baselinePath,tier,provenance:input.provenance,results};
+  return {...(patternConstraint?{pattern_constraint:patternConstraint}:{}),search_method:'coordinate_passes',solver:{name:'Coordinate passes',passes,runs,evaluated,elapsed_ms:performance.now()-started,global_optimality:false},weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:!settings.automatic?'custom_targets':objectiveNames?.length>1?'lexicographic':'weighted',objective_names:objectiveNames,limitations,cheapest_gate_percent:mode==='mp'?null:cheapestGate,minimum_stats:settings.minimums,...(detailedStatsFor?{stat_limits:settings.detailedLimits}:{}),effectiveness_definition:settings.preset==='agility'?'Weighted Handling, hip-fire accuracy and ADS recoil improvement over default':'ADS recoil improvement over default; Handling breaks recoil ties',experimental:true,method:'Coordinate search; no global optimality guarantee',score_model:presets[settings.preset].description,weights,baseline,baseline_stats,baseline_score:0,baseline_loss:100,score_direction:'higher',score_definition:'Percent reduction of primary loss from the default build; default = 0; higher is better',baseline_recoil_path:baselinePath,tier,provenance:input.provenance,results};
 }
