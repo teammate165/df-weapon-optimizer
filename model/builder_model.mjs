@@ -1,7 +1,8 @@
-import {generate} from './optimizer_engine.mjs?v=455db48980e86f19';
-import {statResponse} from './builder_stat_response.mjs?v=455db48980e86f19';
-import {statIds} from './optimizer_policy.mjs?v=455db48980e86f19';
-import {presets} from './optimizer_presets.mjs?v=455db48980e86f19';
+import {addKickDetails} from './detailed_stat_values.mjs?v=9f7476fef3bfa008';
+import {generate} from './optimizer_engine.mjs?v=9f7476fef3bfa008';
+import {statResponse} from './builder_stat_response.mjs?v=9f7476fef3bfa008';
+import {statIds} from './optimizer_policy.mjs?v=9f7476fef3bfa008';
+import {presets} from './optimizer_presets.mjs?v=9f7476fef3bfa008';
 
 function plotConvertedRecoil(pack, stats, chart, value) {
   const {base, current} = stats;
@@ -58,6 +59,7 @@ export async function executeModel(input,modules) {
   }
   const stats=calculate(pack,{tacticalEffective:true,mode:r.mode,resolvedLoadout:build,tunes,preservePrecision:true,trajectoryShotCount:r.shot_count??20});
   const {numeric,value}=kernel.u(pack,build,{tacticalEffective:true,mode:r.mode,tunes});
+  addKickDetails(stats.current,pack,build,{mode:r.mode,tacticalEffective:true,tunes},kernel);
   plotConvertedRecoil(pack, stats, calculate.screeningChartContract, value);
   const effective_stats=Object.fromEntries(Object.entries(statIds).map(([key,id])=>[key,numeric.mainAttr[id]]));
   let optimization;

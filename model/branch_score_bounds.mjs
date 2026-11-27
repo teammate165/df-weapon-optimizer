@@ -1,6 +1,6 @@
-import {timedRecoil} from './timed_recoil.mjs?v=455db48980e86f19';
-import {createFiniteKickMinimum,foldedAddGroups,foldedProductGroups,nativeCurveRange,sharedKickFactors} from './branch_native_ranges.mjs?v=455db48980e86f19';
-import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=455db48980e86f19';
+import {timedRecoil} from './timed_recoil.mjs?v=9f7476fef3bfa008';
+import {createFiniteKickMinimum,foldedAddGroups,foldedProductGroups,nativeCurveRange,sharedKickFactors} from './branch_native_ranges.mjs?v=9f7476fef3bfa008';
+import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=9f7476fef3bfa008';
 
 // Outward-enclosed real arithmetic, including an allowance for native fold
 // regrouping. Unknown/nonfinite source inputs decline pruning altogether.

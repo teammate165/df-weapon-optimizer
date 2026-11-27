@@ -1,15 +1,16 @@
-import {presets} from './optimizer_presets.mjs?v=455db48980e86f19';
-import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=455db48980e86f19';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=455db48980e86f19';
-import {fixedSlotSeed,retainsFixedSlots,completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=455db48980e86f19';
-import {configKey,tacticalChoice} from './exhaustive_attachment_gate.mjs?v=455db48980e86f19';
-import {compileMounts} from './scip_mount_model.mjs?v=455db48980e86f19';
-import {createMountSearch} from './mount_search.mjs?v=455db48980e86f19';
-import {createSharedStatEvaluator} from './shared_stats.mjs?v=455db48980e86f19';
-import {createBranchScoreBound} from './branch_score_bounds.mjs?v=455db48980e86f19';
-import {boundCannotBeat} from './scoring_bounds.mjs?v=455db48980e86f19';
-import {timedRecoil} from './timed_recoil.mjs?v=455db48980e86f19';
-import {createChoiceGroups} from './choice_groups.mjs?v=455db48980e86f19';
+import {createDetailedStatEvaluator} from './detailed_stat_values.mjs?v=9f7476fef3bfa008';
+import {presets} from './optimizer_presets.mjs?v=9f7476fef3bfa008';
+import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=9f7476fef3bfa008';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=9f7476fef3bfa008';
+import {fixedSlotSeed,retainsFixedSlots,completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=9f7476fef3bfa008';
+import {configKey,tacticalChoice} from './exhaustive_attachment_gate.mjs?v=9f7476fef3bfa008';
+import {compileMounts} from './scip_mount_model.mjs?v=9f7476fef3bfa008';
+import {createMountSearch} from './mount_search.mjs?v=9f7476fef3bfa008';
+import {createSharedStatEvaluator} from './shared_stats.mjs?v=9f7476fef3bfa008';
+import {createBranchScoreBound} from './branch_score_bounds.mjs?v=9f7476fef3bfa008';
+import {boundCannotBeat} from './scoring_bounds.mjs?v=9f7476fef3bfa008';
+import {timedRecoil} from './timed_recoil.mjs?v=9f7476fef3bfa008';
+import {createChoiceGroups} from './choice_groups.mjs?v=9f7476fef3bfa008';
 
 export const shortlistLimits=Object.freeze({ordinary:256,tactical_per_base:16,complete:512});
 
@@ -44,7 +45,7 @@ export class Shortlist {
 
 async function loadRuntime(directory){
  const [{pathToFileURL},path]=await Promise.all([import('node:url'),import('node:path')]);
- const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=455db48980e86f19'))),kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=455db48980e86f19'))),{t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=455db48980e86f19')));
+ const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=9f7476fef3bfa008'))),kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=9f7476fef3bfa008'))),{t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=9f7476fef3bfa008')));
  return {curves,kernel,calculate};
 }
 
@@ -65,8 +66,13 @@ export async function generateAnytime(input,runtime){
  if(preset.objectives&&!preset.allowTargets&&r.effectiveness_targets!==undefined)throw Error('This preset does not support custom effectiveness targets');
  const patternConstraint=createPatternConstraint(preset,resolve,r,settings.patternReduction);
  const patternCap=patternConstraint?.maximum??null;
- const eligible=row=>shortfall(row.stats,settings.minimums)<=1e-8&&(patternCap===null||row.components.pattern<=patternCap);
- const better=comparator(settings.minimums,null,patternCap),compare=(a,b)=>better(a,b)?-1:better(b,a)?1:a.key.localeCompare(b.key);
+ const detailedStatsFor=createDetailedStatEvaluator(pack,mode,settings.detailedLimits,modules);
+ const hasLimits=Boolean(detailedStatsFor);
+ const eligible=row=>(!hasLimits||row.detailedViolation===0)&&shortfall(row.stats,settings.minimums)<=1e-8&&(patternCap===null||row.components.pattern<=patternCap);
+ const compareObjective=comparator(settings.minimums,null,patternCap);
+ const better=(a,b)=>a.detailedViolation!==b.detailedViolation
+  ?a.detailedViolation<b.detailedViolation:compareObjective(a,b);
+ const compare=(a,b)=>better(a,b)?-1:better(b,a)?1:a.key.localeCompare(b.key);
  let starts=input.solver_starts;
  if(!starts&&typeof process!=='undefined'&&process.versions?.node){try{const fs=await import('node:fs/promises');starts=JSON.parse(await fs.readFile(new URL('../data/solver_starts/'+pack.weaponId+'.json',import.meta.url),'utf8'));}catch{}}
  const variant=Number.isInteger(input.search_variant)&&input.search_variant>0?input.search_variant:0;
@@ -102,11 +108,11 @@ export async function generateAnytime(input,runtime){
     const tuned=Object.keys(clean).length>0,state=!tuned&&shared?shared.evaluate(build):kernel.u(pack,build,{mode,tacticalEffective:true,tunes:clean}),components=preset.raw(build,clean,state),score=preset.score(components),stats=Object.fromEntries(Object.entries(statIds).map(([name,id])=>[name,state.numeric.mainAttr[id]]));
     if(!Number.isFinite(score))return null;
     d.evaluated++;if(phase==='calibration')d.calibration_evaluations++;if(phase==='search_tactical')d.tactical_evaluated++;
-    const row={key,config:build.config,tunes:clean,build,components,score,stats,objectives:preset.objectives?.(components)??[score],cost,signature:JSON.stringify([key,clean])};
+    const row={...detailedStatsFor?.(build,clean),key,config:build.config,tunes:clean,build,components,score,stats,objectives:preset.objectives?.(components)??[score],cost,signature:JSON.stringify([key,clean])};
     if(cache.size>=2048)cache.delete(cache.keys().next().value);cache.set(cacheKey,row);d.cache_peak=Math.max(d.cache_peak,cache.size);return row;
    }catch(error){if(error===stop||error.name==='AbortError')throw error;d.source_errors++;return null;}
   };
-  const keepComplete=row=>{if(row&&eligible(row))complete.add(row);};
+  const keepComplete=row=>{if(row&&(eligible(row)||hasLimits))complete.add(row);};
   const locked=path=>fixed.some(f=>f.slotPath===path||f.slotPath.startsWith(path+'/'));
   const strip=config=>config.filter(c=>!tactical(c.slotPath,c.itemId)||fixed.some(f=>f.slotPath===c.slotPath&&f.itemId===c.itemId));
   const keepOrdinary=config=>{const row=evaluate(strip(config));if(row){ordinary.add(row);d.ordinary_evaluated++;for(const c of row.config){const key=c.slotPath+'|'+c.itemId;hints.set(key,Math.min(hints.get(key)??Infinity,row.score));}}return row;};
@@ -145,7 +151,7 @@ export async function generateAnytime(input,runtime){
     const compiled=compileMounts({...input,request},kernel),restrictions=new Map();
     for(const p of compiled.players.values())if(typeof p.value==='string'&&tactical(p.path,p.item)&&!fixed.some(f=>f.slotPath===p.path&&f.itemId===p.item))restrictions.set(p.value,0);
     groups.constrain(compiled);
-    branch=createBranchScoreBound({pack,request,compiled,...modules,preset});const search=createMountSearch(compiled);
+    branch=hasLimits?null:createBranchScoreBound({pack,request,compiled,...modules,preset});const search=createMountSearch(compiled);
     tree=search.enumerate(restrictions,()=>{d.tree_nodes++;if(d.tree_nodes%32===0){check(phaseDeadline);progress();}},{priority:(path,item)=>variant?searchHash(variant+':'+path+':'+item):item===null?ordinary.best()?.score??100:hints.get(path+'|'+item)??1000,prune:context=>{
      const cutoff=ordinary.cutoff();if(!branch||!cutoff||context.remaining<2||context.remaining>4||!eligible(cutoff)||branchTime>.05*(performance.now()-sliceStart))return false;
      const begin=performance.now(),lower=branch.lower(context);branchTime+=performance.now()-begin;
@@ -216,7 +222,7 @@ export async function generateAnytime(input,runtime){
   }));
   const calibrate=()=>{
    const queue=complete.rows();
-   if(patternCap!==null){
+   if(patternCap!==null||hasLimits){
     const keys=new Set(queue.map(row=>row.key));
     queue.push(...ordinary.rows().filter(row=>!keys.has(row.key)).slice(0,32));
    }
@@ -237,6 +243,10 @@ export async function generateAnytime(input,runtime){
   };
   // Seeds are hints only: all mounting, prices, effects and tuning are replayed.
   runPhase('search_attachments',.35,()=>{
+   const witness=r.feasibility_seed;
+   if(hasLimits&&Array.isArray(witness?.config)){
+    keepComplete(evaluate(witness.config,witness.tunes));
+   }
    const seeds=[{config:initial.config,tunes:{}},{config:r.config??initial.config,tunes:r.tunes??{}},...(starts?.starts??[]).filter(s=>!s.preset||s.preset===settings.preset).sort((a,b)=>Number(b.source_mode===mode)-Number(a.source_mode===mode))];
    for(const seed of searchOrder(seeds,variant,seed=>configKey(seed.config))){
     check(phaseDeadline);const config=[...seed.config.filter(c=>!fixed.some(f=>f.slotPath===c.slotPath||f.slotPath.startsWith(c.slotPath+'/'))),...fixed.filter(f=>!f.keepDefault)];
@@ -255,13 +265,13 @@ export async function generateAnytime(input,runtime){
   runPhase('search_tactical',.92,searchTactical);
   runPhase('calibration',1,calibrate);
   d.ordinary_retained=ordinary.rows().length;d.candidate_count=complete.rows().length;d.ordinary_storage_peak=ordinary.peak;d.complete_storage_peak=complete.peak;d.stat_reuse=shared?.getStats()??{supported:false};d.branch_scoring=branch?.getStats()??{supported:false};d.choice_groups=groups.getStats();d.elapsed_ms=performance.now()-sliceStart;reports.push(d);
-  const rows=complete.rows();
+  const rows=complete.rows().filter(eligible);
   if(input.collect_candidates)candidatePools.push({budget,rows:rows.map(({build,...row})=>row)});
   results.push(...publishAnytimeRows(rows,{pack,r,modules,mode,settings,budget,budgetIndex,budgetCount:budgets.length,resolve}));
  }
  deduplicateResults(results,settings);
  const baseline=kernel.u(pack,resolve([]),{mode,tacticalEffective:true,tunes:{}});solver.elapsed_ms=performance.now()-started;
- const output={...(patternConstraint?{pattern_constraint:patternConstraint}:{}),weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:settings.automatic?(preset.objectiveNames?.length>1?'lexicographic':'weighted'):'custom_targets',objective_names:preset.objectiveNames,minimum_stats:settings.minimums,baseline:preset.baseline,baseline_stats:Object.fromEntries(Object.entries(statIds).map(([name,id])=>[name,baseline.numeric.mainAttr[id]])),baseline_recoil_path:timedRecoil(pack,resolve([]),{},r,modules),baseline_score:0,baseline_loss:100,score_direction:'higher',weights:preset.weights,tier,cheapest_gate_percent:mode==='mp'?null:cheapestGate,experimental:true,method:'Anytime bounded top-K ordinary and tactical search, source-calculator calibration with feedback',score_model:presets[settings.preset].description,limitations:[...preset.limitations,'Time-limited best-found search. Legal combinations can remain unexplored; shortlists are not proven global top-K. The time budget covers attachment search, tactical search and calibration. Calibration uses legal-position source-scored coordinate refinement, not a global calibration proof.'],attachment_gate:{fraction:null,complete:false,screening:'anytime_top_k',limits:{...shortlistLimits},budgets:reports,global_optimality:false},solver,provenance:input.provenance,results};
+ const output={...(patternConstraint?{pattern_constraint:patternConstraint}:{}),weapon_id:pack.weaponId,mode,preset:settings.preset,output_standard:settings.automatic?'max_balanced_min':'custom_targets',recoil_context:'ads',selection:settings.automatic?(preset.objectiveNames?.length>1?'lexicographic':'weighted'):'custom_targets',objective_names:preset.objectiveNames,minimum_stats:settings.minimums,...(hasLimits?{stat_limits:settings.detailedLimits}:{}),baseline:preset.baseline,baseline_stats:Object.fromEntries(Object.entries(statIds).map(([name,id])=>[name,baseline.numeric.mainAttr[id]])),baseline_recoil_path:timedRecoil(pack,resolve([]),{},r,modules),baseline_score:0,baseline_loss:100,score_direction:'higher',weights:preset.weights,tier,cheapest_gate_percent:mode==='mp'?null:cheapestGate,experimental:true,method:'Anytime bounded top-K ordinary and tactical search, source-calculator calibration with feedback',score_model:presets[settings.preset].description,limitations:[...preset.limitations,'Time-limited best-found search. Legal combinations can remain unexplored; shortlists are not proven global top-K. The time budget covers attachment search, tactical search and calibration. Calibration uses legal-position source-scored coordinate refinement, not a global calibration proof.'],attachment_gate:{fraction:null,complete:false,screening:'anytime_top_k',limits:{...shortlistLimits},budgets:reports,global_optimality:false},solver,provenance:input.provenance,results};
  if(input.collect_candidates)output.search_candidates=candidatePools;
  return output;
 }
@@ -269,7 +279,7 @@ export async function generateAnytime(input,runtime){
 function publishAnytimeRows(rows,{pack,r,modules,mode,settings,budget,budgetIndex,budgetCount,resolve}){
  const results=[],strongest=rows[0],publish=(row,label,target=null)=>{
    if(!row){results.push({label,budget,status:'not_found',reason:settings.patternReduction===undefined?'No feasible build found within the search budget. Infeasibility has not been proven.':'No build meeting the pattern reduction was found within the search budget.'});return;}
-   const {build:storedBuild,key,...rest}=row,build=storedBuild??resolve(row.config),path=timedRecoil(pack,build,row.tunes,r,modules);
+   const {build:storedBuild,key,detailedViolation,...rest}=row,build=storedBuild??resolve(row.config),path=timedRecoil(pack,build,row.tunes,r,modules);
    results.push({...rest,label,budget,status:'best_found',loss:row.score,score:100-row.score,improvement_percent:100-row.score,effectiveness_percent:strongest&&100-strongest.score>1e-8?100*(100-row.score)/(100-strongest.score):100,target_effectiveness_percent:target,category_note:null,mounted:build.mounted,recoil_path:path,converged:false});
   };
   if(budgetCount>1){publish(strongest,['Min','Balanced','Max'][budgetIndex]);return results;}

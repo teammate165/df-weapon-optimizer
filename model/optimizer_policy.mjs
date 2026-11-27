@@ -1,17 +1,26 @@
 // Presets own objective semantics; the search owns mounting, tuning and costs.
-import {presets} from './optimizer_presets.mjs?v=455db48980e86f19';
+import {detailedStats} from '../detailed-stats.mjs?v=9f7476fef3bfa008';
+import {presets} from './optimizer_presets.mjs?v=9f7476fef3bfa008';
 export const statIds = {control:'3', handling:'5', stability:'6', accuracy:'4'};
 export function policy(request) {
   const preset=request.preset??'recoil';
   if(!Object.hasOwn(presets,preset))throw Error('Unknown optimizer preset');
   const minimums=request.minimum_stats??{};
   if(!minimums || Array.isArray(minimums) || typeof minimums!=='object' || Object.entries(minimums).some(([k,v])=>!Object.hasOwn(statIds,k)||!Number.isFinite(v)||v<0))throw Error('minimum_stats accepts nonnegative control, handling, stability and accuracy only');
+  const detailedLimits=request.stat_limits===undefined?{}:request.stat_limits;
+  if(!detailedLimits || typeof detailedLimits!=='object' || Array.isArray(detailedLimits) ||
+    Object.entries(detailedLimits).some(([id,value])=>!Object.hasOwn(detailedStats,id)||!Number.isFinite(value)||value<0)){
+    throw Error('stat_limits requires known detailed stats and finite nonnegative values');
+  }
+  if(Object.keys(detailedLimits).length && request.search_method!==undefined && !['anytime','coordinate_passes'].includes(request.search_method)){
+    throw Error('Detailed stat limits require Anytime or Coordinate passes');
+  }
   const automatic=request.effectiveness_targets===undefined;
   const targets=request.effectiveness_targets??[50,60,70,80,90];
   if(!Array.isArray(targets)||targets.length>8||targets.some(v=>!Number.isFinite(v)||v<=0||v>100))throw Error('effectiveness_targets must contain up to eight percentages in (0,100]');
   const patternReduction=request.pattern_reduction_percent;
   if(patternReduction!==undefined&&(preset!=='recoil'||!Number.isFinite(patternReduction)||patternReduction<=0||patternReduction>=100))throw Error('pattern_reduction_percent requires Lowest Recoil and a percentage between 0 and 100');
-  return {preset,minimums,patternReduction,automatic,targets:[...new Set(targets)].sort((a,b)=>a-b)};
+  return {preset,minimums,detailedLimits,patternReduction,automatic,targets:[...new Set(targets)].sort((a,b)=>a-b)};
 }
 export const shortfall=(stats,minimums)=>Object.entries(minimums).reduce((sum,[key,min])=>sum+Math.max(0,min-stats[key]),0);
 export function createPatternConstraint(preset, resolve, request, reductionPercent) {
