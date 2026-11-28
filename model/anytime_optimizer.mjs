@@ -1,16 +1,16 @@
-import {createDetailedStatEvaluator} from './detailed_stat_values.mjs?v=a1539a63dcdc8bbb';
-import {presets} from './optimizer_presets.mjs?v=a1539a63dcdc8bbb';
-import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=a1539a63dcdc8bbb';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=a1539a63dcdc8bbb';
-import {fixedSlotSeed,retainsFixedSlots,completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=a1539a63dcdc8bbb';
-import {configKey,tacticalChoice} from './exhaustive_attachment_gate.mjs?v=a1539a63dcdc8bbb';
-import {compileMounts} from './scip_mount_model.mjs?v=a1539a63dcdc8bbb';
-import {createMountSearch} from './mount_search.mjs?v=a1539a63dcdc8bbb';
-import {createSharedStatEvaluator} from './shared_stats.mjs?v=a1539a63dcdc8bbb';
-import {createBranchScoreBound} from './branch_score_bounds.mjs?v=a1539a63dcdc8bbb';
-import {boundCannotBeat} from './scoring_bounds.mjs?v=a1539a63dcdc8bbb';
-import {timedRecoil} from './timed_recoil.mjs?v=a1539a63dcdc8bbb';
-import {createChoiceGroups} from './choice_groups.mjs?v=a1539a63dcdc8bbb';
+import {createDetailedStatEvaluator} from './detailed_stat_values.mjs?v=9e8766cc9937fb42';
+import {presets} from './optimizer_presets.mjs?v=9e8766cc9937fb42';
+import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=9e8766cc9937fb42';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=9e8766cc9937fb42';
+import {fixedSlotSeed,retainsFixedSlots,completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=9e8766cc9937fb42';
+import {configKey,tacticalChoice} from './exhaustive_attachment_gate.mjs?v=9e8766cc9937fb42';
+import {compileMounts} from './scip_mount_model.mjs?v=9e8766cc9937fb42';
+import {createMountSearch} from './mount_search.mjs?v=9e8766cc9937fb42';
+import {createSharedStatEvaluator} from './shared_stats.mjs?v=9e8766cc9937fb42';
+import {createBranchScoreBound} from './branch_score_bounds.mjs?v=9e8766cc9937fb42';
+import {boundCannotBeat} from './scoring_bounds.mjs?v=9e8766cc9937fb42';
+import {timedRecoil} from './timed_recoil.mjs?v=9e8766cc9937fb42';
+import {createChoiceGroups} from './choice_groups.mjs?v=9e8766cc9937fb42';
 
 export const shortlistLimits=Object.freeze({ordinary:256,tactical_per_base:16,complete:512});
 
@@ -45,7 +45,7 @@ export class Shortlist {
 
 async function loadRuntime(directory){
  const [{pathToFileURL},path]=await Promise.all([import('node:url'),import('node:path')]);
- const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=a1539a63dcdc8bbb'))),kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=a1539a63dcdc8bbb'))),{t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=a1539a63dcdc8bbb')));
+ const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=9e8766cc9937fb42'))),kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=9e8766cc9937fb42'))),{t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=9e8766cc9937fb42')));
  return {curves,kernel,calculate};
 }
 
@@ -69,9 +69,7 @@ export async function generateAnytime(input,runtime){
  const detailedStatsFor=createDetailedStatEvaluator(pack,mode,settings.detailedLimits,modules);
  const hasLimits=Boolean(detailedStatsFor);
  const eligible=row=>(!hasLimits||row.detailedViolation===0)&&shortfall(row.stats,settings.minimums)<=1e-8&&(patternCap===null||row.components.pattern<=patternCap);
- const compareObjective=comparator(settings.minimums,null,patternCap);
- const better=(a,b)=>a.detailedViolation!==b.detailedViolation
-  ?a.detailedViolation<b.detailedViolation:compareObjective(a,b);
+ const better=comparator(settings.minimums,null,patternCap);
  const compare=(a,b)=>better(a,b)?-1:better(b,a)?1:a.key.localeCompare(b.key);
  let starts=input.solver_starts;
  if(!starts&&typeof process!=='undefined'&&process.versions?.node){try{const fs=await import('node:fs/promises');starts=JSON.parse(await fs.readFile(new URL('../data/solver_starts/'+pack.weaponId+'.json',import.meta.url),'utf8'));}catch{}}

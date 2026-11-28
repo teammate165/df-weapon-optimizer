@@ -1,16 +1,16 @@
-import {completeRiserOptics,fixedSlotSeed,retainsFixedSlots} from './optimizer_mounts.mjs?v=a1539a63dcdc8bbb';
-import {timedRecoil} from './timed_recoil.mjs?v=a1539a63dcdc8bbb';
-import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=a1539a63dcdc8bbb';
-import {createDetailedStatEvaluator} from './detailed_stat_values.mjs?v=a1539a63dcdc8bbb';
-import {presets} from './optimizer_presets.mjs?v=a1539a63dcdc8bbb';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=a1539a63dcdc8bbb';
+import {completeRiserOptics,fixedSlotSeed,retainsFixedSlots} from './optimizer_mounts.mjs?v=9e8766cc9937fb42';
+import {timedRecoil} from './timed_recoil.mjs?v=9e8766cc9937fb42';
+import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=9e8766cc9937fb42';
+import {createDetailedStatEvaluator} from './detailed_stat_values.mjs?v=9e8766cc9937fb42';
+import {presets} from './optimizer_presets.mjs?v=9e8766cc9937fb42';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=9e8766cc9937fb42';
 
 async function loadRuntime(directory) {
   const {pathToFileURL}=await import('node:url');
   const path=await import('node:path');
-  const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=a1539a63dcdc8bbb')));
-  const kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=a1539a63dcdc8bbb')));
-  const {t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=a1539a63dcdc8bbb')));
+  const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=9e8766cc9937fb42')));
+  const kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=9e8766cc9937fb42')));
+  const {t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=9e8766cc9937fb42')));
   return {curves,kernel,calculate};
 }
 
@@ -99,9 +99,7 @@ export async function generatePasses(input, runtime) {
   const search=(budget,seed,target=null,anchor=null)=>{
     const direction=target===null?'Max':seed?'Reduce cost':'Build from locks';
     const targetScore=target===null?null:targetLoss(anchor,target);
-    const compareObjective=comparator(settings.minimums,targetScore,patternCap);
-    const better=(a,b)=>a.detailedViolation!==b.detailedViolation
-      ?a.detailedViolation<b.detailedViolation:compareObjective(a,b);
+    const better=comparator(settings.minimums,targetScore,patternCap);
     let completed=0,incumbent;
     report(direction,0,budget,null,true);
     const evaluateSingle=(config,tunes={})=>{

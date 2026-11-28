@@ -1,4 +1,4 @@
-import {shortfall} from './optimizer_policy.mjs?v=a1539a63dcdc8bbb';
+import {shortfall} from './optimizer_policy.mjs?v=9e8766cc9937fb42';
 
 export const gateFraction=.005;
 export const gateDenominator=200n;

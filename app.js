@@ -1,14 +1,14 @@
-import {createStaticClient} from './static-client.js?v=a1539a63dcdc8bbb';
-import {imageLoaded,prepareImageCache} from './image-loading.js?v=a1539a63dcdc8bbb';
-import {createSavedBuildStore} from './saved-builds.js?v=a1539a63dcdc8bbb';
-import {slotIcons} from './assets/slot-icons.js?v=a1539a63dcdc8bbb';
-import {portraits} from './assets/portraits.js?v=a1539a63dcdc8bbb';
-import {statChanges,groupStatChanges,majorStatGroups,tacticalBenefits} from './part-comparisons.js?v=a1539a63dcdc8bbb';
-import {createStatResponseView} from './stat-response-view.js?v=a1539a63dcdc8bbb';
-import {createWeaponImage} from './weapon-layers.js?v=a1539a63dcdc8bbb';
-import {defaultRecoilWeights,defaultAgilityWeights,distributeWeightPoints} from './optimizer_weights.mjs?v=a1539a63dcdc8bbb';
-import {detailedStats} from './detailed-stats.mjs?v=a1539a63dcdc8bbb';
-import {createDetailedLimits,formatDetailed} from './detailed-limits.js?v=a1539a63dcdc8bbb';
+import {createStaticClient} from './static-client.js?v=9e8766cc9937fb42';
+import {imageLoaded,prepareImageCache} from './image-loading.js?v=9e8766cc9937fb42';
+import {createSavedBuildStore} from './saved-builds.js?v=9e8766cc9937fb42';
+import {slotIcons} from './assets/slot-icons.js?v=9e8766cc9937fb42';
+import {portraits} from './assets/portraits.js?v=9e8766cc9937fb42';
+import {statChanges,groupStatChanges,majorStatGroups,tacticalBenefits} from './part-comparisons.js?v=9e8766cc9937fb42';
+import {createStatResponseView} from './stat-response-view.js?v=9e8766cc9937fb42';
+import {createWeaponImage} from './weapon-layers.js?v=9e8766cc9937fb42';
+import {defaultRecoilWeights,defaultAgilityWeights,distributeWeightPoints} from './optimizer_weights.mjs?v=9e8766cc9937fb42';
+import {detailedStats} from './detailed-stats.mjs?v=9e8766cc9937fb42';
+import {createDetailedLimits,formatDetailed} from './detailed-limits.js?v=9e8766cc9937fb42';
 const $=id=>document.getElementById(id);
 const detailedLimits=createDetailedLimits($('detailed-limits'),()=>{
  $('detailed-limit-status').hidden=!detailedLimits.active();

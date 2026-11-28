@@ -1,6 +1,6 @@
 // Presets own objective semantics; the search owns mounting, tuning and costs.
-import {detailedStats} from '../detailed-stats.mjs?v=a1539a63dcdc8bbb';
-import {presets} from './optimizer_presets.mjs?v=a1539a63dcdc8bbb';
+import {detailedStats} from '../detailed-stats.mjs?v=9e8766cc9937fb42';
+import {presets} from './optimizer_presets.mjs?v=9e8766cc9937fb42';
 export const statIds = {control:'3', handling:'5', stability:'6', accuracy:'4'};
 export function policy(request) {
   const preset=request.preset??'recoil';
@@ -46,6 +46,8 @@ export function comparator(minimums, targetScore=null, patternCap=null) {
       const ap=Math.max(0,a.components.pattern-patternCap),bp=Math.max(0,b.components.pattern-patternCap);
       if(ap!==bp)return ap<bp;
     }
+    const ad=a.detailedViolation??0,bd=b.detailedViolation??0;
+    if(ad!==bd)return ad<bd;
     const av=violation(a),bv=violation(b);
     if(Math.abs(av-bv)>1e-8)return av<bv;
     if(targetScore!==null && av<1e-8 && a.cost!==b.cost)return a.cost<b.cost;
