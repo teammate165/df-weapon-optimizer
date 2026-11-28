@@ -14,7 +14,7 @@ prices and translations remain provisional. Both presets use parallel time-limit
 Ordinary builds, patch/laser completions and source-scored calibration share the total search budget.
 Each worker retains at most 256 ordinary and 512 complete builds; the merged pool is capped at 512.
 Workers share one compute deadline and can overlap in the builds explored. Legal combinations can remain unexplored.
-Results are best found, with no global-optimum claim. Lowest Recoil uses the experimental 40/30/30 proxy.
+Results are best found, with no global-optimum claim. Lowest Recoil uses the experimental 40/20/40 Recoil Pattern, Camera Stability and Gun Stability weights.
 Saved builds stay in this browser's cookies; JSON export provides a backup.
 
 Published with GitHub Actions to GitHub Pages. Local preview:

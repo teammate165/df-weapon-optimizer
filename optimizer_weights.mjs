@@ -1,4 +1,4 @@
-export const defaultRecoilWeights=Object.freeze({pattern:0.4,camera:0.3,kick:0.3});
+export const defaultRecoilWeights=Object.freeze({pattern:0.4,camera:0.2,kick:0.4});
 export const defaultAgilityWeights=Object.freeze({handling:0.5,accuracy:0.3,recoil:0.2});
 
 // Allocate whole slider points while preserving the requested total.

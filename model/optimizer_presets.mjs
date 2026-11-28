@@ -1,7 +1,7 @@
-import {timedRecoil} from './timed_recoil.mjs?v=9f7476fef3bfa008';
-import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=9f7476fef3bfa008';
-import {createRecoilScreeningBound} from './scoring_bounds.mjs?v=9f7476fef3bfa008';
-import {defaultRecoilWeights,defaultAgilityWeights,validateWeights} from '../optimizer_weights.mjs?v=9f7476fef3bfa008';
+import {timedRecoil} from './timed_recoil.mjs?v=a1539a63dcdc8bbb';
+import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=a1539a63dcdc8bbb';
+import {createRecoilScreeningBound} from './scoring_bounds.mjs?v=a1539a63dcdc8bbb';
+import {defaultRecoilWeights,defaultAgilityWeights,validateWeights} from '../optimizer_weights.mjs?v=a1539a63dcdc8bbb';
 // Each preset supplies lower-is-better normalized loss plus diagnostic components.
 // The engine is independent of the particular game metrics being optimized.
 export const horizontalPatternLoss=(vertical,horizontal,speed)=>vertical+horizontalSpeedMultiplier(speed)*horizontal;
@@ -12,7 +12,7 @@ const handlingLoss=(components,baseline)=>{
 export const presets = {
   agility: {
     label:'Highest Agility',
-    description:'Weighted handling / hip-fire accuracy / ADS recoil loss. Default weights are 50/30/20. Accuracy minimizes idle hip-fire spread; maximum spread is excluded. Handling averages default-normalized ADS and sprint-to-fire times. Ordinary ADS ranks airborne ADS under the shared-scaling assumption. Recoil is the shared provisional ADS-only pattern/camera/kick proxy.',
+    description:'Weighted handling / hip-fire accuracy / ADS recoil loss. Default weights are 50/30/20. Accuracy minimizes idle hip-fire spread; maximum spread is excluded. Handling averages default-normalized ADS and sprint-to-fire times. Ordinary ADS ranks airborne ADS under the shared-scaling assumption. Recoil is the shared provisional ADS-only proxy for Recoil Pattern, Camera Stability and Gun Stability.',
     create(context) {
       const {pack,kernel,resolve,mode}=context;
       const recoil=presets.recoil.create({...context,legacyRecoil:true});
@@ -44,7 +44,7 @@ export const presets = {
   },
   recoil: {
     label:'Lowest Recoil',
-    description:'Strict ADS recoil then Handling. Automatic pattern: V + multiplier * H over 20 ADS source-chart points; H=max(abs(x)) from pre-fire origin. Candidate fastest 200ms net horizontal speed selects multiplier: 1 up to 3, 4 above 3, 6 above 4, 10 above 5 model units/s. Exact piecewise-linear maximum; no P90. Default pattern/camera/kick weights are 40/30/30. Components are default-normalized. Unsupported base firing protocols retain the legacy multiplier proxy. Experimental, not client-validated.',
+    description:'Strict ADS recoil then Handling. Automatic pattern: V + multiplier * H over 20 ADS source-chart points; H=max(abs(x)) from pre-fire origin. Candidate fastest 200ms net horizontal speed selects multiplier: 1 up to 3, 4 above 3, 6 above 4, 10 above 5 model units/s. Exact piecewise-linear maximum; no P90. Default Recoil Pattern, Camera Stability and Gun Stability weights are 40/20/40. Components are default-normalized. Unsupported base firing protocols retain the legacy multiplier proxy. Experimental, not client-validated.',
     create({pack,request:r,kernel,resolve,mode,calculate,curves,legacyRecoil=false,recoilNorm=null}) {
       const norm = recoilNorm?.evaluate ?? Math.hypot;
       const normVersion = recoilNorm?.version ?? 'native-math-hypot';

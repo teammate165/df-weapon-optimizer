@@ -1,14 +1,14 @@
-import {createStaticClient} from './static-client.js?v=9f7476fef3bfa008';
-import {imageLoaded,prepareImageCache} from './image-loading.js?v=9f7476fef3bfa008';
-import {createSavedBuildStore} from './saved-builds.js?v=9f7476fef3bfa008';
-import {slotIcons} from './assets/slot-icons.js?v=9f7476fef3bfa008';
-import {portraits} from './assets/portraits.js?v=9f7476fef3bfa008';
-import {statChanges,groupStatChanges,majorStatGroups,tacticalBenefits} from './part-comparisons.js?v=9f7476fef3bfa008';
-import {createStatResponseView} from './stat-response-view.js?v=9f7476fef3bfa008';
-import {createWeaponImage} from './weapon-layers.js?v=9f7476fef3bfa008';
-import {defaultRecoilWeights,defaultAgilityWeights,distributeWeightPoints} from './optimizer_weights.mjs?v=9f7476fef3bfa008';
-import {detailedStats} from './detailed-stats.mjs?v=9f7476fef3bfa008';
-import {createDetailedLimits,formatDetailed} from './detailed-limits.js?v=9f7476fef3bfa008';
+import {createStaticClient} from './static-client.js?v=a1539a63dcdc8bbb';
+import {imageLoaded,prepareImageCache} from './image-loading.js?v=a1539a63dcdc8bbb';
+import {createSavedBuildStore} from './saved-builds.js?v=a1539a63dcdc8bbb';
+import {slotIcons} from './assets/slot-icons.js?v=a1539a63dcdc8bbb';
+import {portraits} from './assets/portraits.js?v=a1539a63dcdc8bbb';
+import {statChanges,groupStatChanges,majorStatGroups,tacticalBenefits} from './part-comparisons.js?v=a1539a63dcdc8bbb';
+import {createStatResponseView} from './stat-response-view.js?v=a1539a63dcdc8bbb';
+import {createWeaponImage} from './weapon-layers.js?v=a1539a63dcdc8bbb';
+import {defaultRecoilWeights,defaultAgilityWeights,distributeWeightPoints} from './optimizer_weights.mjs?v=a1539a63dcdc8bbb';
+import {detailedStats} from './detailed-stats.mjs?v=a1539a63dcdc8bbb';
+import {createDetailedLimits,formatDetailed} from './detailed-limits.js?v=a1539a63dcdc8bbb';
 const $=id=>document.getElementById(id);
 const detailedLimits=createDetailedLimits($('detailed-limits'),()=>{
  $('detailed-limit-status').hidden=!detailedLimits.active();
@@ -271,11 +271,11 @@ async function pumpCalibration(){
 }
 function renderCalibrationSummary(){
  if(!state.model)return;const {base,current}=state.model.stats;
- const metrics=[...([['Control','recoilControl'],['Handling','handling'],['Stability','stability'],['Accuracy','waistAccuracy']].map(([label,key])=>[label,current.panel[key],base.panel[key],''])),['ADS time',current.handling.adsTimeMs,base.handling.adsTimeMs,'ms'],['Vertical recoil',current.recoil.autoVertical,base.recoil.autoVertical,'x'],['Camera shake',current.stability.fireCameraStability,base.stability.fireCameraStability,'x'],['Weapon kick',current.recoil.fireWeaponStability,base.recoil.fireWeaponStability,'x']];
+ const metrics=[...([['Control','recoilControl'],['Handling','handling'],['Stability','stability'],['Accuracy','waistAccuracy']].map(([label,key])=>[label,current.panel[key],base.panel[key],''])),['ADS time',current.handling.adsTimeMs,base.handling.adsTimeMs,'ms'],['Vertical recoil',current.recoil.autoVertical,base.recoil.autoVertical,'x'],['Camera Stability',current.stability.fireCameraStability,base.stability.fireCameraStability,'x'],['Gun Stability',current.recoil.fireWeaponStability,base.recoil.fireWeaponStability,'x']];
  $('calibration-stats').innerHTML=metrics.map(([label,value,baseline,unit])=>`<span>${label}<strong>${fmt(value,3)} ${unit}<small>${value-baseline>0?'+':''}${fmt(value-baseline,3)}</small></strong></span>`).join('');
 }
 const groups=majorStatGroups.map(g=>[g.title,g.key,g.detail]);
-const detailLabels={autoVertical:'Auto vertical ×',autoHorizontal:'Auto horizontal ×',singleVertical:'Single vertical ×',singleHorizontal:'Single horizontal ×',fireWeaponStability:'Weapon kick ratio',gunKickHorizontal:'Horizontal kick ×',gunKickVertical:'Vertical kick ×',adsTimeMs:'ADS time (ms)',sprintToFireMs:'Sprint to fire (ms)',adsMoveSpeed:'ADS speed (m/s)',walkSpeed:'Walk speed (m/s)',sprintSpeed:'Sprint speed (m/s)',reloadTime:'Tactical reload (s)',emptyReloadTime:'Empty reload (s)',holsterTime:'Equip time (s, source)',drawTime:'Holster time (s, source)',breathRangeDeg:'Breath sway (°)',holdBreathSeconds:'Hold breath (s)',holdBreathRecoilScale:'Held recoil ×',beHitScale:'Hit sway ×',moveStability:'Movement stability',fireCameraStability:'Firing camera ratio',hipSpreadDeg:'Standing spread (°)',maxSpreadDeg:'Max hip spread (°)',aimSpreadDeg:'ADS spread (°)',aimMaxSpreadDeg:'Max ADS spread (°)',uiFactor:'UI scale ×'};
+const detailLabels={autoVertical:'Auto vertical ×',autoHorizontal:'Auto horizontal ×',singleVertical:'Single vertical ×',singleHorizontal:'Single horizontal ×',fireWeaponStability:'Gun Stability ratio',gunKickHorizontal:'Horizontal kick ×',gunKickVertical:'Vertical kick ×',adsTimeMs:'ADS time (ms)',sprintToFireMs:'Sprint to fire (ms)',adsMoveSpeed:'ADS speed (m/s)',walkSpeed:'Walk speed (m/s)',sprintSpeed:'Sprint speed (m/s)',reloadTime:'Tactical reload (s)',emptyReloadTime:'Empty reload (s)',holsterTime:'Equip time (s, source)',drawTime:'Holster time (s, source)',breathRangeDeg:'Breath sway (°)',holdBreathSeconds:'Hold breath (s)',holdBreathRecoilScale:'Held recoil ×',beHitScale:'Hit sway ×',moveStability:'Movement stability',fireCameraStability:'Camera Stability ratio',hipSpreadDeg:'Standing spread (°)',maxSpreadDeg:'Max hip spread (°)',aimSpreadDeg:'ADS spread (°)',aimMaxSpreadDeg:'Max ADS spread (°)',uiFactor:'UI scale ×'};
 function renderStats(){
  if(!state.model)return;const {base,current}=viewed().stats,eq=state.model.stats.current;
  const imageModel=viewed(),imageWeapon=state.catalog.weapons.find(w=>w.id===imageModel.stats.weaponId);
@@ -307,13 +307,14 @@ function drawGraph(){if(!state.model)return;const key=$('view').value,{base,curr
 }
 // Presets share controls, constraints and solution rendering; add display metadata here.
 const presetTemplates={
- recoil:{title:'Lowest Recoil',priorities:'ADS recoil, then Handling for ties',defaults:defaultRecoilWeights,labels:{pattern:'Pattern',camera:'Camera shake',kick:'Gun kick'},field:'weights'},
+ recoil:{title:'Lowest Recoil',priorities:'ADS recoil, then Handling for ties',defaults:defaultRecoilWeights,labels:{pattern:'Recoil Pattern',kick:'Gun Stability',camera:'Camera Stability'},field:'weights'},
  agility:{title:'Highest Agility',priorities:'Weighted Handling, hip-fire spread and ADS recoil',defaults:defaultAgilityWeights,labels:{handling:'Handling',accuracy:'Hip-fire accuracy',recoil:'ADS recoil'},field:'objective_weights'}
 };
 const weightSelections=Object.fromEntries(Object.entries(presetTemplates).map(([key,preset])=>[key,{...preset.defaults}]));
 const selectedPreset=()=>$('optimizer-preset').value;
 const hasInvalidWeightInput=()=>Boolean($('optimizer-weight-sliders').querySelector('input[type="number"]:invalid'));
-const validWeightSelection=()=>!hasInvalidWeightInput();
+const weightLimit=$('optimizer-weight-limit');
+const validWeightSelection=()=>!hasInvalidWeightInput()&&Object.values(weightSelections[selectedPreset()]).some(value=>value>0);
 function objectiveRequest(r){
  const preset=r.preset??'recoil',template=presetTemplates[preset];
  return {preset,[template.field]:{...(r[template.field]??template.defaults)},
@@ -325,6 +326,10 @@ const currentObjective=()=>objectiveRequest({preset:selectedPreset(),[presetTemp
 let redistribution;
 function editWeight(key,metric,points){
  const weights=weightSelections[key];
+ if(!weightLimit.checked){
+  weights[metric]=points/100;
+  return;
+ }
  const peers=Object.keys(weights).filter(name=>name!==metric);
  if(redistribution?.key!==key||redistribution.metric!==metric){
   redistribution={key,metric,shares:peers.map(name=>weights[name])};
@@ -333,8 +338,7 @@ function editWeight(key,metric,points){
  for(const [index,name] of peers.entries())weights[name]=distributed[index]/100;
  weights[metric]=points/100;
 }
-function normalizeCurrentWeights(){
- const weights=weightSelections[selectedPreset()];
+function normalizeWeights(weights){
  const points=distributeWeightPoints(Object.values(weights),100);
  for(const [index,metric] of Object.keys(weights).entries())weights[metric]=points[index]/100;
 }
@@ -361,10 +365,22 @@ function updateWeightControls(editedInput){
   if(number!==editedInput)number.value=points;
   number.disabled=state.busy;
  }
+ weightLimit.disabled=state.busy;
+ $('optimizer-weight-help').textContent=weightLimit.checked
+  ?'Weights share 100 points. Zero excludes a metric.'
+  :'Weights are independent and scored as shares of their total. Zero excludes a metric.';
  const error=$('optimizer-weight-error');
+ error.textContent=hasInvalidWeightInput()
+  ?'Enter a whole number from 0 to 100 for each weight.'
+  :'Set at least one weight above zero.';
  error.hidden=validWeightSelection();
  $('generate').disabled=state.busy||!validWeightSelection()||!detailedLimits.valid();
 }
+weightLimit.onchange=()=>{
+ redistribution=undefined;
+ if(weightLimit.checked)Object.values(weightSelections).forEach(normalizeWeights);
+ updateWeightControls();refreshWeightPreview();
+};
 $('reset-optimizer-weights').onclick=()=>{
  redistribution=undefined;
  Object.assign(weightSelections[selectedPreset()],presetTemplates[selectedPreset()].defaults);
@@ -383,7 +399,7 @@ function updatePreset(){
  box.querySelector('p').textContent=preset.priorities;
  updateSearchNote();
  $('category-info').textContent='Max / Balanced / Min. Cheaper choices retain at least 60% of best improvement. No duplicate builds.';
- $('optimizer-model-note').textContent=agility?'Handling averages normalized ADS and sprint-to-fire times. Hip-fire accuracy uses idle spread. Airborne ADS uses shared scaling. The search reports the best build found within its budget.':'The recoil score combines pattern, camera shake and gun kick. Handling breaks equal recoil scores. Automatic pattern weights horizontal distance by the fastest 200 ms horizontal speed. Unsupported firing protocols use the multiplier proxy.';
+ $('optimizer-model-note').textContent=agility?'Handling averages normalized ADS and sprint-to-fire times. Hip-fire accuracy uses idle spread. Airborne ADS uses shared scaling. The search reports the best build found within its budget.':'The recoil score combines Recoil Pattern, Camera Stability and Gun Stability. Handling breaks equal recoil scores. Automatic pattern weights horizontal distance by the fastest 200 ms horizontal speed. Unsupported firing protocols use the multiplier proxy.';
 }
 $('optimizer-preset').onchange=()=>{redistribution=undefined;clearResults();updatePreset();renderStats();drawGraph();};
 const coordinatePasses=()=>$('optimizer-search-method').value==='coordinate_passes';
@@ -613,7 +629,7 @@ async function loadSavedBuild(id){
    syncSearchMethod();
    redistribution=undefined;
    Object.assign(weightSelections[preset],state.appliedObjective[field]);
-   normalizeCurrentWeights();
+   if(weightLimit.checked)normalizeWeights(weightSelections[preset]);
    clearResults();updatePreset();
   }
   state.locks=new Set(build.locked_slots.filter(path=>model.build.slots.some(s=>s.slotPath===path)));
