@@ -1,7 +1,7 @@
-import {timedRecoil} from './timed_recoil.mjs?v=303ab3f6a4af69e9';
-import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=303ab3f6a4af69e9';
-import {createRecoilScreeningBound} from './scoring_bounds.mjs?v=303ab3f6a4af69e9';
-import {defaultRecoilWeights,defaultAgilityWeights,validateWeights} from '../optimizer_weights.mjs?v=303ab3f6a4af69e9';
+import {timedRecoil} from './timed_recoil.mjs?v=7715870c62e6d4d6';
+import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=7715870c62e6d4d6';
+import {createRecoilScreeningBound} from './scoring_bounds.mjs?v=7715870c62e6d4d6';
+import {defaultRecoilWeights,defaultAgilityWeights,validateWeights} from '../optimizer_weights.mjs?v=7715870c62e6d4d6';
 // Each preset supplies lower-is-better normalized loss plus diagnostic components.
 // The engine is independent of the particular game metrics being optimized.
 export const horizontalPatternLoss=(vertical,horizontal,speed)=>vertical+horizontalSpeedMultiplier(speed)*horizontal;

@@ -87,7 +87,7 @@ export function createMountSearch(compiled,{incremental=true,priorityPaths=[]}={
   return {assigned,domains,skipTo,bounds,low,high,possible,choose,restore,interval,get epoch(){return epoch;},tick};
  }
 
- function* enumerate(restrictions=new Map(),tick=()=>{},{prune,stats={},priority,priceBudget,priceCeiling,pruneLeaves=false}={}){
+ function* enumerate(restrictions=new Map(),tick=()=>{},{prune,stats={},priority,priceBudget,priceCeiling,pruneLeaves=false,pause}={}){
   const s=session(restrictions,tick,stats);
   if(priority)for(let i=0;i<groups.length;i++)s.domains[i].sort((a,b)=>priority(groups[i][0].path,a?.item??null)-priority(groups[i][0].path,b?.item??null));
   const suffixCosts=new Array(groups.length+1);
@@ -122,6 +122,8 @@ export function createMountSearch(compiled,{incremental=true,priorityPaths=[]}={
    for(;depth<end;depth++){const chosen=s.domains[depth][0];if(chosen){fixed.push({slotPath:chosen.path,itemId:chosen.item});selectedCost+=chosen.cost;}}
    if(fixed.length)config=[...config,...fixed];
    tick();
+   // A pause preserves stack and constraint state even between legal leaves.
+   if(pause?.())yield null;
    if(minimumSuffixCost&&selectedCost+minimumSuffixCost[depth]>priceCeiling()){
     stats.price_ceiling_cuts=(stats.price_ceiling_cuts??0)+1;
     return;

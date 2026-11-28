@@ -1,9 +1,56 @@
-import {exactBetaEligible, runExactBeta} from './exact-beta-client.js?v=303ab3f6a4af69e9';
+import {exactBetaEligible, runExactBeta} from './exact-beta-client.js?v=7715870c62e6d4d6';
 
 ﻿// Dedicated module workers require only ordinary static hosting and messages.
 export function searchWorkerCount({hardwareConcurrency=globalThis.navigator?.hardwareConcurrency,deviceMemory=globalThis.navigator?.deviceMemory}={}){
  const cores=Number.isFinite(hardwareConcurrency)?Math.max(1,Math.floor(hardwareConcurrency)):2;
  return Math.max(1,Math.min(Number.isFinite(deviceMemory)&&deviceMemory<=4?2:8,cores-1));
+}
+function calibrationCoordinator(count){
+ const ports=[],rounds=new Map();
+ const finish=round=>{
+  clearTimeout(round.timer);round.closed=true;
+  const entries=[...round.entries].sort(([a],[b])=>a-b);
+  if(entries.length<2){
+   for(const [index] of entries)ports[index].postMessage({key:round.key,result:null});
+   round.entries.clear();return;
+  }
+  const seeds=new Map();
+  for(let rank=0;rank<16;rank++)for(const [,rows] of entries){
+   const row=rows[rank];
+   if(row&&!seeds.has(row.signature))seeds.set(row.signature,row);
+  }
+  const assignments=entries.map(()=>[]),owners=new Map();
+  for(const seed of seeds.values()){
+   const configuration=seed.key;
+   if(!owners.has(configuration))owners.set(configuration,owners.size%entries.length);
+   assignments[owners.get(configuration)].push(seed);
+  }
+  const signatures=[...seeds.keys()];
+  entries.forEach(([index],i)=>ports[index].postMessage({key:round.key,result:{signatures,owned:assignments[i]}}));
+  round.entries.clear();
+ };
+ return {
+  connect(index){
+   const {port1,port2}=new MessageChannel();ports[index]=port1;
+   port1.onmessage=({data:{budgetIndex,round:phase,waitMs,seeds}})=>{
+    const key=budgetIndex+':'+phase;
+    let round=rounds.get(key);
+    if(!round){
+     round={key,entries:new Map(),closed:false};
+     round.timer=setTimeout(()=>finish(round),Math.max(0,Math.min(50,waitMs-5)));
+     rounds.set(key,round);
+    }
+    if(round.closed){port1.postMessage({key,result:null});return;}
+    round.entries.set(index,seeds);
+    if(round.entries.size===count)finish(round);
+   };
+   return port2;
+  },
+  close(){
+   for(const round of rounds.values())clearTimeout(round.timer);
+   for(const port of ports)port.close();
+  }
+ };
 }
 export function createStaticClient({workerCount=searchWorkerCount(),
  exactBeta=new URLSearchParams(globalThis.location?.search).get('exact-beta')==='1',
@@ -16,7 +63,7 @@ export function createStaticClient({workerCount=searchWorkerCount(),
   worker.terminate();workers.delete(worker);if(primary===worker)primary=null;
  };
  const spawn=()=>{
-  const worker=new Worker(new URL('./static-worker.js?v=303ab3f6a4af69e9',import.meta.url),{type:'module'});workers.add(worker);
+  const worker=new Worker(new URL('./static-worker.js?v=7715870c62e6d4d6',import.meta.url),{type:'module'});workers.add(worker);
   worker.onmessage=({data})=>{
    const task=pending.get(data.id);if(!task||task.worker!==worker)return;
    if(data.progress){task.onProgress?.(data.progress);return;}
@@ -31,7 +78,7 @@ export function createStaticClient({workerCount=searchWorkerCount(),
  const main=()=>primary??=spawn();
  const send=(worker,action,request,{onProgress,...extra}={})=>new Promise((resolve,reject)=>{
   const id=++serial;pending.set(id,{worker,resolve,reject,onProgress});
-  try{worker.postMessage({id,action,request,...extra});}catch(error){pending.delete(id);reject(error);}
+  try{worker.postMessage({id,action,request,...extra},extra.calibrationPort?[extra.calibrationPort]:[]);}catch(error){pending.delete(id);reject(error);}
  });
  const abort=()=>{
   for(const worker of workers)worker.terminate();workers.clear();primary=null;
@@ -45,6 +92,7 @@ export function createStaticClient({workerCount=searchWorkerCount(),
    finally{optimizing=false;}
   }
   optimizing=true;const pool=[],started=performance.now();
+  let coordinator;
   try{
    pool.push(main());for(let i=1;i<count;i++){try{pool.push(spawn());}catch{break;}}
    const prepared=await Promise.allSettled(pool.map(worker=>send(worker,'prepare-search',request)));
@@ -58,7 +106,11 @@ export function createStaticClient({workerCount=searchWorkerCount(),
     onProgress?.({...lead,...Object.fromEntries(['evaluated','ordinary_retained','candidates','tree_nodes','pruned_branches','invalid','source_errors','calibration_evaluations','evaluation_attempts','cache_hits'].map(key=>[key,sum(key)])),best_loss:losses.length?Math.min(...losses):null,workers:ready.length,elapsed_ms:elapsed,scored_per_second:sum('evaluated')/Math.max(.001,elapsed/1000),worker_progress:[...latest].map(([worker,p])=>({worker,...p}))});
    };
    const offset=Number.isInteger(request.search_variant_offset)&&request.search_variant_offset>=0?request.search_variant_offset:0;
-   const settled=await Promise.allSettled(ready.map((worker,variant)=>send(worker,'optimize',request,{search:{variant:variant+offset,deadline,collect:true},onProgress:p=>progress(variant,p)})));
+   if(ready.length>1&&seconds>0&&typeof MessageChannel==='function')coordinator=calibrationCoordinator(ready.length);
+   const settled=await Promise.allSettled(ready.map((worker,index)=>send(worker,'optimize',request,{
+    search:{variant:index+offset,deadline,collect:true,index,count:seconds>0?ready.length:1},
+    ...(coordinator?{calibrationPort:coordinator.connect(index)}:{}),onProgress:p=>progress(index,p)
+   })));
    signal?.throwIfAborted();const outputs=settled.filter(r=>r.status==='fulfilled').map(r=>r.value);
    if(!outputs.length)throw settled[0].reason;
    const computeEnded=performance.now();
@@ -67,6 +119,7 @@ export function createStaticClient({workerCount=searchWorkerCount(),
    Object.assign(result.solver.parallel,{requested_workers:count,failed_workers:count-outputs.length,compute_budget_seconds:seconds,prepare_ms:preparedAt-started,compute_wall_ms:computeEnded-preparedAt,merge_ms:performance.now()-computeEnded,worker_reports:outputs.map(o=>o.attachment_gate.budgets)});
    return result;
   }finally{
+   coordinator?.close();
    for(const worker of pool)if(worker!==primary){worker.terminate();workers.delete(worker);}
    optimizing=false;
   }

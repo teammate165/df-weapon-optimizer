@@ -1,9 +1,9 @@
 ﻿try {
-  const response = await fetch(new URL('./exact-beta/inputs.json?v=303ab3f6a4af69e9', import.meta.url));
+  const response = await fetch(new URL('./exact-beta/inputs.json?v=7715870c62e6d4d6', import.meta.url));
   if (!response.ok) throw Error('Exact beta inputs unavailable.');
   const {enabled, seedRows} = await response.json();
   if (!enabled) throw Error('Exact beta proof inputs have changed.');
-  const {runFullOrdinaryPhase} = await import('./exact-beta/m4-full-ordinary-study.mjs?v=303ab3f6a4af69e9');
+  const {runFullOrdinaryPhase} = await import('./exact-beta/m4-full-ordinary-study.mjs?v=7715870c62e6d4d6');
   self.onmessage = ({data}) => {
     try {
       if (data.partitionCount) {
