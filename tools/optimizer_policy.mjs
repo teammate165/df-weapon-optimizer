@@ -46,6 +46,8 @@ export function comparator(minimums, targetScore=null, patternCap=null) {
       const ap=Math.max(0,a.components.pattern-patternCap),bp=Math.max(0,b.components.pattern-patternCap);
       if(ap!==bp)return ap<bp;
     }
+    const ad=a.detailedViolation??0,bd=b.detailedViolation??0;
+    if(ad!==bd)return ad<bd;
     const av=violation(a),bv=violation(b);
     if(Math.abs(av-bv)>1e-8)return av<bv;
     if(targetScore!==null && av<1e-8 && a.cost!==b.cost)return a.cost<b.cost;

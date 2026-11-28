@@ -99,9 +99,7 @@ export async function generatePasses(input, runtime) {
   const search=(budget,seed,target=null,anchor=null)=>{
     const direction=target===null?'Max':seed?'Reduce cost':'Build from locks';
     const targetScore=target===null?null:targetLoss(anchor,target);
-    const compareObjective=comparator(settings.minimums,targetScore,patternCap);
-    const better=(a,b)=>a.detailedViolation!==b.detailedViolation
-      ?a.detailedViolation<b.detailedViolation:compareObjective(a,b);
+    const better=comparator(settings.minimums,targetScore,patternCap);
     let completed=0,incumbent;
     report(direction,0,budget,null,true);
     const evaluateSingle=(config,tunes={})=>{

@@ -12,6 +12,15 @@ assert(better(candidate([90,80,1000],100),candidate([90,81,0])));
 assert(better(candidate([90,80,70],100),candidate([90,80,71])));
 assert(better(candidate([90,80,70],1),candidate([90,80,70],2)));
 assert(!better(candidate([90.000001,0,0]),candidate([90,1000,1000])));
+const betterWithLimits=comparator({handling:40},null,10);
+const constrainedCandidate=(pattern,detailedViolation,handling)=>({
+  ...candidate([90]),components:{pattern},detailedViolation,stats:{handling},
+});
+const meetsPattern=constrainedCandidate(10,0.25,30);
+const missesPattern=constrainedCandidate(11,0,40);
+assert(betterWithLimits(meetsPattern,missesPattern));
+assert(!betterWithLimits(missesPattern,meetsPattern));
+assert(betterWithLimits(constrainedCandidate(10,0,30),constrainedCandidate(9,0.25,40)));
 const pack={weapon:{references:{},timings:{sprintToFireSeconds:0.2}},handling:{
   spreadProfiles:{hip:{baseSpreadDegrees:{horizontal:2},runtimeScaleFactor:1.25}},
   aimingProfiles:{aim:{adsOnTimeSeconds:0.3}},

@@ -69,9 +69,7 @@ export async function generateAnytime(input,runtime){
  const detailedStatsFor=createDetailedStatEvaluator(pack,mode,settings.detailedLimits,modules);
  const hasLimits=Boolean(detailedStatsFor);
  const eligible=row=>(!hasLimits||row.detailedViolation===0)&&shortfall(row.stats,settings.minimums)<=1e-8&&(patternCap===null||row.components.pattern<=patternCap);
- const compareObjective=comparator(settings.minimums,null,patternCap);
- const better=(a,b)=>a.detailedViolation!==b.detailedViolation
-  ?a.detailedViolation<b.detailedViolation:compareObjective(a,b);
+ const better=comparator(settings.minimums,null,patternCap);
  const compare=(a,b)=>better(a,b)?-1:better(b,a)?1:a.key.localeCompare(b.key);
  let starts=input.solver_starts;
  if(!starts&&typeof process!=='undefined'&&process.versions?.node){try{const fs=await import('node:fs/promises');starts=JSON.parse(await fs.readFile(new URL('../data/solver_starts/'+pack.weaponId+'.json',import.meta.url),'utf8'));}catch{}}
