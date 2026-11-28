@@ -1,6 +1,6 @@
 // Presets own objective semantics; the search owns mounting, tuning and costs.
-import {detailedStats} from '../detailed-stats.mjs?v=9e8766cc9937fb42';
-import {presets} from './optimizer_presets.mjs?v=9e8766cc9937fb42';
+import {detailedStats} from '../detailed-stats.mjs?v=303ab3f6a4af69e9';
+import {presets} from './optimizer_presets.mjs?v=303ab3f6a4af69e9';
 export const statIds = {control:'3', handling:'5', stability:'6', accuracy:'4'};
 export function policy(request) {
   const preset=request.preset??'recoil';

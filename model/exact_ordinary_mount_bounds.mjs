@@ -1,4 +1,4 @@
-import {createBranchScoreBound} from './branch_score_bounds.mjs?v=9e8766cc9937fb42';
+import {createBranchScoreBound} from './branch_score_bounds.mjs?v=303ab3f6a4af69e9';
 
 const chartTargets = new Set(['GRecoil_H', 'GRecoil_V']);
 const kickTargets = ['GGunkickRandom', 'GGunkickSpring'];

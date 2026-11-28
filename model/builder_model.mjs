@@ -1,8 +1,8 @@
-import {addKickDetails} from './detailed_stat_values.mjs?v=9e8766cc9937fb42';
-import {generate} from './optimizer_engine.mjs?v=9e8766cc9937fb42';
-import {statResponse} from './builder_stat_response.mjs?v=9e8766cc9937fb42';
-import {statIds} from './optimizer_policy.mjs?v=9e8766cc9937fb42';
-import {presets} from './optimizer_presets.mjs?v=9e8766cc9937fb42';
+import {addKickDetails} from './detailed_stat_values.mjs?v=303ab3f6a4af69e9';
+import {generate} from './optimizer_engine.mjs?v=303ab3f6a4af69e9';
+import {statResponse} from './builder_stat_response.mjs?v=303ab3f6a4af69e9';
+import {statIds} from './optimizer_policy.mjs?v=303ab3f6a4af69e9';
+import {presets} from './optimizer_presets.mjs?v=303ab3f6a4af69e9';
 
 function plotConvertedRecoil(pack, stats, chart, value) {
   const {base, current} = stats;

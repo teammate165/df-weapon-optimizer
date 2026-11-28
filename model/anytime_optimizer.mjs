@@ -1,16 +1,16 @@
-import {createDetailedStatEvaluator} from './detailed_stat_values.mjs?v=9e8766cc9937fb42';
-import {presets} from './optimizer_presets.mjs?v=9e8766cc9937fb42';
-import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=9e8766cc9937fb42';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=9e8766cc9937fb42';
-import {fixedSlotSeed,retainsFixedSlots,completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=9e8766cc9937fb42';
-import {configKey,tacticalChoice} from './exhaustive_attachment_gate.mjs?v=9e8766cc9937fb42';
-import {compileMounts} from './scip_mount_model.mjs?v=9e8766cc9937fb42';
-import {createMountSearch} from './mount_search.mjs?v=9e8766cc9937fb42';
-import {createSharedStatEvaluator} from './shared_stats.mjs?v=9e8766cc9937fb42';
-import {createBranchScoreBound} from './branch_score_bounds.mjs?v=9e8766cc9937fb42';
-import {boundCannotBeat} from './scoring_bounds.mjs?v=9e8766cc9937fb42';
-import {timedRecoil} from './timed_recoil.mjs?v=9e8766cc9937fb42';
-import {createChoiceGroups} from './choice_groups.mjs?v=9e8766cc9937fb42';
+import {createDetailedStatEvaluator} from './detailed_stat_values.mjs?v=303ab3f6a4af69e9';
+import {presets} from './optimizer_presets.mjs?v=303ab3f6a4af69e9';
+import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=303ab3f6a4af69e9';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=303ab3f6a4af69e9';
+import {fixedSlotSeed,retainsFixedSlots,completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=303ab3f6a4af69e9';
+import {configKey,tacticalChoice} from './exhaustive_attachment_gate.mjs?v=303ab3f6a4af69e9';
+import {compileMounts} from './scip_mount_model.mjs?v=303ab3f6a4af69e9';
+import {createMountSearch} from './mount_search.mjs?v=303ab3f6a4af69e9';
+import {createSharedStatEvaluator} from './shared_stats.mjs?v=303ab3f6a4af69e9';
+import {createBranchScoreBound} from './branch_score_bounds.mjs?v=303ab3f6a4af69e9';
+import {boundCannotBeat} from './scoring_bounds.mjs?v=303ab3f6a4af69e9';
+import {timedRecoil} from './timed_recoil.mjs?v=303ab3f6a4af69e9';
+import {createChoiceGroups} from './choice_groups.mjs?v=303ab3f6a4af69e9';
 
 export const shortlistLimits=Object.freeze({ordinary:256,tactical_per_base:16,complete:512});
 
@@ -45,7 +45,7 @@ export class Shortlist {
 
 async function loadRuntime(directory){
  const [{pathToFileURL},path]=await Promise.all([import('node:url'),import('node:path')]);
- const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=9e8766cc9937fb42'))),kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=9e8766cc9937fb42'))),{t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=9e8766cc9937fb42')));
+ const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=303ab3f6a4af69e9'))),kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=303ab3f6a4af69e9'))),{t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=303ab3f6a4af69e9')));
  return {curves,kernel,calculate};
 }
 
