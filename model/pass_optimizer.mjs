@@ -1,16 +1,16 @@
-import {completeRiserOptics,fixedSlotSeed,retainsFixedSlots} from './optimizer_mounts.mjs?v=2ef137a83bb81d8a';
-import {timedRecoil} from './timed_recoil.mjs?v=2ef137a83bb81d8a';
-import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=2ef137a83bb81d8a';
-import {createDetailedStatEvaluator} from './detailed_stat_values.mjs?v=2ef137a83bb81d8a';
-import {presets} from './optimizer_presets.mjs?v=2ef137a83bb81d8a';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=2ef137a83bb81d8a';
+import {completeRiserOptics,fixedSlotSeed,retainsFixedSlots} from './optimizer_mounts.mjs?v=9799ef2d762bb270';
+import {timedRecoil} from './timed_recoil.mjs?v=9799ef2d762bb270';
+import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=9799ef2d762bb270';
+import {createDetailedStatEvaluator} from './detailed_stat_values.mjs?v=9799ef2d762bb270';
+import {presets} from './optimizer_presets.mjs?v=9799ef2d762bb270';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=9799ef2d762bb270';
 
 async function loadRuntime(directory) {
   const {pathToFileURL}=await import('node:url');
   const path=await import('node:path');
-  const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=2ef137a83bb81d8a')));
-  const kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=2ef137a83bb81d8a')));
-  const {t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=2ef137a83bb81d8a')));
+  const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=9799ef2d762bb270')));
+  const kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=9799ef2d762bb270')));
+  const {t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=9799ef2d762bb270')));
   return {curves,kernel,calculate};
 }
 
@@ -189,11 +189,17 @@ export async function generatePasses(input, runtime) {
         if (fixed.some(f=>f.slotPath===slot.slotPath||f.slotPath.startsWith(slot.slotPath+'/'))) continue;
         for(const itemId of [null,...slot.options]) {
           if(hidden.has(itemId)) continue;
-          const config=best.config.filter(x=>x.slotPath!==slot.slotPath&&!x.slotPath.startsWith(slot.slotPath+'/'));
+          const occupied=pack.assembly.extraOccupancy?.[itemId]?.occupiedSocketIds;
+          const replacedPaths=[slot.slotPath];
+          if(occupied?.length)for(const mounted of best.build.mounted){
+            if(occupied.some(id=>String(id)===String(mounted.socketId)))replacedPaths.push(mounted.slotPath);
+          }
+          const replaced=path=>replacedPaths.some(root=>path===root||path.startsWith(root+'/'));
+          const config=best.config.filter(x=>!replaced(x.slotPath));
           if(itemId) config.push({slotPath:slot.slotPath,itemId});
           // Retain tuning only for unchanged items, then tune this candidate
           // before comparing it with a more expensive attachment combination.
-          const retained=Object.fromEntries(Object.entries(best.tunes).filter(([path])=>path!==slot.slotPath&&!path.startsWith(slot.slotPath+'/')));
+          const retained=Object.fromEntries(Object.entries(best.tunes).filter(([path])=>!replaced(path)));
           const candidate=tune(evaluate(config,retained),slot.slotPath);
           if(candidate&&better(candidate,best)){best=tune(candidate);changed=true;}
         }
