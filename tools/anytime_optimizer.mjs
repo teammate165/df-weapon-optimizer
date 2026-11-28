@@ -11,6 +11,7 @@ import {createBranchScoreBound} from './branch_score_bounds.mjs';
 import {boundCannotBeat} from './scoring_bounds.mjs';
 import {timedRecoil} from './timed_recoil.mjs';
 import {createChoiceGroups} from './choice_groups.mjs';
+import {partitionExactMounts,restrictExactMountPartition} from './exact_ordinary_partitions.mjs';
 
 export const shortlistLimits=Object.freeze({ordinary:256,tactical_per_base:16,complete:512});
 
@@ -39,6 +40,11 @@ export class Shortlist {
   this.peak=Math.max(this.peak,this.core.length+this.bank.size);
  }
  rows(){const unique=new Map();for(const row of [...this.core,...this.bank.values()])if(!unique.has(row.key)||this.compare(row,unique.get(row.key))<0)unique.set(row.key,row);return [...unique.values()].sort(this.compare);}
+ get(key){
+  let best=this.core.find(row=>row.key===key);
+  for(const row of this.bank.values())if(row.key===key&&(!best||this.compare(row,best)<0))best=row;
+  return best;
+ }
  best(){return this.core[0]??this.rows()[0];}
  cutoff(){return this.core.length===this.coreCap?this.core.at(-1):null;}
 }
@@ -80,7 +86,7 @@ export async function generateAnytime(input,runtime){
  let lastProgress=-Infinity;
  for(const [budgetIndex,budget] of budgets.entries()){
   const sliceStart=budgetIndex?performance.now():started,sliceEnd=started+(deadline-started)*(budgetIndex+1)/budgets.length,duration=Math.max(0,sliceEnd-sliceStart);
-  const ordinary=new Shortlist(256,compare,64),complete=new Shortlist(512,compare,128),cache=new Map(),controlCache=new Map(),expanded=new Set(),tacticalVisited=new Set(),hints=new Map();
+  const ordinary=new Shortlist(256,compare,64),complete=new Shortlist(512,compare,128),cache=new Map(),controlCache=new Map(),tuneControls=new WeakMap(),expanded=new Set(),tacticalVisited=new Set(),hints=new Map();
   const shared=preset.stateReuse?.raw===preset.raw?createSharedStatEvaluator(pack,kernel,{mode}):null;
   const groups=createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,fixed}),tactical=(path,id)=>groups.enabled?groups.isTactical(path,id):tacticalChoice(pack,kernel,mode,path,id);
   const d={budget,screening:'anytime_top_k',complete:false,limits:{...shortlistLimits},evaluation_attempts:0,cache_hits:0,evaluated:0,invalid:0,source_errors:0,calibration_evaluations:0,ordinary_evaluated:0,tactical_evaluated:0,tree_nodes:0,pruned_branches:0,ordinary_retained:0,candidate_count:0,cache_peak:0,ordinary_storage_peak:0,complete_storage_peak:0,phases:[]};
@@ -90,23 +96,42 @@ export async function generateAnytime(input,runtime){
    input.onProgress?.({phase,budget,evaluated:d.evaluated,ordinary_retained:ordinary.rows().length,candidates:complete.rows().length,base_index:currentBase,elapsed_ms:now-started,time_limit_seconds:limit,best_loss:(complete.best()??ordinary.best())?.score??null,best_complete_loss:complete.best()?.score??null,best_ordinary_loss:ordinary.best()?.score??null,evaluation_attempts:d.evaluation_attempts,cache_hits:d.cache_hits,tree_nodes:d.tree_nodes,pruned_branches:d.pruned_branches,invalid:d.invalid,source_errors:d.source_errors,calibration_evaluations:d.calibration_evaluations,ordinary_tree_exhausted:d.ordinary_tree_exhausted??false,scored_per_second:d.evaluated/Math.max(.001,(now-started)/1000),complete:false});
   };
   const cleanTunes=(build,tunes)=>{
-   const out={};for(const n of build.mounted)for(const id of pack.parts[n.itemId]?.tuneIds??[]){const c=curves.c(pack,n,id),v=tunes?.[n.slotPath]?.[id];if(c&&c.enabled!==false&&Number.isFinite(v)&&Math.abs(v-c.range.defaultValue)>1e-6&&curves.n(c).some(p=>Math.abs(p-v)<1e-6))(out[n.slotPath]??={})[id]=v;}return out;
+   const out={};if(!tunes||!Object.keys(tunes).length)return out;
+   let available=tuneControls.get(build);
+   if(!available){
+    available=[];
+    for(const n of build.mounted)for(const id of pack.parts[n.itemId]?.tuneIds??[]){
+     const c=curves.c(pack,n,id);
+     if(c&&c.enabled!==false)available.push({id,path:n.slotPath,defaultValue:c.range.defaultValue,positions:curves.n(c)});
+    }
+    tuneControls.set(build,available);
+   }
+   for(const {id,path,defaultValue,positions} of available){
+    const v=tunes[path]?.[id];
+    if(Number.isFinite(v)&&Math.abs(v-defaultValue)>1e-6&&positions.some(p=>Math.abs(p-v)<1e-6))(out[path]??={})[id]=v;
+   }
+   return out;
   };
-  const evaluate=(config,tunes={})=>{
+  const evaluate=(config,tunes={},validated)=>{
    check(phaseDeadline);progress();d.evaluation_attempts++;
    try{
-    let build=resolve(config);
-    if(config.some(c=>!build.config.some(n=>n.slotPath===c.slotPath&&n.itemId===c.itemId))){d.invalid++;return null;}
-    const canonical=groups.normalize(build);if(configKey(canonical)!==configKey(build.config))build=resolve(canonical);config=canonical;
-    const key=configKey(build.config);
-    if(!retains(build)||config.some(c=>!build.config.some(n=>n.slotPath===c.slotPath&&n.itemId===c.itemId))||build.mounted.some(n=>hidden.has(n.itemId))||build.mounted.filter(n=>kernel.l(pack,n.itemId,mode)).length>laserLimit||build.mounted.filter(n=>pack.parts[n.itemId]?.boundAmmoByMode?.[mode]).length>1||emptyRisers(pack,build).length){d.invalid++;return null;}
-    let cost=mode==='mp'?null:0;if(mode!=='mp')for(const n of build.mounted.filter(n=>n.source==='equipped')){const price=costs[n.itemId];if(!Number.isFinite(price)||price<0){d.invalid++;return null;}cost+=price;}
-    if(budget!==null&&cost>budget+1e-8){d.invalid++;return null;}
+    let {build,key,cost}=validated??{};
+    if(!validated){
+     build=resolve(config);
+     if(config.some(c=>!build.config.some(n=>n.slotPath===c.slotPath&&n.itemId===c.itemId))){d.invalid++;return null;}
+     const canonical=groups.normalize(build),canonicalKey=configKey(canonical),resolvedKey=configKey(build.config);
+     if(canonicalKey!==resolvedKey){
+      build=resolve(canonical);key=configKey(build.config);
+     }else key=resolvedKey;
+     if(!retains(build)||canonical.some(c=>!build.config.some(n=>n.slotPath===c.slotPath&&n.itemId===c.itemId))||build.mounted.some(n=>hidden.has(n.itemId))||build.mounted.filter(n=>kernel.l(pack,n.itemId,mode)).length>laserLimit||build.mounted.filter(n=>pack.parts[n.itemId]?.boundAmmoByMode?.[mode]).length>1||emptyRisers(pack,build).length){d.invalid++;return null;}
+     cost=mode==='mp'?null:0;if(mode!=='mp')for(const n of build.mounted.filter(n=>n.source==='equipped')){const price=costs[n.itemId];if(!Number.isFinite(price)||price<0){d.invalid++;return null;}cost+=price;}
+     if(budget!==null&&cost>budget+1e-8){d.invalid++;return null;}
+    }
     const clean=cleanTunes(build,tunes),cacheKey=JSON.stringify([key,clean]);if(cache.has(cacheKey)){d.cache_hits++;return cache.get(cacheKey);}
     const tuned=Object.keys(clean).length>0,state=!tuned&&shared?shared.evaluate(build):kernel.u(pack,build,{mode,tacticalEffective:true,tunes:clean}),components=preset.raw(build,clean,state),score=preset.score(components),stats=Object.fromEntries(Object.entries(statIds).map(([name,id])=>[name,state.numeric.mainAttr[id]]));
     if(!Number.isFinite(score))return null;
     d.evaluated++;if(phase==='calibration')d.calibration_evaluations++;if(phase==='search_tactical')d.tactical_evaluated++;
-    const row={...detailedStatsFor?.(build,clean),key,config:build.config,tunes:clean,build,components,score,stats,objectives:preset.objectives?.(components)??[score],cost,signature:JSON.stringify([key,clean])};
+    const row={...detailedStatsFor?.(build,clean),key,config:build.config,tunes:clean,build,components,score,stats,objectives:preset.objectives?.(components)??[score],cost,signature:cacheKey};
     if(cache.size>=2048)cache.delete(cache.keys().next().value);cache.set(cacheKey,row);d.cache_peak=Math.max(d.cache_peak,cache.size);return row;
    }catch(error){if(error===stop||error.name==='AbortError')throw error;d.source_errors++;return null;}
   };
@@ -134,7 +159,7 @@ export async function generateAnytime(input,runtime){
    const elapsed=performance.now()-begin;d.phases.push({phase:name,elapsed_ms:elapsed});solver.phases.push({label:name,budget,status:'best_found',elapsed_ms:elapsed,source_verified:true});
    if(name==='calibration')solver.calibration_elapsed_ms+=elapsed;else solver.screening_elapsed_ms+=elapsed;
   };
-  let tree=null,branch=null,branchTime=0;
+  let tree=null,pendingLeaf,branch=null,branchTime=0;
   const searchOrdinary=()=>{
    // Improve native-scored seeds across live sockets before the broad tree walk.
    const localEnd=performance.now()+Math.max(0,phaseDeadline-performance.now())*.6;
@@ -144,20 +169,36 @@ export async function generateAnytime(input,runtime){
     expanded.add(seed.key);if(expanded.size>2048)expanded.delete(expanded.values().next().value);
     for(const build of neighbors(seed,false)){keepOrdinary(build.config);if(performance.now()>=localEnd)break;}
    }
+   if(d.ordinary_tree_exhausted)return;
    if(!tree){
     check(phaseDeadline);const request={...r,budget,budgets:undefined};delete request.validationConfig;delete request.validationTunes;delete request.feasibility_only;
-    const compiled=compileMounts({...input,request},kernel),restrictions=new Map();
+    const compiled=compileMounts({...input,request},kernel);let restrictions=new Map();
     for(const p of compiled.players.values())if(typeof p.value==='string'&&tactical(p.path,p.item)&&!fixed.some(f=>f.slotPath===p.path&&f.itemId===p.item))restrictions.set(p.value,0);
     groups.constrain(compiled);
+    if(input.search_worker_count>1){
+     const partitions=partitionExactMounts(compiled,restrictions,input.search_worker_count);
+     const partition=partitions[input.search_worker_index];
+     if(!partition){d.ordinary_tree_exhausted=true;return;}
+     restrictions=restrictExactMountPartition(compiled,restrictions,partition);
+     d.ordinary_partition=partition.id;
+    }
     branch=hasLimits?null:createBranchScoreBound({pack,request,compiled,...modules,preset});const search=createMountSearch(compiled);
-    tree=search.enumerate(restrictions,()=>{d.tree_nodes++;if(d.tree_nodes%32===0){check(phaseDeadline);progress();}},{priority:(path,item)=>variant?searchHash(variant+':'+path+':'+item):item===null?ordinary.best()?.score??100:hints.get(path+'|'+item)??1000,prune:context=>{
+    tree=search.enumerate(restrictions,()=>{d.tree_nodes++;},{pause:()=>d.tree_nodes%32===0&&performance.now()>=Math.min(phaseDeadline,deadline),priority:(path,item)=>variant?searchHash(variant+':'+path+':'+item):item===null?ordinary.best()?.score??100:hints.get(path+'|'+item)??1000,prune:context=>{
      const cutoff=ordinary.cutoff();if(!branch||!cutoff||context.remaining<2||context.remaining>4||!eligible(cutoff)||branchTime>.05*(performance.now()-sliceStart))return false;
      const begin=performance.now(),lower=branch.lower(context);branchTime+=performance.now()-begin;
      const prune=lower!==null&&boundCannotBeat(lower,cutoff.stats,cutoff,settings.minimums);if(prune)d.pruned_branches++;return prune;
     }});
    }
-   try{for(;;){check(phaseDeadline);const next=tree.next();if(next.done){d.ordinary_tree_exhausted=true;break;}keepOrdinary(next.value);}}
-   catch(error){if(error===stop){tree=null;d.tree_slices=(d.tree_slices??0)+1;}throw error;}
+   for(;;){
+    check(phaseDeadline);progress();
+    if(!pendingLeaf){
+     const next=tree.next();
+     if(next.done){d.ordinary_tree_exhausted=true;break;}
+     if(next.value===null){d.tree_slices=(d.tree_slices??0)+1;break;}
+     pendingLeaf=next.value;
+    }
+    keepOrdinary(pendingLeaf);pendingLeaf=undefined;
+   }
   };
   const searchTacticalUngrouped=()=>{
    for(const base of ordinary.rows()){
@@ -218,26 +259,53 @@ export async function generateAnytime(input,runtime){
    }
    return [{path:node.slotPath,...controlCache.get(key)}];
   }));
-  const calibrate=()=>{
+  const calibrationQueue=()=>{
    const queue=complete.rows();
    if(patternCap!==null||hasLimits){
     const keys=new Set(queue.map(row=>row.key));
     queue.push(...ordinary.rows().filter(row=>!keys.has(row.key)).slice(0,32));
    }
+   return queue;
+  };
+  const calibrate=(local,shared)=>{
+   let queue=local;
+   const ownedSignatures=new Set();
+   if(shared){
+    const bySignature=new Map(local.map(row=>[row.signature,row]));
+    const owned=shared.owned.map(seed=>bySignature.get(seed.signature)??evaluate(seed.config,seed.tunes)).filter(Boolean);
+    for(const row of owned)keepComplete(row);
+    const delegated=new Set(shared.signatures);
+    queue=[...owned,...local.filter(row=>!delegated.has(row.signature))];
+    d.coordinated_calibration_rounds=(d.coordinated_calibration_rounds??0)+1;
+    d.assigned_calibration_starts=(d.assigned_calibration_starts??0)+owned.length;
+    for(const row of owned)ownedSignatures.add(row.signature);
+    d.delegated_calibration_starts=(d.delegated_calibration_starts??0)
+     +local.filter(row=>delegated.has(row.signature)&&!ownedSignatures.has(row.signature)).length;
+   }
    let round=0;
    do{
     let improved=false;
     for(const seed of queue){
-     check(phaseDeadline);let current=complete.rows().find(row=>row.key===seed.key)??seed;const cs=controls(current.build);
+     check(phaseDeadline);
+     let current=round===0&&ownedSignatures.has(seed.signature)?seed:complete.get(seed.key)??seed;
+     const cs=controls(current.build);
      const proposal={...current.tunes};for(const c of cs)if(c.proposal!==undefined)proposal[c.path]={...proposal[c.path],[c.id]:c.proposal};
-     const joint=evaluate(current.config,proposal);if(joint&&better(joint,current)){current=joint;keepComplete(current);improved=true;}
+     const joint=evaluate(current.config,proposal,current);if(joint&&better(joint,current)){current=joint;keepComplete(current);improved=true;}
      for(const c of cs)for(const value of c.positions){
-      check(phaseDeadline);const tunes={...current.tunes,[c.path]:{...current.tunes[c.path],[c.id]:value}},row=evaluate(current.config,tunes);
+      check(phaseDeadline);const tunes={...current.tunes,[c.path]:{...current.tunes[c.path],[c.id]:value}},row=evaluate(current.config,tunes,current);
       if(row&&better(row,current)){current=row;keepComplete(current);improved=true;}
      }
     }
     if(!improved)break;round++;
    }while(round<3);
+  };
+  const runCalibration=async(round,fraction)=>{
+   const queue=calibrationQueue(),end=sliceStart+duration*fraction;
+   const shared=input.exchange_calibration&&end>performance.now()
+    ?await input.exchange_calibration({budgetIndex,round,waitMs:Math.min(50,Math.floor(end-performance.now())),
+     seeds:queue.slice(0,16).map(({key,signature,config,tunes})=>({key,signature,config,tunes}))})
+    :null;
+   runPhase('calibration',fraction,()=>calibrate(queue,shared));
   };
   // Seeds are hints only: all mounting, prices, effects and tuning are replayed.
   runPhase('search_attachments',.35,()=>{
@@ -253,15 +321,19 @@ export async function generateAnytime(input,runtime){
    searchOrdinary();
   });
   runPhase('search_tactical',.5,searchTactical);
-  runPhase('calibration',.8,calibrate);
+  await runCalibration(0,.8);
   runPhase('search_attachments',.88,()=>{
    // Calibrated incumbents seed a second attachment round; the source scorer
    // rechecks all proposals and the complete pool retains the best tuned row.
-   for(const seed of complete.rows().slice(0,8))for(const build of neighbors(seed,false)){keepComplete(evaluate(build.config,seed.tunes));keepOrdinary(build.config);}
+   const now=performance.now(),feedbackEnd=now+Math.max(0,phaseDeadline-now)*.5;
+   feedback:for(const seed of complete.rows().slice(0,8))for(const build of neighbors(seed,false)){
+    if(performance.now()>=feedbackEnd)break feedback;
+    keepComplete(evaluate(build.config,seed.tunes));keepOrdinary(build.config);
+   }
    searchOrdinary();
   });
   runPhase('search_tactical',.92,searchTactical);
-  runPhase('calibration',1,calibrate);
+  await runCalibration(1,1);
   d.ordinary_retained=ordinary.rows().length;d.candidate_count=complete.rows().length;d.ordinary_storage_peak=ordinary.peak;d.complete_storage_peak=complete.peak;d.stat_reuse=shared?.getStats()??{supported:false};d.branch_scoring=branch?.getStats()??{supported:false};d.choice_groups=groups.getStats();d.elapsed_ms=performance.now()-sliceStart;reports.push(d);
   const rows=complete.rows().filter(eligible);
   if(input.collect_candidates)candidatePools.push({budget,rows:rows.map(({build,...row})=>row)});
@@ -309,6 +381,7 @@ export function mergeAnytimeResults(outputs,{pack,request:r},modules){
   result.results.push(...publishAnytimeRows(rows,{pack,r,modules,mode,settings,budget:pool.budget,budgetIndex,budgetCount:pools.length,resolve}));
  }
  deduplicateResults(result.results,settings);delete result.search_candidates;
- result.solver={...result.solver,parallel:{strategy:'diverse_search_orders',workers:outputs.length,unique_candidates:uniqueCandidates,merged_candidates:retained,worker_elapsed_ms:outputs.map(o=>o.solver.elapsed_ms),worker_evaluated:outputs.map(o=>o.attachment_gate.budgets.reduce((sum,b)=>sum+b.evaluated,0)),worker_best_losses:outputs.map(o=>o.results.filter(r=>r.status==='best_found'&&r.label==='Max').map(r=>r.loss))}};
+ const coordinated=outputs.some(o=>o.attachment_gate.budgets.some(b=>b.ordinary_partition!==undefined||b.coordinated_calibration_rounds));
+ result.solver={...result.solver,parallel:{strategy:coordinated?'partitioned_tree_and_calibration_exchange':'diverse_search_orders',workers:outputs.length,unique_candidates:uniqueCandidates,merged_candidates:retained,worker_elapsed_ms:outputs.map(o=>o.solver.elapsed_ms),worker_evaluated:outputs.map(o=>o.attachment_gate.budgets.reduce((sum,b)=>sum+b.evaluated,0)),worker_best_losses:outputs.map(o=>o.results.filter(r=>r.status==='best_found'&&r.label==='Max').map(r=>r.loss))}};
  return result;
 }

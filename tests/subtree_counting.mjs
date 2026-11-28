@@ -50,6 +50,10 @@ const reports=[];
   const result=search.count(new Map(),limits);assert.equal(result.total,expected);assert(result.stats.memo_entries_peak<=(limits.maxEntries??20000));assert(result.stats.memo_key_chars_peak<=(limits.maxKeyChars??4*1024*1024));
  }
  const decimal=createMountSearch(flat(6,2,.3,.1)),result=decimal.count();assert(result.stats.numeric_fallback);assert.equal(result.total,BigInt([...decimal.enumerate()].length));
+ let ticks=0;
+ const paused=[...search.enumerate(new Map(),()=>{ticks++;},{pause:()=>ticks%3===0})];
+ assert(paused.includes(null));
+ assert.deepEqual(paused.filter(config=>config!==null),[...search.enumerate()]);
  const huge=createMountSearch(flat(2,1,Number.MAX_SAFE_INTEGER)),overflow=huge.count();assert(overflow.stats.numeric_fallback);assert.equal(overflow.total,4n);
  assert.throws(()=>search.count(new Map(),{maxEntries:-1}));
  assert.throws(()=>search.count(new Map(),{tick:()=>{throw new DOMException('Cancelled','AbortError');}}),{name:'AbortError'});

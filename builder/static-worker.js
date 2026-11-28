@@ -31,7 +31,15 @@ self.onmessage=({data})=>{queue=queue.then(async()=>{
     const ordinaryStarts=ordinarySearch&&request.search_method==='exact_ordinary_staged'&&request.weapon_id==='18010000038'&&request.mode==='bd';
     if((searching||ordinaryStarts)&&!starts.has(request.weapon_id)){try{starts.set(request.weapon_id,await loadJSON(`./data/solver-starts/${request.weapon_id}.json`));}catch{starts.set(request.weapon_id,{starts:[]});}}
     if(action==='prepare-search'){self.postMessage({id,result:{ready:true}});return;}
-    const input={action,request,pack:packs.get(request.weapon_id),solver_starts:starts.get(request.weapon_id),shop:catalog.shop,prices:catalog.prices,provenance:catalog.provenance,onProgress:progress=>self.postMessage({id,progress}),search_variant:data.search?.variant,search_deadline:data.search?.deadline,collect_candidates:data.search?.collect};
+    const input={action,request,pack:packs.get(request.weapon_id),solver_starts:starts.get(request.weapon_id),shop:catalog.shop,prices:catalog.prices,provenance:catalog.provenance,onProgress:progress=>self.postMessage({id,progress}),search_variant:data.search?.variant,search_deadline:data.search?.deadline,collect_candidates:data.search?.collect,search_worker_index:data.search?.index,search_worker_count:data.search?.count};
+    const port=data.calibrationPort;
+    if(port)input.exchange_calibration=message=>new Promise(resolve=>{
+      const key=message.budgetIndex+':'+message.round;
+      const finish=result=>{clearTimeout(timer);port.onmessage=null;resolve(result);};
+      const timer=setTimeout(()=>finish(null),message.waitMs);
+      port.onmessage=({data})=>{if(data.key===key)finish(data.result);};
+      port.postMessage(message);
+    });
     let result;
     if(ordinarySearch){
       const exact=await import('./model/exact_ordinary.mjs');
@@ -55,4 +63,5 @@ self.onmessage=({data})=>{queue=queue.then(async()=>{
     }else result=action==='screening-plan'?screeningPlan(input,modules):action==='screening-count'?studyCount(input,modules):action==='screening-partition'?screenPartition(input,modules,data.partition):action==='merge-search'?mergeAnytimeResults(data.outputs,input,modules):await executeModel(input,modules);
     self.postMessage({id,result});
   }catch(error){self.postMessage({id,error:error.message});}
+  finally{data.calibrationPort?.close();}
 });};

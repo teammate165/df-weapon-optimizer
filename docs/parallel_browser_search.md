@@ -14,11 +14,15 @@ core for the interface, and caps the pool at two when reported device memory is
 Python/CLI backend retains its single search; both use the same native engine.
 
 All workers preload the weapon/catalog/solver starts, then receive one common
-wall-clock compute deadline. Each worker runs the complete attachment, tactical
-and calibration pipeline within that deadline. Worker zero preserves the original
-search order; companions use deterministic different seed, neighborhood and tree
-orders. This is parallel portfolio search: workers can overlap, and their domains
-are not disjoint partitions. More threads do not guarantee a better score.
+wall-clock compute deadline. For timed Anytime runs, each worker searches a
+different root-choice partition of the broad ordinary tree and resumes that tree
+in attachment feedback. Seed and neighborhood exploration and tactical
+completion can still overlap. At each calibration handoff, workers offer up to
+16 starts to the coordinator. A participating worker owns each shared
+configuration and its distinct tuning starts. Other retained starts can be
+calibrated locally. The handoff waits at most 50 ms within the phase deadline
+and can proceed with the starts available from healthy workers.
+[Implementation study](anytime_worker_efficiency.md).
 
 Each worker retains at most 256 ordinary and 512 complete builds, as before.
 Up to eight bounded complete pools are sent to a worker for merging. Duplicate

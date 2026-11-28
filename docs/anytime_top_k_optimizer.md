@@ -28,6 +28,12 @@ Tactical search fixes each ordinary base and explores patches/lasers. A laser-fi
 
 Source-calculator coordinate refinement evaluates legal tuning positions, including interior positions. Joint priority-based tuning values are proposals only; the preset's actual objective must improve before replacing an incumbent. Preset lexicographic recoil/Handling ordering and Agility weighting are unchanged. No tuning change can replace a better retained result with a worse one.
 
+Calibration reuses the validated mounts and price of each start and caches its
+legal tuning positions. Timed browser pools exchange and deduplicate a bounded
+set of starts at both calibration handoffs. Workers replay any imported start
+before tuning it. Ordinary tree traversal preserves its position between
+attachment phases. [Worker coordination and evidence](anytime_worker_efficiency.md).
+
 The initial time allocation is 35% ordinary search, 15% tactical search and 30% calibration, followed by 8% attachment feedback, 4% tactical feedback and 8% calibration. Calibrated incumbents guide the feedback round. Unused time can be consumed by later work; the percentages define deadlines, not mandatory delays. Explicit multiple budgets share the requested total allowance.
 
 This production path uses source-scored calibration rather than compiling a large SCIP calibration model. Model compilation previously had no bounded deadline and could defeat the interactive total budget. The exhaustive/SCIP implementation remains separately available through `generateSCIP` in `tools/scip_optimizer.mjs` for reference experiments; it is not the preview's Generate path.
