@@ -26,12 +26,7 @@ def add_m250_monolith(weapon):
     assembly = weapon['assembly']
     sockets = assembly['socketProviders'][M250_ID]['sockets']
     magazine = next(socket for socket in sockets if socket['socketId'] == 5)
-    stock_options = magazine['optionItemIds']
-    index = sockets.index(magazine)
-    sockets[index:index + 1] = [
-        {**magazine, 'modes': ['bd']},
-        {**magazine, 'modes': ['sol', 'mp'], 'optionItemIds': [*stock_options, MONOLITH_ID]},
-    ]
+    magazine['optionItemIds'].append(MONOLITH_ID)
     # Occupying the barrel removes its nested muzzle. The magazine provides its own.
     stock_barrel = assembly['socketProviders']['13020000478']['sockets']
     muzzle = next(socket for socket in stock_barrel if socket['socketId'] == 6)
@@ -42,7 +37,8 @@ def add_m250_monolith(weapon):
     weapon['display']['objects'][MONOLITH_ID] = {
         'objectType': 'part', 'categoryId': 'magazine', 'playerSelectable': True,
     }
-    stats_by_mode = {'sol': (8, -16, 8, 4), 'mp': (6, -12, 2, 4)}
+    operations_stats = (8, -16, 8, 4)
+    stats_by_mode = {'sol': operations_stats, 'mp': (6, -12, 2, 4), 'bd': operations_stats}
     weapon['effectsByItemId'][MONOLITH_ID] = {
         mode: [
             dict(operation='StaticAttributeModify', target=f'{prefix}.{stat_id}',
@@ -52,7 +48,6 @@ def add_m250_monolith(weapon):
         ]
         for mode, stats in stats_by_mode.items()
     }
-    weapon['effectsByItemId'][MONOLITH_ID]['bd'] = []
 
     peak_rpm = 626
     stock_interval = weapon['weapon']['fireControl']['fireIntervalSeconds']
