@@ -101,6 +101,9 @@ def catalog():
         slots = dict(db.execute('SELECT item_id,slot FROM parts'))
     names[MONOLITH_ID] = MONOLITH_NAME
     slots[MONOLITH_ID] = 'magazine'
+    # User-observed in-game costs for the locally cataloged attachment.
+    shop['partCosts'][MONOLITH_ID] = 200
+    prices[MONOLITH_ID] = 34_600
     return dict(weapons=weapons, names=names, slots=slots, shop=shop, prices=prices, provenance=dict(data_version=MANIFEST['dataVersion'], runtime_version=MANIFEST['version'], price_sources=sources, model_policies={'laser_bonus_stacking': 'strongest_per_stat_v1'}, global_verified=False))
 
 
