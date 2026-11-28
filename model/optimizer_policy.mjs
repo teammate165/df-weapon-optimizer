@@ -1,8 +1,15 @@
 // Presets own objective semantics; the search owns mounting, tuning and costs.
-import {detailedStats} from '../detailed-stats.mjs?v=8e593db3b6670458';
-import {presets} from './optimizer_presets.mjs?v=8e593db3b6670458';
+import {detailedStats} from '../detailed-stats.mjs?v=b7291dc7463e56d3';
+import {presets} from './optimizer_presets.mjs?v=b7291dc7463e56d3';
 export const statIds = {control:'3', handling:'5', stability:'6', accuracy:'4'};
 export function policy(request) {
+  const forbidden = request.forbidden_item_ids ?? [];
+  if (!Array.isArray(forbidden) || forbidden.some(id => typeof id !== 'string' || !id)) {
+    throw Error('forbidden_item_ids must contain attachment IDs');
+  }
+  const forbiddenItems = new Set(forbidden);
+  const conflict = request.fixed?.find?.(row => !row?.keepDefault && forbiddenItems.has(row?.itemId));
+  if (conflict) throw Error(`Attachment ${conflict.itemId} is both locked and forbidden`);
   const preset=request.preset??'recoil';
   if(!Object.hasOwn(presets,preset))throw Error('Unknown optimizer preset');
   const minimums=request.minimum_stats??{};
@@ -20,7 +27,7 @@ export function policy(request) {
   if(!Array.isArray(targets)||targets.length>8||targets.some(v=>!Number.isFinite(v)||v<=0||v>100))throw Error('effectiveness_targets must contain up to eight percentages in (0,100]');
   const patternReduction=request.pattern_reduction_percent;
   if(patternReduction!==undefined&&(preset!=='recoil'||!Number.isFinite(patternReduction)||patternReduction<=0||patternReduction>=100))throw Error('pattern_reduction_percent requires Lowest Recoil and a percentage between 0 and 100');
-  return {preset,minimums,detailedLimits,patternReduction,automatic,targets:[...new Set(targets)].sort((a,b)=>a-b)};
+  return {preset,minimums,detailedLimits,patternReduction,automatic,forbiddenItems,targets:[...new Set(targets)].sort((a,b)=>a-b)};
 }
 export const shortfall=(stats,minimums)=>Object.entries(minimums).reduce((sum,[key,min])=>sum+Math.max(0,min-stats[key]),0);
 export function createPatternConstraint(preset, resolve, request, reductionPercent) {

@@ -120,7 +120,7 @@ export function resolveLayerPoses(catalog,mounted) {
 const catalogs=new Map(),images=new Map();let pixels=0;
 async function catalogFor(directory) {
  if(!catalogs.has(directory)) {
-  const pending=fetch(new URL(`./assets/weapon-layers/${directory}.json?v=8e593db3b6670458`,import.meta.url),{signal:AbortSignal.timeout(15000)})
+  const pending=fetch(new URL(`./assets/weapon-layers/${directory}.json?v=b7291dc7463e56d3`,import.meta.url),{signal:AbortSignal.timeout(15000)})
    .then(r=>{if(!r.ok)throw Error('Layer catalog unavailable');return r.json();}).then(unpackLayers)
    .catch(e=>{catalogs.delete(directory);throw e;});
   catalogs.set(directory,pending);if(catalogs.size>8)catalogs.delete(catalogs.keys().next().value);

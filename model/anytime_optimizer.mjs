@@ -1,17 +1,17 @@
-import {createDetailedStatEvaluator} from './detailed_stat_values.mjs?v=8e593db3b6670458';
-import {presets} from './optimizer_presets.mjs?v=8e593db3b6670458';
-import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=8e593db3b6670458';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=8e593db3b6670458';
-import {fixedSlotSeed,retainsFixedSlots,completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=8e593db3b6670458';
-import {configKey,tacticalChoice} from './exhaustive_attachment_gate.mjs?v=8e593db3b6670458';
-import {compileMounts} from './scip_mount_model.mjs?v=8e593db3b6670458';
-import {createMountSearch} from './mount_search.mjs?v=8e593db3b6670458';
-import {createSharedStatEvaluator} from './shared_stats.mjs?v=8e593db3b6670458';
-import {createBranchScoreBound} from './branch_score_bounds.mjs?v=8e593db3b6670458';
-import {boundCannotBeat} from './scoring_bounds.mjs?v=8e593db3b6670458';
-import {timedRecoil} from './timed_recoil.mjs?v=8e593db3b6670458';
-import {createChoiceGroups} from './choice_groups.mjs?v=8e593db3b6670458';
-import {partitionExactMounts,restrictExactMountPartition} from './exact_ordinary_partitions.mjs?v=8e593db3b6670458';
+import {createDetailedStatEvaluator} from './detailed_stat_values.mjs?v=b7291dc7463e56d3';
+import {presets} from './optimizer_presets.mjs?v=b7291dc7463e56d3';
+import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=b7291dc7463e56d3';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=b7291dc7463e56d3';
+import {fixedSlotSeed,retainsFixedSlots,completeRiserOptics,emptyRisers} from './optimizer_mounts.mjs?v=b7291dc7463e56d3';
+import {configKey,tacticalChoice} from './exhaustive_attachment_gate.mjs?v=b7291dc7463e56d3';
+import {compileMounts} from './scip_mount_model.mjs?v=b7291dc7463e56d3';
+import {createMountSearch} from './mount_search.mjs?v=b7291dc7463e56d3';
+import {createSharedStatEvaluator} from './shared_stats.mjs?v=b7291dc7463e56d3';
+import {createBranchScoreBound} from './branch_score_bounds.mjs?v=b7291dc7463e56d3';
+import {boundCannotBeat} from './scoring_bounds.mjs?v=b7291dc7463e56d3';
+import {timedRecoil} from './timed_recoil.mjs?v=b7291dc7463e56d3';
+import {createChoiceGroups} from './choice_groups.mjs?v=b7291dc7463e56d3';
+import {partitionExactMounts,restrictExactMountPartition} from './exact_ordinary_partitions.mjs?v=b7291dc7463e56d3';
 
 export const shortlistLimits=Object.freeze({ordinary:256,tactical_per_base:16,complete:512});
 
@@ -51,7 +51,7 @@ export class Shortlist {
 
 async function loadRuntime(directory){
  const [{pathToFileURL},path]=await Promise.all([import('node:url'),import('node:path')]);
- const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=8e593db3b6670458'))),kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=8e593db3b6670458'))),{t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=8e593db3b6670458')));
+ const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=b7291dc7463e56d3'))),kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=b7291dc7463e56d3'))),{t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=b7291dc7463e56d3')));
  return {curves,kernel,calculate};
 }
 
@@ -88,7 +88,7 @@ export async function generateAnytime(input,runtime){
   const sliceStart=budgetIndex?performance.now():started,sliceEnd=started+(deadline-started)*(budgetIndex+1)/budgets.length,duration=Math.max(0,sliceEnd-sliceStart);
   const ordinary=new Shortlist(256,compare,64),complete=new Shortlist(512,compare,128),cache=new Map(),controlCache=new Map(),tuneControls=new WeakMap(),expanded=new Set(),tacticalVisited=new Set(),hints=new Map();
   const shared=preset.stateReuse?.raw===preset.raw?createSharedStatEvaluator(pack,kernel,{mode}):null;
-  const groups=createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,fixed}),tactical=(path,id)=>groups.enabled?groups.isTactical(path,id):tacticalChoice(pack,kernel,mode,path,id);
+  const groups=createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,fixed,forbiddenItems:settings.forbiddenItems}),tactical=(path,id)=>groups.enabled?groups.isTactical(path,id):tacticalChoice(pack,kernel,mode,path,id);
   const d={budget,screening:'anytime_top_k',complete:false,limits:{...shortlistLimits},evaluation_attempts:0,cache_hits:0,evaluated:0,invalid:0,source_errors:0,calibration_evaluations:0,ordinary_evaluated:0,tactical_evaluated:0,tree_nodes:0,pruned_branches:0,ordinary_retained:0,candidate_count:0,cache_peak:0,ordinary_storage_peak:0,complete_storage_peak:0,phases:[]};
   let phase='search_attachments',phaseDeadline=sliceEnd,currentBase=0;
   const progress=(force=false)=>{
@@ -114,6 +114,7 @@ export async function generateAnytime(input,runtime){
   };
   const evaluate=(config,tunes={},validated)=>{
    check(phaseDeadline);progress();d.evaluation_attempts++;
+   if(settings.forbiddenItems.size&&config.some(({itemId})=>settings.forbiddenItems.has(itemId))){d.invalid++;return null;}
    try{
     let {build,key,cost}=validated??{};
     if(!validated){

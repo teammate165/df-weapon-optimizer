@@ -1,16 +1,16 @@
-import {assert} from './chart-fixture-runtime.mjs?v=8e593db3b6670458';
-import {compileMounts} from '../model/scip_mount_model.mjs?v=8e593db3b6670458';
-import {createMountSearch} from '../model/mount_search.mjs?v=8e593db3b6670458';
-import {timedRecoil} from '../model/timed_recoil.mjs?v=8e593db3b6670458';
-import {isOptic} from '../model/optimizer_mounts.mjs?v=8e593db3b6670458';
-import {createChoiceGroups} from '../model/choice_groups.mjs?v=8e593db3b6670458';
-import {activeControls, kickAxes, minimizeKick} from './m4-active-controls.mjs?v=8e593db3b6670458';
-import {searchCategories} from './category-search.mjs?v=8e593db3b6670458';
-import {deterministicNorm, deterministicNormFloor} from './deterministic-norm.mjs?v=8e593db3b6670458';
-import {v8NormFloorFor} from './v8-norm-floor.mjs?v=8e593db3b6670458';
-import {createCalibratedMountBound} from './m4-calibrated-mount-bound.mjs?v=8e593db3b6670458';
+import {assert} from './chart-fixture-runtime.mjs?v=b7291dc7463e56d3';
+import {compileMounts} from '../model/scip_mount_model.mjs?v=b7291dc7463e56d3';
+import {createMountSearch} from '../model/mount_search.mjs?v=b7291dc7463e56d3';
+import {timedRecoil} from '../model/timed_recoil.mjs?v=b7291dc7463e56d3';
+import {isOptic} from '../model/optimizer_mounts.mjs?v=b7291dc7463e56d3';
+import {createChoiceGroups} from '../model/choice_groups.mjs?v=b7291dc7463e56d3';
+import {activeControls, kickAxes, minimizeKick} from './m4-active-controls.mjs?v=b7291dc7463e56d3';
+import {searchCategories} from './category-search.mjs?v=b7291dc7463e56d3';
+import {deterministicNorm, deterministicNormFloor} from './deterministic-norm.mjs?v=b7291dc7463e56d3';
+import {v8NormFloorFor} from './v8-norm-floor.mjs?v=b7291dc7463e56d3';
+import {createCalibratedMountBound} from './m4-calibrated-mount-bound.mjs?v=b7291dc7463e56d3';
 import {pack, shop, mode, resolve, modules, preset, stock, createChartPreset,
-  split, createAxisContext} from './m4-chart-axis-boxes.mjs?v=8e593db3b6670458';
+  split, createAxisContext} from './m4-chart-axis-boxes.mjs?v=b7291dc7463e56d3';
 
 const paths = ['1', '3', '4/8', '2', '2/6'];
 const tunedPaths = paths.slice(0, 3);

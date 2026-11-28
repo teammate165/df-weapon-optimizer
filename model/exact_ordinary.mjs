@@ -1,15 +1,15 @@
-import {retainsFixedSlots} from './optimizer_mounts.mjs?v=8e593db3b6670458';
-import {compileMounts} from './scip_mount_model.mjs?v=8e593db3b6670458';
-import {createMountSearch} from './mount_search.mjs?v=8e593db3b6670458';
-import {createChoiceGroups} from './choice_groups.mjs?v=8e593db3b6670458';
-import {configKey} from './exhaustive_attachment_gate.mjs?v=8e593db3b6670458';
-import {createPatternConstraint, policy, shortfall, statIds} from './optimizer_policy.mjs?v=8e593db3b6670458';
-import {presets} from './optimizer_presets.mjs?v=8e593db3b6670458';
-import {timedRecoil} from './timed_recoil.mjs?v=8e593db3b6670458';
-import {createOrdinaryChartMemo, createOrdinaryControls, prepareOrdinaryBound} from './exact_ordinary_bounds.mjs?v=8e593db3b6670458';
-import {createExactOrdinaryMountBound} from './exact_ordinary_mount_bounds.mjs?v=8e593db3b6670458';
-import {createExactOrdinaryPhase, ordinaryBalancedMerit} from './exact_ordinary_phase.mjs?v=8e593db3b6670458';
-import {partitionExactMounts, restrictExactMountPartition, exactMountPartitionContains, validateExactMountPartitions} from './exact_ordinary_partitions.mjs?v=8e593db3b6670458';
+import {retainsFixedSlots} from './optimizer_mounts.mjs?v=b7291dc7463e56d3';
+import {compileMounts} from './scip_mount_model.mjs?v=b7291dc7463e56d3';
+import {createMountSearch} from './mount_search.mjs?v=b7291dc7463e56d3';
+import {createChoiceGroups} from './choice_groups.mjs?v=b7291dc7463e56d3';
+import {configKey} from './exhaustive_attachment_gate.mjs?v=b7291dc7463e56d3';
+import {createPatternConstraint, policy, shortfall, statIds} from './optimizer_policy.mjs?v=b7291dc7463e56d3';
+import {presets} from './optimizer_presets.mjs?v=b7291dc7463e56d3';
+import {timedRecoil} from './timed_recoil.mjs?v=b7291dc7463e56d3';
+import {createOrdinaryChartMemo, createOrdinaryControls, prepareOrdinaryBound} from './exact_ordinary_bounds.mjs?v=b7291dc7463e56d3';
+import {createExactOrdinaryMountBound} from './exact_ordinary_mount_bounds.mjs?v=b7291dc7463e56d3';
+import {createExactOrdinaryPhase, ordinaryBalancedMerit} from './exact_ordinary_phase.mjs?v=b7291dc7463e56d3';
+import {partitionExactMounts, restrictExactMountPartition, exactMountPartitionContains, validateExactMountPartitions} from './exact_ordinary_partitions.mjs?v=b7291dc7463e56d3';
 
 function stronger(a, b) {
   if (a.loss !== b.loss) return a.loss < b.loss;
@@ -51,7 +51,7 @@ function prepareExactOrdinary(input, modules, groupEquivalentPrices = false) {
   const scorer = presets.recoil.create({pack, request, ...modules, mode, resolve});
   const patternConstraint = createPatternConstraint(scorer, resolve, request, settings.patternReduction);
   const compiled = compileMounts(input, kernel);
-  const groups = createChoiceGroups({pack, mode, shop, prices, kernel, curves, preset: scorer, fixed});
+  const groups = createChoiceGroups({pack, mode, shop, prices, kernel, curves, preset: scorer, fixed, forbiddenItems: settings.forbiddenItems});
   groups.constrain(compiled, {preserveIdentities: true, preserveBundled: true});
   const restrictions = new Map();
   const locked = (path, item) => fixed.some(row => !row.keepDefault && row.slotPath === path && row.itemId === item);

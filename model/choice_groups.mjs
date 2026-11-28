@@ -1,4 +1,4 @@
-import {isOptic} from './optimizer_mounts.mjs?v=8e593db3b6670458';
+import {isOptic} from './optimizer_mounts.mjs?v=b7291dc7463e56d3';
 
 const patchSockets=new Set([30,32,33,34,35]);
 const viewOnlyTargets=new Set(['ScopeCameraTuneDistance','ScopeZoomTuneRate']);
@@ -10,7 +10,7 @@ const pathOrder=(a,b)=>a.localeCompare(b);
 
 // Search-only equivalence for the native objectives. Concrete source IDs remain
 // in every output, locked choices remain exact, and unknown consumers opt out.
-export function createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,fixed=[]}){
+export function createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,fixed=[],forbiddenItems=new Set()}){
  const certificate=preset.branchScoring,c=kernel.u?.screeningStateContract;
  const enabled=c?.version===1&&c.evaluate===kernel.u&&certificate?.raw===preset.raw&&certificate?.score===preset.score&&certificate?.objectives===preset.objectives;
  const costs=mode==='bd'?shop.partCosts:prices,hidden=new Set(mode==='bd'?shop.hiddenItemIds:[]),patchIds=new Set(),magwellIds=new Set(),sensitive=new Set(),data=new Map(),families=new Map(),optionCache=new Map(),matchingCache=new Map(),normalizations=new Map();
@@ -54,6 +54,7 @@ export function createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,f
  const familyKey=(id,path)=>{const d=item(id);return d.family?(d.kind!=='sight'&&!integerAdds?d.family+'@'+path:d.family):'fixed:'+path+':'+id;};
  function options(ids,path){
   if(excluded(path))return [];
+  if(forbiddenItems.size)ids=ids.filter(id=>!forbiddenItems.has(id));
   if(!locked(path))ids=ids.filter(id=>!bipodGripIds.has(id));
   if(!enabled||locked(path))return ids.filter(id=>!hidden.has(id));
   const cacheKey=JSON.stringify([path,ids]);if(optionCache.has(cacheKey))return optionCache.get(cacheKey);
@@ -73,7 +74,7 @@ export function createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,f
    for(const node of slot.nodes)if(bipodGripIds.has(node.item))compiled.model.constrain(preserveBundled?node.equipped:node.active,'==',0,'excluded_bipod_grip');
    if(!enabled||preserveIdentities)continue;
    const allowed=new Set(options(slot.options,slot.path));
-   for(const node of slot.nodes)if(slot.options.includes(node.item)&&item(node.item).family&&!allowed.has(node.item))compiled.model.constrain(node.active,'==',0,'equivalent_choice');
+   for(const node of slot.nodes)if(slot.options.includes(node.item)&&!forbiddenItems.has(node.item)&&item(node.item).family&&!allowed.has(node.item))compiled.model.constrain(node.active,'==',0,'equivalent_choice');
   }
  }
  // Exact category searches can quotient concrete choices at the same price

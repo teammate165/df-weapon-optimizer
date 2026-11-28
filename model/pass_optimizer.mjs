@@ -1,16 +1,16 @@
-import {completeRiserOptics,fixedSlotSeed,retainsFixedSlots} from './optimizer_mounts.mjs?v=8e593db3b6670458';
-import {timedRecoil} from './timed_recoil.mjs?v=8e593db3b6670458';
-import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=8e593db3b6670458';
-import {createDetailedStatEvaluator} from './detailed_stat_values.mjs?v=8e593db3b6670458';
-import {presets} from './optimizer_presets.mjs?v=8e593db3b6670458';
-import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=8e593db3b6670458';
+import {completeRiserOptics,fixedSlotSeed,retainsFixedSlots} from './optimizer_mounts.mjs?v=b7291dc7463e56d3';
+import {timedRecoil} from './timed_recoil.mjs?v=b7291dc7463e56d3';
+import {policy,statIds,shortfall,comparator,compareObjectives,createPatternConstraint} from './optimizer_policy.mjs?v=b7291dc7463e56d3';
+import {createDetailedStatEvaluator} from './detailed_stat_values.mjs?v=b7291dc7463e56d3';
+import {presets} from './optimizer_presets.mjs?v=b7291dc7463e56d3';
+import {selectCategories,cheapestGate} from './optimizer_selection.mjs?v=b7291dc7463e56d3';
 
 async function loadRuntime(directory) {
   const {pathToFileURL}=await import('node:url');
   const path=await import('node:path');
-  const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=8e593db3b6670458')));
-  const kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=8e593db3b6670458')));
-  const {t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=8e593db3b6670458')));
+  const curves=await import(pathToFileURL(path.join(directory,'curves.mjs?v=b7291dc7463e56d3')));
+  const kernel=await import(pathToFileURL(path.join(directory,'kernel.mjs?v=b7291dc7463e56d3')));
+  const {t:calculate}=await import(pathToFileURL(path.join(directory,'attributes.mjs?v=b7291dc7463e56d3')));
   return {curves,kernel,calculate};
 }
 
@@ -109,7 +109,7 @@ export async function generatePasses(input, runtime) {
       // locked multi-device setups, but never add redundant devices in search.
       if(build.mounted.filter(m=>kernel.l(pack,m.itemId,mode)).length>laserLimit)return null;
       if(build.mounted.filter(m=>pack.parts[m.itemId]?.boundAmmoByMode?.[mode]).length>1)return null;
-      if(build.mounted.some(m=>hidden.has(m.itemId)))return null;
+      if(build.mounted.some(m=>hidden.has(m.itemId)||m.source==='equipped'&&settings.forbiddenItems.has(m.itemId)))return null;
       const quote=mode==='mp'?{total:null}:cost(build);
       if(budget!==null&&(quote.total===null||quote.total>budget))return null;
       tunes=cleanTunes(build,tunes);
@@ -188,7 +188,7 @@ export async function generatePasses(input, runtime) {
       for (const slot of best.build.slots) {
         if (fixed.some(f=>f.slotPath===slot.slotPath||f.slotPath.startsWith(slot.slotPath+'/'))) continue;
         for(const itemId of [null,...slot.options]) {
-          if(hidden.has(itemId)) continue;
+          if(hidden.has(itemId)||settings.forbiddenItems.has(itemId)) continue;
           const occupied=pack.assembly.extraOccupancy?.[itemId]?.occupiedSocketIds;
           const replacedPaths=[slot.slotPath];
           if(occupied?.length)for(const mounted of best.build.mounted){

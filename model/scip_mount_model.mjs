@@ -1,5 +1,5 @@
-import {LinearModel} from './scip_linear_model.mjs?v=8e593db3b6670458';
-import {riserIds,isOptic} from './optimizer_mounts.mjs?v=8e593db3b6670458';
+import {LinearModel} from './scip_linear_model.mjs?v=b7291dc7463e56d3';
+import {riserIds,isOptic} from './optimizer_mounts.mjs?v=b7291dc7463e56d3';
 
 // Symbolically unrolls the source resolver's mounted-item fixed point, rather
 // than assuming a static list of independent sockets.
@@ -7,6 +7,7 @@ export function compileMounts({pack,shop,prices,request,candidateConfigs},kernel
  const m=new LinearModel(),mode=request.mode;
  if(!['bd','sol','mp'].includes(mode))throw Error('Unknown mode');
  const hidden=new Set(mode==='bd'?shop.hiddenItemIds:[]),costs=mode==='bd'?shop.partCosts:prices;
+ const forbidden=new Set(request.forbidden_item_ids??[]);
  const fixed=request.fixed??[],budget=mode==='mp'?null:request.budget??request.budgets?.[0]??shop.weapons[pack.weaponId]?.gunsmithLimit;
  if(mode!=='mp'&&(!Number.isFinite(budget)||budget<0))throw Error('A finite attachment budget is required');
  const emptyLocks=new Set(fixed.filter(f=>f.keepDefault&&!f.itemId).map(f=>f.slotPath));
@@ -16,7 +17,7 @@ export function compileMounts({pack,shop,prices,request,candidateConfigs},kernel
  function rulesFor(host){return [...(pack.assembly.coupling?.[pack.weaponId]?.rules??[]),...(host===pack.weaponId?[]:pack.assembly.coupling?.[host]?.rules??[])];}
  function player(path,item){
   const key=path+'|'+item;if(players.has(key))return players.get(key);
-  const quote=costs?.[item],allowed=!hidden.has(item)&&(mode==='mp'||Number.isFinite(quote)&&quote>=0);
+  const quote=costs?.[item],allowed=!hidden.has(item)&&!forbidden.has(item)&&(mode==='mp'||Number.isFinite(quote)&&quote>=0);
   const value=allowed?m.variable('equip'):0;
   const entry={path,item,value,cost:mode==='mp'?0:quote};players.set(key,entry);
   if(!paths.has(path))paths.set(path,[]);paths.get(path).push(entry);return entry;

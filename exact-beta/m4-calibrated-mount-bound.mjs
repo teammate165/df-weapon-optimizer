@@ -1,7 +1,7 @@
-import {assert} from './chart-fixture-runtime.mjs?v=8e593db3b6670458';
-import {createBranchScoreBound} from '../model/branch_score_bounds.mjs?v=8e593db3b6670458';
-import {activeControls, nonObjectiveTargets} from './m4-active-controls.mjs?v=8e593db3b6670458';
-import {pack, mode, modules, preset, axes, axisControlFor} from './m4-chart-axis-boxes.mjs?v=8e593db3b6670458';
+import {assert} from './chart-fixture-runtime.mjs?v=b7291dc7463e56d3';
+import {createBranchScoreBound} from '../model/branch_score_bounds.mjs?v=b7291dc7463e56d3';
+import {activeControls, nonObjectiveTargets} from './m4-active-controls.mjs?v=b7291dc7463e56d3';
+import {pack, mode, modules, preset, axes, axisControlFor} from './m4-chart-axis-boxes.mjs?v=b7291dc7463e56d3';
 
 // Optional, restricted to the shared-axis tuning fixture. All positions are
 // passed through the native collector with their actual provider context.

@@ -1,9 +1,10 @@
-import {balancedWindow, combineBalanced, combineEndpoints, sharedBalancedSeed} from './exact-beta-pool.js?v=8e593db3b6670458';
-import {defaultRecoilWeights} from './optimizer_weights.mjs?v=8e593db3b6670458';
+import {balancedWindow, combineBalanced, combineEndpoints, sharedBalancedSeed} from './exact-beta-pool.js?v=b7291dc7463e56d3';
+import {defaultRecoilWeights} from './optimizer_weights.mjs?v=b7291dc7463e56d3';
 
 const scope = 'Grouped ordinary M4A1 Detonation with Insight 3/7 locked';
 
 export function exactBetaEligible(request) {
+  if (request.forbidden_item_ids?.length) return false;
   const {fixed, minimum_stats: floors} = request;
   return request.weapon_id === '18010000001' && request.mode === 'bd' &&
     request.preset === 'recoil' && request.shot_count === 20 && request.time_limit_seconds === 300 &&
@@ -28,7 +29,7 @@ export async function runExactBeta(evaluate, request, {signal, onProgress} = {})
     const progress = new Map();
     const workers = [];
     function spawn(index) {
-      const worker = new Worker(new URL('./exact-beta-worker.js?v=8e593db3b6670458', import.meta.url), {type: 'module'});
+      const worker = new Worker(new URL('./exact-beta-worker.js?v=b7291dc7463e56d3', import.meta.url), {type: 'module'});
       let pending;
       let failure;
       let stopped = false;
