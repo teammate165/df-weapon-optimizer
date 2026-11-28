@@ -2,7 +2,7 @@
 // stop its exhaustive Node subprocess instead of leaving it running indefinitely.
 export function createLocalClient(){
  const select=document.getElementById('solver-time-limit');
- if(select){select.insertAdjacentHTML('afterbegin','<option value="0">No time limit</option>');select.value='0';}
+ if(select)select.value='0';
  const exactOrdinaryOption=document.getElementById('exact-ordinary-option');
  if(exactOrdinaryOption)exactOrdinaryOption.insertAdjacentHTML('beforeend','<div><label><input id="exact-ordinary" type="checkbox"> Exact ordinary search (local)</label></div>');
  const note=document.getElementById('optimizer-search-note');

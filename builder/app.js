@@ -442,6 +442,8 @@ function syncExactTimeLimit(){
   if($('exact-ordinary-time-limit')?.selected)limit.value='30';
   $('exact-ordinary-time-limit')?.remove();
  }
+ const unlimited=limit.querySelector('option[value="0"]');
+ if(unlimited)unlimited.disabled=enabled;
  if(enabled&&limit.value==='0')limit.value='30';
 }
 if($('exact-ordinary'))$('exact-ordinary').onchange=()=>{
