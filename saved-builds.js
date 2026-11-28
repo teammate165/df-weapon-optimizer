@@ -1,4 +1,4 @@
-import {defaultAgilityWeights,defaultRecoilWeights,validateWeights} from './optimizer_weights.mjs?v=9799ef2d762bb270';
+import {defaultAgilityWeights,defaultRecoilWeights,validateWeights} from './optimizer_weights.mjs?v=5f2833d4b3fd3a0a';
 const PREFIX='dfw_saved_v1_';
 const CHUNK_SIZE=3300,MAX_CHUNKS=4,MAX_STORAGE=32000;
 const YEAR=365*24*60*60;

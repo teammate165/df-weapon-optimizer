@@ -1,4 +1,4 @@
-﻿import {detailedStats,detailedValue} from './detailed-stats.mjs?v=9799ef2d762bb270';
+﻿import {detailedStats,detailedValue} from './detailed-stats.mjs?v=5f2833d4b3fd3a0a';
 
 export function createDetailedLimits(root,onChange){
   const add=root.querySelector('#add-limit');

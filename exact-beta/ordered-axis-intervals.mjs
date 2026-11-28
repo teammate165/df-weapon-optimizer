@@ -1,4 +1,4 @@
-import {assert} from './chart-fixture-runtime.mjs?v=9799ef2d762bb270';
+import {assert} from './chart-fixture-runtime.mjs?v=5f2833d4b3fd3a0a';
 
 const point = value => [value, value];
 const staticTypes = new Set(['StaticAttributeModify', 'StaticAttributeReplace']);
