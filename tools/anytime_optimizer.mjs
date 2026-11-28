@@ -88,7 +88,7 @@ export async function generateAnytime(input,runtime){
   const sliceStart=budgetIndex?performance.now():started,sliceEnd=started+(deadline-started)*(budgetIndex+1)/budgets.length,duration=Math.max(0,sliceEnd-sliceStart);
   const ordinary=new Shortlist(256,compare,64),complete=new Shortlist(512,compare,128),cache=new Map(),controlCache=new Map(),tuneControls=new WeakMap(),expanded=new Set(),tacticalVisited=new Set(),hints=new Map();
   const shared=preset.stateReuse?.raw===preset.raw?createSharedStatEvaluator(pack,kernel,{mode}):null;
-  const groups=createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,fixed}),tactical=(path,id)=>groups.enabled?groups.isTactical(path,id):tacticalChoice(pack,kernel,mode,path,id);
+  const groups=createChoiceGroups({pack,mode,shop,prices,kernel,curves,preset,fixed,forbiddenItems:settings.forbiddenItems}),tactical=(path,id)=>groups.enabled?groups.isTactical(path,id):tacticalChoice(pack,kernel,mode,path,id);
   const d={budget,screening:'anytime_top_k',complete:false,limits:{...shortlistLimits},evaluation_attempts:0,cache_hits:0,evaluated:0,invalid:0,source_errors:0,calibration_evaluations:0,ordinary_evaluated:0,tactical_evaluated:0,tree_nodes:0,pruned_branches:0,ordinary_retained:0,candidate_count:0,cache_peak:0,ordinary_storage_peak:0,complete_storage_peak:0,phases:[]};
   let phase='search_attachments',phaseDeadline=sliceEnd,currentBase=0;
   const progress=(force=false)=>{
@@ -114,6 +114,7 @@ export async function generateAnytime(input,runtime){
   };
   const evaluate=(config,tunes={},validated)=>{
    check(phaseDeadline);progress();d.evaluation_attempts++;
+   if(settings.forbiddenItems.size&&config.some(({itemId})=>settings.forbiddenItems.has(itemId))){d.invalid++;return null;}
    try{
     let {build,key,cost}=validated??{};
     if(!validated){

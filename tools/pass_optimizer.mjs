@@ -109,7 +109,7 @@ export async function generatePasses(input, runtime) {
       // locked multi-device setups, but never add redundant devices in search.
       if(build.mounted.filter(m=>kernel.l(pack,m.itemId,mode)).length>laserLimit)return null;
       if(build.mounted.filter(m=>pack.parts[m.itemId]?.boundAmmoByMode?.[mode]).length>1)return null;
-      if(build.mounted.some(m=>hidden.has(m.itemId)))return null;
+      if(build.mounted.some(m=>hidden.has(m.itemId)||m.source==='equipped'&&settings.forbiddenItems.has(m.itemId)))return null;
       const quote=mode==='mp'?{total:null}:cost(build);
       if(budget!==null&&(quote.total===null||quote.total>budget))return null;
       tunes=cleanTunes(build,tunes);
@@ -188,7 +188,7 @@ export async function generatePasses(input, runtime) {
       for (const slot of best.build.slots) {
         if (fixed.some(f=>f.slotPath===slot.slotPath||f.slotPath.startsWith(slot.slotPath+'/'))) continue;
         for(const itemId of [null,...slot.options]) {
-          if(hidden.has(itemId)) continue;
+          if(hidden.has(itemId)||settings.forbiddenItems.has(itemId)) continue;
           const occupied=pack.assembly.extraOccupancy?.[itemId]?.occupiedSocketIds;
           const replacedPaths=[slot.slotPath];
           if(occupied?.length)for(const mounted of best.build.mounted){

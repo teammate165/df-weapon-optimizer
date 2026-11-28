@@ -51,7 +51,7 @@ function prepareExactOrdinary(input, modules, groupEquivalentPrices = false) {
   const scorer = presets.recoil.create({pack, request, ...modules, mode, resolve});
   const patternConstraint = createPatternConstraint(scorer, resolve, request, settings.patternReduction);
   const compiled = compileMounts(input, kernel);
-  const groups = createChoiceGroups({pack, mode, shop, prices, kernel, curves, preset: scorer, fixed});
+  const groups = createChoiceGroups({pack, mode, shop, prices, kernel, curves, preset: scorer, fixed, forbiddenItems: settings.forbiddenItems});
   groups.constrain(compiled, {preserveIdentities: true, preserveBundled: true});
   const restrictions = new Map();
   const locked = (path, item) => fixed.some(row => !row.keepDefault && row.slotPath === path && row.itemId === item);

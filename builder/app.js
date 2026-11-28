@@ -16,6 +16,7 @@ const detailedLimits=createDetailedLimits($('detailed-limits'),()=>{
 });
 const updateWeaponImage=createWeaponImage({canvas:$('gun-assembly'),fallback:$('gun-image'),caption:$('gun-image-caption')});
 const state={catalog:null,model:null,config:[],tunes:{},locks:new Set(),slot:null,preview:null,previewSerial:0,previewLoading:false,busy:false,tab:'builder',results:null,resultIndex:0,solutionPreview:null,solutionPreviewLoading:false};
+const forbiddenParts=new Set();
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(v,d=1)=>Number.isFinite(v)?v.toLocaleString(undefined,{maximumFractionDigits:d}):'—';
 const labels={rearGrip:'Pistol grip',barrel:'Barrel',stock:'Stock',magazine:'Magazine',scope:'Optic',muzzle:'Muzzle',foregrip:'Foregrip',functional:'Rail accessory',unique:'Component'};
@@ -57,7 +58,7 @@ function portrait(id,fallback='—',socketId,eager=true){
 document.addEventListener('error',event=>{if(event.target.tagName==='IMG')event.target.classList.add('failed');},true);
 async function evaluate({reset=false}={}){
  cancelLiveCalibration();
- clearPreview();if(reset){clearResults();state.appliedObjective=null;state.config=[];state.tunes={};state.locks.clear();state.slot=null;}
+ clearPreview();if(reset){clearResults();state.appliedObjective=null;state.config=[];state.tunes={};state.locks.clear();forbiddenParts.clear();state.slot=null;}
  setBusy(true);status('Resolving loadout…');
  try{const model=await api('evaluate',equippedRequest());adopt(model);status('');}
  catch(error){if(state.model){state.config=structuredClone(state.model.build.config);state.tunes=structuredClone(state.model.tunes);$('mode').value=state.model.stats.mode;$('weapon').value=state.model.stats.weaponId;$('shots').value=state.model.stats.current.recoil.adsTrajectory.length;render();}status(error.message,true);}
@@ -210,6 +211,17 @@ function updateActions(){
  keep.disabled=state.busy||!selectedSlot();
  keep.setAttribute('aria-pressed',String(locked));
  keep.textContent=locked?'Allow optimizer to change this slot':'Keep this slot as-is';
+ const itemId=state.preview?.id??equippedId();
+ const forbid=$('forbid-part'),clearForbidden=$('clear-forbidden-parts');
+ const forbidden=forbiddenParts.has(itemId);
+ forbid.hidden=!itemId;
+ forbid.disabled=state.busy||state.previewLoading;
+ forbid.setAttribute('aria-pressed',String(forbidden));
+ forbid.textContent=forbidden?'Allow in optimizer':'Exclude from optimization';
+ clearForbidden.hidden=!forbiddenParts.size;
+ clearForbidden.disabled=state.busy;
+ clearForbidden.textContent=`Clear exclusions (${forbiddenParts.size})`;
+ clearForbidden.title=[...forbiddenParts].map(name).join(', ');
  const part=mounted(state.slot),allLocked=state.config.length>0&&state.config.every(x=>state.locks.has(x.slotPath));$('lock').disabled=state.busy||!state.config.length;$('lock').setAttribute('aria-pressed',String(allLocked));$('lock').textContent=allLocked?'Unlock selected attachments':'Lock selected attachments';
  $('generate').disabled=state.busy||!validWeightSelection()||!detailedLimits.valid();
  $('equip').disabled=state.busy||state.previewLoading||!state.preview;$('equip').textContent=state.previewLoading?'Comparing…':state.preview?'Equip attachment':'Equipped';$('cancel-preview').hidden=!state.preview&&!state.previewLoading;
@@ -217,6 +229,15 @@ function updateActions(){
  $('locks').textContent=state.locks.size?`${state.locks.size} slots locked. Tuning adjustable.`:'No slots locked.';
 
 }
+$('forbid-part').onclick=()=>{
+ const itemId=state.preview?.id??equippedId();
+ if(!itemId||state.busy||state.previewLoading)return;
+ if(forbiddenParts.has(itemId))forbiddenParts.delete(itemId);
+ else forbiddenParts.add(itemId);
+ clearResults();updateActions();
+ status(`${name(itemId)} ${forbiddenParts.has(itemId)?'excluded from':'allowed in'} optimizer choices.`);
+};
+$('clear-forbidden-parts').onclick=()=>{forbiddenParts.clear();clearResults();updateActions();};
 function refreshLocks(){clearResults();renderSlots();updateActions();}
 $('keep-slot').onclick=()=>{
  if(state.locks.has(state.slot))state.locks.delete(state.slot);
@@ -299,11 +320,21 @@ $('open-calibration').onclick=()=>{clearPreview();renderStats();drawGraph();rend
 $('close-calibration').onclick=()=>{$('calibration-dialog').close();};
 function graphView(show){$('gun-canvas').hidden=show;$('pattern-canvas').hidden=!show;$('gun-view').setAttribute('aria-pressed',String(!show));$('pattern-view').setAttribute('aria-pressed',String(show));if(show)drawGraph();}
 $('gun-view').onclick=()=>graphView(false);$('pattern-view').onclick=()=>graphView(true);
-function drawGraph(){if(!state.model)return;const key=$('view').value,{base,current}=viewed().stats,a=base.recoil[key]??[],b=current.recoil[key]??[],all=[{x:0,y:0},...a,...b];
+function drawGraph(){
+ if(!state.model)return;
+ const key=$('view').value,model=viewed(),{base,current}=model.stats;
+ const previewing=model!==state.model;
+ const reference=previewing?state.model.stats.current:base;
+ const a=reference.recoil[key]??[],b=current.recoil[key]??[],all=[{x:0,y:0},...a,...b];
+ $('recoil-reference').textContent=previewing?'Equipped':'Default';
+ $('recoil-current').textContent=previewing?'Preview':'Equipped';
+ $('graph').setAttribute('aria-label',previewing?'Equipped and preview recoil paths':'Default and equipped recoil paths');
  const minX=Math.min(...all.map(p=>p.x)),maxX=Math.max(...all.map(p=>p.x)),minY=Math.min(...all.map(p=>p.y)),maxY=Math.max(...all.map(p=>p.y));const scale=Math.min(360/Math.max(maxX-minX,1),210/Math.max(maxY-minY,1));
  const x=v=>220+(v-(minX+maxX)/2)*scale,y=v=>135+(v-(minY+maxY)/2)*scale;
  const line=(points,color,dash='')=>`<polyline points="${[{x:0,y:0},...points].map(p=>`${x(p.x)},${y(p.y)}`).join(' ')}" fill="none" stroke="${color}" stroke-width="2" ${dash?'stroke-dasharray="5 4"':''}/>`;
- $('graph').innerHTML=Array.from({length:9},(_,i)=>`<line x1="${i*55}" y1="0" x2="${i*55}" y2="270" stroke="#202a32"/>`).join('')+Array.from({length:6},(_,i)=>`<line x1="0" y1="${i*54}" x2="440" y2="${i*54}" stroke="#202a32"/>`).join('')+line(a,'#71818c','dash')+line(b,'#b7ed72')+b.map(p=>`<circle cx="${x(p.x)}" cy="${y(p.y)}" r="2.3" fill="#b7ed72"/>`).join('')+`<text x="12" y="254" fill="#8a9aa6" font-size="10">${esc(fmt(100/scale,2))} model units / 100 px · ${b.length} shots</text>`;
+ const verticalSpan=points=>Math.max(0,...points.map(p=>p.y))-Math.min(0,...points.map(p=>p.y));
+ const summary=`${b.length} shots · Vertical span ${fmt(verticalSpan(a),2)} → ${fmt(verticalSpan(b),2)} model units`;
+ $('graph').innerHTML=Array.from({length:9},(_,i)=>`<line x1="${i*55}" y1="0" x2="${i*55}" y2="270" stroke="#202a32"/>`).join('')+Array.from({length:6},(_,i)=>`<line x1="0" y1="${i*54}" x2="440" y2="${i*54}" stroke="#202a32"/>`).join('')+line(a,'#71818c','dash')+line(b,'#b7ed72')+b.map(p=>`<circle cx="${x(p.x)}" cy="${y(p.y)}" r="2.3" fill="#b7ed72"/>`).join('')+`<text x="12" y="254" fill="#8a9aa6" font-size="10">${esc(summary)}</text>`;
 }
 // Presets share controls, constraints and solution rendering; add display metadata here.
 const presetTemplates={
@@ -444,7 +475,10 @@ $('generate').onclick=async()=>{
   $('cancel-generate').focus();
   const fixed=state.config.filter(x=>[...state.locks].some(path=>path===x.slotPath||path.startsWith(x.slotPath+'/')));
   for(const path of state.locks)if(!fixed.some(row=>row.slotPath===path))fixed.push(slotState(state.model.build,path));
+  const forbiddenLock=fixed.find(row=>!row.keepDefault&&forbiddenParts.has(row.itemId));
+  if(forbiddenLock)throw Error(`${name(forbiddenLock.itemId)} is both locked and excluded. Unlock it or allow it in the optimizer.`);
   const r={...request(),...currentObjective(),fixed,locked_slots:[...state.locks],
+   ...(forbiddenParts.size?{forbidden_item_ids:[...forbiddenParts]}:{}),
    ...(coordinate?{search_method:'coordinate_passes',passes:Number($('optimizer-passes').value)}:{search_method:'anytime',time_limit_seconds:Number($('solver-time-limit').value)})};
   if(exactOrdinary)r.search_method=new URLSearchParams(location.search).get('exact-ordinary')==='staged'?'exact_ordinary_staged':'exact_ordinary';
   r.minimum_stats=Object.fromEntries(['control','handling','stability','accuracy'].filter(k=>$(`minimum-${k}`).value!=='').map(k=>[k,Number($(`minimum-${k}`).value)]));
