@@ -1,15 +1,15 @@
-import {retainsFixedSlots} from './optimizer_mounts.mjs?v=5f2833d4b3fd3a0a';
-import {compileMounts} from './scip_mount_model.mjs?v=5f2833d4b3fd3a0a';
-import {createMountSearch} from './mount_search.mjs?v=5f2833d4b3fd3a0a';
-import {createChoiceGroups} from './choice_groups.mjs?v=5f2833d4b3fd3a0a';
-import {configKey} from './exhaustive_attachment_gate.mjs?v=5f2833d4b3fd3a0a';
-import {createPatternConstraint, policy, shortfall, statIds} from './optimizer_policy.mjs?v=5f2833d4b3fd3a0a';
-import {presets} from './optimizer_presets.mjs?v=5f2833d4b3fd3a0a';
-import {timedRecoil} from './timed_recoil.mjs?v=5f2833d4b3fd3a0a';
-import {createOrdinaryChartMemo, createOrdinaryControls, prepareOrdinaryBound} from './exact_ordinary_bounds.mjs?v=5f2833d4b3fd3a0a';
-import {createExactOrdinaryMountBound} from './exact_ordinary_mount_bounds.mjs?v=5f2833d4b3fd3a0a';
-import {createExactOrdinaryPhase, ordinaryBalancedMerit} from './exact_ordinary_phase.mjs?v=5f2833d4b3fd3a0a';
-import {partitionExactMounts, restrictExactMountPartition, exactMountPartitionContains, validateExactMountPartitions} from './exact_ordinary_partitions.mjs?v=5f2833d4b3fd3a0a';
+import {retainsFixedSlots} from './optimizer_mounts.mjs?v=8e593db3b6670458';
+import {compileMounts} from './scip_mount_model.mjs?v=8e593db3b6670458';
+import {createMountSearch} from './mount_search.mjs?v=8e593db3b6670458';
+import {createChoiceGroups} from './choice_groups.mjs?v=8e593db3b6670458';
+import {configKey} from './exhaustive_attachment_gate.mjs?v=8e593db3b6670458';
+import {createPatternConstraint, policy, shortfall, statIds} from './optimizer_policy.mjs?v=8e593db3b6670458';
+import {presets} from './optimizer_presets.mjs?v=8e593db3b6670458';
+import {timedRecoil} from './timed_recoil.mjs?v=8e593db3b6670458';
+import {createOrdinaryChartMemo, createOrdinaryControls, prepareOrdinaryBound} from './exact_ordinary_bounds.mjs?v=8e593db3b6670458';
+import {createExactOrdinaryMountBound} from './exact_ordinary_mount_bounds.mjs?v=8e593db3b6670458';
+import {createExactOrdinaryPhase, ordinaryBalancedMerit} from './exact_ordinary_phase.mjs?v=8e593db3b6670458';
+import {partitionExactMounts, restrictExactMountPartition, exactMountPartitionContains, validateExactMountPartitions} from './exact_ordinary_partitions.mjs?v=8e593db3b6670458';
 
 function stronger(a, b) {
   if (a.loss !== b.loss) return a.loss < b.loss;

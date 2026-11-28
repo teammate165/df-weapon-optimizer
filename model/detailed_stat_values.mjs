@@ -1,4 +1,4 @@
-﻿import {detailedStats,detailedValue} from '../detailed-stats.mjs?v=5f2833d4b3fd3a0a';
+﻿import {detailedStats,detailedValue} from '../detailed-stats.mjs?v=8e593db3b6670458';
 
 export function createDetailedStatEvaluator(pack,mode,limits,{calculate,kernel}){
   const entries=Object.entries(limits);

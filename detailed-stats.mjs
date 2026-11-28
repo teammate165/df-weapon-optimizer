@@ -6,6 +6,7 @@
   vertical: {label:'Vertical recoil', unit:'×', direction:'max', path:['recoil','autoVertical']},
   randomKick: {label:'Random weapon kick', unit:'×', direction:'max', path:['recoil','randomKick']},
   springKick: {label:'Spring weapon kick', unit:'×', direction:'max', path:['recoil','springKick']},
+  gunStability: {label:'Gun Stability', unit:'?', direction:'max', path:['recoil','fireWeaponStability']},
   breath: {label:'Breath sway range', unit:'°', direction:'max', path:['stability','breathRangeDeg']},
   movementSway: {label:'ADS movement sway', unit:'×', direction:'max', path:['stability','moveStability']},
 };

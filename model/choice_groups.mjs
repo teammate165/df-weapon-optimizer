@@ -1,4 +1,4 @@
-import {isOptic} from './optimizer_mounts.mjs?v=5f2833d4b3fd3a0a';
+import {isOptic} from './optimizer_mounts.mjs?v=8e593db3b6670458';
 
 const patchSockets=new Set([30,32,33,34,35]);
 const viewOnlyTargets=new Set(['ScopeCameraTuneDistance','ScopeZoomTuneRate']);
