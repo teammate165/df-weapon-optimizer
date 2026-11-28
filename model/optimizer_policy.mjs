@@ -1,6 +1,6 @@
 // Presets own objective semantics; the search owns mounting, tuning and costs.
-import {detailedStats} from '../detailed-stats.mjs?v=b7291dc7463e56d3';
-import {presets} from './optimizer_presets.mjs?v=b7291dc7463e56d3';
+import {detailedStats} from '../detailed-stats.mjs?v=f14ddb691f1b06d1';
+import {presets} from './optimizer_presets.mjs?v=f14ddb691f1b06d1';
 export const statIds = {control:'3', handling:'5', stability:'6', accuracy:'4'};
 export function policy(request) {
   const forbidden = request.forbidden_item_ids ?? [];

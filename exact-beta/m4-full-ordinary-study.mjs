@@ -1,7 +1,7 @@
-import {assert} from './chart-fixture-runtime.mjs?v=b7291dc7463e56d3';
-import {runMountStream} from './m4-chart-mount-stream.mjs?v=b7291dc7463e56d3';
-import {createChartPreset, pack, resolve, shop, modules} from './m4-chart-axis-boxes.mjs?v=b7291dc7463e56d3';
-import {deterministicNorm} from './deterministic-norm.mjs?v=b7291dc7463e56d3';
+import {assert} from './chart-fixture-runtime.mjs?v=f14ddb691f1b06d1';
+import {runMountStream} from './m4-chart-mount-stream.mjs?v=f14ddb691f1b06d1';
+import {createChartPreset, pack, resolve, shop, modules} from './m4-chart-axis-boxes.mjs?v=f14ddb691f1b06d1';
+import {deterministicNorm} from './deterministic-norm.mjs?v=f14ddb691f1b06d1';
 
 export function runFullOrdinaryPhase(options) {
   return runMountStream({name: 'full-ordinary', fast: true, cachePreparation: true,
@@ -65,7 +65,7 @@ export function solveFullOrdinary({seedRows = [], deadlineMs = Infinity, progres
 
 if (import.meta.main) {
   const {readFileSync} = await import('node:fs');
-  const seedRows = ['m4-deterministic-norm-largest.json?v=b7291dc7463e56d3', 'm4-active-control-study.json?v=b7291dc7463e56d3']
+  const seedRows = ['m4-deterministic-norm-largest.json?v=f14ddb691f1b06d1', 'm4-active-control-study.json?v=f14ddb691f1b06d1']
     .flatMap(file => JSON.parse(readFileSync(new URL(file, import.meta.url), 'utf8')).runs)
     .flatMap(run => Object.values(run.bounded.outputs));
   const limit = process.argv.find(arg => arg.startsWith('--deadline-ms='));

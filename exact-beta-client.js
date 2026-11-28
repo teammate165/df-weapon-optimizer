@@ -1,5 +1,5 @@
-import {balancedWindow, combineBalanced, combineEndpoints, sharedBalancedSeed} from './exact-beta-pool.js?v=b7291dc7463e56d3';
-import {defaultRecoilWeights} from './optimizer_weights.mjs?v=b7291dc7463e56d3';
+import {balancedWindow, combineBalanced, combineEndpoints, sharedBalancedSeed} from './exact-beta-pool.js?v=f14ddb691f1b06d1';
+import {defaultRecoilWeights} from './optimizer_weights.mjs?v=f14ddb691f1b06d1';
 
 const scope = 'Grouped ordinary M4A1 Detonation with Insight 3/7 locked';
 
@@ -29,7 +29,7 @@ export async function runExactBeta(evaluate, request, {signal, onProgress} = {})
     const progress = new Map();
     const workers = [];
     function spawn(index) {
-      const worker = new Worker(new URL('./exact-beta-worker.js?v=b7291dc7463e56d3', import.meta.url), {type: 'module'});
+      const worker = new Worker(new URL('./exact-beta-worker.js?v=f14ddb691f1b06d1', import.meta.url), {type: 'module'});
       let pending;
       let failure;
       let stopped = false;

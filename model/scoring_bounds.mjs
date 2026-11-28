@@ -1,5 +1,5 @@
-import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=b7291dc7463e56d3';
-import {shortfall} from './optimizer_policy.mjs?v=b7291dc7463e56d3';
+import {fastestHorizontalSpeed,horizontalSpeedMultiplier} from './horizontal_speed.mjs?v=f14ddb691f1b06d1';
+import {shortfall} from './optimizer_policy.mjs?v=f14ddb691f1b06d1';
 
 // A conservative cutoff test. Equal/near-equal primary scores always receive
 // full scoring so Handling, cost and deterministic signature ties are preserved.

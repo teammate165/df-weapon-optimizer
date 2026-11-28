@@ -1,14 +1,14 @@
-import {createStaticClient} from './static-client.js?v=b7291dc7463e56d3';
-import {imageLoaded,prepareImageCache} from './image-loading.js?v=b7291dc7463e56d3';
-import {createSavedBuildStore} from './saved-builds.js?v=b7291dc7463e56d3';
-import {slotIcons} from './assets/slot-icons.js?v=b7291dc7463e56d3';
-import {portraits} from './assets/portraits.js?v=b7291dc7463e56d3';
-import {statChanges,groupStatChanges,majorStatGroups,tacticalBenefits} from './part-comparisons.js?v=b7291dc7463e56d3';
-import {createStatResponseView} from './stat-response-view.js?v=b7291dc7463e56d3';
-import {createWeaponImage} from './weapon-layers.js?v=b7291dc7463e56d3';
-import {defaultRecoilWeights,defaultAgilityWeights,distributeWeightPoints} from './optimizer_weights.mjs?v=b7291dc7463e56d3';
-import {detailedStats} from './detailed-stats.mjs?v=b7291dc7463e56d3';
-import {createDetailedLimits,formatDetailed} from './detailed-limits.js?v=b7291dc7463e56d3';
+import {createStaticClient} from './static-client.js?v=f14ddb691f1b06d1';
+import {imageLoaded,prepareImageCache} from './image-loading.js?v=f14ddb691f1b06d1';
+import {createSavedBuildStore} from './saved-builds.js?v=f14ddb691f1b06d1';
+import {slotIcons} from './assets/slot-icons.js?v=f14ddb691f1b06d1';
+import {portraits} from './assets/portraits.js?v=f14ddb691f1b06d1';
+import {statChanges,groupStatChanges,majorStatGroups,tacticalBenefits} from './part-comparisons.js?v=f14ddb691f1b06d1';
+import {createStatResponseView} from './stat-response-view.js?v=f14ddb691f1b06d1';
+import {createWeaponImage} from './weapon-layers.js?v=f14ddb691f1b06d1';
+import {defaultRecoilWeights,defaultAgilityWeights,distributeWeightPoints} from './optimizer_weights.mjs?v=f14ddb691f1b06d1';
+import {detailedStats} from './detailed-stats.mjs?v=f14ddb691f1b06d1';
+import {createDetailedLimits,formatDetailed} from './detailed-limits.js?v=f14ddb691f1b06d1';
 const $=id=>document.getElementById(id);
 const detailedLimits=createDetailedLimits($('detailed-limits'),()=>{
  $('detailed-limit-status').hidden=!detailedLimits.active();
@@ -458,6 +458,8 @@ function syncExactTimeLimit(){
   if($('exact-ordinary-time-limit')?.selected)limit.value='30';
   $('exact-ordinary-time-limit')?.remove();
  }
+ const unlimited=limit.querySelector('option[value="0"]');
+ if(unlimited)unlimited.disabled=enabled;
  if(enabled&&limit.value==='0')limit.value='30';
 }
 if($('exact-ordinary'))$('exact-ordinary').onchange=()=>{
